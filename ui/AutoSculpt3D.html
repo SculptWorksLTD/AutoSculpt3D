@@ -2614,6 +2614,7 @@ const vcmp = (a, b) => { const x = vnum(a), y = vnum(b); for (let i = 0; i < 4; 
 } return 0; };
 const PRODUCT_VERSION = NATIVE ? (NATIVE.product || (vcmp(NATIVE.ui, NATIVE.version) > 0 ? NATIVE.ui : NATIVE.version)) : null;
 const LOGO = document.querySelector('.brand img').src;
+const CAN_RESTART = !!NATIVE && vcmp(NATIVE.version, '1.0.7') >= 0;
 async function api(path, body) {
     const r = await fetch(path, { method: body === undefined ? 'GET' : 'POST', headers: { 'X-AS-Token': NATIVE.token, 'Content-Type': 'application/json' }, body: body === undefined ? undefined : JSON.stringify(body) });
     if (!r.ok)
@@ -3967,6 +3968,10 @@ async function updatesDialog(quiet) {
     D.updateReady = false;
     refreshMenus();
     if (job.result && job.result.restart) {
+        if (!CAN_RESTART) {
+            dialog({ title: 'Aggiornamento installato', body: '<p>Chiudi AutoSculpt 3D (⌘Q) e riaprilo per usare la nuova versione.</p>' });
+            return;
+        }
         const b = await dialog({ title: 'Aggiornamento installato', body: '<p>Riavvia AutoSculpt 3D per usare la nuova versione.</p>', buttons: [{ label: 'Più tardi', value: 'no' }, { label: 'Riavvia ora', value: 'ok', primary: true }] });
         if (b === 'ok') {
             D.dirty = false;
@@ -4008,7 +4013,7 @@ async function autoCheckUpdates() {
             status('Aggiornamento ' + to + ' installato');
             return;
         }
-        if (!S.base && $('dlg').hidden && $('searchModal').hidden) {
+        if (CAN_RESTART && !S.base && $('dlg').hidden && $('searchModal').hidden) {
             status('Aggiornamento ' + to + ' installato: riavvio…');
             setTimeout(async () => { (await bridge()).restart(); }, 1500);
         }

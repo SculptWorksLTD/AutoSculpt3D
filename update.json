@@ -1,24 +1,24 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.0.6",
-  "notes": "Nuovo logo del programma. Controllo aggiornamenti più affidabile e versione unica in Informazioni.",
+  "latest": "1.0.7",
+  "notes": "Riavvio dopo l'aggiornamento corretto. Nuovo logo e versione unica in Informazioni.",
   "ui": {
-    "version": "1.0.6",
+    "version": "1.0.7",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "376a3bf7cce5a223d5a8ad1a3e2a3272ca4e662e3c020a6f8e10b729e1015726"
+        "sha256": "e622b1277a27ebbf9180605ca73705bb90aa10c48aae7f034318b4b731d1176a"
       }
     ]
   },
   "app": {
-    "version": "1.0.6",
+    "version": "1.0.7",
     "files": [
       {
         "path": "main.py",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/app/main.py",
-        "sha256": "6220e1fdbf98317c2a210b683ea1cb15f110a5afd0ff26b62b324ba2285a38f2"
+        "sha256": "2cd9f2d51c8b273a2dfdf70c02fee8493af3d14c0bb7c5d3a1f50e75da0607ae"
       }
     ]
   },

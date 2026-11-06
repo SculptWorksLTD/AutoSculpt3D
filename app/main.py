@@ -668,11 +668,24 @@ class Bridge:
 
     def restart(self):
         app = os.environ.get('AUTOSCULPT_APP')
+        pid = os.getpid()
+        log('Riavvio richiesto')
         if IS_WIN:
             subprocess.Popen([sys.executable, str(RESOURCES / 'main.py')], env=clean_env({'AUTOSCULPT_RESTART_DELAY': '1'}), close_fds=True, creationflags=8 | 512)
         elif app:
-            subprocess.Popen(['/bin/sh', '-c', f'sleep 1; open -n "{app}"'], env=clean_env())
-        self.window.destroy()
+            subprocess.Popen(['/bin/sh', '-c', f'n=0; while kill -0 {pid} 2>/dev/null && [ $n -lt 100 ]; do sleep 0.2; n=$((n+1)); done; sleep 0.5; open "{app}"'], env=clean_env(), start_new_session=True)
+
+        def close_and_exit():
+            time.sleep(0.3)
+            threading.Timer(3.0, lambda: os._exit(0)).start()
+            try:
+                self.window.destroy()
+            except Exception:
+                log('Chiusura finestra non riuscita:', traceback.format_exc())
+            time.sleep(0.5)
+            os._exit(0)
+        threading.Thread(target=close_and_exit, daemon=True).start()
+        return True
 
 def maybe_run_updated_copy():
     upd = SUPPORT / 'app' / 'main.py'

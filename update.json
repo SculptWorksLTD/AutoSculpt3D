@@ -1,0 +1,44 @@
+{
+  "product": "AutoSculpt 3D",
+  "latest": "1.0.3",
+  "notes": "Salvataggio automatico del progetto aperto (Documenti › AutoSculpt 3D per i progetti nuovi). Aggiornamenti controllati e installati automaticamente all'avvio. Nuovo menu Preferenze (⌘,).",
+  "ui": {
+    "version": "1.0.4",
+    "files": [
+      {
+        "path": "AutoSculpt3D.html",
+        "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
+        "sha256": "b009c7ac1d5ff0c3f066cb64d2eef6e2fe8ffc499cb2de23297717e3a3dcd4fc"
+      }
+    ]
+  },
+  "app": {
+    "version": "1.0.3",
+    "files": [
+      {
+        "path": "main.py",
+        "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/app/main.py",
+        "sha256": "8ba3094fa3680573e1bf4af32c0a82df491f54ae5c1f0bcfd3d76821db168ad1"
+      }
+    ]
+  },
+  "engines": [
+    {
+      "id": "triposr",
+      "name": "TripoSR",
+      "version": "1.0.0",
+      "files": [
+        {
+          "path": "engine.json",
+          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/triposr/engine.json",
+          "sha256": "18b0dc472c106b0d5e96c62fd04b37089ca7d181c82a36abcdff49e45d526f9d"
+        },
+        {
+          "path": "runner.py",
+          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/triposr/runner.py",
+          "sha256": "da85bf872acbdd81990e6bdc69ea86b88a27232a8bf29f34c6286f1e687d392b"
+        }
+      ]
+    }
+  ]
+}

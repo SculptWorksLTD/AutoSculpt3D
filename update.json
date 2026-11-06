@@ -1,24 +1,24 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.0.5",
+  "latest": "1.0.6",
   "notes": "Nuovo logo del programma. Controllo aggiornamenti più affidabile e versione unica in Informazioni.",
   "ui": {
-    "version": "1.0.5",
+    "version": "1.0.6",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "aecd922af129fe3832a5d8618b510875be6ea54835376b7d298dbaf4cb2ce460"
+        "sha256": "376a3bf7cce5a223d5a8ad1a3e2a3272ca4e662e3c020a6f8e10b729e1015726"
       }
     ]
   },
   "app": {
-    "version": "1.0.5",
+    "version": "1.0.6",
     "files": [
       {
         "path": "main.py",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/app/main.py",
-        "sha256": "da2e449adb0b474817dbd2d42b6bbcf0ba14f5bb9f6968fc555e9d92ad31e2f4"
+        "sha256": "6220e1fdbf98317c2a210b683ea1cb15f110a5afd0ff26b62b324ba2285a38f2"
       }
     ]
   },
@@ -31,12 +31,12 @@
         {
           "path": "engine.json",
           "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/triposr/engine.json",
-          "sha256": "18b0dc472c106b0d5e96c62fd04b37089ca7d181c82a36abcdff49e45d526f9d"
+          "sha256": "212f8c16fb79363244c93634503bc25e723c75a666426c27b75118f5efddd526"
         },
         {
           "path": "runner.py",
           "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/triposr/runner.py",
-          "sha256": "da85bf872acbdd81990e6bdc69ea86b88a27232a8bf29f34c6286f1e687d392b"
+          "sha256": "569a5efcced5006ceac04b8b4de8676e07891fc2d90c688c07ee4118dc63b582"
         }
       ]
     }

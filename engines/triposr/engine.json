@@ -2,14 +2,14 @@
   "id": "triposr",
   "name": "TripoSR",
   "version": "1.0.0",
-  "description": "Ricostruzione 3D da una sola foto. Gira sul Mac, senza internet dopo l'installazione.",
+  "description": "Ricostruzione 3D da una sola foto. Gira sul computer, senza internet dopo l'installazione.",
   "license": "MIT, uso commerciale consentito (VAST AI Research / Stability AI)",
   "homepage": "https://github.com/VAST-AI-Research/TripoSR",
   "download_gb": 2.6,
-  "minutes": "1-3 minuti a foto su Apple M2",
+  "minutes": "1-3 minuti a foto (Apple M2 o scheda NVIDIA), 3-8 minuti solo processore",
   "constraints": ["numpy<2"],
   "steps": [
-    { "label": "PyTorch (calcolo su chip Apple)", "pkgs": ["torch"] },
+    { "label": "PyTorch (motore di calcolo)", "pkgs": ["torch"], "win_nvidia": ["--index-url", "https://download.pytorch.org/whl/cu124", "--extra-index-url", "https://pypi.org/simple"] },
     { "label": "librerie geometriche", "pkgs": ["omegaconf==2.3.0", "einops==0.7.0", "trimesh==4.0.5", "huggingface-hub<1.0", "scikit-image", "Pillow==10.1.0"] },
     { "label": "modello di visione", "alternatives": [["transformers==4.35.0"], ["transformers>=4.35,<4.46"]] },
     { "label": "rimozione dello sfondo", "alternatives": [["rembg[cpu]"], ["rembg"]] }

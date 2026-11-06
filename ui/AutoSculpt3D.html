@@ -207,7 +207,7 @@ body.empty .tabs,body.empty .dims{visibility:hidden}
       <div class="field"><label for="workName">Nome dell'opera</label><input type="text" id="workName" value="Senza titolo"></div>
       <div class="two">
         <button class="btn primary" id="openBtn">Apri modello 3D<small>OBJ, STL, GLB, PLY</small></button>
-        <button class="btn" id="photoBtn">Da una foto<small>nell'app per Mac</small></button>
+        <button class="btn" id="photoBtn">Da una foto<small>nell'app per Mac e Windows</small></button>
       </div>
       <input type="file" id="fileIn" accept=".obj,.stl,.glb,.gltf,.ply,.json" hidden>
       <div class="two">
@@ -2635,7 +2635,7 @@ async function download(blob, name) {
     if (inClaude) {
         const dl = await window.claude.use('downloads');
         if (!dl) {
-            $('srcInfo').textContent = 'Il salvataggio dei file non è disponibile in questa vista: apri AutoSculpt 3D dal file sul Mac.';
+            $('srcInfo').textContent = 'Il salvataggio dei file non è disponibile in questa vista: apri l\'app AutoSculpt 3D.';
             return;
         }
         let data = blob, fname = name;
@@ -3000,7 +3000,7 @@ $('sGo').onclick = async () => {
         }
     }
     catch (e) {
-        box.innerHTML = '<p class="hint">Ricerca non riuscita. ' + (inClaude ? 'Dentro Claude la pagina non può collegarsi ad altri siti: usa AutoSculpt 3D dal file sul Mac.' : 'Controlla la connessione a internet.') + '</p>';
+        box.innerHTML = '<p class="hint">Ricerca non riuscita. ' + (inClaude ? 'Dentro Claude la pagina non può collegarsi ad altri siti: usa l\'app AutoSculpt 3D.' : 'Controlla la connessione a internet.') + '</p>';
     }
 };
 async function loadResult(r, btn) {
@@ -3759,7 +3759,7 @@ async function offerRestore() {
     else if (r === 'drop')
         clearAutosave();
 }
-const needApp = () => dialog({ title: 'Funzione dell\'app per Mac', body: '<p>La ricostruzione da foto, i motori 3D e gli aggiornamenti automatici funzionano nell\'app <b>AutoSculpt 3D</b> installata sul Mac.</p>' });
+const needApp = () => dialog({ title: 'Funzione dell\'app AutoSculpt 3D', body: '<p>La ricostruzione da foto, i motori 3D e gli aggiornamenti automatici funzionano nell\'app <b>AutoSculpt 3D</b> installata sul computer (Mac o Windows).</p>' });
 function jobDialog(job, title) {
     return new Promise((res) => {
         $('dlgTitle').textContent = title;
@@ -4041,7 +4041,7 @@ applyBackdrop();
     offerRestore();
     if (NATIVE) {
         $('photoBtn').disabled = false;
-        $('photoBtn').querySelector('small').textContent = 'ricostruzione 3D sul Mac';
+        $('photoBtn').querySelector('small').textContent = 'ricostruzione 3D ' + (NATIVE.os === 'win32' ? 'sul PC' : 'sul Mac');
         setTimeout(autoCheckUpdates, 4000);
     }
 })();

@@ -25,13 +25,26 @@ APP_NAME = 'AutoSculpt 3D'
 BUNDLE_APP = Path(__file__).resolve().parent
 RESOURCES = Path(os.environ.get('AUTOSCULPT_BUNDLE', BUNDLE_APP))
 VERSION = (BUNDLE_APP / 'VERSION').read_text().strip() if (BUNDLE_APP / 'VERSION').exists() else '0.0.0'
-SUPPORT = Path(os.environ.get('AUTOSCULPT_HOME', Path.home() / 'Library' / 'Application Support' / 'AutoSculpt3D'))
+IS_WIN, IS_MAC = (sys.platform == 'win32', sys.platform == 'darwin')
+
+def default_support():
+    if IS_WIN:
+        return Path(os.environ.get('APPDATA', Path.home() / 'AppData' / 'Roaming')) / 'AutoSculpt3D'
+    if IS_MAC:
+        return Path.home() / 'Library' / 'Application Support' / 'AutoSculpt3D'
+    return Path(os.environ.get('XDG_DATA_HOME', Path.home() / '.local' / 'share')) / 'AutoSculpt3D'
+SUPPORT = Path(os.environ.get('AUTOSCULPT_HOME', default_support()))
 for sub in ('engines', 'jobs', 'logs', 'ui', 'app', 'updates'):
     (SUPPORT / sub).mkdir(parents=True, exist_ok=True)
 LOG = SUPPORT / 'logs' / 'autosculpt.log'
 SETTINGS_FILE = SUPPORT / 'settings.json'
 TOKEN = secrets.token_urlsafe(24)
 BASE_PY = os.environ.get('AUTOSCULPT_PYTHON', sys.executable)
+if IS_WIN and 'AUTOSCULPT_PYTHON' not in os.environ:
+    _console = Path(sys.executable).with_name('python.exe')
+    if _console.exists():
+        BASE_PY = str(_console)
+NO_WINDOW = {'creationflags': 134217728} if IS_WIN else {}
 
 def clean_env(extra=None):
     env = {k: v for k, v in os.environ.items() if k not in ('PYTHONHOME', 'PYTHONPATH', '__PYVENV_LAUNCHER__')}
@@ -132,7 +145,7 @@ def run_job(job, fn):
 
 def stream(job, cmd, env=None, cwd=None, on_line=None):
     log('Eseguo:', ' '.join((str(c) for c in cmd)))
-    p = subprocess.Popen([str(c) for c in cmd], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, bufsize=1, env=clean_env({'PYTHONUNBUFFERED': '1', **(env or {})}), cwd=cwd)
+    p = subprocess.Popen([str(c) for c in cmd], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, bufsize=1, env=clean_env({'PYTHONUNBUFFERED': '1', 'PYTHONIOENCODING': 'utf-8', **(env or {})}), cwd=cwd, encoding='utf-8', errors='replace', **NO_WINDOW)
     job.proc = p
     for line in p.stdout:
         line = line.rstrip()
@@ -223,8 +236,14 @@ def copy_runner(spec, home):
 def engine_env(home):
     return {'PYTORCH_ENABLE_MPS_FALLBACK': '1', 'HF_HOME': str(home / 'hf'), 'U2NET_HOME': str(home / 'u2net'), 'HF_HUB_DISABLE_TELEMETRY': '1'}
 
+def has_nvidia():
+    try:
+        return subprocess.run(['nvidia-smi', '-L'], capture_output=True, timeout=10, **NO_WINDOW).returncode == 0
+    except Exception:
+        return False
+
 def venv_python(home):
-    return home / 'venv' / 'bin' / 'python'
+    return home / 'venv' / ('Scripts/python.exe' if IS_WIN else 'bin/python')
 
 def install_engine(job, spec):
     eid, home = (spec['id'], engine_home(spec['id']))
@@ -247,6 +266,8 @@ def install_engine(job, spec):
     for st in steps:
         at(k, 'Installo ' + st.get('label', 'librerie'))
         options = st.get('alternatives') or [st.get('pkgs', [])]
+        if IS_WIN and st.get('win_nvidia') and has_nvidia():
+            options = [[*pk, *st['win_nvidia']] for pk in options] + options
         ok = False
         for pk in options:
             rc = stream(job, [py, '-m', 'pip', 'install', '--disable-pip-version-check', '--prefer-binary', '-c', cons, *pk], on_line=lambda l: job.update(None, None))
@@ -457,7 +478,7 @@ class Handler(BaseHTTPRequestHandler):
             if path in ('/', '/index.html'):
                 d, _ = ui_dir()
                 html = (d / 'AutoSculpt3D.html').read_text(encoding='utf-8')
-                inject = f'<script>window.AS_NATIVE={{token:{json.dumps(TOKEN)},version:{json.dumps(VERSION)},ui:{json.dumps(ui_version())},product:{json.dumps(product_version())},platform:{json.dumps(platform.machine())}}};</script>'
+                inject = f'<script>window.AS_NATIVE={{token:{json.dumps(TOKEN)},version:{json.dumps(VERSION)},ui:{json.dumps(ui_version())},product:{json.dumps(product_version())},platform:{json.dumps(platform.machine())},os:{json.dumps(sys.platform)}}};</script>'
                 html = html.replace('<head>', '<head>\n' + inject, 1)
                 body = html.encode('utf-8')
                 self.send_response(200)
@@ -481,7 +502,7 @@ class Handler(BaseHTTPRequestHandler):
             if not self.authorized():
                 return self.send_error(403)
             if path == '/api/info':
-                return self.send_json({'app': APP_NAME, 'version': VERSION, 'ui': ui_version(), 'product': product_version(), 'machine': platform.machine(), 'macos': platform.mac_ver()[0], 'support': str(SUPPORT), 'settings': load_settings()})
+                return self.send_json({'app': APP_NAME, 'version': VERSION, 'ui': ui_version(), 'product': product_version(), 'machine': platform.machine(), 'macos': platform.mac_ver()[0], 'os': sys.platform, 'support': str(SUPPORT), 'settings': load_settings()})
             if path == '/api/engines':
                 return self.send_json([engine_status(s) for s in engine_specs().values()])
             if path.startswith('/api/jobs/'):
@@ -616,7 +637,7 @@ class Bridge:
         if not p.is_file():
             return None
         data = p.read_bytes()
-        if p.suffix.lower() == '.heic':
+        if p.suffix.lower() == '.heic' and IS_MAC:
             out = Path(tempfile.mkdtemp()) / (p.stem + '.jpg')
             subprocess.run(['sips', '-s', 'format', 'jpeg', str(p), '--out', str(out)], capture_output=True)
             if out.exists():
@@ -633,15 +654,23 @@ class Bridge:
         return str(p)
 
     def reveal(self, path):
-        subprocess.run(['open', '-R', path])
+        if IS_WIN:
+            subprocess.Popen(['explorer', '/select,', str(Path(path))], **NO_WINDOW)
+        elif IS_MAC:
+            subprocess.run(['open', '-R', path])
+        else:
+            subprocess.run(['xdg-open', str(Path(path).parent)])
 
     def open_url(self, url):
         if url.startswith('https://'):
-            subprocess.run(['open', url])
+            import webbrowser
+            webbrowser.open(url)
 
     def restart(self):
         app = os.environ.get('AUTOSCULPT_APP')
-        if app:
+        if IS_WIN:
+            subprocess.Popen([sys.executable, str(RESOURCES / 'main.py')], env=clean_env({'AUTOSCULPT_RESTART_DELAY': '1'}), close_fds=True, creationflags=8 | 512)
+        elif app:
             subprocess.Popen(['/bin/sh', '-c', f'sleep 1; open -n "{app}"'], env=clean_env())
         self.window.destroy()
 
@@ -656,9 +685,14 @@ def maybe_run_updated_copy():
     if newer:
         os.environ['AUTOSCULPT_UPDATED'] = '1'
         os.environ.setdefault('AUTOSCULPT_BUNDLE', str(BUNDLE_APP))
+        if IS_WIN:
+            subprocess.Popen([sys.executable, str(upd), *sys.argv[1:]], env=os.environ.copy(), close_fds=True)
+            sys.exit(0)
         os.execv(sys.executable, [sys.executable, str(upd), *sys.argv[1:]])
 
 def main():
+    if os.environ.pop('AUTOSCULPT_RESTART_DELAY', None):
+        time.sleep(1.5)
     maybe_run_updated_copy()
     ap = argparse.ArgumentParser()
     ap.add_argument('--server-only', action='store_true')
@@ -688,6 +722,12 @@ def main():
     bridge = Bridge()
     win = webview.create_window(APP_NAME, url, js_api=bridge, width=1440, height=900, min_size=(1024, 680), text_select=True)
     bridge.window = win
+    if IS_WIN:
+        try:
+            import ctypes
+            ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID('SculptWorks.AutoSculpt3D')
+        except Exception:
+            pass
     webview.start(private_mode=False, storage_path=str(SUPPORT / 'webview'))
 if __name__ == '__main__':
     main()

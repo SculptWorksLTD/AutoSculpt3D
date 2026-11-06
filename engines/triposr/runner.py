@@ -50,7 +50,7 @@ def main():
     from tsr.system import TSR
     from tsr.utils import remove_background, resize_foreground, to_gradio_3d_orientation
     if a.device == 'auto':
-        device = 'mps' if torch.backends.mps.is_available() else 'cpu'
+        device = 'cuda' if torch.cuda.is_available() else 'mps' if torch.backends.mps.is_available() else 'cpu'
     else:
         device = a.device
     say('PROGRESS', '0.08', 'Preparo la foto')
@@ -81,7 +81,7 @@ def main():
 
     def run(dev):
         model.to(dev)
-        say('PROGRESS', '0.40', 'Ricostruisco la forma' + (' (chip Apple)' if dev == 'mps' else ' (processore)'))
+        say('PROGRESS', '0.40', 'Ricostruisco la forma' + {'mps': ' (chip Apple)', 'cuda': ' (scheda video NVIDIA)'}.get(dev, ' (processore)'))
         with torch.no_grad():
             codes = model([image], device=dev)
             say('PROGRESS', '0.70', 'Estraggo la superficie')
@@ -92,9 +92,9 @@ def main():
     except Exception as e:
         if device == 'cpu':
             raise
-        say('PROGRESS', '0.40', 'Il chip Apple non supporta un passaggio, continuo sul processore')
+        say('PROGRESS', '0.40', 'La scheda grafica non supporta un passaggio, continuo sul processore')
         try:
-            torch.mps.empty_cache()
+            torch.mps.empty_cache() if device == 'mps' else torch.cuda.empty_cache()
         except Exception:
             pass
         meshes = run('cpu')

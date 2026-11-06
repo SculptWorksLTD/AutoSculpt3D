@@ -1,7 +1,7 @@
 {
   "product": "AutoSculpt 3D",
   "latest": "1.0.6",
-  "notes": "Base comune per Mac e Windows. Testi dell'interfaccia validi per entrambi.",
+  "notes": "Nuovo logo del programma. Controllo aggiornamenti più affidabile e versione unica in Informazioni.",
   "ui": {
     "version": "1.0.6",
     "files": [

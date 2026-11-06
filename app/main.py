@@ -50,6 +50,17 @@ def clean_env(extra=None):
     env = {k: v for k, v in os.environ.items() if k not in ('PYTHONHOME', 'PYTHONPATH', '__PYVENV_LAUNCHER__')}
     env.update(extra or {})
     return env
+
+def documents_dir():
+    if IS_WIN:
+        try:
+            import ctypes
+            buf = ctypes.create_unicode_buffer(260)
+            if ctypes.windll.shell32.SHGetFolderPathW(None, 5, None, 0, buf) == 0 and buf.value:
+                return Path(buf.value)
+        except Exception:
+            pass
+    return Path.home() / 'Documents'
 UPDATE_URL = 'https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/update.json'
 DEFAULT_SETTINGS = {'auto_check': True, 'last_check': 0}
 
@@ -472,8 +483,14 @@ class Handler(BaseHTTPRequestHandler):
     def authorized(self):
         return secrets.compare_digest(self.headers.get('X-AS-Token', ''), TOKEN)
 
+    def local_host(self):
+        port = self.server.server_address[1]
+        return self.headers.get('Host', '') in (f'127.0.0.1:{port}', f'localhost:{port}')
+
     def do_GET(self):
         path = urllib.parse.urlparse(self.path).path
+        if not self.local_host():
+            return self.send_error(403)
         try:
             if path in ('/', '/index.html'):
                 d, _ = ui_dir()
@@ -528,7 +545,7 @@ class Handler(BaseHTTPRequestHandler):
 
     def do_POST(self):
         path = urllib.parse.urlparse(self.path).path
-        if not self.authorized():
+        if not self.local_host() or not self.authorized():
             return self.send_error(403)
         try:
             b = self.body()
@@ -618,7 +635,7 @@ class Bridge:
 
     def save_file(self, name, b64, path=None):
         if not path:
-            path = self._dialog('save', save_filename=name, directory=str(Path.home() / 'Documents'))
+            path = self._dialog('save', save_filename=name, directory=str(documents_dir()))
             if not path:
                 return None
         Path(path).write_bytes(base64.b64decode(b64))
@@ -626,7 +643,7 @@ class Bridge:
         return {'path': path, 'name': Path(path).name}
 
     def open_file(self, kind='all'):
-        types = {'project': ('Progetti AutoSculpt 3D (*.json)',), 'image': ('Immagini (*.jpg;*.jpeg;*.png;*.heic;*.webp)',), 'all': ('Modelli 3D e progetti (*.obj;*.stl;*.glb;*.gltf;*.ply;*.json)',)}[kind]
+        types = {'project': ('Progetti AutoSculpt 3D (*.json)',), 'image': ('Immagini (*.jpg;*.jpeg;*.png;*.heic;*.webp)',) if IS_MAC else ('Immagini (*.jpg;*.jpeg;*.png;*.webp)',), 'all': ('Modelli 3D e progetti (*.obj;*.stl;*.glb;*.gltf;*.ply;*.json)',)}[kind]
         path = self._dialog('open', file_types=types, directory=str(Path.home()))
         if not path:
             return None
@@ -638,14 +655,14 @@ class Bridge:
             return None
         data = p.read_bytes()
         if p.suffix.lower() == '.heic' and IS_MAC:
-            out = Path(tempfile.mkdtemp()) / (p.stem + '.jpg')
+            out = Path(tempfile.mkdtemp(dir=SUPPORT / 'updates')) / (p.stem + '.jpg')
             subprocess.run(['sips', '-s', 'format', 'jpeg', str(p), '--out', str(out)], capture_output=True)
             if out.exists():
                 data, p = (out.read_bytes(), out)
         return {'path': str(path), 'name': p.name, 'b64': base64.b64encode(data).decode()}
 
     def autosave_path(self, name):
-        folder = Path.home() / 'Documents' / 'AutoSculpt 3D'
+        folder = documents_dir() / 'AutoSculpt 3D'
         folder.mkdir(parents=True, exist_ok=True)
         base = ''.join((ch for ch in str(name) if ch not in '/\\:*?"<>|')).strip().replace('_', ' ') or 'Senza titolo'
         p, n = (folder / (base + '.autosculpt.json'), 2)
@@ -671,7 +688,9 @@ class Bridge:
         pid = os.getpid()
         log('Riavvio richiesto')
         if IS_WIN:
-            subprocess.Popen([sys.executable, str(RESOURCES / 'main.py')], env=clean_env({'AUTOSCULPT_RESTART_DELAY': '1'}), close_fds=True, creationflags=8 | 512)
+            env = clean_env({'AUTOSCULPT_WAIT_PID': str(pid)})
+            env.pop('AUTOSCULPT_UPDATED', None)
+            subprocess.Popen([sys.executable, str(RESOURCES / 'main.py')], env=env, close_fds=True, creationflags=8 | 512)
         elif app:
             subprocess.Popen(['/bin/sh', '-c', f'n=0; while kill -0 {pid} 2>/dev/null && [ $n -lt 100 ]; do sleep 0.2; n=$((n+1)); done; sleep 0.5; open "{app}"'], env=clean_env(), start_new_session=True)
 
@@ -703,9 +722,22 @@ def maybe_run_updated_copy():
             sys.exit(0)
         os.execv(sys.executable, [sys.executable, str(upd), *sys.argv[1:]])
 
+def wait_previous_instance():
+    pid = os.environ.pop('AUTOSCULPT_WAIT_PID', None)
+    if not (pid and IS_WIN):
+        return
+    try:
+        import ctypes
+        k32 = ctypes.windll.kernel32
+        h = k32.OpenProcess(1048576, False, int(pid))
+        if h:
+            k32.WaitForSingleObject(h, 10000)
+            k32.CloseHandle(h)
+    except Exception:
+        time.sleep(2)
+
 def main():
-    if os.environ.pop('AUTOSCULPT_RESTART_DELAY', None):
-        time.sleep(1.5)
+    wait_previous_instance()
     maybe_run_updated_copy()
     ap = argparse.ArgumentParser()
     ap.add_argument('--server-only', action='store_true')

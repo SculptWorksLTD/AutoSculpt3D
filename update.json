@@ -1,24 +1,24 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.0.7",
-  "notes": "Riavvio dopo l'aggiornamento corretto. Nuovo logo e versione unica in Informazioni.",
+  "latest": "1.0.8",
+  "notes": "Correzioni e maggiore sicurezza; migliorie per la versione Windows.",
   "ui": {
-    "version": "1.0.7",
+    "version": "1.0.8",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "e622b1277a27ebbf9180605ca73705bb90aa10c48aae7f034318b4b731d1176a"
+        "sha256": "b1bb8447733942cf13554dcbcd646e4e255c484f75e6bb1d20237d9f3d90f81c"
       }
     ]
   },
   "app": {
-    "version": "1.0.7",
+    "version": "1.0.8",
     "files": [
       {
         "path": "main.py",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/app/main.py",
-        "sha256": "2cd9f2d51c8b273a2dfdf70c02fee8493af3d14c0bb7c5d3a1f50e75da0607ae"
+        "sha256": "b93344be9846de12e68db700a64fe7329815e7a25b29fa8b16cc3ebf0cb2ae59"
       }
     ]
   },

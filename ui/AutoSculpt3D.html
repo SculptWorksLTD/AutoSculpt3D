@@ -3969,7 +3969,7 @@ async function updatesDialog(quiet) {
     refreshMenus();
     if (job.result && job.result.restart) {
         if (!CAN_RESTART) {
-            dialog({ title: 'Aggiornamento installato', body: '<p>Chiudi AutoSculpt 3D (⌘Q) e riaprilo per usare la nuova versione.</p>' });
+            dialog({ title: 'Aggiornamento installato', body: '<p>Chiudi AutoSculpt 3D (' + (isMac ? '⌘Q' : 'Alt+F4') + ') e riaprilo per usare la nuova versione.</p>' });
             return;
         }
         const b = await dialog({ title: 'Aggiornamento installato', body: '<p>Riavvia AutoSculpt 3D per usare la nuova versione.</p>', buttons: [{ label: 'Più tardi', value: 'no' }, { label: 'Riavvia ora', value: 'ok', primary: true }] });

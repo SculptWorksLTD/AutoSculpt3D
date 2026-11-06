@@ -37,7 +37,8 @@ def clean_env(extra=None):
     env = {k: v for k, v in os.environ.items() if k not in ('PYTHONHOME', 'PYTHONPATH', '__PYVENV_LAUNCHER__')}
     env.update(extra or {})
     return env
-DEFAULT_SETTINGS = {'update_url': 'https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/update.json', 'auto_check': True, 'last_check': 0}
+UPDATE_URL = 'https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/update.json'
+DEFAULT_SETTINGS = {'auto_check': True, 'last_check': 0}
 
 def log(*parts):
     line = time.strftime('%Y-%m-%d %H:%M:%S ') + ' '.join((str(p) for p in parts))
@@ -330,22 +331,27 @@ def run_engine(job, spec, image_path, options):
         raise RuntimeError((errors[-1] if errors else "il motore si e' fermato") + (' | ' + ' / '.join(tail[-3:]) if tail else ''))
     job.result = {'url': f'/api/jobs/{job.id}/result', 'name': 'risultato.obj'}
 
+def product_version():
+    return max((VERSION, ui_version()), key=vtuple)
+
 def fetch_manifest():
-    url = load_settings().get('update_url', '').strip()
-    if not url:
-        raise RuntimeError('indirizzo degli aggiornamenti non impostato')
-    if not (url.startswith('https://') or url.startswith('file://')):
-        raise RuntimeError("l'indirizzo degli aggiornamenti deve iniziare con https://")
-    req = urllib.request.Request(url, headers={'User-Agent': 'AutoSculpt3D/' + VERSION, 'Cache-Control': 'no-cache'})
-    with urllib.request.urlopen(req, timeout=20) as r:
-        return json.loads(r.read().decode('utf-8'))
+    url = os.environ.get('AUTOSCULPT_UPDATE_URL', UPDATE_URL)
+    if url.startswith('https://'):
+        url += ('&' if '?' in url else '?') + 't=' + str(int(time.time()))
+    req = urllib.request.Request(url, headers={'User-Agent': 'AutoSculpt3D/' + VERSION, 'Cache-Control': 'no-cache', 'Pragma': 'no-cache'})
+    try:
+        with urllib.request.urlopen(req, timeout=20) as r:
+            return json.loads(r.read().decode('utf-8'))
+    except Exception as exc:
+        log('Controllo aggiornamenti non riuscito:', repr(exc))
+        raise RuntimeError('il server degli aggiornamenti non risponde (' + str(getattr(exc, 'reason', exc)) + ')')
 
 def check_updates():
     m = fetch_manifest()
     s = load_settings()
     s['last_check'] = time.time()
     save_settings(s)
-    out = {'notes': m.get('notes', ''), 'latest': m.get('latest'), 'items': []}
+    out = {'notes': m.get('notes', ''), 'latest': m.get('latest'), 'current': product_version(), 'items': []}
     cur = {'ui': ui_version(), 'app': VERSION}
     for comp in ('ui', 'app'):
         c = m.get(comp)
@@ -451,7 +457,7 @@ class Handler(BaseHTTPRequestHandler):
             if path in ('/', '/index.html'):
                 d, _ = ui_dir()
                 html = (d / 'AutoSculpt3D.html').read_text(encoding='utf-8')
-                inject = f'<script>window.AS_NATIVE={{token:{json.dumps(TOKEN)},version:{json.dumps(VERSION)},ui:{json.dumps(ui_version())},platform:{json.dumps(platform.machine())}}};</script>'
+                inject = f'<script>window.AS_NATIVE={{token:{json.dumps(TOKEN)},version:{json.dumps(VERSION)},ui:{json.dumps(ui_version())},product:{json.dumps(product_version())},platform:{json.dumps(platform.machine())}}};</script>'
                 html = html.replace('<head>', '<head>\n' + inject, 1)
                 body = html.encode('utf-8')
                 self.send_response(200)
@@ -475,7 +481,7 @@ class Handler(BaseHTTPRequestHandler):
             if not self.authorized():
                 return self.send_error(403)
             if path == '/api/info':
-                return self.send_json({'app': APP_NAME, 'version': VERSION, 'ui': ui_version(), 'machine': platform.machine(), 'macos': platform.mac_ver()[0], 'support': str(SUPPORT), 'settings': load_settings()})
+                return self.send_json({'app': APP_NAME, 'version': VERSION, 'ui': ui_version(), 'product': product_version(), 'machine': platform.machine(), 'macos': platform.mac_ver()[0], 'support': str(SUPPORT), 'settings': load_settings()})
             if path == '/api/engines':
                 return self.send_json([engine_status(s) for s in engine_specs().values()])
             if path.startswith('/api/jobs/'):
@@ -548,7 +554,7 @@ class Handler(BaseHTTPRequestHandler):
                 return self.send_json(job.as_dict())
             if path == '/api/settings':
                 s = load_settings()
-                for k in ('update_url', 'auto_check'):
+                for k in ('auto_check',):
                     if k in b:
                         s[k] = b[k]
                 save_settings(s)

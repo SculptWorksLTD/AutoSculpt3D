@@ -1,24 +1,24 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.0.3",
-  "notes": "Salvataggio automatico del progetto aperto (Documenti › AutoSculpt 3D per i progetti nuovi). Aggiornamenti controllati e installati automaticamente all'avvio. Nuovo menu Preferenze (⌘,).",
+  "latest": "1.0.5",
+  "notes": "Nuovo logo del programma. Controllo aggiornamenti più affidabile e versione unica in Informazioni.",
   "ui": {
-    "version": "1.0.4",
+    "version": "1.0.5",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "b009c7ac1d5ff0c3f066cb64d2eef6e2fe8ffc499cb2de23297717e3a3dcd4fc"
+        "sha256": "aecd922af129fe3832a5d8618b510875be6ea54835376b7d298dbaf4cb2ce460"
       }
     ]
   },
   "app": {
-    "version": "1.0.3",
+    "version": "1.0.5",
     "files": [
       {
         "path": "main.py",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/app/main.py",
-        "sha256": "8ba3094fa3680573e1bf4af32c0a82df491f54ae5c1f0bcfd3d76821db168ad1"
+        "sha256": "da2e449adb0b474817dbd2d42b6bbcf0ba14f5bb9f6968fc555e9d92ad31e2f4"
       }
     ]
   },

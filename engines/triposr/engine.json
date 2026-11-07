@@ -1,18 +1,62 @@
 {
   "id": "triposr",
   "name": "TripoSR",
-  "version": "1.0.0",
-  "description": "Ricostruzione 3D da una sola foto. Gira sul computer, senza internet dopo l'installazione.",
-  "license": "MIT, uso commerciale consentito (VAST AI Research / Stability AI)",
+  "version": "1.0.1",
+  "install_version": "1.0.0",
+  "description": "Reconstructs a 3D model from a single photo. Runs on the computer, without internet after installation.",
+  "license": "MIT, commercial use allowed (VAST AI Research / Stability AI)",
   "homepage": "https://github.com/VAST-AI-Research/TripoSR",
   "download_gb": 2.6,
-  "minutes": "1-3 minuti a foto (Apple M2 o scheda NVIDIA), 3-8 minuti solo processore",
-  "constraints": ["numpy<2"],
+  "minutes": "1-3 minutes per photo (Apple M2 or NVIDIA card), 3-8 minutes on the processor only",
+  "constraints": [
+    "numpy<2"
+  ],
   "steps": [
-    { "label": "PyTorch (motore di calcolo)", "pkgs": ["torch"], "win_nvidia": ["--index-url", "https://download.pytorch.org/whl/cu124", "--extra-index-url", "https://pypi.org/simple"] },
-    { "label": "librerie geometriche", "pkgs": ["omegaconf==2.3.0", "einops==0.7.0", "trimesh==4.0.5", "huggingface-hub<1.0", "scikit-image", "Pillow==10.1.0"] },
-    { "label": "modello di visione", "alternatives": [["transformers==4.35.0"], ["transformers>=4.35,<4.46"]] },
-    { "label": "rimozione dello sfondo", "alternatives": [["rembg[cpu]"], ["rembg"]] }
+    {
+      "label": "PyTorch (computing engine)",
+      "pkgs": [
+        "torch"
+      ],
+      "win_nvidia": [
+        "--index-url",
+        "https://download.pytorch.org/whl/cu124",
+        "--extra-index-url",
+        "https://pypi.org/simple"
+      ]
+    },
+    {
+      "label": "geometry libraries",
+      "pkgs": [
+        "omegaconf==2.3.0",
+        "einops==0.7.0",
+        "trimesh==4.0.5",
+        "huggingface-hub<1.0",
+        "scikit-image",
+        "Pillow==10.1.0"
+      ]
+    },
+    {
+      "label": "vision model",
+      "alternatives": [
+        [
+          "transformers==4.35.0"
+        ],
+        [
+          "transformers>=4.35,<4.46"
+        ]
+      ]
+    },
+    {
+      "label": "background removal",
+      "alternatives": [
+        [
+          "rembg[cpu]"
+        ],
+        [
+          "rembg"
+        ]
+      ]
+    }
   ],
   "source": {
     "url": "https://github.com/VAST-AI-Research/TripoSR/archive/refs/heads/main.zip",
@@ -20,15 +64,61 @@
   },
   "weights": {
     "hf_repo": "stabilityai/TripoSR",
-    "files": ["config.yaml", "model.ckpt"]
+    "files": [
+      "config.yaml",
+      "model.ckpt"
+    ]
   },
-  "prefetch_hf": ["facebook/dino-vitb16"],
+  "prefetch_hf": [
+    "facebook/dino-vitb16"
+  ],
   "runner": "runner.py",
   "options": [
-    { "id": "remove_bg", "label": "Rimuovi lo sfondo della foto", "type": "bool", "default": true },
-    { "id": "resolution", "label": "Dettaglio della ricostruzione", "type": "choice", "default": 256,
-      "choices": [[192, "Rapido"], [256, "Normale"], [320, "Alto (più lento)"]] },
-    { "id": "foreground", "label": "Spazio occupato dal soggetto", "type": "choice", "default": 0.85,
-      "choices": [[0.75, "Più margine"], [0.85, "Normale"], [0.95, "Soggetto grande"]] }
+    {
+      "id": "remove_bg",
+      "label": "Remove the photo background",
+      "type": "bool",
+      "default": true
+    },
+    {
+      "id": "resolution",
+      "label": "Reconstruction detail",
+      "type": "choice",
+      "default": 256,
+      "choices": [
+        [
+          192,
+          "Fast"
+        ],
+        [
+          256,
+          "Normal"
+        ],
+        [
+          320,
+          "High (slower)"
+        ]
+      ]
+    },
+    {
+      "id": "foreground",
+      "label": "Space taken by the subject",
+      "type": "choice",
+      "default": 0.85,
+      "choices": [
+        [
+          0.75,
+          "More margin"
+        ],
+        [
+          0.85,
+          "Normal"
+        ],
+        [
+          0.95,
+          "Large subject"
+        ]
+      ]
+    }
   ]
 }

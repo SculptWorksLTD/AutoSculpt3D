@@ -1,24 +1,24 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.0.8",
-  "notes": "Correzioni e maggiore sicurezza; migliorie per la versione Windows.",
+  "latest": "1.1.0",
+  "notes": "English interface and Italian translation; language choice in Preferences.",
   "ui": {
-    "version": "1.0.8",
+    "version": "1.1.0",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "b1bb8447733942cf13554dcbcd646e4e255c484f75e6bb1d20237d9f3d90f81c"
+        "sha256": "9751586245cd734f6dd94cc2c2668b5909c0a6f41827d7935fd3b38be2fdff68"
       }
     ]
   },
   "app": {
-    "version": "1.0.8",
+    "version": "1.1.0",
     "files": [
       {
         "path": "main.py",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/app/main.py",
-        "sha256": "b93344be9846de12e68db700a64fe7329815e7a25b29fa8b16cc3ebf0cb2ae59"
+        "sha256": "00c45864d03dd5cbe8a4c032a2d2e154b2cf7c264c48f39a40db86cef16459b9"
       }
     ]
   },
@@ -26,17 +26,17 @@
     {
       "id": "triposr",
       "name": "TripoSR",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "files": [
         {
           "path": "engine.json",
           "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/triposr/engine.json",
-          "sha256": "212f8c16fb79363244c93634503bc25e723c75a666426c27b75118f5efddd526"
+          "sha256": "89f1f5c9e0dba9178a3637ee986186cc2e01ac977a1b0f690c16a96e335fbe4d"
         },
         {
           "path": "runner.py",
           "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/triposr/runner.py",
-          "sha256": "569a5efcced5006ceac04b8b4de8676e07891fc2d90c688c07ee4118dc63b582"
+          "sha256": "72483fdcff40e6d4bccbb191aa6b482f202b69824dfe733ef295a8d6b8b64532"
         }
       ]
     }

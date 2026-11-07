@@ -1,4 +1,4 @@
-# AutoSculpt 3D - (c) 2026 Enrico Migliorati. Tutti i diritti riservati.
+# AutoSculpt 3D - (c) 2026 Enrico Migliorati. All rights reserved.
 import argparse
 import base64
 import hashlib
@@ -107,6 +107,12 @@ def ui_version():
         return (d / 'VERSION').read_text().strip()
     except Exception:
         return VERSION
+
+class UserError(RuntimeError):
+
+    def __init__(self, text, **values):
+        self.text, self.values = (text, values)
+        super().__init__(text.format(**values) if values else text)
 JOBS = {}
 JOBS_LOCK = threading.Lock()
 
@@ -115,20 +121,20 @@ class Job:
     def __init__(self, kind, title):
         self.id = uuid.uuid4().hex[:12]
         self.kind, self.title = (kind, title)
-        self.state, self.progress, self.message = ('running', 0.0, 'In corso')
-        self.result, self.error, self.proc, self.cancelled = (None, None, None, False)
+        self.state, self.progress, self.message, self.values = ('running', 0.0, 'In progress', {})
+        self.result, self.error, self.error_values, self.proc, self.cancelled = (None, None, {}, None, False)
         self.log = []
         self.dir = SUPPORT / 'jobs' / self.id
         self.dir.mkdir(parents=True, exist_ok=True)
         with JOBS_LOCK:
             JOBS[self.id] = self
 
-    def update(self, progress=None, message=None):
+    def update(self, progress=None, message=None, **values):
         if progress is not None:
             self.progress = max(0.0, min(1.0, float(progress)))
         if message:
-            self.message = message
-            self.add_log(message)
+            self.message, self.values = (message, values)
+            self.add_log(message.format(**values) if values else message)
 
     def add_log(self, line):
         self.log.append(line)
@@ -136,7 +142,7 @@ class Job:
             self.log = self.log[-400:]
 
     def as_dict(self):
-        return {'id': self.id, 'kind': self.kind, 'title': self.title, 'state': self.state, 'progress': round(self.progress, 3), 'message': self.message, 'error': self.error, 'result': self.result, 'log': self.log[-12:]}
+        return {'id': self.id, 'kind': self.kind, 'title': self.title, 'state': self.state, 'progress': round(self.progress, 3), 'message': self.message, 'message_values': self.values, 'error': self.error, 'error_values': self.error_values, 'result': self.result, 'log': self.log[-12:]}
 
 def run_job(job, fn):
 
@@ -144,18 +150,22 @@ def run_job(job, fn):
         try:
             fn(job)
             if job.cancelled:
-                job.state, job.message = ('cancelled', 'Annullato')
+                job.state, job.message, job.values = ('cancelled', 'Cancelled', {})
             elif job.state == 'running':
                 job.state = 'done'
         except Exception as exc:
-            log('Errore nel lavoro', job.kind, traceback.format_exc())
-            job.state, job.error = ('cancelled', None) if job.cancelled else ('error', str(exc))
-            job.message = 'Annullato' if job.cancelled else 'Errore: ' + str(exc)
+            log('Job failed', job.kind, traceback.format_exc())
+            if job.cancelled:
+                job.state, job.message, job.values = ('cancelled', 'Cancelled', {})
+                return
+            text, values = (exc.text, exc.values) if isinstance(exc, UserError) else ('{detail}', {'detail': str(exc)})
+            job.state, job.error, job.error_values = ('error', text, values)
+            job.message, job.values = (text, values)
     threading.Thread(target=wrap, daemon=True).start()
     return job
 
 def stream(job, cmd, env=None, cwd=None, on_line=None):
-    log('Eseguo:', ' '.join((str(c) for c in cmd)))
+    log('Running:', ' '.join((str(c) for c in cmd)))
     p = subprocess.Popen([str(c) for c in cmd], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, bufsize=1, env=clean_env({'PYTHONUNBUFFERED': '1', 'PYTHONIOENCODING': 'utf-8', **(env or {})}), cwd=cwd, encoding='utf-8', errors='replace', **NO_WINDOW)
     job.proc = p
     for line in p.stdout:
@@ -170,10 +180,10 @@ def stream(job, cmd, env=None, cwd=None, on_line=None):
     p.wait()
     job.proc = None
     if job.cancelled:
-        raise RuntimeError('annullato')
+        raise UserError('Cancelled')
     return p.returncode
 
-def download(url, dest, job=None, p0=0.0, p1=1.0, label='Scarico', tries=3):
+def download(url, dest, job=None, p0=0.0, p1=1.0, label='Downloading', tries=3):
     for attempt in range(tries):
         try:
             return _download(url, dest, job, p0, p1, label)
@@ -181,10 +191,10 @@ def download(url, dest, job=None, p0=0.0, p1=1.0, label='Scarico', tries=3):
             if job and job.cancelled or attempt == tries - 1:
                 raise
             if job:
-                job.update(None, f'Connessione interrotta, riprovo ({attempt + 2}/{tries})')
+                job.update(None, 'Connection lost, retrying ({n}/{total})', n=attempt + 2, total=tries)
             time.sleep(3 * (attempt + 1))
 
-def _download(url, dest, job=None, p0=0.0, p1=1.0, label='Scarico'):
+def _download(url, dest, job=None, p0=0.0, p1=1.0, label='Downloading'):
     req = urllib.request.Request(url, headers={'User-Agent': 'AutoSculpt3D/' + VERSION})
     with urllib.request.urlopen(req, timeout=60) as r, open(dest, 'wb') as out:
         total = int(r.headers.get('Content-Length') or 0)
@@ -197,9 +207,12 @@ def _download(url, dest, job=None, p0=0.0, p1=1.0, label='Scarico'):
             got += len(chunk)
             if job:
                 if job.cancelled:
-                    raise RuntimeError('annullato')
+                    raise UserError('Cancelled')
                 frac = got / total if total else 0
-                job.update(p0 + (p1 - p0) * frac, f'{label}: {got / 1000000.0:.0f} MB' + (f' di {total / 1000000.0:.0f} MB' if total else ''))
+                if total:
+                    job.update(p0 + (p1 - p0) * frac, '{what}: {got} MB of {total} MB', what=label, got=round(got / 1000000.0), total=round(total / 1000000.0))
+                else:
+                    job.update(p0, '{what}: {got} MB', what=label, got=round(got / 1000000.0))
     return dest
 
 def sha256(path):
@@ -223,7 +236,7 @@ def engine_specs():
                     if spec['id'] not in specs or vtuple(spec.get('version')) >= vtuple(specs[spec['id']].get('version')):
                         specs[spec['id']] = spec
                 except Exception:
-                    log('engine.json non valido:', f)
+                    log('Invalid engine.json:', f)
     return specs
 
 def engine_home(eid):
@@ -236,7 +249,7 @@ def engine_status(spec):
         info = json.loads((home / 'installed.json').read_text())
     except Exception:
         pass
-    return {'id': spec['id'], 'name': spec['name'], 'version': spec.get('version'), 'description': spec.get('description'), 'license': spec.get('license'), 'download_gb': spec.get('download_gb'), 'minutes': spec.get('minutes'), 'options': spec.get('options', []), 'installed': bool(info), 'installed_version': info.get('version'), 'update': bool(info) and vtuple(spec.get('version')) > vtuple(info.get('version'))}
+    return {'id': spec['id'], 'name': spec['name'], 'version': spec.get('version'), 'description': spec.get('description'), 'license': spec.get('license'), 'download_gb': spec.get('download_gb'), 'minutes': spec.get('minutes'), 'options': spec.get('options', []), 'installed': bool(info), 'installed_version': info.get('version'), 'update': bool(info) and vtuple(spec.get('install_version', spec.get('version'))) > vtuple(info.get('version'))}
 
 def copy_runner(spec, home):
     src, dst = (Path(spec['_dir']) / spec['runner'], home / spec['runner'])
@@ -264,18 +277,18 @@ def install_engine(job, spec):
     n = len(steps) + 3
     k = 0
 
-    def at(i, msg):
-        job.update(i / n, msg)
-    at(k, "Preparo l'ambiente Python del motore")
+    def at(i, msg, **values):
+        job.update(i / n, msg, **values)
+    at(k, "Preparing the engine's Python environment")
     if not py.exists():
         if stream(job, [BASE_PY, '-m', 'venv', home / 'venv']) != 0:
-            raise RuntimeError("non riesco a creare l'ambiente Python")
+            raise UserError('Cannot create the Python environment')
     stream(job, [py, '-m', 'pip', 'install', '--upgrade', 'pip', 'setuptools', 'wheel', '--disable-pip-version-check'])
     cons = home / 'constraints.txt'
     cons.write_text('\n'.join(spec.get('constraints', [])) + '\n')
     k += 1
     for st in steps:
-        at(k, 'Installo ' + st.get('label', 'librerie'))
+        at(k, 'Installing {what}', what=st.get('label', 'libraries'))
         options = st.get('alternatives') or [st.get('pkgs', [])]
         if IS_WIN and st.get('win_nvidia') and has_nvidia():
             options = [[*pk, *st['win_nvidia']] for pk in options] + options
@@ -285,15 +298,15 @@ def install_engine(job, spec):
             if rc == 0:
                 ok = True
                 break
-            job.add_log('Variante non riuscita, provo la successiva')
+            job.add_log('Variant failed, trying the next one')
         if not ok:
-            raise RuntimeError('installazione non riuscita: ' + st.get('label', ''))
+            raise UserError('Installation failed: {what}', what=st.get('label', ''))
         k += 1
-    at(k, 'Scarico il codice del motore')
+    at(k, 'Downloading the engine code')
     src = spec.get('source')
     if src:
         tmp = home / 'source.zip'
-        download(src['url'], tmp, job, k / n, (k + 0.5) / n, 'Codice del motore')
+        download(src['url'], tmp, job, k / n, (k + 0.5) / n, 'Engine code')
         dest = home / 'src'
         shutil.rmtree(dest, ignore_errors=True)
         dest.mkdir()
@@ -316,31 +329,31 @@ def install_engine(job, spec):
     k += 1
     w = spec.get('weights')
     if w:
-        at(k, f"Scarico i pesi del modello ({spec.get('download_gb', '?')} GB in totale)")
+        at(k, 'Downloading the model weights ({gb} GB in total)', gb=spec.get('download_gb', '?'))
         code = "import sys\nfrom huggingface_hub import hf_hub_download\nrepo, dest = sys.argv[1], sys.argv[2]\nimport time\nfor i, f in enumerate(sys.argv[3:]):\n    print('FILE', i, f, flush=True)\n    for t in range(4):\n        try:\n            hf_hub_download(repo, f, local_dir=dest); break\n        except Exception as e:\n            print('RETRY', t + 1, e, flush=True)\n            if t == 3: raise\n            time.sleep(5 * (t + 1))\n"
-        rc = stream(job, [py, '-c', code, w['hf_repo'], home / 'weights', *w['files']], env={'HF_HUB_DISABLE_TELEMETRY': '1', 'HF_HUB_ENABLE_HF_TRANSFER': '0'}, on_line=lambda l: job.update(None, 'Scarico i pesi: ' + l.split(' ', 2)[-1]) if l.startswith('FILE') else None)
+        rc = stream(job, [py, '-c', code, w['hf_repo'], home / 'weights', *w['files']], env={'HF_HUB_DISABLE_TELEMETRY': '1', 'HF_HUB_ENABLE_HF_TRANSFER': '0'}, on_line=lambda l: job.update(None, 'Downloading the weights: {file}', file=l.split(' ', 2)[-1]) if l.startswith('FILE') else None)
         if rc != 0:
             tail = ' / '.join(job.log[-3:])
-            raise RuntimeError('download dei pesi non riuscito' + (': ' + tail if tail else ''))
+            raise UserError('Downloading the weights failed: {detail}', detail=tail or '-')
     pre = spec.get('prefetch_hf', [])
     if pre:
-        job.update(None, 'Scarico i modelli accessori')
+        job.update(None, 'Downloading the helper models')
         code = "import sys\nfrom huggingface_hub import snapshot_download\nfor r in sys.argv[1:]:\n    print('MODEL', r, flush=True)\n    snapshot_download(r, allow_patterns=['*.json', '*.txt'])\n"
         if stream(job, [py, '-c', code, *pre], env=engine_env(home)) != 0:
-            job.add_log('Modelli accessori non scaricati ora: verranno scaricati alla prima foto')
+            job.add_log('Helper models not downloaded now: they will be downloaded with the first photo')
     k += 1
     copy_runner(spec, home)
     (home / 'installed.json').write_text(json.dumps({'version': spec.get('version'), 'when': time.time()}))
-    job.update(1, 'Motore installato')
+    job.update(1, 'Engine installed')
     job.result = {'engine': eid}
 
 def run_engine(job, spec, image_path, options):
     home = engine_home(spec['id'])
     py = venv_python(home)
     if not py.exists() or not (home / 'installed.json').exists():
-        raise RuntimeError('motore non installato')
+        raise UserError('Engine not installed')
     runner = copy_runner(spec, home)
-    out = job.dir / 'risultato.obj'
+    out = job.dir / 'result.obj'
     cmd = [py, runner, '--input', image_path, '--output', out, '--src', home / 'src', '--weights', home / 'weights', '--work', job.dir]
     for o in spec.get('options', []):
         if o['id'] in options:
@@ -351,17 +364,25 @@ def run_engine(job, spec, image_path, options):
     def on_line(line):
         if line.startswith('PROGRESS '):
             parts = line.split(' ', 2)
+            text, values = (parts[2] if len(parts) > 2 else '', {})
+            if '\t' in text:
+                text, raw = text.split('\t', 1)
+                try:
+                    values = json.loads(raw)
+                except ValueError:
+                    values = {}
             try:
-                job.update(float(parts[1]), parts[2] if len(parts) > 2 else None)
-            except ValueError:
+                job.update(float(parts[1]), text or None, **values)
+            except (ValueError, KeyError, IndexError):
                 pass
         elif line.startswith('ERROR '):
             errors.append(line[6:])
     rc = stream(job, cmd, env=engine_env(home), on_line=on_line)
     if rc != 0 or not out.exists():
         tail = [l for l in job.log[-6:] if not l.startswith(('PROGRESS', 'ERROR'))]
-        raise RuntimeError((errors[-1] if errors else "il motore si e' fermato") + (' | ' + ' / '.join(tail[-3:]) if tail else ''))
-    job.result = {'url': f'/api/jobs/{job.id}/result', 'name': 'risultato.obj'}
+        detail = (errors[-1] if errors else '-') + (' | ' + ' / '.join(tail[-3:]) if tail else '')
+        raise UserError('The engine stopped: {detail}', detail=detail)
+    job.result = {'url': f'/api/jobs/{job.id}/result', 'name': 'result.obj'}
 
 def product_version():
     return max((VERSION, ui_version()), key=vtuple)
@@ -375,8 +396,8 @@ def fetch_manifest():
         with urllib.request.urlopen(req, timeout=20) as r:
             return json.loads(r.read().decode('utf-8'))
     except Exception as exc:
-        log('Controllo aggiornamenti non riuscito:', repr(exc))
-        raise RuntimeError('il server degli aggiornamenti non risponde (' + str(getattr(exc, 'reason', exc)) + ')')
+        log('Update check failed:', repr(exc))
+        raise UserError('The update server is not responding ({detail})', detail=str(getattr(exc, 'reason', exc)))
 
 def check_updates():
     m = fetch_manifest()
@@ -402,28 +423,28 @@ def apply_updates(job):
     info = check_updates()
     todo = info['items']
     if not todo:
-        job.update(1, 'Nessun aggiornamento')
+        job.update(1, 'No updates')
         job.result = {'restart': False}
         return
     restart = False
     for i, it in enumerate(todo):
         comp = it['component']
-        job.update(i / len(todo), 'Aggiorno ' + comp)
+        job.update(i / len(todo), 'Updating {what}', what=comp)
         if comp in ('ui', 'app'):
             c = m[comp]
             stage = Path(tempfile.mkdtemp(dir=SUPPORT / 'updates'))
             for f in c['files']:
                 rel = f['path']
                 if '..' in Path(rel).parts or rel.startswith('/'):
-                    raise RuntimeError('percorso non valido nel manifesto: ' + rel)
+                    raise UserError('Invalid path in the manifest: {path}', path=rel)
                 dest = stage / rel
                 dest.parent.mkdir(parents=True, exist_ok=True)
-                download(f['url'], dest, job, i / len(todo), (i + 1) / len(todo), 'Scarico ' + rel)
+                download(f['url'], dest, job, i / len(todo), (i + 1) / len(todo), rel)
                 if sha256(dest) != f['sha256'].lower():
-                    raise RuntimeError('file non integro, aggiornamento bloccato: ' + rel)
+                    raise UserError('Corrupted file, update blocked: {path}', path=rel)
             (stage / 'VERSION').write_text(c['version'])
             target = SUPPORT / comp
-            backup = SUPPORT / 'updates' / (comp + '-precedente')
+            backup = SUPPORT / 'updates' / (comp + '-previous')
             shutil.rmtree(backup, ignore_errors=True)
             if target.exists():
                 target.rename(backup)
@@ -436,14 +457,14 @@ def apply_updates(job):
             for f in e['files']:
                 rel = f['path']
                 if '..' in Path(rel).parts or rel.startswith('/') or '/' in rel:
-                    raise RuntimeError('percorso non valido nel manifesto: ' + rel)
-                tmp = d / (rel + '.nuovo')
-                download(f['url'], tmp, job, i / len(todo), (i + 1) / len(todo), 'Scarico ' + rel)
+                    raise UserError('Invalid path in the manifest: {path}', path=rel)
+                tmp = d / (rel + '.new')
+                download(f['url'], tmp, job, i / len(todo), (i + 1) / len(todo), rel)
                 if sha256(tmp) != f['sha256'].lower():
                     tmp.unlink(missing_ok=True)
-                    raise RuntimeError('file non integro, aggiornamento bloccato: ' + rel)
+                    raise UserError('Corrupted file, update blocked: {path}', path=rel)
                 tmp.replace(d / rel)
-    job.update(1, 'Aggiornamento completato')
+    job.update(1, 'Update completed')
     job.result = {'restart': restart}
 
 class Handler(BaseHTTPRequestHandler):
@@ -528,19 +549,21 @@ class Handler(BaseHTTPRequestHandler):
                 if not job:
                     return self.send_error(404)
                 if len(parts) > 4 and parts[4] == 'result':
-                    f = job.dir / 'risultato.obj'
+                    f = job.dir / 'result.obj'
                     return self.send_file(f, 'text/plain') if f.exists() else self.send_error(404)
                 return self.send_json(job.as_dict())
             if path == '/api/update/check':
                 try:
                     return self.send_json(check_updates())
+                except UserError as exc:
+                    return self.send_json({'available': False, 'error': str(exc), 'error_text': exc.text, 'error_values': exc.values})
                 except Exception as exc:
                     return self.send_json({'available': False, 'error': str(exc)})
             if path == '/api/log':
                 return self.send_file(LOG, 'text/plain; charset=utf-8') if LOG.exists() else self.send_json({})
             return self.send_error(404)
         except Exception as exc:
-            log('Errore GET', path, traceback.format_exc())
+            log('GET error', path, traceback.format_exc())
             return self.send_json({'error': str(exc)}, 500)
 
     def do_POST(self):
@@ -552,13 +575,13 @@ class Handler(BaseHTTPRequestHandler):
             if path.startswith('/api/engines/') and path.endswith('/install'):
                 spec = engine_specs().get(path.split('/')[3])
                 if not spec:
-                    return self.send_json({'error': 'motore sconosciuto'}, 404)
-                job = run_job(Job('install', 'Installazione ' + spec['name']), lambda j: install_engine(j, spec))
+                    return self.send_json({'error': 'unknown engine'}, 404)
+                job = run_job(Job('install', 'Installation ' + spec['name']), lambda j: install_engine(j, spec))
                 return self.send_json(job.as_dict())
             if path.startswith('/api/engines/') and path.endswith('/remove'):
                 eid = path.split('/')[3]
                 if eid not in engine_specs():
-                    return self.send_json({'error': 'motore sconosciuto'}, 404)
+                    return self.send_json({'error': 'unknown engine'}, 404)
                 shutil.rmtree(engine_home(eid) / 'venv', ignore_errors=True)
                 shutil.rmtree(engine_home(eid) / 'weights', ignore_errors=True)
                 shutil.rmtree(engine_home(eid) / 'src', ignore_errors=True)
@@ -567,17 +590,17 @@ class Handler(BaseHTTPRequestHandler):
             if path == '/api/photo3d':
                 spec = engine_specs().get(b.get('engine') or 'triposr')
                 if not spec:
-                    return self.send_json({'error': 'motore sconosciuto'}, 404)
+                    return self.send_json({'error': 'unknown engine'}, 404)
                 data = b.get('image', '')
                 if ',' in data:
                     data = data.split(',', 1)[1]
-                job = Job('photo3d', 'Da foto a 3D')
-                img = job.dir / 'foto.png'
+                job = Job('photo3d', 'Photo to 3D')
+                img = job.dir / 'photo.png'
                 try:
                     from_bytes = base64.b64decode(data)
                     img.write_bytes(from_bytes)
                 except Exception:
-                    return self.send_json({'error': 'immagine non valida'}, 400)
+                    return self.send_json({'error': 'invalid image'}, 400)
                 run_job(job, lambda j: run_engine(j, spec, img, b.get('options') or {}))
                 return self.send_json(job.as_dict())
             if path.startswith('/api/jobs/') and path.endswith('/cancel'):
@@ -588,7 +611,7 @@ class Handler(BaseHTTPRequestHandler):
                         job.proc.terminate()
                 return self.send_json({'ok': True})
             if path == '/api/update/apply':
-                job = run_job(Job('update', 'Aggiornamento'), apply_updates)
+                job = run_job(Job('update', 'Update'), apply_updates)
                 return self.send_json(job.as_dict())
             if path == '/api/settings':
                 s = load_settings()
@@ -599,7 +622,7 @@ class Handler(BaseHTTPRequestHandler):
                 return self.send_json(s)
             return self.send_error(404)
         except Exception as exc:
-            log('Errore POST', path, traceback.format_exc())
+            log('POST error', path, traceback.format_exc())
             return self.send_json({'error': str(exc)}, 500)
 
 def cleanup_jobs(days=2):
@@ -639,11 +662,13 @@ class Bridge:
             if not path:
                 return None
         Path(path).write_bytes(base64.b64decode(b64))
-        log('Salvato', path)
+        log('Saved', path)
         return {'path': path, 'name': Path(path).name}
 
-    def open_file(self, kind='all'):
-        types = {'project': ('Progetti AutoSculpt 3D (*.json)',), 'image': ('Immagini (*.jpg;*.jpeg;*.png;*.heic;*.webp)',) if IS_MAC else ('Immagini (*.jpg;*.jpeg;*.png;*.webp)',), 'all': ('Modelli 3D e progetti (*.obj;*.stl;*.glb;*.gltf;*.ply;*.json)',)}[kind]
+    def open_file(self, kind='all', label=None):
+        exts = {'project': '*.json', 'image': '*.jpg;*.jpeg;*.png;*.heic;*.webp' if IS_MAC else '*.jpg;*.jpeg;*.png;*.webp', 'all': '*.obj;*.stl;*.glb;*.gltf;*.ply;*.json'}[kind]
+        default = {'project': 'AutoSculpt 3D projects', 'image': 'Images', 'all': '3D models and projects'}[kind]
+        types = (f'{label or default} ({exts})',)
         path = self._dialog('open', file_types=types, directory=str(Path.home()))
         if not path:
             return None
@@ -661,10 +686,10 @@ class Bridge:
                 data, p = (out.read_bytes(), out)
         return {'path': str(path), 'name': p.name, 'b64': base64.b64encode(data).decode()}
 
-    def autosave_path(self, name):
+    def autosave_path(self, name, untitled='Untitled'):
         folder = documents_dir() / 'AutoSculpt 3D'
         folder.mkdir(parents=True, exist_ok=True)
-        base = ''.join((ch for ch in str(name) if ch not in '/\\:*?"<>|')).strip().replace('_', ' ') or 'Senza titolo'
+        base = ''.join((ch for ch in str(name) if ch not in '/\\:*?"<>|')).strip().replace('_', ' ') or untitled
         p, n = (folder / (base + '.autosculpt.json'), 2)
         while p.exists():
             p, n = (folder / f'{base} {n}.autosculpt.json', n + 1)
@@ -686,7 +711,7 @@ class Bridge:
     def restart(self):
         app = os.environ.get('AUTOSCULPT_APP')
         pid = os.getpid()
-        log('Riavvio richiesto')
+        log('Restart requested')
         if IS_WIN:
             env = clean_env({'AUTOSCULPT_WAIT_PID': str(pid)})
             env.pop('AUTOSCULPT_UPDATED', None)
@@ -700,7 +725,7 @@ class Bridge:
             try:
                 self.window.destroy()
             except Exception:
-                log('Chiusura finestra non riuscita:', traceback.format_exc())
+                log('Closing the window failed:', traceback.format_exc())
             time.sleep(0.5)
             os._exit(0)
         threading.Thread(target=close_and_exit, daemon=True).start()
@@ -744,7 +769,7 @@ def main():
     a = ap.parse_args()
     srv = start_server()
     url = f'http://127.0.0.1:{srv.server_address[1]}/'
-    log(APP_NAME, VERSION, 'interfaccia', ui_version(), 'su', url)
+    log(APP_NAME, VERSION, 'interface', ui_version(), 'on', url)
     if a.server_only:
         print('URL', url, flush=True)
         print('TOKEN', TOKEN, flush=True)

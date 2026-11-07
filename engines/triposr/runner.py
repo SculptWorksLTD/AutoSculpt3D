@@ -1,12 +1,16 @@
-# AutoSculpt 3D - (c) 2026 Enrico Migliorati. Tutti i diritti riservati.
+# AutoSculpt 3D - (c) 2026 Enrico Migliorati. All rights reserved.
+import json
 import argparse
 import os
 import sys
 import time
 import types
 
-def say(kind, *parts):
-    print(kind, *parts, flush=True)
+def say(kind, *parts, **values):
+    line = ' '.join([kind, *[str(p) for p in parts]])
+    if values:
+        line += '\t' + json.dumps(values)
+    print(line, flush=True)
 
 def install_mcubes_shim():
     try:
@@ -32,8 +36,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--input', required=True)
     ap.add_argument('--output', required=True)
-    ap.add_argument('--src', required=True, help='cartella che contiene il pacchetto tsr')
-    ap.add_argument('--weights', required=True, help='cartella con config.yaml e model.ckpt')
+    ap.add_argument('--src', required=True, help='folder containing the tsr package')
+    ap.add_argument('--weights', required=True, help='folder with config.yaml and model.ckpt')
     ap.add_argument('--device', default='auto')
     ap.add_argument('--remove_bg', default='1')
     ap.add_argument('--resolution', type=int, default=256)
@@ -42,7 +46,7 @@ def main():
     a = ap.parse_args()
     os.environ.setdefault('PYTORCH_ENABLE_MPS_FALLBACK', '1')
     sys.path.insert(0, a.src)
-    say('PROGRESS', '0.03', 'Avvio del motore')
+    say('PROGRESS', '0.03', 'Starting the engine')
     import numpy as np
     import torch
     from PIL import Image
@@ -53,10 +57,10 @@ def main():
         device = 'cuda' if torch.cuda.is_available() else 'mps' if torch.backends.mps.is_available() else 'cpu'
     else:
         device = a.device
-    say('PROGRESS', '0.08', 'Preparo la foto')
+    say('PROGRESS', '0.08', 'Preparing the photo')
     image = Image.open(a.input)
     if a.remove_bg == '1':
-        say('PROGRESS', '0.10', 'Tolgo lo sfondo (la prima volta scarica un piccolo modello)')
+        say('PROGRESS', '0.10', 'Removing the background (the first time it downloads a small model)')
         import rembg
         session = rembg.new_session()
         image = remove_background(image, session)
@@ -75,16 +79,16 @@ def main():
             image.save(os.path.join(a.work, 'input_preparata.png'))
         except Exception:
             pass
-    say('PROGRESS', '0.22', 'Carico il modello di ricostruzione')
+    say('PROGRESS', '0.22', 'Loading the reconstruction model')
     model = TSR.from_pretrained(a.weights, config_name='config.yaml', weight_name='model.ckpt')
     model.renderer.set_chunk_size(8192)
 
     def run(dev):
         model.to(dev)
-        say('PROGRESS', '0.40', 'Ricostruisco la forma' + {'mps': ' (chip Apple)', 'cuda': ' (scheda video NVIDIA)'}.get(dev, ' (processore)'))
+        say('PROGRESS', '0.40', {'mps': 'Rebuilding the shape (Apple chip)', 'cuda': 'Rebuilding the shape (NVIDIA graphics card)'}.get(dev, 'Rebuilding the shape (processor)'))
         with torch.no_grad():
             codes = model([image], device=dev)
-            say('PROGRESS', '0.70', 'Estraggo la superficie')
+            say('PROGRESS', '0.70', 'Extracting the surface')
             return model.extract_mesh(codes, False, resolution=a.resolution)
     t0 = time.time()
     try:
@@ -92,13 +96,13 @@ def main():
     except Exception as e:
         if device == 'cpu':
             raise
-        say('PROGRESS', '0.40', 'La scheda grafica non supporta un passaggio, continuo sul processore')
+        say('PROGRESS', '0.40', 'The graphics chip does not support a step, continuing on the processor')
         try:
             torch.mps.empty_cache() if device == 'mps' else torch.cuda.empty_cache()
         except Exception:
             pass
         meshes = run('cpu')
-    say('PROGRESS', '0.92', 'Pulisco e oriento il modello')
+    say('PROGRESS', '0.92', 'Cleaning and orienting the model')
     mesh = to_gradio_3d_orientation(meshes[0])
     try:
         parts = mesh.split(only_watertight=False)
@@ -113,7 +117,7 @@ def main():
         pass
     os.makedirs(os.path.dirname(os.path.abspath(a.output)), exist_ok=True)
     mesh.export(a.output)
-    say('PROGRESS', '1', 'Fatto in %d secondi' % round(time.time() - t0))
+    say('PROGRESS', '1', 'Done in {s} seconds', s=round(time.time() - t0))
     say('RESULT', a.output)
 if __name__ == '__main__':
     try:

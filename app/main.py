@@ -1392,7 +1392,8 @@ def mac_open_documents():
                 app.replyToOpenOrPrint_(0)
             except Exception:
                 pass
-        targets = [c for c in (getattr(wc.BrowserView, n, None) for n in dir(wc.BrowserView)) + [getattr(wc, n, None) for n in dir(wc)] if isinstance(c, type) and hasattr(c, 'applicationShouldTerminate_')]
+        candidates = [getattr(wc.BrowserView, n, None) for n in dir(wc.BrowserView)] + [getattr(wc, n, None) for n in dir(wc)]
+        targets = [c for c in candidates if isinstance(c, type) and hasattr(c, 'applicationShouldTerminate_')]
         for cls in set(targets):
             objc.classAddMethods(cls, [objc.selector(open_files, selector=b'application:openFiles:', signature=b'v@:@@')])
         log('Open documents handler:', ', '.join((c.__name__ for c in set(targets))) or 'none')
@@ -1515,7 +1516,7 @@ def main():
     menu = native_menu(bridge)
     NATIVE_MENU = bool(menu)
     try:
-        webview.start((lambda: (time.sleep(1.0), fix_mac_menu())) if IS_MAC else None, private_mode=False, storage_path=str(SUPPORT / 'webview'), menu=menu)
+        webview.start((lambda: [(time.sleep(d), fix_mac_menu()) for d in (1.0, 4.0, 8.0)]) if IS_MAC else None, private_mode=False, storage_path=str(SUPPORT / 'webview'), menu=menu)
     except TypeError:
         NATIVE_MENU = False
         webview.start(private_mode=False, storage_path=str(SUPPORT / 'webview'))

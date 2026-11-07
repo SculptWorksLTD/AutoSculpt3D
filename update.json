@@ -1,24 +1,24 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.8",
-  "notes": "New: create the 3D model from a description (File → New from a description), with the free local generator SSD-1B or FLUX online.",
+  "latest": "1.3.9",
+  "notes": "At the first start: company details and download of the local engines, so that everything works on this computer.",
   "ui": {
-    "version": "1.3.8",
+    "version": "1.3.9",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "eb30339fb9f4d86c8e2d65dc7adc71209cc8423d0b39585243e956e897058a4f"
+        "sha256": "51fc5a8b1802e3431848ec34dc4d37bd4bd7e89493427616eef5620e7f4d79d2"
       }
     ]
   },
   "app": {
-    "version": "1.3.3",
+    "version": "1.3.4",
     "files": [
       {
         "path": "main.py",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/app/main.py",
-        "sha256": "e55e5102a524510d36db163701bb3c3cf23f75d51b4113814f49b0dad3b6f15b"
+        "sha256": "3dcb61d141cfaa84ab4c5a4fc3c43fda4ddd7a50ee0a5f369ce2879980f49714"
       }
     ]
   },

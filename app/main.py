@@ -7,6 +7,7 @@ import json
 import mimetypes
 import os
 import platform
+import re
 import secrets
 import shutil
 import subprocess
@@ -428,6 +429,82 @@ def run_engine(job, spec, images, options):
         detail = (errors[-1][0] if errors else '-') + (' | ' + ' / '.join(tail[-3:]) if tail else '')
         raise UserError('The engine stopped: {detail}', detail=detail)
     job.result = {'url': f'/api/jobs/{job.id}/result', 'name': out.name}
+PH_API = 'https://api.polyhaven.com'
+_PH_CACHE = {}
+
+def polyhaven(path):
+    hit = _PH_CACHE.get(path)
+    if hit and time.time() - hit[0] < 6 * 3600:
+        return hit[1]
+    req = urllib.request.Request(PH_API + path, headers={'User-Agent': f'AutoSculpt3D/{VERSION}'})
+    with urllib.request.urlopen(req, timeout=30) as r:
+        data = json.loads(r.read())
+    _PH_CACHE[path] = (time.time(), data)
+    return data
+
+def hdri_list(category):
+    data = polyhaven('/assets?type=hdris&categories=' + urllib.parse.quote(category or 'outdoor'))
+    items = [{'id': k, 'name': v.get('name', k), 'n': v.get('download_count', 0), 'thumb': v.get('thumbnail_url') or f'https://cdn.polyhaven.com/asset_img/thumbs/{k}.png?width=320&height=160'} for k, v in data.items() if isinstance(v, dict)]
+    return sorted(items, key=lambda a: -a['n'])
+
+def hdri_file(hid, res):
+    if not re.fullmatch('[a-z0-9_]{1,80}', hid or '') or res not in ('1k', '2k', '4k'):
+        raise UserError('Invalid landscape')
+    folder = SUPPORT / 'hdri'
+    folder.mkdir(parents=True, exist_ok=True)
+    f = folder / f'{hid}_{res}.hdr'
+    if f.exists() and f.stat().st_size > 10000:
+        return f
+    info = polyhaven('/files/' + hid)['hdri'][res]['hdr']
+    tmp = f.with_suffix('.part')
+    req = urllib.request.Request(info['url'], headers={'User-Agent': f'AutoSculpt3D/{VERSION}'})
+    h = hashlib.md5()
+    with urllib.request.urlopen(req, timeout=120) as r, open(tmp, 'wb') as out:
+        while True:
+            chunk = r.read(1 << 20)
+            if not chunk:
+                break
+            h.update(chunk)
+            out.write(chunk)
+    if info.get('md5') and h.hexdigest() != info['md5']:
+        tmp.unlink(missing_ok=True)
+        raise UserError('Corrupted file, update blocked: {path}', path=f.name)
+    tmp.replace(f)
+    return f
+MENU_FILE = SUPPORT / 'menu.json'
+NATIVE_MENU = False
+
+def native_menu(bridge):
+    try:
+        spec = json.loads(MENU_FILE.read_text(encoding='utf-8'))
+        from webview.menu import Menu, MenuAction, MenuSeparator
+    except Exception:
+        return []
+
+    def action(mi, label):
+        js = f'window.AS_MENU && window.AS_MENU({int(mi)}, {json.dumps(label)})'
+
+        def run():
+            threading.Thread(target=lambda: bridge.window and bridge.window.evaluate_js(js), daemon=True).start()
+        return run
+    menus = []
+    try:
+        for mi, m in enumerate(spec.get('menus', [])[:10]):
+            items = []
+            for it in m.get('items', [])[:60]:
+                if it is None:
+                    if items and (not isinstance(items[-1], MenuSeparator)):
+                        items.append(MenuSeparator())
+                elif isinstance(it, dict) and it.get('label'):
+                    items.append(MenuAction(str(it['label'])[:100], action(mi, str(it['label']))))
+            while items and isinstance(items[-1], MenuSeparator):
+                items.pop()
+            if items:
+                menus.append(Menu(str(m.get('label', ''))[:40], items))
+    except Exception:
+        log('Native menu not built:', traceback.format_exc())
+        return []
+    return menus
 
 def product_version():
     return max((VERSION, ui_version()), key=vtuple)
@@ -561,7 +638,7 @@ class Handler(BaseHTTPRequestHandler):
             if path in ('/', '/index.html'):
                 d, _ = ui_dir()
                 html = (d / 'AutoSculpt3D.html').read_text(encoding='utf-8')
-                inject = f'<script>window.AS_NATIVE={{token:{json.dumps(TOKEN)},version:{json.dumps(VERSION)},ui:{json.dumps(ui_version())},product:{json.dumps(product_version())},platform:{json.dumps(platform.machine())},os:{json.dumps(sys.platform)}}};</script>'
+                inject = f'<script>window.AS_NATIVE={{token:{json.dumps(TOKEN)},version:{json.dumps(VERSION)},ui:{json.dumps(ui_version())},product:{json.dumps(product_version())},menu:{json.dumps(NATIVE_MENU)},platform:{json.dumps(platform.machine())},os:{json.dumps(sys.platform)}}};</script>'
                 html = html.replace('<head>', '<head>\n' + inject, 1)
                 body = html.encode('utf-8')
                 self.send_response(200)
@@ -606,6 +683,22 @@ class Handler(BaseHTTPRequestHandler):
                     return self.send_json({'available': False, 'error': str(exc), 'error_text': exc.text, 'error_values': exc.values})
                 except Exception as exc:
                     return self.send_json({'available': False, 'error': str(exc)})
+            if path == '/api/hdri/list':
+                q = urllib.parse.parse_qs(urllib.parse.urlparse(self.path).query)
+                try:
+                    return self.send_json(hdri_list((q.get('category') or ['outdoor'])[0]))
+                except Exception as exc:
+                    return self.send_json({'error': str(exc)}, 502)
+            if path.startswith('/api/hdri/file/'):
+                q = urllib.parse.parse_qs(urllib.parse.urlparse(self.path).query)
+                try:
+                    f = hdri_file(path.rsplit('/', 1)[1], (q.get('res') or ['2k'])[0])
+                except UserError as exc:
+                    return self.send_json({'error': str(exc)}, 400)
+                except Exception as exc:
+                    log('Landscape download failed:', repr(exc))
+                    return self.send_json({'error': str(exc)}, 502)
+                return self.send_file(f, 'application/octet-stream')
             if path == '/api/log':
                 return self.send_file(LOG, 'text/plain; charset=utf-8') if LOG.exists() else self.send_json({})
             return self.send_error(404)
@@ -672,6 +765,15 @@ class Handler(BaseHTTPRequestHandler):
             if path == '/api/update/apply':
                 job = run_job(Job('update', 'Update'), apply_updates)
                 return self.send_json(job.as_dict())
+            if path == '/api/menu':
+                menus = b.get('menus')
+                if not isinstance(menus, list) or len(menus) > 10:
+                    return self.send_json({'error': 'invalid menu'}, 400)
+                data = json.dumps({'lang': str(b.get('lang', ''))[:10], 'menus': menus}, ensure_ascii=False)
+                changed = not MENU_FILE.exists() or MENU_FILE.read_text(encoding='utf-8') != data
+                if changed:
+                    MENU_FILE.write_text(data, encoding='utf-8')
+                return self.send_json({'changed': changed, 'active': NATIVE_MENU})
             if path == '/api/settings':
                 s = load_settings()
                 for k in ('auto_check',):
@@ -864,6 +966,13 @@ def main():
             ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID('SculptWorks.AutoSculpt3D')
         except Exception:
             pass
-    webview.start(private_mode=False, storage_path=str(SUPPORT / 'webview'))
+    global NATIVE_MENU
+    menu = native_menu(bridge)
+    NATIVE_MENU = bool(menu)
+    try:
+        webview.start(private_mode=False, storage_path=str(SUPPORT / 'webview'), menu=menu)
+    except TypeError:
+        NATIVE_MENU = False
+        webview.start(private_mode=False, storage_path=str(SUPPORT / 'webview'))
 if __name__ == '__main__':
     main()

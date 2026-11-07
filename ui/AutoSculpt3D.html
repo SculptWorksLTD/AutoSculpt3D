@@ -164,7 +164,7 @@ body.empty .tabs,body.empty .dims{visibility:hidden}
 #manText mark{background:var(--warn-bg);color:inherit}
 #manEmpty{color:var(--muted);padding:24px 0}
 @media (max-width:720px){.manbody{grid-template-columns:1fr}#manToc{display:none}#manText{padding:4px 16px 32px}}
-.dlg .content{padding:16px;display:grid;gap:10px;overflow:auto;font-size:13.5px}
+.dlg .content{padding:16px;display:grid;grid-auto-rows:max-content;gap:10px;overflow:auto;font-size:13.5px}
 .dlg .content p{margin:0}
 .dlg .content table{border-collapse:collapse;width:100%;font-size:13px}
 .dlg .content td{padding:5px 0;border-bottom:1px solid var(--line)}
@@ -2504,7 +2504,7 @@ async function landscapeDialog() {
     await dialog({ title: tr('Realistic landscape'), body: `
     <div class="field"><label for="landCat">${tr('Type of place')}</label><select id="landCat">${LAND_CATS.map(([c, n]) => `<option value="${c}">${tr(n)}</option>`).join('')}</select></div>
     <label class="check"><input type="checkbox" id="land4k"> ${tr('High resolution (sharper, about 20 MB per landscape)')}</label>
-    <div id="landGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;max-height:50vh;overflow:auto;margin-top:8px"></div>
+    <div style="max-height:50vh;min-height:220px;overflow:auto;margin-top:8px"><div id="landGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));grid-auto-rows:max-content;align-content:start;gap:8px"></div></div>
     <p class="hint">${tr('360° photos from {source}, free also for commercial use (CC0). Each landscape is downloaded the first time, then it works without internet.', { source: '<b>Poly Haven</b>' })}</p>`,
         buttons: [{ label: tr('Cancel'), value: 'no' }],
         onOpen: () => {
@@ -2513,8 +2513,8 @@ async function landscapeDialog() {
                 grid.innerHTML = '<p class="hint">' + tr('Searching…') + '</p>';
                 try {
                     const list = (await landscapeList($('landCat').value)).slice(0, 150);
-                    grid.innerHTML = list.map(a => `<button type="button" class="landItem" data-id="${esc(a.id)}" data-name="${esc(a.name)}" title="${esc(a.name)}" style="padding:0;border:1px solid rgba(128,128,128,.35);border-radius:8px;overflow:hidden;background:transparent;color:inherit;cursor:pointer;text-align:left;font:inherit">
-            <img src="${esc(a.thumb)}" alt="" loading="lazy" style="display:block;width:100%;aspect-ratio:2/1;object-fit:cover;background:#888"><span style="display:block;padding:4px 6px;font-size:12px">${esc(a.name)}</span></button>`).join('');
+                    grid.innerHTML = list.map(a => `<button type="button" class="landItem" data-id="${esc(a.id)}" data-name="${esc(a.name)}" title="${esc(a.name)}" style="display:block;padding:0;border:1px solid rgba(128,128,128,.35);border-radius:8px;background:transparent;color:inherit;cursor:pointer;text-align:left;font:inherit">
+            <img src="${esc(a.thumb)}" alt="" loading="lazy" width="300" height="150" style="display:block;width:100%;height:auto;aspect-ratio:2/1;object-fit:cover;background:#888;border-radius:7px 7px 0 0"><span style="display:block;padding:4px 6px;font-size:12px">${esc(a.name)}</span></button>`).join('');
                     grid.querySelectorAll('.landItem').forEach(b => { b.onclick = () => { picked = { id: b.dataset.id, name: b.dataset.name }; $('dlgActions').firstChild.click(); }; });
                 }
                 catch (e) {

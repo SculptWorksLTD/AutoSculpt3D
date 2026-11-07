@@ -1,0 +1,16 @@
+{
+  "id": "falwhisper",
+  "name": "Whisper on fal.ai (voice)",
+  "type": "cloud",
+  "kind": "speech2text",
+  "key_engine": "fal",
+  "version": "1.0.0",
+  "order": 30,
+  "description": "Writes the description you dictate, online: nothing to install, it uses the same fal.ai key as the 3D models.",
+  "license": "Paid service, check the terms of fal.ai",
+  "price": "a fraction of a cent per sentence",
+  "minutes": "a few seconds per sentence",
+  "key_url": "https://fal.ai/dashboard/keys",
+  "key_hint": "fal.ai → Dashboard → Keys (add credit under Billing)",
+  "runner": "runner.py"
+}

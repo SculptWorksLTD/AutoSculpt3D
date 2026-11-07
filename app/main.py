@@ -599,6 +599,42 @@ def run_text2image(job, spec, prompt, lang, count, options):
         raise UserError('The engine stopped: {detail}', detail=errors[-1][0] if errors else '-')
     job.result = {'images': [f'/api/jobs/{job.id}/image/{n}' for n in found]}
 
+def run_speech2text(job, spec, wav, lang):
+    out = job.dir / 'text.txt'
+    if spec.get('type') == 'cloud':
+        key = load_keys().get(spec.get('key_engine', spec['id']))
+        if not key:
+            raise UserError('No API key for {name}: add it in Tools → Photo → 3D engines', name=spec['name'])
+        cmd, env = ([BASE_PY, Path(spec['_dir']) / spec['runner']], {'AUTOSCULPT_API_KEY': key})
+    else:
+        home = engine_home(spec['id'])
+        py = venv_python(home)
+        if not py.exists() or not (home / 'installed.json').exists():
+            raise UserError('Engine not installed')
+        cmd, env = ([py, copy_runner(spec, home), '--weights', home / 'weights', '--src', home / 'src'], engine_env(home))
+    cmd += ['--audio', wav, '--lang', lang or '', '--output', out, '--work', job.dir]
+    errors = []
+    rc = stream(job, cmd, env=env, on_line=lambda l: parse_runner_line(job, l, errors))
+    if job.cancelled:
+        raise UserError('Cancelled')
+    if rc != 0 or not out.exists():
+        if errors:
+            raise UserError(errors[-1][0], **errors[-1][1])
+        raise UserError('The engine stopped: {detail}', detail='-')
+    job.result = {'text': out.read_text(encoding='utf-8').strip()}
+
+def microphone_allowed():
+    if not IS_MAC:
+        return True
+    import plistlib
+    for p in Path(sys.executable).resolve().parents:
+        if p.name == 'Contents' and (p / 'Info.plist').exists():
+            try:
+                return 'NSMicrophoneUsageDescription' in plistlib.loads((p / 'Info.plist').read_bytes())
+            except Exception:
+                return False
+    return False
+
 def parse_runner_line(job, line, errors):
     if line.startswith('PROGRESS '):
         parts = line.split(' ', 2)
@@ -915,7 +951,7 @@ class Handler(BaseHTTPRequestHandler):
             if not self.authorized():
                 return self.send_error(403)
             if path == '/api/info':
-                return self.send_json({'app': APP_NAME, 'version': VERSION, 'ui': ui_version(), 'product': product_version(), 'machine': platform.machine(), 'macos': platform.mac_ver()[0], 'os': sys.platform, 'support': str(SUPPORT), 'settings': load_settings(), 'ram_gb': total_ram_gb(), 'nvidia': IS_WIN and has_nvidia(), 'apple_chip': sys.platform == 'darwin' and platform.machine() == 'arm64', 'free_gb': round(shutil.disk_usage(SUPPORT).free / 2 ** 30)})
+                return self.send_json({'app': APP_NAME, 'version': VERSION, 'ui': ui_version(), 'product': product_version(), 'machine': platform.machine(), 'macos': platform.mac_ver()[0], 'os': sys.platform, 'support': str(SUPPORT), 'settings': load_settings(), 'ram_gb': total_ram_gb(), 'nvidia': IS_WIN and has_nvidia(), 'apple_chip': sys.platform == 'darwin' and platform.machine() == 'arm64', 'free_gb': round(shutil.disk_usage(SUPPORT).free / 2 ** 30), 'microphone': microphone_allowed()})
             if path == '/api/engines':
                 allk = 'kind=all' in (urllib.parse.urlparse(self.path).query or '')
                 return self.send_json(sorted((engine_status(s) for s in engine_specs().values() if allk or s.get('kind', 'photo3d') == 'photo3d'), key=lambda e: (e['order'], e['name'])))
@@ -1030,6 +1066,18 @@ class Handler(BaseHTTPRequestHandler):
                     return self.send_json({'error': 'Write a description of the subject'}, 400)
                 job = Job('text2image', 'Description to pictures')
                 run_job(job, lambda j: run_text2image(j, spec, prompt, str(b.get('lang') or 'en')[:5], max(1, min(int(b.get('count') or 4), 6)), b.get('options') or {}))
+                return self.send_json(job.as_dict())
+            if path == '/api/speech2text':
+                spec = engine_specs().get(b.get('engine') or '')
+                if not spec or spec.get('kind') != 'speech2text':
+                    return self.send_json({'error': 'unknown engine'}, 404)
+                job = Job('speech2text', 'Voice to text')
+                try:
+                    wav = job.dir / 'voice.wav'
+                    wav.write_bytes(base64.b64decode(str(b.get('audio') or '').rpartition(',')[2]))
+                except Exception:
+                    return self.send_json({'error': 'invalid audio'}, 400)
+                run_job(job, lambda j: run_speech2text(j, spec, wav, str(b.get('lang') or '')[:5]))
                 return self.send_json(job.as_dict())
             if path == '/api/keys' and b.get('library'):
                 if b['library'] not in LIBRARIES:

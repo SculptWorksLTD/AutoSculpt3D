@@ -1,24 +1,24 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.10",
-  "notes": "TripoSR removed: TripoSG replaces it. The old engine files are deleted to free disk space.",
+  "latest": "1.3.11",
+  "notes": "Voice dictation of the description",
   "ui": {
-    "version": "1.3.10",
+    "version": "1.3.11",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "f0d7d095f984138e41d990050fb24c876714e0498565257c624b6e3ba9ed921b"
+        "sha256": "2395922e71abdf4617b32e9d40cf495fbcee1c62c8a3c9f6021a2ab4ce80aae4"
       }
     ]
   },
   "app": {
-    "version": "1.3.5",
+    "version": "1.3.6",
     "files": [
       {
         "path": "main.py",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/app/main.py",
-        "sha256": "34a7cb858bfbc28f2db35cd3a553a4be2f90944bbaf0c2d782beca2d34606d1a"
+        "sha256": "b5f86fda5fbf4f9edabfe21d9e2eb624f0c6aca57e3a9da5029b776e61f9f4f8"
       }
     ]
   },
@@ -54,6 +54,23 @@
           "path": "runner.py",
           "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/falflux/runner.py",
           "sha256": "409012c1f0dbf357c2c951fa7dfb9428f3f33a34fc63f0aa4d78179c3156c795"
+        }
+      ]
+    },
+    {
+      "id": "falwhisper",
+      "name": "Whisper on fal.ai (voice)",
+      "version": "1.0.0",
+      "files": [
+        {
+          "path": "engine.json",
+          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/falwhisper/engine.json",
+          "sha256": "13d7727cbf434f983a24eafc8fe691849196ab34f1c1ffc2c14d6c03a629e1b5"
+        },
+        {
+          "path": "runner.py",
+          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/falwhisper/runner.py",
+          "sha256": "ddad0b0159b317bf9b6bfea0dd39adc6a8e4bf272ef93ee2ffec7ad9bdc2309d"
         }
       ]
     },
@@ -122,6 +139,23 @@
           "path": "runner.py",
           "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/triposg/runner.py",
           "sha256": "ec58882e9ea536ae5eaa7206cc28161d6dd7bb6c54c05023a48b6ac5345758b0"
+        }
+      ]
+    },
+    {
+      "id": "whisper",
+      "name": "Whisper (voice)",
+      "version": "1.1.0",
+      "files": [
+        {
+          "path": "engine.json",
+          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/whisper/engine.json",
+          "sha256": "7595a6d8e1acd316400f025a42542384d3a25fcc0ce611a9d12a4e93ec314bfc"
+        },
+        {
+          "path": "runner.py",
+          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/whisper/runner.py",
+          "sha256": "53d961042c30716ae2cba74fb23124b3e8fa761a2078a1217c0f36c8d024e20a"
         }
       ]
     }

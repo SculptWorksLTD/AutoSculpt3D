@@ -429,15 +429,15 @@ def engine_home(eid):
 
 def engine_status(spec):
     if spec.get('type') == 'cloud':
-        key = load_keys().get(spec['id'], '')
-        return {'id': spec['id'], 'name': spec['name'], 'type': 'cloud', 'version': spec.get('version'), 'order': spec.get('order', 50), 'description': spec.get('description'), 'license': spec.get('license'), 'price': spec.get('price'), 'minutes': spec.get('minutes'), 'key_url': spec.get('key_url'), 'key_hint': spec.get('key_hint'), 'max_images': spec.get('max_images', 1), 'options': spec.get('options', []), 'installed': bool(key), 'key_set': bool(key), 'key_end': key[-4:] if len(key) > 8 else '', 'update': False}
+        key = load_keys().get(spec.get('key_engine', spec['id']), '')
+        return {'id': spec['id'], 'name': spec['name'], 'type': 'cloud', 'kind': spec.get('kind', 'photo3d'), 'key_engine': spec.get('key_engine'), 'version': spec.get('version'), 'order': spec.get('order', 50), 'description': spec.get('description'), 'license': spec.get('license'), 'price': spec.get('price'), 'minutes': spec.get('minutes'), 'key_url': spec.get('key_url'), 'key_hint': spec.get('key_hint'), 'max_images': spec.get('max_images', 1), 'options': spec.get('options', []), 'installed': bool(key), 'key_set': bool(key), 'key_end': key[-4:] if len(key) > 8 else '', 'update': False}
     home = engine_home(spec['id'])
     info = {}
     try:
         info = json.loads((home / 'installed.json').read_text())
     except Exception:
         pass
-    return {'id': spec['id'], 'name': spec['name'], 'version': spec.get('version'), 'description': spec.get('description'), 'license': spec.get('license'), 'download_gb': spec.get('download_gb'), 'minutes': spec.get('minutes'), 'options': spec.get('options', []), 'installed': bool(info), 'installed_version': info.get('version'), 'type': 'local', 'order': spec.get('order', 50), 'max_images': 1, 'update': bool(info) and vtuple(spec.get('install_version', spec.get('version'))) > vtuple(info.get('version'))}
+    return {'id': spec['id'], 'name': spec['name'], 'version': spec.get('version'), 'description': spec.get('description'), 'license': spec.get('license'), 'download_gb': spec.get('download_gb'), 'minutes': spec.get('minutes'), 'options': spec.get('options', []), 'installed': bool(info), 'installed_version': info.get('version'), 'type': 'local', 'kind': spec.get('kind', 'photo3d'), 'order': spec.get('order', 50), 'max_images': 1, 'update': bool(info) and vtuple(spec.get('install_version', spec.get('version'))) > vtuple(info.get('version'))}
 
 def copy_runner(spec, home):
     src, dst = (Path(spec['_dir']) / spec['runner'], home / spec['runner'])
@@ -535,9 +535,72 @@ def install_engine(job, spec):
     job.update(1, 'Engine installed')
     job.result = {'engine': eid}
 
+def run_text2image(job, spec, prompt, lang, count, options):
+    out = job.dir / 'images'
+    pf = job.dir / 'prompt.txt'
+    pf.write_text(prompt, encoding='utf-8')
+    if spec.get('type') == 'cloud':
+        key = load_keys().get(spec.get('key_engine', spec['id']))
+        if not key:
+            raise UserError('No API key for {name}: add it in Tools → Photo → 3D engines', name=spec['name'])
+        py, env, runner = (BASE_PY, {'AUTOSCULPT_API_KEY': key}, Path(spec['_dir']) / spec['runner'])
+        cmd = [py, runner]
+    else:
+        home = engine_home(spec['id'])
+        py = venv_python(home)
+        if not py.exists() or not (home / 'installed.json').exists():
+            raise UserError('Engine not installed')
+        runner, env = (copy_runner(spec, home), engine_env(home))
+        cmd = [py, runner, '--weights', home / 'weights', '--src', home / 'src']
+    cmd += ['--prompt-file', pf, '--lang', lang or 'en', '--output-dir', out, '--count', str(count), '--work', job.dir]
+    for o in spec.get('options', []):
+        if o['id'] in options:
+            cmd += ['--' + o['id'], str(options[o['id']])]
+    errors, images = ([], [])
+
+    def on_line(line):
+        if line.startswith('IMAGE '):
+            images.append(Path(line[6:].strip()).name)
+            job.result = {'images': [f'/api/jobs/{job.id}/image/{n}' for n in images], 'partial': True}
+        else:
+            parse_runner_line(job, line, errors)
+    rc = stream(job, cmd, env=env, on_line=on_line)
+    if job.cancelled:
+        raise UserError('Cancelled')
+    found = sorted((p.name for p in out.glob('image*.png'))) if out.exists() else []
+    if rc != 0 or not found:
+        if errors and errors[-1][1]:
+            raise UserError(errors[-1][0], **errors[-1][1])
+        raise UserError('The engine stopped: {detail}', detail=errors[-1][0] if errors else '-')
+    job.result = {'images': [f'/api/jobs/{job.id}/image/{n}' for n in found]}
+
+def parse_runner_line(job, line, errors):
+    if line.startswith('PROGRESS '):
+        parts = line.split(' ', 2)
+        text, values = (parts[2] if len(parts) > 2 else '', {})
+        if '\t' in text:
+            text, raw = text.split('\t', 1)
+            try:
+                values = json.loads(raw)
+            except ValueError:
+                values = {}
+        try:
+            job.update(float(parts[1]), text or None, **values)
+        except (ValueError, KeyError, IndexError):
+            pass
+    elif line.startswith('ERROR '):
+        text, values = (line[6:], {})
+        if '\t' in text:
+            text, raw = text.split('\t', 1)
+            try:
+                values = json.loads(raw)
+            except ValueError:
+                values = {}
+        errors.append((text, values))
+
 def run_engine(job, spec, images, options):
     if spec.get('type') == 'cloud':
-        key = load_keys().get(spec['id'])
+        key = load_keys().get(spec.get('key_engine', spec['id']))
         if not key:
             raise UserError('No API key for {name}: add it in Tools → Photo → 3D engines', name=spec['name'])
         py, env = (BASE_PY, {'AUTOSCULPT_API_KEY': key})
@@ -829,12 +892,16 @@ class Handler(BaseHTTPRequestHandler):
             if path == '/api/info':
                 return self.send_json({'app': APP_NAME, 'version': VERSION, 'ui': ui_version(), 'product': product_version(), 'machine': platform.machine(), 'macos': platform.mac_ver()[0], 'os': sys.platform, 'support': str(SUPPORT), 'settings': load_settings()})
             if path == '/api/engines':
-                return self.send_json(sorted((engine_status(s) for s in engine_specs().values()), key=lambda e: (e['order'], e['name'])))
+                allk = 'kind=all' in (urllib.parse.urlparse(self.path).query or '')
+                return self.send_json(sorted((engine_status(s) for s in engine_specs().values() if allk or s.get('kind', 'photo3d') == 'photo3d'), key=lambda e: (e['order'], e['name'])))
             if path.startswith('/api/jobs/'):
                 parts = path.split('/')
                 job = JOBS.get(parts[3]) if len(parts) > 3 else None
                 if not job:
                     return self.send_error(404)
+                if len(parts) > 5 and parts[4] == 'image' and re.fullmatch('image\\d{1,2}\\.png', parts[5]):
+                    f = job.dir / 'images' / parts[5]
+                    return self.send_file(f, 'image/png') if f.exists() else self.send_error(404)
                 if len(parts) > 4 and parts[4] == 'result':
                     for f, ctype in ((job.dir / 'result.glb', 'model/gltf-binary'), (job.dir / 'result.obj', 'text/plain')):
                         if f.exists():
@@ -928,6 +995,16 @@ class Handler(BaseHTTPRequestHandler):
                 if not imgs:
                     return self.send_json({'error': 'invalid image'}, 400)
                 run_job(job, lambda j: run_engine(j, spec, imgs, b.get('options') or {}))
+                return self.send_json(job.as_dict())
+            if path == '/api/text2image':
+                spec = engine_specs().get(b.get('engine') or '')
+                if not spec or spec.get('kind') != 'text2image':
+                    return self.send_json({'error': 'unknown engine'}, 404)
+                prompt = str(b.get('prompt') or '').strip()[:600]
+                if not prompt:
+                    return self.send_json({'error': 'Write a description of the subject'}, 400)
+                job = Job('text2image', 'Description to pictures')
+                run_job(job, lambda j: run_text2image(j, spec, prompt, str(b.get('lang') or 'en')[:5], max(1, min(int(b.get('count') or 4), 6)), b.get('options') or {}))
                 return self.send_json(job.as_dict())
             if path == '/api/keys' and b.get('library'):
                 if b['library'] not in LIBRARIES:

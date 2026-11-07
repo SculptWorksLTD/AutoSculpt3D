@@ -1,24 +1,24 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.6",
-  "notes": "Company registration: your letterhead on quotes, assembly guides, client images and laser files (Tools → Company details).",
+  "latest": "1.3.7",
+  "notes": "New: create the 3D model from a description (File → New from a description), with the free local generator SSD-1B or FLUX online.",
   "ui": {
-    "version": "1.3.6",
+    "version": "1.3.7",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "0918ae2b0e54ba620ac841bbbf1c18f6b016370ee04ff76eb445e9558cd1e065"
+        "sha256": "807f2513d7bc4915fd82bfbdacc1e26a9cf754c245a5324f2f959dff449928bc"
       }
     ]
   },
   "app": {
-    "version": "1.3.2",
+    "version": "1.3.3",
     "files": [
       {
         "path": "main.py",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/app/main.py",
-        "sha256": "2856cfee91add8d0628ebaac8c2712c0dd4f7fec7d7dac564fccf4556a51fb62"
+        "sha256": "e55e5102a524510d36db163701bb3c3cf23f75d51b4113814f49b0dad3b6f15b"
       }
     ]
   },
@@ -41,6 +41,23 @@
       ]
     },
     {
+      "id": "falflux",
+      "name": "FLUX on fal.ai",
+      "version": "1.0.0",
+      "files": [
+        {
+          "path": "engine.json",
+          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/falflux/engine.json",
+          "sha256": "927fc8523fbda238b9dc3504976f85d560bd41f2d147678de9d155bba37c056c"
+        },
+        {
+          "path": "runner.py",
+          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/falflux/runner.py",
+          "sha256": "409012c1f0dbf357c2c951fa7dfb9428f3f33a34fc63f0aa4d78179c3156c795"
+        }
+      ]
+    },
+    {
       "id": "meshy",
       "name": "Meshy",
       "version": "1.0.0",
@@ -54,6 +71,23 @@
           "path": "runner.py",
           "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/meshy/runner.py",
           "sha256": "4e66896b5eabc2c400153d8caa818614ccc8a0275bfc960560ad9d14e57169bd"
+        }
+      ]
+    },
+    {
+      "id": "ssd1b",
+      "name": "SSD-1B (Stable Diffusion XL)",
+      "version": "1.0.0",
+      "files": [
+        {
+          "path": "engine.json",
+          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/ssd1b/engine.json",
+          "sha256": "018e40eec8261903377997678871e07d0d25a29927c0d7addef51062a8385a0e"
+        },
+        {
+          "path": "runner.py",
+          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/ssd1b/runner.py",
+          "sha256": "7c9ef7d26b429ddc4098f19f8d3baa0d08546f095b78ee917bce5d4738a76dc1"
         }
       ]
     },

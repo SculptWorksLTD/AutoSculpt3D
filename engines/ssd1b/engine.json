@@ -1,0 +1,37 @@
+{
+  "id": "ssd1b",
+  "name": "SSD-1B (Stable Diffusion XL)",
+  "kind": "text2image",
+  "version": "1.0.0",
+  "install_version": "1.0.0",
+  "description": "Draws the subject you describe on this computer, ready for the 3D engines: free and offline after installation (the translation of the description is downloaded the first time).",
+  "license": "Apache 2.0, commercial use allowed (Segmind); translation: OPUS-MT, CC BY 4.0 (University of Helsinki)",
+  "homepage": "https://huggingface.co/segmind/SSD-1B",
+  "download_gb": 4.6,
+  "minutes": "1-2 minutes per picture on Apple chips, under a minute on NVIDIA cards, 5-15 on the processor only",
+  "steps": [
+    {"label": "PyTorch (computing engine)", "pkgs": ["torch"],
+     "win_nvidia": ["--index-url", "https://download.pytorch.org/whl/cu124", "--extra-index-url", "https://pypi.org/simple"]},
+    {"label": "image generator", "alternatives": [
+      ["diffusers>=0.30,<0.34", "transformers>=4.40,<4.50", "accelerate", "safetensors", "sentencepiece", "sacremoses", "Pillow", "huggingface-hub<1.0"],
+      ["diffusers", "transformers", "accelerate", "safetensors", "sentencepiece", "sacremoses", "Pillow", "huggingface-hub<1.0"]]}
+  ],
+  "weights": {
+    "hf_repo": "segmind/SSD-1B",
+    "files": [
+      "model_index.json", "scheduler/scheduler_config.json",
+      "text_encoder/config.json", "text_encoder/model.fp16.safetensors",
+      "text_encoder_2/config.json", "text_encoder_2/model.fp16.safetensors",
+      "tokenizer/merges.txt", "tokenizer/special_tokens_map.json", "tokenizer/tokenizer_config.json", "tokenizer/vocab.json",
+      "tokenizer_2/merges.txt", "tokenizer_2/special_tokens_map.json", "tokenizer_2/tokenizer_config.json", "tokenizer_2/vocab.json",
+      "unet/config.json", "unet/diffusion_pytorch_model.fp16.safetensors",
+      "vae/config.json", "vae/diffusion_pytorch_model.fp16.safetensors"
+    ]
+  },
+  "runner": "runner.py",
+  "options": [
+    {"id": "quality", "label": "Picture quality", "type": "choice", "default": "normal",
+     "choices": [["draft", "Fast"], ["normal", "Normal"], ["high", "High (slower)"]]}
+  ],
+  "order": 60
+}

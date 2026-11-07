@@ -1,0 +1,113 @@
+# AutoSculpt 3D - (c) 2026 Enrico Migliorati. All rights reserved.
+import argparse
+import json
+import os
+import sys
+import time
+STYLE = '{subject}. A single complete object, whole body fully visible, centered, three-quarter view, isolated on a plain white background, soft even studio lighting, sharp focus, detailed realistic sculpture reference'
+NEGATIVE = 'cropped, cut off, out of frame, multiple objects, duplicate, text, letters, watermark, logo, frame, border, busy background, scenery, floor, cast shadow, blurry, low quality, deformed'
+TRANSLATORS = {'it': 'Helsinki-NLP/opus-mt-it-en', 'de': 'Helsinki-NLP/opus-mt-de-en', 'fr': 'Helsinki-NLP/opus-mt-fr-en', 'es': 'Helsinki-NLP/opus-mt-es-en', 'pt': 'Helsinki-NLP/opus-mt-ROMANCE-en', 'ja': 'Helsinki-NLP/opus-mt-ja-en'}
+
+def say(kind, *parts, **values):
+    line = ' '.join([kind, *[str(p) for p in parts]])
+    if values:
+        line += '\t' + json.dumps(values)
+    print(line, flush=True)
+
+def to_english(text, lang):
+    repo = TRANSLATORS.get(lang)
+    if not repo:
+        return text
+    say('PROGRESS', '0.04', 'Translating the description into English (the first time it downloads a small model)')
+    try:
+        from transformers import MarianMTModel, MarianTokenizer
+        tok = MarianTokenizer.from_pretrained(repo)
+        model = MarianMTModel.from_pretrained(repo)
+        batch = tok([text], return_tensors='pt', truncation=True)
+        out = model.generate(**batch, max_new_tokens=200)
+        en = tok.decode(out[0], skip_special_tokens=True).strip()
+        print('translated:', en, flush=True)
+        return en or text
+    except Exception as e:
+        print('translation failed:', repr(e), flush=True)
+        return text
+
+def total_ram_gb():
+    try:
+        if os.name == 'nt':
+            import ctypes
+
+            class MS(ctypes.Structure):
+                _fields_ = [('dwLength', ctypes.c_ulong), ('dwMemoryLoad', ctypes.c_ulong), ('ullTotalPhys', ctypes.c_ulonglong), ('ullAvailPhys', ctypes.c_ulonglong), ('ullTotalPageFile', ctypes.c_ulonglong), ('ullAvailPageFile', ctypes.c_ulonglong), ('ullTotalVirtual', ctypes.c_ulonglong), ('ullAvailVirtual', ctypes.c_ulonglong), ('ullAvailExtendedVirtual', ctypes.c_ulonglong)]
+            m = MS()
+            m.dwLength = ctypes.sizeof(MS)
+            ctypes.windll.kernel32.GlobalMemoryStatusEx(ctypes.byref(m))
+            return m.ullTotalPhys / 2 ** 30
+        return os.sysconf('SC_PAGE_SIZE') * os.sysconf('SC_PHYS_PAGES') / 2 ** 30
+    except Exception:
+        return 16
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument('--prompt-file', required=True)
+    ap.add_argument('--lang', default='en')
+    ap.add_argument('--output-dir', required=True)
+    ap.add_argument('--weights', required=True)
+    ap.add_argument('--src', default='')
+    ap.add_argument('--work', default=None)
+    ap.add_argument('--count', type=int, default=4)
+    ap.add_argument('--quality', default='normal')
+    ap.add_argument('--seed', type=int, default=-1)
+    ap.add_argument('--device', default='auto')
+    a = ap.parse_args()
+    os.environ.setdefault('PYTORCH_ENABLE_MPS_FALLBACK', '1')
+    say('PROGRESS', '0.02', 'Starting the image generator')
+    import torch
+    subject = open(a.prompt_file, encoding='utf-8').read().strip()
+    if not subject:
+        raise RuntimeError('Write a description of the subject')
+    subject = to_english(subject, a.lang)
+    device = a.device if a.device != 'auto' else 'cuda' if torch.cuda.is_available() else 'mps' if torch.backends.mps.is_available() else 'cpu'
+    steps, size = {'draft': (18, 768), 'normal': (28, 1024), 'high': (40, 1024)}.get(a.quality, (28, 1024))
+    say('PROGRESS', '0.08', 'Loading the image generator')
+    from diffusers import StableDiffusionXLPipeline
+    ram = total_ram_gb()
+    if device == 'cpu' and ram < 12:
+        say('ERROR', 'This computer has {gb} GB of memory: the local image generator needs at least 12 GB (or an Apple chip or an NVIDIA card). Use FLUX online instead.', gb=round(ram))
+        sys.exit(1)
+    dtype = torch.float16 if device in ('cuda', 'mps') else torch.float32
+    print(f'device {device}, {ram:.0f} GB RAM, {dtype}', flush=True)
+    pipe = StableDiffusionXLPipeline.from_pretrained(a.weights, torch_dtype=dtype, variant='fp16', use_safetensors=True)
+    pipe = pipe.to(device)
+    try:
+        pipe.enable_attention_slicing()
+    except Exception:
+        pass
+    seed = a.seed if a.seed >= 0 else int(time.time()) % 1000000
+    os.makedirs(a.output_dir, exist_ok=True)
+    t0, n = (time.time(), max(1, min(a.count, 6)))
+    for i in range(n):
+        base = 0.12 + 0.85 * i / n
+
+        def step(p, k, t, kw, i=i, base=base):
+            done = i * steps + k + 1
+            left = (time.time() - t0) / done * (n * steps - done)
+            say('PROGRESS', round(base + 0.85 / n * (k + 1) / steps, 3), 'Picture {i} of {n}, about {m} min left', i=i + 1, n=n, m=max(1, round(left / 60)))
+            return kw
+        gen = torch.Generator(device='cpu').manual_seed(seed + i)
+        import contextlib
+        ctx = torch.autocast(device_type='cpu', dtype=torch.bfloat16) if dtype == torch.bfloat16 else contextlib.nullcontext()
+        with ctx, torch.no_grad():
+            img = pipe(prompt=STYLE.format(subject=subject), negative_prompt=NEGATIVE, num_inference_steps=steps, guidance_scale=7.0, width=size, height=size, generator=gen, callback_on_step_end=step).images[0]
+        img.save(os.path.join(a.output_dir, f'image{i + 1}.png'))
+        say('IMAGE', os.path.join(a.output_dir, f'image{i + 1}.png'))
+    say('PROGRESS', '1', 'Done in {s} seconds', s=round(time.time() - t0))
+    say('RESULT', a.output_dir)
+if __name__ == '__main__':
+    try:
+        main()
+    except Exception as exc:
+        import traceback
+        traceback.print_exc()
+        say('ERROR', str(exc).replace('\n', ' ')[:400])
+        sys.exit(1)

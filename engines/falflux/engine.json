@@ -1,0 +1,20 @@
+{
+  "id": "falflux",
+  "name": "FLUX on fal.ai",
+  "type": "cloud",
+  "kind": "text2image",
+  "key_engine": "fal",
+  "version": "1.0.0",
+  "order": 20,
+  "description": "Draws the subject you describe online with FLUX: very good pictures in a few seconds. It uses the same fal.ai key as the 3D models.",
+  "license": "FLUX.1 [schnell]: Apache 2.0; FLUX.1 [dev] pictures may be used commercially; paid service, check the terms of fal.ai",
+  "price": "about 0.01 USD for 4 pictures (high quality about 0.10 USD)",
+  "minutes": "under a minute",
+  "key_url": "https://fal.ai/dashboard/keys",
+  "key_hint": "fal.ai → Dashboard → Keys (add credit under Billing)",
+  "runner": "runner.py",
+  "options": [
+    {"id": "quality", "label": "Picture quality", "type": "choice", "default": "normal",
+     "choices": [["normal", "Normal (FLUX schnell)"], ["high", "High (FLUX dev)"]]}
+  ]
+}

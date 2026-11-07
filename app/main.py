@@ -16,6 +16,7 @@ import tempfile
 import threading
 import time
 import traceback
+import urllib.error
 import urllib.parse
 import urllib.request
 import uuid
@@ -301,6 +302,127 @@ def save_key(eid, key):
         os.chmod(KEYS_FILE, 384)
     except OSError:
         pass
+LIBRARIES = {'sketchfab': {'name': 'Sketchfab', 'key': 'required to download', 'key_url': 'https://sketchfab.com/settings/password', 'key_hint': 'Settings → Password & API → API token'}, 'polypizza': {'name': 'Poly Pizza', 'key': 'required', 'key_url': 'https://poly.pizza/settings/api', 'key_hint': 'free account → Settings → API'}, 'thingiverse': {'name': 'Thingiverse', 'key': 'required', 'key_url': 'https://www.thingiverse.com/apps/create', 'key_hint': 'create a free app (Desktop app) and copy its App Token'}, 'smithsonian': {'name': 'Smithsonian 3D', 'key': 'optional', 'key_url': 'https://api.data.gov/signup/', 'key_hint': 'free api.data.gov key (without it there is a shared limit of a few searches per hour)'}}
+FREE_LICENSES = ('cc0', 'public domain', 'cc attribution', 'cc-by', 'cc by', 'creative commons - attribution', 'creative commons - public domain')
+NON_COMMERCIAL = ('noncommercial', 'non-commercial', 'non commercial', '-nc', ' nc', 'noderivatives', 'noderivs', 'no derivatives', '-nd', 'gnu', 'gpl', 'lgpl', 'bsd')
+
+def lib_key(src):
+    return load_keys().get('lib:' + src, '')
+
+def lib_get(url, headers=None, binary=False, timeout=40):
+    req = urllib.request.Request(url, headers={'User-Agent': f'AutoSculpt3D/{VERSION}', **(headers or {})})
+    try:
+        with urlopen(req, timeout) as r:
+            data = r.read()
+    except urllib.error.HTTPError as e:
+        if e.code in (401, 403):
+            raise UserError('The key for {name} is not valid: check it in Tools → Accounts and keys', name=LIBRARIES.get(_lib_now[0], {}).get('name', ''))
+        if e.code == 429:
+            raise UserError('Too many requests to {name}: wait a minute and try again', name=LIBRARIES.get(_lib_now[0], {}).get('name', ''))
+        raise UserError('{name} replied {code}', name=LIBRARIES.get(_lib_now[0], {}).get('name', ''), code=e.code)
+    except UserError:
+        raise
+    except Exception as e:
+        raise UserError('Cannot reach {name}: {error}', name=LIBRARIES.get(_lib_now[0], {}).get('name', ''), error=str(getattr(e, 'reason', e)))
+    return data if binary else json.loads(data)
+_lib_now = ['']
+
+def commercial_ok(lic):
+    l = (lic or '').lower()
+    return any((f in l for f in FREE_LICENSES)) and (not any((n in l for n in NON_COMMERCIAL)))
+
+def library_search(src, q):
+    _lib_now[0] = src
+    key, qq = (lib_key(src), urllib.parse.quote(q))
+    out = []
+    if src == 'polypizza':
+        if not key:
+            raise UserError('{name} needs a free key: add it in Tools → Accounts and keys', name='Poly Pizza')
+        j = lib_get(f'https://api.poly.pizza/v1.1/search/{qq}?limit=32', {'X-Auth-Token': key})
+        for m in j.get('results', []):
+            lic = m.get('Licence') or m.get('License') or ''
+            if not commercial_ok(lic):
+                continue
+            creator = m.get('Creator') or {}
+            out.append({'src': src, 'uid': m.get('ID'), 'name': m.get('Title'), 'author': creator.get('Username') if isinstance(creator, dict) else str(creator), 'license': lic, 'thumb': m.get('Thumbnail'), 'faces': m.get('TriangleCount') or m.get('Tri Count'), 'url': f"https://poly.pizza/m/{m.get('ID')}"})
+    elif src == 'thingiverse':
+        if not key:
+            raise UserError('{name} needs a free key: add it in Tools → Accounts and keys', name='Thingiverse')
+        h = {'Authorization': 'Bearer ' + key}
+        j = lib_get(f'https://api.thingiverse.com/search/{qq}/?type=things&per_page=30&sort=relevant', h)
+        hits = j.get('hits', j) if isinstance(j, dict) else j
+        for t in (hits or [])[:30]:
+            lic = t.get('license') or ''
+            if not lic:
+                try:
+                    lic = lib_get(f"https://api.thingiverse.com/things/{t['id']}", h, timeout=20).get('license', '')
+                except UserError:
+                    continue
+            if not commercial_ok(lic):
+                continue
+            cr = t.get('creator') or {}
+            out.append({'src': src, 'uid': str(t.get('id')), 'name': t.get('name'), 'author': cr.get('name') or cr.get('first_name') or '', 'license': lic, 'thumb': t.get('preview_image') or t.get('thumbnail'), 'url': t.get('public_url') or f"https://www.thingiverse.com/thing:{t.get('id')}"})
+    elif src == 'smithsonian':
+        j = lib_get(f"https://3d-api.si.edu/api/v1.0/content/file/search?q={qq}&file_type=glb&rows=100&api_key={urllib.parse.quote(key or 'DEMO_KEY')}")
+        best, rank = ({}, {'Medium': 0, 'Low': 1, 'High': 2, 'Thumb': 3})
+        for r in j.get('rows', []):
+            c = r.get('content') or {}
+            pk = c.get('model_url') or c.get('uri')
+            if c.get('quality') not in rank or not c.get('uri'):
+                continue
+            if pk not in best or rank[c['quality']] < rank[best[pk]['content']['quality']]:
+                best[pk] = r
+        for pk, r in best.items():
+            out.append({'src': src, 'uid': r['content']['uri'], 'name': r.get('title') or 'Smithsonian', 'author': 'Smithsonian Institution', 'license': 'CC0', 'thumb': '', 'url': 'https://3d.si.edu/explorer?q=' + qq})
+    else:
+        raise UserError('Unknown library')
+    return out
+
+def library_file(src, uid):
+    _lib_now[0] = src
+    cache = SUPPORT / 'library'
+    cache.mkdir(exist_ok=True)
+    safe = re.sub('[^A-Za-z0-9_-]', '_', uid)[-80:]
+    for ext, ctype in (('.glb', 'model/gltf-binary'), ('.zip', 'application/zip'), ('.stl', 'model/stl'), ('.obj', 'text/plain')):
+        f = cache / f'{src}_{safe}{ext}'
+        if f.exists() and f.stat().st_size > 0:
+            return (f, ctype)
+    key = lib_key(src)
+    if src == 'sketchfab':
+        if not key:
+            raise UserError('{name} needs a free key: add it in Tools → Accounts and keys', name='Sketchfab')
+        j = lib_get(f'https://api.sketchfab.com/v3/models/{urllib.parse.quote(uid)}/download', {'Authorization': 'Token ' + key})
+        if j.get('glb', {}).get('url'):
+            data, ext, ctype = (lib_get(j['glb']['url'], binary=True, timeout=180), '.glb', 'model/gltf-binary')
+        elif j.get('gltf', {}).get('url'):
+            data, ext, ctype = (lib_get(j['gltf']['url'], binary=True, timeout=180), '.zip', 'application/zip')
+        else:
+            raise UserError('unexpected download format')
+    elif src == 'polypizza':
+        j = lib_get(f'https://api.poly.pizza/v1.1/model/{urllib.parse.quote(uid)}', {'X-Auth-Token': key})
+        url = j.get('Download') or (j.get('results') or [{}])[0].get('Download')
+        if not url:
+            raise UserError('unexpected download format')
+        data, ext, ctype = (lib_get(url, binary=True, timeout=180), '.glb', 'model/gltf-binary')
+    elif src == 'thingiverse':
+        h = {'Authorization': 'Bearer ' + key}
+        files = lib_get(f'https://api.thingiverse.com/things/{urllib.parse.quote(uid)}/files', h)
+        models = [f for f in files if str(f.get('name', '')).lower().endswith(('.stl', '.obj'))]
+        if not models:
+            raise UserError('This object has no STL or OBJ file')
+        f0 = max(models, key=lambda f: f.get('size') or 0)
+        data = lib_get(f0.get('download_url') or f"https://api.thingiverse.com/files/{f0['id']}/download", h, binary=True, timeout=180)
+        ext = '.obj' if f0['name'].lower().endswith('.obj') else '.stl'
+        ctype = 'text/plain' if ext == '.obj' else 'model/stl'
+    elif src == 'smithsonian':
+        if not uid.startswith('https://3d-api.si.edu/'):
+            raise UserError('Unknown library')
+        data, ext, ctype = (lib_get(uid, binary=True, timeout=180), '.glb', 'model/gltf-binary')
+    else:
+        raise UserError('Unknown library')
+    f = cache / f'{src}_{safe}{ext}'
+    f.write_bytes(data)
+    return (f, ctype)
 
 def engine_home(eid):
     return SUPPORT / 'engines' / eid
@@ -743,6 +865,19 @@ class Handler(BaseHTTPRequestHandler):
                     log('Landscape download failed:', repr(exc))
                     return self.send_json({'error': str(exc)}, 502)
                 return self.send_file(f, 'application/octet-stream')
+            if path == '/api/library/sources':
+                keys = load_keys()
+                return self.send_json([{'id': k, **v, 'key_set': bool(keys.get('lib:' + k)), 'key_end': keys.get('lib:' + k, '')[-4:]} for k, v in LIBRARIES.items()])
+            if path in ('/api/library/search', '/api/library/file'):
+                q = urllib.parse.parse_qs(urllib.parse.urlparse(self.path).query)
+                src = (q.get('source') or [''])[0]
+                try:
+                    if path.endswith('search'):
+                        return self.send_json(library_search(src, (q.get('q') or [''])[0][:120]))
+                    f, ctype = library_file(src, (q.get('id') or [''])[0][:300])
+                    return self.send_file(f, ctype, {'X-AS-Name': f.name})
+                except UserError as exc:
+                    return self.send_json({'error': exc.text, 'error_values': exc.values}, 502)
             if path == '/api/log':
                 return self.send_file(LOG, 'text/plain; charset=utf-8') if LOG.exists() else self.send_json({})
             return self.send_error(404)
@@ -794,6 +929,11 @@ class Handler(BaseHTTPRequestHandler):
                     return self.send_json({'error': 'invalid image'}, 400)
                 run_job(job, lambda j: run_engine(j, spec, imgs, b.get('options') or {}))
                 return self.send_json(job.as_dict())
+            if path == '/api/keys' and b.get('library'):
+                if b['library'] not in LIBRARIES:
+                    return self.send_json({'error': 'unknown library'}, 404)
+                save_key('lib:' + b['library'], str(b.get('key') or '').strip())
+                return self.send_json({'ok': True})
             if path == '/api/keys':
                 if (b.get('engine') or '') not in engine_specs():
                     return self.send_json({'error': 'unknown engine'}, 404)

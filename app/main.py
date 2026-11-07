@@ -184,6 +184,49 @@ def stream(job, cmd, env=None, cwd=None, on_line=None):
         raise UserError('Cancelled')
     return p.returncode
 
+def fix_certificates():
+    if os.environ.get('SSL_CERT_FILE') or os.name == 'nt':
+        return
+    try:
+        import ssl
+        p = ssl.get_default_verify_paths()
+        if p.cafile and os.path.exists(p.cafile) or (p.capath and os.path.isdir(p.capath) and os.listdir(p.capath)):
+            return
+    except Exception:
+        return
+    for f in ('/etc/ssl/cert.pem', '/private/etc/ssl/cert.pem', '/etc/ssl/certs/ca-certificates.crt'):
+        if os.path.exists(f):
+            os.environ['SSL_CERT_FILE'] = f
+            return
+fix_certificates()
+_SSL = None
+
+def ssl_context():
+    global _SSL
+    if _SSL is None:
+        import ssl
+        ctx = ssl.create_default_context()
+        try:
+            import certifi
+            ctx.load_verify_locations(certifi.where())
+        except Exception:
+            p = ssl.get_default_verify_paths()
+            has = p.cafile and os.path.exists(p.cafile) or (p.capath and os.path.isdir(p.capath) and os.listdir(p.capath))
+            if not has and (not os.environ.get('SSL_CERT_FILE')):
+                for f in ('/etc/ssl/cert.pem', '/private/etc/ssl/cert.pem', '/etc/ssl/certs/ca-certificates.crt'):
+                    if os.path.exists(f):
+                        ctx.load_verify_locations(f)
+                        break
+        _SSL = ctx
+    return _SSL
+
+def urlopen(req, timeout):
+    if isinstance(req, str):
+        req = urllib.request.Request(req, headers={'User-Agent': 'AutoSculpt3D/' + VERSION})
+    if req.full_url.startswith('https://'):
+        return urllib.request.urlopen(req, timeout=timeout, context=ssl_context())
+    return urllib.request.urlopen(req, timeout=timeout)
+
 def download(url, dest, job=None, p0=0.0, p1=1.0, label='Downloading', tries=3):
     for attempt in range(tries):
         try:
@@ -197,7 +240,7 @@ def download(url, dest, job=None, p0=0.0, p1=1.0, label='Downloading', tries=3):
 
 def _download(url, dest, job=None, p0=0.0, p1=1.0, label='Downloading'):
     req = urllib.request.Request(url, headers={'User-Agent': 'AutoSculpt3D/' + VERSION})
-    with urllib.request.urlopen(req, timeout=60) as r, open(dest, 'wb') as out:
+    with urlopen(req, 60) as r, open(dest, 'wb') as out:
         total = int(r.headers.get('Content-Length') or 0)
         got = 0
         while True:
@@ -437,7 +480,7 @@ def polyhaven(path):
     if hit and time.time() - hit[0] < 6 * 3600:
         return hit[1]
     req = urllib.request.Request(PH_API + path, headers={'User-Agent': f'AutoSculpt3D/{VERSION}'})
-    with urllib.request.urlopen(req, timeout=30) as r:
+    with urlopen(req, 30) as r:
         data = json.loads(r.read())
     _PH_CACHE[path] = (time.time(), data)
     return data
@@ -459,7 +502,7 @@ def hdri_file(hid, res):
     tmp = f.with_suffix('.part')
     req = urllib.request.Request(info['url'], headers={'User-Agent': f'AutoSculpt3D/{VERSION}'})
     h = hashlib.md5()
-    with urllib.request.urlopen(req, timeout=120) as r, open(tmp, 'wb') as out:
+    with urlopen(req, 120) as r, open(tmp, 'wb') as out:
         while True:
             chunk = r.read(1 << 20)
             if not chunk:
@@ -515,7 +558,7 @@ def fetch_manifest():
         url += ('&' if '?' in url else '?') + 't=' + str(int(time.time()))
     req = urllib.request.Request(url, headers={'User-Agent': 'AutoSculpt3D/' + VERSION, 'Cache-Control': 'no-cache', 'Pragma': 'no-cache'})
     try:
-        with urllib.request.urlopen(req, timeout=20) as r:
+        with urlopen(req, 20) as r:
             return json.loads(r.read().decode('utf-8'))
     except Exception as exc:
         log('Update check failed:', repr(exc))
@@ -688,7 +731,8 @@ class Handler(BaseHTTPRequestHandler):
                 try:
                     return self.send_json(hdri_list((q.get('category') or ['outdoor'])[0]))
                 except Exception as exc:
-                    return self.send_json({'error': str(exc)}, 502)
+                    log('Landscape list failed:', repr(exc))
+                    return self.send_json({'error': str(getattr(exc, 'reason', exc))}, 502)
             if path.startswith('/api/hdri/file/'):
                 q = urllib.parse.parse_qs(urllib.parse.urlparse(self.path).query)
                 try:

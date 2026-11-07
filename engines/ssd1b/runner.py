@@ -59,6 +59,7 @@ def main():
     ap.add_argument('--quality', default='normal')
     ap.add_argument('--seed', type=int, default=-1)
     ap.add_argument('--device', default='auto')
+    ap.add_argument('--precision', default='auto', help='auto | fp32 (used when half precision fails on a graphics chip)')
     a = ap.parse_args()
     os.environ.setdefault('PYTORCH_ENABLE_MPS_FALLBACK', '1')
     say('PROGRESS', '0.02', 'Starting the image generator')
@@ -75,7 +76,12 @@ def main():
     if device == 'cpu' and ram < 12:
         say('ERROR', 'This computer has {gb} GB of memory: the pictures on this computer need at least 12 GB (or an Apple chip or an NVIDIA card). Use the online pictures instead.', gb=round(ram))
         sys.exit(1)
-    dtype = torch.float16 if device in ('cuda', 'mps') else torch.float32
+    marker = os.path.join(os.path.dirname(os.path.abspath(a.weights)), 'precision-fp32')
+    if device == 'mps' and os.path.exists(marker):
+        a.precision = 'fp32'
+    dtype = torch.float16 if device in ('cuda', 'mps') and a.precision != 'fp32' else torch.float32
+    if device == 'mps' and dtype == torch.float32:
+        size = min(size, 768)
 
     def load(dt):
         print(f'device {device}, {ram:.0f} GB RAM, {dt}', flush=True)
@@ -126,16 +132,14 @@ def main():
         except RuntimeError as exc:
             if 'dtype' not in str(exc) or dtype == torch.float32:
                 raise
-            print('half precision failed, going to float32:', exc, flush=True)
-            dtype = torch.float32
-            del pipe
-            if device == 'mps':
-                torch.mps.empty_cache()
-            pipe = load(dtype)
-            gen = torch.Generator(device='cpu').manual_seed(seed + i)
-            args['generator'] = gen
-            with torch.no_grad():
-                img = decode(pipe(output_type='latent', **args).images) if device == 'mps' else pipe(**args).images[0]
+            print('half precision failed, starting again in float32:', exc, flush=True)
+            try:
+                open(marker, 'w').write(str(exc)[:500])
+            except Exception:
+                pass
+            say('PROGRESS', '0.08', 'Loading the image generator')
+            sys.stdout.flush()
+            os.execv(sys.executable, [sys.executable] + sys.argv + ['--precision', 'fp32'])
         img.save(os.path.join(a.output_dir, f'image{i + 1}.png'))
         say('IMAGE', os.path.join(a.output_dir, f'image{i + 1}.png'))
     say('PROGRESS', '1', 'Done in {s} seconds', s=round(time.time() - t0))

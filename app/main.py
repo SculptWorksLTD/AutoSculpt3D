@@ -175,6 +175,8 @@ def stream(job, cmd, env=None, cwd=None, on_line=None):
         if not line:
             continue
         job.add_log(line)
+        if not line.startswith(('PROGRESS', 'IMAGE')) and (not (line.startswith('  ') and len(line) > 300)):
+            log('  |', line[:500])
         if on_line:
             on_line(line)
         if job.cancelled:
@@ -981,6 +983,8 @@ class Handler(BaseHTTPRequestHandler):
                 return self.send_error(404)
             if not self.authorized():
                 return self.send_error(403)
+            if path == '/api/open-requests':
+                return self.send_json({'paths': take_open_requests()})
             if path == '/api/info':
                 return self.send_json({'app': APP_NAME, 'version': VERSION, 'ui': ui_version(), 'product': product_version(), 'machine': platform.machine(), 'macos': platform.mac_ver()[0], 'os': sys.platform, 'support': str(SUPPORT), 'settings': load_settings(), 'ram_gb': total_ram_gb(), 'nvidia': IS_WIN and has_nvidia(), 'apple_chip': sys.platform == 'darwin' and platform.machine() == 'arm64', 'free_gb': round(shutil.disk_usage(SUPPORT).free / 2 ** 30), 'microphone': microphone_allowed()})
             if path == '/api/engines':
@@ -1124,8 +1128,10 @@ class Handler(BaseHTTPRequestHandler):
                 job = JOBS.get(path.split('/')[3])
                 if job:
                     job.cancelled = True
-                    if job.proc:
-                        job.proc.terminate()
+                    pr = job.proc
+                    if pr:
+                        pr.terminate()
+                        threading.Timer(5.0, lambda: pr.poll() is None and pr.kill()).start()
                 return self.send_json({'ok': True})
             if path == '/api/update/apply':
                 job = run_job(Job('update', 'Update'), apply_updates)
@@ -1205,7 +1211,7 @@ class Bridge:
         return {'path': path, 'name': Path(path).name}
 
     def open_file(self, kind='all', label=None):
-        exts = {'project': '*.json', 'image': '*.jpg;*.jpeg;*.png;*.heic;*.webp' if IS_MAC else '*.jpg;*.jpeg;*.png;*.webp', 'all': '*.obj;*.stl;*.glb;*.gltf;*.ply;*.json'}[kind]
+        exts = {'project': '*.as3d;*.json', 'image': '*.jpg;*.jpeg;*.png;*.heic;*.webp' if IS_MAC else '*.jpg;*.jpeg;*.png;*.webp', 'all': '*.as3d;*.obj;*.stl;*.glb;*.gltf;*.ply;*.json'}[kind]
         default = {'project': 'AutoSculpt 3D projects', 'image': 'Images', 'all': '3D models and projects'}[kind]
         types = (f'{label or default} ({exts})',)
         path = self._dialog('open', file_types=types, directory=str(Path.home()))
@@ -1234,9 +1240,9 @@ class Bridge:
         folder = documents_dir() / 'AutoSculpt 3D'
         folder.mkdir(parents=True, exist_ok=True)
         base = ''.join((ch for ch in str(name) if ch not in '/\\:*?"<>|')).strip().replace('_', ' ') or untitled
-        p, n = (folder / (base + '.autosculpt.json'), 2)
+        p, n = (folder / (base + '.as3d'), 2)
         while p.exists():
-            p, n = (folder / f'{base} {n}.autosculpt.json', n + 1)
+            p, n = (folder / f'{base} {n}.as3d', n + 1)
         return str(p)
 
     def reveal(self, path):
@@ -1261,7 +1267,9 @@ class Bridge:
             env.pop('AUTOSCULPT_UPDATED', None)
             subprocess.Popen([sys.executable, str(RESOURCES / 'main.py')], env=env, close_fds=True, creationflags=8 | 512)
         elif app:
-            subprocess.Popen(['/bin/sh', '-c', f'n=0; while kill -0 {pid} 2>/dev/null && [ $n -lt 100 ]; do sleep 0.2; n=$((n+1)); done; sleep 0.5; open "{app}"'], env=clean_env(), start_new_session=True)
+            fresh = clean_env()
+            fresh.pop('AUTOSCULPT_UPDATED', None)
+            subprocess.Popen(['/bin/sh', '-c', f'n=0; while kill -0 {pid} 2>/dev/null && [ $n -lt 100 ]; do sleep 0.2; n=$((n+1)); done; sleep 0.5; open "{app}"'], env=fresh, start_new_session=True)
 
         def close_and_exit():
             time.sleep(0.3)
@@ -1290,6 +1298,78 @@ def maybe_run_updated_copy():
             subprocess.Popen([sys.executable, str(upd), *sys.argv[1:]], env=os.environ.copy(), close_fds=True)
             sys.exit(0)
         os.execv(sys.executable, [sys.executable, str(upd), *sys.argv[1:]])
+OPENABLE = {'.as3d', '.json', '.obj', '.stl', '.glb', '.gltf', '.ply'}
+OPEN_DIR = SUPPORT / 'open-requests'
+PID_FILE = SUPPORT / 'instance.pid'
+_open_lock = threading.Lock()
+_open_paths = []
+
+def queue_open(path):
+    p = Path(str(path))
+    if p.suffix.lower() in OPENABLE and p.is_file():
+        with _open_lock:
+            _open_paths.append(str(p))
+        log('Open request', p)
+
+def take_open_requests():
+    with _open_lock:
+        out, _open_paths[:] = (list(_open_paths), [])
+    try:
+        for f in sorted(OPEN_DIR.glob('*.txt')):
+            out.append(f.read_text(encoding='utf-8').strip())
+            f.unlink(missing_ok=True)
+    except Exception:
+        pass
+    return [p for p in out if p]
+
+def pid_alive(pid):
+    try:
+        pid = int(pid)
+        if pid == os.getpid():
+            return False
+        if IS_WIN:
+            import ctypes
+            h = ctypes.windll.kernel32.OpenProcess(4096, False, pid)
+            if not h:
+                return False
+            code = ctypes.c_ulong()
+            ctypes.windll.kernel32.GetExitCodeProcess(h, ctypes.byref(code))
+            ctypes.windll.kernel32.CloseHandle(h)
+            return code.value == 259
+        os.kill(pid, 0)
+        return True
+    except Exception:
+        return False
+
+def hand_over_to_running_instance(paths):
+    try:
+        if not paths or not PID_FILE.exists() or (not pid_alive(PID_FILE.read_text().strip())):
+            return False
+        OPEN_DIR.mkdir(parents=True, exist_ok=True)
+        for i, p in enumerate(paths):
+            (OPEN_DIR / f'{time.time_ns()}-{i}.txt').write_text(p, encoding='utf-8')
+        return True
+    except Exception:
+        return False
+
+def mac_open_documents():
+    try:
+        import objc
+        import webview.platforms.cocoa as wc
+
+        def open_files(self, app, filenames):
+            for f in filenames:
+                queue_open(str(f))
+            try:
+                app.replyToOpenOrPrint_(0)
+            except Exception:
+                pass
+        targets = [c for c in (getattr(wc.BrowserView, n, None) for n in dir(wc.BrowserView)) + [getattr(wc, n, None) for n in dir(wc)] if isinstance(c, type) and hasattr(c, 'applicationShouldTerminate_')]
+        for cls in set(targets):
+            objc.classAddMethods(cls, [objc.selector(open_files, selector=b'application:openFiles:', signature=b'v@:@@')])
+        log('Open documents handler:', ', '.join((c.__name__ for c in set(targets))) or 'none')
+    except Exception:
+        log('Open documents handler not installed:', traceback.format_exc())
 
 def wait_previous_instance():
     pid = os.environ.pop('AUTOSCULPT_WAIT_PID', None)
@@ -1311,7 +1391,17 @@ def main():
     remove_retired_engines()
     ap = argparse.ArgumentParser()
     ap.add_argument('--server-only', action='store_true')
-    a = ap.parse_args()
+    a, rest = ap.parse_known_args()
+    paths = [str(Path(x).resolve()) for x in rest if Path(x).suffix.lower() in OPENABLE and Path(x).is_file()]
+    if IS_WIN and (not a.server_only) and hand_over_to_running_instance(paths):
+        return
+    for x in paths:
+        queue_open(x)
+    if not a.server_only:
+        try:
+            PID_FILE.write_text(str(os.getpid()))
+        except Exception:
+            pass
     srv = start_server()
     url = f'http://127.0.0.1:{srv.server_address[1]}/'
     log(APP_NAME, VERSION, 'interface', ui_version(), 'on', url)
@@ -1334,6 +1424,8 @@ def main():
             NSApplication.sharedApplication().setApplicationIconImage_(NSImage.alloc().initWithContentsOfFile_(icon))
     except Exception:
         pass
+    if IS_MAC:
+        mac_open_documents()
     bridge = Bridge()
     try:
         win = webview.create_window(APP_NAME, url, js_api=bridge, width=1440, height=900, min_size=(1024, 680), text_select=True, maximized=True)

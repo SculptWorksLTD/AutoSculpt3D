@@ -1,24 +1,24 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.18",
-  "notes": "Faster pictures on Apple chips",
+  "latest": "1.3.19",
+  "notes": "AutoSculpt 3D project files (.as3d) and fixes",
   "ui": {
-    "version": "1.3.18",
+    "version": "1.3.19",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "2161b3d49591840d8618c659b4bfbf1c76bed61ac5ed8af1a7ad751c3cfff7f8"
+        "sha256": "7d6725957c62ac49f978fdbcc6aaddabe55ca77946bebc422e295049fe239f6a"
       }
     ]
   },
   "app": {
-    "version": "1.3.8",
+    "version": "1.3.9",
     "files": [
       {
         "path": "main.py",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/app/main.py",
-        "sha256": "e8841d3159de4dd95a782d978511cc3801e01b5e0f9b754661301ae813f8592f"
+        "sha256": "4c0c9e11c35bd8b2c9c76ed5922226eb30a35449af097521147a0112c3059491"
       }
     ]
   },
@@ -94,17 +94,17 @@
     {
       "id": "ssd1b",
       "name": "SSD-1B (Stable Diffusion XL)",
-      "version": "1.0.3",
+      "version": "1.0.4",
       "files": [
         {
           "path": "engine.json",
           "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/ssd1b/engine.json",
-          "sha256": "bc8b24680f52c9c03c32fbea5d9031a62ebf345e50b6d46b6fc4defadea907eb"
+          "sha256": "5241d71459d28d447ecc89e8a845036350293b66bbc776ab7400d6bf886f33fd"
         },
         {
           "path": "runner.py",
           "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/ssd1b/runner.py",
-          "sha256": "04d5e78de8a6c7e121ebcb6c3e4e5452e754b6e8fe08add7f9f6a2861017c6d6"
+          "sha256": "6757c5d285e357f478a051ff9424a2f3c10792c33fa0c9a9a1a6f426511f6a4a"
         }
       ]
     },

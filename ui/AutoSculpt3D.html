@@ -563,7 +563,31 @@ body.empty .tabs,body.empty .dims{visibility:hidden}
         document.documentElement.lang = LANG;
     }
     const LANGUAGES = [['en', 'English'], ...Object.keys(LOCALES).map((c) => [c, LOCALES[c]._name || c])];
-    window.I18N = { t, translateDom, LANG, LOCALE, LANGUAGES, pref };
+    function keysOf(text) {
+        const out = new Set([text]);
+        for (const c of Object.keys(LOCALES)) {
+            const d = LOCALES[c];
+            for (const k in d)
+                if (k[0] !== '_' && d[k] === text)
+                    out.add(k);
+        }
+        return out;
+    }
+    function relabel(text, toLang) {
+        const d = LOCALES[toLang] || {}, keys = [...keysOf(text)];
+        const k = keys.find((x) => x !== text) || text;
+        return Object.prototype.hasOwnProperty.call(d, k) ? d[k] : k;
+    }
+    function sameText(a, b) {
+        if (a === b)
+            return true;
+        const ka = keysOf(a);
+        for (const k of keysOf(b))
+            if (ka.has(k))
+                return true;
+        return false;
+    }
+    window.I18N = { t, translateDom, LANG, LOCALE, LANGUAGES, pref, relabel, sameText };
     window.tr = t;
 })();
 </script>
@@ -4823,7 +4847,8 @@ function menuSpec() {
 window.AS_MENU = (mi, label) => {
     if (!$('dlg').hidden)
         return;
-    const m = MENUS()[mi], it = m && m.items.find(x => x && x.label === label);
+    const m = MENUS()[mi];
+    const it = m && (m.items.find(x => x && x.label === label) || m.items.find(x => x && x.label && I18N.sameText(x.label, label)));
     if (!it || !it.act)
         return;
     if (it.on && !it.on()) {
@@ -5577,6 +5602,16 @@ async function updateSettingsDialog() {
     if (langChanged) {
         if (!S.base || await guardDiscard()) {
             D.dirty = false;
+            if (NATIVE_MENUAPI && NATIVE.menu && CAN_RESTART) {
+                const to = lang === 'auto' ? (I18N.LANGUAGES.map(l => l[0]).find(c => (navigator.language || 'en').toLowerCase().startsWith(c)) || 'en') : lang;
+                const spec = menuSpec().map(mm => ({ label: I18N.relabel(mm.label, to), items: mm.items.map(x => x && { label: I18N.relabel(x.label, to) }) }));
+                try {
+                    await api('/api/menu', { lang: to, menus: spec });
+                    (await bridge()).restart();
+                    return;
+                }
+                catch (e) { }
+            }
             location.reload();
             return;
         }

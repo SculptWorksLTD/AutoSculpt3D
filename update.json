@@ -1,14 +1,14 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.12",
-  "notes": "Clearer texts for the engines and online services",
+  "latest": "1.3.13",
+  "notes": "New, lighter look",
   "ui": {
-    "version": "1.3.12",
+    "version": "1.3.13",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "1dce7afeafd35a103e9fa0b75799c1dafeca8da75d7d63c8782164c66c29a955"
+        "sha256": "2e4da6a043f16871ef51d832a5702bb358fcd83a154235f1aea485da66830616"
       }
     ]
   },

@@ -1293,7 +1293,10 @@ def main():
     except Exception:
         pass
     bridge = Bridge()
-    win = webview.create_window(APP_NAME, url, js_api=bridge, width=1440, height=900, min_size=(1024, 680), text_select=True)
+    try:
+        win = webview.create_window(APP_NAME, url, js_api=bridge, width=1440, height=900, min_size=(1024, 680), text_select=True, maximized=True)
+    except TypeError:
+        win = webview.create_window(APP_NAME, url, js_api=bridge, width=1440, height=900, min_size=(1024, 680), text_select=True)
     bridge.window = win
     if IS_WIN:
         try:

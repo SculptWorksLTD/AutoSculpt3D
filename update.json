@@ -1,24 +1,24 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.14",
-  "notes": "Choose online or on this computer",
+  "latest": "1.3.15",
+  "notes": "Panel on the left, full-screen window",
   "ui": {
-    "version": "1.3.14",
+    "version": "1.3.15",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "980a0d120d8db731890ba17731843a9769a60cfa31d5706d9833883ed6c2a317"
+        "sha256": "f62f24f9e4f0ade92d1fc5eea1cfae0b462abe3f0c19c3dc86b06322b718e6fe"
       }
     ]
   },
   "app": {
-    "version": "1.3.6",
+    "version": "1.3.7",
     "files": [
       {
         "path": "main.py",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/app/main.py",
-        "sha256": "b5f86fda5fbf4f9edabfe21d9e2eb624f0c6aca57e3a9da5029b776e61f9f4f8"
+        "sha256": "ef52a6bdb8859076069f9c92f5e3bb9f0093fd16fb41cf9e4cb9b13b5cf57854"
       }
     ]
   },

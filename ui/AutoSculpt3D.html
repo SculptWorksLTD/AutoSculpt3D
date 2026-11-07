@@ -31,7 +31,7 @@
 [hidden]{display:none!important}
 html,body{height:100%;margin:0}
 body{background:var(--bg);color:var(--ink);font:13px/1.4 var(--f-body);-webkit-font-smoothing:antialiased}
-.app{display:grid;grid-template-columns:minmax(0,1fr) 370px;grid-template-rows:auto minmax(0,1fr) auto;height:100%}
+.app{display:grid;grid-template-columns:370px minmax(0,1fr);grid-template-rows:auto minmax(0,1fr) auto;height:100%}
 header.top{grid-column:1/-1;display:flex;align-items:center;gap:18px;flex-wrap:wrap;
   padding-block:5px;padding-left:max(12px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
   border-bottom:1px solid var(--line);background:var(--panel)}
@@ -43,7 +43,7 @@ header.top{grid-column:1/-1;display:flex;align-items:center;gap:18px;flex-wrap:w
 .tabs button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
 .dims{margin-left:auto;font:500 13px var(--f-mono);color:var(--muted);font-variant-numeric:tabular-nums}
 .dims b{color:var(--ink);font-weight:500}
-.stage{position:relative;min-height:0;min-width:0;overflow:hidden;background:#D4D4D4}
+.stage{grid-column:2;grid-row:2;position:relative;min-height:0;min-width:0;overflow:hidden;background:#D4D4D4}
 .stage canvas.gl{display:block;width:100%;height:100%}
 .sheetview{position:absolute;inset:0;background:var(--bg);display:flex;flex-direction:column}
 .sheetbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:10px 16px;border-bottom:1px solid var(--line);background:var(--panel)}
@@ -56,7 +56,7 @@ header.top{grid-column:1/-1;display:flex;align-items:center;gap:18px;flex-wrap:w
 .busy{position:absolute;left:16px;bottom:16px;background:rgba(21,24,28,.86);color:#fff;font:500 12px var(--f-mono);padding:8px 12px;border-radius:3px}
 .drop{position:absolute;inset:12px;border:2px dashed var(--accent);border-radius:3px;display:grid;place-items:center;background:rgba(169,96,31,.08);font:600 15px var(--f-body);color:#5a3410}
 .stage-note{position:absolute;left:12px;top:10px;font:400 11px var(--f-body);color:#6A6A6A}
-aside.panel{background:var(--panel);border-left:1px solid var(--line);overflow:auto;min-height:0;padding-block:0 24px;
+aside.panel{grid-column:1;grid-row:2;background:var(--panel);border-right:1px solid var(--line);overflow:auto;min-height:0;padding-block:0 24px;
   padding-left:max(12px,env(safe-area-inset-left,0px));padding-right:max(12px,env(safe-area-inset-right,0px))}
 section.grp{padding:0 0 12px;display:grid;gap:8px}
 section.grp:last-child{border-bottom:0}
@@ -176,7 +176,8 @@ body.empty .tabs,body.empty .dims{visibility:hidden}
 .dlg .actions{display:flex;gap:8px;justify-content:flex-end;padding:8px 12px;background:var(--head);border-top:1px solid var(--line);flex-wrap:wrap}
 @media (max-width:900px){
   .app{grid-template-columns:1fr;grid-template-rows:auto 62vh auto;height:auto}
-  aside.panel{border-left:0;border-top:1px solid var(--line);overflow:visible}
+  aside.panel{grid-column:1;grid-row:3;border-right:0;border-top:1px solid var(--line);overflow:visible}
+  .stage{grid-column:1;grid-row:2}
   .dims{margin-left:0;width:100%}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
@@ -392,7 +393,7 @@ body.empty .tabs,body.empty .dims{visibility:hidden}
             <option value="dark">Dark studio</option><option value="black">Black</option><option value="landscape">Realistic landscape…</option><option value="photo">Your photo…</option>
           </select></div>
         <div class="field"><label for="floorSel">Floor</label>
-          <select id="floorSel"><option value="mirror">Reflective</option><option value="shadow" selected>Shadow only</option><option value="none">None</option></select></div>
+          <select id="floorSel"><option value="mirror">Reflective</option><option value="shadow">Shadow only</option><option value="none">None</option></select></div>
       </div>
       <input type="file" id="bgFile" accept="image/*" hidden><input type="hidden" id="bgLandscape">
       <p class="hint" id="bgHint">With "Your photo" you can place the sculpture in the client's garden or premises: the metal's reflections take on the photo's colours.</p>
@@ -2323,7 +2324,7 @@ else
     b.hidden = true; };
 const canvas = $('gl');
 const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, preserveDrawingBuffer: true });
-renderer.setPixelRatio(Math.min(1.5, window.devicePixelRatio || 1));
+renderer.setPixelRatio(Math.min(2, window.devicePixelRatio || 1));
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.toneMappingExposure = 1.05;
 renderer.outputColorSpace = THREE.SRGBColorSpace;
@@ -2343,7 +2344,7 @@ key.position.set(-2, 4, 3);
 scene.add(key);
 scene.add(new THREE.HemisphereLight(0xffffff, 0xb0b4ba, 0.35));
 const isWebKit = /AppleWebKit/.test(navigator.userAgent) && !/Chrome|Chromium|Edg\//.test(navigator.userAgent);
-const mirror = new Reflector(new THREE.CircleGeometry(7, 96), { textureWidth: 512, textureHeight: 512, color: 0xC9CDD2, multisample: 0 });
+const mirror = new Reflector(new THREE.CircleGeometry(7, 96), { textureWidth: 1024, textureHeight: 1024, color: 0xC9CDD2, multisample: isWebKit ? 0 : 4 });
 mirror.material.polygonOffset = true;
 mirror.material.polygonOffsetFactor = 2;
 mirror.material.polygonOffsetUnits = 4;
@@ -2651,24 +2652,9 @@ function resize() {
     renderer.setSize(r.width, r.height, false);
     camera.aspect = r.width / Math.max(1, r.height);
     camera.updateProjectionMatrix();
-    if (window.requestRedraw)
-        requestRedraw();
 }
 new ResizeObserver(resize).observe($('stage'));
-let redrawUntil = 0;
-window.requestRedraw = (ms = 400) => { redrawUntil = Math.max(redrawUntil, performance.now() + ms); };
-for (const ev of ['pointerdown', 'pointermove', 'wheel', 'keydown', 'input', 'change', 'click', 'drop'])
-    window.addEventListener(ev, (e) => { if (ev !== 'pointermove' || e.buttons)
-        requestRedraw(ev === 'wheel' || ev === 'pointermove' ? 600 : 1500); }, { capture: true, passive: true });
-controls.addEventListener('change', () => requestRedraw());
-let lastIdle = 0;
-renderer.setAnimationLoop((t) => {
-    const moved = controls.update();
-    if (moved || t < redrawUntil || t - lastIdle > 1000) {
-        lastIdle = t;
-        renderer.render(scene, camera);
-    }
-});
+renderer.setAnimationLoop(() => { controls.update(); renderer.render(scene, camera); });
 function geometriesToMesh(list) {
     const pos = [], idx = [];
     let base = 0;
@@ -4150,8 +4136,6 @@ const DEFAULTS = (() => { const st = {}; for (const id of SETTINGS)
     st[id] = $(id).type === 'checkbox' ? $(id).defaultChecked : ($(id).tagName === 'SELECT' ? ($(id).querySelector('option[selected]') || $(id).options[0]).value : $(id).defaultValue); return st; })();
 let statusTimer = 0;
 function status(msg, warn) {
-    if (window.requestRedraw)
-        requestRedraw(1500);
     const el = $('stMsg');
     el.textContent = msg;
     el.style.color = warn ? 'var(--cut)' : '';

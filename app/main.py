@@ -266,6 +266,14 @@ def sha256(path):
         for chunk in iter(lambda: fh.read(1 << 20), b''):
             h.update(chunk)
     return h.hexdigest()
+RETIRED_ENGINES = {'triposr'}
+
+def remove_retired_engines():
+    for eid in RETIRED_ENGINES:
+        for d in (SUPPORT / 'engines' / eid,):
+            if d.exists():
+                shutil.rmtree(d, ignore_errors=True)
+                log('Removed the retired engine', eid)
 
 def engine_specs():
     specs = {}
@@ -277,6 +285,8 @@ def engine_specs():
             if f.exists():
                 try:
                     spec = json.loads(f.read_text())
+                    if spec.get('id') in RETIRED_ENGINES:
+                        continue
                     spec['_dir'] = str(d)
                     if spec['id'] not in specs or vtuple(spec.get('version')) >= vtuple(specs[spec['id']].get('version')):
                         specs[spec['id']] = spec
@@ -992,7 +1002,7 @@ class Handler(BaseHTTPRequestHandler):
                 (engine_home(eid) / 'installed.json').unlink(missing_ok=True)
                 return self.send_json({'ok': True})
             if path == '/api/photo3d':
-                spec = engine_specs().get(b.get('engine') or 'triposr')
+                spec = engine_specs().get(b.get('engine') or 'triposg')
                 if not spec:
                     return self.send_json({'error': 'unknown engine'}, 404)
                 photos = b.get('images') or [b.get('image', '')]
@@ -1208,6 +1218,7 @@ def wait_previous_instance():
 def main():
     wait_previous_instance()
     maybe_run_updated_copy()
+    remove_retired_engines()
     ap = argparse.ArgumentParser()
     ap.add_argument('--server-only', action='store_true')
     a = ap.parse_args()

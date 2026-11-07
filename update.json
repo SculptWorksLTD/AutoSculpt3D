@@ -1,24 +1,24 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.9",
-  "notes": "At the first start: company details and download of the local engines, so that everything works on this computer.",
+  "latest": "1.3.10",
+  "notes": "TripoSR removed: TripoSG replaces it. The old engine files are deleted to free disk space.",
   "ui": {
-    "version": "1.3.9",
+    "version": "1.3.10",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "51fc5a8b1802e3431848ec34dc4d37bd4bd7e89493427616eef5620e7f4d79d2"
+        "sha256": "f0d7d095f984138e41d990050fb24c876714e0498565257c624b6e3ba9ed921b"
       }
     ]
   },
   "app": {
-    "version": "1.3.4",
+    "version": "1.3.5",
     "files": [
       {
         "path": "main.py",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/app/main.py",
-        "sha256": "3dcb61d141cfaa84ab4c5a4fc3c43fda4ddd7a50ee0a5f369ce2879980f49714"
+        "sha256": "34a7cb858bfbc28f2db35cd3a553a4be2f90944bbaf0c2d782beca2d34606d1a"
       }
     ]
   },
@@ -122,23 +122,6 @@
           "path": "runner.py",
           "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/triposg/runner.py",
           "sha256": "ec58882e9ea536ae5eaa7206cc28161d6dd7bb6c54c05023a48b6ac5345758b0"
-        }
-      ]
-    },
-    {
-      "id": "triposr",
-      "name": "TripoSR",
-      "version": "1.0.2",
-      "files": [
-        {
-          "path": "engine.json",
-          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/triposr/engine.json",
-          "sha256": "f6c9344284e6ef56eed930a0abe3f2b251dcc3e2eb496deabd2d15c53ea5f2e9"
-        },
-        {
-          "path": "runner.py",
-          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/triposr/runner.py",
-          "sha256": "72483fdcff40e6d4bccbb191aa6b482f202b69824dfe733ef295a8d6b8b64532"
         }
       ]
     }

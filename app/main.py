@@ -761,6 +761,37 @@ def hdri_file(hid, res):
     tmp.replace(f)
     return f
 MENU_FILE = SUPPORT / 'menu.json'
+WEBSTATE_FILE = SUPPORT / 'webstate.json'
+WEBSTATE_LOCK = threading.Lock()
+PREFERRED_PORTS = range(47815, 47825)
+
+def webstate_read():
+    try:
+        data = json.loads(WEBSTATE_FILE.read_text(encoding='utf-8'))
+        return {k: v for k, v in data.items() if isinstance(k, str) and k.startswith('autosculpt.') and isinstance(v, str)}
+    except Exception:
+        return {}
+
+def webstate_update(changes):
+    with WEBSTATE_LOCK:
+        data = webstate_read()
+        for k, v in changes.items():
+            if not (isinstance(k, str) and k.startswith('autosculpt.') and (len(k) < 100)):
+                continue
+            if v is None:
+                data.pop(k, None)
+            elif isinstance(v, str):
+                data[k] = v
+        if len(json.dumps(data)) > 20000000:
+            raise UserError('The saved preferences are too large')
+        tmp = WEBSTATE_FILE.with_suffix('.tmp')
+        tmp.write_text(json.dumps(data, ensure_ascii=False), encoding='utf-8')
+        os.replace(tmp, WEBSTATE_FILE)
+
+def webstate_script():
+    state = json.dumps(webstate_read(), ensure_ascii=False).replace('</', '<\\/')
+    token = json.dumps(TOKEN)
+    return '<script>(function(){var S=' + state + ',T=' + token + ";try{for(var k in S){if(localStorage.getItem(k)===null)localStorage.setItem(k,S[k]);}}catch(e){}var q={},t=null;function flush(){var b=JSON.stringify(q);q={};t=null;try{fetch('/api/webstate',{method:'POST',headers:{'X-AS-Token':T,'Content-Type':'application/json'},body:b,keepalive:b.length<60000});}catch(e){}}function note(st,k,v){if(st===window.localStorage&&/^autosculpt\\./.test(k)){q[k]=v;if(!t)t=setTimeout(flush,250);}}var P=Storage.prototype,set=P.setItem,rem=P.removeItem;P.setItem=function(k,v){set.call(this,k,v);note(this,k,String(v));};P.removeItem=function(k){rem.call(this,k);note(this,k,null);};window.addEventListener('pagehide',function(){if(t){clearTimeout(t);flush();}});})();</script>"
 NATIVE_MENU = False
 
 def native_menu(bridge):
@@ -928,7 +959,7 @@ class Handler(BaseHTTPRequestHandler):
                 d, _ = ui_dir()
                 html = (d / 'AutoSculpt3D.html').read_text(encoding='utf-8')
                 inject = f'<script>window.AS_NATIVE={{token:{json.dumps(TOKEN)},version:{json.dumps(VERSION)},ui:{json.dumps(ui_version())},product:{json.dumps(product_version())},menu:{json.dumps(NATIVE_MENU)},platform:{json.dumps(platform.machine())},os:{json.dumps(sys.platform)}}};</script>'
-                html = html.replace('<head>', '<head>\n' + inject, 1)
+                html = html.replace('<head>', '<head>\n' + webstate_script() + inject, 1)
                 body = html.encode('utf-8')
                 self.send_response(200)
                 self.send_header('Content-Type', 'text/html; charset=utf-8')
@@ -1099,6 +1130,11 @@ class Handler(BaseHTTPRequestHandler):
             if path == '/api/update/apply':
                 job = run_job(Job('update', 'Update'), apply_updates)
                 return self.send_json(job.as_dict())
+            if path == '/api/webstate':
+                if not isinstance(b, dict):
+                    return self.send_json({'error': 'invalid'}, 400)
+                webstate_update(b)
+                return self.send_json({'ok': True})
             if path == '/api/menu':
                 menus = b.get('menus')
                 if not isinstance(menus, list) or len(menus) > 10:
@@ -1131,7 +1167,13 @@ def cleanup_jobs(days=2):
 
 def start_server():
     cleanup_jobs()
-    srv = ThreadingHTTPServer(('127.0.0.1', 0), Handler)
+    srv = None
+    for port in list(PREFERRED_PORTS) + [0]:
+        try:
+            srv = ThreadingHTTPServer(('127.0.0.1', port), Handler)
+            break
+        except OSError:
+            continue
     threading.Thread(target=srv.serve_forever, daemon=True).start()
     return srv
 

@@ -5307,7 +5307,7 @@ async function voiceButton() {
         const rec = VOICE.rec;
         VOICE.rec = null;
         VOICE.busy = true;
-        btn.textContent = '🎤 ' + tr('Dictate');
+        btn.innerHTML = '<span style="display:block;font-size:24px;line-height:1.2">🎤</span>' + esc(tr('Dictate'));
         $('txLevel').hidden = true;
         try {
             const audio = await rec.stop();
@@ -5358,7 +5358,7 @@ async function voiceButton() {
     }
     try {
         VOICE.rec = await startRecording();
-        btn.textContent = '⏹ ' + tr('Stop');
+        btn.innerHTML = '<span style="display:block;font-size:24px;line-height:1.2">⏹</span>' + esc(tr('Stop'));
         $('txLevel').hidden = false;
         voiceNote(tr('Speak now, then press Stop (at most 30 seconds).'));
     }
@@ -5385,9 +5385,10 @@ async function textFlow() {
         return;
     const pref = list.find(e => e.id === PREFS.imgEngine) || list.find(e => e.type === 'cloud' && e.key_set) || list.find(e => e.installed) || list[0];
     const r = await dialog({ title: tr('Create the 3D model from a description'), body: `
-    <div class="field"><div class="row" style="display:flex;justify-content:space-between;align-items:center;gap:8px"><label for="txPrompt">${tr('Describe the subject')}</label>
-      <button type="button" class="btn" id="txMic" title="${esc(tr('Dictate the description with the microphone'))}">🎤 ${tr('Dictate')}</button></div>
-      <textarea id="txPrompt" rows="3" placeholder="${esc(tr('e.g. a sitting bull terrier with its mouth open and the tail up'))}">${esc(PREFS.lastPrompt || '')}</textarea>
+    <div class="field"><label for="txPrompt">${tr('Describe the subject')}</label>
+      <div style="display:flex;gap:8px;align-items:stretch">
+      <textarea id="txPrompt" rows="3" style="flex:1;min-width:0" placeholder="${esc(tr('e.g. a sitting bull terrier with its mouth open and the tail up'))}">${esc(PREFS.lastPrompt || '')}</textarea>
+      <button type="button" class="btn primary" id="txMic" style="flex:none;width:96px;text-align:center;font-size:13px" title="${esc(tr('Dictate the description with the microphone'))}"><span style="display:block;font-size:24px;line-height:1.2">🎤</span>${tr('Dictate')}</button></div>
       <div id="txLevel" hidden style="height:4px;border-radius:2px;background:var(--line);overflow:hidden"><div id="txLevelBar" style="height:100%;width:0;background:var(--accent);transition:width .08s"></div></div>
       <p class="hint" id="txVoice" hidden></p></div>
     <p class="hint">${tr('Only the subject: the program asks for a single complete object on a white background, the best start for the sculpture.')}</p>

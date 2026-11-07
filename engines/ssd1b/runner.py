@@ -47,6 +47,32 @@ def total_ram_gb():
     except Exception:
         return 16
 
+def free_memory_gb():
+    try:
+        if sys.platform == 'darwin':
+            import subprocess
+            out = subprocess.run(['vm_stat'], capture_output=True, text=True, timeout=5).stdout
+            page = int(out.split('page size of')[1].split()[0]) if 'page size of' in out else 16384
+            pages = 0
+            for key in ('Pages free', 'Pages inactive', 'Pages speculative', 'Pages purgeable'):
+                for line in out.splitlines():
+                    if line.startswith(key):
+                        pages += int(line.split(':')[1].strip().rstrip('.'))
+            return pages * page / 2 ** 30
+        if os.path.exists('/proc/meminfo'):
+            for line in open('/proc/meminfo'):
+                if line.startswith('MemAvailable'):
+                    return int(line.split()[1]) / 2 ** 20
+    except Exception:
+        return None
+    return None
+
+def warn_if_memory_low(need_gb):
+    free = free_memory_gb()
+    if free is not None and free < need_gb:
+        print(f'free memory {free:.1f} GB, needed about {need_gb} GB', flush=True)
+        say('PROGRESS', '0.06', 'The memory of this computer is almost full: close other programs (emulators, virtual machines, many browser tabs) to go faster')
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--prompt-file', required=True)
@@ -71,6 +97,7 @@ def main():
     device = a.device if a.device != 'auto' else 'cuda' if torch.cuda.is_available() else 'mps' if torch.backends.mps.is_available() else 'cpu'
     steps, size = {'draft': (18, 768), 'normal': (28, 1024), 'high': (40, 1024)}.get(a.quality, (28, 1024))
     say('PROGRESS', '0.08', 'Loading the image generator')
+    warn_if_memory_low(7)
     from diffusers import StableDiffusionXLPipeline
     ram = total_ram_gb()
     if device == 'cpu' and ram < 12:
@@ -82,6 +109,8 @@ def main():
     dtype = torch.float16 if device in ('cuda', 'mps') and a.precision != 'fp32' else torch.float32
     if device == 'mps' and dtype == torch.float32:
         size = min(size, 768)
+    elif device == 'mps' and a.quality != 'high':
+        size = min(size, 896)
 
     def load(dt):
         print(f'device {device}, {ram:.0f} GB RAM, {dt}', flush=True)
@@ -92,6 +121,11 @@ def main():
             pass
         if device == 'mps':
             p.vae.to(torch.float32)
+        try:
+            p.vae.enable_tiling()
+            p.vae.enable_slicing()
+        except Exception:
+            pass
         return p
     pipe = load(dtype)
 

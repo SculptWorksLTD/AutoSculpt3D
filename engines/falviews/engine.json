@@ -1,0 +1,18 @@
+{
+  "id": "falviews",
+  "name": "Nano Banana on fal.ai",
+  "type": "cloud",
+  "kind": "multiview",
+  "key_engine": "fal",
+  "version": "1.0.0",
+  "min_program": "1.3.10",
+  "order": 25,
+  "description": "Draws the chosen picture from the other three sides, online in under a minute. It uses the same fal.ai key as the 3D models.",
+  "license": "Pictures may be used commercially; paid service, check the terms of fal.ai",
+  "price": "about 0.12 USD for the three sides",
+  "minutes": "under a minute",
+  "key_url": "https://fal.ai/dashboard/keys",
+  "key_hint": "fal.ai → Dashboard → Keys (add credit under Billing)",
+  "runner": "runner.py",
+  "options": []
+}

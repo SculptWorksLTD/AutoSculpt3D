@@ -543,6 +543,14 @@ def install_engine(job, spec):
         tmp.unlink(missing_ok=True)
     k += 1
     w = spec.get('weights')
+    for ws in spec.get('weights_sets', []):
+        at(k, 'Downloading the model weights ({gb} GB in total)', gb=spec.get('download_gb', '?'))
+        dest = home / 'weights' / ws.get('subdir', '')
+        code = "import sys, time\nfrom huggingface_hub import hf_hub_download\nrepo, dest = sys.argv[1], sys.argv[2]\nfor i, f in enumerate(sys.argv[3:]):\n    print('FILE', i, f, flush=True)\n    for t in range(4):\n        try:\n            hf_hub_download(repo, f, local_dir=dest); break\n        except Exception as e:\n            print('RETRY', t + 1, e, flush=True)\n            if t == 3: raise\n            time.sleep(5 * (t + 1))\n"
+        rc = stream(job, [py, '-c', code, ws['hf_repo'], dest, *ws['files']], env={'HF_HUB_DISABLE_TELEMETRY': '1', 'HF_HUB_ENABLE_HF_TRANSFER': '0'}, on_line=lambda l: job.update(None, 'Downloading the weights: {file}', file=l.split(' ', 2)[-1]) if l.startswith('FILE') else None)
+        if rc != 0:
+            tail = ' / '.join(job.log[-3:])
+            raise UserError('Downloading the weights failed: {detail}', detail=tail or '-')
     if w:
         at(k, 'Downloading the model weights ({gb} GB in total)', gb=spec.get('download_gb', '?'))
         code = "import sys\nfrom huggingface_hub import hf_hub_download\nrepo, dest = sys.argv[1], sys.argv[2]\nimport time\nfor i, f in enumerate(sys.argv[3:]):\n    print('FILE', i, f, flush=True)\n    for t in range(4):\n        try:\n            hf_hub_download(repo, f, local_dir=dest); break\n        except Exception as e:\n            print('RETRY', t + 1, e, flush=True)\n            if t == 3: raise\n            time.sleep(5 * (t + 1))\n"
@@ -562,7 +570,7 @@ def install_engine(job, spec):
     job.update(1, 'Engine installed')
     job.result = {'engine': eid}
 
-def run_text2image(job, spec, prompt, lang, count, options):
+def run_text2image(job, spec, prompt, lang, count, options, reference=None):
     out = job.dir / 'images'
     pf = job.dir / 'prompt.txt'
     pf.write_text(prompt, encoding='utf-8')
@@ -580,6 +588,10 @@ def run_text2image(job, spec, prompt, lang, count, options):
         runner, env = (copy_runner(spec, home), engine_env(home))
         cmd = [py, runner, '--weights', home / 'weights', '--src', home / 'src']
     cmd += ['--prompt-file', pf, '--lang', lang or 'en', '--output-dir', out, '--count', str(count), '--work', job.dir]
+    if reference is not None:
+        ref = job.dir / 'reference.png'
+        ref.write_bytes(reference)
+        cmd += ['--image', ref]
     for o in spec.get('options', []):
         if o['id'] in options:
             cmd += ['--' + o['id'], str(options[o['id']])]
@@ -1102,6 +1114,22 @@ class Handler(BaseHTTPRequestHandler):
                 job = Job('text2image', 'Description to pictures')
                 run_job(job, lambda j: run_text2image(j, spec, prompt, str(b.get('lang') or 'en')[:5], max(1, min(int(b.get('count') or 4), 6)), b.get('options') or {}))
                 return self.send_json(job.as_dict())
+            if path == '/api/multiview':
+                spec = engine_specs().get(b.get('engine') or '')
+                if not spec or spec.get('kind') != 'multiview':
+                    return self.send_json({'error': 'unknown engine'}, 404)
+                src = str(b.get('image') or '')
+                try:
+                    if src.startswith('/api/jobs/'):
+                        parts = src.split('/')
+                        ref = (JOBS[parts[3]].dir / 'images' / Path(parts[-1]).name).read_bytes()
+                    else:
+                        ref = base64.b64decode(src.split(',', 1)[1])
+                except Exception:
+                    return self.send_json({'error': 'picture not found'}, 400)
+                job = Job('multiview', 'Views of the subject')
+                run_job(job, lambda j: run_text2image(j, spec, str(b.get('prompt') or '').strip()[:600], str(b.get('lang') or 'en')[:5], 4, b.get('options') or {}, reference=ref))
+                return self.send_json(job.as_dict())
             if path == '/api/speech2text':
                 spec = engine_specs().get(b.get('engine') or '')
                 if not spec or spec.get('kind') != 'speech2text':
@@ -1370,6 +1398,51 @@ def mac_open_documents():
         log('Open documents handler:', ', '.join((c.__name__ for c in set(targets))) or 'none')
     except Exception:
         log('Open documents handler not installed:', traceback.format_exc())
+MAC_APP_MENU = {'it': ('Informazioni su {app}', 'Servizi', 'Nascondi {app}', 'Nascondi altre', 'Mostra tutte', 'Esci da {app}', ('Taglia', 'Copia', 'Incolla', 'Seleziona tutto')), 'de': ('Über {app}', 'Dienste', '{app} ausblenden', 'Andere ausblenden', 'Alle einblenden', '{app} beenden', ('Ausschneiden', 'Kopieren', 'Einsetzen', 'Alles auswählen')), 'fr': ("À propos d'{app}", 'Services', 'Masquer {app}', 'Masquer les autres', 'Tout afficher', 'Quitter {app}', ('Couper', 'Copier', 'Coller', 'Tout sélectionner')), 'es': ('Acerca de {app}', 'Servicios', 'Ocultar {app}', 'Ocultar otros', 'Mostrar todo', 'Salir de {app}', ('Cortar', 'Copiar', 'Pegar', 'Seleccionar todo')), 'pt': ('Sobre o {app}', 'Serviços', 'Ocultar {app}', 'Ocultar Outros', 'Mostrar Tudo', 'Encerrar {app}', ('Recortar', 'Copiar', 'Colar', 'Selecionar Tudo')), 'ja': ('{app} について', 'サービス', '{app} を非表示', 'ほかを非表示', 'すべてを表示', '{app} を終了', ('カット', 'コピー', 'ペースト', 'すべてを選択')), 'en': ('About {app}', 'Services', 'Hide {app}', 'Hide Others', 'Show All', 'Quit {app}', ('Cut', 'Copy', 'Paste', 'Select All'))}
+EDIT_MENU_NAMES = {'Edit', 'Modifica', 'Bearbeiten', 'Édition', 'Edición', 'Editar', '編集'}
+
+def fix_mac_menu():
+    try:
+        lang = json.loads(MENU_FILE.read_text(encoding='utf-8')).get('lang', 'en') if MENU_FILE.exists() else 'en'
+    except Exception:
+        lang = 'en'
+    t = MAC_APP_MENU.get(lang, MAC_APP_MENU['en'])
+
+    def run():
+        try:
+            from AppKit import NSApp, NSMenuItem
+            main = NSApp.mainMenu()
+            if main is None:
+                return
+            for i in reversed(range(main.numberOfItems())):
+                item = main.itemAtIndex_(i)
+                sub = item.submenu()
+                if sub is None:
+                    continue
+                actions = [str(sub.itemAtIndex_(k).action() or '') for k in range(sub.numberOfItems())]
+                if i > 0 and actions and all((a in ('toggleFullScreen:', '') for a in actions)):
+                    main.removeItemAtIndex_(i)
+                    continue
+                if i == 1 or (i == 0 and 'terminate:' in actions):
+                    for k in range(sub.numberOfItems()):
+                        it = sub.itemAtIndex_(k)
+                        a = str(it.action() or '')
+                        new = {'orderFrontStandardAboutPanel:': t[0], 'hide:': t[2], 'hideOtherApplications:': t[3], 'unhideAllApplications:': t[4], 'terminate:': t[5]}.get(a)
+                        if new:
+                            it.setTitle_(new.format(app=APP_NAME))
+                        elif it.submenu() is not None and str(it.title()) == 'Services':
+                            it.setTitle_(t[1])
+                if str(item.title()) in EDIT_MENU_NAMES and 'copy:' not in actions:
+                    sub.addItem_(NSMenuItem.separatorItem())
+                    for title, sel, key in zip(t[6], ('cut:', 'copy:', 'paste:', 'selectAll:'), ('x', 'c', 'v', 'a')):
+                        sub.addItem_(NSMenuItem.alloc().initWithTitle_action_keyEquivalent_(title, sel, key))
+        except Exception:
+            log('Menu bar not adjusted:', traceback.format_exc())
+    try:
+        from PyObjCTools import AppHelper
+        AppHelper.callAfter(run)
+    except Exception:
+        log('Menu bar not adjusted:', traceback.format_exc())
 
 def wait_previous_instance():
     pid = os.environ.pop('AUTOSCULPT_WAIT_PID', None)
@@ -1442,7 +1515,7 @@ def main():
     menu = native_menu(bridge)
     NATIVE_MENU = bool(menu)
     try:
-        webview.start(private_mode=False, storage_path=str(SUPPORT / 'webview'), menu=menu)
+        webview.start((lambda: (time.sleep(1.0), fix_mac_menu())) if IS_MAC else None, private_mode=False, storage_path=str(SUPPORT / 'webview'), menu=menu)
     except TypeError:
         NATIVE_MENU = False
         webview.start(private_mode=False, storage_path=str(SUPPORT / 'webview'))

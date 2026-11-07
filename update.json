@@ -1,24 +1,24 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.19",
-  "notes": "AutoSculpt 3D project files (.as3d) and fixes",
+  "latest": "1.3.20",
+  "notes": "Four views of the subject, new start page, project files",
   "ui": {
-    "version": "1.3.19",
+    "version": "1.3.20",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "7d6725957c62ac49f978fdbcc6aaddabe55ca77946bebc422e295049fe239f6a"
+        "sha256": "a8e8511737ed675c222a78c1b0694d001a419c823696e111e725514ebdaa7a0c"
       }
     ]
   },
   "app": {
-    "version": "1.3.9",
+    "version": "1.3.10",
     "files": [
       {
         "path": "main.py",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/app/main.py",
-        "sha256": "4c0c9e11c35bd8b2c9c76ed5922226eb30a35449af097521147a0112c3059491"
+        "sha256": "6393f7bf969212d7cd3de4696e8039f3db0d4a5321945b5af9d29d17815a1d42"
       }
     ]
   },
@@ -58,6 +58,23 @@
       ]
     },
     {
+      "id": "falviews",
+      "name": "Nano Banana on fal.ai",
+      "version": "1.0.0",
+      "files": [
+        {
+          "path": "engine.json",
+          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/falviews/engine.json",
+          "sha256": "144f8ed72a40f255d99eb5ec326e758a708b7114797ad6789ce34f8f50ede3d2"
+        },
+        {
+          "path": "runner.py",
+          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/falviews/runner.py",
+          "sha256": "c8ad5dacf4d8b3acd7caf462f3e87f4c193b519775e0ac05e84702bc48cff254"
+        }
+      ]
+    },
+    {
       "id": "falwhisper",
       "name": "Whisper on fal.ai (voice)",
       "version": "1.0.1",
@@ -92,19 +109,36 @@
       ]
     },
     {
+      "id": "mvadapter",
+      "name": "MV-Adapter (Stable Diffusion XL)",
+      "version": "1.0.0",
+      "files": [
+        {
+          "path": "engine.json",
+          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/mvadapter/engine.json",
+          "sha256": "e98b79210e225bfc5fd4d889047cdc60d9aa6f75e18d80a66d832671e58fcb30"
+        },
+        {
+          "path": "runner.py",
+          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/mvadapter/runner.py",
+          "sha256": "49487945bba1876b60ce3a859bcbed362b63555dc7130fc207378a28a663a3b4"
+        }
+      ]
+    },
+    {
       "id": "ssd1b",
       "name": "SSD-1B (Stable Diffusion XL)",
-      "version": "1.0.4",
+      "version": "1.0.5",
       "files": [
         {
           "path": "engine.json",
           "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/ssd1b/engine.json",
-          "sha256": "5241d71459d28d447ecc89e8a845036350293b66bbc776ab7400d6bf886f33fd"
+          "sha256": "106ba4c6dfaf196cca6a72a16871ff29072168b57205c39cce4040cfd13addb2"
         },
         {
           "path": "runner.py",
           "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/ssd1b/runner.py",
-          "sha256": "6757c5d285e357f478a051ff9424a2f3c10792c33fa0c9a9a1a6f426511f6a4a"
+          "sha256": "d401e2a09e55f6d62fad84ea368e40179be2be67ed6b3be153215d071a7f82a5"
         }
       ]
     },

@@ -1,0 +1,41 @@
+{
+  "id": "mvadapter",
+  "name": "MV-Adapter (Stable Diffusion XL)",
+  "kind": "multiview",
+  "version": "1.0.0",
+  "install_version": "1.0.0",
+  "min_program": "1.3.10",
+  "description": "Draws the chosen picture from the other three sides, so that you can check the subject all around before the 3D model.",
+  "license": "MV-Adapter: Apache 2.0 (huanngzh); Stable Diffusion XL: CreativeML Open RAIL++-M (Stability AI); SDXL VAE fp16 fix: MIT (madebyollin)",
+  "homepage": "https://github.com/huanngzh/MV-Adapter",
+  "download_gb": 10.7,
+  "minutes": "5-10 minutes on Apple chips, 1-2 on NVIDIA cards, about an hour on the processor only",
+  "steps": [
+    {"label": "PyTorch (computing engine)", "pkgs": ["torch"],
+     "win_nvidia": ["--index-url", "https://download.pytorch.org/whl/cu124", "--extra-index-url", "https://pypi.org/simple"]},
+    {"label": "views generator", "alternatives": [
+      ["diffusers>=0.31,<0.34", "transformers>=4.40,<4.50", "accelerate", "safetensors", "einops", "trimesh", "numpy", "Pillow", "huggingface-hub<1.0"],
+      ["diffusers", "transformers", "accelerate", "safetensors", "einops", "trimesh", "numpy", "Pillow", "huggingface-hub<1.0"]]}
+  ],
+  "source": {
+    "url": "https://github.com/huanngzh/MV-Adapter/archive/4277e0018232bac82bb2c103caf0893cedb711be.zip",
+    "subdir": "mvadapter"
+  },
+  "weights_sets": [
+    {"hf_repo": "stabilityai/stable-diffusion-xl-base-1.0", "subdir": "sdxl", "files": [
+      "model_index.json", "scheduler/scheduler_config.json",
+      "text_encoder/config.json", "text_encoder/model.fp16.safetensors",
+      "text_encoder_2/config.json", "text_encoder_2/model.fp16.safetensors",
+      "tokenizer/merges.txt", "tokenizer/special_tokens_map.json", "tokenizer/tokenizer_config.json", "tokenizer/vocab.json",
+      "tokenizer_2/merges.txt", "tokenizer_2/special_tokens_map.json", "tokenizer_2/tokenizer_config.json", "tokenizer_2/vocab.json",
+      "unet/config.json", "unet/diffusion_pytorch_model.fp16.safetensors"]},
+    {"hf_repo": "madebyollin/sdxl-vae-fp16-fix", "subdir": "vae", "files": ["config.json", "diffusion_pytorch_model.safetensors"]},
+    {"hf_repo": "huanngzh/mv-adapter", "subdir": "adapter", "files": ["mvadapter_i2mv_sdxl.safetensors"]}
+  ],
+  "runner": "runner.py",
+  "options": [
+    {"id": "quality", "label": "Picture quality", "type": "choice", "default": "normal",
+     "choices": [["draft", "Fast"], ["normal", "Normal"], ["high", "High (slower)"]]}
+  ],
+  "order": 65
+}

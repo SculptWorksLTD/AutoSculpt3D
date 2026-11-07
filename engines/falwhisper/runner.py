@@ -58,7 +58,7 @@ def main():
     key = os.environ.get('AUTOSCULPT_API_KEY', '')
     t0 = time.time()
     try:
-        say('PROGRESS', '0.1', 'Sending the recording to {service}', service='Whisper')
+        say('PROGRESS', '0.1', 'Sending the recording to {service}', service=SERVICE)
         uri = 'data:audio/wav;base64,' + base64.b64encode(open(a.audio, 'rb').read()).decode()
         body = {'audio_url': uri, 'task': 'transcribe', 'chunk_level': 'segment'}
         if a.lang in LANGS:
@@ -72,7 +72,7 @@ def main():
             if call('GET', status_url, key).get('status') == 'COMPLETED':
                 break
             if time.time() - t0 > 180:
-                raise Fail('{service} is taking too long: try again later', service='Whisper')
+                raise Fail('{service} is taking too long: try again later', service=SERVICE)
         text = (call('GET', response_url, key, timeout=60).get('text') or '').strip()
         if not text:
             raise Fail('No words were recognised: speak a little louder and closer')

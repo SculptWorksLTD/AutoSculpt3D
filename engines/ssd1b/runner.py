@@ -73,7 +73,7 @@ def main():
     from diffusers import StableDiffusionXLPipeline
     ram = total_ram_gb()
     if device == 'cpu' and ram < 12:
-        say('ERROR', 'This computer has {gb} GB of memory: the local image generator needs at least 12 GB (or an Apple chip or an NVIDIA card). Use FLUX online instead.', gb=round(ram))
+        say('ERROR', 'This computer has {gb} GB of memory: the pictures on this computer need at least 12 GB (or an Apple chip or an NVIDIA card). Use the online pictures instead.', gb=round(ram))
         sys.exit(1)
     dtype = torch.float16 if device in ('cuda', 'mps') else torch.float32
     print(f'device {device}, {ram:.0f} GB RAM, {dtype}', flush=True)

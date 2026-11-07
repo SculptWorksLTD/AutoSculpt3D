@@ -1,14 +1,14 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.11",
-  "notes": "Voice dictation of the description",
+  "latest": "1.3.12",
+  "notes": "Clearer texts for the engines and online services",
   "ui": {
-    "version": "1.3.11",
+    "version": "1.3.12",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "2395922e71abdf4617b32e9d40cf495fbcee1c62c8a3c9f6021a2ab4ce80aae4"
+        "sha256": "1dce7afeafd35a103e9fa0b75799c1dafeca8da75d7d63c8782164c66c29a955"
       }
     ]
   },
@@ -60,17 +60,17 @@
     {
       "id": "falwhisper",
       "name": "Whisper on fal.ai (voice)",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "files": [
         {
           "path": "engine.json",
           "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/falwhisper/engine.json",
-          "sha256": "13d7727cbf434f983a24eafc8fe691849196ab34f1c1ffc2c14d6c03a629e1b5"
+          "sha256": "bbe1ca6f268f62e1d30d7c4f91a701397eb8f679815b3282e2d4b065e964ba63"
         },
         {
           "path": "runner.py",
           "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/falwhisper/runner.py",
-          "sha256": "ddad0b0159b317bf9b6bfea0dd39adc6a8e4bf272ef93ee2ffec7ad9bdc2309d"
+          "sha256": "614edf213581301170a95adadd72675bcefa2ea74191b1f355c083704ce3e76a"
         }
       ]
     },
@@ -94,17 +94,17 @@
     {
       "id": "ssd1b",
       "name": "SSD-1B (Stable Diffusion XL)",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "files": [
         {
           "path": "engine.json",
           "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/ssd1b/engine.json",
-          "sha256": "018e40eec8261903377997678871e07d0d25a29927c0d7addef51062a8385a0e"
+          "sha256": "f68da55bc1a59a387ac5260b0e8b123a17a8d81582962a07ac2bbd2dabdabe2b"
         },
         {
           "path": "runner.py",
           "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/ssd1b/runner.py",
-          "sha256": "7c9ef7d26b429ddc4098f19f8d3baa0d08546f095b78ee917bce5d4738a76dc1"
+          "sha256": "b200b59028daea331f47b894d0b066d0dffb9f9f8ee94448e39a17477fd73003"
         }
       ]
     },

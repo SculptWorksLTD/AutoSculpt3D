@@ -4,7 +4,7 @@
   "type": "cloud",
   "kind": "speech2text",
   "key_engine": "fal",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "order": 30,
   "description": "Writes the description you dictate, online: nothing to install, it uses the same fal.ai key as the 3D models.",
   "license": "Paid service, check the terms of fal.ai",

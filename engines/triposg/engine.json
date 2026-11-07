@@ -1,0 +1,58 @@
+{
+  "id": "triposg",
+  "name": "TripoSG",
+  "version": "1.0.0",
+  "install_version": "1.0.0",
+  "description": "High-fidelity 3D shapes from a single photo, on this computer: free, offline after installation and much more precise than TripoSR. Slow without an NVIDIA card or an Apple chip.",
+  "license": "MIT, commercial use allowed (VAST AI Research)",
+  "homepage": "https://github.com/VAST-AI-Research/TripoSG",
+  "download_gb": 8.5,
+  "minutes": "5-15 minutes per photo on Apple chips, 2-4 on NVIDIA cards, 30-90 on the processor only",
+  "steps": [
+    {
+      "label": "PyTorch (computing engine)",
+      "pkgs": ["torch"],
+      "win_nvidia": ["--index-url", "https://download.pytorch.org/whl/cu124", "--extra-index-url", "https://pypi.org/simple"]
+    },
+    {
+      "label": "geometry libraries",
+      "pkgs": ["einops", "omegaconf", "scikit-image", "scipy", "trimesh", "jaxtyping", "typeguard", "Pillow", "huggingface-hub<1.0"]
+    },
+    {
+      "label": "vision model",
+      "alternatives": [
+        ["diffusers>=0.30,<0.34", "transformers>=4.40,<4.50", "accelerate", "peft", "safetensors"],
+        ["diffusers", "transformers", "accelerate", "peft", "safetensors"]
+      ]
+    },
+    {
+      "label": "background removal",
+      "alternatives": [["rembg[cpu]"], ["rembg"]]
+    }
+  ],
+  "source": {
+    "url": "https://github.com/VAST-AI-Research/TripoSG/archive/fc5c40990181e2a756c4e0b1c2f4d6b5202faf8c.zip",
+    "subdir": "triposg"
+  },
+  "weights": {
+    "hf_repo": "VAST-AI/TripoSG",
+    "files": [
+      "model_index.json",
+      "feature_extractor_dinov2/preprocessor_config.json",
+      "image_encoder_dinov2/config.json",
+      "image_encoder_dinov2/model.safetensors",
+      "scheduler/scheduler_config.json",
+      "transformer/config.json",
+      "transformer/diffusion_pytorch_model.safetensors",
+      "vae/config.json",
+      "vae/diffusion_pytorch_model.safetensors"
+    ]
+  },
+  "runner": "runner.py",
+  "options": [
+    {"id": "remove_bg", "label": "Remove the photo background", "type": "bool", "default": true},
+    {"id": "quality", "label": "Reconstruction detail", "type": "choice", "default": "normal",
+     "choices": [["draft", "Fast"], ["normal", "Normal"], ["high", "High (slower)"]]}
+  ],
+  "order": 80
+}

@@ -1,14 +1,14 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.3",
-  "notes": "Landscape picker fixed on Mac.",
+  "latest": "1.3.4",
+  "notes": "New free local engine TripoSG: much better 3D shapes from a photo.",
   "ui": {
-    "version": "1.3.3",
+    "version": "1.3.4",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "8699b2e1d56ad3e2b7b3f77ccc5b2cc00a20389ec871d5ae9fb2f018a4f2c049"
+        "sha256": "b5cc367ada3fd0ecd01346213e8e7c41b6257d176aca019c05debb56e2482d08"
       }
     ]
   },
@@ -71,6 +71,23 @@
           "path": "runner.py",
           "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/tripo/runner.py",
           "sha256": "ff896b29bd98c5cfe267dffc2eed1c6bf3d196d9701cef0ace131d66afb1eb9a"
+        }
+      ]
+    },
+    {
+      "id": "triposg",
+      "name": "TripoSG",
+      "version": "1.0.0",
+      "files": [
+        {
+          "path": "engine.json",
+          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/triposg/engine.json",
+          "sha256": "f4a00a819bbb4da5c0a18c948cfb0576ae2e13ba25cac570cd1b7cfa8962bb80"
+        },
+        {
+          "path": "runner.py",
+          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/triposg/runner.py",
+          "sha256": "ec58882e9ea536ae5eaa7206cc28161d6dd7bb6c54c05023a48b6ac5345758b0"
         }
       ]
     },

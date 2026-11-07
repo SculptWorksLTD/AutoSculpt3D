@@ -1,9 +1,9 @@
 {
   "id": "triposr",
   "name": "TripoSR",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "install_version": "1.0.0",
-  "description": "Reconstructs a 3D model from a single photo. Runs on the computer, without internet after installation.",
+  "description": "Reconstructs a 3D model from a single photo on this computer: free and offline after installation, but less precise than the online services.",
   "license": "MIT, commercial use allowed (VAST AI Research / Stability AI)",
   "homepage": "https://github.com/VAST-AI-Research/TripoSR",
   "download_gb": 2.6,
@@ -120,5 +120,6 @@
         ]
       ]
     }
-  ]
+  ],
+  "order": 90
 }

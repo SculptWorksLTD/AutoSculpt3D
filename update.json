@@ -1,37 +1,88 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.1.0",
-  "notes": "English interface and Italian translation; language choice in Preferences.",
+  "latest": "1.2.0",
+  "notes": "Online photo-to-3D services (fal.ai: TRELLIS 2, Hunyuan 3D, Rodin; Meshy; Tripo) with several photos per model. New languages: German, French, Spanish, Portuguese, Japanese.",
   "ui": {
-    "version": "1.1.0",
+    "version": "1.2.0",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "9751586245cd734f6dd94cc2c2668b5909c0a6f41827d7935fd3b38be2fdff68"
+        "sha256": "f7c6e89d4c17182e04a40328924b294bf62fb7ce702aef8a97f2b23b79d75671"
       }
     ]
   },
   "app": {
-    "version": "1.1.0",
+    "version": "1.2.0",
     "files": [
       {
         "path": "main.py",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/app/main.py",
-        "sha256": "00c45864d03dd5cbe8a4c032a2d2e154b2cf7c264c48f39a40db86cef16459b9"
+        "sha256": "5383fa0d93c1c6307f87f595f84a8b77a530eff5bf9a731b57501b9bb06fd47b"
       }
     ]
   },
   "engines": [
     {
+      "id": "fal",
+      "name": "fal.ai (TRELLIS 2 · Hunyuan 3D · Rodin)",
+      "version": "1.0.0",
+      "files": [
+        {
+          "path": "engine.json",
+          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/fal/engine.json",
+          "sha256": "ef893db7e55f8bd8152a5a744b9de4a9ba637a3d3eeb19a771ca2a029b69a25d"
+        },
+        {
+          "path": "runner.py",
+          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/fal/runner.py",
+          "sha256": "853da822ffd01951a187a516b6116361442901c86ca5147179dddf26f7561088"
+        }
+      ]
+    },
+    {
+      "id": "meshy",
+      "name": "Meshy",
+      "version": "1.0.0",
+      "files": [
+        {
+          "path": "engine.json",
+          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/meshy/engine.json",
+          "sha256": "9778fd274ea323e62d8bfa3f59a785e25ffc81b3a99f38cc6d9303e4d102dd4a"
+        },
+        {
+          "path": "runner.py",
+          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/meshy/runner.py",
+          "sha256": "4e66896b5eabc2c400153d8caa818614ccc8a0275bfc960560ad9d14e57169bd"
+        }
+      ]
+    },
+    {
+      "id": "tripo",
+      "name": "Tripo",
+      "version": "1.0.0",
+      "files": [
+        {
+          "path": "engine.json",
+          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/tripo/engine.json",
+          "sha256": "47efb9bedb232ea7bd47a3c9b24139d47c0d343581ed18365c1c7cb1d4d84a81"
+        },
+        {
+          "path": "runner.py",
+          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/tripo/runner.py",
+          "sha256": "ff896b29bd98c5cfe267dffc2eed1c6bf3d196d9701cef0ace131d66afb1eb9a"
+        }
+      ]
+    },
+    {
       "id": "triposr",
       "name": "TripoSR",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "files": [
         {
           "path": "engine.json",
           "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/triposr/engine.json",
-          "sha256": "89f1f5c9e0dba9178a3637ee986186cc2e01ac977a1b0f690c16a96e335fbe4d"
+          "sha256": "f6c9344284e6ef56eed930a0abe3f2b251dcc3e2eb496deabd2d15c53ea5f2e9"
         },
         {
           "path": "runner.py",

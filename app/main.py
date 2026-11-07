@@ -238,18 +238,40 @@ def engine_specs():
                 except Exception:
                     log('Invalid engine.json:', f)
     return specs
+KEYS_FILE = SUPPORT / 'keys.json'
+
+def load_keys():
+    try:
+        return json.loads(KEYS_FILE.read_text())
+    except Exception:
+        return {}
+
+def save_key(eid, key):
+    keys = load_keys()
+    if key:
+        keys[eid] = key
+    else:
+        keys.pop(eid, None)
+    KEYS_FILE.write_text(json.dumps(keys))
+    try:
+        os.chmod(KEYS_FILE, 384)
+    except OSError:
+        pass
 
 def engine_home(eid):
     return SUPPORT / 'engines' / eid
 
 def engine_status(spec):
+    if spec.get('type') == 'cloud':
+        key = load_keys().get(spec['id'], '')
+        return {'id': spec['id'], 'name': spec['name'], 'type': 'cloud', 'version': spec.get('version'), 'order': spec.get('order', 50), 'description': spec.get('description'), 'license': spec.get('license'), 'price': spec.get('price'), 'minutes': spec.get('minutes'), 'key_url': spec.get('key_url'), 'key_hint': spec.get('key_hint'), 'max_images': spec.get('max_images', 1), 'options': spec.get('options', []), 'installed': bool(key), 'key_set': bool(key), 'key_end': key[-4:] if len(key) > 8 else '', 'update': False}
     home = engine_home(spec['id'])
     info = {}
     try:
         info = json.loads((home / 'installed.json').read_text())
     except Exception:
         pass
-    return {'id': spec['id'], 'name': spec['name'], 'version': spec.get('version'), 'description': spec.get('description'), 'license': spec.get('license'), 'download_gb': spec.get('download_gb'), 'minutes': spec.get('minutes'), 'options': spec.get('options', []), 'installed': bool(info), 'installed_version': info.get('version'), 'update': bool(info) and vtuple(spec.get('install_version', spec.get('version'))) > vtuple(info.get('version'))}
+    return {'id': spec['id'], 'name': spec['name'], 'version': spec.get('version'), 'description': spec.get('description'), 'license': spec.get('license'), 'download_gb': spec.get('download_gb'), 'minutes': spec.get('minutes'), 'options': spec.get('options', []), 'installed': bool(info), 'installed_version': info.get('version'), 'type': 'local', 'order': spec.get('order', 50), 'max_images': 1, 'update': bool(info) and vtuple(spec.get('install_version', spec.get('version'))) > vtuple(info.get('version'))}
 
 def copy_runner(spec, home):
     src, dst = (Path(spec['_dir']) / spec['runner'], home / spec['runner'])
@@ -347,14 +369,26 @@ def install_engine(job, spec):
     job.update(1, 'Engine installed')
     job.result = {'engine': eid}
 
-def run_engine(job, spec, image_path, options):
-    home = engine_home(spec['id'])
-    py = venv_python(home)
-    if not py.exists() or not (home / 'installed.json').exists():
-        raise UserError('Engine not installed')
-    runner = copy_runner(spec, home)
-    out = job.dir / 'result.obj'
-    cmd = [py, runner, '--input', image_path, '--output', out, '--src', home / 'src', '--weights', home / 'weights', '--work', job.dir]
+def run_engine(job, spec, images, options):
+    if spec.get('type') == 'cloud':
+        key = load_keys().get(spec['id'])
+        if not key:
+            raise UserError('No API key for {name}: add it in Tools → Photo → 3D engines', name=spec['name'])
+        py, env = (BASE_PY, {'AUTOSCULPT_API_KEY': key})
+        runner = Path(spec['_dir']) / spec['runner']
+        out = job.dir / 'result.glb'
+        cmd = [py, runner, '--output', out, '--work', job.dir]
+        for img in images[:spec.get('max_images', 1)]:
+            cmd += ['--input', img]
+    else:
+        home = engine_home(spec['id'])
+        py = venv_python(home)
+        if not py.exists() or not (home / 'installed.json').exists():
+            raise UserError('Engine not installed')
+        runner = copy_runner(spec, home)
+        env = engine_env(home)
+        out = job.dir / 'result.obj'
+        cmd = [py, runner, '--input', images[0], '--output', out, '--src', home / 'src', '--weights', home / 'weights', '--work', job.dir]
     for o in spec.get('options', []):
         if o['id'] in options:
             v = options[o['id']]
@@ -376,13 +410,24 @@ def run_engine(job, spec, image_path, options):
             except (ValueError, KeyError, IndexError):
                 pass
         elif line.startswith('ERROR '):
-            errors.append(line[6:])
-    rc = stream(job, cmd, env=engine_env(home), on_line=on_line)
+            text, values = (line[6:], {})
+            if '\t' in text:
+                text, raw = text.split('\t', 1)
+                try:
+                    values = json.loads(raw)
+                except ValueError:
+                    values = {}
+            errors.append((text, values))
+    rc = stream(job, cmd, env=env, on_line=on_line)
+    if job.cancelled:
+        raise UserError('Cancelled')
     if rc != 0 or not out.exists():
+        if errors and errors[-1][1]:
+            raise UserError(errors[-1][0], **errors[-1][1])
         tail = [l for l in job.log[-6:] if not l.startswith(('PROGRESS', 'ERROR'))]
-        detail = (errors[-1] if errors else '-') + (' | ' + ' / '.join(tail[-3:]) if tail else '')
+        detail = (errors[-1][0] if errors else '-') + (' | ' + ' / '.join(tail[-3:]) if tail else '')
         raise UserError('The engine stopped: {detail}', detail=detail)
-    job.result = {'url': f'/api/jobs/{job.id}/result', 'name': 'result.obj'}
+    job.result = {'url': f'/api/jobs/{job.id}/result', 'name': out.name}
 
 def product_version():
     return max((VERSION, ui_version()), key=vtuple)
@@ -542,15 +587,17 @@ class Handler(BaseHTTPRequestHandler):
             if path == '/api/info':
                 return self.send_json({'app': APP_NAME, 'version': VERSION, 'ui': ui_version(), 'product': product_version(), 'machine': platform.machine(), 'macos': platform.mac_ver()[0], 'os': sys.platform, 'support': str(SUPPORT), 'settings': load_settings()})
             if path == '/api/engines':
-                return self.send_json([engine_status(s) for s in engine_specs().values()])
+                return self.send_json(sorted((engine_status(s) for s in engine_specs().values()), key=lambda e: (e['order'], e['name'])))
             if path.startswith('/api/jobs/'):
                 parts = path.split('/')
                 job = JOBS.get(parts[3]) if len(parts) > 3 else None
                 if not job:
                     return self.send_error(404)
                 if len(parts) > 4 and parts[4] == 'result':
-                    f = job.dir / 'result.obj'
-                    return self.send_file(f, 'text/plain') if f.exists() else self.send_error(404)
+                    for f, ctype in ((job.dir / 'result.glb', 'model/gltf-binary'), (job.dir / 'result.obj', 'text/plain')):
+                        if f.exists():
+                            return self.send_file(f, ctype)
+                    return self.send_error(404)
                 return self.send_json(job.as_dict())
             if path == '/api/update/check':
                 try:
@@ -582,6 +629,9 @@ class Handler(BaseHTTPRequestHandler):
                 eid = path.split('/')[3]
                 if eid not in engine_specs():
                     return self.send_json({'error': 'unknown engine'}, 404)
+                if engine_specs()[eid].get('type') == 'cloud':
+                    save_key(eid, '')
+                    return self.send_json({'ok': True})
                 shutil.rmtree(engine_home(eid) / 'venv', ignore_errors=True)
                 shutil.rmtree(engine_home(eid) / 'weights', ignore_errors=True)
                 shutil.rmtree(engine_home(eid) / 'src', ignore_errors=True)
@@ -591,18 +641,27 @@ class Handler(BaseHTTPRequestHandler):
                 spec = engine_specs().get(b.get('engine') or 'triposr')
                 if not spec:
                     return self.send_json({'error': 'unknown engine'}, 404)
-                data = b.get('image', '')
-                if ',' in data:
-                    data = data.split(',', 1)[1]
+                photos = b.get('images') or [b.get('image', '')]
                 job = Job('photo3d', 'Photo to 3D')
-                img = job.dir / 'photo.png'
+                imgs = []
                 try:
-                    from_bytes = base64.b64decode(data)
-                    img.write_bytes(from_bytes)
+                    for i, data in enumerate(photos[:8]):
+                        head, _, data = data.rpartition(',')
+                        ext = '.png' if 'png' in head else '.webp' if 'webp' in head else '.jpg'
+                        img = job.dir / f'photo{i + 1}{ext}'
+                        img.write_bytes(base64.b64decode(data))
+                        imgs.append(img)
                 except Exception:
                     return self.send_json({'error': 'invalid image'}, 400)
-                run_job(job, lambda j: run_engine(j, spec, img, b.get('options') or {}))
+                if not imgs:
+                    return self.send_json({'error': 'invalid image'}, 400)
+                run_job(job, lambda j: run_engine(j, spec, imgs, b.get('options') or {}))
                 return self.send_json(job.as_dict())
+            if path == '/api/keys':
+                if (b.get('engine') or '') not in engine_specs():
+                    return self.send_json({'error': 'unknown engine'}, 404)
+                save_key(b['engine'], str(b.get('key') or '').strip())
+                return self.send_json({'ok': True})
             if path.startswith('/api/jobs/') and path.endswith('/cancel'):
                 job = JOBS.get(path.split('/')[3])
                 if job:
@@ -645,13 +704,15 @@ class Bridge:
     def __init__(self):
         self.window = None
 
-    def _dialog(self, kind, **kw):
+    def _dialog(self, kind, multiple=False, **kw):
         import webview
         fd = getattr(webview, 'FileDialog', None)
         const = {'save': getattr(fd, 'SAVE', None) if fd else None, 'open': getattr(fd, 'OPEN', None) if fd else None}[kind]
         if const is None:
             const = webview.SAVE_DIALOG if kind == 'save' else webview.OPEN_DIALOG
-        r = self.window.create_file_dialog(const, **kw)
+        r = self.window.create_file_dialog(const, allow_multiple=multiple, **kw) if multiple else self.window.create_file_dialog(const, **kw)
+        if multiple:
+            return list(r or [])
         if isinstance(r, (list, tuple)):
             r = r[0] if r else None
         return r
@@ -673,6 +734,11 @@ class Bridge:
         if not path:
             return None
         return self.read_file(path)
+
+    def open_files(self, kind='image', label=None, limit=5):
+        exts = '*.jpg;*.jpeg;*.png;*.heic;*.webp' if IS_MAC else '*.jpg;*.jpeg;*.png;*.webp'
+        paths = self._dialog('open', multiple=True, file_types=(f"{label or 'Images'} ({exts})",), directory=str(Path.home()))
+        return [f for f in (self.read_file(p) for p in paths[:int(limit)]) if f]
 
     def read_file(self, path):
         p = Path(path)

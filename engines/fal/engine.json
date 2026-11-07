@@ -1,0 +1,42 @@
+{
+  "id": "fal",
+  "name": "fal.ai (TRELLIS 2 · Hunyuan 3D · Rodin)",
+  "type": "cloud",
+  "version": "1.0.0",
+  "order": 10,
+  "description": "Online service with several state-of-the-art 3D models: much more precise than the local engine. Rodin accepts up to five photos of the same subject.",
+  "license": "Paid service, pay per model; check the terms of fal.ai and of the chosen model",
+  "price": "0.23-0.40 USD per model",
+  "minutes": "1-3 minutes per model",
+  "key_url": "https://fal.ai/dashboard/keys",
+  "key_hint": "fal.ai → Dashboard → Keys (add credit under Billing)",
+  "max_images": 5,
+  "runner": "runner.py",
+  "options": [
+    {
+      "id": "model",
+      "label": "3D model",
+      "type": "choice",
+      "default": "trellis2",
+      "choices": [
+        [
+          "trellis2",
+          "TRELLIS 2 (one photo, about 0.30 USD)"
+        ],
+        [
+          "hunyuan",
+          "Hunyuan 3D 3.1 (one photo, about 0.23 USD)"
+        ],
+        [
+          "rodin",
+          "Rodin 2.5 (up to 5 photos, about 0.40 USD)"
+        ]
+      ],
+      "max_images": {
+        "trellis2": 1,
+        "hunyuan": 1,
+        "rodin": 5
+      }
+    }
+  ]
+}

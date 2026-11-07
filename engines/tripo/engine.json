@@ -1,0 +1,49 @@
+{
+  "id": "tripo",
+  "name": "Tripo",
+  "type": "cloud",
+  "version": "1.0.0",
+  "order": 30,
+  "description": "Fast online service with good shapes from a single photo.",
+  "license": "Paid service, pay per model; check Tripo's terms on ownership of the models",
+  "price": "about 0.20 USD per model (shape only)",
+  "minutes": "10 seconds - 2 minutes per model",
+  "key_url": "https://developers.tripo3d.ai/en",
+  "key_hint": "Tripo Developers → API keys (add credit under Billing)",
+  "max_images": 1,
+  "runner": "runner.py",
+  "options": [
+    {
+      "id": "model",
+      "label": "3D model",
+      "type": "choice",
+      "default": "v3.1-20260211",
+      "choices": [
+        [
+          "v3.1-20260211",
+          "Tripo 3.1 (best)"
+        ],
+        [
+          "v2.5-20250123",
+          "Tripo 2.5 (faster)"
+        ]
+      ]
+    },
+    {
+      "id": "geometry",
+      "label": "Shape detail",
+      "type": "choice",
+      "default": "detailed",
+      "choices": [
+        [
+          "detailed",
+          "Detailed"
+        ],
+        [
+          "standard",
+          "Standard"
+        ]
+      ]
+    }
+  ]
+}

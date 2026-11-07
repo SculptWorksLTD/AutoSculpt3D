@@ -1,0 +1,53 @@
+{
+  "id": "meshy",
+  "name": "Meshy",
+  "type": "cloud",
+  "version": "1.0.0",
+  "order": 20,
+  "description": "Online service known for clean, detailed shapes. Accepts up to four photos of the same subject from different sides.",
+  "license": "Paid service (API on paid plans); check Meshy's terms on ownership of the models",
+  "price": "about 20 credits per model (shape only)",
+  "minutes": "1-4 minutes per model",
+  "key_url": "https://www.meshy.ai/api",
+  "key_hint": "meshy.ai → Settings → API keys",
+  "max_images": 4,
+  "runner": "runner.py",
+  "options": [
+    {
+      "id": "model",
+      "label": "3D model",
+      "type": "choice",
+      "default": "latest",
+      "choices": [
+        [
+          "latest",
+          "Latest Meshy model (best)"
+        ],
+        [
+          "meshy-6-lite",
+          "Meshy 6 Lite (cheaper)"
+        ]
+      ]
+    },
+    {
+      "id": "polycount",
+      "label": "Faces in the model received",
+      "type": "choice",
+      "default": 50000,
+      "choices": [
+        [
+          30000,
+          "30,000"
+        ],
+        [
+          50000,
+          "50,000"
+        ],
+        [
+          100000,
+          "100,000 (fine details)"
+        ]
+      ]
+    }
+  ]
+}

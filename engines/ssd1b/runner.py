@@ -75,14 +75,33 @@ def main():
     if device == 'cpu' and ram < 12:
         say('ERROR', 'This computer has {gb} GB of memory: the pictures on this computer need at least 12 GB (or an Apple chip or an NVIDIA card). Use the online pictures instead.', gb=round(ram))
         sys.exit(1)
-    dtype = torch.float16 if device == 'cuda' else torch.float32
-    print(f'device {device}, {ram:.0f} GB RAM, {dtype}', flush=True)
-    pipe = StableDiffusionXLPipeline.from_pretrained(a.weights, torch_dtype=dtype, variant='fp16', use_safetensors=True)
-    pipe = pipe.to(device)
-    try:
-        pipe.enable_attention_slicing()
-    except Exception:
-        pass
+    dtype = torch.float16 if device in ('cuda', 'mps') else torch.float32
+
+    def load(dt):
+        print(f'device {device}, {ram:.0f} GB RAM, {dt}', flush=True)
+        p = StableDiffusionXLPipeline.from_pretrained(a.weights, torch_dtype=dt, variant='fp16', use_safetensors=True).to(device)
+        try:
+            p.enable_attention_slicing()
+        except Exception:
+            pass
+        if device == 'mps':
+            p.vae.to(torch.float32)
+        return p
+    pipe = load(dtype)
+
+    def decode(latents):
+        vae = pipe.vae
+        lat = latents.to(device=device, dtype=torch.float32)
+        mean, std = (getattr(vae.config, 'latents_mean', None), getattr(vae.config, 'latents_std', None))
+        if mean is not None and std is not None:
+            m = torch.tensor(mean).view(1, -1, 1, 1).to(lat)
+            sd = torch.tensor(std).view(1, -1, 1, 1).to(lat)
+            lat = lat * sd / vae.config.scaling_factor + m
+        else:
+            lat = lat / vae.config.scaling_factor
+        with torch.no_grad():
+            out = vae.decode(lat, return_dict=False)[0]
+        return pipe.image_processor.postprocess(out, output_type='pil')[0]
     seed = a.seed if a.seed >= 0 else int(time.time()) % 1000000
     os.makedirs(a.output_dir, exist_ok=True)
     t0, n = (time.time(), max(1, min(a.count, 6)))
@@ -97,8 +116,26 @@ def main():
         gen = torch.Generator(device='cpu').manual_seed(seed + i)
         import contextlib
         ctx = torch.autocast(device_type='cpu', dtype=torch.bfloat16) if dtype == torch.bfloat16 else contextlib.nullcontext()
-        with ctx, torch.no_grad():
-            img = pipe(prompt=STYLE.format(subject=subject), negative_prompt=NEGATIVE, num_inference_steps=steps, guidance_scale=7.0, width=size, height=size, generator=gen, callback_on_step_end=step).images[0]
+        args = dict(prompt=STYLE.format(subject=subject), negative_prompt=NEGATIVE, num_inference_steps=steps, guidance_scale=7.0, width=size, height=size, generator=gen, callback_on_step_end=step)
+        try:
+            with ctx, torch.no_grad():
+                if device == 'mps':
+                    img = decode(pipe(output_type='latent', **args).images)
+                else:
+                    img = pipe(**args).images[0]
+        except RuntimeError as exc:
+            if 'dtype' not in str(exc) or dtype == torch.float32:
+                raise
+            print('half precision failed, going to float32:', exc, flush=True)
+            dtype = torch.float32
+            del pipe
+            if device == 'mps':
+                torch.mps.empty_cache()
+            pipe = load(dtype)
+            gen = torch.Generator(device='cpu').manual_seed(seed + i)
+            args['generator'] = gen
+            with torch.no_grad():
+                img = decode(pipe(output_type='latent', **args).images) if device == 'mps' else pipe(**args).images[0]
         img.save(os.path.join(a.output_dir, f'image{i + 1}.png'))
         say('IMAGE', os.path.join(a.output_dir, f'image{i + 1}.png'))
     say('PROGRESS', '1', 'Done in {s} seconds', s=round(time.time() - t0))

@@ -1,7 +1,7 @@
 {
   "product": "AutoSculpt 3D",
   "latest": "1.3.18",
-  "notes": "No more pieces too small to weld",
+  "notes": "Faster pictures on Apple chips",
   "ui": {
     "version": "1.3.18",
     "files": [
@@ -94,17 +94,17 @@
     {
       "id": "ssd1b",
       "name": "SSD-1B (Stable Diffusion XL)",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "files": [
         {
           "path": "engine.json",
           "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/ssd1b/engine.json",
-          "sha256": "84d001abea1ca7e7b6ba226a3d8f521ec8991508508f7056b6c59fc922ab5b8b"
+          "sha256": "bc8b24680f52c9c03c32fbea5d9031a62ebf345e50b6d46b6fc4defadea907eb"
         },
         {
           "path": "runner.py",
           "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/ssd1b/runner.py",
-          "sha256": "6d3900561f201af840c5e2b8d1269ffa9db5cddd23ec97c044c583c419cd8b3b"
+          "sha256": "04d5e78de8a6c7e121ebcb6c3e4e5452e754b6e8fe08add7f9f6a2861017c6d6"
         }
       ]
     },

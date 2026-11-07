@@ -75,7 +75,7 @@ def main():
     if device == 'cpu' and ram < 12:
         say('ERROR', 'This computer has {gb} GB of memory: the pictures on this computer need at least 12 GB (or an Apple chip or an NVIDIA card). Use the online pictures instead.', gb=round(ram))
         sys.exit(1)
-    dtype = torch.float16 if device in ('cuda', 'mps') else torch.float32
+    dtype = torch.float16 if device == 'cuda' else torch.float32
     print(f'device {device}, {ram:.0f} GB RAM, {dtype}', flush=True)
     pipe = StableDiffusionXLPipeline.from_pretrained(a.weights, torch_dtype=dtype, variant='fp16', use_safetensors=True)
     pipe = pipe.to(device)

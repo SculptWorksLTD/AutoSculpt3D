@@ -1,7 +1,7 @@
 {
   "product": "AutoSculpt 3D",
   "latest": "1.3.20",
-  "notes": "Fixes",
+  "notes": "Faster picture generation on Apple chips",
   "ui": {
     "version": "1.3.20",
     "files": [
@@ -128,17 +128,17 @@
     {
       "id": "ssd1b",
       "name": "SSD-1B (Stable Diffusion XL)",
-      "version": "1.0.5",
+      "version": "1.0.6",
       "files": [
         {
           "path": "engine.json",
           "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/ssd1b/engine.json",
-          "sha256": "106ba4c6dfaf196cca6a72a16871ff29072168b57205c39cce4040cfd13addb2"
+          "sha256": "f21d423e152651544eea809f35c7bdf0f0248d2d9b442ea25ff5d14e046be5ce"
         },
         {
           "path": "runner.py",
           "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/ssd1b/runner.py",
-          "sha256": "d401e2a09e55f6d62fad84ea368e40179be2be67ed6b3be153215d071a7f82a5"
+          "sha256": "0880d9b759298605e49523dbe17943938e450cf6defc8e875bb82477e2a86a52"
         }
       ]
     },

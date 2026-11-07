@@ -104,7 +104,7 @@ def main():
         say('ERROR', 'This computer has {gb} GB of memory: the pictures on this computer need at least 12 GB (or an Apple chip or an NVIDIA card). Use the online pictures instead.', gb=round(ram))
         sys.exit(1)
     marker = os.path.join(os.path.dirname(os.path.abspath(a.weights)), 'precision-fp32')
-    if device == 'mps' and os.path.exists(marker):
+    if device == 'mps' and os.path.exists(marker) and open(marker, errors='replace').read().startswith('autocast:'):
         a.precision = 'fp32'
     dtype = torch.float16 if device in ('cuda', 'mps') and a.precision != 'fp32' else torch.float32
     if device == 'mps' and dtype == torch.float32:
@@ -156,6 +156,11 @@ def main():
         gen = torch.Generator(device='cpu').manual_seed(seed + i)
         import contextlib
         ctx = torch.autocast(device_type='cpu', dtype=torch.bfloat16) if dtype == torch.bfloat16 else contextlib.nullcontext()
+        if device == 'mps' and dtype == torch.float16:
+            try:
+                ctx = torch.autocast(device_type='mps', dtype=torch.float16)
+            except Exception:
+                ctx = contextlib.nullcontext()
         args = dict(prompt=STYLE.format(subject=subject), negative_prompt=NEGATIVE, num_inference_steps=steps, guidance_scale=7.0, width=size, height=size, generator=gen, callback_on_step_end=step)
         try:
             with ctx, torch.no_grad():
@@ -168,7 +173,9 @@ def main():
                 raise
             print('half precision failed, starting again in float32:', exc, flush=True)
             try:
-                open(marker, 'w').write(str(exc)[:500])
+                import traceback
+                traceback.print_exc()
+                open(marker, 'w').write('autocast: ' + str(exc)[:500])
             except Exception:
                 pass
             say('PROGRESS', '0.08', 'Loading the image generator')

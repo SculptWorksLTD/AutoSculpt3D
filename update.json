@@ -1,14 +1,14 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.33",
-  "notes": "FLUX image generator also for NVIDIA cards",
+  "latest": "1.3.34",
+  "notes": "Dal sogno alla realtà, in 3 dimensioni",
   "ui": {
-    "version": "1.3.33",
+    "version": "1.3.34",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "480f056a3e77d5b229c7d4d140725d158aa7c1d5f15a95bac62523866b208ce9"
+        "sha256": "afc864bb2a6628e27969046f5ca50c0d17db6dcfc0b731802baaed1d8b97f5ee"
       }
     ]
   },

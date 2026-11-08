@@ -1344,6 +1344,8 @@ class Bridge:
             path = self._dialog('save', save_filename=name, directory=str(documents_dir()))
             if not path:
                 return None
+            if not Path(path).suffix and Path(name).suffix:
+                path = str(path) + Path(name).suffix
         Path(path).write_bytes(base64.b64decode(b64))
         log('Saved', path)
         return {'path': path, 'name': Path(path).name}

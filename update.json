@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.43",
-  "notes": "Slots on short bends: the slot now fits even on bends of a few millimetres, so almost no bend needs pliers.",
+  "latest": "1.3.44",
+  "notes": "Models made from photos are cleaned up automatically: no more legs full of tiny facets and a body made of a few huge faces. The facets are now spread evenly over the whole sculpture. Saving without typing the extension now adds it.",
   "notes_i18n": {
-    "en": "Slots on short bends: the slot now fits even on bends of a few millimetres, so almost no bend needs pliers.",
-    "it": "Asole sulle pieghe corte: l’asola ora entra anche nelle pieghe di pochi millimetri, quindi quasi nessuna piega richiede la pinza.",
-    "de": "Schlitze an kurzen Biegungen: der Schlitz passt jetzt auch in Biegungen von wenigen Millimetern, fast keine Biegung braucht noch die Zange.",
-    "fr": "Fentes sur les plis courts : la fente tient désormais même sur les plis de quelques millimètres, presque aucun pli ne demande la pince.",
-    "es": "Ranuras en los pliegues cortos: la ranura ahora cabe incluso en pliegues de pocos milímetros, casi ningún pliegue necesita alicates.",
-    "pt": "Rasgos nas dobras curtas: o rasgo agora cabe até em dobras de poucos milímetros, quase nenhuma dobra precisa de alicate.",
-    "ja": "短い曲げのスリット：数ミリの曲げにもスリットが入るようになり、ペンチが必要な曲げはほとんどなくなりました。"
+    "en": "Models made from photos are cleaned up automatically: no more legs full of tiny facets and a body made of a few huge faces. The facets are now spread evenly over the whole sculpture. Saving without typing the extension now adds it.",
+    "it": "I modelli ricavati dalle foto vengono puliti da soli: niente più zampe piene di faccette minuscole e corpo fatto di poche facce enormi. Ora le faccette si distribuiscono in modo uniforme su tutta la scultura. Se salvi senza scrivere l’estensione, viene aggiunta da sola.",
+    "de": "Aus Fotos erstellte Modelle werden automatisch bereinigt: keine Beine voller winziger Facetten und kein Körper aus wenigen riesigen Flächen mehr. Die Facetten verteilen sich jetzt gleichmäßig über die ganze Skulptur. Beim Speichern ohne Dateiendung wird sie jetzt ergänzt.",
+    "fr": "Les modèles créés à partir de photos sont nettoyés automatiquement : plus de pattes pleines de facettes minuscules ni de corps fait de quelques faces énormes. Les facettes se répartissent désormais uniformément sur toute la sculpture. Si vous enregistrez sans taper l’extension, elle est ajoutée.",
+    "es": "Los modelos creados a partir de fotos se limpian solos: ya no hay patas llenas de facetas diminutas ni un cuerpo hecho de pocas caras enormes. Ahora las facetas se reparten de forma uniforme por toda la escultura. Si guardas sin escribir la extensión, se añade sola.",
+    "pt": "Os modelos criados a partir de fotos são limpos automaticamente: chega de patas cheias de facetas minúsculas e corpo feito de poucas faces enormes. Agora as facetas se distribuem de forma uniforme por toda a escultura. Se você salvar sem digitar a extensão, ela é adicionada.",
+    "ja": "写真から作ったモデルを自動で整えるようになりました。脚に細かいファセットが集中し、胴体が少数の大きな面になる問題がなくなり、彫刻全体に均等にファセットが配分されます。拡張子なしで保存しても自動で付きます。"
   },
   "history": [
+    {
+      "date": "2026-11-08T09:32:54Z",
+      "version": "1.3.44",
+      "notes": {
+        "en": "Models made from photos are cleaned up automatically: no more legs full of tiny facets and a body made of a few huge faces. The facets are now spread evenly over the whole sculpture. Saving without typing the extension now adds it.",
+        "it": "I modelli ricavati dalle foto vengono puliti da soli: niente più zampe piene di faccette minuscole e corpo fatto di poche facce enormi. Ora le faccette si distribuiscono in modo uniforme su tutta la scultura. Se salvi senza scrivere l’estensione, viene aggiunta da sola.",
+        "de": "Aus Fotos erstellte Modelle werden automatisch bereinigt: keine Beine voller winziger Facetten und kein Körper aus wenigen riesigen Flächen mehr. Die Facetten verteilen sich jetzt gleichmäßig über die ganze Skulptur. Beim Speichern ohne Dateiendung wird sie jetzt ergänzt.",
+        "fr": "Les modèles créés à partir de photos sont nettoyés automatiquement : plus de pattes pleines de facettes minuscules ni de corps fait de quelques faces énormes. Les facettes se répartissent désormais uniformément sur toute la sculpture. Si vous enregistrez sans taper l’extension, elle est ajoutée.",
+        "es": "Los modelos creados a partir de fotos se limpian solos: ya no hay patas llenas de facetas diminutas ni un cuerpo hecho de pocas caras enormes. Ahora las facetas se reparten de forma uniforme por toda la escultura. Si guardas sin escribir la extensión, se añade sola.",
+        "pt": "Os modelos criados a partir de fotos são limpos automaticamente: chega de patas cheias de facetas minúsculas e corpo feito de poucas faces enormes. Agora as facetas se distribuem de forma uniforme por toda a escultura. Se você salvar sem digitar a extensão, ela é adicionada.",
+        "ja": "写真から作ったモデルを自動で整えるようになりました。脚に細かいファセットが集中し、胴体が少数の大きな面になる問題がなくなり、彫刻全体に均等にファセットが配分されます。拡張子なしで保存しても自動で付きます。"
+      }
+    },
     {
       "date": "2026-11-08T09:18:35Z",
       "version": "1.3.43",
@@ -144,22 +157,22 @@
     }
   ],
   "ui": {
-    "version": "1.3.43",
+    "version": "1.3.44",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "dd6e2d1249be39d468c1894cb98954f806c32869d27a37ef3b12db8e2f5ce9af"
+        "sha256": "6cdffad90881b65d6df90a9302c6d24129ed5a628053246d756b8d910641170b"
       }
     ]
   },
   "app": {
-    "version": "1.3.21",
+    "version": "1.3.22",
     "files": [
       {
         "path": "main.py",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/app/main.py",
-        "sha256": "08a7eceefa4003fb25af2bf08b3b353469dbc4b69a815c57cf5529e5f70414e0"
+        "sha256": "e177a67ac09dffe7583363fba8377bf2201d280e52aadcff2312ff63fd23c809"
       }
     ]
   },

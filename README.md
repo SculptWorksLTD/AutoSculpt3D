@@ -1,7 +1,7 @@
 <p align="center"><img src="logo.png" width="160" alt="AutoSculpt 3D"></p>
 
 <h1 align="center">AutoSculpt 3D</h1>
-<p align="center"><i>Dal sogno alla realtà, in 3 dimensioni</i><br><i>From dream to reality, in three dimensions</i></p>
+<p align="center"><i>Dal sogno alla realtà</i><br><i>From dream to reality</i></p>
 
 ---
 

@@ -844,14 +844,15 @@ def hdri_list(category):
     return sorted(items, key=lambda a: -a['n'])
 
 def hdri_file(hid, res):
-    if not re.fullmatch('[a-z0-9_]{1,80}', hid or '') or res not in ('1k', '2k', '4k'):
+    if not re.fullmatch('[a-z0-9_]{1,80}', hid or '') or res not in ('1k', '2k', '4k', 'jpg'):
         raise UserError('Invalid landscape')
     folder = SUPPORT / 'hdri'
     folder.mkdir(parents=True, exist_ok=True)
-    f = folder / f'{hid}_{res}.hdr'
+    f = folder / (f'{hid}_tonemapped.jpg' if res == 'jpg' else f'{hid}_{res}.hdr')
     if f.exists() and f.stat().st_size > 10000:
         return f
-    info = polyhaven('/files/' + hid)['hdri'][res]['hdr']
+    files = polyhaven('/files/' + hid)
+    info = files['tonemapped'] if res == 'jpg' else files['hdri'][res]['hdr']
     tmp = f.with_suffix('.part')
     req = urllib.request.Request(info['url'], headers={'User-Agent': f'AutoSculpt3D/{VERSION}'})
     h = hashlib.md5()

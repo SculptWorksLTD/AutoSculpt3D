@@ -3279,7 +3279,7 @@ const graph = (() => {
     return g;
 })();
 const PH_API = 'https://api.polyhaven.com';
-let landTex = null, landEnv = null, landSky = null, landId = '', landLoading = null;
+let landTex = null, landEnv = null, landSky = null, landId = '', landLoading = null, landPhoto = null, skyH = 0;
 const nativeHdri = () => { const n = window.AS_NATIVE, v = String(n && n.version || '0').split('.').map(Number); return !!n && (v[0] > 1 || (v[0] === 1 && v[1] >= 3)); };
 async function getOk(url, opt) {
     const r = await fetch(url, opt);
@@ -3309,9 +3309,10 @@ async function landscapeList(cat) {
 async function landscapeBuffer(id, res) {
     const direct = async () => {
         const f = await (await getOk(`${PH_API}/files/${encodeURIComponent(id)}`)).json();
-        return (await getOk(f.hdri[res].hdr.url)).arrayBuffer();
+        return (await getOk(res === 'jpg' ? f.tonemapped.url : f.hdri[res].hdr.url)).arrayBuffer();
     };
-    if (!nativeHdri())
+    const v = String(window.AS_NATIVE && window.AS_NATIVE.version || '0').split('.').map(Number);
+    if (!nativeHdri() || (res === 'jpg' && (v[0] * 1e6 + v[1] * 1e3 + v[2]) < 1003024))
         return direct();
     try {
         return await (await getOk(`/api/hdri/file/${encodeURIComponent(id)}?res=${res}`, { headers: { 'X-AS-Token': window.AS_NATIVE.token } })).arrayBuffer();
@@ -3334,11 +3335,33 @@ function loadLandscape(id, res) {
             const url = URL.createObjectURL(new Blob([await landscapeBuffer(id, res || '2k')]));
             const tex = await new Promise((ok, ko) => new RGBELoader().load(url, ok, undefined, ko)).finally(() => URL.revokeObjectURL(url));
             tex.mapping = THREE.EquirectangularReflectionMapping;
+            let photo = null;
+            try {
+                const purl = URL.createObjectURL(new Blob([await landscapeBuffer(id, 'jpg')], { type: 'image/jpeg' }));
+                photo = await new Promise((ok, ko) => new THREE.TextureLoader().load(purl, ok, undefined, ko)).finally(() => URL.revokeObjectURL(purl));
+                const max = renderer.capabilities.maxTextureSize, im = photo.image;
+                if (im.width > max) {
+                    const c = document.createElement('canvas');
+                    c.width = max;
+                    c.height = max / 2;
+                    c.getContext('2d').drawImage(im, 0, 0, c.width, c.height);
+                    photo.image = c;
+                }
+                photo.colorSpace = THREE.SRGBColorSpace;
+                photo.anisotropy = renderer.capabilities.getMaxAnisotropy();
+                photo.needsUpdate = true;
+            }
+            catch (e) {
+                photo = null;
+            }
             if (landTex)
                 landTex.dispose();
             if (landEnv)
                 landEnv.dispose();
+            if (landPhoto)
+                landPhoto.dispose();
             landTex = tex;
+            landPhoto = photo;
             landEnv = pmrem.fromEquirectangular(tex).texture;
             landId = id;
             $('bgLandscape').value = id;
@@ -3364,10 +3387,12 @@ function placeSky() {
     }
     const on = !!landTex && $('bgSel').value === 'landscape';
     if (on) {
-        const h = 1700 * (S.disp || 0.001);
-        const r = Math.max(h * 40, 40);
-        landSky = new GroundedSkybox(landTex, h, r);
+        const h = skyH = Math.min(6, Math.max(0.25, camera.position.y));
+        const r = h * 80;
+        landSky = new GroundedSkybox(landPhoto || landTex, h, r);
         landSky.position.y = h - 0.002;
+        if (landPhoto)
+            landSky.material.toneMapped = false;
         scene.add(landSky);
         camera.far = r * 3;
     }
@@ -3375,6 +3400,8 @@ function placeSky() {
         camera.far = 60;
     camera.updateProjectionMatrix();
 }
+controls.addEventListener('end', () => { if (landSky && Math.abs(camera.position.y - skyH) > skyH * 0.25)
+    placeSky(); });
 const LAND_CATS = [['outdoor', 'Outdoor'], ['nature', 'Nature'], ['urban', 'City'], ['sunrise-sunset', 'Sunrise and sunset'], ['night', 'Night'], ['indoor', 'Indoor'], ['studio', 'Studio']];
 async function landscapeDialog() {
     let picked = null;

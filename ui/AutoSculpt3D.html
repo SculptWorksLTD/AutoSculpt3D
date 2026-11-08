@@ -5768,7 +5768,7 @@ async function textFlow() {
     const options = {};
     for (const o of eng.options || [])
         options[o.id] = o.default;
-    for (;;) {
+    pictures: for (;;) {
         const job = await jobDialog(await api('/api/text2image', { engine: eng.id, prompt, lang: I18N.LANG, count, options }), tr('Drawing "{name}"', { name: prompt.slice(0, 40) }));
         if (job.state !== 'done') {
             if (job.state === 'error')
@@ -5780,29 +5780,31 @@ async function textFlow() {
             return new Promise((ok) => { const fr = new FileReader(); fr.onload = () => ok(fr.result); fr.readAsDataURL(b); });
         }));
         let chosen = 0;
-        const c = await dialog({ title: tr('Choose the picture for the sculpture'), body: `
-      <div id="txGrid" style="display:grid;grid-template-columns:repeat(${urls.length > 1 ? 2 : 1},minmax(0,1fr));grid-auto-rows:max-content;gap:8px">${urls.map((u, i) => `<button type="button" class="txPic" data-i="${i}" style="padding:0;border:3px solid ${i ? 'transparent' : 'var(--accent)'};border-radius:10px;background:#fff;cursor:pointer"><img src="${u}" alt="" style="display:block;width:100%;height:auto;border-radius:7px"></button>`).join('')}</div>
+        for (;;) {
+            const c = await dialog({ title: tr('Choose the picture for the sculpture'), body: `
+      <div id="txGrid" style="display:grid;grid-template-columns:repeat(${urls.length > 1 ? 2 : 1},minmax(0,1fr));grid-auto-rows:max-content;gap:8px">${urls.map((u, i) => `<button type="button" class="txPic" data-i="${i}" style="padding:0;border:3px solid ${i !== chosen ? 'transparent' : 'var(--accent)'};border-radius:10px;background:#fff;cursor:pointer"><img src="${u}" alt="" style="display:block;width:100%;height:auto;border-radius:7px"></button>`).join('')}</div>
       <p class="hint">${tr('Choose the clearest one, with the whole subject visible. Then a photo → 3D engine builds the model from it.')}</p>`,
-            buttons: [{ label: tr('Cancel'), value: 'no' }, { label: tr('Draw other pictures'), value: 'again' },
-                ...(NATIVE_VIEWS ? [{ label: tr('3D model from this picture only'), value: 'go' }, { label: tr('Draw the other 3 sides'), value: 'views', primary: true }]
-                    : [{ label: tr('Create 3D model'), value: 'go', primary: true }])],
-            onOpen: () => document.querySelectorAll('.txPic').forEach(b => { b.onclick = () => { chosen = +b.dataset.i; document.querySelectorAll('.txPic').forEach(x => { x.style.borderColor = +x.dataset.i === chosen ? 'var(--accent)' : 'transparent'; }); }; }) });
-        if (c === 'again')
-            continue;
-        if (c !== 'go' && c !== 'views')
-            return;
-        let photos = [urls[chosen]];
-        if (c === 'views') {
-            const v = await viewsFlow(job.result.images[chosen], urls[chosen], prompt);
-            if (v === 'again')
-                continue;
-            if (!v)
+                buttons: [{ label: tr('Cancel'), value: 'no' }, { label: tr('Draw other pictures'), value: 'again' },
+                    ...(NATIVE_VIEWS ? [{ label: tr('3D model from this picture only'), value: 'go' }, { label: tr('Draw the other 3 sides'), value: 'views', primary: true }]
+                        : [{ label: tr('Create 3D model'), value: 'go', primary: true }])],
+                onOpen: () => document.querySelectorAll('.txPic').forEach(b => { b.onclick = () => { chosen = +b.dataset.i; document.querySelectorAll('.txPic').forEach(x => { x.style.borderColor = +x.dataset.i === chosen ? 'var(--accent)' : 'transparent'; }); }; }) });
+            if (c === 'again')
+                continue pictures;
+            if (c !== 'go' && c !== 'views')
                 return;
-            photos = v;
+            let photos = [urls[chosen]];
+            if (c === 'views') {
+                const v = await viewsFlow(job.result.images[chosen], urls[chosen], prompt);
+                if (v === 'again')
+                    continue pictures;
+                if (!v)
+                    continue;
+                photos = v;
+            }
+            const name = prompt.length > 48 ? prompt.slice(0, 46) + '…' : prompt;
+            return photoFlow({ photos, name, source: (engine3d) => ({ name, author: tr('generated'), license: '',
+                    credit: tr('generated from the description "{text}"', { text: prompt }) }) });
         }
-        const name = prompt.length > 48 ? prompt.slice(0, 46) + '…' : prompt;
-        return photoFlow({ photos, name, source: (engine3d) => ({ name, author: tr('generated'), license: '',
-                credit: tr('generated from the description "{text}"', { text: prompt }) }) });
     }
 }
 async function enginesDialog() {

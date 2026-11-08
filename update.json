@@ -1,14 +1,14 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.26",
-  "notes": "Pictures follow the description more closely",
+  "latest": "1.3.27",
+  "notes": "Symmetric sculptures: the mirror plane is always vertical",
   "ui": {
-    "version": "1.3.26",
+    "version": "1.3.27",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "e8b6b03dab575f9f096b962299d4931451cc10a70e9688cd90699caeadb7e7cc"
+        "sha256": "b97f9b6c6ddd3cda3add0ac6c687a8fccc139b2fd756af2ba695eb52a8311ef9"
       }
     ]
   },

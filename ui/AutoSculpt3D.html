@@ -1281,7 +1281,7 @@ function collapseShortEdges(Vin, Fin, minLen, P) {
     }
     return { V: Float64Array.from(Vo), F: Uint32Array.from(F), collapsed };
 }
-function findSymmetry(V, F) {
+function findSymmetry(V, F, up) {
     const nv = V.length / 3, nf = F.length / 3;
     let cx = 0, cy = 0, cz = 0, at = 0;
     const { A } = faceNormals(V, F);
@@ -1368,7 +1368,21 @@ function findSymmetry(V, F) {
         }
         return s / samples.length / diag;
     };
-    const cands = [[1, 0, 0], [0, 1, 0], [0, 0, 1], ...eigenVectors3(C)];
+    let cands = [[1, 0, 0], [0, 1, 0], [0, 0, 1], ...eigenVectors3(C)];
+    if (up) {
+        const ul = Math.hypot(...up);
+        up = up.map(x => x / ul);
+        const a = Math.abs(up[0]) < 0.9 ? [1, 0, 0] : [0, 1, 0];
+        let e1 = [a[1] * up[2] - a[2] * up[1], a[2] * up[0] - a[0] * up[2], a[0] * up[1] - a[1] * up[0]];
+        const l1 = Math.hypot(...e1);
+        e1 = e1.map(x => x / l1);
+        const e2 = [up[1] * e1[2] - up[2] * e1[1], up[2] * e1[0] - up[0] * e1[2], up[0] * e1[1] - up[1] * e1[0]];
+        cands = [];
+        for (let k = 0; k < 60; k++) {
+            const t = k * Math.PI / 60;
+            cands.push([0, 1, 2].map(i => Math.cos(t) * e1[i] + Math.sin(t) * e2[i]));
+        }
+    }
     let best = null;
     for (const n0 of cands) {
         const l = Math.hypot(...n0);
@@ -1404,6 +1418,12 @@ function findSymmetry(V, F) {
         }
         if (cntm < 20)
             break;
+        if (up) {
+            const t = sx * up[0] + sy * up[1] + sz * up[2];
+            sx -= t * up[0];
+            sy -= t * up[1];
+            sz -= t * up[2];
+        }
         const l = Math.hypot(sx, sy, sz);
         if (!l)
             break;
@@ -1531,7 +1551,7 @@ function sculptMesh(V, F, target, onProgress, W, opts) {
     const dopts = { regular: opts.regular || 0 };
     let sym = null, r;
     if (opts.symmetric) {
-        sym = findSymmetry(V, F);
+        sym = findSymmetry(V, F, opts.up || null);
         if (sym && !sym.symmetric && sym.score < 0.12)
             sym.forced = true;
         if (sym && opts.symSide < 0)
@@ -3047,6 +3067,7 @@ async function updateLow(reframe) {
     const tk = ++S.token, target = facesFromSlider(+$('faces').value);
     busy(tr('Reducing to {n} faces…', { n: target }));
     const opts = { regular: +$('facetEven').value / 100, detail: +$('facetDetail').value / 100, symmetric: $('symmetric').checked, symSide: S.symSide || 1,
+        up: [S.rot.elements[1], S.rot.elements[5], S.rot.elements[9]],
         minEdge: (+$('minEdge').value || 0) / mmPerUnit() };
     const low = await runDecimate(S.base.V, S.base.F, target, null, strokeWeights(), opts);
     if (tk !== S.token)
@@ -4362,7 +4383,7 @@ $('finish').addEventListener('change', applyMaterial);
 $('showSeams').addEventListener('change', applyView);
 $('showNums').addEventListener('change', applyView);
 const rotate = (axis) => { if (!S.base)
-    return; S.rot.premultiply(new THREE.Matrix4().makeRotationAxis(axis, Math.PI / 2)); if (+$('minEdge').value > 0)
+    return; S.rot.premultiply(new THREE.Matrix4().makeRotationAxis(axis, Math.PI / 2)); if (+$('minEdge').value > 0 || $('symmetric').checked)
     updateLow(true);
 else
     updateScale(true); commit(); };

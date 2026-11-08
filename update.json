@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.52",
-  "notes": "Realistic landscapes much sharper and no longer stretched: the background uses the high-resolution photo and the ground is projected from the height of your viewpoint. The new photo is downloaded the first time you choose each landscape.",
+  "latest": "1.3.53",
+  "notes": "New Structure and stability section. The program calculates the centre of gravity and warns you if the sculpture cannot stand by itself or tips over too easily, also suggesting how wide the base plate should be. It can also draw internal stiffening ribs: flat frames welded inside the shell, numbered and with their position engraved, cut on their own sheets (Sheets view, and File → Internal ribs DXF). Their weight and cost go into the summary and the quote.",
   "notes_i18n": {
-    "en": "Realistic landscapes much sharper and no longer stretched: the background uses the high-resolution photo and the ground is projected from the height of your viewpoint. The new photo is downloaded the first time you choose each landscape.",
-    "it": "Paesaggi realistici molto più nitidi e non più stirati: lo sfondo usa la foto ad alta risoluzione e il terreno è proiettato dall’altezza del tuo punto di vista. La foto nuova si scarica la prima volta che scegli ogni paesaggio.",
-    "de": "Realistische Landschaften viel schärfer und nicht mehr verzerrt: der Hintergrund nutzt das hochaufgelöste Foto, und der Boden wird aus der Höhe deines Blickpunkts projiziert. Das neue Foto wird beim ersten Auswählen jeder Landschaft geladen.",
-    "fr": "Paysages réalistes bien plus nets et plus étirés : le fond utilise la photo haute résolution et le sol est projeté depuis la hauteur de votre point de vue. La nouvelle photo est téléchargée la première fois que vous choisissez chaque paysage.",
-    "es": "Paisajes realistas mucho más nítidos y ya no estirados: el fondo usa la foto de alta resolución y el suelo se proyecta desde la altura de tu punto de vista. La foto nueva se descarga la primera vez que eliges cada paisaje.",
-    "pt": "Paisagens realistas muito mais nítidas e não mais esticadas: o fundo usa a foto em alta resolução e o chão é projetado da altura do seu ponto de vista. A foto nova é baixada na primeira vez que você escolhe cada paisagem.",
-    "ja": "リアルな風景がずっと鮮明になり、引き伸ばされなくなりました。背景に高解像度の写真を使い、地面は視点の高さから投影されます。新しい写真は各風景を最初に選んだときにダウンロードされます。"
+    "en": "New Structure and stability section. The program calculates the centre of gravity and warns you if the sculpture cannot stand by itself or tips over too easily, also suggesting how wide the base plate should be. It can also draw internal stiffening ribs: flat frames welded inside the shell, numbered and with their position engraved, cut on their own sheets (Sheets view, and File → Internal ribs DXF). Their weight and cost go into the summary and the quote.",
+    "it": "Nuova sezione Struttura e stabilità. Il programma calcola il baricentro e ti avvisa se la scultura non sta in piedi da sola o si ribalta troppo facilmente, suggerendo anche quanto allargare la piastra di base. Può anche disegnare le centine interne di rinforzo: telai piani saldati dentro il guscio, numerati e con la posizione incisa, tagliati su lamiere a parte (vista Lamiere, e File → DXF delle centine interne). Peso e costo entrano nel riepilogo e nel preventivo.",
+    "de": "Neuer Bereich Struktur und Standfestigkeit. Das Programm berechnet den Schwerpunkt und warnt, wenn die Skulptur nicht von allein steht oder zu leicht kippt, und schlägt vor, wie breit die Grundplatte sein sollte. Es kann auch innere Versteifungsrippen zeichnen: flache Rahmen, innen an die Hülle geschweißt, nummeriert und mit eingravierter Position, auf eigenen Blechen geschnitten (Ansicht Bleche und Datei → DXF der inneren Rippen). Gewicht und Kosten fließen in Übersicht und Angebot ein.",
+    "fr": "Nouvelle section Structure et stabilité. Le programme calcule le centre de gravité et vous avertit si la sculpture ne tient pas debout seule ou bascule trop facilement, en suggérant la largeur de la plaque de base. Il peut aussi dessiner des nervures internes de renfort : cadres plats soudés à l’intérieur de la coque, numérotés avec leur position gravée, découpés sur leurs propres tôles (vue Tôles et Fichier → DXF des nervures internes). Leur poids et leur coût entrent dans le récapitulatif et le devis.",
+    "es": "Nueva sección Estructura y estabilidad. El programa calcula el centro de gravedad y te avisa si la escultura no se sostiene sola o vuelca con facilidad, sugiriendo también cuánto ensanchar la placa base. También puede dibujar costillas internas de refuerzo: marcos planos soldados dentro de la carcasa, numerados y con su posición grabada, cortados en chapas aparte (vista Chapas y Archivo → DXF de las costillas internas). Su peso y coste entran en el resumen y el presupuesto.",
+    "pt": "Nova seção Estrutura e estabilidade. O programa calcula o centro de gravidade e avisa se a escultura não fica em pé sozinha ou tomba com facilidade, sugerindo também quanto alargar a placa de base. Também pode desenhar nervuras internas de reforço: quadros planos soldados dentro da casca, numerados e com a posição gravada, cortados em chapas separadas (vista Chapas e Arquivo → DXF das nervuras internas). Peso e custo entram no resumo e no orçamento.",
+    "ja": "新しい「構造と安定性」セクション。重心を計算し、彫刻が自立しない場合や倒れやすい場合に警告し、ベースプレートの必要な広さも提案します。内部補強リブも作図できます。外殻の内側に溶接する平らなフレームで、番号と位置が刻印され、別の板で切断されます（板ビューと ファイル → 内部リブの DXF）。重量と費用は概要と見積もりに含まれます。"
   },
   "history": [
+    {
+      "date": "2026-11-08T11:55:04Z",
+      "version": "1.3.53",
+      "notes": {
+        "en": "New Structure and stability section. The program calculates the centre of gravity and warns you if the sculpture cannot stand by itself or tips over too easily, also suggesting how wide the base plate should be. It can also draw internal stiffening ribs: flat frames welded inside the shell, numbered and with their position engraved, cut on their own sheets (Sheets view, and File → Internal ribs DXF). Their weight and cost go into the summary and the quote.",
+        "it": "Nuova sezione Struttura e stabilità. Il programma calcola il baricentro e ti avvisa se la scultura non sta in piedi da sola o si ribalta troppo facilmente, suggerendo anche quanto allargare la piastra di base. Può anche disegnare le centine interne di rinforzo: telai piani saldati dentro il guscio, numerati e con la posizione incisa, tagliati su lamiere a parte (vista Lamiere, e File → DXF delle centine interne). Peso e costo entrano nel riepilogo e nel preventivo.",
+        "de": "Neuer Bereich Struktur und Standfestigkeit. Das Programm berechnet den Schwerpunkt und warnt, wenn die Skulptur nicht von allein steht oder zu leicht kippt, und schlägt vor, wie breit die Grundplatte sein sollte. Es kann auch innere Versteifungsrippen zeichnen: flache Rahmen, innen an die Hülle geschweißt, nummeriert und mit eingravierter Position, auf eigenen Blechen geschnitten (Ansicht Bleche und Datei → DXF der inneren Rippen). Gewicht und Kosten fließen in Übersicht und Angebot ein.",
+        "fr": "Nouvelle section Structure et stabilité. Le programme calcule le centre de gravité et vous avertit si la sculpture ne tient pas debout seule ou bascule trop facilement, en suggérant la largeur de la plaque de base. Il peut aussi dessiner des nervures internes de renfort : cadres plats soudés à l’intérieur de la coque, numérotés avec leur position gravée, découpés sur leurs propres tôles (vue Tôles et Fichier → DXF des nervures internes). Leur poids et leur coût entrent dans le récapitulatif et le devis.",
+        "es": "Nueva sección Estructura y estabilidad. El programa calcula el centro de gravedad y te avisa si la escultura no se sostiene sola o vuelca con facilidad, sugiriendo también cuánto ensanchar la placa base. También puede dibujar costillas internas de refuerzo: marcos planos soldados dentro de la carcasa, numerados y con su posición grabada, cortados en chapas aparte (vista Chapas y Archivo → DXF de las costillas internas). Su peso y coste entran en el resumen y el presupuesto.",
+        "pt": "Nova seção Estrutura e estabilidade. O programa calcula o centro de gravidade e avisa se a escultura não fica em pé sozinha ou tomba com facilidade, sugerindo também quanto alargar a placa de base. Também pode desenhar nervuras internas de reforço: quadros planos soldados dentro da casca, numerados e com a posição gravada, cortados em chapas separadas (vista Chapas e Arquivo → DXF das nervuras internas). Peso e custo entram no resumo e no orçamento.",
+        "ja": "新しい「構造と安定性」セクション。重心を計算し、彫刻が自立しない場合や倒れやすい場合に警告し、ベースプレートの必要な広さも提案します。内部補強リブも作図できます。外殻の内側に溶接する平らなフレームで、番号と位置が刻印され、別の板で切断されます（板ビューと ファイル → 内部リブの DXF）。重量と費用は概要と見積もりに含まれます。"
+      }
+    },
     {
       "date": "2026-11-08T11:00:56Z",
       "version": "1.3.52",
@@ -261,12 +274,12 @@
     }
   ],
   "ui": {
-    "version": "1.3.52",
+    "version": "1.3.53",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "ddb179400b7c7ecb01cef0409f522e28c48ddfcdeaef533a2043666e230462a7"
+        "sha256": "fb36bf2fbcb0b8767120b58c86abfce63c8aeaf6b71df29948079643a5d64f3b"
       }
     ]
   },

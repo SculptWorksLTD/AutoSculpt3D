@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.61",
-  "notes": "Engines tuned: photos for the 3D engine get a cleaner cut-out (small holes closed, soft edge) and the resulting model is closed and repaired; the pictures drawn from a description show the whole subject from head to feet, without shadows, each from a different point of view; dictation hears quiet recordings better and makes fewer slips.",
+  "latest": "1.3.62",
+  "notes": "Faces never taller than the sheet: a model drawn with huge faces is split first, and long pieces that fit the sheet a little askew are no longer called oversize. Small sculptures with many faces no longer end up with hundreds of short seams: the face count stops where the minimum side allows, and the summary says so. A sculpture standing on a single point gets a round base plate; flat soles are cut where the foot is wide enough.",
   "notes_i18n": {
-    "en": "Engines tuned: photos for the 3D engine get a cleaner cut-out (small holes closed, soft edge) and the resulting model is closed and repaired; the pictures drawn from a description show the whole subject from head to feet, without shadows, each from a different point of view; dictation hears quiet recordings better and makes fewer slips.",
-    "it": "Motori messi a punto: le foto per il motore 3D hanno uno scontorno più pulito (buchini chiusi, bordo morbido) e il modello che ne esce viene chiuso e riparato; le immagini disegnate da una descrizione mostrano il soggetto intero dalla testa ai piedi, senza ombre, ognuna da un punto di vista diverso; la dettatura sente meglio le registrazioni a basso volume e sbaglia meno parole.",
-    "de": "Engines abgestimmt: Fotos für die 3D-Engine werden sauberer freigestellt (kleine Löcher geschlossen, weicher Rand) und das Modell wird geschlossen und repariert; die aus einer Beschreibung gezeichneten Bilder zeigen das ganze Motiv von Kopf bis Fuß, ohne Schatten, jedes aus einem anderen Blickwinkel; das Diktat versteht leise Aufnahmen besser und macht weniger Fehler.",
-    "fr": "Moteurs réglés : les photos pour le moteur 3D sont détourées plus proprement (petits trous fermés, bord doux) et le modèle obtenu est fermé et réparé ; les images dessinées d’après une description montrent le sujet entier de la tête aux pieds, sans ombre, chacune sous un angle différent ; la dictée entend mieux les enregistrements faibles et fait moins d’erreurs.",
-    "es": "Motores afinados: las fotos para el motor 3D se recortan más limpias (agujeritos cerrados, borde suave) y el modelo resultante se cierra y repara; las imágenes dibujadas a partir de una descripción muestran el sujeto entero de la cabeza a los pies, sin sombras, cada una desde un punto de vista distinto; el dictado oye mejor las grabaciones flojas y se equivoca menos.",
-    "pt": "Motores afinados: as fotos para o motor 3D têm um recorte mais limpo (furinhos fechados, borda suave) e o modelo resultante é fechado e reparado; as imagens desenhadas a partir de uma descrição mostram o sujeito inteiro da cabeça aos pés, sem sombras, cada uma de um ponto de vista diferente; o ditado ouve melhor gravações baixas e erra menos.",
-    "ja": "エンジンを調整: 3D エンジン用の写真の切り抜きがよりきれいになり（小さな穴を閉じ、縁を滑らかに）、得られるモデルは閉じて修復されます。説明から描く画像は被写体全体を頭から足まで影なしで、それぞれ異なる視点から描きます。音声入力は小さな録音も聞き取りやすくなり、誤りが減りました。"
+    "en": "Faces never taller than the sheet: a model drawn with huge faces is split first, and long pieces that fit the sheet a little askew are no longer called oversize. Small sculptures with many faces no longer end up with hundreds of short seams: the face count stops where the minimum side allows, and the summary says so. A sculpture standing on a single point gets a round base plate; flat soles are cut where the foot is wide enough.",
+    "it": "Nessuna faccia più alta della lamiera: un modello disegnato con facce enormi viene prima suddiviso, e i pezzi lunghi che entrano nella lamiera un po’ di sbieco non sono più segnalati come troppo grandi. Le sculture piccole con molte facce non finiscono più con centinaia di cordoni corti: il numero di facce si ferma dove il lato minimo lo permette, e il riepilogo lo dice. Una scultura che appoggia su un solo punto ha una piastra rotonda; gli appoggi piatti si tagliano dove il piede è abbastanza largo.",
+    "de": "Keine Fläche höher als das Blech: ein Modell mit riesigen Flächen wird zuerst unterteilt, und lange Teile, die etwas schräg aufs Blech passen, gelten nicht mehr als zu groß. Kleine Skulpturen mit vielen Flächen enden nicht mehr mit hunderten kurzen Nähten: die Flächenzahl bleibt dort stehen, wo die Mindestseite es erlaubt, und die Übersicht sagt es. Eine Skulptur auf einem einzigen Punkt bekommt eine runde Grundplatte; flache Standflächen werden geschnitten, wo der Fuß breit genug ist.",
+    "fr": "Aucune face plus haute que la tôle : un modèle dessiné avec d’énormes faces est d’abord subdivisé, et les pièces longues qui tiennent sur la tôle un peu de biais ne sont plus signalées comme trop grandes. Les petites sculptures à nombreuses faces ne finissent plus avec des centaines de soudures courtes : le nombre de faces s’arrête où le côté minimal le permet, et le résumé le dit. Une sculpture posée sur un seul point reçoit une plaque ronde ; les appuis plats sont coupés là où le pied est assez large.",
+    "es": "Ninguna cara más alta que la chapa: un modelo dibujado con caras enormes se subdivide primero, y las piezas largas que caben en la chapa un poco inclinadas ya no se señalan como demasiado grandes. Las esculturas pequeñas con muchas caras ya no terminan con cientos de soldaduras cortas: el número de caras se detiene donde lo permite el lado mínimo, y el resumen lo indica. Una escultura apoyada en un solo punto recibe una placa redonda; los apoyos planos se cortan donde el pie es bastante ancho.",
+    "pt": "Nenhuma face mais alta que a chapa: um modelo desenhado com faces enormes é subdividido primeiro, e peças longas que cabem na chapa um pouco inclinadas já não são apontadas como grandes demais. Esculturas pequenas com muitas faces já não terminam com centenas de soldas curtas: o número de faces para onde o lado mínimo permite, e o resumo avisa. Uma escultura apoiada num único ponto recebe uma placa redonda; os apoios planos são cortados onde o pé é largo o bastante.",
+    "ja": "板より高い面はなくなりました。巨大な面で描かれたモデルは先に分割され、少し斜めにすれば板に収まる長い部品は「大きすぎる」と表示されなくなりました。面の多い小さな彫刻が何百もの短い溶接線で終わることはなくなり、面数は最小辺が許すところで止まり、概要にその旨が表示されます。一点で立つ彫刻には丸いベースプレートが付き、平らな足裏は足が十分に広いところで切られます。"
   },
   "history": [
+    {
+      "date": "2026-11-08T22:34:23Z",
+      "version": "1.3.62",
+      "notes": {
+        "en": "Faces never taller than the sheet: a model drawn with huge faces is split first, and long pieces that fit the sheet a little askew are no longer called oversize. Small sculptures with many faces no longer end up with hundreds of short seams: the face count stops where the minimum side allows, and the summary says so. A sculpture standing on a single point gets a round base plate; flat soles are cut where the foot is wide enough.",
+        "it": "Nessuna faccia più alta della lamiera: un modello disegnato con facce enormi viene prima suddiviso, e i pezzi lunghi che entrano nella lamiera un po’ di sbieco non sono più segnalati come troppo grandi. Le sculture piccole con molte facce non finiscono più con centinaia di cordoni corti: il numero di facce si ferma dove il lato minimo lo permette, e il riepilogo lo dice. Una scultura che appoggia su un solo punto ha una piastra rotonda; gli appoggi piatti si tagliano dove il piede è abbastanza largo.",
+        "de": "Keine Fläche höher als das Blech: ein Modell mit riesigen Flächen wird zuerst unterteilt, und lange Teile, die etwas schräg aufs Blech passen, gelten nicht mehr als zu groß. Kleine Skulpturen mit vielen Flächen enden nicht mehr mit hunderten kurzen Nähten: die Flächenzahl bleibt dort stehen, wo die Mindestseite es erlaubt, und die Übersicht sagt es. Eine Skulptur auf einem einzigen Punkt bekommt eine runde Grundplatte; flache Standflächen werden geschnitten, wo der Fuß breit genug ist.",
+        "fr": "Aucune face plus haute que la tôle : un modèle dessiné avec d’énormes faces est d’abord subdivisé, et les pièces longues qui tiennent sur la tôle un peu de biais ne sont plus signalées comme trop grandes. Les petites sculptures à nombreuses faces ne finissent plus avec des centaines de soudures courtes : le nombre de faces s’arrête où le côté minimal le permet, et le résumé le dit. Une sculpture posée sur un seul point reçoit une plaque ronde ; les appuis plats sont coupés là où le pied est assez large.",
+        "es": "Ninguna cara más alta que la chapa: un modelo dibujado con caras enormes se subdivide primero, y las piezas largas que caben en la chapa un poco inclinadas ya no se señalan como demasiado grandes. Las esculturas pequeñas con muchas caras ya no terminan con cientos de soldaduras cortas: el número de caras se detiene donde lo permite el lado mínimo, y el resumen lo indica. Una escultura apoyada en un solo punto recibe una placa redonda; los apoyos planos se cortan donde el pie es bastante ancho.",
+        "pt": "Nenhuma face mais alta que a chapa: um modelo desenhado com faces enormes é subdividido primeiro, e peças longas que cabem na chapa um pouco inclinadas já não são apontadas como grandes demais. Esculturas pequenas com muitas faces já não terminam com centenas de soldas curtas: o número de faces para onde o lado mínimo permite, e o resumo avisa. Uma escultura apoiada num único ponto recebe uma placa redonda; os apoios planos são cortados onde o pé é largo o bastante.",
+        "ja": "板より高い面はなくなりました。巨大な面で描かれたモデルは先に分割され、少し斜めにすれば板に収まる長い部品は「大きすぎる」と表示されなくなりました。面の多い小さな彫刻が何百もの短い溶接線で終わることはなくなり、面数は最小辺が許すところで止まり、概要にその旨が表示されます。一点で立つ彫刻には丸いベースプレートが付き、平らな足裏は足が十分に広いところで切られます。"
+      }
+    },
     {
       "date": "2026-11-08T21:58:42Z",
       "version": "1.3.61",
@@ -391,12 +404,12 @@
     }
   ],
   "ui": {
-    "version": "1.3.61",
+    "version": "1.3.62",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "a4f720361bf1ff93cd6e1f8a7bb47eab478c351f967ce4c7f4ca901556f231fe"
+        "sha256": "9be554e9adf712ecbc4bdb64b03afca825b20c66c60e73da9466db060d4bfb48"
       }
     ]
   },

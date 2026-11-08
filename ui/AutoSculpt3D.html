@@ -3346,6 +3346,8 @@ async function loadMesh(mesh, info, opts) {
     S.strokes = opts.strokes || [];
     S.source = opts.source || null;
     const nf = mesh.F.length / 3;
+    if (!opts.base)
+        $('size').value = $('size').defaultValue || 600;
     if (opts.base)
         S.base = opts.base;
     else if (nf > 20000) {

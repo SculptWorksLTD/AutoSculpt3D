@@ -276,11 +276,20 @@ def sha256(path):
     return h.hexdigest()
 RETIRED_ENGINES = {'triposr'}
 APPLE_CHIP = IS_MAC and platform.machine() == 'arm64'
+_NVIDIA = []
+
+def nvidia_card():
+    if not _NVIDIA:
+        _NVIDIA.append(IS_WIN and has_nvidia())
+    return _NVIDIA[0]
 
 def platform_allows(spec):
-    if spec.get('only') == 'apple_chip' and (not APPLE_CHIP):
+    if os.environ.get('AUTOSCULPT_TEST_ANY_PLATFORM') == '1':
+        return True
+    only, hide = (spec.get('only'), spec.get('hide_on'))
+    if only == 'apple_chip' and (not APPLE_CHIP) or (only == 'nvidia' and (not nvidia_card())):
         return False
-    if spec.get('hide_on') == 'apple_chip' and APPLE_CHIP:
+    if hide == 'apple_chip' and APPLE_CHIP or (hide == 'apple_chip_or_nvidia' and (APPLE_CHIP or nvidia_card())):
         return False
     return True
 
@@ -290,7 +299,7 @@ def remove_retired_engines():
             if d.exists():
                 shutil.rmtree(d, ignore_errors=True)
                 log('Removed the retired engine', eid)
-    if APPLE_CHIP and (SUPPORT / 'engines' / 'fluxlocal' / 'installed.json').exists():
+    if any(((SUPPORT / 'engines' / e / 'installed.json').exists() for e in ('fluxlocal', 'fluxcuda'))):
         old = SUPPORT / 'engines' / 'ssd1b'
         if old.exists():
             shutil.rmtree(old, ignore_errors=True)

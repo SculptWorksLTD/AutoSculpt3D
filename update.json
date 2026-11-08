@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.55",
-  "notes": "Values in the side panel can now be typed in boxes next to the sliders. Click a warning in the Summary to see on the sculpture where the problem is: pieces that do not fit, short seams, bends without a slot, centre of gravity.",
+  "latest": "1.3.56",
+  "notes": "The base plate can now shape itself to balance the sculpture: it grows on the side where the sculpture leans, until it withstands the tilt you choose (10° by default). It can be turned off in Base plate.",
   "notes_i18n": {
-    "en": "Values in the side panel can now be typed in boxes next to the sliders. Click a warning in the Summary to see on the sculpture where the problem is: pieces that do not fit, short seams, bends without a slot, centre of gravity.",
-    "it": "I valori del pannello laterale ora si possono scrivere nelle caselle accanto alle barre. Clicca un avviso nel Riepilogo per vedere sulla scultura dove si trova il problema: pezzi che non entrano, cordoni corti, pieghe senza asola, baricentro.",
-    "de": "Die Werte in der Seitenleiste lassen sich jetzt in Feldern neben den Schiebereglern eintippen. Klicken Sie in der Übersicht auf einen Hinweis, um an der Skulptur zu sehen, wo das Problem liegt: Teile, die nicht passen, kurze Nähte, Biegungen ohne Schlitz, Schwerpunkt.",
-    "fr": "Les valeurs du panneau latéral peuvent maintenant être saisies dans des cases à côté des curseurs. Cliquez sur un avertissement du Récapitulatif pour voir sur la sculpture où se trouve le problème : pièces qui n’entrent pas, soudures courtes, plis sans fente, centre de gravité.",
-    "es": "Los valores del panel lateral ahora se pueden escribir en casillas junto a las barras. Haz clic en un aviso del Resumen para ver en la escultura dónde está el problema: piezas que no caben, soldaduras cortas, pliegues sin ranura, centro de gravedad.",
-    "pt": "Os valores do painel lateral agora podem ser digitados em caixas ao lado das barras. Clique em um aviso no Resumo para ver na escultura onde está o problema: peças que não cabem, soldas curtas, dobras sem rasgo, centro de gravidade.",
-    "ja": "サイドパネルの値をスライダー横の欄に直接入力できるようになりました。概要の警告をクリックすると、問題の場所（板に収まらないパーツ、短い溶接線、スロットのない折り目、重心）を彫刻上に表示します。"
+    "en": "The base plate can now shape itself to balance the sculpture: it grows on the side where the sculpture leans, until it withstands the tilt you choose (10° by default). It can be turned off in Base plate.",
+    "it": "La piastra di base ora si adatta da sola per bilanciare la scultura: si allarga dal lato verso cui pende, finché regge l’inclinazione scelta (10° di serie). Si può disattivare in Piastra di base.",
+    "de": "Die Grundplatte passt sich jetzt selbst an, um die Skulptur auszubalancieren: Sie wächst auf der Seite, zu der sich die Skulptur neigt, bis sie die gewählte Neigung aushält (standardmäßig 10°). Abschaltbar unter Grundplatte.",
+    "fr": "La plaque de base s’adapte maintenant d’elle-même pour équilibrer la sculpture : elle s’élargit du côté où celle-ci penche, jusqu’à supporter l’inclinaison choisie (10° par défaut). Désactivable dans Plaque de base.",
+    "es": "La placa base ahora se adapta sola para equilibrar la escultura: se ensancha por el lado hacia el que se inclina, hasta soportar la inclinación elegida (10° por defecto). Se puede desactivar en Placa base.",
+    "pt": "A placa de base agora se ajusta sozinha para equilibrar a escultura: cresce do lado para onde ela pende, até suportar a inclinação escolhida (10° por padrão). Pode ser desativada em Placa de base.",
+    "ja": "台座が彫刻のバランスに合わせて自動で形を変えるようになりました。彫刻が傾く側に広がり、選んだ傾き（標準 10°）に耐えられるようにします。「台座」でオフにできます。"
   },
   "history": [
+    {
+      "date": "2026-11-08T13:00:42Z",
+      "version": "1.3.56",
+      "notes": {
+        "en": "The base plate can now shape itself to balance the sculpture: it grows on the side where the sculpture leans, until it withstands the tilt you choose (10° by default). It can be turned off in Base plate.",
+        "it": "La piastra di base ora si adatta da sola per bilanciare la scultura: si allarga dal lato verso cui pende, finché regge l’inclinazione scelta (10° di serie). Si può disattivare in Piastra di base.",
+        "de": "Die Grundplatte passt sich jetzt selbst an, um die Skulptur auszubalancieren: Sie wächst auf der Seite, zu der sich die Skulptur neigt, bis sie die gewählte Neigung aushält (standardmäßig 10°). Abschaltbar unter Grundplatte.",
+        "fr": "La plaque de base s’adapte maintenant d’elle-même pour équilibrer la sculpture : elle s’élargit du côté où celle-ci penche, jusqu’à supporter l’inclinaison choisie (10° par défaut). Désactivable dans Plaque de base.",
+        "es": "La placa base ahora se adapta sola para equilibrar la escultura: se ensancha por el lado hacia el que se inclina, hasta soportar la inclinación elegida (10° por defecto). Se puede desactivar en Placa base.",
+        "pt": "A placa de base agora se ajusta sozinha para equilibrar a escultura: cresce do lado para onde ela pende, até suportar a inclinação escolhida (10° por padrão). Pode ser desativada em Placa de base.",
+        "ja": "台座が彫刻のバランスに合わせて自動で形を変えるようになりました。彫刻が傾く側に広がり、選んだ傾き（標準 10°）に耐えられるようにします。「台座」でオフにできます。"
+      }
+    },
     {
       "date": "2026-11-08T12:26:14Z",
       "version": "1.3.55",
@@ -300,12 +313,12 @@
     }
   ],
   "ui": {
-    "version": "1.3.55",
+    "version": "1.3.56",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "72d0f826a38e55321f4ce3400fcdeea6301eb9145ea6b75a4c452eab0a2a957e"
+        "sha256": "f9141544f7860c135c940bab812140e9ed2043931e2b92632f4da18b7402c174"
       }
     ]
   },

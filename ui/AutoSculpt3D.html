@@ -4379,8 +4379,11 @@ async function loadMesh(mesh, info, opts) {
     S.strokes = opts.strokes || [];
     S.source = opts.source || null;
     const nf = mesh.F.length / 3;
-    if (!opts.base)
-        $('size').value = $('size').defaultValue || 600;
+    if (!opts.base) {
+        D.applying = true;
+        resetFields(true);
+        D.applying = false;
+    }
     if (opts.base)
         S.base = opts.base;
     else if (nf > 20000) {
@@ -4518,6 +4521,9 @@ async function openProject(p) {
         p.settings.material = LEGACY_MATERIALS[p.settings.material];
     if (p.settings && !('facetEven' in p.settings))
         Object.assign(p.settings, { facetEven: 0, facetDetail: 0, symmetric: false });
+    D.applying = true;
+    resetFields(true);
+    D.applying = false;
     for (const id in p.settings)
         if ($(id)) {
             if ($(id).type === 'checkbox')
@@ -6482,21 +6488,28 @@ function undo() { if (D.history.length < 2)
     return; D.future.push(D.history.pop()); applySnapshot(D.history[D.history.length - 1]); status(tr('Undone')); }
 function redo() { if (!D.future.length)
     return; const s = D.future.pop(); D.history.push(s); applySnapshot(s); status(tr('Redone')); }
-function resetDefaults() {
-    if (!S.base)
-        return;
-    D.applying = true;
+function resetFields(withName) {
     for (const id in DEFAULTS)
-        if (id !== 'workName' && $(id)) {
+        if ((withName || id !== 'workName') && $(id)) {
             if ($(id).type === 'checkbox')
                 $(id).checked = DEFAULTS[id];
             else
                 $(id).value = DEFAULTS[id];
         }
+    if (withName)
+        $('workName').value = tr('Untitled');
     $('faces').value = sliderFromFaces(220);
+    $('facesVal').value = 220;
     $('maxBendVal').value = $('maxBend').value;
     facetLabels();
     applyMaterial();
+    applyBackdrop();
+}
+function resetDefaults() {
+    if (!S.base)
+        return;
+    D.applying = true;
+    resetFields(false);
     D.applying = false;
     updateLow(false);
     commit();
@@ -6784,7 +6797,10 @@ async function closeDoc() {
     clearAutosave();
     $('dims').innerHTML = '';
     $('srcInfo').textContent = tr('No model open.');
-    $('workName').value = tr('Untitled');
+    D.applying = true;
+    resetFields(true);
+    S.symSide = 1;
+    D.applying = false;
     S.view = 'mockup';
     applyView();
     $('welcome').hidden = false;

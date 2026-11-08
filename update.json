@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.65",
-  "notes": "Dragging the faces slider no longer queues a reduction for every stop: only the latest position is computed, so the sculpture follows the slider within a second or two.",
+  "latest": "1.3.66",
+  "notes": "Closing a project, or opening a new model, puts every setting back to its default: size, faces, sheet, bends, plate, nesting, mockup and quote no longer carry over from the project before.",
   "notes_i18n": {
-    "en": "Dragging the faces slider no longer queues a reduction for every stop: only the latest position is computed, so the sculpture follows the slider within a second or two.",
-    "it": "Trascinare la barra delle facce non accoda più una riduzione per ogni fermata: si calcola solo l’ultima posizione, così la scultura segue la barra entro un secondo o due.",
-    "de": "Beim Ziehen des Flächenreglers wird nicht mehr für jeden Halt eine Reduktion eingereiht: nur die letzte Stellung wird berechnet, die Skulptur folgt dem Regler innerhalb von ein, zwei Sekunden.",
-    "fr": "Déplacer le curseur des faces ne met plus une réduction en file pour chaque arrêt : seule la dernière position est calculée, et la sculpture suit le curseur en une ou deux secondes.",
-    "es": "Arrastrar la barra de caras ya no encola una reducción por cada parada: solo se calcula la última posición, y la escultura sigue la barra en uno o dos segundos.",
-    "pt": "Arrastar a barra de faces já não enfileira uma redução a cada parada: só a última posição é calculada, e a escultura acompanha a barra em um ou dois segundos.",
-    "ja": "面のスライダーをドラッグしても、止まるごとに削減が待ち行列に入ることはなくなりました。最後の位置だけが計算され、彫刻は 1〜2 秒でスライダーに追従します。"
+    "en": "Closing a project, or opening a new model, puts every setting back to its default: size, faces, sheet, bends, plate, nesting, mockup and quote no longer carry over from the project before.",
+    "it": "Chiudendo un progetto, o aprendo un modello nuovo, tutte le impostazioni tornano ai valori di partenza: misura, facce, lamiera, pieghe, piastra, annidamento, mockup e preventivo non restano più quelli del progetto precedente.",
+    "de": "Beim Schließen eines Projekts oder Öffnen eines neuen Modells kehren alle Einstellungen zu ihren Vorgaben zurück: Größe, Flächen, Blech, Biegungen, Platte, Anordnung, Mockup und Angebot werden nicht mehr vom vorigen Projekt übernommen.",
+    "fr": "Fermer un projet, ou ouvrir un nouveau modèle, remet tous les réglages à leur valeur par défaut : taille, faces, tôle, pliages, plaque, imbrication, maquette et devis ne sont plus repris du projet précédent.",
+    "es": "Al cerrar un proyecto, o abrir un modelo nuevo, todos los ajustes vuelven a sus valores iniciales: tamaño, caras, chapa, pliegues, placa, anidado, maqueta y presupuesto ya no se heredan del proyecto anterior.",
+    "pt": "Ao fechar um projeto, ou abrir um modelo novo, todas as configurações voltam aos valores iniciais: tamanho, faces, chapa, dobras, placa, encaixe, mockup e orçamento não ficam mais os do projeto anterior.",
+    "ja": "プロジェクトを閉じるか新しいモデルを開くと、すべての設定が初期値に戻ります。サイズ、面数、板、折り曲げ、プレート、配置、モックアップ、見積が前のプロジェクトから引き継がれることはなくなりました。"
   },
   "history": [
+    {
+      "date": "2026-11-08T23:49:27Z",
+      "version": "1.3.66",
+      "notes": {
+        "en": "Closing a project, or opening a new model, puts every setting back to its default: size, faces, sheet, bends, plate, nesting, mockup and quote no longer carry over from the project before.",
+        "it": "Chiudendo un progetto, o aprendo un modello nuovo, tutte le impostazioni tornano ai valori di partenza: misura, facce, lamiera, pieghe, piastra, annidamento, mockup e preventivo non restano più quelli del progetto precedente.",
+        "de": "Beim Schließen eines Projekts oder Öffnen eines neuen Modells kehren alle Einstellungen zu ihren Vorgaben zurück: Größe, Flächen, Blech, Biegungen, Platte, Anordnung, Mockup und Angebot werden nicht mehr vom vorigen Projekt übernommen.",
+        "fr": "Fermer un projet, ou ouvrir un nouveau modèle, remet tous les réglages à leur valeur par défaut : taille, faces, tôle, pliages, plaque, imbrication, maquette et devis ne sont plus repris du projet précédent.",
+        "es": "Al cerrar un proyecto, o abrir un modelo nuevo, todos los ajustes vuelven a sus valores iniciales: tamaño, caras, chapa, pliegues, placa, anidado, maqueta y presupuesto ya no se heredan del proyecto anterior.",
+        "pt": "Ao fechar um projeto, ou abrir um modelo novo, todas as configurações voltam aos valores iniciais: tamanho, faces, chapa, dobras, placa, encaixe, mockup e orçamento não ficam mais os do projeto anterior.",
+        "ja": "プロジェクトを閉じるか新しいモデルを開くと、すべての設定が初期値に戻ります。サイズ、面数、板、折り曲げ、プレート、配置、モックアップ、見積が前のプロジェクトから引き継がれることはなくなりました。"
+      }
+    },
     {
       "date": "2026-11-08T23:17:03Z",
       "version": "1.3.65",
@@ -443,12 +456,12 @@
     }
   ],
   "ui": {
-    "version": "1.3.65",
+    "version": "1.3.66",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "6f61062d89178af3a6a36f818902b971a5ad9c29b31b6cc8d3627b9ab84f40e0"
+        "sha256": "e9b53fd0cf1ec1505e14c1158df62b8727a42ff53a6afc4de8699eeecfa41c0f"
       }
     ]
   },

@@ -61,6 +61,7 @@ def download(url, dest):
                 break
             f.write(chunk)
 STYLE = '{subject}. A single complete object, whole body fully visible, centered, three-quarter view, isolated on a plain white background, soft even studio lighting, sharp focus, detailed realistic sculpture reference'
+STYLE_SYM = '{subject}. A single complete object, whole body fully visible, centered, straight front view facing the camera, symmetrical pose, left and right sides identical, isolated on a plain white background, soft even studio lighting, sharp focus, detailed realistic sculpture reference'
 
 def main():
     ap = argparse.ArgumentParser()
@@ -70,6 +71,7 @@ def main():
     ap.add_argument('--work', default='.')
     ap.add_argument('--count', type=int, default=4)
     ap.add_argument('--quality', default='normal')
+    ap.add_argument('--symmetric', default='0')
     a = ap.parse_args()
     key = os.environ.get('AUTOSCULPT_API_KEY', '')
     t0 = time.time()
@@ -79,7 +81,7 @@ def main():
             raise Fail('Write a description of the subject')
         endpoint = 'fal-ai/flux/dev' if a.quality == 'high' else 'fal-ai/flux/schnell'
         say('PROGRESS', '0.05', 'Sending the description to {service}', service='FLUX')
-        body = {'prompt': STYLE.format(subject=subject), 'image_size': 'square_hd', 'num_images': max(1, min(a.count, 4)), 'enable_safety_checker': True, 'output_format': 'png'}
+        body = {'prompt': (STYLE_SYM if a.symmetric == '1' else STYLE).format(subject=subject), 'image_size': 'square_hd', 'num_images': max(1, min(a.count, 4)), 'enable_safety_checker': True, 'output_format': 'png'}
         if endpoint.endswith('schnell'):
             body['num_inference_steps'] = 4
         sub = call('POST', f'{API}/{endpoint}', key, body, timeout=120)

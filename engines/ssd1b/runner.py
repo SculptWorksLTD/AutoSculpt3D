@@ -5,6 +5,7 @@ import os
 import sys
 import time
 STYLE = '{subject}. A single complete object, whole body fully visible, centered, three-quarter view, isolated on a plain white background, soft even studio lighting, sharp focus, detailed realistic sculpture reference'
+STYLE_SYM = '{subject}. A single complete object, whole body fully visible, centered, straight front view facing the camera, symmetrical pose, left and right sides identical, isolated on a plain white background, soft even studio lighting, sharp focus, detailed realistic sculpture reference'
 NEGATIVE = 'cropped, cut off, out of frame, multiple objects, duplicate, text, letters, watermark, logo, frame, border, busy background, scenery, floor, cast shadow, blurry, low quality, deformed'
 TRANSLATORS = {'it': 'Helsinki-NLP/opus-mt-it-en', 'de': 'Helsinki-NLP/opus-mt-de-en', 'fr': 'Helsinki-NLP/opus-mt-fr-en', 'es': 'Helsinki-NLP/opus-mt-es-en', 'pt': 'Helsinki-NLP/opus-mt-ROMANCE-en', 'ja': 'Helsinki-NLP/opus-mt-ja-en'}
 
@@ -95,6 +96,7 @@ def main():
     ap.add_argument('--work', default=None)
     ap.add_argument('--count', type=int, default=4)
     ap.add_argument('--quality', default='normal')
+    ap.add_argument('--symmetric', default='0')
     ap.add_argument('--seed', type=int, default=-1)
     ap.add_argument('--device', default='auto')
     ap.add_argument('--precision', default='auto', help='auto | fp32 (used when half precision fails on a graphics chip)')
@@ -175,7 +177,7 @@ def main():
                 ctx = torch.autocast(device_type='mps', dtype=torch.float16)
             except Exception:
                 ctx = contextlib.nullcontext()
-        args = dict(prompt=STYLE.format(subject=subject), negative_prompt=NEGATIVE, num_inference_steps=steps, guidance_scale=7.0, width=size, height=size, generator=gen, callback_on_step_end=step)
+        args = dict(prompt=(STYLE_SYM if a.symmetric == '1' else STYLE).format(subject=subject), negative_prompt=NEGATIVE, num_inference_steps=steps, guidance_scale=7.0, width=size, height=size, generator=gen, callback_on_step_end=step)
         try:
             with ctx, torch.no_grad():
                 if device == 'mps':

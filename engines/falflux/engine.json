@@ -4,7 +4,7 @@
   "type": "cloud",
   "kind": "text2image",
   "key_engine": "fal",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "order": 20,
   "description": "Draws the subject you describe online with FLUX: very good pictures in a few seconds. It uses the same fal.ai key as the 3D models.",
   "license": "FLUX.1 [schnell]: Apache 2.0; FLUX.1 [dev] pictures may be used commercially; paid service, check the terms of fal.ai",
@@ -14,7 +14,27 @@
   "key_hint": "fal.ai → Dashboard → Keys (add credit under Billing)",
   "runner": "runner.py",
   "options": [
-    {"id": "quality", "label": "Picture quality", "type": "choice", "default": "normal",
-     "choices": [["normal", "Normal (FLUX schnell)"], ["high", "High (FLUX dev)"]]}
+    {
+      "id": "quality",
+      "label": "Picture quality",
+      "type": "choice",
+      "default": "normal",
+      "choices": [
+        [
+          "normal",
+          "Normal (FLUX schnell)"
+        ],
+        [
+          "high",
+          "High (FLUX dev)"
+        ]
+      ]
+    },
+    {
+      "id": "symmetric",
+      "label": "Symmetric subject",
+      "type": "hidden",
+      "default": "0"
+    }
   ]
 }

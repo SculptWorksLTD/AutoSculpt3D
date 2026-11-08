@@ -3685,10 +3685,43 @@ catch (e) {
     worker = null;
 }
 const reduceNow = (V, F, target, W, opts) => opts ? sculptMesh(V, F, target, null, W, opts) : decimateMesh(V, F, target, null, W);
+let decimating = null, decimateNext = null;
 function runDecimate(V, F, target, onp, W, opts) {
     if (!worker)
         return new Promise((res) => setTimeout(() => res(reduceNow(V, F, target, W, opts)), 10));
-    return new Promise((res, rej) => { const id = ++jobId; pending.set(id, { res, rej, onp, V, F, target, W, opts }); worker.postMessage({ cmd: 'decimate', id, V, F, target, W, opts }); });
+    return new Promise((res, rej) => {
+        const job = { res: [res], rej: [rej], onp, V, F, target, W, opts };
+        if (decimating) {
+            if (decimateNext) {
+                job.res.push(...decimateNext.res);
+                job.rej.push(...decimateNext.rej);
+            }
+            decimateNext = job;
+            return;
+        }
+        startDecimate(job);
+    });
+}
+function startDecimate(job) {
+    const id = ++jobId;
+    decimating = job;
+    const finish = (ok, v) => { decimating = null; for (const f of ok ? job.res : job.rej)
+        f(v); if (decimateNext) {
+        const n = decimateNext;
+        decimateNext = null;
+        startDecimate(n);
+    } };
+    if (!worker) {
+        setTimeout(() => { try {
+            finish(true, reduceNow(job.V, job.F, job.target, job.W, job.opts));
+        }
+        catch (e) {
+            finish(false, e);
+        } }, 10);
+        return;
+    }
+    pending.set(id, { res: (v) => finish(true, v), rej: (e) => finish(false, e), onp: job.onp, V: job.V, F: job.F, target: job.target, W: job.W, opts: job.opts });
+    worker.postMessage({ cmd: 'decimate', id, V: job.V, F: job.F, target: job.target, W: job.W, opts: job.opts });
 }
 function runNest(entries, o) {
     if (!worker)

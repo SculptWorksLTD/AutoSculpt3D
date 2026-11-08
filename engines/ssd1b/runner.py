@@ -6,7 +6,13 @@ import sys
 import time
 STYLE = '{subject}. A single complete object, whole body fully visible, centered, three-quarter view, isolated on a plain white background, soft even studio lighting, sharp focus, detailed realistic sculpture reference'
 STYLE_SYM = 'Front view, facing the camera: {subject}. Symmetrical pose, head straight, left and right sides identical, a single complete object, whole body fully visible, centered, isolated on a plain white background, soft even studio lighting, sharp focus, detailed realistic sculpture reference'
-NEGATIVE = 'cropped, cut off, out of frame, multiple objects, duplicate, text, letters, watermark, logo, frame, border, busy background, scenery, floor, cast shadow, blurry, low quality, deformed'
+NEGATIVE = 'extra legs, five legs, extra limbs, bad anatomy, fused legs, missing legs, extra heads, mutated, deformed, cropped, cut off, out of frame, multiple objects, duplicate, text, watermark, logo, frame, busy background, scenery, floor, cast shadow, blurry, low quality'
+QUADRUPEDS = ('horse', 'pony', 'foal', 'donkey', 'mule', 'zebra', 'dog', 'puppy', 'cat', 'kitten', 'lion', 'tiger', 'leopard', 'cheetah', 'wolf', 'fox', 'bear', 'cow', 'bull', 'ox', 'calf', 'deer', 'stag', 'elk', 'moose', 'goat', 'sheep', 'ram', 'lamb', 'pig', 'boar', 'elephant', 'rhino', 'hippo', 'giraffe', 'camel', 'llama', 'alpaca', 'rabbit', 'hare', 'squirrel', 'mouse', 'rat', 'panther', 'jaguar', 'hyena', 'kangaroo', 'unicorn', 'dragon', 'dinosaur', 'triceratops', 'rhinoceros', 'hippopotamus')
+
+def is_quadruped(subject):
+    import re
+    words = set(re.findall('[a-z]+', subject.lower()))
+    return any((w in words or w + 's' in words for w in QUADRUPEDS))
 TRANSLATORS = {'it': 'Helsinki-NLP/opus-mt-it-en', 'de': 'Helsinki-NLP/opus-mt-de-en', 'fr': 'Helsinki-NLP/opus-mt-fr-en', 'es': 'Helsinki-NLP/opus-mt-es-en', 'pt': 'Helsinki-NLP/opus-mt-ROMANCE-en', 'ja': 'Helsinki-NLP/opus-mt-ja-en'}
 
 def implied_negatives(subject):
@@ -188,7 +194,16 @@ def main():
                 ctx = torch.autocast(device_type='mps', dtype=torch.float16)
             except Exception:
                 ctx = contextlib.nullcontext()
-        args = dict(prompt=(STYLE_SYM if a.symmetric == '1' else STYLE).format(subject=subject), negative_prompt=NEGATIVE + implied_negatives(subject) + (', side view, profile, three-quarter view, turned head, looking sideways, asymmetric' if a.symmetric == '1' else ''), num_inference_steps=steps, guidance_scale=7.0, width=size, height=size, generator=gen, callback_on_step_end=step)
+        four = is_quadruped(subject)
+        text = (STYLE_SYM if a.symmetric == '1' else STYLE).format(subject=subject)
+        if four:
+            text = text.replace('Front view, facing the camera: ', 'Seen from the front, turned slightly to the side: ')
+            text = text.replace(subject, subject + ', anatomically correct, exactly four legs, all clearly separate', 1)
+        extra = implied_negatives(subject)
+        neg = (extra[2:] + ', ' if extra else '') + NEGATIVE
+        if a.symmetric == '1':
+            neg += ', profile, turned head, looking sideways, asymmetric' + ('' if four else ', side view, three-quarter view')
+        args = dict(prompt=text, negative_prompt=neg, num_inference_steps=steps, guidance_scale=7.0, width=size, height=size, generator=gen, callback_on_step_end=step)
         try:
             with ctx, torch.no_grad():
                 if device == 'mps':

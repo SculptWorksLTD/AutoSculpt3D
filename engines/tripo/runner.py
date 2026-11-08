@@ -1,6 +1,5 @@
 # AutoSculpt 3D - (c) 2026 Enrico Migliorati. All rights reserved.
 import argparse
-import base64
 import json
 import os
 import sys
@@ -21,11 +20,6 @@ class Fail(Exception):
     def __init__(self, text, **values):
         super().__init__(text)
         self.text, self.values = (text, values)
-
-def data_uri(path):
-    ext = os.path.splitext(path)[1].lower()
-    mime = {'.png': 'image/png', '.webp': 'image/webp'}.get(ext, 'image/jpeg')
-    return f'data:{mime};base64,' + base64.b64encode(open(path, 'rb').read()).decode()
 
 def call(method, url, key, body=None, timeout=120):
     data = json.dumps(body).encode() if body is not None else None

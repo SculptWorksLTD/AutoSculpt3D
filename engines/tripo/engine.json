@@ -2,7 +2,7 @@
   "id": "tripo",
   "name": "Tripo",
   "type": "cloud",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "order": 30,
   "description": "Fast online service with good shapes from a single photo.",
   "license": "Paid service, pay per model; check Tripo's terms on ownership of the models",

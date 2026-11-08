@@ -19,17 +19,6 @@ def is_quadruped(subject):
     return any((w in words or w + 's' in words for w in QUADRUPEDS))
 TRANSLATORS = {'it': 'Helsinki-NLP/opus-mt-it-en', 'de': 'Helsinki-NLP/opus-mt-de-en', 'fr': 'Helsinki-NLP/opus-mt-fr-en', 'es': 'Helsinki-NLP/opus-mt-es-en', 'pt': 'Helsinki-NLP/opus-mt-ROMANCE-en', 'ja': 'Helsinki-NLP/opus-mt-ja-en'}
 
-def implied_negatives(subject):
-    import re
-    t = subject.lower()
-    out = []
-    for m in re.finditer('\\b(mouth|eyes|wings|legs|paws)\\s+(?:is\\s+|are\\s+)?(?:closed|shut|folded)|\\b(?:closed|shut|folded)\\s+(mouth|eyes|wings)', t):
-        w = m.group(1) or m.group(2)
-        out.append({'mouth': 'open mouth, tongue out, teeth', 'eyes': 'open eyes'}.get(w, 'open ' + w + ', spread ' + w))
-    for m in re.finditer('\\bwithout (?:a |an |the )?([a-z ]{3,30}?)(?:[,.]|$| and )', t):
-        out.append(m.group(1).strip())
-    return ', ' + ', '.join(out) if out else ''
-
 def say(kind, *parts, **values):
     line = ' '.join([kind, *[str(p) for p in parts]])
     if values:

@@ -2,7 +2,7 @@
   "id": "fluxlocal",
   "name": "FLUX.1 schnell (MLX)",
   "kind": "text2image",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "install_version": "1.0.0",
   "min_program": "1.3.16",
   "only": "apple_chip",

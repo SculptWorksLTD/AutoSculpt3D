@@ -96,6 +96,24 @@ def prepare_photo(path, remove_bg, work):
             alpha = alpha * mask
     except Exception:
         pass
+    try:
+        from scipy import ndimage
+        filled = ndimage.binary_fill_holes(mask)
+        small = filled & ~mask
+        lab2, n2 = ndimage.label(small)
+        if n2:
+            sizes = np.bincount(lab2.ravel())
+            sizes[0] = 0
+            fill = (sizes <= max(64, mask.sum() * 0.004))[lab2] & small
+            mask = mask | fill
+            alpha = np.where(fill, 1.0, alpha)
+    except Exception:
+        pass
+    try:
+        from scipy import ndimage
+        alpha = np.clip(ndimage.gaussian_filter(alpha, 0.7), 0, 1) * ndimage.binary_dilation(mask, iterations=2)
+    except Exception:
+        pass
     rows, cols = np.where(mask)
     y0, y1, x0, x1 = (rows.min(), rows.max() + 1, cols.min(), cols.max() + 1)
     rgb = arr[:, :, :3] * alpha[:, :, None] + (1 - alpha[:, :, None])
@@ -185,6 +203,11 @@ def main():
             mesh = max(parts, key=lambda m: len(m.faces))
     except Exception:
         pass
+    for fix in (lambda: mesh.update_faces(mesh.nondegenerate_faces()), lambda: mesh.update_faces(mesh.unique_faces()), mesh.remove_unreferenced_vertices, lambda: trimesh.repair.fill_holes(mesh), lambda: trimesh.repair.fix_normals(mesh)):
+        try:
+            fix()
+        except Exception:
+            pass
     try:
         if mesh.volume < 0:
             mesh.invert()

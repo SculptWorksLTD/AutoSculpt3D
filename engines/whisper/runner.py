@@ -38,6 +38,9 @@ def read_wav(path):
     if rate != 16000:
         t = np.arange(0, len(x) / rate, 1 / 16000)
         x = np.interp(t, np.arange(len(x)) / rate, x).astype(np.float32)
+    peak = float(np.abs(x).max()) if len(x) else 0.0
+    if 0 < peak < 0.3:
+        x = (x * (0.7 / peak)).astype(np.float32)
     return x
 
 def main():
@@ -66,7 +69,7 @@ def main():
     if a.lang in LANGS:
         kw['language'] = LANGS[a.lang]
     with torch.no_grad():
-        ids = model.generate(feats, max_new_tokens=200, **kw)
+        ids = model.generate(feats, max_new_tokens=200, num_beams=4, **kw)
     text = proc.batch_decode(ids, skip_special_tokens=True)[0].strip()
     if not text:
         raise RuntimeError('No words were recognised: speak a little louder and closer')

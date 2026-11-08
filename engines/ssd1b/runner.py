@@ -4,8 +4,8 @@ import json
 import os
 import sys
 import time
-STYLE = '{subject}. A single complete object, whole body fully visible, centered, three-quarter view, isolated on a plain white background, soft even studio lighting, sharp focus, detailed realistic sculpture reference'
-STYLE_SYM = 'Front view, facing the camera: {subject}. Symmetrical pose, head straight, left and right sides identical, a single complete object, whole body fully visible, centered, isolated on a plain white background, soft even studio lighting, sharp focus, detailed realistic sculpture reference'
+STYLE = '{subject}. A single complete object, whole body fully visible from head to feet on the ground, centered, three-quarter view, isolated on a plain white background, no cast shadow, soft even studio lighting, sharp focus, detailed realistic sculpture reference'
+STYLE_SYM = 'Front view, facing the camera: {subject}. Symmetrical pose, head straight, left and right sides identical, a single complete object, whole body fully visible from head to feet on the ground, centered, isolated on a plain white background, no cast shadow, soft even studio lighting, sharp focus, detailed realistic sculpture reference'
 NEGATIVE = 'extra legs, five legs, extra limbs, bad anatomy, fused legs, missing legs, extra heads, mutated, deformed, cropped, cut off, out of frame, multiple objects, duplicate, text, watermark, logo, frame, busy background, scenery, floor, cast shadow, blurry, low quality'
 QUADRUPEDS = ('horse', 'pony', 'foal', 'donkey', 'mule', 'zebra', 'dog', 'puppy', 'cat', 'kitten', 'lion', 'tiger', 'leopard', 'cheetah', 'wolf', 'fox', 'bear', 'cow', 'bull', 'ox', 'calf', 'deer', 'stag', 'elk', 'moose', 'goat', 'sheep', 'ram', 'lamb', 'pig', 'boar', 'elephant', 'rhino', 'hippo', 'giraffe', 'camel', 'llama', 'alpaca', 'rabbit', 'hare', 'squirrel', 'mouse', 'rat', 'panther', 'jaguar', 'hyena', 'kangaroo', 'unicorn', 'dragon', 'dinosaur', 'triceratops', 'rhinoceros', 'hippopotamus')
 

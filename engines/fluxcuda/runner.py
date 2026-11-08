@@ -4,8 +4,9 @@ import json
 import os
 import sys
 import time
-STYLE = '{subject}. One single complete subject, the whole body fully visible and centered, seen in three-quarter view, isolated on a plain pure white background, with no pedestal, base or stand, soft even studio lighting, sharp focus, realistic, anatomically correct. A clean reference picture for a sculpture.'
-STYLE_SYM = '{subject}, seen from the front and facing the camera, in a symmetrical pose with the head straight and the left and right sides alike. One single complete subject, the whole body fully visible and centered, isolated on a plain pure white background with no pedestal, base or stand, soft even studio lighting, sharp focus, realistic, anatomically correct. A clean reference picture for a sculpture.'
+STYLE = '{subject}. One single complete subject, the whole body fully visible and centered, from the top of the head to the feet standing on the ground, seen in {view}, isolated on a plain pure white background, with no pedestal, base or stand and no cast shadow, soft even studio lighting, matte surface, sharp focus, realistic, anatomically correct. A clean reference picture for a sculpture.'
+VIEWS = ('three-quarter view from the front left', 'three-quarter view from the front right', 'three-quarter view, slightly from above', 'side view, slightly turned towards the camera')
+STYLE_SYM = '{subject}, seen from the front and facing the camera, in a symmetrical pose with the head straight and the left and right sides alike. One single complete subject, the whole body fully visible and centered, from the top of the head to the feet standing on the ground, isolated on a plain pure white background with no pedestal, base or stand and no cast shadow, soft even studio lighting, matte surface, sharp focus, realistic, anatomically correct. A clean reference picture for a sculpture.'
 QUADRUPEDS = ('horse', 'pony', 'foal', 'donkey', 'mule', 'zebra', 'dog', 'puppy', 'cat', 'kitten', 'lion', 'tiger', 'leopard', 'cheetah', 'wolf', 'fox', 'bear', 'cow', 'bull', 'ox', 'calf', 'deer', 'stag', 'elk', 'moose', 'goat', 'sheep', 'ram', 'lamb', 'pig', 'boar', 'elephant', 'rhino', 'hippo', 'giraffe', 'camel', 'llama', 'alpaca', 'rabbit', 'hare', 'squirrel', 'mouse', 'rat', 'panther', 'jaguar', 'hyena', 'kangaroo', 'unicorn', 'dragon', 'dinosaur', 'triceratops', 'rhinoceros', 'hippopotamus')
 
 def is_quadruped(subject):
@@ -116,17 +117,28 @@ def main():
     base = os.path.join(a.weights, 'base')
     gguf = os.path.join(a.weights, 'gguf', 'flux1-schnell-Q4_K_S.gguf')
     dtype = torch.bfloat16
-    text = (STYLE_SYM if a.symmetric == '1' else STYLE).format(subject=subject.rstrip('. '))
-    if is_quadruped(subject):
-        text += ' It has exactly four legs, each clearly visible and separate.'
+    n = max(1, min(8, a.count))
+
+    def prompt_for(i):
         if a.symmetric == '1':
-            text = text.replace('seen from the front and facing the camera', 'seen from the front, turned slightly to the side')
-    print('prompt:', text, flush=True)
+            text = STYLE_SYM.format(subject=subject.rstrip('. '))
+        else:
+            text = STYLE.format(subject=subject.rstrip('. '), view=VIEWS[i % len(VIEWS)])
+        if is_quadruped(subject):
+            text += ' It has exactly four legs, each clearly visible and separate.'
+            if a.symmetric == '1':
+                text = text.replace('seen from the front and facing the camera', 'seen from the front, turned slightly to the side')
+        return text
+    texts = [prompt_for(i) for i in range(n)]
+    print('prompt:', texts[0], flush=True)
     say('PROGRESS', '0.05', 'Reading the description')
     from diffusers import FluxPipeline
     enc = FluxPipeline.from_pretrained(base, transformer=None, vae=None, torch_dtype=dtype)
+    embeds = []
     with torch.no_grad():
-        pe, ppe, _ = enc.encode_prompt(prompt=text, prompt_2=text, device='cpu', num_images_per_prompt=1, max_sequence_length=256)
+        for text in texts:
+            pe, ppe, _ = enc.encode_prompt(prompt=text, prompt_2=text, device='cpu', num_images_per_prompt=1, max_sequence_length=256)
+            embeds.append((pe, ppe))
     del enc
     gc.collect()
     say('PROGRESS', '0.08', 'Loading the image generator')
@@ -146,9 +158,7 @@ def main():
     steps = 2 if a.quality == 'draft' else 4
     if tiny:
         size, steps = (256, 1)
-    n = max(1, min(8, a.count))
     seed0 = a.seed if a.seed >= 0 else int(time.time()) % 100000
-    pe, ppe = (pe.to(dev), ppe.to(dev))
     t1 = time.time()
     for i in range(n):
 
@@ -160,6 +170,7 @@ def main():
             say('PROGRESS', round(0.1 + 0.88 * done / n, 3), 'Picture {i} of {n}, about {m} min left', i=i + 1, n=n, m=max(1, round(left / 60)))
             return kw
         g = torch.Generator('cpu').manual_seed(seed0 + i * 7919)
+        pe, ppe = (embeds[i][0].to(dev), embeds[i][1].to(dev))
         with torch.no_grad():
             img = pipe(prompt_embeds=pe, pooled_prompt_embeds=ppe, width=size, height=size, num_inference_steps=steps, guidance_scale=0.0, generator=g, callback_on_step_end=step).images[0]
         path = os.path.join(a.output_dir, f'image{i + 1}.png')

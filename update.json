@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
   "latest": "1.3.61",
-  "notes": "General check-up: flat soles now reach every foot even when the feet are not all at the same depth, and the Summary says how many soles there are and how high the cut is; the sheet view explains when no internal rib fits; closing a project clears everything; small fixes in the program and the engines.",
+  "notes": "Engines tuned: photos for the 3D engine get a cleaner cut-out (small holes closed, soft edge) and the resulting model is closed and repaired; the pictures drawn from a description show the whole subject from head to feet, without shadows, each from a different point of view; dictation hears quiet recordings better and makes fewer slips.",
   "notes_i18n": {
-    "en": "General check-up: flat soles now reach every foot even when the feet are not all at the same depth, and the Summary says how many soles there are and how high the cut is; the sheet view explains when no internal rib fits; closing a project clears everything; small fixes in the program and the engines.",
-    "it": "Controllo generale: gli appoggi piatti ora arrivano a tutti i piedi anche quando non sono alla stessa profondità, e il Riepilogo dice quanti sono e quanto è alto il taglio; la vista Lamiere spiega quando nessuna centina entra; chiudendo un progetto si pulisce tutto; piccole correzioni nel programma e nei motori.",
-    "de": "Generalcheck: Flache Sohlen erreichen jetzt jeden Fuß, auch wenn die Füße nicht gleich tief stehen, und die Übersicht nennt ihre Zahl und die Schnitthöhe; die Blechansicht erklärt, wenn kein innerer Spant passt; das Schließen eines Projekts räumt alles auf; kleine Korrekturen in Programm und Engines.",
-    "fr": "Contrôle général : les semelles plates atteignent maintenant tous les pieds même s’ils ne sont pas à la même profondeur, et le Récapitulatif indique leur nombre et la hauteur de la coupe ; la vue Tôles explique quand aucun gabarit interne ne tient ; fermer un projet efface tout ; petites corrections dans le programme et les moteurs.",
-    "es": "Revisión general: los apoyos planos ahora llegan a todos los pies aunque no estén a la misma profundidad, y el Resumen indica cuántos son y la altura del corte; la vista Chapas explica cuándo ninguna costilla interna cabe; cerrar un proyecto limpia todo; pequeñas correcciones en el programa y en los motores.",
-    "pt": "Revisão geral: os apoios planos agora chegam a todos os pés mesmo quando não estão à mesma profundidade, e o Resumo indica quantos são e a altura do corte; a vista Chapas explica quando nenhuma caverna interna cabe; fechar um projeto limpa tudo; pequenas correções no programa e nos motores.",
-    "ja": "総点検: 平らな底面が、足の深さが揃っていなくてもすべての足に届くようになり、概要に底面の数と切断高さを表示。板ビューは内部リブが収まらない理由を説明。プロジェクトを閉じるとすべてクリア。プログラムとエンジンの小さな修正。"
+    "en": "Engines tuned: photos for the 3D engine get a cleaner cut-out (small holes closed, soft edge) and the resulting model is closed and repaired; the pictures drawn from a description show the whole subject from head to feet, without shadows, each from a different point of view; dictation hears quiet recordings better and makes fewer slips.",
+    "it": "Motori messi a punto: le foto per il motore 3D hanno uno scontorno più pulito (buchini chiusi, bordo morbido) e il modello che ne esce viene chiuso e riparato; le immagini disegnate da una descrizione mostrano il soggetto intero dalla testa ai piedi, senza ombre, ognuna da un punto di vista diverso; la dettatura sente meglio le registrazioni a basso volume e sbaglia meno parole.",
+    "de": "Engines abgestimmt: Fotos für die 3D-Engine werden sauberer freigestellt (kleine Löcher geschlossen, weicher Rand) und das Modell wird geschlossen und repariert; die aus einer Beschreibung gezeichneten Bilder zeigen das ganze Motiv von Kopf bis Fuß, ohne Schatten, jedes aus einem anderen Blickwinkel; das Diktat versteht leise Aufnahmen besser und macht weniger Fehler.",
+    "fr": "Moteurs réglés : les photos pour le moteur 3D sont détourées plus proprement (petits trous fermés, bord doux) et le modèle obtenu est fermé et réparé ; les images dessinées d’après une description montrent le sujet entier de la tête aux pieds, sans ombre, chacune sous un angle différent ; la dictée entend mieux les enregistrements faibles et fait moins d’erreurs.",
+    "es": "Motores afinados: las fotos para el motor 3D se recortan más limpias (agujeritos cerrados, borde suave) y el modelo resultante se cierra y repara; las imágenes dibujadas a partir de una descripción muestran el sujeto entero de la cabeza a los pies, sin sombras, cada una desde un punto de vista distinto; el dictado oye mejor las grabaciones flojas y se equivoca menos.",
+    "pt": "Motores afinados: as fotos para o motor 3D têm um recorte mais limpo (furinhos fechados, borda suave) e o modelo resultante é fechado e reparado; as imagens desenhadas a partir de uma descrição mostram o sujeito inteiro da cabeça aos pés, sem sombras, cada uma de um ponto de vista diferente; o ditado ouve melhor gravações baixas e erra menos.",
+    "ja": "エンジンを調整: 3D エンジン用の写真の切り抜きがよりきれいになり（小さな穴を閉じ、縁を滑らかに）、得られるモデルは閉じて修復されます。説明から描く画像は被写体全体を頭から足まで影なしで、それぞれ異なる視点から描きます。音声入力は小さな録音も聞き取りやすくなり、誤りが減りました。"
   },
   "history": [
+    {
+      "date": "2026-11-08T21:58:42Z",
+      "version": "1.3.61",
+      "notes": {
+        "en": "Engines tuned: photos for the 3D engine get a cleaner cut-out (small holes closed, soft edge) and the resulting model is closed and repaired; the pictures drawn from a description show the whole subject from head to feet, without shadows, each from a different point of view; dictation hears quiet recordings better and makes fewer slips.",
+        "it": "Motori messi a punto: le foto per il motore 3D hanno uno scontorno più pulito (buchini chiusi, bordo morbido) e il modello che ne esce viene chiuso e riparato; le immagini disegnate da una descrizione mostrano il soggetto intero dalla testa ai piedi, senza ombre, ognuna da un punto di vista diverso; la dettatura sente meglio le registrazioni a basso volume e sbaglia meno parole.",
+        "de": "Engines abgestimmt: Fotos für die 3D-Engine werden sauberer freigestellt (kleine Löcher geschlossen, weicher Rand) und das Modell wird geschlossen und repariert; die aus einer Beschreibung gezeichneten Bilder zeigen das ganze Motiv von Kopf bis Fuß, ohne Schatten, jedes aus einem anderen Blickwinkel; das Diktat versteht leise Aufnahmen besser und macht weniger Fehler.",
+        "fr": "Moteurs réglés : les photos pour le moteur 3D sont détourées plus proprement (petits trous fermés, bord doux) et le modèle obtenu est fermé et réparé ; les images dessinées d’après une description montrent le sujet entier de la tête aux pieds, sans ombre, chacune sous un angle différent ; la dictée entend mieux les enregistrements faibles et fait moins d’erreurs.",
+        "es": "Motores afinados: las fotos para el motor 3D se recortan más limpias (agujeritos cerrados, borde suave) y el modelo resultante se cierra y repara; las imágenes dibujadas a partir de una descripción muestran el sujeto entero de la cabeza a los pies, sin sombras, cada una desde un punto de vista distinto; el dictado oye mejor las grabaciones flojas y se equivoca menos.",
+        "pt": "Motores afinados: as fotos para o motor 3D têm um recorte mais limpo (furinhos fechados, borda suave) e o modelo resultante é fechado e reparado; as imagens desenhadas a partir de uma descrição mostram o sujeito inteiro da cabeça aos pés, sem sombras, cada uma de um ponto de vista diferente; o ditado ouve melhor gravações baixas e erra menos.",
+        "ja": "エンジンを調整: 3D エンジン用の写真の切り抜きがよりきれいになり（小さな穴を閉じ、縁を滑らかに）、得られるモデルは閉じて修復されます。説明から描く画像は被写体全体を頭から足まで影なしで、それぞれ異なる視点から描きます。音声入力は小さな録音も聞き取りやすくなり、誤りが減りました。"
+      }
+    },
     {
       "date": "2026-11-08T21:45:28Z",
       "version": "1.3.61",
@@ -418,17 +431,17 @@
     {
       "id": "falflux",
       "name": "FLUX on fal.ai",
-      "version": "1.0.3",
+      "version": "1.0.4",
       "files": [
         {
           "path": "engine.json",
           "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/falflux/engine.json",
-          "sha256": "a100b4db4553f10c7da100d4f437a8ffca2fe572462aeaa3dd37d9696b09b93d"
+          "sha256": "480e2ecfb1e12d3e62a3a18599cc31f11fb45f0f48d5e1801e9b055e9114f7d0"
         },
         {
           "path": "runner.py",
           "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/falflux/runner.py",
-          "sha256": "27277d801485ddc54b7a2812c6e0051e1d2432aeeb095ba37410c44008cd842a"
+          "sha256": "480d13243fbf2e7765fde76585b30b152afa211f7a52e4784920a1560f69026f"
         }
       ]
     },
@@ -469,17 +482,17 @@
     {
       "id": "fluxcuda",
       "name": "FLUX.1 schnell (GGUF)",
-      "version": "1.0.3",
+      "version": "1.0.4",
       "files": [
         {
           "path": "engine.json",
           "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/fluxcuda/engine.json",
-          "sha256": "2335482db17c74c1fa850a22069cae6711d8211635d48b08d6380dd460f8d015"
+          "sha256": "728e9e30a6030adb4edb4e82915706b3bfd9ffba588add4c38ef347634743a92"
         },
         {
           "path": "runner.py",
           "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/fluxcuda/runner.py",
-          "sha256": "d3659113f67b5d8668e3f998472329af56f6548e2349f70ecaa80734304d85cd"
+          "sha256": "047b064d8e78f7e13aa9ce06ab110e643f49142126e7ef9801095e881e8f484d"
         }
       ],
       "only": "nvidia"
@@ -487,17 +500,17 @@
     {
       "id": "fluxlocal",
       "name": "FLUX.1 schnell (MLX)",
-      "version": "1.0.3",
+      "version": "1.0.4",
       "files": [
         {
           "path": "engine.json",
           "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/fluxlocal/engine.json",
-          "sha256": "cd99b1047439dd8cbd65a28bf3f2137c0898c2a5b8d3bb016e58242f9a687a30"
+          "sha256": "69c72a35582f1298293f54593e6fa2a928244d49e450ec2a310203d7f1d1845d"
         },
         {
           "path": "runner.py",
           "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/fluxlocal/runner.py",
-          "sha256": "93900f6b20ccd73c7a9b488783df4d206352f1dba0d815a3582206c575fe6335"
+          "sha256": "e8518bfc496d9f4515fa42c2437baf664d1a0c08f05dea997ee2e5165c72d891"
         }
       ],
       "only": "apple_chip"
@@ -539,17 +552,17 @@
     {
       "id": "ssd1b",
       "name": "SSD-1B (Stable Diffusion XL)",
-      "version": "1.0.14",
+      "version": "1.0.15",
       "files": [
         {
           "path": "engine.json",
           "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/ssd1b/engine.json",
-          "sha256": "a108f0f3fdbd4a4c9b699249be48107edc53cf57f5d2844987e8da4c2d061a12"
+          "sha256": "bfecdb7022c99853368930862597d3828207e56ccac5e55881d954212cd486cf"
         },
         {
           "path": "runner.py",
           "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/ssd1b/runner.py",
-          "sha256": "6bc8803facbbae22019638c21055dd66a6ae3fb229cc62e34bba89a912cc2ff4"
+          "sha256": "97dc7f669a75948299498aebfb694df0c3556f480361c4f33227117cfe2d2bb5"
         }
       ],
       "hide_on": "apple_chip_or_nvidia"
@@ -574,34 +587,34 @@
     {
       "id": "triposg",
       "name": "TripoSG",
-      "version": "1.0.4",
+      "version": "1.0.5",
       "files": [
         {
           "path": "engine.json",
           "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/triposg/engine.json",
-          "sha256": "ad87200860d8802759179555bdec19363fea0c413fe68967ae48db3ec437634f"
+          "sha256": "11a423a812d8381e69bfc25656825b6d64cfe454f9eb548254ac15a32d4a4def"
         },
         {
           "path": "runner.py",
           "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/triposg/runner.py",
-          "sha256": "d65a1f345526785fc867472f13eb7b9dd67577ce2d5bf6f7bfd14cdd5b0eaf0a"
+          "sha256": "61ac268c29392cb1fa002e69f3f430c58a3ef2ad7634062f3ff57762c579d157"
         }
       ]
     },
     {
       "id": "whisper",
       "name": "Whisper (voice)",
-      "version": "1.1.2",
+      "version": "1.1.3",
       "files": [
         {
           "path": "engine.json",
           "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/whisper/engine.json",
-          "sha256": "326279dd7e08a057fb7bd6bb154e455f27415a8014638023c2a27dcbde900820"
+          "sha256": "631782507d78a449f14cca326b0ec9e02bba8e514568011028dda437adfdb5f0"
         },
         {
           "path": "runner.py",
           "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/whisper/runner.py",
-          "sha256": "40357ead224995dba1677968fff81257f47a516925dcd070194fcdfdeea51f13"
+          "sha256": "dd309affbdc50e71793c428e334fa9605b6492d8a2bec70e0eac658f270cd0dd"
         }
       ]
     }

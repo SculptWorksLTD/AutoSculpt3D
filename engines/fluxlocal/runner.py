@@ -4,8 +4,9 @@ import json
 import os
 import sys
 import time
-STYLE = '{subject}. One single complete subject, the whole body fully visible and centered, seen in three-quarter view, isolated on a plain pure white background, with no pedestal, base or stand, soft even studio lighting, sharp focus, realistic, anatomically correct. A clean reference picture for a sculpture.'
-STYLE_SYM = '{subject}, seen from the front and facing the camera, in a symmetrical pose with the head straight and the left and right sides alike. One single complete subject, the whole body fully visible and centered, isolated on a plain pure white background with no pedestal, base or stand, soft even studio lighting, sharp focus, realistic, anatomically correct. A clean reference picture for a sculpture.'
+STYLE = '{subject}. One single complete subject, the whole body fully visible and centered, from the top of the head to the feet standing on the ground, seen in {view}, isolated on a plain pure white background, with no pedestal, base or stand and no cast shadow, soft even studio lighting, matte surface, sharp focus, realistic, anatomically correct. A clean reference picture for a sculpture.'
+VIEWS = ('three-quarter view from the front left', 'three-quarter view from the front right', 'three-quarter view, slightly from above', 'side view, slightly turned towards the camera')
+STYLE_SYM = '{subject}, seen from the front and facing the camera, in a symmetrical pose with the head straight and the left and right sides alike. One single complete subject, the whole body fully visible and centered, from the top of the head to the feet standing on the ground, isolated on a plain pure white background with no pedestal, base or stand and no cast shadow, soft even studio lighting, matte surface, sharp focus, realistic, anatomically correct. A clean reference picture for a sculpture.'
 QUADRUPEDS = ('horse', 'pony', 'foal', 'donkey', 'mule', 'zebra', 'dog', 'puppy', 'cat', 'kitten', 'lion', 'tiger', 'leopard', 'cheetah', 'wolf', 'fox', 'bear', 'cow', 'bull', 'ox', 'calf', 'deer', 'stag', 'elk', 'moose', 'goat', 'sheep', 'ram', 'lamb', 'pig', 'boar', 'elephant', 'rhino', 'hippo', 'giraffe', 'camel', 'llama', 'alpaca', 'rabbit', 'hare', 'squirrel', 'mouse', 'rat', 'panther', 'jaguar', 'hyena', 'kangaroo', 'unicorn', 'dragon', 'dinosaur', 'triceratops', 'rhinoceros', 'hippopotamus')
 
 def is_quadruped(subject):
@@ -121,15 +122,22 @@ def main():
     from mflux import Flux1, Config, ModelConfig
     from mflux.callbacks.callback_registry import CallbackRegistry
     flux = Flux1(model_config=ModelConfig.from_name('schnell'), local_path=a.weights)
-    text = (STYLE_SYM if a.symmetric == '1' else STYLE).format(subject=subject.rstrip('. '))
-    if is_quadruped(subject):
-        text += ' It has exactly four legs, each clearly visible and separate.'
+    n = max(1, min(8, a.count))
+
+    def prompt_for(i):
         if a.symmetric == '1':
-            text = text.replace('seen from the front and facing the camera', 'seen from the front, turned slightly to the side')
-    print('prompt:', text, flush=True)
+            text = STYLE_SYM.format(subject=subject.rstrip('. '))
+        else:
+            text = STYLE.format(subject=subject.rstrip('. '), view=VIEWS[i % len(VIEWS)])
+        if is_quadruped(subject):
+            text += ' It has exactly four legs, each clearly visible and separate.'
+            if a.symmetric == '1':
+                text = text.replace('seen from the front and facing the camera', 'seen from the front, turned slightly to the side')
+        return text
+    texts = [prompt_for(i) for i in range(n)]
+    print('prompt:', texts[0], flush=True)
     size = {'high': 1024, 'draft': 512}.get(a.quality, 768)
     steps = 2 if a.quality == 'draft' else 4
-    n = max(1, min(8, a.count))
     seed0 = a.seed if a.seed >= 0 else int(time.time()) % 100000
     state = {'i': 0, 't': time.time()}
 
@@ -146,7 +154,7 @@ def main():
     CallbackRegistry.register_in_loop(Progress())
     for i in range(n):
         state['i'] = i
-        img = flux.generate_image(seed=seed0 + i * 7919, prompt=text, config=Config(num_inference_steps=steps, width=size, height=size))
+        img = flux.generate_image(seed=seed0 + i * 7919, prompt=texts[i], config=Config(num_inference_steps=steps, width=size, height=size))
         path = os.path.join(a.output_dir, f'image{i + 1}.png')
         img.image.save(path)
         say('IMAGE', path)

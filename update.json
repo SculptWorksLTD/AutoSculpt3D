@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.40",
-  "notes": "Small sculptures: no more seams too short to weld. Across a short edge the piece continues with a bend instead of a seam; faces too small are merged more thoroughly.",
+  "latest": "1.3.41",
+  "notes": "Fewer short seams on small sculptures: thin tunnels in manes and tails are closed, and pieces are joined across short edges with a bend. The size field no longer accepts impossible values.",
   "notes_i18n": {
-    "en": "Small sculptures: no more seams too short to weld. Across a short edge the piece continues with a bend instead of a seam; faces too small are merged more thoroughly.",
-    "it": "Sculture piccole: niente più cordoni troppo corti da saldare. Su un lato corto il pezzo continua con una piega invece che con un cordone; le facce troppo piccole vengono unite meglio.",
-    "de": "Kleine Skulpturen: keine Schweißnähte mehr, die zu kurz sind. An einer kurzen Kante geht das Teil mit einer Biegung statt einer Naht weiter; zu kleine Flächen werden gründlicher zusammengefasst.",
-    "fr": "Petites sculptures : plus de cordons trop courts à souder. Sur une arête courte, la pièce continue par un pli au lieu d'un cordon ; les faces trop petites sont mieux fusionnées.",
-    "es": "Esculturas pequeñas: ya no hay cordones demasiado cortos para soldar. En un lado corto la pieza sigue con un pliegue en vez de un cordón; las caras demasiado pequeñas se unen mejor.",
-    "pt": "Esculturas pequenas: sem mais cordões curtos demais para soldar. Num lado curto a peça continua com uma dobra em vez de um cordão; as faces pequenas demais são unidas melhor.",
-    "ja": "小さな彫刻：溶接するには短すぎる継ぎ目がなくなりました。短い辺では継ぎ目の代わりに曲げで部品をつなぎ、小さすぎる面はより確実にまとめます。"
+    "en": "Fewer short seams on small sculptures: thin tunnels in manes and tails are closed, and pieces are joined across short edges with a bend. The size field no longer accepts impossible values.",
+    "it": "Meno cordoni corti nelle sculture piccole: i piccoli tunnel in criniere e code vengono chiusi e i pezzi si uniscono lungo i lati corti con una piega. Il campo della misura non accetta più valori impossibili.",
+    "de": "Weniger kurze Schweißnähte bei kleinen Skulpturen: dünne Tunnel in Mähnen und Schweifen werden geschlossen, und Teile werden an kurzen Kanten mit einer Biegung verbunden. Das Größenfeld nimmt keine unmöglichen Werte mehr an.",
+    "fr": "Moins de cordons courts sur les petites sculptures : les petits tunnels dans les crinières et les queues sont fermés, et les pièces sont réunies le long des côtés courts par un pli. Le champ de la taille n’accepte plus de valeurs impossibles.",
+    "es": "Menos cordones cortos en las esculturas pequeñas: los pequeños túneles en crines y colas se cierran y las piezas se unen por los lados cortos con un pliegue. El campo del tamaño ya no acepta valores imposibles.",
+    "pt": "Menos cordões curtos nas esculturas pequenas: os pequenos túneis em crinas e caudas são fechados e as peças se unem nos lados curtos com uma dobra. O campo do tamanho não aceita mais valores impossíveis.",
+    "ja": "小さな彫刻での短い溶接線を減らしました。たてがみや尾の細いトンネルを閉じ、短い辺では部品を曲げでつなぎます。サイズ欄にありえない値が入らなくなりました。"
   },
   "history": [
+    {
+      "date": "2026-11-08T09:09:55Z",
+      "version": "1.3.41",
+      "notes": {
+        "en": "Fewer short seams on small sculptures: thin tunnels in manes and tails are closed, and pieces are joined across short edges with a bend. The size field no longer accepts impossible values.",
+        "it": "Meno cordoni corti nelle sculture piccole: i piccoli tunnel in criniere e code vengono chiusi e i pezzi si uniscono lungo i lati corti con una piega. Il campo della misura non accetta più valori impossibili.",
+        "de": "Weniger kurze Schweißnähte bei kleinen Skulpturen: dünne Tunnel in Mähnen und Schweifen werden geschlossen, und Teile werden an kurzen Kanten mit einer Biegung verbunden. Das Größenfeld nimmt keine unmöglichen Werte mehr an.",
+        "fr": "Moins de cordons courts sur les petites sculptures : les petits tunnels dans les crinières et les queues sont fermés, et les pièces sont réunies le long des côtés courts par un pli. Le champ de la taille n’accepte plus de valeurs impossibles.",
+        "es": "Menos cordones cortos en las esculturas pequeñas: los pequeños túneles en crines y colas se cierran y las piezas se unen por los lados cortos con un pliegue. El campo del tamaño ya no acepta valores imposibles.",
+        "pt": "Menos cordões curtos nas esculturas pequenas: os pequenos túneis em crinas e caudas são fechados e as peças se unem nos lados curtos com uma dobra. O campo do tamanho não aceita mais valores impossíveis.",
+        "ja": "小さな彫刻での短い溶接線を減らしました。たてがみや尾の細いトンネルを閉じ、短い辺では部品を曲げでつなぎます。サイズ欄にありえない値が入らなくなりました。"
+      }
+    },
     {
       "date": "2026-11-08T08:50:24Z",
       "version": "1.3.40",
@@ -105,12 +118,12 @@
     }
   ],
   "ui": {
-    "version": "1.3.40",
+    "version": "1.3.41",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "353f7b892f059f368a23935dbfba43fa27b3eefc85d45fcc7b4176954ad3dae8"
+        "sha256": "1f7d19fbed62f1cafaea29d47f84fda1e4f5d4067edb2ea0ca1df577952a2c6d"
       }
     ]
   },

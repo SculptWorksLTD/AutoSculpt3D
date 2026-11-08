@@ -1197,7 +1197,112 @@ function collapseShortEdges(Vin, Fin, minLen, P) {
         const ux = B[0] - A[0], uy = B[1] - A[1], uz = B[2] - A[2], wx = C[0] - A[0], wy = C[1] - A[1], wz = C[2] - A[2];
         return [uy * wz - uz * wy, uz * wx - ux * wz, ux * wy - uy * wx];
     };
-    for (let pass = 0; pass < 24; pass++) {
+    let pinches = 0;
+    const pinchTunnels = () => {
+        const nf = F.length / 3, vf = Array.from({ length: nv }, () => []), nb = Array.from({ length: nv }, () => new Set()), faceKeys = new Set();
+        for (let f = 0; f < nf; f++) {
+            const t = [F[3 * f], F[3 * f + 1], F[3 * f + 2]];
+            faceKeys.add(t.slice().sort((x, y) => x - y).join());
+            for (let k = 0; k < 3; k++) {
+                vf[t[k]].push(f);
+                nb[t[k]].add(t[(k + 1) % 3]);
+                nb[t[k]].add(t[(k + 2) % 3]);
+            }
+        }
+        const rings = [];
+        for (let a = 0; a < nv; a++)
+            for (const b of nb[a])
+                if (b > a && len(a, b) < minLen)
+                    for (const c of nb[a])
+                        if (c > b && nb[b].has(c) && len(a, c) < minLen && len(b, c) < minLen && !faceKeys.has([a, b, c].join()))
+                            rings.push([len(a, b) + len(b, c) + len(a, c), a, b, c]);
+        rings.sort((x, y) => x[0] - y[0]);
+        const used = new Uint8Array(nv);
+        let nUsed = 0;
+        for (const v of F)
+            if (!used[v]) {
+                used[v] = 1;
+                nUsed++;
+            }
+        const cutsApart = (a, b, c) => {
+            const start = [...nb[a]].find(v => v !== b && v !== c);
+            if (start === undefined)
+                return true;
+            const seen = new Uint8Array(nv);
+            seen[a] = seen[b] = seen[c] = seen[start] = 1;
+            const q = [start];
+            let k = 1;
+            while (q.length)
+                for (const w of nb[q.pop()])
+                    if (!seen[w]) {
+                        seen[w] = 1;
+                        k++;
+                        q.push(w);
+                    }
+            return k < nUsed - 3;
+        };
+        const dirty = new Uint8Array(nv), alive = new Uint8Array(nf).fill(1);
+        let n = 0;
+        for (const [, a, b, c] of rings) {
+            if (dirty[a] || dirty[b] || dirty[c] || onPlane(a) || onPlane(b) || onPlane(c))
+                continue;
+            if (cutsApart(a, b, c))
+                continue;
+            const M = [0, 1, 2].map(i => (V[3 * a + i] + V[3 * b + i] + V[3 * c + i]) / 3);
+            const fs = [...new Set(vf[a].concat(vf[b], vf[c]))].filter(f => alive[f]);
+            const map = (v) => v === b || v === c ? a : v, pos = (v) => v === a || v === b || v === c ? M : [V[3 * v], V[3 * v + 1], V[3 * v + 2]];
+            const keep = [], drop = [], edges = new Map(), seen = new Set();
+            let ok = true;
+            for (const f of fs) {
+                const t = [F[3 * f], F[3 * f + 1], F[3 * f + 2]].map(map);
+                if (t[0] === t[1] || t[1] === t[2] || t[2] === t[0]) {
+                    drop.push(f);
+                    continue;
+                }
+                const key = t.slice().sort((x, y) => x - y).join();
+                if (seen.has(key)) {
+                    ok = false;
+                    break;
+                }
+                seen.add(key);
+                const n0 = cross(F[3 * f], F[3 * f + 1], F[3 * f + 2]), n1 = cross(t[0], t[1], t[2], pos(F[3 * f]), pos(F[3 * f + 1]), pos(F[3 * f + 2]));
+                const l0 = Math.hypot(...n0), l1 = Math.hypot(...n1);
+                if (!(l1 > 1e-12) || (n0[0] * n1[0] + n0[1] * n1[1] + n0[2] * n1[2]) / (l0 * l1 || 1) < 0.05) {
+                    ok = false;
+                    break;
+                }
+                for (let k = 0; k < 3; k++)
+                    if (t[k] === a || t[(k + 1) % 3] === a) {
+                        const e = t[k] < t[(k + 1) % 3] ? t[k] + '_' + t[(k + 1) % 3] : t[(k + 1) % 3] + '_' + t[k];
+                        edges.set(e, (edges.get(e) || 0) + 1);
+                    }
+                keep.push([f, t]);
+            }
+            if (!ok || [...edges.values()].some(x => x !== 2))
+                continue;
+            V[3 * a] = M[0];
+            V[3 * a + 1] = M[1];
+            V[3 * a + 2] = M[2];
+            for (const f of drop)
+                alive[f] = 0;
+            for (const [f, t] of keep) {
+                F[3 * f] = t[0];
+                F[3 * f + 1] = t[1];
+                F[3 * f + 2] = t[2];
+                for (const v of t)
+                    dirty[v] = 1;
+            }
+            dirty[a] = dirty[b] = dirty[c] = 1;
+            n++;
+        }
+        const out = [];
+        for (let f = 0; f < nf; f++)
+            if (alive[f])
+                out.push(F[3 * f], F[3 * f + 1], F[3 * f + 2]);
+        F = out;
+        return n;
+    };
+    for (let pass = 0; pass < 40; pass++) {
         const minDot = pass < 12 ? 0.5 : 0.05;
         const nf = F.length / 3, vf = Array.from({ length: nv }, () => []), alive = new Uint8Array(nf).fill(1);
         for (let f = 0; f < nf; f++)
@@ -1281,8 +1386,14 @@ function collapseShortEdges(Vin, Fin, minLen, P) {
                 out.push(F[3 * f], F[3 * f + 1], F[3 * f + 2]);
         F = out;
         collapsed += n;
-        if (!n && pass >= 12)
-            break;
+        if (!n && pass >= 12) {
+            const k = pinches < 10 ? pinchTunnels() : 0;
+            pinches++;
+            if (!k)
+                break;
+            collapsed += k;
+            continue;
+        }
         if (!n)
             pass = 11;
     }
@@ -1771,6 +1882,110 @@ function unfoldMesh(V, F, opt) {
             addCands(g);
         }
         pieces.push({ id: pid, faces, tree });
+    }
+    const shortBend = Math.max(o.maxBend, 170), joinMax = Math.max(o.maxFaces * 2, o.maxFaces + 12);
+    const treeLinks = (h) => { let n = 0; for (let j = 0; j < 3; j++) {
+        const x = across(h, j);
+        if (x && piece[x[0]] === piece[h] && pieces[piece[h]].tree.has(ekey(F[3 * h + j], F[3 * h + (j + 1) % 3])))
+            n++;
+    } return n; };
+    const fitsBox = (tris) => {
+        let bb = [Infinity, Infinity, -Infinity, -Infinity];
+        for (const t of tris)
+            for (const p of t)
+                bb = [Math.min(bb[0], p[0]), Math.min(bb[1], p[1]), Math.max(bb[2], p[0]), Math.max(bb[3], p[1])];
+        const bw = bb[2] - bb[0], bh = bb[3] - bb[1];
+        return !(Math.max(bw, bh) > sheetMax || Math.min(bw, bh) > sheetMin);
+    };
+    const shortSeams = () => {
+        let n = 0;
+        for (let f = 0; f < nf; f++)
+            for (let k = 0; k < 3; k++) {
+                const g = across(f, k);
+                if (g && f < g[0] && !(piece[f] === piece[g[0]] && pieces[piece[f]].tree.has(ekey(F[3 * f + k], F[3 * f + (k + 1) % 3]))) && dist(F[3 * f + k], F[3 * f + (k + 1) % 3]) < o.minEdge)
+                    n++;
+            }
+        return n;
+    };
+    const tryJoin = (f, k, g) => {
+        const P1 = pieces[piece[f]], P2 = pieces[piece[g]];
+        if (P1 === P2)
+            return false;
+        const vu = F[3 * f + k], vv = F[3 * f + (k + 1) % 3];
+        const ju = [0, 1, 2].find(j => F[3 * g + j] === vu), jv = [0, 1, 2].find(j => F[3 * g + j] === vv);
+        const a1 = corner(f, k), b1 = corner(f, (k + 1) % 3), a2 = corner(g, ju), b2 = corner(g, jv);
+        const t1 = Math.atan2(b1[1] - a1[1], b1[0] - a1[0]), t2 = Math.atan2(b2[1] - a2[1], b2[0] - a2[0]);
+        const c = Math.cos(t1 - t2), s = Math.sin(t1 - t2);
+        const move = (p) => { const x = p[0] - a2[0], y = p[1] - a2[1]; return [a1[0] + c * x - s * y, a1[1] + s * x + c * y]; };
+        const side = (p) => (b1[0] - a1[0]) * (p[1] - a1[1]) - (b1[1] - a1[1]) * (p[0] - a1[0]);
+        if (side(corner(f, (k + 2) % 3)) * side(move(corner(g, 3 - ju - jv))) >= 0)
+            return false;
+        const P1tris = P1.faces.map(triOf);
+        const clear = (tris) => tris.every(t => P1tris.every(u => !triOverlap(t, u))) && fitsBox(tris.concat(P1tris));
+        const place = (h, t) => { for (let j = 0; j < 3; j++) {
+            C2[6 * h + 2 * j] = t[j][0];
+            C2[6 * h + 2 * j + 1] = t[j][1];
+        } piece[h] = P1.id; };
+        if (P1.faces.length + P2.faces.length <= joinMax) {
+            const moved = P2.faces.map(h => triOf(h).map(move));
+            if (clear(moved)) {
+                P2.faces.forEach((h, i) => place(h, moved[i]));
+                P1.faces.push(...P2.faces);
+                for (const e of P2.tree)
+                    P1.tree.add(e);
+                P1.tree.add(ekey(vu, vv));
+                P2.faces = [];
+                P2.tree = new Set();
+                return true;
+            }
+        }
+        if (P2.faces.length > 1 && treeLinks(g) === 1 && P1.faces.length < joinMax) {
+            const t = triOf(g).map(move), before = shortSeams();
+            if (!clear([t]))
+                return false;
+            const old = triOf(g), oldTree = new Set(P2.tree);
+            for (let j = 0; j < 3; j++)
+                P2.tree.delete(ekey(F[3 * g + j], F[3 * g + (j + 1) % 3]));
+            P2.faces = P2.faces.filter(h => h !== g);
+            place(g, t);
+            P1.faces.push(g);
+            P1.tree.add(ekey(vu, vv));
+            if (shortSeams() < before)
+                return true;
+            P1.faces.pop();
+            P1.tree.delete(ekey(vu, vv));
+            P2.faces.push(g);
+            P2.tree = oldTree;
+            for (let j = 0; j < 3; j++) {
+                C2[6 * g + 2 * j] = old[j][0];
+                C2[6 * g + 2 * j + 1] = old[j][1];
+            }
+            piece[g] = P2.id;
+        }
+        return false;
+    };
+    for (let changed = true, round = 0; changed && round < 8; round++) {
+        changed = false;
+        const seams = [];
+        for (let f = 0; f < nf; f++)
+            for (let k = 0; k < 3; k++) {
+                const g = across(f, k);
+                if (!g || f > g[0] || piece[f] === piece[g[0]])
+                    continue;
+                const L = dist(F[3 * f + k], F[3 * f + (k + 1) % 3]);
+                if (L < o.minEdge && bendDeg(f, g[0]) <= shortBend)
+                    seams.push([L, f, k, g]);
+            }
+        seams.sort((p, q) => p[0] - q[0]);
+        for (const [, f, k, g] of seams)
+            if (piece[f] !== piece[g[0]] && (tryJoin(f, k, g[0]) || tryJoin(g[0], g[1], f)))
+                changed = true;
+    }
+    if (pieces.some(pc => !pc.faces.length)) {
+        const kept = pieces.filter(pc => pc.faces.length);
+        pieces.length = 0;
+        kept.forEach((pc, i) => { pc.id = i; for (const h of pc.faces)
+            piece[h] = i; pieces.push(pc); });
     }
     if (o.mirror)
         for (let i = 0; i < C2.length; i += 2)
@@ -4439,6 +4654,9 @@ for (const id of ['facetEven', 'facetDetail'])
     $(id).addEventListener('input', () => { facetLabels(); clearTimeout(facesTimer); facesTimer = setTimeout(() => updateLow(false), 350); });
 $('symmetric').addEventListener('change', () => updateLow(false));
 $('symOther').addEventListener('click', () => { S.symSide = -(S.symSide || 1); updateLow(false); });
+for (const id of ['size', 'minEdge'])
+    $(id).addEventListener('change', () => { const el = $(id), v = +el.value; if (el.value !== '' && Number.isFinite(v))
+        el.value = Math.min(+el.max, Math.max(+el.min, v)); });
 for (const id of ['refAxis', 'size', 'minEdge'])
     $(id).addEventListener('change', () => { if (S.base)
         updateLow(false); });

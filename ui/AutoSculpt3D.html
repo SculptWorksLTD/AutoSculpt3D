@@ -2778,7 +2778,7 @@ function basePlate(V, o) {
     return { id: 0, base: true, faces: [], loops: [outline], holes, bends: [], slots: [], adj: [], area: Math.abs(area) / 2,
         labels: [{ x: cx, y: cy, h: 12, rot: 0, text: 'BASE', main: true }] };
 }
-function stability(V, F, support) {
+function stability(V, F, support, o = {}) {
     let cx = 0, cy = 0, cz = 0, A = 0;
     for (let f = 0; f < F.length; f += 3) {
         const a = 3 * F[f], b = 3 * F[f + 1], c = 3 * F[f + 2];
@@ -2789,7 +2789,19 @@ function stability(V, F, support) {
         cz += s * (V[a + 2] + V[b + 2] + V[c + 2]) / 3;
         A += s;
     }
-    const com = [cx / A, cy / A, cz / A], bb = meshBounds(V);
+    const shellCom = [cx / A, cy / A, cz / A], bb = meshBounds(V), lift = o.lift || 0;
+    let com = shellCom;
+    if (o.masses && o.masses.length && o.shellMass > 0) {
+        let M = o.shellMass;
+        com = shellCom.map(v => v * o.shellMass);
+        for (const x of o.masses)
+            if (x.m > 0) {
+                M += x.m;
+                for (let k = 0; k < 3; k++)
+                    com[k] += x.m * x.c[k];
+            }
+        com = com.map(v => v / M);
+    }
     let pts = support;
     if (!pts) {
         const tol = Math.max(2, bb.size[1] * 0.004);
@@ -2809,8 +2821,19 @@ function stability(V, F, support) {
     }
     if (hull.length < 3)
         margin = 0;
-    const h = com[1] - bb.min[1];
-    return { com, hull, inside, margin: inside ? margin : -margin, height: h, angle: inside ? Math.atan2(margin, Math.max(1e-6, h)) * 180 / Math.PI : 0 };
+    const h = com[1] - (bb.min[1] - lift);
+    return { com, shellCom, hull, inside, margin: inside ? margin : -margin, height: h, angle: inside ? Math.atan2(margin, Math.max(1e-6, h)) * 180 / Math.PI : 0 };
+}
+function loopsCentroid(loops) {
+    let a = 0, x = 0, y = 0;
+    for (const L of loops)
+        for (let i = 0; i < L.length; i++) {
+            const p = L[i], q = L[(i + 1) % L.length], c = p[0] * q[1] - q[0] * p[1];
+            a += c;
+            x += (p[0] + q[0]) * c;
+            y += (p[1] + q[1]) * c;
+        }
+    return Math.abs(a) < 1e-9 ? null : { x: x / (3 * a), y: y / (3 * a), area: Math.abs(a) / 2 };
 }
 function convexHull(P) {
     P = P.slice().sort((a, c) => a[0] - c[0] || a[1] - c[1]);
@@ -3186,7 +3209,7 @@ if (typeof self !== 'undefined' && typeof window === 'undefined' && typeof impor
     };
 }
 if (typeof module !== 'undefined')
-    module.exports = { stability, internalRibs, thinRingEdges, weldMesh, meshGenus, remeshSolid, decimateMesh, sculptMesh, collapseShortEdges, findSymmetry, cutMesh, mirrorMesh, flipEdges, detailWeights, meshBounds, unfoldMesh, nestPieces, buildDXF, basePlate, labelText };
+    module.exports = { loopsCentroid, stability, internalRibs, thinRingEdges, weldMesh, meshGenus, remeshSolid, decimateMesh, sculptMesh, collapseShortEdges, findSymmetry, cutMesh, mirrorMesh, flipEdges, detailWeights, meshBounds, unfoldMesh, nestPieces, buildDXF, basePlate, labelText };
 </script>
 
 <script type="module">
@@ -4174,35 +4197,6 @@ function updateCut() {
     setTimeout(() => {
         S.unfold = unfoldMesh(S.mm.V, S.mm.F, o);
         S.nest = nestPieces(S.unfold.pieces.map(pc => ({ pc, copies: Math.max(1, +$('copies').value || 1) })), o);
-        if ($('baseOn').checked) {
-            const po = { shape: $('baseShape').value, margin: +$('baseMargin').value || 0, holes: +$('baseHoles').value, holeD: +$('baseHoleD').value || 8, inset: Math.max(12, (+$('baseHoleD').value || 8) * 2) };
-            S.plate = basePlate(S.mm.V, po);
-            S.plateBalanced = 0;
-            if ($('baseBalance').checked) {
-                const s0 = stability(S.mm.V, S.mm.F, null), tilt = Math.tan(Math.min(30, Math.max(2, +$('baseTilt').value || 10)) * Math.PI / 180);
-                const ms = S.unfold.stats.area * (+$('thick').value || 1), base0 = S.plate.area;
-                let r = -1;
-                for (let it = 0; it < 6; it++) {
-                    const mp = S.plate.area * (+$('baseThick').value || 4), need = Math.max(0, s0.height * ms / (ms + mp) * tilt - po.margin);
-                    if (Math.abs(need - r) < 1)
-                        break;
-                    r = need;
-                    S.plate = basePlate(S.mm.V, { ...po, keep: { c: [s0.com[0], s0.com[2]], r } });
-                }
-                S.plateBalanced = S.plate.area > base0 * 1.01 ? S.plate.area / base0 : 0;
-            }
-            S.baseNest = nestPieces([{ pc: S.plate, copies: Math.max(1, +$('copies').value || 1) }], { ...o, compact: false });
-        }
-        else {
-            S.plate = null;
-            S.baseNest = null;
-        }
-        S.stab = $('stabOn').checked ? stability(S.mm.V, S.mm.F, S.plate ? S.plate.loops[0].map(p => [p[0], p[1]]) : null) : null;
-        if (S.stab && S.plate && S.stab.inside) {
-            const rho = MATERIALS[$('material').value].rho, ms = S.unfold.stats.area * (+$('thick').value || 1) * rho, mp = S.plate.area * (+$('baseThick').value || 4) * rho;
-            S.stab.height = S.stab.height * ms / (ms + mp);
-            S.stab.angle = Math.atan2(S.stab.margin, Math.max(1e-6, S.stab.height)) * 180 / Math.PI;
-        }
         if ($('ribsOn').checked) {
             const R = internalRibs(S.mm.V, S.mm.F, { spacing: Math.max(80, +$('ribSpacing').value || 300), ring: Math.max(15, +$('ribRing').value || 40), gap: (+$('thick').value || 1) + 1 });
             R.ribs.forEach((r, i) => { r.id = i; r.labels.push({ x: r.labels[0].x, y: r.labels[0].y + r.labels[0].h * 1.4, h: Math.max(4, r.labels[0].h * 0.6), rot: 0, text: Math.round(r.pos) + ' mm' }); });
@@ -4213,6 +4207,29 @@ function updateCut() {
             S.ribs = null;
             S.ribNest = null;
         }
+        if ($('baseOn').checked) {
+            const po = { shape: $('baseShape').value, margin: +$('baseMargin').value || 0, holes: +$('baseHoles').value, holeD: +$('baseHoleD').value || 8, inset: Math.max(12, (+$('baseHoleD').value || 8) * 2) };
+            S.plate = basePlate(S.mm.V, po);
+            S.plateBalanced = 0;
+            if ($('baseBalance').checked) {
+                const tilt = Math.tan(Math.min(30, Math.max(2, +$('baseTilt').value || 10)) * Math.PI / 180), base0 = S.plate.area;
+                let r = 0;
+                for (let it = 0; it < 12; it++) {
+                    const st = structureBalance(S.plate), need = st.height * tilt, short = need - st.margin;
+                    if (short < 0.5)
+                        break;
+                    r = Math.max(r, 0) + short;
+                    S.plate = basePlate(S.mm.V, { ...po, keep: { c: [st.com[0], st.com[2]], r } });
+                }
+                S.plateBalanced = S.plate.area > base0 * 1.01 ? S.plate.area / base0 : 0;
+            }
+            S.baseNest = nestPieces([{ pc: S.plate, copies: Math.max(1, +$('copies').value || 1) }], { ...o, compact: false });
+        }
+        else {
+            S.plate = null;
+            S.baseNest = null;
+        }
+        S.stab = $('stabOn').checked ? structureBalance(S.plate) : null;
         S.sheet = 0;
         busy();
         clearProblem(true);
@@ -4224,6 +4241,31 @@ function updateCut() {
             drawSheet();
         done();
     }, o.compact ? 30 : 0);
+}
+function structureBalance(plate) {
+    const rho = MATERIALS[$('material').value].rho, V = S.mm.V, y0 = meshBounds(V).min[1], masses = [];
+    if (S.ribs) {
+        const tr = +$('ribThick').value || 2;
+        for (const r of S.ribs.ribs) {
+            const c = loopsCentroid(r.loops3);
+            if (!c)
+                continue;
+            const p = [0, 0, 0];
+            p[S.ribs.axis] = r.at[0];
+            p[S.ribs.other] = c.x;
+            p[1] = c.y;
+            masses.push({ m: r.area * tr * rho, c: p });
+        }
+    }
+    let lift = 0, support = null;
+    if (plate) {
+        const t = +$('baseThick').value || 4, c = loopsCentroid([plate.loops[0]]);
+        if (c)
+            masses.push({ m: plate.area * t * rho, c: [c.x, y0 - t / 2, c.y] });
+        lift = t;
+        support = plate.loops[0].map(p => [p[0], p[1]]);
+    }
+    return stability(V, S.mm.F, support, { shellMass: S.unfold.stats.area * (+$('thick').value || 1) * rho, masses, lift });
 }
 function frame() {
     const sz = S.mm ? S.mm.size : [1, 1, 1], k = Math.max(1, Math.hypot(sz[0], sz[2]) / sz[1] * 0.62);

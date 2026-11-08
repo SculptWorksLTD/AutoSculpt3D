@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.56",
-  "notes": "The base plate can now shape itself to balance the sculpture: it grows on the side where the sculpture leans, until it withstands the tilt you choose (10° by default). It can be turned off in Base plate.",
+  "latest": "1.3.57",
+  "notes": "More accurate balance: the centre of gravity now includes the base plate (its weight and position) and the internal ribs, and heights are measured from the floor under the plate. The balanced plate is sized on this.",
   "notes_i18n": {
-    "en": "The base plate can now shape itself to balance the sculpture: it grows on the side where the sculpture leans, until it withstands the tilt you choose (10° by default). It can be turned off in Base plate.",
-    "it": "La piastra di base ora si adatta da sola per bilanciare la scultura: si allarga dal lato verso cui pende, finché regge l’inclinazione scelta (10° di serie). Si può disattivare in Piastra di base.",
-    "de": "Die Grundplatte passt sich jetzt selbst an, um die Skulptur auszubalancieren: Sie wächst auf der Seite, zu der sich die Skulptur neigt, bis sie die gewählte Neigung aushält (standardmäßig 10°). Abschaltbar unter Grundplatte.",
-    "fr": "La plaque de base s’adapte maintenant d’elle-même pour équilibrer la sculpture : elle s’élargit du côté où celle-ci penche, jusqu’à supporter l’inclinaison choisie (10° par défaut). Désactivable dans Plaque de base.",
-    "es": "La placa base ahora se adapta sola para equilibrar la escultura: se ensancha por el lado hacia el que se inclina, hasta soportar la inclinación elegida (10° por defecto). Se puede desactivar en Placa base.",
-    "pt": "A placa de base agora se ajusta sozinha para equilibrar a escultura: cresce do lado para onde ela pende, até suportar a inclinação escolhida (10° por padrão). Pode ser desativada em Placa de base.",
-    "ja": "台座が彫刻のバランスに合わせて自動で形を変えるようになりました。彫刻が傾く側に広がり、選んだ傾き（標準 10°）に耐えられるようにします。「台座」でオフにできます。"
+    "en": "More accurate balance: the centre of gravity now includes the base plate (its weight and position) and the internal ribs, and heights are measured from the floor under the plate. The balanced plate is sized on this.",
+    "it": "Equilibrio più preciso: il baricentro ora tiene conto della piastra di base (peso e posizione) e delle centine interne, e le altezze si misurano dal pavimento sotto la piastra. La piastra bilanciata si dimensiona su questo.",
+    "de": "Genaueres Gleichgewicht: Der Schwerpunkt berücksichtigt jetzt die Grundplatte (Gewicht und Lage) und die inneren Spanten, Höhen werden ab dem Boden unter der Platte gemessen. Die ausbalancierte Platte wird danach bemessen.",
+    "fr": "Équilibre plus précis : le centre de gravité tient compte de la plaque de base (poids et position) et des nervures internes, et les hauteurs sont mesurées depuis le sol sous la plaque. La plaque équilibrée est dimensionnée sur cette base.",
+    "es": "Equilibrio más preciso: el centro de gravedad ahora tiene en cuenta la placa base (peso y posición) y las costillas internas, y las alturas se miden desde el suelo bajo la placa. La placa equilibrada se dimensiona con esto.",
+    "pt": "Equilíbrio mais preciso: o centro de gravidade agora considera a placa de base (peso e posição) e as nervuras internas, e as alturas são medidas a partir do chão sob a placa. A placa equilibrada é dimensionada com isso.",
+    "ja": "バランス計算がより正確になりました。重心に台座（重さと位置）と内部リブを含め、高さは台座の下の床から測ります。バランス台座はこれに基づいて寸法を決めます。"
   },
   "history": [
+    {
+      "date": "2026-11-08T15:48:45Z",
+      "version": "1.3.57",
+      "notes": {
+        "en": "More accurate balance: the centre of gravity now includes the base plate (its weight and position) and the internal ribs, and heights are measured from the floor under the plate. The balanced plate is sized on this.",
+        "it": "Equilibrio più preciso: il baricentro ora tiene conto della piastra di base (peso e posizione) e delle centine interne, e le altezze si misurano dal pavimento sotto la piastra. La piastra bilanciata si dimensiona su questo.",
+        "de": "Genaueres Gleichgewicht: Der Schwerpunkt berücksichtigt jetzt die Grundplatte (Gewicht und Lage) und die inneren Spanten, Höhen werden ab dem Boden unter der Platte gemessen. Die ausbalancierte Platte wird danach bemessen.",
+        "fr": "Équilibre plus précis : le centre de gravité tient compte de la plaque de base (poids et position) et des nervures internes, et les hauteurs sont mesurées depuis le sol sous la plaque. La plaque équilibrée est dimensionnée sur cette base.",
+        "es": "Equilibrio más preciso: el centro de gravedad ahora tiene en cuenta la placa base (peso y posición) y las costillas internas, y las alturas se miden desde el suelo bajo la placa. La placa equilibrada se dimensiona con esto.",
+        "pt": "Equilíbrio mais preciso: o centro de gravidade agora considera a placa de base (peso e posição) e as nervuras internas, e as alturas são medidas a partir do chão sob a placa. A placa equilibrada é dimensionada com isso.",
+        "ja": "バランス計算がより正確になりました。重心に台座（重さと位置）と内部リブを含め、高さは台座の下の床から測ります。バランス台座はこれに基づいて寸法を決めます。"
+      }
+    },
     {
       "date": "2026-11-08T13:00:42Z",
       "version": "1.3.56",
@@ -313,12 +326,12 @@
     }
   ],
   "ui": {
-    "version": "1.3.56",
+    "version": "1.3.57",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "f9141544f7860c135c940bab812140e9ed2043931e2b92632f4da18b7402c174"
+        "sha256": "17527b3df81137ad4eb62a2735a0bc30a4e0ed95f82051dfa0adcea322a0840d"
       }
     ]
   },

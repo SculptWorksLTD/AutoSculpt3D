@@ -2574,18 +2574,21 @@ shadow.rotation.x = -Math.PI / 2;
 shadow.position.y = 0.004;
 shadow.visible = false;
 scene.add(shadow);
+const mirrorBg = new THREE.Color(0xE4E7EB);
 {
     const mirrorRender = mirror.onBeforeRender;
     mirror.onBeforeRender = function (...args) {
-        const f = fog.visible, sh = shadow.visible;
+        const f = fog.visible, sh = shadow.visible, bg = scene.background;
         fog.visible = false;
         shadow.visible = false;
+        scene.background = mirrorBg;
         try {
             mirrorRender.apply(this, args);
         }
         finally {
             fog.visible = f;
             shadow.visible = sh;
+            scene.background = bg;
         }
     };
 }
@@ -2795,6 +2798,7 @@ function applyBackdrop() {
         const b = BACKDROPS[k] || BACKDROPS.studio;
         st.style.background = `linear-gradient(180deg,${b.c[0]} 0%,${b.c[1]} 62%,${b.c[2]} 100%)`;
         fog.material.color.setHex(b.fog);
+        mirrorBg.set(b.c[1]);
         scene.environment = roomEnv;
         renderer.toneMappingExposure = b.exp;
     }

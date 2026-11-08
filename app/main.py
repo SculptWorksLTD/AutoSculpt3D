@@ -355,6 +355,8 @@ def lib_get(url, headers=None, binary=False, timeout=40):
         with urlopen(req, timeout) as r:
             data = r.read()
     except urllib.error.HTTPError as e:
+        if e.code in (401, 403) and _lib_now[0] not in LIBRARIES:
+            raise UserError('{name} refused the request ({code})', name=_lib_now[0].title(), code=e.code)
         if e.code in (401, 403):
             raise UserError('The key for {name} is not valid: check it in Tools → Accounts and keys', name=LIBRARIES.get(_lib_now[0], {}).get('name') or _lib_now[0].title())
         if e.code == 429:
@@ -417,31 +419,38 @@ def library_search(src, q):
     else:
         raise UserError('Unknown library')
     return out
-PHOTO_LICENSES = 'cc0,pdm,by,by-sa'
 _photo_urls = set()
 
+def _strip_html(t):
+    import re
+    return re.sub('\\s+', ' ', re.sub('<[^>]+>', '', t or '')).strip()
+
 def photo_search(q, page=1):
-    _lib_now[0] = 'openverse'
-    url = 'https://api.openverse.org/v1/images/?q=' + urllib.parse.quote(q) + f'&license={PHOTO_LICENSES}&page_size=24&page={int(page)}&mature=false'
-    j = lib_get(url)
+    _lib_now[0] = 'wikimedia commons'
+    page = max(1, int(page))
+    url = f'https://commons.wikimedia.org/w/api.php?action=query&format=json&generator=search&gsrnamespace=6&gsrlimit=30&gsroffset={(page - 1) * 30}&gsrsearch=' + urllib.parse.quote(q + ' filetype:bitmap') + '&prop=imageinfo&iiprop=url|extmetadata|size&iiurlwidth=360&iiextmetadatafilter=LicenseShortName|Artist|ObjectName'
+    j = lib_get(url, {'User-Agent': f'AutoSculpt3D/{VERSION} (https://github.com/SculptWorksLTD/AutoSculpt3D)'})
+    pages = sorted((j.get('query') or {}).get('pages', {}).values(), key=lambda p: p.get('index', 0))
     out = []
-    for r in j.get('results', []):
-        lic = (r.get('license') or '').lower()
-        if lic not in PHOTO_LICENSES.split(','):
-            continue
-        name = {'cc0': 'CC0', 'pdm': 'Public domain'}.get(lic, 'CC ' + lic.upper() + (' ' + r['license_version'] if r.get('license_version') else ''))
-        full, thumb = (r.get('url') or '', r.get('thumbnail') or r.get('url') or '')
-        if not full.startswith('https://'):
+    for p in pages:
+        ii = (p.get('imageinfo') or [{}])[0]
+        meta = ii.get('extmetadata') or {}
+        lic = _strip_html((meta.get('LicenseShortName') or {}).get('value', ''))
+        l = lic.lower()
+        ok = l in ('cc0', 'public domain', 'pd') or l.startswith('cc0') or l.startswith('public domain') or (l.startswith('cc by') and 'nc' not in l.split() and ('-nc' not in l) and ('nd' not in l.split()) and ('-nd' not in l))
+        full, thumb = (ii.get('url') or '', ii.get('thumburl') or ii.get('url') or '')
+        if not ok or not full.startswith('https://') or (not (ii.get('width') or 0) >= 400):
             continue
         _photo_urls.add(full)
-        out.append({'id': r.get('id'), 'title': (r.get('title') or '').strip()[:120], 'thumb': thumb, 'url': full, 'author': (r.get('creator') or '').strip()[:80], 'license': name, 'license_url': r.get('license_url') or '', 'page': r.get('foreign_landing_url') or '', 'source': r.get('source') or '', 'width': r.get('width'), 'height': r.get('height')})
-    return {'results': out, 'more': (j.get('page_count') or 1) > int(page)}
+        title = _strip_html((meta.get('ObjectName') or {}).get('value', '')) or (p.get('title') or '').replace('File:', '').rsplit('.', 1)[0]
+        out.append({'id': p.get('pageid'), 'title': title[:120], 'thumb': thumb, 'url': full, 'author': _strip_html((meta.get('Artist') or {}).get('value', ''))[:80], 'license': lic, 'page': ii.get('descriptionurl') or '', 'source': 'Wikimedia Commons', 'width': ii.get('width'), 'height': ii.get('height')})
+    return {'results': out, 'more': 'continue' in j}
 
 def photo_get(url):
     if url not in _photo_urls:
         raise UserError('This picture is not among the search results')
-    _lib_now[0] = 'openverse'
-    data = lib_get(url, binary=True, timeout=60)
+    _lib_now[0] = 'wikimedia commons'
+    data = lib_get(url, {'User-Agent': f'AutoSculpt3D/{VERSION} (https://github.com/SculptWorksLTD/AutoSculpt3D)'}, binary=True, timeout=60)
     if len(data) > 25 * 2 ** 20:
         raise UserError('The picture is too big')
     kind = 'image/png' if data[:8] == b'\x89PNG\r\n\x1a\n' else 'image/webp' if data[8:12] == b'WEBP' else 'image/jpeg'

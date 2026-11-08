@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.47",
-  "notes": "No more useless facets: small curved parts such as hooves and ears no longer collect fans of tiny, narrow faces. The faces go where they shape the sculpture, for every project.",
+  "latest": "1.3.48",
+  "notes": "Tidier layout: at start the choices (open, from a photo, from a description, search, open project) sit together in the middle of the window. The left panel now holds only the settings, all in drop-down sections that remember whether you left them open. Opening and exporting are in the File menu.",
   "notes_i18n": {
-    "en": "No more useless facets: small curved parts such as hooves and ears no longer collect fans of tiny, narrow faces. The faces go where they shape the sculpture, for every project.",
-    "it": "Basta faccette inutili: le parti piccole e curve, come zoccoli e orecchie, non raccolgono più ventagli di facce minuscole e strette. Le facce vanno dove danno forma alla scultura, in ogni progetto.",
-    "de": "Schluss mit nutzlosen Facetten: kleine gewölbte Teile wie Hufe und Ohren sammeln keine Fächer aus winzigen, schmalen Flächen mehr. Die Flächen landen dort, wo sie die Skulptur formen, in jedem Projekt.",
-    "fr": "Fini les facettes inutiles : les petites parties courbes comme les sabots et les oreilles ne récoltent plus d’éventails de faces minuscules et étroites. Les faces vont là où elles donnent forme à la sculpture, dans chaque projet.",
-    "es": "Se acabaron las facetas inútiles: las partes pequeñas y curvas, como cascos y orejas, ya no acumulan abanicos de caras diminutas y estrechas. Las caras van donde dan forma a la escultura, en cada proyecto.",
-    "pt": "Chega de facetas inúteis: partes pequenas e curvas, como cascos e orelhas, não acumulam mais leques de faces minúsculas e estreitas. As faces vão onde dão forma à escultura, em todo projeto.",
-    "ja": "無駄なファセットをなくしました。ひづめや耳のような小さく曲がった部分に、細く小さな面が扇状に集まらなくなり、どのプロジェクトでも面が彫刻の形を作る場所に配分されます。"
+    "en": "Tidier layout: at start the choices (open, from a photo, from a description, search, open project) sit together in the middle of the window. The left panel now holds only the settings, all in drop-down sections that remember whether you left them open. Opening and exporting are in the File menu.",
+    "it": "Interfaccia più ordinata: all’avvio le scelte (apri, da una foto, da una descrizione, cerca, apri progetto) stanno insieme al centro della finestra. Il pannello a sinistra contiene solo le regolazioni, tutte a tendina, che ricordano se le hai lasciate aperte. Apertura ed esportazione sono nel menu File.",
+    "de": "Aufgeräumtere Oberfläche: beim Start stehen die Auswahlmöglichkeiten (öffnen, aus einem Foto, aus einer Beschreibung, suchen, Projekt öffnen) zusammen in der Fenstermitte. Das linke Feld enthält nur noch die Einstellungen, alle als ausklappbare Bereiche, die sich merken, ob sie offen waren. Öffnen und Exportieren sind im Menü Datei.",
+    "fr": "Interface plus ordonnée : au démarrage, les choix (ouvrir, à partir d’une photo, d’une description, rechercher, ouvrir un projet) sont réunis au centre de la fenêtre. Le panneau de gauche ne contient plus que les réglages, tous en sections déroulantes qui se souviennent si vous les avez laissées ouvertes. Ouvrir et exporter se trouvent dans le menu Fichier.",
+    "es": "Interfaz más ordenada: al iniciar, las opciones (abrir, desde una foto, desde una descripción, buscar, abrir proyecto) están juntas en el centro de la ventana. El panel izquierdo solo contiene los ajustes, todos en secciones desplegables que recuerdan si las dejaste abiertas. Abrir y exportar están en el menú Archivo.",
+    "pt": "Interface mais organizada: ao iniciar, as opções (abrir, a partir de uma foto, de uma descrição, pesquisar, abrir projeto) ficam juntas no centro da janela. O painel esquerdo contém só os ajustes, todos em seções suspensas que lembram se você as deixou abertas. Abrir e exportar ficam no menu Arquivo.",
+    "ja": "画面を整理しました。起動時の選択肢（開く・写真から・説明から・検索・プロジェクトを開く）はウィンドウ中央にまとめて表示されます。左のパネルは設定だけになり、すべて開閉式で、開いたままかどうかを記憶します。開く・書き出しはファイルメニューにあります。"
   },
   "history": [
+    {
+      "date": "2026-11-08T10:20:08Z",
+      "version": "1.3.48",
+      "notes": {
+        "en": "Tidier layout: at start the choices (open, from a photo, from a description, search, open project) sit together in the middle of the window. The left panel now holds only the settings, all in drop-down sections that remember whether you left them open. Opening and exporting are in the File menu.",
+        "it": "Interfaccia più ordinata: all’avvio le scelte (apri, da una foto, da una descrizione, cerca, apri progetto) stanno insieme al centro della finestra. Il pannello a sinistra contiene solo le regolazioni, tutte a tendina, che ricordano se le hai lasciate aperte. Apertura ed esportazione sono nel menu File.",
+        "de": "Aufgeräumtere Oberfläche: beim Start stehen die Auswahlmöglichkeiten (öffnen, aus einem Foto, aus einer Beschreibung, suchen, Projekt öffnen) zusammen in der Fenstermitte. Das linke Feld enthält nur noch die Einstellungen, alle als ausklappbare Bereiche, die sich merken, ob sie offen waren. Öffnen und Exportieren sind im Menü Datei.",
+        "fr": "Interface plus ordonnée : au démarrage, les choix (ouvrir, à partir d’une photo, d’une description, rechercher, ouvrir un projet) sont réunis au centre de la fenêtre. Le panneau de gauche ne contient plus que les réglages, tous en sections déroulantes qui se souviennent si vous les avez laissées ouvertes. Ouvrir et exporter se trouvent dans le menu Fichier.",
+        "es": "Interfaz más ordenada: al iniciar, las opciones (abrir, desde una foto, desde una descripción, buscar, abrir proyecto) están juntas en el centro de la ventana. El panel izquierdo solo contiene los ajustes, todos en secciones desplegables que recuerdan si las dejaste abiertas. Abrir y exportar están en el menú Archivo.",
+        "pt": "Interface mais organizada: ao iniciar, as opções (abrir, a partir de uma foto, de uma descrição, pesquisar, abrir projeto) ficam juntas no centro da janela. O painel esquerdo contém só os ajustes, todos em seções suspensas que lembram se você as deixou abertas. Abrir e exportar ficam no menu Arquivo.",
+        "ja": "画面を整理しました。起動時の選択肢（開く・写真から・説明から・検索・プロジェクトを開く）はウィンドウ中央にまとめて表示されます。左のパネルは設定だけになり、すべて開閉式で、開いたままかどうかを記憶します。開く・書き出しはファイルメニューにあります。"
+      }
+    },
     {
       "date": "2026-11-08T10:09:05Z",
       "version": "1.3.47",
@@ -196,12 +209,12 @@
     }
   ],
   "ui": {
-    "version": "1.3.47",
+    "version": "1.3.48",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "066e4b159b0f876d5ff2d51f13630fcdd382dde2914b61ed3d0e27af444efe9b"
+        "sha256": "c74cc18a95ce6af35be9942807fec21470c6aa92c7002a2eb9c96379abe020b8"
       }
     ]
   },

@@ -155,7 +155,8 @@ table.quote tr.tot td:last-child{font-size:15px}
 .whead img{width:56px;height:56px;border-radius:8px}
 .whead h1{margin:0;font:600 24px/1.1 var(--f-display)}
 .whead p{text-align:left;margin-top:3px}
-.wtiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.wtiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+@media (max-width:640px){.wtiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .wtile{display:grid;gap:6px;align-content:start;text-align:left;padding:14px;border:1px solid var(--line);border-radius:3px;background:var(--panel);color:var(--ink);cursor:pointer;font:500 13px var(--f-body)}
 .wtile:hover{border-color:var(--accent)}
 .wtile svg{width:28px;height:28px;stroke:var(--accent);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
@@ -179,6 +180,8 @@ footer.status{grid-column:1/-1;display:flex;gap:16px;align-items:center;flex-wra
 footer.status .msg{color:var(--ink);margin-right:auto;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 footer.status .dirty{color:var(--accent)}
 body.empty .tabs,body.empty .dims{visibility:hidden}
+body.empty aside.panel{display:none}
+body.empty .stage{grid-column:1/-1}
 .dlg{z-index:30}
 .dlg .box{width:min(520px,100%)}
 .manual .box{width:min(1100px,100%);height:88vh}
@@ -254,52 +257,45 @@ body.empty .tabs,body.empty .dims{visibility:hidden}
   </main>
 
   <aside class="panel" id="panel">
-    <section class="grp">
-      <h2>Model</h2>
-      <div class="field"><label for="workName">Name of the work</label><input type="text" id="workName" value="Untitled"></div>
-      <div class="two">
-        <button class="btn" id="openBtn">Open 3D model<small>OBJ, STL, GLB, PLY</small></button>
-        <button class="btn" id="photoBtn">From a photo<small>in the Mac and Windows app</small></button>
+    <details class="grp" id="dModel" open>
+      <summary><h2>Model</h2></summary>
+      <div class="body">
+        <div class="field"><label for="workName">Name of the work</label><input type="text" id="workName" value="Untitled"></div>
+        <input type="file" id="fileIn" accept=".as3d,.obj,.stl,.glb,.gltf,.ply,.json" hidden>
+        <div class="three">
+          <button class="btn" id="rotX" title="Rotate 90° around the X axis">Rotate X</button>
+          <button class="btn" id="rotY" title="Rotate 90° around the vertical axis">Rotate Y</button>
+          <button class="btn" id="rotZ" title="Rotate 90° around the Z axis">Rotate Z</button>
+        </div>
+        <p class="hint" id="srcInfo">No model open.</p>
       </div>
-      <input type="file" id="fileIn" accept=".as3d,.obj,.stl,.glb,.gltf,.ply,.json" hidden>
-      <div class="two">
-        <button class="btn" id="textBtn">From a description<small>write what to sculpt</small></button>
-        <button class="btn" id="searchBtn">Search 3D models<small>free sources</small></button>
-      </div>
-      <div class="two">
-        <button class="btn" id="saveProj">Save project<small>reopen and make variants</small></button>
-      </div>
-      <div class="three">
-        <button class="btn" id="rotX" title="Rotate 90° around the X axis">Rotate X</button>
-        <button class="btn" id="rotY" title="Rotate 90° around the vertical axis">Rotate Y</button>
-        <button class="btn" id="rotZ" title="Rotate 90° around the Z axis">Rotate Z</button>
-      </div>
-      <p class="hint" id="srcInfo">No model open.</p>
-    </section>
+    </details>
 
-    <section class="grp">
-      <h2>Shape and size</h2>
-      <div class="field">
-        <div class="row"><label for="faces">Faces</label><span class="val" id="facesVal">220</span></div>
-        <input type="range" id="faces" min="0" max="1000" step="1">
+    <details class="grp" id="dShape" open>
+      <summary><h2>Shape and size</h2></summary>
+      <div class="body">
+        <div class="field">
+          <div class="row"><label for="faces">Faces</label><span class="val" id="facesVal">220</span></div>
+          <input type="range" id="faces" min="0" max="1000" step="1">
+        </div>
+        <div class="field">
+          <div class="row"><label for="facetEven" title="Faces of similar size and shape, fewer thin slivers (slightly less faithful to the model)">Even facets</label><span class="val" id="facetEvenVal">50%</span></div>
+          <input type="range" id="facetEven" min="0" max="100" step="5" value="50">
+        </div>
+        <div class="field">
+          <div class="row"><label for="facetDetail" title="Keeps small sharp features such as ears, fingers or spoilers instead of smoothing them away">Small details</label><span class="val" id="facetDetailVal">50%</span></div>
+          <input type="range" id="facetDetail" min="0" max="100" step="5" value="50">
+        </div>
+        <label class="check"><input type="checkbox" id="symmetric"> Symmetric sculpture (one half, mirrored)</label>
+        <p class="hint" id="symInfo" hidden></p>
+        <button type="button" class="btn" id="symOther" hidden>Use the other half</button>
+        <div class="two">
+          <div class="field"><label for="refAxis">Reference dimension</label>
+            <select id="refAxis"><option value="1">Height</option><option value="0">Length</option><option value="2">Depth</option></select></div>
+          <div class="field"><label for="size">Value (mm)</label><input type="number" id="size" min="50" max="10000" step="10" value="600"></div>
+        </div>
       </div>
-      <div class="field">
-        <div class="row"><label for="facetEven" title="Faces of similar size and shape, fewer thin slivers (slightly less faithful to the model)">Even facets</label><span class="val" id="facetEvenVal">50%</span></div>
-        <input type="range" id="facetEven" min="0" max="100" step="5" value="50">
-      </div>
-      <div class="field">
-        <div class="row"><label for="facetDetail" title="Keeps small sharp features such as ears, fingers or spoilers instead of smoothing them away">Small details</label><span class="val" id="facetDetailVal">50%</span></div>
-        <input type="range" id="facetDetail" min="0" max="100" step="5" value="50">
-      </div>
-      <label class="check"><input type="checkbox" id="symmetric"> Symmetric sculpture (one half, mirrored)</label>
-      <p class="hint" id="symInfo" hidden></p>
-      <button type="button" class="btn" id="symOther" hidden>Use the other half</button>
-      <div class="two">
-        <div class="field"><label for="refAxis">Reference dimension</label>
-          <select id="refAxis"><option value="1">Height</option><option value="0">Length</option><option value="2">Depth</option></select></div>
-        <div class="field"><label for="size">Value (mm)</label><input type="number" id="size" min="50" max="10000" step="10" value="600"></div>
-      </div>
-    </section>
+    </details>
 
     <details class="grp" id="dBrush">
       <summary><h2>Detail brush</h2><span class="on" id="onBrush"></span></summary>
@@ -314,46 +310,49 @@ body.empty .tabs,body.empty .dims{visibility:hidden}
       </div>
     </details>
 
-    <section class="grp">
-      <h2>Sheet and cutting</h2>
-      <div class="two">
-        <div class="field"><label for="material">Material</label>
-          <select id="material">
-            <option value="stainless">Stainless steel</option><option value="steel">Mild steel</option><option value="corten">Corten</option>
-            <option value="brass">Brass</option><option value="copper">Copper</option><option value="aluminium">Aluminium</option>
-          </select></div>
-        <div class="field"><label for="thick">Thickness (mm)</label>
-          <select id="thick"><option>0.8</option><option selected>1.0</option><option>1.2</option><option>1.5</option><option>2.0</option></select></div>
+    <details class="grp" id="dSheet">
+      <summary><h2>Sheet and cutting</h2></summary>
+      <div class="body">
+        <div class="two">
+          <div class="field"><label for="material">Material</label>
+            <select id="material">
+              <option value="stainless">Stainless steel</option><option value="steel">Mild steel</option><option value="corten">Corten</option>
+              <option value="brass">Brass</option><option value="copper">Copper</option><option value="aluminium">Aluminium</option>
+            </select></div>
+          <div class="field"><label for="thick">Thickness (mm)</label>
+            <select id="thick"><option>0.8</option><option selected>1.0</option><option>1.2</option><option>1.5</option><option>2.0</option></select></div>
+        </div>
+        <div class="two">
+          <div class="field"><label for="sheetW">Sheet width (mm)</label><input type="number" id="sheetW" value="1000" min="200" step="10"></div>
+          <div class="field"><label for="sheetH">Sheet length (mm)</label><input type="number" id="sheetH" value="2000" min="200" step="10"></div>
+        </div>
+        <div class="field">
+          <div class="row"><label for="maxBend">Maximum bend between faces</label><span class="val" id="maxBendVal">20°</span></div>
+          <input type="range" id="maxBend" min="0" max="90" step="1" value="40">
+          <p class="hint">0° = every face is a separate piece. Higher = larger sections to bend and fewer welds.</p>
+        </div>
+        <div class="two">
+          <div class="field"><label for="maxFaces">Max faces per piece</label><input type="number" id="maxFaces" value="24" min="1" max="300"></div>
+          <div class="field"><label for="minEdge" title="Smaller details are removed from the facets: pieces this small cannot be cut, bent and welded">Minimum side (mm)</label><input type="number" id="minEdge" value="15" min="0" max="200" step="1"></div>
+        </div>
+        <label class="check"><input type="checkbox" id="inside" checked> Inner side facing up (markings hidden inside the sculpture)</label>
       </div>
-      <div class="two">
-        <div class="field"><label for="sheetW">Sheet width (mm)</label><input type="number" id="sheetW" value="1000" min="200" step="10"></div>
-        <div class="field"><label for="sheetH">Sheet length (mm)</label><input type="number" id="sheetH" value="2000" min="200" step="10"></div>
-      </div>
-      <div class="field">
-        <div class="row"><label for="maxBend">Maximum bend between faces</label><span class="val" id="maxBendVal">20°</span></div>
-        <input type="range" id="maxBend" min="0" max="90" step="1" value="40">
-        <p class="hint">0° = every face is a separate piece. Higher = larger sections to bend and fewer welds.</p>
-      </div>
-      <div class="two">
-        <div class="field"><label for="maxFaces">Max faces per piece</label><input type="number" id="maxFaces" value="24" min="1" max="300"></div>
-        <div class="field"><label for="minEdge" title="Smaller details are removed from the facets: pieces this small cannot be cut, bent and welded">Minimum side (mm)</label><input type="number" id="minEdge" value="15" min="0" max="200" step="1"></div>
-      </div>
-      <label class="check"><input type="checkbox" id="inside" checked> Inner side facing up (markings hidden inside the sculpture)</label>
-    </section>
+    </details>
 
-    <section class="grp">
-      <h2>Hand bending</h2>
-      <label class="check"><input type="checkbox" id="slots" checked> Slots along the bends, instead of a press brake</label>
-      <div class="two">
-        <div class="field"><label for="slotLen">Slot length (mm)</label><input type="number" id="slotLen" value="15" min="3" max="200" step="1"></div>
-        <div class="field"><label for="slotBridge">Bridge (mm)</label><input type="number" id="slotBridge" value="3" min="0.5" max="50" step="0.5"></div>
+    <details class="grp" id="dSlots">
+      <summary><h2>Hand bending</h2></summary>
+      <div class="body">
+        <label class="check"><input type="checkbox" id="slots" checked> Slots along the bends, instead of a press brake</label>
+        <div class="two">
+          <div class="field"><label for="slotLen">Slot length (mm)</label><input type="number" id="slotLen" value="15" min="3" max="200" step="1"></div>
+          <div class="field"><label for="slotBridge">Bridge (mm)</label><input type="number" id="slotBridge" value="3" min="0.5" max="50" step="0.5"></div>
+        </div>
+        <div class="two">
+          <div class="field"><label for="slotWidth">Slot width (mm)</label><input type="number" id="slotWidth" value="1" min="0.2" max="10" step="0.1"></div>
+          <div class="field"><label for="slotMargin">Distance from edges (mm)</label><input type="number" id="slotMargin" value="4" min="0" max="50" step="0.5"></div>
+        </div>
       </div>
-      <div class="two">
-        <div class="field"><label for="slotWidth">Slot width (mm)</label><input type="number" id="slotWidth" value="1" min="0.2" max="10" step="0.1"></div>
-        <div class="field"><label for="slotMargin">Distance from edges (mm)</label><input type="number" id="slotMargin" value="4" min="0" max="50" step="0.5"></div>
-      </div>
-      <p class="hint">Each bend is engraved M (ridge up) or V (valley, down) with the angle to reach, seen from the side that comes out of the laser. Shorter bridges bend more easily but hold less: try them on an offcut of your thickness.</p>
-    </section>
+    </details>
 
     <details class="grp" id="dFlaps">
       <summary><h2>Quick assembly</h2><span class="on" id="onFlaps"></span></summary>
@@ -363,7 +362,6 @@ body.empty .tabs,body.empty .dims{visibility:hidden}
           <div class="field"><label for="flapW">Tab width (mm)</label><input type="number" id="flapW" value="14" min="4" max="100" step="1"></div>
           <div class="field"><label for="flapD">Projection (mm)</label><input type="number" id="flapD" value="8" min="2" max="50" step="0.5"></div>
         </div>
-        <p class="hint">The tab sticks out from the edge of one piece and is bent inwards, under the neighbouring piece: it holds it in place while you tack and backs the weld. Placed on convex edges only.</p>
       </div>
     </details>
 
@@ -380,7 +378,6 @@ body.empty .tabs,body.empty .dims{visibility:hidden}
           <div class="field"><label for="baseHoleD">Hole Ø</label><input type="number" id="baseHoleD" value="8" min="2" max="40" step="0.5"></div>
           <div class="field"><label for="baseThick">Thick.</label><select id="baseThick"><option>2</option><option>3</option><option selected>4</option><option>5</option><option>6</option><option>8</option><option>10</option></select></div>
         </div>
-        <button class="btn" id="dxfBase">Plate DXF<small>separate file, usually cut from thicker plate</small></button>
       </div>
     </details>
 
@@ -393,65 +390,27 @@ body.empty .tabs,body.empty .dims{visibility:hidden}
           <div class="field"><label for="gap">Gap between pieces (mm)</label><input type="number" id="gap" value="6" min="2" max="40" step="1"></div>
         </div>
         <label class="check"><input type="checkbox" id="twins"> Flag twin pieces (identical or mirrored)</label>
-        <p class="hint">Compact nesting needs a second or two of calculation after every change.</p>
       </div>
     </details>
 
-    <section class="grp">
-      <h2>Summary</h2>
-      <div class="stats">
-        <div class="stat"><span>Pieces</span><b id="sPieces">—</b></div>
-        <div class="stat"><span>Sheets</span><b id="sSheets">—</b></div>
-        <div class="stat"><span>Weld seam</span><b id="sWeld">—</b></div>
-        <div class="stat"><span>Bends</span><b id="sBends">—</b></div>
-        <div class="stat"><span>Surface area</span><b id="sArea">—</b></div>
-        <div class="stat"><span>Estimated weight</span><b id="sWeight">—</b></div>
-        <div class="stat"><span>Cutting length</span><b id="sCut">—</b></div>
-        <div class="stat"><span>Slots</span><b id="sSlots">—</b></div>
-        <div class="stat"><span>Tabs</span><b id="sFlaps">—</b></div>
-        <div class="stat"><span>Price (excl. VAT)</span><b id="sPrice">—</b></div>
-      </div>
-      <div id="warns"></div>
-    </section>
-
-    <section class="grp">
-      <h2>Mockup</h2>
-      <div class="two">
-        <div class="field"><label for="bgSel">Background</label>
-          <select id="bgSel">
-            <option value="studio">Light studio</option><option value="white">White</option><option value="grey">Photographic grey</option>
-            <option value="gallery">Gallery (warm)</option><option value="sky">Outdoors, sky</option><option value="sunset">Sunset</option>
-            <option value="dark">Dark studio</option><option value="black">Black</option><option value="graph">Graph paper and axes</option><option value="landscape">Realistic landscape…</option><option value="photo">Your photo…</option>
-          </select></div>
-        <div class="field"><label for="floorSel">Floor</label>
-          <select id="floorSel"><option value="mirror">Reflective</option><option value="shadow">Shadow only</option><option value="none">None</option></select></div>
-      </div>
-      <input type="file" id="bgFile" accept="image/*" hidden><input type="hidden" id="bgLandscape">
-      <p class="hint" id="bgHint">With "Your photo" you can place the sculpture in the client's garden or premises: the metal's reflections take on the photo's colours.</p>
-      <div class="field"><label for="finish">Finish</label>
-        <select id="finish"><option value="0.035">Mirror polished</option><option value="0.18">Satin</option><option value="0.36">Brushed</option><option value="0.6">Raw</option></select></div>
-      <label class="check"><input type="checkbox" id="showSeams"> Show the weld lines in the mockup</label>
-      <label class="check"><input type="checkbox" id="showNums" checked> Piece numbers in the Pieces view</label>
-    </section>
-
-    <section class="grp">
-      <h2>Export</h2>
-      <button class="btn primary" id="dxfAll">DXF for the laser<small>all the sheets of the work, in millimetres</small></button>
-      <button class="btn" id="pngBtn">Image for the client<small>high-resolution PNG with dimensions and material</small></button>
-      <button class="btn" id="objBtn">Faceted model<small>OBJ in millimetres, for other programs</small></button>
-      <p class="hint">In the DXF: CUT (red), SLOTS (magenta), BEND (yellow, dashed, reference only), MARK with the piece number, M/V and angle on every bend and, on every edge, the number of the piece to weld there.</p>
-    </section>
-
-    <details class="grp" id="dQueue">
-      <summary><h2>Cutting queue</h2><span class="on" id="onQueue"></span></summary>
+    <details class="grp" id="dMockup">
+      <summary><h2>Mockup</h2></summary>
       <div class="body">
-        <button class="btn" id="qAdd">Add this work to the queue<small>with the copies set; numbers get a letter (A12, B7…)</small></button>
-        <div class="queue" id="qList"></div>
         <div class="two">
-          <button class="btn" id="qDxf">Queue DXF</button>
-          <button class="btn" id="qClear">Empty queue</button>
+          <div class="field"><label for="bgSel">Background</label>
+            <select id="bgSel">
+              <option value="studio">Light studio</option><option value="white">White</option><option value="grey">Photographic grey</option>
+              <option value="gallery">Gallery (warm)</option><option value="sky">Outdoors, sky</option><option value="sunset">Sunset</option>
+              <option value="dark">Dark studio</option><option value="black">Black</option><option value="graph">Graph paper and axes</option><option value="landscape">Realistic landscape…</option><option value="photo">Your photo…</option>
+            </select></div>
+          <div class="field"><label for="floorSel">Floor</label>
+            <select id="floorSel"><option value="mirror">Reflective</option><option value="shadow">Shadow only</option><option value="none">None</option></select></div>
         </div>
-        <p class="hint">Puts several works on the same sheets. See the result in the Sheets tab, choosing "Cutting queue".</p>
+        <input type="file" id="bgFile" accept="image/*" hidden><input type="hidden" id="bgLandscape">
+        <div class="field"><label for="finish">Finish</label>
+          <select id="finish"><option value="0.035">Mirror polished</option><option value="0.18">Satin</option><option value="0.36">Brushed</option><option value="0.6">Raw</option></select></div>
+        <label class="check"><input type="checkbox" id="showSeams"> Show the weld lines in the mockup</label>
+        <label class="check"><input type="checkbox" id="showNums" checked> Piece numbers in the Pieces view</label>
       </div>
     </details>
 
@@ -470,7 +429,6 @@ body.empty .tabs,body.empty .dims{visibility:hidden}
         <label class="check"><input type="checkbox" id="outMarks" checked> Include the markings (numbers, M/V)</label>
         <label class="check"><input type="checkbox" id="outSheet" checked> Include the sheet outline</label>
         <label class="check"><input type="checkbox" id="outSplit"> One DXF per sheet (in a ZIP archive)</label>
-        <p class="hint">These choices are kept on this computer.</p>
       </div>
     </details>
 
@@ -500,7 +458,6 @@ body.empty .tabs,body.empty .dims{visibility:hidden}
         <table class="quote" id="quoteTbl"></table>
         <label class="check"><input type="checkbox" id="qDetail"> Show the cost breakdown in the client's PDF</label>
         <button class="btn primary" id="quotePdf">Quote PDF<small>with mockup, dimensions, material and price</small></button>
-        <p class="hint">Indicative starting values: enter your real costs, they are kept on this computer.</p>
       </div>
     </details>
 
@@ -509,9 +466,49 @@ body.empty .tabs,body.empty .dims{visibility:hidden}
       <div class="body">
         <div class="field"><label for="gStep">Pieces per step</label><input type="number" id="gStep" value="3" min="1" max="20"></div>
         <button class="btn primary" id="guidePdf">Guide PDF<small>sequence from the base upwards, one picture per step</small></button>
-        <p class="hint">For every step: the new pieces highlighted, those already welded in grey, and which pieces each one is welded to.</p>
       </div>
     </details>
+    <details class="grp" id="dQueue">
+      <summary><h2>Cutting queue</h2><span class="on" id="onQueue"></span></summary>
+      <div class="body">
+        <button class="btn" id="qAdd">Add this work to the queue<small>with the copies set; numbers get a letter (A12, B7…)</small></button>
+        <div class="queue" id="qList"></div>
+        <div class="two">
+          <button class="btn" id="qDxf">Queue DXF</button>
+          <button class="btn" id="qClear">Empty queue</button>
+        </div>
+      </div>
+    </details>
+
+    <details class="grp" id="dSummary" open>
+      <summary><h2>Summary</h2></summary>
+      <div class="body">
+        <div class="stats">
+          <div class="stat"><span>Pieces</span><b id="sPieces">—</b></div>
+          <div class="stat"><span>Sheets</span><b id="sSheets">—</b></div>
+          <div class="stat"><span>Weld seam</span><b id="sWeld">—</b></div>
+          <div class="stat"><span>Bends</span><b id="sBends">—</b></div>
+          <div class="stat"><span>Surface area</span><b id="sArea">—</b></div>
+          <div class="stat"><span>Estimated weight</span><b id="sWeight">—</b></div>
+          <div class="stat"><span>Cutting length</span><b id="sCut">—</b></div>
+          <div class="stat"><span>Slots</span><b id="sSlots">—</b></div>
+          <div class="stat"><span>Tabs</span><b id="sFlaps">—</b></div>
+          <div class="stat"><span>Price (excl. VAT)</span><b id="sPrice">—</b></div>
+        </div>
+        <div id="warns"></div>
+      </div>
+    </details>
+    <div hidden>
+      <button class="btn" id="openBtn">Open 3D model<small>OBJ, STL, GLB, PLY</small></button>
+      <button class="btn" id="photoBtn">From a photo<small>in the Mac and Windows app</small></button>
+      <button class="btn" id="textBtn">From a description<small>write what to sculpt</small></button>
+      <button class="btn" id="searchBtn">Search 3D models<small>free sources</small></button>
+      <button class="btn" id="saveProj">Save project<small>reopen and make variants</small></button>
+      <button class="btn primary" id="dxfAll">DXF for the laser<small>all the sheets of the work, in millimetres</small></button>
+      <button class="btn" id="pngBtn">Image for the client<small>high-resolution PNG with dimensions and material</small></button>
+      <button class="btn" id="objBtn">Faceted model<small>OBJ in millimetres, for other programs</small></button>
+      <button class="btn" id="dxfBase">Plate DXF<small>separate file, usually cut from thicker plate</small></button>
+    </div>
     <p class="hint" style="padding-top:14px">AutoSculpt 3D · © 2026 Enrico Migliorati. All rights reserved.</p>
   </aside>
   <footer class="status" role="status"><span class="msg" id="stMsg">Ready</span><span id="stSave"></span><span id="stInfo"></span><span>mm</span></footer>
@@ -5411,6 +5408,20 @@ const GUIDE = [
 const showGuide = () => dialog({ title: tr('Quick guide'), body: GUIDE.map(g => '<p>' + tr(g) + '</p>').join('') });
 const has = () => !!(S.base && S.nest);
 const openSection = (id) => { const d = $(id); d.open = true; d.scrollIntoView({ behavior: 'smooth', block: 'start' }); };
+try {
+    const st = JSON.parse(localStorage.getItem('autosculpt.panelOpen') || '{}');
+    document.querySelectorAll('#panel details.grp').forEach(d => {
+        if (d.id in st)
+            d.open = !!st[d.id];
+        d.addEventListener('toggle', () => { try {
+            const o = JSON.parse(localStorage.getItem('autosculpt.panelOpen') || '{}');
+            o[d.id] = d.open;
+            localStorage.setItem('autosculpt.panelOpen', JSON.stringify(o));
+        }
+        catch (e) { } });
+    });
+}
+catch (e) { }
 function setTheme(t) { if (t === 'auto')
     delete document.documentElement.dataset.theme;
 else

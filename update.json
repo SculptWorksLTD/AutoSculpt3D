@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.63",
-  "notes": "Compact nesting is now the default for new projects and runs in the background: it fills the gaps between the pieces and uses about half the sheets (a 2.3 m horse: 11 sheets → 5), which the quote reflects. It is also three times faster, and a piece that fits the sheet is never called oversize any more.",
+  "latest": "1.3.64",
+  "notes": "Faster reduction: moving the faces slider or changing the size now takes about a third less, and a few more wasted slivers are removed where the surface hardly changes. Faces are also kept small enough to fit across the sheet, not only along it.",
   "notes_i18n": {
-    "en": "Compact nesting is now the default for new projects and runs in the background: it fills the gaps between the pieces and uses about half the sheets (a 2.3 m horse: 11 sheets → 5), which the quote reflects. It is also three times faster, and a piece that fits the sheet is never called oversize any more.",
-    "it": "L’annidamento compatto è ora predefinito per i progetti nuovi e lavora in sottofondo: riempie gli spazi tra i pezzi e usa circa la metà delle lamiere (un cavallo di 2,3 m: da 11 lamiere a 5), e il preventivo ne tiene conto. È anche tre volte più veloce, e un pezzo che entra nella lamiera non viene più segnalato come troppo grande.",
-    "de": "Die kompakte Anordnung ist jetzt für neue Projekte voreingestellt und läuft im Hintergrund: sie füllt die Lücken zwischen den Teilen und braucht etwa halb so viele Bleche (ein Pferd von 2,3 m: 11 Bleche → 5), was sich im Angebot zeigt. Sie ist außerdem dreimal schneller, und ein Teil, das aufs Blech passt, gilt nie mehr als zu groß.",
-    "fr": "L’imbrication compacte est désormais le réglage par défaut des nouveaux projets et travaille en arrière-plan : elle remplit les espaces entre les pièces et utilise environ la moitié des tôles (un cheval de 2,3 m : 11 tôles → 5), ce que le devis reflète. Elle est aussi trois fois plus rapide, et une pièce qui tient sur la tôle n’est plus jamais signalée comme trop grande.",
-    "es": "El anidado compacto es ahora el predeterminado para los proyectos nuevos y trabaja en segundo plano: rellena los huecos entre las piezas y usa aproximadamente la mitad de las chapas (un caballo de 2,3 m: de 11 chapas a 5), y el presupuesto lo refleja. Además es tres veces más rápido, y una pieza que cabe en la chapa ya no se señala como demasiado grande.",
-    "pt": "O encaixe compacto agora é o padrão para projetos novos e trabalha em segundo plano: preenche os espaços entre as peças e usa cerca de metade das chapas (um cavalo de 2,3 m: de 11 chapas para 5), e o orçamento reflete isso. Também é três vezes mais rápido, e uma peça que cabe na chapa nunca mais é apontada como grande demais.",
-    "ja": "コンパクト配置が新しいプロジェクトの既定になり、バックグラウンドで動作します。部品の間の隙間を埋め、板の枚数が約半分になります（2.3 m の馬：11 枚 → 5 枚）。見積にも反映されます。速度も 3 倍になり、板に収まる部品が「大きすぎる」と表示されることはなくなりました。"
+    "en": "Faster reduction: moving the faces slider or changing the size now takes about a third less, and a few more wasted slivers are removed where the surface hardly changes. Faces are also kept small enough to fit across the sheet, not only along it.",
+    "it": "Riduzione più veloce: spostare la barra delle facce o cambiare la misura richiede circa un terzo di tempo in meno, e qualche scheggia inutile in più viene tolta dove la superficie cambia poco. Le facce restano anche abbastanza piccole da entrare nella lamiera per il lato corto, non solo per il lungo.",
+    "de": "Schnellere Reduktion: den Flächenregler bewegen oder die Größe ändern dauert etwa ein Drittel weniger, und ein paar nutzlose Splitter mehr werden entfernt, wo sich die Oberfläche kaum ändert. Die Flächen bleiben außerdem klein genug, um auch quer aufs Blech zu passen, nicht nur längs.",
+    "fr": "Réduction plus rapide : déplacer le curseur des faces ou changer la taille prend environ un tiers de temps en moins, et quelques éclats inutiles de plus sont supprimés là où la surface change peu. Les faces restent aussi assez petites pour tenir sur la tôle dans le sens de la largeur, pas seulement de la longueur.",
+    "es": "Reducción más rápida: mover la barra de caras o cambiar el tamaño tarda cerca de un tercio menos, y se quitan algunas astillas inútiles más donde la superficie apenas cambia. Las caras también se mantienen lo bastante pequeñas para caber en la chapa a lo ancho, no solo a lo largo.",
+    "pt": "Redução mais rápida: mover a barra de faces ou mudar o tamanho leva cerca de um terço menos tempo, e mais algumas lascas inúteis são removidas onde a superfície quase não muda. As faces também ficam pequenas o bastante para caber na chapa na largura, não só no comprimento.",
+    "ja": "削減が速くなりました。面のスライダーを動かしたりサイズを変えたりする時間が約 3 分の 1 短くなり、表面がほとんど変わらない箇所では無駄な細長い面がさらに取り除かれます。面は板の長辺だけでなく短辺にも収まる大きさに保たれます。"
   },
   "history": [
+    {
+      "date": "2026-11-08T23:12:40Z",
+      "version": "1.3.64",
+      "notes": {
+        "en": "Faster reduction: moving the faces slider or changing the size now takes about a third less, and a few more wasted slivers are removed where the surface hardly changes. Faces are also kept small enough to fit across the sheet, not only along it.",
+        "it": "Riduzione più veloce: spostare la barra delle facce o cambiare la misura richiede circa un terzo di tempo in meno, e qualche scheggia inutile in più viene tolta dove la superficie cambia poco. Le facce restano anche abbastanza piccole da entrare nella lamiera per il lato corto, non solo per il lungo.",
+        "de": "Schnellere Reduktion: den Flächenregler bewegen oder die Größe ändern dauert etwa ein Drittel weniger, und ein paar nutzlose Splitter mehr werden entfernt, wo sich die Oberfläche kaum ändert. Die Flächen bleiben außerdem klein genug, um auch quer aufs Blech zu passen, nicht nur längs.",
+        "fr": "Réduction plus rapide : déplacer le curseur des faces ou changer la taille prend environ un tiers de temps en moins, et quelques éclats inutiles de plus sont supprimés là où la surface change peu. Les faces restent aussi assez petites pour tenir sur la tôle dans le sens de la largeur, pas seulement de la longueur.",
+        "es": "Reducción más rápida: mover la barra de caras o cambiar el tamaño tarda cerca de un tercio menos, y se quitan algunas astillas inútiles más donde la superficie apenas cambia. Las caras también se mantienen lo bastante pequeñas para caber en la chapa a lo ancho, no solo a lo largo.",
+        "pt": "Redução mais rápida: mover a barra de faces ou mudar o tamanho leva cerca de um terço menos tempo, e mais algumas lascas inúteis são removidas onde a superfície quase não muda. As faces também ficam pequenas o bastante para caber na chapa na largura, não só no comprimento.",
+        "ja": "削減が速くなりました。面のスライダーを動かしたりサイズを変えたりする時間が約 3 分の 1 短くなり、表面がほとんど変わらない箇所では無駄な細長い面がさらに取り除かれます。面は板の長辺だけでなく短辺にも収まる大きさに保たれます。"
+      }
+    },
     {
       "date": "2026-11-08T22:57:11Z",
       "version": "1.3.63",
@@ -417,12 +430,12 @@
     }
   ],
   "ui": {
-    "version": "1.3.63",
+    "version": "1.3.64",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "4bafaeacc38d87f28b96e0b388a4ffc3e02b668edb1893d474f56b16273c500c"
+        "sha256": "95afcd24696dd95148a4f938521db24c426a4e62fef79f19ecdca5006e3178c0"
       }
     ]
   },

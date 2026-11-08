@@ -1433,7 +1433,7 @@ def fix_mac_menu():
                             it.setTitle_(new.format(app=APP_NAME))
                         elif it.submenu() is not None and str(it.title()) == 'Services':
                             it.setTitle_(t[1])
-                if str(item.title()) in EDIT_MENU_NAMES and 'copy:' not in actions:
+                if {str(item.title() or ''), str(sub.title() or '')} & EDIT_MENU_NAMES and 'copy:' not in actions:
                     sub.addItem_(NSMenuItem.separatorItem())
                     for title, sel, key in zip(t[6], ('cut:', 'copy:', 'paste:', 'selectAll:'), ('x', 'c', 'v', 'a')):
                         sub.addItem_(NSMenuItem.alloc().initWithTitle_action_keyEquivalent_(title, sel, key))

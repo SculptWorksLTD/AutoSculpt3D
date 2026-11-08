@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.59",
-  "notes": "Flat soles: whatever touches the ground (hooves, paws, the bottom of a statue) now rests on a flat face instead of faceted tips, at any number of faces (option in Shape and size). The balanced base plate now follows how the weight of the sculpture is spread: it reaches out under the parts that lean out.",
+  "latest": "1.3.60",
+  "notes": "Flat soles: the cut under the parts touching the ground is now only 3 mm by default, and you can set it in Shape and size.",
   "notes_i18n": {
-    "en": "Flat soles: whatever touches the ground (hooves, paws, the bottom of a statue) now rests on a flat face instead of faceted tips, at any number of faces (option in Shape and size). The balanced base plate now follows how the weight of the sculpture is spread: it reaches out under the parts that lean out.",
-    "it": "Appoggi piatti: tutto ciò che tocca terra (zoccoli, zampe, la base di una statua) ora poggia su una faccia piana invece che su punte sfaccettate, con qualsiasi numero di facce (opzione in Forma e misure). La piastra bilanciata ora segue come si distribuisce il peso della scultura: si allunga sotto le parti che sporgono.",
-    "de": "Flache Sohlen: Alles, was den Boden berührt (Hufe, Pfoten, der Fuß einer Statue), steht jetzt bei jeder Flächenzahl auf einer ebenen Fläche statt auf facettierten Spitzen (Option unter Form und Maße). Die ausbalancierte Grundplatte folgt jetzt der Gewichtsverteilung der Skulptur: Sie reicht unter die überhängenden Teile.",
-    "fr": "Semelles plates : tout ce qui touche le sol (sabots, pattes, le pied d’une statue) repose maintenant sur une face plane au lieu de pointes facettées, quel que soit le nombre de faces (option dans Forme et dimensions). La plaque équilibrée suit maintenant la répartition du poids de la sculpture : elle s’étend sous les parties en porte-à-faux.",
-    "es": "Apoyos planos: todo lo que toca el suelo (cascos, patas, la base de una estatua) ahora apoya sobre una cara plana en lugar de puntas facetadas, con cualquier número de caras (opción en Forma y medidas). La placa equilibrada ahora sigue cómo se reparte el peso de la escultura: se extiende bajo las partes que sobresalen.",
-    "pt": "Apoios planos: tudo o que toca o chão (cascos, patas, a base de uma estátua) agora apoia numa face plana em vez de pontas facetadas, com qualquer número de faces (opção em Forma e medidas). A placa equilibrada agora acompanha como o peso da escultura se distribui: estende-se sob as partes salientes.",
-    "ja": "平らな接地面: 地面に触れる部分（ひづめ、足、像の底）が、面数に関係なく多面の先端ではなく平らな面で接地するようになりました（「形とサイズ」で設定）。バランス台座は彫刻の重さの分布に沿った形になり、張り出した部分の下まで伸びます。"
+    "en": "Flat soles: the cut under the parts touching the ground is now only 3 mm by default, and you can set it in Shape and size.",
+    "it": "Appoggi piatti: il taglio sotto le parti che toccano terra ora è di soli 3 mm di serie, e si può regolare in Forma e misure.",
+    "de": "Flache Sohlen: Der Schnitt unter den Teilen, die den Boden berühren, beträgt jetzt standardmäßig nur 3 mm und lässt sich unter Form und Maße einstellen.",
+    "fr": "Semelles plates : la coupe sous les parties qui touchent le sol n’est plus que de 3 mm par défaut, et elle se règle dans Forme et dimensions.",
+    "es": "Apoyos planos: el corte bajo las partes que tocan el suelo ahora es de solo 3 mm por defecto y se puede ajustar en Forma y medidas.",
+    "pt": "Apoios planos: o corte sob as partes que tocam o chão agora é de apenas 3 mm por padrão e pode ser ajustado em Forma e medidas.",
+    "ja": "平らな接地面: 地面に触れる部分の切り取り量が標準でわずか 3 mm になり、「形とサイズ」で調整できます。"
   },
   "history": [
+    {
+      "date": "2026-11-08T16:59:46Z",
+      "version": "1.3.60",
+      "notes": {
+        "en": "Flat soles: the cut under the parts touching the ground is now only 3 mm by default, and you can set it in Shape and size.",
+        "it": "Appoggi piatti: il taglio sotto le parti che toccano terra ora è di soli 3 mm di serie, e si può regolare in Forma e misure.",
+        "de": "Flache Sohlen: Der Schnitt unter den Teilen, die den Boden berühren, beträgt jetzt standardmäßig nur 3 mm und lässt sich unter Form und Maße einstellen.",
+        "fr": "Semelles plates : la coupe sous les parties qui touchent le sol n’est plus que de 3 mm par défaut, et elle se règle dans Forme et dimensions.",
+        "es": "Apoyos planos: el corte bajo las partes que tocan el suelo ahora es de solo 3 mm por defecto y se puede ajustar en Forma y medidas.",
+        "pt": "Apoios planos: o corte sob as partes que tocam o chão agora é de apenas 3 mm por padrão e pode ser ajustado em Forma e medidas.",
+        "ja": "平らな接地面: 地面に触れる部分の切り取り量が標準でわずか 3 mm になり、「形とサイズ」で調整できます。"
+      }
+    },
     {
       "date": "2026-11-08T16:52:28Z",
       "version": "1.3.59",
@@ -352,12 +365,12 @@
     }
   ],
   "ui": {
-    "version": "1.3.59",
+    "version": "1.3.60",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "7444cca91a15a26a7eb462e03056ec43241636ba26fc674e7f22a51f1966e308"
+        "sha256": "22e66b279c7cec17ce858b6aee1e54fbf029bfbb33da2c54fa792d9fe8543389"
       }
     ]
   },

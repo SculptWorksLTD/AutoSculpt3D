@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.41",
-  "notes": "Fewer short seams on small sculptures: thin tunnels in manes and tails are closed, and pieces are joined across short edges with a bend. The size field no longer accepts impossible values.",
+  "latest": "1.3.42",
+  "notes": "Bends that replace a short seam now stay within 120°.",
   "notes_i18n": {
-    "en": "Fewer short seams on small sculptures: thin tunnels in manes and tails are closed, and pieces are joined across short edges with a bend. The size field no longer accepts impossible values.",
-    "it": "Meno cordoni corti nelle sculture piccole: i piccoli tunnel in criniere e code vengono chiusi e i pezzi si uniscono lungo i lati corti con una piega. Il campo della misura non accetta più valori impossibili.",
-    "de": "Weniger kurze Schweißnähte bei kleinen Skulpturen: dünne Tunnel in Mähnen und Schweifen werden geschlossen, und Teile werden an kurzen Kanten mit einer Biegung verbunden. Das Größenfeld nimmt keine unmöglichen Werte mehr an.",
-    "fr": "Moins de cordons courts sur les petites sculptures : les petits tunnels dans les crinières et les queues sont fermés, et les pièces sont réunies le long des côtés courts par un pli. Le champ de la taille n’accepte plus de valeurs impossibles.",
-    "es": "Menos cordones cortos en las esculturas pequeñas: los pequeños túneles en crines y colas se cierran y las piezas se unen por los lados cortos con un pliegue. El campo del tamaño ya no acepta valores imposibles.",
-    "pt": "Menos cordões curtos nas esculturas pequenas: os pequenos túneis em crinas e caudas são fechados e as peças se unem nos lados curtos com uma dobra. O campo do tamanho não aceita mais valores impossíveis.",
-    "ja": "小さな彫刻での短い溶接線を減らしました。たてがみや尾の細いトンネルを閉じ、短い辺では部品を曲げでつなぎます。サイズ欄にありえない値が入らなくなりました。"
+    "en": "Bends that replace a short seam now stay within 120°.",
+    "it": "Le pieghe che sostituiscono un cordone corto restano entro 120°.",
+    "de": "Biegungen, die eine kurze Schweißnaht ersetzen, bleiben jetzt innerhalb von 120°.",
+    "fr": "Les plis qui remplacent un cordon court restent désormais dans les 120°.",
+    "es": "Los pliegues que sustituyen un cordón corto ahora no superan los 120°.",
+    "pt": "As dobras que substituem um cordão curto agora ficam dentro de 120°.",
+    "ja": "短い溶接線の代わりになる曲げは 120° 以内に収まるようになりました。"
   },
   "history": [
+    {
+      "date": "2026-11-08T09:14:17Z",
+      "version": "1.3.42",
+      "notes": {
+        "en": "Bends that replace a short seam now stay within 120°.",
+        "it": "Le pieghe che sostituiscono un cordone corto restano entro 120°.",
+        "de": "Biegungen, die eine kurze Schweißnaht ersetzen, bleiben jetzt innerhalb von 120°.",
+        "fr": "Les plis qui remplacent un cordon court restent désormais dans les 120°.",
+        "es": "Los pliegues que sustituyen un cordón corto ahora no superan los 120°.",
+        "pt": "As dobras que substituem um cordão curto agora ficam dentro de 120°.",
+        "ja": "短い溶接線の代わりになる曲げは 120° 以内に収まるようになりました。"
+      }
+    },
     {
       "date": "2026-11-08T09:09:55Z",
       "version": "1.3.41",
@@ -118,12 +131,12 @@
     }
   ],
   "ui": {
-    "version": "1.3.41",
+    "version": "1.3.42",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "1f7d19fbed62f1cafaea29d47f84fda1e4f5d4067edb2ea0ca1df577952a2c6d"
+        "sha256": "ca3189d6741a86cc235cd01482298854ce470b3194979f8c2143303faf89cac4"
       }
     ]
   },

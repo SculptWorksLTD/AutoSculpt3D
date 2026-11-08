@@ -1883,7 +1883,7 @@ function unfoldMesh(V, F, opt) {
         }
         pieces.push({ id: pid, faces, tree });
     }
-    const shortBend = Math.max(o.maxBend, 170), joinMax = Math.max(o.maxFaces * 2, o.maxFaces + 12);
+    const shortBend = Math.max(o.maxBend, 120), joinMax = Math.max(o.maxFaces * 2, o.maxFaces + 12);
     const treeLinks = (h) => { let n = 0; for (let j = 0; j < 3; j++) {
         const x = across(h, j);
         if (x && piece[x[0]] === piece[h] && pieces[piece[h]].tree.has(ekey(F[3 * h + j], F[3 * h + (j + 1) % 3])))

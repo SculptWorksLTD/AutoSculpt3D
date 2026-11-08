@@ -1,14 +1,14 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.25",
-  "notes": "Symmetric subjects and symmetric sculptures even when the model is not quite symmetric",
+  "latest": "1.3.26",
+  "notes": "Simpler update window; a new interface takes effect right away",
   "ui": {
-    "version": "1.3.25",
+    "version": "1.3.26",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "9420f05299a994543b27f4254412c0d438fe31da731123500b10dbe7339d797a"
+        "sha256": "e8b6b03dab575f9f096b962299d4931451cc10a70e9688cd90699caeadb7e7cc"
       }
     ]
   },

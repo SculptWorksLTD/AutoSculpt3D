@@ -5992,7 +5992,7 @@ async function updatesDialog(quiet) {
         return;
     }
     const names = { ui: tr('Interface'), app: tr('Program') };
-    const a = await dialog({ title: tr('Update available'), body: `<table>${r.items.map(i => `<tr><td>${esc(names[i.component] || tr('Engine {name}', { name: i.name || i.component.split(':')[1] }))}</td><td>${esc(i.from || tr('new'))} → ${esc(i.to)}</td></tr>`).join('')}</table>
+    const a = await dialog({ title: tr('Update available'), body: `<table>${r.items.map(i => `<tr><td>${esc(names[i.component] || (ENGINE_TEXT[i.component.split(':')[1]] ? tr(ENGINE_TEXT[i.component.split(':')[1]][0]) : tr('Engine {name}', { name: i.name || i.component.split(':')[1] })))}</td><td>${esc(i.from || tr('new'))} → ${esc(i.to)}</td></tr>`).join('')}</table>
     ${r.notes ? '<p>' + esc(r.notes) + '</p>' : ''}<p class="hint">${tr('Save your work before updating.')}</p>`,
         buttons: [{ label: tr('Later'), value: 'no' }, { label: tr('Update now'), value: 'ok', primary: true }] });
     if (a !== 'ok')
@@ -6004,7 +6004,7 @@ async function updatesDialog(quiet) {
         return dialog({ title: tr('Update failed'), body: `<p>${esc(jobText(job))}</p><p class="hint">${tr('The program stays at the previous version.')}</p>` });
     D.updateReady = false;
     refreshMenus();
-    if (job.result && job.result.restart) {
+    if ((job.result && job.result.restart) || r.items.some(i => i.component === 'ui')) {
         if (!CAN_RESTART) {
             dialog({ title: tr('Update installed'), body: '<p>' + tr('Close AutoSculpt 3D ({keys}) and open it again to use the new version.', { keys: isMac ? '⌘Q' : 'Alt+F4' }) + '</p>' });
             return;
@@ -6046,7 +6046,7 @@ async function autoCheckUpdates() {
         }
         D.updateReady = false;
         refreshMenus();
-        if (!(job.result && job.result.restart)) {
+        if (!(job.result && job.result.restart) && !r.items.some(i => i.component === 'ui')) {
             status(tr('Update {v} installed', { v: to }));
             return;
         }

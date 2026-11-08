@@ -61,7 +61,7 @@ def download(url, dest):
                 break
             f.write(chunk)
 STYLE = '{subject}. A single complete object, whole body fully visible, centered, three-quarter view, isolated on a plain white background, soft even studio lighting, sharp focus, detailed realistic sculpture reference'
-STYLE_SYM = '{subject}. A single complete object, whole body fully visible, centered, straight front view facing the camera, symmetrical pose, left and right sides identical, isolated on a plain white background, soft even studio lighting, sharp focus, detailed realistic sculpture reference'
+STYLE_SYM = 'Front view, facing the camera: {subject}. Symmetrical pose, head straight, left and right sides identical, a single complete object, whole body fully visible, centered, isolated on a plain white background, soft even studio lighting, sharp focus, detailed realistic sculpture reference'
 
 def main():
     ap = argparse.ArgumentParser()

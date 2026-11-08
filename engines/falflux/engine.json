@@ -4,7 +4,7 @@
   "type": "cloud",
   "kind": "text2image",
   "key_engine": "fal",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "order": 20,
   "description": "Draws the subject you describe online with FLUX: very good pictures in a few seconds. It uses the same fal.ai key as the 3D models.",
   "license": "FLUX.1 [schnell]: Apache 2.0; FLUX.1 [dev] pictures may be used commercially; paid service, check the terms of fal.ai",

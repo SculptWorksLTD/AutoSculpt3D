@@ -5,9 +5,20 @@ import os
 import sys
 import time
 STYLE = '{subject}. A single complete object, whole body fully visible, centered, three-quarter view, isolated on a plain white background, soft even studio lighting, sharp focus, detailed realistic sculpture reference'
-STYLE_SYM = '{subject}. A single complete object, whole body fully visible, centered, straight front view facing the camera, symmetrical pose, left and right sides identical, isolated on a plain white background, soft even studio lighting, sharp focus, detailed realistic sculpture reference'
+STYLE_SYM = 'Front view, facing the camera: {subject}. Symmetrical pose, head straight, left and right sides identical, a single complete object, whole body fully visible, centered, isolated on a plain white background, soft even studio lighting, sharp focus, detailed realistic sculpture reference'
 NEGATIVE = 'cropped, cut off, out of frame, multiple objects, duplicate, text, letters, watermark, logo, frame, border, busy background, scenery, floor, cast shadow, blurry, low quality, deformed'
 TRANSLATORS = {'it': 'Helsinki-NLP/opus-mt-it-en', 'de': 'Helsinki-NLP/opus-mt-de-en', 'fr': 'Helsinki-NLP/opus-mt-fr-en', 'es': 'Helsinki-NLP/opus-mt-es-en', 'pt': 'Helsinki-NLP/opus-mt-ROMANCE-en', 'ja': 'Helsinki-NLP/opus-mt-ja-en'}
+
+def implied_negatives(subject):
+    import re
+    t = subject.lower()
+    out = []
+    for m in re.finditer('\\b(mouth|eyes|wings|legs|paws)\\s+(?:is\\s+|are\\s+)?(?:closed|shut|folded)|\\b(?:closed|shut|folded)\\s+(mouth|eyes|wings)', t):
+        w = m.group(1) or m.group(2)
+        out.append({'mouth': 'open mouth, tongue out, teeth', 'eyes': 'open eyes'}.get(w, 'open ' + w + ', spread ' + w))
+    for m in re.finditer('\\bwithout (?:a |an |the )?([a-z ]{3,30}?)(?:[,.]|$| and )', t):
+        out.append(m.group(1).strip())
+    return ', ' + ', '.join(out) if out else ''
 
 def say(kind, *parts, **values):
     line = ' '.join([kind, *[str(p) for p in parts]])
@@ -177,7 +188,7 @@ def main():
                 ctx = torch.autocast(device_type='mps', dtype=torch.float16)
             except Exception:
                 ctx = contextlib.nullcontext()
-        args = dict(prompt=(STYLE_SYM if a.symmetric == '1' else STYLE).format(subject=subject), negative_prompt=NEGATIVE, num_inference_steps=steps, guidance_scale=7.0, width=size, height=size, generator=gen, callback_on_step_end=step)
+        args = dict(prompt=(STYLE_SYM if a.symmetric == '1' else STYLE).format(subject=subject), negative_prompt=NEGATIVE + implied_negatives(subject) + (', side view, profile, three-quarter view, turned head, looking sideways, asymmetric' if a.symmetric == '1' else ''), num_inference_steps=steps, guidance_scale=7.0, width=size, height=size, generator=gen, callback_on_step_end=step)
         try:
             with ctx, torch.no_grad():
                 if device == 'mps':

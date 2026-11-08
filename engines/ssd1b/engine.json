@@ -2,7 +2,7 @@
   "id": "ssd1b",
   "name": "SSD-1B (Stable Diffusion XL)",
   "kind": "text2image",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "install_version": "1.0.0",
   "description": "Draws the subject you describe on this computer, ready for the 3D engines: free and offline after installation (the translation of the description is downloaded the first time).",
   "license": "Apache 2.0, commercial use allowed (Segmind); translation: OPUS-MT, CC BY 4.0 (University of Helsinki)",

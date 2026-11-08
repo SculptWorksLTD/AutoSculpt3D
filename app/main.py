@@ -356,14 +356,14 @@ def lib_get(url, headers=None, binary=False, timeout=40):
             data = r.read()
     except urllib.error.HTTPError as e:
         if e.code in (401, 403):
-            raise UserError('The key for {name} is not valid: check it in Tools → Accounts and keys', name=LIBRARIES.get(_lib_now[0], {}).get('name', ''))
+            raise UserError('The key for {name} is not valid: check it in Tools → Accounts and keys', name=LIBRARIES.get(_lib_now[0], {}).get('name') or _lib_now[0].title())
         if e.code == 429:
-            raise UserError('Too many requests to {name}: wait a minute and try again', name=LIBRARIES.get(_lib_now[0], {}).get('name', ''))
-        raise UserError('{name} replied {code}', name=LIBRARIES.get(_lib_now[0], {}).get('name', ''), code=e.code)
+            raise UserError('Too many requests to {name}: wait a minute and try again', name=LIBRARIES.get(_lib_now[0], {}).get('name') or _lib_now[0].title())
+        raise UserError('{name} replied {code}', name=LIBRARIES.get(_lib_now[0], {}).get('name') or _lib_now[0].title(), code=e.code)
     except UserError:
         raise
     except Exception as e:
-        raise UserError('Cannot reach {name}: {error}', name=LIBRARIES.get(_lib_now[0], {}).get('name', ''), error=str(getattr(e, 'reason', e)))
+        raise UserError('Cannot reach {name}: {error}', name=LIBRARIES.get(_lib_now[0], {}).get('name') or _lib_now[0].title(), error=str(getattr(e, 'reason', e)))
     return data if binary else json.loads(data)
 _lib_now = ['']
 
@@ -417,6 +417,35 @@ def library_search(src, q):
     else:
         raise UserError('Unknown library')
     return out
+PHOTO_LICENSES = 'cc0,pdm,by,by-sa'
+_photo_urls = set()
+
+def photo_search(q, page=1):
+    _lib_now[0] = 'openverse'
+    url = 'https://api.openverse.org/v1/images/?q=' + urllib.parse.quote(q) + f'&license={PHOTO_LICENSES}&page_size=24&page={int(page)}&mature=false'
+    j = lib_get(url)
+    out = []
+    for r in j.get('results', []):
+        lic = (r.get('license') or '').lower()
+        if lic not in PHOTO_LICENSES.split(','):
+            continue
+        name = {'cc0': 'CC0', 'pdm': 'Public domain'}.get(lic, 'CC ' + lic.upper() + (' ' + r['license_version'] if r.get('license_version') else ''))
+        full, thumb = (r.get('url') or '', r.get('thumbnail') or r.get('url') or '')
+        if not full.startswith('https://'):
+            continue
+        _photo_urls.add(full)
+        out.append({'id': r.get('id'), 'title': (r.get('title') or '').strip()[:120], 'thumb': thumb, 'url': full, 'author': (r.get('creator') or '').strip()[:80], 'license': name, 'license_url': r.get('license_url') or '', 'page': r.get('foreign_landing_url') or '', 'source': r.get('source') or '', 'width': r.get('width'), 'height': r.get('height')})
+    return {'results': out, 'more': (j.get('page_count') or 1) > int(page)}
+
+def photo_get(url):
+    if url not in _photo_urls:
+        raise UserError('This picture is not among the search results')
+    _lib_now[0] = 'openverse'
+    data = lib_get(url, binary=True, timeout=60)
+    if len(data) > 25 * 2 ** 20:
+        raise UserError('The picture is too big')
+    kind = 'image/png' if data[:8] == b'\x89PNG\r\n\x1a\n' else 'image/webp' if data[8:12] == b'WEBP' else 'image/jpeg'
+    return (data, kind)
 
 def library_file(src, uid):
     _lib_now[0] = src
@@ -1096,6 +1125,20 @@ class Handler(BaseHTTPRequestHandler):
                     log('Landscape download failed:', repr(exc))
                     return self.send_json({'error': str(exc)}, 502)
                 return self.send_file(f, 'application/octet-stream')
+            if path in ('/api/photos/search', '/api/photos/get'):
+                q = urllib.parse.parse_qs(urllib.parse.urlparse(self.path).query)
+                try:
+                    if path.endswith('search'):
+                        return self.send_json(photo_search((q.get('q') or [''])[0][:120], (q.get('page') or ['1'])[0]))
+                    data, kind = photo_get((q.get('url') or [''])[0])
+                    self.send_response(200)
+                    self.send_header('Content-Type', kind)
+                    self.send_header('Content-Length', str(len(data)))
+                    self.end_headers()
+                    self.wfile.write(data)
+                    return
+                except UserError as exc:
+                    return self.send_json({'error': exc.text, 'error_values': exc.values}, 502)
             if path == '/api/library/sources':
                 keys = load_keys()
                 return self.send_json([{'id': k, **v, 'key_set': bool(keys.get('lib:' + k)), 'key_end': keys.get('lib:' + k, '')[-4:]} for k, v in LIBRARIES.items()])

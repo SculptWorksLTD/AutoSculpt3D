@@ -2107,10 +2107,12 @@ function unfoldMesh(V, F, opt) {
             const L = Math.hypot(bd.b[0] - bd.a[0], bd.b[1] - bd.a[1]);
             const ux = (bd.b[0] - bd.a[0]) / L, uy = (bd.b[1] - bd.a[1]) / L, nx = -uy, ny = ux;
             if (o.slots && bd.deg >= 3) {
-                const r = Math.max(0.15, o.slotWidth / 2), usable = L - 2 * o.slotMargin;
+                const r = Math.max(0.15, o.slotWidth / 2), minSlot = 4 * r + 2;
+                const edge = L - 2 * o.slotMargin >= minSlot ? o.slotMargin : Math.max(Math.min(o.slotMargin, Math.max(1, 2 * r)), (L - minSlot) / 2);
+                const usable = L - 2 * edge;
                 let n = Math.floor((usable + o.slotBridge) / (o.slotLen + o.slotBridge)), sl = o.slotLen;
                 if (n < 1) {
-                    if (usable >= 4 * r + 2) {
+                    if (usable >= minSlot) {
                         n = 1;
                         sl = usable;
                     }
@@ -2120,7 +2122,7 @@ function unfoldMesh(V, F, opt) {
                 if (n === 0)
                     bendNoSlot++;
                 const tot = n * sl + (n - 1) * o.slotBridge;
-                let t = o.slotMargin + (usable - tot) / 2;
+                let t = edge + (usable - tot) / 2;
                 for (let i = 0; i < n; i++) {
                     const s0 = t + r, s1 = t + sl - r;
                     const P0 = [bd.a[0] + ux * s0, bd.a[1] + uy * s0], P1 = [bd.a[0] + ux * s1, bd.a[1] + uy * s1];

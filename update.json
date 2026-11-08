@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.58",
-  "notes": "The balanced base plate is now centred on the centre of gravity of the whole sculpture (shell, internal ribs and the plate itself): it gets a regular shape, symmetric around the centre, and grows further only if needed to withstand the chosen tilt.",
+  "latest": "1.3.59",
+  "notes": "Flat soles: whatever touches the ground (hooves, paws, the bottom of a statue) now rests on a flat face instead of faceted tips, at any number of faces (option in Shape and size). The balanced base plate now follows how the weight of the sculpture is spread: it reaches out under the parts that lean out.",
   "notes_i18n": {
-    "en": "The balanced base plate is now centred on the centre of gravity of the whole sculpture (shell, internal ribs and the plate itself): it gets a regular shape, symmetric around the centre, and grows further only if needed to withstand the chosen tilt.",
-    "it": "La piastra bilanciata ora è centrata sul baricentro dell’intera scultura (guscio, centine interne e piastra stessa): ha una forma regolare, simmetrica attorno al baricentro, e si allarga ancora solo se serve per reggere l’inclinazione scelta.",
-    "de": "Die ausbalancierte Grundplatte ist jetzt auf den Schwerpunkt der ganzen Skulptur zentriert (Hülle, innere Spanten und die Platte selbst): Sie bekommt eine regelmäßige, um den Schwerpunkt symmetrische Form und wird nur bei Bedarf weiter vergrößert, um die gewählte Neigung auszuhalten.",
-    "fr": "La plaque équilibrée est maintenant centrée sur le centre de gravité de toute la sculpture (coque, gabarits internes et plaque elle-même) : elle prend une forme régulière, symétrique autour du centre, et ne s’agrandit davantage que si nécessaire pour supporter l’inclinaison choisie.",
-    "es": "La placa equilibrada ahora está centrada en el centro de gravedad de toda la escultura (carcasa, costillas internas y la propia placa): tiene una forma regular, simétrica alrededor del centro, y solo crece más si hace falta para soportar la inclinación elegida.",
-    "pt": "A placa equilibrada agora fica centrada no centro de gravidade de toda a escultura (casca, cavernas internas e a própria placa): tem forma regular, simétrica em torno do centro, e só cresce mais se for preciso para suportar a inclinação escolhida.",
-    "ja": "バランス台座が彫刻全体（外殻・内部リブ・台座自体）の重心を中心に配置されるようになりました。重心の周りで対称な整った形になり、選んだ傾きに耐えるのに必要な場合だけさらに広がります。"
+    "en": "Flat soles: whatever touches the ground (hooves, paws, the bottom of a statue) now rests on a flat face instead of faceted tips, at any number of faces (option in Shape and size). The balanced base plate now follows how the weight of the sculpture is spread: it reaches out under the parts that lean out.",
+    "it": "Appoggi piatti: tutto ciò che tocca terra (zoccoli, zampe, la base di una statua) ora poggia su una faccia piana invece che su punte sfaccettate, con qualsiasi numero di facce (opzione in Forma e misure). La piastra bilanciata ora segue come si distribuisce il peso della scultura: si allunga sotto le parti che sporgono.",
+    "de": "Flache Sohlen: Alles, was den Boden berührt (Hufe, Pfoten, der Fuß einer Statue), steht jetzt bei jeder Flächenzahl auf einer ebenen Fläche statt auf facettierten Spitzen (Option unter Form und Maße). Die ausbalancierte Grundplatte folgt jetzt der Gewichtsverteilung der Skulptur: Sie reicht unter die überhängenden Teile.",
+    "fr": "Semelles plates : tout ce qui touche le sol (sabots, pattes, le pied d’une statue) repose maintenant sur une face plane au lieu de pointes facettées, quel que soit le nombre de faces (option dans Forme et dimensions). La plaque équilibrée suit maintenant la répartition du poids de la sculpture : elle s’étend sous les parties en porte-à-faux.",
+    "es": "Apoyos planos: todo lo que toca el suelo (cascos, patas, la base de una estatua) ahora apoya sobre una cara plana en lugar de puntas facetadas, con cualquier número de caras (opción en Forma y medidas). La placa equilibrada ahora sigue cómo se reparte el peso de la escultura: se extiende bajo las partes que sobresalen.",
+    "pt": "Apoios planos: tudo o que toca o chão (cascos, patas, a base de uma estátua) agora apoia numa face plana em vez de pontas facetadas, com qualquer número de faces (opção em Forma e medidas). A placa equilibrada agora acompanha como o peso da escultura se distribui: estende-se sob as partes salientes.",
+    "ja": "平らな接地面: 地面に触れる部分（ひづめ、足、像の底）が、面数に関係なく多面の先端ではなく平らな面で接地するようになりました（「形とサイズ」で設定）。バランス台座は彫刻の重さの分布に沿った形になり、張り出した部分の下まで伸びます。"
   },
   "history": [
+    {
+      "date": "2026-11-08T16:52:28Z",
+      "version": "1.3.59",
+      "notes": {
+        "en": "Flat soles: whatever touches the ground (hooves, paws, the bottom of a statue) now rests on a flat face instead of faceted tips, at any number of faces (option in Shape and size). The balanced base plate now follows how the weight of the sculpture is spread: it reaches out under the parts that lean out.",
+        "it": "Appoggi piatti: tutto ciò che tocca terra (zoccoli, zampe, la base di una statua) ora poggia su una faccia piana invece che su punte sfaccettate, con qualsiasi numero di facce (opzione in Forma e misure). La piastra bilanciata ora segue come si distribuisce il peso della scultura: si allunga sotto le parti che sporgono.",
+        "de": "Flache Sohlen: Alles, was den Boden berührt (Hufe, Pfoten, der Fuß einer Statue), steht jetzt bei jeder Flächenzahl auf einer ebenen Fläche statt auf facettierten Spitzen (Option unter Form und Maße). Die ausbalancierte Grundplatte folgt jetzt der Gewichtsverteilung der Skulptur: Sie reicht unter die überhängenden Teile.",
+        "fr": "Semelles plates : tout ce qui touche le sol (sabots, pattes, le pied d’une statue) repose maintenant sur une face plane au lieu de pointes facettées, quel que soit le nombre de faces (option dans Forme et dimensions). La plaque équilibrée suit maintenant la répartition du poids de la sculpture : elle s’étend sous les parties en porte-à-faux.",
+        "es": "Apoyos planos: todo lo que toca el suelo (cascos, patas, la base de una estatua) ahora apoya sobre una cara plana en lugar de puntas facetadas, con cualquier número de caras (opción en Forma y medidas). La placa equilibrada ahora sigue cómo se reparte el peso de la escultura: se extiende bajo las partes que sobresalen.",
+        "pt": "Apoios planos: tudo o que toca o chão (cascos, patas, a base de uma estátua) agora apoia numa face plana em vez de pontas facetadas, com qualquer número de faces (opção em Forma e medidas). A placa equilibrada agora acompanha como o peso da escultura se distribui: estende-se sob as partes salientes.",
+        "ja": "平らな接地面: 地面に触れる部分（ひづめ、足、像の底）が、面数に関係なく多面の先端ではなく平らな面で接地するようになりました（「形とサイズ」で設定）。バランス台座は彫刻の重さの分布に沿った形になり、張り出した部分の下まで伸びます。"
+      }
+    },
     {
       "date": "2026-11-08T16:23:10Z",
       "version": "1.3.58",
@@ -339,12 +352,12 @@
     }
   ],
   "ui": {
-    "version": "1.3.58",
+    "version": "1.3.59",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "9e7acb01c6504f6b83387c67ac3ab7c718ed508dc6eb88b3bfad40509bd85945"
+        "sha256": "7444cca91a15a26a7eb462e03056ec43241636ba26fc674e7f22a51f1966e308"
       }
     ]
   },

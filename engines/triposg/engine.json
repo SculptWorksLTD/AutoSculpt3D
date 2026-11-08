@@ -1,7 +1,7 @@
 {
   "id": "triposg",
   "name": "TripoSG",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "install_version": "1.0.0",
   "description": "High-fidelity 3D shapes from a single photo, on this computer: free, offline after installation and much more precise than TripoSR. Slow without an NVIDIA card or an Apple chip.",
   "license": "MIT, commercial use allowed (VAST AI Research)",

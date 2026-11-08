@@ -151,6 +151,8 @@ def main():
         t0 = time.time()
 
         def step(p, i, t, kw):
+            if dev == 'mps':
+                torch.mps.synchronize()
             done = i + 1
             left = (time.time() - t0) / done * (steps - done)
             say('PROGRESS', round(0.18 + 0.62 * done / steps, 3), 'Shape step {i} of {n}, about {m} min left', i=done, n=steps, m=max(1, round(left / 60)))

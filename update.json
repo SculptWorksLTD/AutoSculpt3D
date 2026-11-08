@@ -1,24 +1,24 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.21",
-  "notes": "Clearer install details for each engine",
+  "latest": "1.3.22",
+  "notes": "Download progress shown in GB",
   "ui": {
-    "version": "1.3.21",
+    "version": "1.3.22",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "41aef0f531b010a87856d2e6ec8589ad9db3e7a678061bfa2539d7d9cc159c95"
+        "sha256": "1982d9c8af13eba2f96927a69bf1261b0db7c0d5fb57f62991a704dffca635e7"
       }
     ]
   },
   "app": {
-    "version": "1.3.13",
+    "version": "1.3.14",
     "files": [
       {
         "path": "main.py",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/app/main.py",
-        "sha256": "632ee313b302a2efafda265bb97d196a811272a8798c9ade4f27006d1249f3aa"
+        "sha256": "87ae2cb866ee35c427cce798ead0a3db921ffc2aa039316e7db9e9bf60cfaee1"
       }
     ]
   },

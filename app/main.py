@@ -500,6 +500,26 @@ def install_engine(job, spec):
 
     def at(i, msg, **values):
         job.update(i / n, msg, **values)
+
+    def watch_weights(i):
+        total = float(spec.get('download_gb') or 0)
+        stop = threading.Event()
+
+        def run():
+            while not stop.wait(3):
+                got = 0
+                for root, _, files in os.walk(home / 'weights'):
+                    for f in files:
+                        try:
+                            got += os.path.getsize(os.path.join(root, f))
+                        except OSError:
+                            pass
+                gb = got / 2 ** 30
+                if total > 0:
+                    job.progress = max(job.progress, min((i + min(gb / total, 0.99)) / n, 1.0))
+                job.message, job.values = ('Downloading the engine files ({got} of {gb} GB)', {'got': f'{gb:.1f}', 'gb': spec.get('download_gb', '?')})
+        threading.Thread(target=run, daemon=True).start()
+        return stop
     at(k, "Preparing the engine's Python environment")
     if not py.exists():
         if stream(job, [BASE_PY, '-m', 'venv', home / 'venv']) != 0:
@@ -553,14 +573,22 @@ def install_engine(job, spec):
         at(k, 'Downloading the model weights ({gb} GB in total)', gb=spec.get('download_gb', '?'))
         dest = home / 'weights' / ws.get('subdir', '')
         code = "import sys, time\nfrom huggingface_hub import hf_hub_download\nrepo, dest = sys.argv[1], sys.argv[2]\nfor i, f in enumerate(sys.argv[3:]):\n    print('FILE', i, f, flush=True)\n    for t in range(4):\n        try:\n            hf_hub_download(repo, f, local_dir=dest); break\n        except Exception as e:\n            print('RETRY', t + 1, e, flush=True)\n            if t == 3: raise\n            time.sleep(5 * (t + 1))\n"
-        rc = stream(job, [py, '-c', code, ws['hf_repo'], dest, *ws['files']], env={'HF_HUB_DISABLE_TELEMETRY': '1', 'HF_HUB_ENABLE_HF_TRANSFER': '0'}, on_line=lambda l: job.update(None, 'Downloading the weights: {file}', file=l.split(' ', 2)[-1]) if l.startswith('FILE') else None)
+        stop = watch_weights(k)
+        try:
+            rc = stream(job, [py, '-c', code, ws['hf_repo'], dest, *ws['files']], env={'HF_HUB_DISABLE_TELEMETRY': '1', 'HF_HUB_ENABLE_HF_TRANSFER': '0'}, on_line=lambda l: job.add_log('Downloading ' + l.split(' ', 2)[-1]) if l.startswith('FILE') else None)
+        finally:
+            stop.set()
         if rc != 0:
             tail = ' / '.join(job.log[-3:])
             raise UserError('Downloading the weights failed: {detail}', detail=tail or '-')
     if w:
         at(k, 'Downloading the model weights ({gb} GB in total)', gb=spec.get('download_gb', '?'))
         code = "import sys\nfrom huggingface_hub import hf_hub_download\nrepo, dest = sys.argv[1], sys.argv[2]\nimport time\nfor i, f in enumerate(sys.argv[3:]):\n    print('FILE', i, f, flush=True)\n    for t in range(4):\n        try:\n            hf_hub_download(repo, f, local_dir=dest); break\n        except Exception as e:\n            print('RETRY', t + 1, e, flush=True)\n            if t == 3: raise\n            time.sleep(5 * (t + 1))\n"
-        rc = stream(job, [py, '-c', code, w['hf_repo'], home / 'weights', *w['files']], env={'HF_HUB_DISABLE_TELEMETRY': '1', 'HF_HUB_ENABLE_HF_TRANSFER': '0'}, on_line=lambda l: job.update(None, 'Downloading the weights: {file}', file=l.split(' ', 2)[-1]) if l.startswith('FILE') else None)
+        stop = watch_weights(k)
+        try:
+            rc = stream(job, [py, '-c', code, w['hf_repo'], home / 'weights', *w['files']], env={'HF_HUB_DISABLE_TELEMETRY': '1', 'HF_HUB_ENABLE_HF_TRANSFER': '0'}, on_line=lambda l: job.add_log('Downloading ' + l.split(' ', 2)[-1]) if l.startswith('FILE') else None)
+        finally:
+            stop.set()
         if rc != 0:
             tail = ' / '.join(job.log[-3:])
             raise UserError('Downloading the weights failed: {detail}', detail=tail or '-')

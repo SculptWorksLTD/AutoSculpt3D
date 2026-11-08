@@ -305,7 +305,7 @@ def remove_retired_engines():
             shutil.rmtree(old, ignore_errors=True)
             log('Removed the replaced engine ssd1b')
 
-def engine_specs():
+def engine_specs(any_platform=False):
     specs = {}
     for base in (RESOURCES / 'engines', SUPPORT / 'engines'):
         if not base.exists():
@@ -315,7 +315,7 @@ def engine_specs():
             if f.exists():
                 try:
                     spec = json.loads(f.read_text())
-                    if spec.get('id') in RETIRED_ENGINES or not platform_allows(spec):
+                    if spec.get('id') in RETIRED_ENGINES or not (any_platform or platform_allows(spec)):
                         continue
                     spec['_dir'] = str(d)
                     if spec['id'] not in specs or vtuple(spec.get('version')) >= vtuple(specs[spec['id']].get('version')):
@@ -953,6 +953,8 @@ def check_updates():
             out['items'].append({'component': comp, 'from': cur[comp], 'to': c['version']})
     specs = engine_specs()
     for e in m.get('engines', []):
+        if not platform_allows(e):
+            continue
         old = specs.get(e['id'])
         if not old or vtuple(e.get('version')) > vtuple(old.get('version')):
             out['items'].append({'component': 'engine:' + e['id'], 'from': old.get('version') if old else None, 'to': e.get('version'), 'name': e.get('name', e['id'])})

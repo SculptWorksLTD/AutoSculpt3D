@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.50",
-  "notes": "Internal tidy-up: leftover code and unused texts removed. Nothing changes in how the program works.",
+  "latest": "1.3.51",
+  "notes": "More realistic mockup backgrounds: photo studio with a curved backdrop and spotlight, gallery with ceiling lights and wooden floor, outdoor sky with clouds and hills, sunset. Outdoors and in the gallery the metal reflects the surroundings, and at sunset it turns warm.",
   "notes_i18n": {
-    "en": "Internal tidy-up: leftover code and unused texts removed. Nothing changes in how the program works.",
-    "it": "Pulizia interna: tolti codice avanzato e testi non più usati. Il funzionamento del programma non cambia.",
-    "de": "Interne Aufräumarbeiten: übrig gebliebener Code und nicht mehr verwendete Texte entfernt. An der Funktion ändert sich nichts.",
-    "fr": "Nettoyage interne : code résiduel et textes inutilisés supprimés. Le fonctionnement du programme ne change pas.",
-    "es": "Limpieza interna: se eliminaron código sobrante y textos sin uso. El funcionamiento del programa no cambia.",
-    "pt": "Limpeza interna: removidos código que sobrava e textos não usados. O funcionamento do programa não muda.",
-    "ja": "内部の整理：残っていたコードと使われていないテキストを削除しました。プログラムの動作は変わりません。"
+    "en": "More realistic mockup backgrounds: photo studio with a curved backdrop and spotlight, gallery with ceiling lights and wooden floor, outdoor sky with clouds and hills, sunset. Outdoors and in the gallery the metal reflects the surroundings, and at sunset it turns warm.",
+    "it": "Sfondi del mockup più realistici: sala di posa con fondale curvo e faretto, galleria con luci dal soffitto e parquet, cielo all’aperto con nuvole e colline, tramonto. All’aperto e in galleria il metallo riflette l’ambiente, e al tramonto si scalda di colore.",
+    "de": "Realistischere Hintergründe für das Mockup: Fotostudio mit Hohlkehle und Spot, Galerie mit Deckenlicht und Parkett, Himmel mit Wolken und Hügeln, Sonnenuntergang. Draußen und in der Galerie spiegelt das Metall die Umgebung, beim Sonnenuntergang wird es warm.",
+    "fr": "Fonds de maquette plus réalistes : studio photo avec fond courbe et projecteur, galerie avec éclairage au plafond et parquet, ciel avec nuages et collines, coucher de soleil. En extérieur et en galerie, le métal reflète l’environnement, et au coucher de soleil il prend une teinte chaude.",
+    "es": "Fondos de maqueta más realistas: estudio fotográfico con fondo curvo y foco, galería con luces en el techo y parqué, cielo con nubes y colinas, atardecer. Al aire libre y en la galería el metal refleja el entorno, y al atardecer toma un tono cálido.",
+    "pt": "Fundos de maquete mais realistas: estúdio fotográfico com fundo curvo e refletor, galeria com luzes no teto e piso de madeira, céu com nuvens e colinas, pôr do sol. Ao ar livre e na galeria o metal reflete o ambiente, e no pôr do sol fica com tom quente.",
+    "ja": "モックアップの背景をよりリアルにしました。曲面背景とスポットライトの撮影スタジオ、天井照明と木の床のギャラリー、雲と丘のある空、夕焼け。屋外とギャラリーでは金属が周囲を映し込み、夕焼けでは暖かい色になります。"
   },
   "history": [
+    {
+      "date": "2026-11-08T10:53:45Z",
+      "version": "1.3.51",
+      "notes": {
+        "en": "More realistic mockup backgrounds: photo studio with a curved backdrop and spotlight, gallery with ceiling lights and wooden floor, outdoor sky with clouds and hills, sunset. Outdoors and in the gallery the metal reflects the surroundings, and at sunset it turns warm.",
+        "it": "Sfondi del mockup più realistici: sala di posa con fondale curvo e faretto, galleria con luci dal soffitto e parquet, cielo all’aperto con nuvole e colline, tramonto. All’aperto e in galleria il metallo riflette l’ambiente, e al tramonto si scalda di colore.",
+        "de": "Realistischere Hintergründe für das Mockup: Fotostudio mit Hohlkehle und Spot, Galerie mit Deckenlicht und Parkett, Himmel mit Wolken und Hügeln, Sonnenuntergang. Draußen und in der Galerie spiegelt das Metall die Umgebung, beim Sonnenuntergang wird es warm.",
+        "fr": "Fonds de maquette plus réalistes : studio photo avec fond courbe et projecteur, galerie avec éclairage au plafond et parquet, ciel avec nuages et collines, coucher de soleil. En extérieur et en galerie, le métal reflète l’environnement, et au coucher de soleil il prend une teinte chaude.",
+        "es": "Fondos de maqueta más realistas: estudio fotográfico con fondo curvo y foco, galería con luces en el techo y parqué, cielo con nubes y colinas, atardecer. Al aire libre y en la galería el metal refleja el entorno, y al atardecer toma un tono cálido.",
+        "pt": "Fundos de maquete mais realistas: estúdio fotográfico com fundo curvo e refletor, galeria com luzes no teto e piso de madeira, céu com nuvens e colinas, pôr do sol. Ao ar livre e na galeria o metal reflete o ambiente, e no pôr do sol fica com tom quente.",
+        "ja": "モックアップの背景をよりリアルにしました。曲面背景とスポットライトの撮影スタジオ、天井照明と木の床のギャラリー、雲と丘のある空、夕焼け。屋外とギャラリーでは金属が周囲を映し込み、夕焼けでは暖かい色になります。"
+      }
+    },
     {
       "date": "2026-11-08T10:48:16Z",
       "version": "1.3.50",
@@ -235,12 +248,12 @@
     }
   ],
   "ui": {
-    "version": "1.3.50",
+    "version": "1.3.51",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "556f406477ad24436824bf1eba117eca652012000e463e10d5f82a0ba4f15a57"
+        "sha256": "31f37d17fc02fd8cec4d09a49a6a4291a6aa9ce06f80e4ea934f8d78330c6889"
       }
     ]
   },

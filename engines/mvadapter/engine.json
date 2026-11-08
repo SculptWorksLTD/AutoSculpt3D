@@ -2,7 +2,7 @@
   "id": "mvadapter",
   "name": "MV-Adapter (Stable Diffusion XL)",
   "kind": "multiview",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "install_version": "1.0.0",
   "min_program": "1.3.10",
   "description": "Draws the chosen picture from the other three sides, so that you can check the subject all around before the 3D model.",

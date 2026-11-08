@@ -74,8 +74,8 @@ def white_background(img):
     seeds = [(x, y) for x in range(0, w, step) for y in (0, h - 1)] + [(x, y) for y in range(0, h, step) for x in (0, w - 1)]
     for xy in seeds:
         r, g, b = out.getpixel(xy)
-        if max(abs(r - 127), abs(g - 127), abs(b - 127)) < 16:
-            ImageDraw.floodfill(out, xy, (255, 255, 255), thresh=14)
+        if max(r, g, b) - min(r, g, b) < 24 and 60 < (r + g + b) / 3 < 215:
+            ImageDraw.floodfill(out, xy, (255, 255, 255), thresh=36)
     return out
 
 def free_memory_gb():

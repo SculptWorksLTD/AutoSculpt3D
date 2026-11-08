@@ -5690,6 +5690,8 @@ async function viewsFlow(imagePath, imageUri, prompt) {
             const b = await (await fetch(u, { headers: { 'X-AS-Token': NATIVE.token } })).blob();
             return new Promise((ok) => { const fr = new FileReader(); fr.onload = () => ok(fr.result); fr.readAsDataURL(b); });
         }));
+        if (views.length && imageUri)
+            views[0] = imageUri;
         const names = [tr('Front'), tr('Right side'), tr('Back'), tr('Left side')];
         const c = await dialog({ title: tr('The subject from four sides'), body: `
       <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:max-content;gap:8px">${views.map((u, i) => `<figure style="margin:0;border:1px solid var(--line);border-radius:3px;background:#fff"><img src="${u}" alt="" style="display:block;width:100%;height:auto">

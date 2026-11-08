@@ -391,7 +391,7 @@ body.empty .stage{grid-column:1/-1}
     <details class="grp" id="dNest">
       <summary><h2>Nesting and copies</h2><span class="on" id="onNest"></span></summary>
       <div class="body">
-        <label class="check"><input type="checkbox" id="compact"> Compact nesting (fills the gaps between pieces)</label>
+        <label class="check"><input type="checkbox" id="compact" checked> Compact nesting (fills the gaps between pieces)</label>
         <div class="two">
           <div class="field"><label for="copies">Copies of this work</label><input type="number" id="copies" value="1" min="1" max="50"></div>
           <div class="field"><label for="gap">Gap between pieces (mm)</label><input type="number" id="gap" value="6" min="2" max="40" step="1"></div>
@@ -2734,6 +2734,9 @@ function unfoldMesh(V, F, opt) {
 function nestPieces(entries, o) {
     if (entries.length && entries[0].loops)
         entries = entries.map(pc => ({ pc }));
+    return nestFromLayout(entries, nestLayout(entries, o));
+}
+function nestLayout(entries, o) {
     const W = o.sheetW, H = o.sheetH, m = o.margin, gap = o.gap;
     const transform = (pts, ang) => { const c = Math.cos(ang), s = Math.sin(ang); return pts.map(p => [p[0] * c - p[1] * s, p[0] * s + p[1] * c]); };
     const frame = (outer, ang) => {
@@ -2752,8 +2755,8 @@ function nestPieces(entries, o) {
         return { tp, x0, y0, w: x1 - x0, h: y1 - y0 };
     };
     const items = [];
-    for (const e of entries) {
-        const pc = e.pc, outer = pc.loops.flat();
+    for (let ei = 0; ei < entries.length; ei++) {
+        const e = entries[ei], pc = e.pc, outer = pc.loops.flat();
         let best = null;
         const angs = new Set([0]);
         for (const L of pc.loops)
@@ -2774,7 +2777,7 @@ function nestPieces(entries, o) {
         }
         const fr = frame(outer, best.ang);
         for (let c = 0; c < (e.copies || 1); c++)
-            items.push({ pc, prefix: e.prefix || '', copy: c, ang: best.ang, w: fr.w, h: fr.h, ox: -fr.x0, oy: -fr.y0, area: pc.area || fr.w * fr.h });
+            items.push({ pc, entry: ei, prefix: e.prefix || '', copy: c, ang: best.ang, w: fr.w, h: fr.h, ox: -fr.x0, oy: -fr.y0, area: pc.area || fr.w * fr.h });
     }
     const sheets = [], oversize = [];
     if (o.compact) {
@@ -2810,9 +2813,16 @@ function nestPieces(entries, o) {
             rowH = Math.max(rowH, h);
         }
     }
-    for (const sh of sheets)
-        for (const p of sh.items) {
-            const it = p.it;
+    let used = 0;
+    for (const it of items)
+        used += it.area;
+    const plain = sheets.map(sh => ({ items: sh.items.map(p => ({ entry: p.it.entry, prefix: p.it.prefix, copy: p.it.copy, ang: p.it.ang, w: p.it.w, h: p.it.h, ox: p.it.ox, oy: p.it.oy, area: p.it.area, x: p.x, y: p.y, rot: p.rot })) }));
+    return { sheets: plain, oversize, W, H, usage: sheets.length ? used / (sheets.length * W * H) : 0, count: items.length };
+}
+function nestFromLayout(entries, L) {
+    const sheets = L.sheets.map(sh => ({ items: sh.items.map(q => {
+            const it = { pc: entries[q.entry].pc, prefix: q.prefix, copy: q.copy, ang: q.ang, w: q.w, h: q.h, ox: q.ox, oy: q.oy, area: q.area };
+            const p = { it, x: q.x, y: q.y, rot: q.rot, rotDeg: (it.ang * 180 / Math.PI) + (q.rot ? 90 : 0) };
             p.tf = (pt) => {
                 const c = Math.cos(it.ang), s = Math.sin(it.ang);
                 let x = pt[0] * c - pt[1] * s + it.ox, y = pt[0] * s + pt[1] * c + it.oy;
@@ -2823,36 +2833,38 @@ function nestPieces(entries, o) {
                 }
                 return [x + p.x, y + p.y];
             };
-            p.rotDeg = (it.ang * 180 / Math.PI) + (p.rot ? 90 : 0);
-        }
-    let used = 0;
-    for (const it of items)
-        used += it.area;
-    return { sheets, oversize, W, H, usage: sheets.length ? used / (sheets.length * W * H) : 0, count: items.length };
+            return p;
+        }) }));
+    return { sheets, oversize: L.oversize, W: L.W, H: L.H, usage: L.usage, count: L.count };
 }
 function rasterNest(items, sheets, oversize, o, frame) {
     const W = o.sheetW, H = o.sheetH, m = o.margin, res = o.res || 3;
-    const gW = Math.floor((W - 2 * m) / res), gH = Math.floor((H - 2 * m) / res);
     const dc = Math.max(1, Math.ceil(o.gap / (2 * res)));
-    const inside = (loops, x, y) => {
-        let c = false;
-        for (const L of loops)
-            for (let i = 0, j = L.length - 1; i < L.length; j = i++) {
-                const a = L[i], b = L[j];
-                if ((a[1] > y) !== (b[1] > y) && x < (b[0] - a[0]) * (y - a[1]) / (b[1] - a[1]) + a[0])
-                    c = !c;
-            }
-        return c;
-    };
+    const gW = Math.floor((W - 2 * m) / res) + 2 * dc, gH = Math.floor((H - 2 * m) / res) + 2 * dc;
     const mask = (it, ang) => {
         const fr = frame(it.pc.loops.flat(), ang);
         const loops = it.pc.loops.map(L => frame(L, ang).tp.map(p => [p[0] - fr.x0, p[1] - fr.y0]));
-        const mw = Math.ceil(fr.w / res) + 2 * dc + 1, mh = Math.ceil(fr.h / res) + 2 * dc + 1;
+        const mw = Math.ceil(fr.w / res) + 2 * dc, mh = Math.ceil(fr.h / res) + 2 * dc;
         const g = new Uint8Array(mw * mh);
-        for (let r = 0; r < mh; r++)
-            for (let c = 0; c < mw; c++)
-                if (inside(loops, (c - dc + 0.5) * res, (r - dc + 0.5) * res))
+        const xs = [];
+        for (let r = 0; r < mh; r++) {
+            const y = (r - dc + 0.5) * res;
+            xs.length = 0;
+            for (const L of loops)
+                for (let i = 0, j = L.length - 1; i < L.length; j = i++) {
+                    const a = L[i], b = L[j];
+                    if ((a[1] > y) !== (b[1] > y))
+                        xs.push((b[0] - a[0]) * (y - a[1]) / (b[1] - a[1]) + a[0]);
+                }
+            if (xs.length < 2)
+                continue;
+            xs.sort((p, q) => p - q);
+            for (let i = 0; i + 1 < xs.length; i += 2) {
+                const c0 = Math.max(0, Math.ceil(xs[i] / res - 0.5) + dc), c1 = Math.min(mw - 1, Math.floor(xs[i + 1] / res - 0.5) + dc);
+                for (let c = c0; c <= c1; c++)
                     g[r * mw + c] = 1;
+            }
+        }
         for (const L of loops)
             for (let i = 0; i < L.length; i++) {
                 const a = L[i], b = L[(i + 1) % L.length], n = Math.ceil(Math.hypot(b[0] - a[0], b[1] - a[1]) / (res * 0.4)) + 1;
@@ -2893,16 +2905,21 @@ function rasterNest(items, sheets, oversize, o, frame) {
     };
     const newSheet = () => { const sh = { items: [], occ: new Uint8Array(gW * gH), pre: new Int32Array(gH * (gW + 1)), minRow: 0 }; sheets.push(sh); return sh; };
     const fits = (sh, mk, gx, gy) => {
+        let next = gx + 1;
         for (let r = 0; r < mk.mh; r++) {
             const row = mk.spans[r];
             if (!row.length)
                 continue;
-            const base = (gy + r) * (gW + 1);
+            const y = gy + r, base = y * (gW + 1);
             for (let i = 0; i < row.length; i += 2)
-                if (sh.pre[base + gx + row[i + 1] + 1] - sh.pre[base + gx + row[i]] > 0)
-                    return false;
+                if (sh.pre[base + gx + row[i + 1] + 1] - sh.pre[base + gx + row[i]] > 0) {
+                    let c = gx + row[i + 1];
+                    while (c > gx + row[i] && !sh.occ[y * gW + c])
+                        c--;
+                    return Math.max(next, c - row[i] + 1);
+                }
         }
-        return true;
+        return -1;
     };
     const place = (sh, mk, gx, gy) => {
         for (let r = 0; r < mk.mh; r++) {
@@ -2940,12 +2957,15 @@ function rasterNest(items, sheets, oversize, o, frame) {
                 outer: for (let gy = sh.minRow; gy <= gH - mk.mh; gy++) {
                     if (best && gy > best.gy)
                         break;
-                    for (let gx = 0; gx <= gW - mk.mw; gx++)
-                        if (fits(sh, mk, gx, gy)) {
+                    for (let gx = 0; gx <= gW - mk.mw;) {
+                        const nx = fits(sh, mk, gx, gy);
+                        if (nx < 0) {
                             if (!best || gy < best.gy || (gy === best.gy && gx < best.gx))
                                 best = { mk, gx, gy };
                             break outer;
                         }
+                        gx = nx;
+                    }
                 }
             }
             if (best) {
@@ -2965,7 +2985,7 @@ function rasterNest(items, sheets, oversize, o, frame) {
         it.ang = b.mk.ang;
         it.ox = -b.mk.x0;
         it.oy = -b.mk.y0;
-        sh.items.push({ it, x: m + (b.gx + dc) * res, y: m + (b.gy + dc) * res, rot: 0 });
+        sh.items.push({ it, x: m + b.gx * res, y: m + b.gy * res, rot: 0 });
     }
     for (const sh of sheets) {
         delete sh.occ;
@@ -3516,6 +3536,8 @@ if (typeof self !== 'undefined' && typeof window === 'undefined' && typeof impor
                 const r = remeshSolid(m.V, m.F, m.res);
                 self.postMessage({ id: m.id, result: r }, [r.V.buffer, r.F.buffer]);
             }
+            if (m.cmd === 'nest')
+                self.postMessage({ id: m.id, result: nestLayout(m.entries, m.o) });
             if (m.cmd === 'decimate') {
                 const prog = (p) => self.postMessage({ id: m.id, progress: p });
                 const r = m.opts ? sculptMesh(m.V, m.F, m.target, prog, m.W, m.opts) : decimateMesh(m.V, m.F, m.target, prog, m.W);
@@ -3528,7 +3550,7 @@ if (typeof self !== 'undefined' && typeof window === 'undefined' && typeof impor
     };
 }
 if (typeof module !== 'undefined')
-    module.exports = { splitLongEdges, massEllipse, flattenBottom, loopsCentroid, stability, internalRibs, thinRingEdges, weldMesh, meshGenus, remeshSolid, decimateMesh, sculptMesh, collapseShortEdges, findSymmetry, cutMesh, mirrorMesh, flipEdges, detailWeights, meshBounds, unfoldMesh, nestPieces, buildDXF, basePlate, labelText };
+    module.exports = { splitLongEdges, massEllipse, flattenBottom, loopsCentroid, stability, internalRibs, thinRingEdges, weldMesh, meshGenus, remeshSolid, decimateMesh, sculptMesh, collapseShortEdges, findSymmetry, cutMesh, mirrorMesh, flipEdges, detailWeights, meshBounds, unfoldMesh, nestPieces, nestLayout, nestFromLayout, buildDXF, basePlate, labelText };
 </script>
 
 <script type="module">
@@ -3604,7 +3626,7 @@ try {
     };
     worker.onerror = (e) => { e.preventDefault(); worker = null; for (const [id, p] of pending) {
         pending.delete(id);
-        p.res(p.repair ? remeshSolid(p.V, p.F) : reduceNow(p.V, p.F, p.target, p.W, p.opts));
+        p.res(p.nest ? nestLayout(p.nest.entries, p.nest.o) : p.repair ? remeshSolid(p.V, p.F) : reduceNow(p.V, p.F, p.target, p.W, p.opts));
     } };
 }
 catch (e) {
@@ -3615,6 +3637,12 @@ function runDecimate(V, F, target, onp, W, opts) {
     if (!worker)
         return new Promise((res) => setTimeout(() => res(reduceNow(V, F, target, W, opts)), 10));
     return new Promise((res, rej) => { const id = ++jobId; pending.set(id, { res, rej, onp, V, F, target, W, opts }); worker.postMessage({ cmd: 'decimate', id, V, F, target, W, opts }); });
+}
+function runNest(entries, o) {
+    if (!worker)
+        return Promise.resolve(nestPieces(entries, o));
+    const slim = entries.map(e => ({ pc: { id: e.pc.id, loops: e.pc.loops, area: e.pc.area }, prefix: e.prefix, copies: e.copies }));
+    return new Promise((res, rej) => { const id = ++jobId; pending.set(id, { res: (L) => res(nestFromLayout(entries, L)), rej, nest: { entries, o } }); worker.postMessage({ cmd: 'nest', id, entries: slim, o }); });
 }
 function runRepair(V, F) {
     if (!worker)
@@ -4506,17 +4534,24 @@ function cutOptions() {
         mirror: $('inside').checked, slots: $('slots').checked, slotLen: +$('slotLen').value || 15, slotBridge: +$('slotBridge').value || 3, slotWidth: +$('slotWidth').value || 1, slotMargin: +$('slotMargin').value || 0,
         flaps: $('flaps').checked, flapW: +$('flapW').value || 14, flapD: +$('flapD').value || 8, flapMargin: 6 };
 }
+let cutToken = 0;
 function updateCut() {
     if (!S.mm)
         return;
-    const o = cutOptions();
+    const o = cutOptions(), tk = ++cutToken;
     if (o.compact)
         busy(tr('Laying out the pieces on the sheets…'));
     let done;
     S.cutDone = new Promise(r => { done = r; });
-    setTimeout(() => {
-        S.unfold = unfoldMesh(S.mm.V, S.mm.F, o);
-        S.nest = nestPieces(S.unfold.pieces.map(pc => ({ pc, copies: Math.max(1, +$('copies').value || 1) })), o);
+    setTimeout(async () => {
+        const unfold = unfoldMesh(S.mm.V, S.mm.F, o);
+        const nest = await runNest(unfold.pieces.map(pc => ({ pc, copies: Math.max(1, +$('copies').value || 1) })), o);
+        if (tk !== cutToken) {
+            done();
+            return;
+        }
+        S.unfold = unfold;
+        S.nest = nest;
         if ($('ribsOn').checked) {
             const R = internalRibs(S.mm.V, S.mm.F, { spacing: Math.max(80, +$('ribSpacing').value || 300), ring: Math.max(15, +$('ribRing').value || 40), gap: (+$('thick').value || 1) + 1 });
             R.ribs.forEach((r, i) => { r.id = i; r.labels.push({ x: r.labels[0].x, y: r.labels[0].y + r.labels[0].h * 1.4, h: Math.max(4, r.labels[0].h * 0.6), rot: 0, text: Math.round(r.pos) + ' mm' }); });

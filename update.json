@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.62",
-  "notes": "Faces never taller than the sheet: a model drawn with huge faces is split first, and long pieces that fit the sheet a little askew are no longer called oversize. Small sculptures with many faces no longer end up with hundreds of short seams: the face count stops where the minimum side allows, and the summary says so. A sculpture standing on a single point gets a round base plate; flat soles are cut where the foot is wide enough.",
+  "latest": "1.3.63",
+  "notes": "Compact nesting is now the default for new projects and runs in the background: it fills the gaps between the pieces and uses about half the sheets (a 2.3 m horse: 11 sheets → 5), which the quote reflects. It is also three times faster, and a piece that fits the sheet is never called oversize any more.",
   "notes_i18n": {
-    "en": "Faces never taller than the sheet: a model drawn with huge faces is split first, and long pieces that fit the sheet a little askew are no longer called oversize. Small sculptures with many faces no longer end up with hundreds of short seams: the face count stops where the minimum side allows, and the summary says so. A sculpture standing on a single point gets a round base plate; flat soles are cut where the foot is wide enough.",
-    "it": "Nessuna faccia più alta della lamiera: un modello disegnato con facce enormi viene prima suddiviso, e i pezzi lunghi che entrano nella lamiera un po’ di sbieco non sono più segnalati come troppo grandi. Le sculture piccole con molte facce non finiscono più con centinaia di cordoni corti: il numero di facce si ferma dove il lato minimo lo permette, e il riepilogo lo dice. Una scultura che appoggia su un solo punto ha una piastra rotonda; gli appoggi piatti si tagliano dove il piede è abbastanza largo.",
-    "de": "Keine Fläche höher als das Blech: ein Modell mit riesigen Flächen wird zuerst unterteilt, und lange Teile, die etwas schräg aufs Blech passen, gelten nicht mehr als zu groß. Kleine Skulpturen mit vielen Flächen enden nicht mehr mit hunderten kurzen Nähten: die Flächenzahl bleibt dort stehen, wo die Mindestseite es erlaubt, und die Übersicht sagt es. Eine Skulptur auf einem einzigen Punkt bekommt eine runde Grundplatte; flache Standflächen werden geschnitten, wo der Fuß breit genug ist.",
-    "fr": "Aucune face plus haute que la tôle : un modèle dessiné avec d’énormes faces est d’abord subdivisé, et les pièces longues qui tiennent sur la tôle un peu de biais ne sont plus signalées comme trop grandes. Les petites sculptures à nombreuses faces ne finissent plus avec des centaines de soudures courtes : le nombre de faces s’arrête où le côté minimal le permet, et le résumé le dit. Une sculpture posée sur un seul point reçoit une plaque ronde ; les appuis plats sont coupés là où le pied est assez large.",
-    "es": "Ninguna cara más alta que la chapa: un modelo dibujado con caras enormes se subdivide primero, y las piezas largas que caben en la chapa un poco inclinadas ya no se señalan como demasiado grandes. Las esculturas pequeñas con muchas caras ya no terminan con cientos de soldaduras cortas: el número de caras se detiene donde lo permite el lado mínimo, y el resumen lo indica. Una escultura apoyada en un solo punto recibe una placa redonda; los apoyos planos se cortan donde el pie es bastante ancho.",
-    "pt": "Nenhuma face mais alta que a chapa: um modelo desenhado com faces enormes é subdividido primeiro, e peças longas que cabem na chapa um pouco inclinadas já não são apontadas como grandes demais. Esculturas pequenas com muitas faces já não terminam com centenas de soldas curtas: o número de faces para onde o lado mínimo permite, e o resumo avisa. Uma escultura apoiada num único ponto recebe uma placa redonda; os apoios planos são cortados onde o pé é largo o bastante.",
-    "ja": "板より高い面はなくなりました。巨大な面で描かれたモデルは先に分割され、少し斜めにすれば板に収まる長い部品は「大きすぎる」と表示されなくなりました。面の多い小さな彫刻が何百もの短い溶接線で終わることはなくなり、面数は最小辺が許すところで止まり、概要にその旨が表示されます。一点で立つ彫刻には丸いベースプレートが付き、平らな足裏は足が十分に広いところで切られます。"
+    "en": "Compact nesting is now the default for new projects and runs in the background: it fills the gaps between the pieces and uses about half the sheets (a 2.3 m horse: 11 sheets → 5), which the quote reflects. It is also three times faster, and a piece that fits the sheet is never called oversize any more.",
+    "it": "L’annidamento compatto è ora predefinito per i progetti nuovi e lavora in sottofondo: riempie gli spazi tra i pezzi e usa circa la metà delle lamiere (un cavallo di 2,3 m: da 11 lamiere a 5), e il preventivo ne tiene conto. È anche tre volte più veloce, e un pezzo che entra nella lamiera non viene più segnalato come troppo grande.",
+    "de": "Die kompakte Anordnung ist jetzt für neue Projekte voreingestellt und läuft im Hintergrund: sie füllt die Lücken zwischen den Teilen und braucht etwa halb so viele Bleche (ein Pferd von 2,3 m: 11 Bleche → 5), was sich im Angebot zeigt. Sie ist außerdem dreimal schneller, und ein Teil, das aufs Blech passt, gilt nie mehr als zu groß.",
+    "fr": "L’imbrication compacte est désormais le réglage par défaut des nouveaux projets et travaille en arrière-plan : elle remplit les espaces entre les pièces et utilise environ la moitié des tôles (un cheval de 2,3 m : 11 tôles → 5), ce que le devis reflète. Elle est aussi trois fois plus rapide, et une pièce qui tient sur la tôle n’est plus jamais signalée comme trop grande.",
+    "es": "El anidado compacto es ahora el predeterminado para los proyectos nuevos y trabaja en segundo plano: rellena los huecos entre las piezas y usa aproximadamente la mitad de las chapas (un caballo de 2,3 m: de 11 chapas a 5), y el presupuesto lo refleja. Además es tres veces más rápido, y una pieza que cabe en la chapa ya no se señala como demasiado grande.",
+    "pt": "O encaixe compacto agora é o padrão para projetos novos e trabalha em segundo plano: preenche os espaços entre as peças e usa cerca de metade das chapas (um cavalo de 2,3 m: de 11 chapas para 5), e o orçamento reflete isso. Também é três vezes mais rápido, e uma peça que cabe na chapa nunca mais é apontada como grande demais.",
+    "ja": "コンパクト配置が新しいプロジェクトの既定になり、バックグラウンドで動作します。部品の間の隙間を埋め、板の枚数が約半分になります（2.3 m の馬：11 枚 → 5 枚）。見積にも反映されます。速度も 3 倍になり、板に収まる部品が「大きすぎる」と表示されることはなくなりました。"
   },
   "history": [
+    {
+      "date": "2026-11-08T22:57:11Z",
+      "version": "1.3.63",
+      "notes": {
+        "en": "Compact nesting is now the default for new projects and runs in the background: it fills the gaps between the pieces and uses about half the sheets (a 2.3 m horse: 11 sheets → 5), which the quote reflects. It is also three times faster, and a piece that fits the sheet is never called oversize any more.",
+        "it": "L’annidamento compatto è ora predefinito per i progetti nuovi e lavora in sottofondo: riempie gli spazi tra i pezzi e usa circa la metà delle lamiere (un cavallo di 2,3 m: da 11 lamiere a 5), e il preventivo ne tiene conto. È anche tre volte più veloce, e un pezzo che entra nella lamiera non viene più segnalato come troppo grande.",
+        "de": "Die kompakte Anordnung ist jetzt für neue Projekte voreingestellt und läuft im Hintergrund: sie füllt die Lücken zwischen den Teilen und braucht etwa halb so viele Bleche (ein Pferd von 2,3 m: 11 Bleche → 5), was sich im Angebot zeigt. Sie ist außerdem dreimal schneller, und ein Teil, das aufs Blech passt, gilt nie mehr als zu groß.",
+        "fr": "L’imbrication compacte est désormais le réglage par défaut des nouveaux projets et travaille en arrière-plan : elle remplit les espaces entre les pièces et utilise environ la moitié des tôles (un cheval de 2,3 m : 11 tôles → 5), ce que le devis reflète. Elle est aussi trois fois plus rapide, et une pièce qui tient sur la tôle n’est plus jamais signalée comme trop grande.",
+        "es": "El anidado compacto es ahora el predeterminado para los proyectos nuevos y trabaja en segundo plano: rellena los huecos entre las piezas y usa aproximadamente la mitad de las chapas (un caballo de 2,3 m: de 11 chapas a 5), y el presupuesto lo refleja. Además es tres veces más rápido, y una pieza que cabe en la chapa ya no se señala como demasiado grande.",
+        "pt": "O encaixe compacto agora é o padrão para projetos novos e trabalha em segundo plano: preenche os espaços entre as peças e usa cerca de metade das chapas (um cavalo de 2,3 m: de 11 chapas para 5), e o orçamento reflete isso. Também é três vezes mais rápido, e uma peça que cabe na chapa nunca mais é apontada como grande demais.",
+        "ja": "コンパクト配置が新しいプロジェクトの既定になり、バックグラウンドで動作します。部品の間の隙間を埋め、板の枚数が約半分になります（2.3 m の馬：11 枚 → 5 枚）。見積にも反映されます。速度も 3 倍になり、板に収まる部品が「大きすぎる」と表示されることはなくなりました。"
+      }
+    },
     {
       "date": "2026-11-08T22:34:23Z",
       "version": "1.3.62",
@@ -404,12 +417,12 @@
     }
   ],
   "ui": {
-    "version": "1.3.62",
+    "version": "1.3.63",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "9be554e9adf712ecbc4bdb64b03afca825b20c66c60e73da9466db060d4bfb48"
+        "sha256": "4bafaeacc38d87f28b96e0b388a4ffc3e02b668edb1893d474f56b16273c500c"
       }
     ]
   },

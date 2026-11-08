@@ -2534,9 +2534,7 @@ scene.add(key);
 scene.add(new THREE.HemisphereLight(0xffffff, 0xb0b4ba, 0.35));
 const isWebKit = /AppleWebKit/.test(navigator.userAgent) && !/Chrome|Chromium|Edg\//.test(navigator.userAgent);
 const mirror = new Reflector(new THREE.CircleGeometry(7, 96), { textureWidth: 1024, textureHeight: 1024, color: 0xC9CDD2, multisample: isWebKit ? 0 : 4 });
-mirror.material.polygonOffset = true;
-mirror.material.polygonOffsetFactor = 2;
-mirror.material.polygonOffsetUnits = 4;
+mirror.material.depthWrite = false;
 mirror.rotation.x = -Math.PI / 2;
 scene.add(mirror);
 const fadeTex = (() => {

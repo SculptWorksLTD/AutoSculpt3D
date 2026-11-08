@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
   "latest": "1.3.36",
-  "notes": "After every update a window shows what is new. At start the program asks again for the company details and the engines to download, with a \"Don't ask me again\" box. New image generator on Apple chips and NVIDIA cards: faithful shapes and anatomy.",
+  "notes": "Pictures without pedestal or base: the sculpture alone.",
   "notes_i18n": {
-    "en": "After every update a window shows what is new. At start the program asks again for the company details and the engines to download, with a \"Don't ask me again\" box. New image generator on Apple chips and NVIDIA cards: faithful shapes and anatomy.",
-    "it": "Dopo ogni aggiornamento una finestra mostra le novità. All'avvio il programma chiede di nuovo i dati dell'azienda e i motori da scaricare, con la casella «Non me lo chiedere più». Nuovo generatore di immagini sui chip Apple e sulle schede NVIDIA: forme e anatomia fedeli.",
-    "de": "Nach jedem Update zeigt ein Fenster die Neuerungen. Beim Start fragt das Programm wieder nach den Firmendaten und den Engines zum Herunterladen, mit dem Kästchen „Nicht mehr fragen“. Neuer Bildgenerator für Apple-Chips und NVIDIA-Karten: getreue Formen und Anatomie.",
-    "fr": "Après chaque mise à jour, une fenêtre montre les nouveautés. Au démarrage, le programme redemande les données de l'entreprise et les moteurs à télécharger, avec la case « Ne plus me demander ». Nouveau générateur d'images sur puces Apple et cartes NVIDIA : formes et anatomie fidèles.",
-    "es": "Después de cada actualización una ventana muestra las novedades. Al iniciar, el programa vuelve a pedir los datos de la empresa y los motores a descargar, con la casilla «No volver a preguntar». Nuevo generador de imágenes en chips Apple y tarjetas NVIDIA: formas y anatomía fieles.",
-    "pt": "Após cada atualização uma janela mostra as novidades. Ao iniciar, o programa pede de novo os dados da empresa e os mecanismos a baixar, com a caixa «Não perguntar novamente». Novo gerador de imagens em chips Apple e placas NVIDIA: formas e anatomia fiéis.",
-    "ja": "更新のたびに新機能を表示するウィンドウが開きます。起動時に会社情報とダウンロードするエンジンを再度確認します（「今後は表示しない」で停止）。AppleチップとNVIDIAカード向けの新しい画像生成：形や体のつくりが正確です。"
+    "en": "Pictures without pedestal or base: the sculpture alone.",
+    "it": "Immagini senza piedistallo né base: solo la scultura.",
+    "de": "Bilder ohne Sockel: nur die Skulptur.",
+    "fr": "Images sans socle : la sculpture seule.",
+    "es": "Imágenes sin pedestal ni base: solo la escultura.",
+    "pt": "Imagens sem pedestal nem base: só a escultura.",
+    "ja": "台座なしの画像：彫刻だけを描きます。"
   },
   "history": [
+    {
+      "date": "2026-11-08T08:21:54Z",
+      "version": "1.3.36",
+      "notes": {
+        "en": "Pictures without pedestal or base: the sculpture alone.",
+        "it": "Immagini senza piedistallo né base: solo la scultura.",
+        "de": "Bilder ohne Sockel: nur die Skulptur.",
+        "fr": "Images sans socle : la sculpture seule.",
+        "es": "Imágenes sin pedestal ni base: solo la escultura.",
+        "pt": "Imagens sem pedestal nem base: só a escultura.",
+        "ja": "台座なしの画像：彫刻だけを描きます。"
+      }
+    },
     {
       "date": "2026-11-08T08:02:29Z",
       "version": "1.3.36",
@@ -118,34 +131,34 @@
     {
       "id": "fluxcuda",
       "name": "FLUX.1 schnell (GGUF)",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "files": [
         {
           "path": "engine.json",
           "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/fluxcuda/engine.json",
-          "sha256": "8b8ecf42f2411672f1a7e7b32725f009d76a478edea998813f55ca256a7a16bf"
+          "sha256": "b153d02783688524b92655665526a450c8beca429000e31a771f4bba676c1291"
         },
         {
           "path": "runner.py",
           "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/fluxcuda/runner.py",
-          "sha256": "71db14a81644c12b76a66b470755b1b038ffdbbe9c1f9e2e64a972df2490faef"
+          "sha256": "6a1b073a025d8949ee82f4dbbe5bf10b7eaaa6a57fd3baa4105ba6150c289c86"
         }
       ]
     },
     {
       "id": "fluxlocal",
       "name": "FLUX.1 schnell (MLX)",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "files": [
         {
           "path": "engine.json",
           "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/fluxlocal/engine.json",
-          "sha256": "cbf3f66c6c88c412833cb99f0dea7246168efaadb60244f978e0ed09f3f0e84f"
+          "sha256": "676ec859114b7308e59f82e07840a54bf5cf237d877966ee06f745e5803b1ba8"
         },
         {
           "path": "runner.py",
           "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/fluxlocal/runner.py",
-          "sha256": "04eac612ae1bcfcb9342fb76b3aadde25dd040df3e568668c70492dd3f4f6ef9"
+          "sha256": "d334f12190180bc77390c1b72acda2866a90928a39c3ae5eb96b8616524e67da"
         }
       ]
     },

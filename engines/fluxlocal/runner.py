@@ -4,8 +4,8 @@ import json
 import os
 import sys
 import time
-STYLE = '{subject}. One single complete subject, the whole body fully visible and centered, seen in three-quarter view, isolated on a plain pure white background, soft even studio lighting, sharp focus, realistic, anatomically correct. A clean reference picture for a sculpture.'
-STYLE_SYM = '{subject}, seen from the front and facing the camera, in a symmetrical pose with the head straight and the left and right sides alike. One single complete subject, the whole body fully visible and centered, isolated on a plain pure white background, soft even studio lighting, sharp focus, realistic, anatomically correct. A clean reference picture for a sculpture.'
+STYLE = '{subject}. One single complete subject, the whole body fully visible and centered, seen in three-quarter view, isolated on a plain pure white background, with no pedestal, base or stand, soft even studio lighting, sharp focus, realistic, anatomically correct. A clean reference picture for a sculpture.'
+STYLE_SYM = '{subject}, seen from the front and facing the camera, in a symmetrical pose with the head straight and the left and right sides alike. One single complete subject, the whole body fully visible and centered, isolated on a plain pure white background with no pedestal, base or stand, soft even studio lighting, sharp focus, realistic, anatomically correct. A clean reference picture for a sculpture.'
 QUADRUPEDS = ('horse', 'pony', 'foal', 'donkey', 'mule', 'zebra', 'dog', 'puppy', 'cat', 'kitten', 'lion', 'tiger', 'leopard', 'cheetah', 'wolf', 'fox', 'bear', 'cow', 'bull', 'ox', 'calf', 'deer', 'stag', 'elk', 'moose', 'goat', 'sheep', 'ram', 'lamb', 'pig', 'boar', 'elephant', 'rhino', 'hippo', 'giraffe', 'camel', 'llama', 'alpaca', 'rabbit', 'hare', 'squirrel', 'mouse', 'rat', 'panther', 'jaguar', 'hyena', 'kangaroo', 'unicorn', 'dragon', 'dinosaur', 'triceratops', 'rhinoceros', 'hippopotamus')
 
 def is_quadruped(subject):

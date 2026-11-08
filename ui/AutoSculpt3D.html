@@ -1197,7 +1197,8 @@ function collapseShortEdges(Vin, Fin, minLen, P) {
         const ux = B[0] - A[0], uy = B[1] - A[1], uz = B[2] - A[2], wx = C[0] - A[0], wy = C[1] - A[1], wz = C[2] - A[2];
         return [uy * wz - uz * wy, uz * wx - ux * wz, ux * wy - uy * wx];
     };
-    for (let pass = 0; pass < 12; pass++) {
+    for (let pass = 0; pass < 24; pass++) {
+        const minDot = pass < 12 ? 0.5 : 0.05;
         const nf = F.length / 3, vf = Array.from({ length: nv }, () => []), alive = new Uint8Array(nf).fill(1);
         for (let f = 0; f < nf; f++)
             for (let k = 0; k < 3; k++)
@@ -1235,26 +1236,28 @@ function collapseShortEdges(Vin, Fin, minLen, P) {
             if (common !== shared.length)
                 continue;
             const pa = onPlane(a), pb = onPlane(b);
-            let p;
-            if (pa && !pb)
-                p = [V[3 * a], V[3 * a + 1], V[3 * a + 2]];
-            else if (pb && !pa)
-                p = [V[3 * b], V[3 * b + 1], V[3 * b + 2]];
-            else
-                p = [(V[3 * a] + V[3 * b]) / 2, (V[3 * a + 1] + V[3 * b + 1]) / 2, (V[3 * a + 2] + V[3 * b + 2]) / 2];
-            let ok = true;
-            for (const f of fa.concat(fb)) {
-                if (shared.includes(f))
-                    continue;
-                const t = [F[3 * f], F[3 * f + 1], F[3 * f + 2]], n0 = cross(t[0], t[1], t[2]);
-                const n1 = cross(t[0], t[1], t[2], t[0] === a || t[0] === b ? p : null, t[1] === a || t[1] === b ? p : null, t[2] === a || t[2] === b ? p : null);
-                const l0 = Math.hypot(...n0), l1 = Math.hypot(...n1);
-                if (!(l1 > 1e-12) || (n0[0] * n1[0] + n0[1] * n1[1] + n0[2] * n1[2]) / (l0 * l1 || 1) < 0.5) {
-                    ok = false;
-                    break;
+            const A = [V[3 * a], V[3 * a + 1], V[3 * a + 2]], B = [V[3 * b], V[3 * b + 1], V[3 * b + 2]], M = [(A[0] + B[0]) / 2, (A[1] + B[1]) / 2, (A[2] + B[2]) / 2];
+            const options = pa && !pb ? [A] : pb && !pa ? [B] : [M, A, B];
+            const fits = (p) => {
+                for (const f of fa.concat(fb)) {
+                    if (shared.includes(f))
+                        continue;
+                    const t = [F[3 * f], F[3 * f + 1], F[3 * f + 2]], n0 = cross(t[0], t[1], t[2]);
+                    const n1 = cross(t[0], t[1], t[2], t[0] === a || t[0] === b ? p : null, t[1] === a || t[1] === b ? p : null, t[2] === a || t[2] === b ? p : null);
+                    const l0 = Math.hypot(...n0), l1 = Math.hypot(...n1);
+                    if (!(l1 > 1e-12) || (n0[0] * n1[0] + n0[1] * n1[1] + n0[2] * n1[2]) / (l0 * l1 || 1) < minDot)
+                        return false;
+                    if (minDot < 0.5) {
+                        const P = t.map(v => v === a || v === b ? p : [V[3 * v], V[3 * v + 1], V[3 * v + 2]]);
+                        const lm = Math.max(Math.hypot(P[0][0] - P[1][0], P[0][1] - P[1][1], P[0][2] - P[1][2]), Math.hypot(P[1][0] - P[2][0], P[1][1] - P[2][1], P[1][2] - P[2][2]), Math.hypot(P[2][0] - P[0][0], P[2][1] - P[0][1], P[2][2] - P[0][2]));
+                        if (l1 / lm < minLen * 0.25)
+                            return false;
+                    }
                 }
-            }
-            if (!ok)
+                return true;
+            };
+            const p = options.find(fits);
+            if (!p)
                 continue;
             V[3 * a] = p[0];
             V[3 * a + 1] = p[1];
@@ -1278,8 +1281,10 @@ function collapseShortEdges(Vin, Fin, minLen, P) {
                 out.push(F[3 * f], F[3 * f + 1], F[3 * f + 2]);
         F = out;
         collapsed += n;
-        if (!n)
+        if (!n && pass >= 12)
             break;
+        if (!n)
+            pass = 11;
     }
     const map = new Int32Array(nv).fill(-1), Vo = [];
     for (let i = 0; i < F.length; i++) {
@@ -1719,10 +1724,13 @@ function unfoldMesh(V, F, opt) {
                 cand.push([bendDeg(f, g[0]), f, k, g[0], g[1]]);
         } };
         addCands(seed);
-        while (cand.length && faces.length < o.maxFaces) {
+        while (cand.length && faces.length < o.maxFaces + 6) {
             cand.sort((p, q) => p[0] - q[0]);
             const [bd, f, k, g, kg] = cand.shift();
-            if (piece[g] >= 0 || bd > o.maxBend)
+            const shortE = dist(F[3 * f + k], F[3 * f + (k + 1) % 3]) < o.minEdge;
+            if (piece[g] >= 0 || bd > (shortE ? Math.max(o.maxBend, 90) : o.maxBend))
+                continue;
+            if (!shortE && faces.length >= o.maxFaces)
                 continue;
             const pu = corner(f, k), pv = corner(f, (k + 1) % 3), pw = corner(f, (k + 2) % 3);
             const L = Math.hypot(pv[0] - pu[0], pv[1] - pu[1]);
@@ -3464,7 +3472,7 @@ function renderStats() {
     if (st.shortEdges)
         w.push(tr('{n} seams shorter than {mm} mm: hard to weld. Reduce the faces or increase the size.', { n: st.shortEdges, mm: o.minEdge }));
     if ($('slots').checked && st.bendNoSlot)
-        w.push(tr('{n} bends are too short for a slot: they are only marked, bend them with pliers.', { n: st.bendNoSlot }));
+        info.push(tr('{n} bends are too short for a slot: they are only marked, bend them with pliers.', { n: st.bendNoSlot }));
     if (S.nest.oversize.length)
         w.push(tr("{n} pieces don't fit on the sheet: increase the sheet size or reduce the maximum bend.", { n: S.nest.oversize.length }));
     if (S.baseNest && S.baseNest.oversize.length)

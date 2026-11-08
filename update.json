@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.39",
-  "notes": "Graph paper background: only the paper and the axes, no grid on the floor.",
+  "latest": "1.3.40",
+  "notes": "Small sculptures: no more seams too short to weld. Across a short edge the piece continues with a bend instead of a seam; faces too small are merged more thoroughly.",
   "notes_i18n": {
-    "en": "Graph paper background: only the paper and the axes, no grid on the floor.",
-    "it": "Sfondo carta millimetrata: solo la carta e gli assi, senza griglia sul pavimento.",
-    "de": "Millimeterpapier-Hintergrund: nur das Papier und die Achsen, kein Raster am Boden.",
-    "fr": "Fond papier millimétré : seulement le papier et les axes, sans grille au sol.",
-    "es": "Fondo de papel milimetrado: solo el papel y los ejes, sin cuadrícula en el suelo.",
-    "pt": "Fundo de papel milimetrado: só o papel e os eixos, sem grade no piso.",
-    "ja": "方眼紙の背景：紙と座標軸だけになり、床のグリッドはなくなりました。"
+    "en": "Small sculptures: no more seams too short to weld. Across a short edge the piece continues with a bend instead of a seam; faces too small are merged more thoroughly.",
+    "it": "Sculture piccole: niente più cordoni troppo corti da saldare. Su un lato corto il pezzo continua con una piega invece che con un cordone; le facce troppo piccole vengono unite meglio.",
+    "de": "Kleine Skulpturen: keine Schweißnähte mehr, die zu kurz sind. An einer kurzen Kante geht das Teil mit einer Biegung statt einer Naht weiter; zu kleine Flächen werden gründlicher zusammengefasst.",
+    "fr": "Petites sculptures : plus de cordons trop courts à souder. Sur une arête courte, la pièce continue par un pli au lieu d'un cordon ; les faces trop petites sont mieux fusionnées.",
+    "es": "Esculturas pequeñas: ya no hay cordones demasiado cortos para soldar. En un lado corto la pieza sigue con un pliegue en vez de un cordón; las caras demasiado pequeñas se unen mejor.",
+    "pt": "Esculturas pequenas: sem mais cordões curtos demais para soldar. Num lado curto a peça continua com uma dobra em vez de um cordão; as faces pequenas demais são unidas melhor.",
+    "ja": "小さな彫刻：溶接するには短すぎる継ぎ目がなくなりました。短い辺では継ぎ目の代わりに曲げで部品をつなぎ、小さすぎる面はより確実にまとめます。"
   },
   "history": [
+    {
+      "date": "2026-11-08T08:50:24Z",
+      "version": "1.3.40",
+      "notes": {
+        "en": "Small sculptures: no more seams too short to weld. Across a short edge the piece continues with a bend instead of a seam; faces too small are merged more thoroughly.",
+        "it": "Sculture piccole: niente più cordoni troppo corti da saldare. Su un lato corto il pezzo continua con una piega invece che con un cordone; le facce troppo piccole vengono unite meglio.",
+        "de": "Kleine Skulpturen: keine Schweißnähte mehr, die zu kurz sind. An einer kurzen Kante geht das Teil mit einer Biegung statt einer Naht weiter; zu kleine Flächen werden gründlicher zusammengefasst.",
+        "fr": "Petites sculptures : plus de cordons trop courts à souder. Sur une arête courte, la pièce continue par un pli au lieu d'un cordon ; les faces trop petites sont mieux fusionnées.",
+        "es": "Esculturas pequeñas: ya no hay cordones demasiado cortos para soldar. En un lado corto la pieza sigue con un pliegue en vez de un cordón; las caras demasiado pequeñas se unen mejor.",
+        "pt": "Esculturas pequenas: sem mais cordões curtos demais para soldar. Num lado curto a peça continua com uma dobra em vez de um cordão; as faces pequenas demais são unidas melhor.",
+        "ja": "小さな彫刻：溶接するには短すぎる継ぎ目がなくなりました。短い辺では継ぎ目の代わりに曲げで部品をつなぎ、小さすぎる面はより確実にまとめます。"
+      }
+    },
     {
       "date": "2026-11-08T08:44:18Z",
       "version": "1.3.39",
@@ -92,12 +105,12 @@
     }
   ],
   "ui": {
-    "version": "1.3.39",
+    "version": "1.3.40",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "407c9a5dabd643212c11683770d3e5a852b20e4c64018d9d5cda72cf711cdfd5"
+        "sha256": "353f7b892f059f368a23935dbfba43fa27b3eefc85d45fcc7b4176954ad3dae8"
       }
     ]
   },

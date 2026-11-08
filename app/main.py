@@ -916,7 +916,7 @@ def check_updates():
     s = load_settings()
     s['last_check'] = time.time()
     save_settings(s)
-    out = {'notes': m.get('notes', ''), 'latest': m.get('latest'), 'current': product_version(), 'items': []}
+    out = {'notes': m.get('notes', ''), 'notes_i18n': m.get('notes_i18n') or {}, 'history': m.get('history') or [], 'latest': m.get('latest'), 'current': product_version(), 'items': []}
     cur = {'ui': ui_version(), 'app': VERSION}
     for comp in ('ui', 'app'):
         c = m.get(comp)

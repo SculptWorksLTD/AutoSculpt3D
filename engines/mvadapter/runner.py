@@ -126,6 +126,13 @@ def main():
         steps, size = {'draft': (20, 768), 'normal': (30, 768), 'high': (50, 768)}.get(a.quality, (30, 768))
         if tiny:
             steps, size = (4, 512)
+        elif device == 'mps':
+            try:
+                ram = os.sysconf('SC_PAGE_SIZE') * os.sysconf('SC_PHYS_PAGES') / 2 ** 30
+            except (ValueError, OSError, AttributeError):
+                ram = 16
+            if ram < 30:
+                size = 512
         print(f'device {device}, {dtype}, {steps} steps', flush=True)
         say('PROGRESS', '0.05', 'Loading the views generator')
         warn_if_memory_low(10)

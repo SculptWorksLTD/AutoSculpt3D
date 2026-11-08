@@ -275,6 +275,14 @@ def sha256(path):
             h.update(chunk)
     return h.hexdigest()
 RETIRED_ENGINES = {'triposr'}
+APPLE_CHIP = IS_MAC and platform.machine() == 'arm64'
+
+def platform_allows(spec):
+    if spec.get('only') == 'apple_chip' and (not APPLE_CHIP):
+        return False
+    if spec.get('hide_on') == 'apple_chip' and APPLE_CHIP:
+        return False
+    return True
 
 def remove_retired_engines():
     for eid in RETIRED_ENGINES:
@@ -282,6 +290,11 @@ def remove_retired_engines():
             if d.exists():
                 shutil.rmtree(d, ignore_errors=True)
                 log('Removed the retired engine', eid)
+    if APPLE_CHIP and (SUPPORT / 'engines' / 'fluxlocal' / 'installed.json').exists():
+        old = SUPPORT / 'engines' / 'ssd1b'
+        if old.exists():
+            shutil.rmtree(old, ignore_errors=True)
+            log('Removed the replaced engine ssd1b')
 
 def engine_specs():
     specs = {}
@@ -293,7 +306,7 @@ def engine_specs():
             if f.exists():
                 try:
                     spec = json.loads(f.read_text())
-                    if spec.get('id') in RETIRED_ENGINES:
+                    if spec.get('id') in RETIRED_ENGINES or not platform_allows(spec):
                         continue
                     spec['_dir'] = str(d)
                     if spec['id'] not in specs or vtuple(spec.get('version')) >= vtuple(specs[spec['id']].get('version')):

@@ -1335,7 +1335,7 @@ class Bridge:
 
         def close_and_exit():
             time.sleep(0.3)
-            threading.Timer(3.0, lambda: os._exit(0)).start()
+            threading.Timer(3.0, lambda: (stop_engines(), os._exit(0))).start()
             try:
                 self.window.destroy()
             except Exception:
@@ -1479,6 +1479,16 @@ def fix_mac_menu():
     except Exception:
         log('Menu bar not adjusted:', traceback.format_exc())
 
+def stop_engines():
+    for job in list(JOBS.values()):
+        pr = getattr(job, 'proc', None)
+        if pr and pr.poll() is None:
+            job.cancelled = True
+            try:
+                pr.kill()
+            except Exception:
+                pass
+
 def wait_previous_instance():
     pid = os.environ.pop('AUTOSCULPT_WAIT_PID', None)
     if not (pid and IS_WIN):
@@ -1554,5 +1564,7 @@ def main():
     except TypeError:
         NATIVE_MENU = False
         webview.start(private_mode=False, storage_path=str(SUPPORT / 'webview'))
+    finally:
+        stop_engines()
 if __name__ == '__main__':
     main()

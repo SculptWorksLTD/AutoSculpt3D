@@ -1,7 +1,7 @@
 {
   "product": "AutoSculpt 3D",
   "latest": "1.3.22",
-  "notes": "Views fit in the memory of 16 GB Macs",
+  "notes": "Engines stop when the program closes",
   "ui": {
     "version": "1.3.22",
     "files": [
@@ -13,12 +13,12 @@
     ]
   },
   "app": {
-    "version": "1.3.14",
+    "version": "1.3.15",
     "files": [
       {
         "path": "main.py",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/app/main.py",
-        "sha256": "87ae2cb866ee35c427cce798ead0a3db921ffc2aa039316e7db9e9bf60cfaee1"
+        "sha256": "d2aad35b2599209508958b95777ed01a255e9fe8810c0c42d74e1a8ca1855064"
       }
     ]
   },
@@ -111,34 +111,34 @@
     {
       "id": "mvadapter",
       "name": "MV-Adapter (Stable Diffusion XL)",
-      "version": "1.0.3",
+      "version": "1.0.4",
       "files": [
         {
           "path": "engine.json",
           "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/mvadapter/engine.json",
-          "sha256": "4bee0578fc1b6f8855757c472a2feb8d63973e4be04dd6a1d8e540de6e142c49"
+          "sha256": "790981f768e7b3f47a93af9f707b66fa7cf34fd2bb6d2d177631a4f87d0829d1"
         },
         {
           "path": "runner.py",
           "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/mvadapter/runner.py",
-          "sha256": "ff0dacec949ff5b4889ddaa1e6de76d12121336e86d5a4596670fad5531ad511"
+          "sha256": "92ce13aa4af44bf4bee3441b436a645164280c4449a714ce67104dbda9d256d6"
         }
       ]
     },
     {
       "id": "ssd1b",
       "name": "SSD-1B (Stable Diffusion XL)",
-      "version": "1.0.8",
+      "version": "1.0.9",
       "files": [
         {
           "path": "engine.json",
           "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/ssd1b/engine.json",
-          "sha256": "3f5d11a765ac957e89e91e0c97c6636339064e0b65e2640ad27ab8dcc25ea196"
+          "sha256": "d7660a24b2749a5918be839b4b699e21ed51f1a96afd605165571718b9121d6f"
         },
         {
           "path": "runner.py",
           "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/ssd1b/runner.py",
-          "sha256": "a6c94e4e2038fb39b62633d4c5b00477d9f0554b359f691b7fd97de419841df3"
+          "sha256": "b21d726f62ca979295394a98c16e0e6dce86101e86d07e4b92600aed48698be7"
         }
       ]
     },
@@ -162,34 +162,34 @@
     {
       "id": "triposg",
       "name": "TripoSG",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "files": [
         {
           "path": "engine.json",
           "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/triposg/engine.json",
-          "sha256": "a01bfe7861e50345417102b4f81e5a94ff5c0c19d1fe8d8fa181491c3931940c"
+          "sha256": "0bdc319a88bce0b51c33d1ef7eff04833c6df95875e54370b974f9b840f043d6"
         },
         {
           "path": "runner.py",
           "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/triposg/runner.py",
-          "sha256": "76372bf6fc78bbe33b092464b051729062b1595ed539ccb2c9bf9e210fa369fc"
+          "sha256": "5498fcd7c20afc9eb7ebb7fef32aad7807eafdbe8207a6558b778233f1ef5898"
         }
       ]
     },
     {
       "id": "whisper",
       "name": "Whisper (voice)",
-      "version": "1.1.1",
+      "version": "1.1.2",
       "files": [
         {
           "path": "engine.json",
           "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/whisper/engine.json",
-          "sha256": "fef618761d8f6a8a05057ddbc034c5599643bbfd69975d010104138418c02c05"
+          "sha256": "326279dd7e08a057fb7bd6bb154e455f27415a8014638023c2a27dcbde900820"
         },
         {
           "path": "runner.py",
           "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/whisper/runner.py",
-          "sha256": "fd4c1cdb5fc505b66d098b28ed290b25982b4b876b32ec702889ca061e4e2ef7"
+          "sha256": "40357ead224995dba1677968fff81257f47a516925dcd070194fcdfdeea51f13"
         }
       ]
     }

@@ -2,7 +2,7 @@
   "id": "whisper",
   "name": "Whisper (voice)",
   "kind": "speech2text",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "install_version": "1.1.0",
   "description": "Writes the description you dictate with the microphone, on this computer: free, private and offline after installation.",
   "license": "MIT, commercial use allowed (OpenAI Whisper large-v3-turbo)",

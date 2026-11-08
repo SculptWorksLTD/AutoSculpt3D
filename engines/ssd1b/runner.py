@@ -14,6 +14,18 @@ def say(kind, *parts, **values):
         line += '\t' + json.dumps(values)
     print('\n' + line, flush=True)
 
+def watch_parent():
+    import threading
+    parent = os.getppid()
+
+    def run():
+        while True:
+            time.sleep(2)
+            if os.getppid() != parent:
+                os._exit(1)
+    threading.Thread(target=run, daemon=True).start()
+watch_parent()
+
 def to_english(text, lang):
     repo = TRANSLATORS.get(lang)
     if not repo:

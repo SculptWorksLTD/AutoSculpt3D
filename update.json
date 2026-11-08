@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.45",
-  "notes": "A new model now starts at the standard size of 600 mm instead of the size of the project opened before.",
+  "latest": "1.3.46",
+  "notes": "Warnings about a single seam or bend are now worded correctly.",
   "notes_i18n": {
-    "en": "A new model now starts at the standard size of 600 mm instead of the size of the project opened before.",
-    "it": "Un modello nuovo ora parte dalla misura standard di 600 mm invece che dalla misura del progetto aperto prima.",
-    "de": "Ein neues Modell beginnt jetzt mit der Standardgröße von 600 mm statt mit der Größe des zuvor geöffneten Projekts.",
-    "fr": "Un nouveau modèle démarre désormais à la taille standard de 600 mm au lieu de celle du projet ouvert auparavant.",
-    "es": "Un modelo nuevo ahora empieza con el tamaño estándar de 600 mm en lugar del tamaño del proyecto abierto antes.",
-    "pt": "Um modelo novo agora começa no tamanho padrão de 600 mm em vez do tamanho do projeto aberto antes.",
-    "ja": "新しいモデルは、前に開いたプロジェクトのサイズではなく、標準の 600 mm から始まるようになりました。"
+    "en": "Warnings about a single seam or bend are now worded correctly.",
+    "it": "Gli avvisi su un solo cordone o una sola piega ora sono scritti correttamente.",
+    "de": "Hinweise zu einer einzelnen Naht oder Biegung sind jetzt richtig formuliert.",
+    "fr": "Les avertissements portant sur un seul cordon ou un seul pli sont désormais correctement formulés.",
+    "es": "Los avisos sobre un solo cordón o un solo pliegue ahora están bien redactados.",
+    "pt": "Os avisos sobre um único cordão ou uma única dobra agora estão escritos corretamente.",
+    "ja": "溶接線や曲げが 1 か所だけのときの警告文を正しく表示するようにしました。"
   },
   "history": [
+    {
+      "date": "2026-11-08T09:51:31Z",
+      "version": "1.3.46",
+      "notes": {
+        "en": "Warnings about a single seam or bend are now worded correctly.",
+        "it": "Gli avvisi su un solo cordone o una sola piega ora sono scritti correttamente.",
+        "de": "Hinweise zu einer einzelnen Naht oder Biegung sind jetzt richtig formuliert.",
+        "fr": "Les avertissements portant sur un seul cordon ou un seul pli sont désormais correctement formulés.",
+        "es": "Los avisos sobre un solo cordón o un solo pliegue ahora están bien redactados.",
+        "pt": "Os avisos sobre um único cordão ou uma única dobra agora estão escritos corretamente.",
+        "ja": "溶接線や曲げが 1 か所だけのときの警告文を正しく表示するようにしました。"
+      }
+    },
     {
       "date": "2026-11-08T09:42:55Z",
       "version": "1.3.45",
@@ -170,12 +183,12 @@
     }
   ],
   "ui": {
-    "version": "1.3.45",
+    "version": "1.3.46",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "db70e47e34ee8c11a94d6f36179f9bc6d06e3f248f156208c2185c023e59d8b8"
+        "sha256": "1e3943435e4f014d0133464e22994eee6a4955a6f71d88f7df9bdc6f289f6571"
       }
     ]
   },

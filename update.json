@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.38",
-  "notes": "Search a photo now uses Wikimedia Commons.",
+  "latest": "1.3.39",
+  "notes": "Graph paper background: only the paper and the axes, no grid on the floor.",
   "notes_i18n": {
-    "en": "Search a photo now uses Wikimedia Commons.",
-    "it": "«Cerca una foto» ora usa Wikimedia Commons.",
-    "de": "„Foto suchen“ nutzt jetzt Wikimedia Commons.",
-    "fr": "« Chercher une photo » utilise maintenant Wikimedia Commons.",
-    "es": "«Buscar una foto» ahora usa Wikimedia Commons.",
-    "pt": "«Procurar uma foto» agora usa o Wikimedia Commons.",
-    "ja": "「写真を探す」は Wikimedia Commons を使うようになりました。"
+    "en": "Graph paper background: only the paper and the axes, no grid on the floor.",
+    "it": "Sfondo carta millimetrata: solo la carta e gli assi, senza griglia sul pavimento.",
+    "de": "Millimeterpapier-Hintergrund: nur das Papier und die Achsen, kein Raster am Boden.",
+    "fr": "Fond papier millimétré : seulement le papier et les axes, sans grille au sol.",
+    "es": "Fondo de papel milimetrado: solo el papel y los ejes, sin cuadrícula en el suelo.",
+    "pt": "Fundo de papel milimetrado: só o papel e os eixos, sem grade no piso.",
+    "ja": "方眼紙の背景：紙と座標軸だけになり、床のグリッドはなくなりました。"
   },
   "history": [
+    {
+      "date": "2026-11-08T08:44:18Z",
+      "version": "1.3.39",
+      "notes": {
+        "en": "Graph paper background: only the paper and the axes, no grid on the floor.",
+        "it": "Sfondo carta millimetrata: solo la carta e gli assi, senza griglia sul pavimento.",
+        "de": "Millimeterpapier-Hintergrund: nur das Papier und die Achsen, kein Raster am Boden.",
+        "fr": "Fond papier millimétré : seulement le papier et les axes, sans grille au sol.",
+        "es": "Fondo de papel milimetrado: solo el papel y los ejes, sin cuadrícula en el suelo.",
+        "pt": "Fundo de papel milimetrado: só o papel e os eixos, sem grade no piso.",
+        "ja": "方眼紙の背景：紙と座標軸だけになり、床のグリッドはなくなりました。"
+      }
+    },
     {
       "date": "2026-11-08T08:43:11Z",
       "version": "1.3.38",
@@ -79,12 +92,12 @@
     }
   ],
   "ui": {
-    "version": "1.3.38",
+    "version": "1.3.39",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "fe24d5a95f1bd4ec8cfed3b3a96b4c4e04a4f5c3c090feba8d62ebfb2b17ebef"
+        "sha256": "407c9a5dabd643212c11683770d3e5a852b20e4c64018d9d5cda72cf711cdfd5"
       }
     ]
   },

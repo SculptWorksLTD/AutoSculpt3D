@@ -2616,15 +2616,12 @@ S.bgImg = null;
 S.bgImgEl = null;
 S.lastBg = 'studio';
 const graph = (() => {
-    const g = new THREE.Group(), half = 3000, minor = [], major = [];
-    for (let v = -half; v <= half; v += 10)
-        (v % 100 ? minor : major).push(v, 0, -half, v, 0, half, -half, 0, v, half, 0, v);
+    const g = new THREE.Group(), half = 3000;
     const lines = (pts, color, opacity) => {
         const geo = new THREE.BufferGeometry();
         geo.setAttribute('position', new THREE.Float32BufferAttribute(pts, 3));
         return new THREE.LineSegments(geo, new THREE.LineBasicMaterial({ color, transparent: true, opacity, depthWrite: false, toneMapped: false }));
     };
-    g.add(lines(minor, 0x7FA7C9, 0.28), lines(major, 0x4F86B5, 0.55));
     const axis = (to, color) => lines([0, 0.5, 0, ...to], color, 0.95);
     const axes = new THREE.Group();
     axes.name = 'axes';

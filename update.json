@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.54",
-  "notes": "Three new things, all optional. Augmented reality: File → Augmented reality for iPhone (USDZ) or Android (GLB) creates a file to send to the client, who sees the sculpture at real size in their garden or shop through the phone. 360° video: File → 360° video for the client records a 12-second video going around the sculpture on the chosen background. Quote in several sizes: write other sizes in Quote → Other sizes, and the PDF gets a second page with dimensions, pieces, weight and price for each. The stability check can now be switched off.",
+  "latest": "1.3.55",
+  "notes": "Values in the side panel can now be typed in boxes next to the sliders. Click a warning in the Summary to see on the sculpture where the problem is: pieces that do not fit, short seams, bends without a slot, centre of gravity.",
   "notes_i18n": {
-    "en": "Three new things, all optional. Augmented reality: File → Augmented reality for iPhone (USDZ) or Android (GLB) creates a file to send to the client, who sees the sculpture at real size in their garden or shop through the phone. 360° video: File → 360° video for the client records a 12-second video going around the sculpture on the chosen background. Quote in several sizes: write other sizes in Quote → Other sizes, and the PDF gets a second page with dimensions, pieces, weight and price for each. The stability check can now be switched off.",
-    "it": "Tre novità, tutte facoltative. Realtà aumentata: File → Realtà aumentata per iPhone (USDZ) o Android (GLB) crea un file da mandare al cliente, che vede la scultura a grandezza vera nel suo giardino o negozio attraverso il telefono. Video a 360°: File → Video a 360° per il cliente registra un video di 12 secondi che gira intorno alla scultura sullo sfondo scelto. Preventivo in più misure: scrivi altre misure in Preventivo → Altre misure, e il PDF ha una seconda pagina con dimensioni, pezzi, peso e prezzo per ciascuna. Il controllo della stabilità ora si può spegnere.",
-    "de": "Drei Neuheiten, alle optional. Augmented Reality: Datei → Augmented Reality für iPhone (USDZ) oder Android (GLB) erstellt eine Datei für den Kunden, der die Skulptur in Originalgröße in seinem Garten oder Laden durch das Handy sieht. 360°-Video: Datei → 360°-Video für den Kunden nimmt ein 12-Sekunden-Video rund um die Skulptur vor dem gewählten Hintergrund auf. Angebot in mehreren Größen: trage unter Angebot → Weitere Größen andere Größen ein, und das PDF erhält eine zweite Seite mit Maßen, Teilen, Gewicht und Preis. Die Standfestigkeitsprüfung lässt sich jetzt abschalten.",
-    "fr": "Trois nouveautés, toutes facultatives. Réalité augmentée : Fichier → Réalité augmentée pour iPhone (USDZ) ou Android (GLB) crée un fichier à envoyer au client, qui voit la sculpture en taille réelle dans son jardin ou sa boutique à travers son téléphone. Vidéo à 360° : Fichier → Vidéo à 360° pour le client enregistre une vidéo de 12 secondes qui tourne autour de la sculpture sur le fond choisi. Devis en plusieurs tailles : indiquez d’autres tailles dans Devis → Autres tailles, et le PDF gagne une deuxième page avec dimensions, pièces, poids et prix. Le contrôle de stabilité peut désormais être désactivé.",
-    "es": "Tres novedades, todas opcionales. Realidad aumentada: Archivo → Realidad aumentada para iPhone (USDZ) o Android (GLB) crea un archivo para enviar al cliente, que ve la escultura a tamaño real en su jardín o tienda a través del móvil. Vídeo de 360°: Archivo → Vídeo de 360° para el cliente graba un vídeo de 12 segundos que gira alrededor de la escultura sobre el fondo elegido. Presupuesto en varios tamaños: escribe otros tamaños en Presupuesto → Otros tamaños, y el PDF tiene una segunda página con medidas, piezas, peso y precio de cada uno. El control de estabilidad ahora se puede desactivar.",
-    "pt": "Três novidades, todas opcionais. Realidade aumentada: Arquivo → Realidade aumentada para iPhone (USDZ) ou Android (GLB) cria um arquivo para enviar ao cliente, que vê a escultura em tamanho real no jardim ou na loja pelo celular. Vídeo 360°: Arquivo → Vídeo 360° para o cliente grava um vídeo de 12 segundos girando em volta da escultura no fundo escolhido. Orçamento em vários tamanhos: escreva outros tamanhos em Orçamento → Outros tamanhos, e o PDF ganha uma segunda página com medidas, peças, peso e preço de cada um. A verificação de estabilidade agora pode ser desligada.",
-    "ja": "3つの新機能（すべて任意）。AR：ファイル → iPhone 用 AR (USDZ) / Android 用 AR (GLB) でお客様に送るファイルを作成し、お客様はスマートフォンで庭や店に実物大の彫刻を見られます。360° 動画：ファイル → お客様向け 360° 動画 で、選んだ背景の上で彫刻の周りを回る 12 秒の動画を録画します。複数サイズの見積もり：見積もり → 他のサイズ にサイズを入力すると、PDF の2ページ目に各サイズの寸法・部品数・重量・価格が載ります。安定性チェックはオフにできるようになりました。"
+    "en": "Values in the side panel can now be typed in boxes next to the sliders. Click a warning in the Summary to see on the sculpture where the problem is: pieces that do not fit, short seams, bends without a slot, centre of gravity.",
+    "it": "I valori del pannello laterale ora si possono scrivere nelle caselle accanto alle barre. Clicca un avviso nel Riepilogo per vedere sulla scultura dove si trova il problema: pezzi che non entrano, cordoni corti, pieghe senza asola, baricentro.",
+    "de": "Die Werte in der Seitenleiste lassen sich jetzt in Feldern neben den Schiebereglern eintippen. Klicken Sie in der Übersicht auf einen Hinweis, um an der Skulptur zu sehen, wo das Problem liegt: Teile, die nicht passen, kurze Nähte, Biegungen ohne Schlitz, Schwerpunkt.",
+    "fr": "Les valeurs du panneau latéral peuvent maintenant être saisies dans des cases à côté des curseurs. Cliquez sur un avertissement du Récapitulatif pour voir sur la sculpture où se trouve le problème : pièces qui n’entrent pas, soudures courtes, plis sans fente, centre de gravité.",
+    "es": "Los valores del panel lateral ahora se pueden escribir en casillas junto a las barras. Haz clic en un aviso del Resumen para ver en la escultura dónde está el problema: piezas que no caben, soldaduras cortas, pliegues sin ranura, centro de gravedad.",
+    "pt": "Os valores do painel lateral agora podem ser digitados em caixas ao lado das barras. Clique em um aviso no Resumo para ver na escultura onde está o problema: peças que não cabem, soldas curtas, dobras sem rasgo, centro de gravidade.",
+    "ja": "サイドパネルの値をスライダー横の欄に直接入力できるようになりました。概要の警告をクリックすると、問題の場所（板に収まらないパーツ、短い溶接線、スロットのない折り目、重心）を彫刻上に表示します。"
   },
   "history": [
+    {
+      "date": "2026-11-08T12:26:14Z",
+      "version": "1.3.55",
+      "notes": {
+        "en": "Values in the side panel can now be typed in boxes next to the sliders. Click a warning in the Summary to see on the sculpture where the problem is: pieces that do not fit, short seams, bends without a slot, centre of gravity.",
+        "it": "I valori del pannello laterale ora si possono scrivere nelle caselle accanto alle barre. Clicca un avviso nel Riepilogo per vedere sulla scultura dove si trova il problema: pezzi che non entrano, cordoni corti, pieghe senza asola, baricentro.",
+        "de": "Die Werte in der Seitenleiste lassen sich jetzt in Feldern neben den Schiebereglern eintippen. Klicken Sie in der Übersicht auf einen Hinweis, um an der Skulptur zu sehen, wo das Problem liegt: Teile, die nicht passen, kurze Nähte, Biegungen ohne Schlitz, Schwerpunkt.",
+        "fr": "Les valeurs du panneau latéral peuvent maintenant être saisies dans des cases à côté des curseurs. Cliquez sur un avertissement du Récapitulatif pour voir sur la sculpture où se trouve le problème : pièces qui n’entrent pas, soudures courtes, plis sans fente, centre de gravité.",
+        "es": "Los valores del panel lateral ahora se pueden escribir en casillas junto a las barras. Haz clic en un aviso del Resumen para ver en la escultura dónde está el problema: piezas que no caben, soldaduras cortas, pliegues sin ranura, centro de gravedad.",
+        "pt": "Os valores do painel lateral agora podem ser digitados em caixas ao lado das barras. Clique em um aviso no Resumo para ver na escultura onde está o problema: peças que não cabem, soldas curtas, dobras sem rasgo, centro de gravidade.",
+        "ja": "サイドパネルの値をスライダー横の欄に直接入力できるようになりました。概要の警告をクリックすると、問題の場所（板に収まらないパーツ、短い溶接線、スロットのない折り目、重心）を彫刻上に表示します。"
+      }
+    },
     {
       "date": "2026-11-08T12:09:07Z",
       "version": "1.3.54",
@@ -287,12 +300,12 @@
     }
   ],
   "ui": {
-    "version": "1.3.54",
+    "version": "1.3.55",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "a6ac63f508b1314977a953e053480c1ece29105b32d78b28ee93df06eacd81b8"
+        "sha256": "72d0f826a38e55321f4ce3400fcdeea6301eb9145ea6b75a4c452eab0a2a957e"
       }
     ]
   },

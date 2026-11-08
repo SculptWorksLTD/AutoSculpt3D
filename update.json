@@ -1,14 +1,14 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.28",
-  "notes": "Cleaner reflective floor in the mockup",
+  "latest": "1.3.29",
+  "notes": "View the sculpture from all sides, also from below",
   "ui": {
-    "version": "1.3.28",
+    "version": "1.3.29",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "ec795e537e74f3ee4885070db0b81a5a01468fc33500fcd383fca0c0b4f4e67c"
+        "sha256": "2471b1d0c034f09df869949d5cbb0a4d0b24920324d9c8d4b5a6192a0e4175ce"
       }
     ]
   },

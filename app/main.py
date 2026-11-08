@@ -170,8 +170,14 @@ def stream(job, cmd, env=None, cwd=None, on_line=None):
     log('Running:', ' '.join((str(c) for c in cmd)))
     p = subprocess.Popen([str(c) for c in cmd], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, bufsize=1, env=clean_env({'PYTHONUNBUFFERED': '1', 'PYTHONIOENCODING': 'utf-8', **(env or {})}), cwd=cwd, encoding='utf-8', errors='replace', **NO_WINDOW)
     job.proc = p
-    for line in p.stdout:
-        line = line.rstrip()
+    for raw in p.stdout:
+        line = raw.rstrip()
+        for tok in ('PROGRESS ', 'IMAGE ', 'RESULT ', 'ERROR '):
+            k = line.find(tok)
+            if k > 0 and '%|' in line[:k]:
+                job.add_log(line[:k].rstrip())
+                line = line[k:]
+                break
         if not line:
             continue
         job.add_log(line)

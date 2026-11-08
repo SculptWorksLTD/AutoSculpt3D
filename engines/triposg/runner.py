@@ -10,7 +10,7 @@ def say(kind, *parts, **values):
     line = ' '.join([kind, *[str(p) for p in parts]])
     if values:
         line += '\t' + json.dumps(values)
-    print(line, flush=True)
+    print('\n' + line, flush=True)
 
 def install_shims():
     if 'diso' not in sys.modules:

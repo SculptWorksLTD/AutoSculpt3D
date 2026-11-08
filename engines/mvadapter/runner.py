@@ -11,7 +11,7 @@ def say(kind, *parts, **values):
     line = ' '.join([kind, *[str(p) for p in parts]])
     if values:
         line += '\t' + json.dumps(values)
-    print(line, flush=True)
+    print('\n' + line, flush=True)
 
 def import_mvadapter(src):
     sys.path.insert(0, src)
@@ -55,13 +55,16 @@ def cut_out(img, size):
     return Image.fromarray(out)
 
 def white_background(img):
-    import numpy as np
-    from PIL import Image
-    a = np.asarray(img.convert('RGB')).astype(np.int16)
-    grey = np.abs(a - 127).max(axis=2) < 6
-    out = a.copy()
-    out[grey] = 255
-    return Image.fromarray(out.astype(np.uint8))
+    from PIL import Image, ImageDraw
+    out = img.convert('RGB')
+    w, h = out.size
+    step = max(1, min(w, h) // 32)
+    seeds = [(x, y) for x in range(0, w, step) for y in (0, h - 1)] + [(x, y) for y in range(0, h, step) for x in (0, w - 1)]
+    for xy in seeds:
+        r, g, b = out.getpixel(xy)
+        if max(abs(r - 127), abs(g - 127), abs(b - 127)) < 16:
+            ImageDraw.floodfill(out, xy, (255, 255, 255), thresh=14)
+    return out
 
 def free_memory_gb():
     try:

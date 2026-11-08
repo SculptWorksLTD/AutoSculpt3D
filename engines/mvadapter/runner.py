@@ -151,6 +151,8 @@ def main():
         t1 = time.time()
 
         def step(p, k, t, kw):
+            if device == 'mps':
+                torch.mps.synchronize()
             left = (time.time() - t1) / (k + 1) * (steps - k - 1)
             say('PROGRESS', round(0.1 + 0.85 * (k + 1) / steps, 3), 'Drawing the views, about {m} min left', m=max(1, round(left / 60)))
             return kw

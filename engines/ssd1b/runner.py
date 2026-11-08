@@ -149,6 +149,8 @@ def main():
         base = 0.12 + 0.85 * i / n
 
         def step(p, k, t, kw, i=i, base=base):
+            if device == 'mps':
+                torch.mps.synchronize()
             done = i * steps + k + 1
             left = (time.time() - t0) / done * (n * steps - done)
             say('PROGRESS', round(base + 0.85 / n * (k + 1) / steps, 3), 'Picture {i} of {n}, about {m} min left', i=i + 1, n=n, m=max(1, round(left / 60)))

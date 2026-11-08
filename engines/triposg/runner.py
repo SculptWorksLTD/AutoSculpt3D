@@ -165,7 +165,7 @@ def main():
     t_start = time.time()
     try:
         verts, faces = run(device)
-    except Exception as e:
+    except Exception:
         if device == 'cpu':
             raise
         say('PROGRESS', '0.18', 'The graphics chip does not support a step, continuing on the processor')

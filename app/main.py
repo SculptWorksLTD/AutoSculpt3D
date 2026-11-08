@@ -239,7 +239,7 @@ def download(url, dest, job=None, p0=0.0, p1=1.0, label='Downloading', tries=3):
     for attempt in range(tries):
         try:
             return _download(url, dest, job, p0, p1, label)
-        except Exception as exc:
+        except Exception:
             if job and job.cancelled or attempt == tries - 1:
                 raise
             if job:
@@ -987,7 +987,7 @@ def apply_updates(job):
             stage = Path(tempfile.mkdtemp(dir=SUPPORT / 'updates'))
             for f in c['files']:
                 rel = f['path']
-                if '..' in Path(rel).parts or rel.startswith('/'):
+                if '..' in Path(rel).parts or rel.startswith(('/', '\\')) or Path(rel).is_absolute() or (':' in rel):
                     raise UserError('Invalid path in the manifest: {path}', path=rel)
                 dest = stage / rel
                 dest.parent.mkdir(parents=True, exist_ok=True)
@@ -1008,7 +1008,7 @@ def apply_updates(job):
             d.mkdir(parents=True, exist_ok=True)
             for f in e['files']:
                 rel = f['path']
-                if '..' in Path(rel).parts or rel.startswith('/') or '/' in rel:
+                if '..' in Path(rel).parts or '/' in rel or '\\' in rel or (':' in rel):
                     raise UserError('Invalid path in the manifest: {path}', path=rel)
                 tmp = d / (rel + '.new')
                 download(f['url'], tmp, job, i / len(todo), (i + 1) / len(todo), rel)

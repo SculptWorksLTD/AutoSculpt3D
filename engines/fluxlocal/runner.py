@@ -12,11 +12,6 @@ def is_quadruped(subject):
     import re
     words = set(re.findall('[a-z]+', subject.lower()))
     return any((w in words or w + 's' in words for w in QUADRUPEDS))
-
-def is_quadruped(subject):
-    import re
-    words = set(re.findall('[a-z]+', subject.lower()))
-    return any((w in words or w + 's' in words for w in QUADRUPEDS))
 TRANSLATORS = {'it': 'Helsinki-NLP/opus-mt-it-en', 'de': 'Helsinki-NLP/opus-mt-de-en', 'fr': 'Helsinki-NLP/opus-mt-fr-en', 'es': 'Helsinki-NLP/opus-mt-es-en', 'pt': 'Helsinki-NLP/opus-mt-ROMANCE-en', 'ja': 'Helsinki-NLP/opus-mt-ja-en'}
 
 def say(kind, *parts, **values):

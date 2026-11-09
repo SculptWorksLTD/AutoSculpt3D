@@ -2162,6 +2162,20 @@ function meanEdge(V, F) {
         }
     return F.length ? t / F.length : 0;
 }
+function shortFaceFrac(V, F, minLen) {
+    const m2 = minLen * minLen;
+    let n = 0, tot = 0;
+    for (let f = 0; f < F.length; f += 3) {
+        const a = 3 * F[f], b = 3 * F[f + 1], c = 3 * F[f + 2];
+        const ux = V[b] - V[a], uy = V[b + 1] - V[a + 1], uz = V[b + 2] - V[a + 2], wx = V[c] - V[a], wy = V[c + 1] - V[a + 1], wz = V[c + 2] - V[a + 2];
+        const vx = V[c] - V[b], vy = V[c + 1] - V[b + 1], vz = V[c + 2] - V[b + 2];
+        const area = Math.hypot(uy * wz - uz * wy, uz * wx - ux * wz, ux * wy - uy * wx);
+        tot += area;
+        if (ux * ux + uy * uy + uz * uz < m2 || wx * wx + wy * wy + wz * wz < m2 || vx * vx + vy * vy + vz * vz < m2)
+            n += area;
+    }
+    return tot > 0 ? n / tot : 0;
+}
 function thinRingEdges(V, F, minLen) {
     const nv = V.length / 3, nb = Array.from({ length: nv }, () => new Set()), faces = new Set();
     for (let f = 0; f < F.length; f += 3) {
@@ -2214,17 +2228,19 @@ function sculptMesh(V, F, target, onProgress, W, opts) {
             }
             return hi - lo;
         };
-        let best = { r, n: thinRingEdges(r.V, r.F, opts.minEdge) }, n = best.n, e0 = ext(V);
-        for (let grow = 0.5 * opts.minEdge, round = 0; round < 3 && n > 0; round++, grow += 0.5 * opts.minEdge) {
+        const got = (M) => M.F.length / 3, lost = (M) => M.thinFrac > 0.25 && got(M) < 0.7 * target;
+        let best = { r, n: thinRingEdges(r.V, r.F, opts.minEdge), g: got(r) }, n = best.n, e0 = ext(V);
+        for (let grow = 0.5 * opts.minEdge, round = 0; round < 3 && (n > 0 || lost(best.r)); round++, grow += 0.5 * opts.minEdge) {
             const base = thickBase(V, F, grow);
             const k = ext(base.V) / e0;
             const t = sculptOnce(base.V, base.F, target, onProgress, null, Object.assign({}, opts, { minEdge: opts.minEdge * k }));
             t.thickened = grow;
             t.thickK = k;
-            const m = thinRingEdges(t.V, t.F, opts.minEdge * k);
-            if (m < best.n)
-                best = { r: t, n: m };
-            if (m >= n)
+            const m = thinRingEdges(t.V, t.F, opts.minEdge * k), g = Math.min(got(t), target);
+            const better = m < best.n || (m === best.n && g > best.g * 1.1);
+            if (better)
+                best = { r: t, n: m, g };
+            if (!better)
                 break;
             n = m;
         }
@@ -2285,6 +2301,7 @@ function sculptOnce(V, F, target, onProgress, W, opts) {
                 let low = decimateMesh(half.V, half.F, Math.max(2, Math.round(tgt / 2)), onProgress, half.W, Object.assign({ lockPlane: sym }, dopts));
                 if (dopts.regular > 0)
                     flipEdges(low.V, low.F, 4, lim);
+                const thinFrac = opts.minEdge > 0 ? shortFaceFrac(low.V, low.F, opts.minEdge) : 0;
                 const minLen = Math.max(opts.minEdge || 0, floorRel * meanMinEdge(low.V, low.F));
                 if (minLen > 0 || sliver > 0) {
                     const c = collapseShortEdges(low.V, low.F, minLen, sym, sliver, G, slRel * meanMinEdge(low.V, low.F), lim);
@@ -2297,6 +2314,7 @@ function sculptOnce(V, F, target, onProgress, W, opts) {
                     m = { V: c.V, F: c.F };
                 }
                 m.maxEdgeHit = low.maxEdgeHit;
+                m.thinFrac = thinFrac;
                 return m;
             };
             let best = null;
@@ -2321,6 +2339,7 @@ function sculptOnce(V, F, target, onProgress, W, opts) {
                 r.maxEdgeHit = r.maxEdgeHit || mid.maxEdgeHit;
             if (dopts.regular > 0)
                 flipEdges(r.V, r.F, 4, lim);
+            r.thinFrac = opts.minEdge > 0 ? shortFaceFrac(r.V, r.F, opts.minEdge) : 0;
             const minLen = Math.max(opts.minEdge || 0, floorRel * meanMinEdge(r.V, r.F));
             if (minLen > 0 || sliver > 0) {
                 const c = collapseShortEdges(r.V, r.F, minLen, null, sliver, G, slRel * meanMinEdge(r.V, r.F), lim);
@@ -2330,7 +2349,7 @@ function sculptOnce(V, F, target, onProgress, W, opts) {
             const got = r.F.length / 3;
             if (!best || Math.abs(got - target) < Math.abs(best.got - target))
                 best = { r, got };
-            if (got >= target * 0.95 || tgt >= nf0 || got < target * 0.5)
+            if (got >= target * 0.95 || tgt >= nf0 || (got < target * 0.5 && r.thinFrac > 0.1))
                 break;
             tgt = Math.min(nf0, Math.round(tgt * target / Math.max(1, got)));
         }
@@ -2341,6 +2360,7 @@ function sculptOnce(V, F, target, onProgress, W, opts) {
                 h.maxEdgeHit = h.maxEdgeHit || mid.maxEdgeHit;
             if (dopts.regular > 0)
                 flipEdges(h.V, h.F, 4, lim);
+            h.thinFrac = shortFaceFrac(h.V, h.F, opts.minEdge);
             const minLen = Math.max(opts.minEdge || 0, floorRel * meanMinEdge(h.V, h.F));
             let hr = h;
             if (minLen > 0 || sliver > 0) {
@@ -2538,7 +2558,7 @@ function remeshSolid(V, F, res, grow, opts) {
         area += Math.hypot(uy * wz - uz * wy, uz * wx - ux * wz, ux * wy - uy * wx) / 2;
     }
     const hMin = Math.max(...b0.size) / Math.max(64, res), hArea = Math.sqrt(area / 50000);
-    const h = Math.max(hMin, Math.min(hArea, grow > 0 ? grow / 2 : Math.max(...b0.size) / 64)) || 1, steps = grow > 0 ? Math.max(1, Math.round(grow / h)) : 0, close = Math.max(1, Math.round(opts.close || 1)), pad = 3 + steps + close;
+    const h = Math.max(hMin, grow > 0 ? Math.min(Math.max(hArea, grow / 4), grow / 2) : Math.min(hArea, Math.max(...b0.size) / 64)) || 1, steps = grow > 0 ? Math.max(1, Math.round(grow / h)) : 0, close = Math.max(1, Math.round(opts.close || 1)), pad = 3 + steps + close;
     const b = b0;
     const n = b.size.map(s => Math.ceil(s / h) + 2 * pad + 1), o = b.min.map(m => m - pad * h);
     const [nx, ny, nz] = n, at = (i, j, k) => (k * ny + j) * nx + i;
@@ -6862,11 +6882,11 @@ for (const id of ['sheetW', 'sheetH'])
 function flapPad() { return $('flaps').checked ? 2 * (+$('flapD').value || 8) : 0; }
 function sheetMaxEdge() {
     const W = +$('sheetW').value || 1000, H = +$('sheetH').value || 2000;
-    return Math.max(W, H) - 20 - nestRes({ sheetW: W, sheetH: H }) - flapPad();
+    return 0.995 * (Math.max(W, H) - 20 - nestRes({ sheetW: W, sheetH: H }) - flapPad());
 }
 function sheetMaxAlt() {
     const W = +$('sheetW').value || 1000, H = +$('sheetH').value || 2000;
-    return Math.min(W, H) - 20 - nestRes({ sheetW: W, sheetH: H }) - flapPad();
+    return 0.995 * (Math.min(W, H) - 20 - nestRes({ sheetW: W, sheetH: H }) - flapPad());
 }
 function largestFace(V, F) {
     let edge = 0, alt = 0;

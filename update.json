@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.78",
-  "notes": "Flat soles: when two feet meet at a point, the closing could create the same facet twice back to back, leaving a defective surface; fixed.",
+  "latest": "1.3.79",
+  "notes": "Thin parts: a frame of thin bars or a vase too thin for the minimum side now gets thickened too (before, only when short seams remained) and keeps far more facets; the thickening runs up to 4× faster. Sculptures of several metres at 100% Even facets no longer lose half of their facets. Faces reduced right at the sheet limit are now kept 0.5% inside it (no more pieces a millimetre too wide).",
   "notes_i18n": {
-    "en": "Flat soles: when two feet meet at a point, the closing could create the same facet twice back to back, leaving a defective surface; fixed.",
-    "it": "Appoggi piatti: quando due piedi si toccano in un punto, la chiusura poteva creare la stessa faccetta due volte, una contro l'altra, lasciando una superficie difettosa; corretto.",
-    "de": "Flache Sohlen: Wenn sich zwei Füße in einem Punkt berühren, konnte beim Schließen dieselbe Facette zweimal Rücken an Rücken entstehen und eine fehlerhafte Fläche hinterlassen; behoben.",
-    "fr": "Semelles plates : quand deux pieds se touchent en un point, la fermeture pouvait créer deux fois la même facette dos à dos, laissant une surface défectueuse ; corrigé.",
-    "es": "Suelas planas: cuando dos pies se tocan en un punto, el cierre podía crear la misma faceta dos veces, una contra otra, dejando una superficie defectuosa; corregido.",
-    "pt": "Solas planas: quando dois pés se tocam num ponto, o fechamento podia criar a mesma faceta duas vezes, uma contra a outra, deixando uma superfície defeituosa; corrigido.",
-    "ja": "平らな底面：2本の足が1点で接するとき、閉じる処理で同じ面が背中合わせに2回作られ、不良な面が残ることがありました。修正しました。"
+    "en": "Thin parts: a frame of thin bars or a vase too thin for the minimum side now gets thickened too (before, only when short seams remained) and keeps far more facets; the thickening runs up to 4× faster. Sculptures of several metres at 100% Even facets no longer lose half of their facets. Faces reduced right at the sheet limit are now kept 0.5% inside it (no more pieces a millimetre too wide).",
+    "it": "Parti sottili: anche un telaio di barre sottili o un vaso troppo sottile per il lato minimo viene ingrossato (prima solo se restavano cordoni corti) e mantiene molte più faccette; l'ingrossamento è fino a 4 volte più veloce. Le sculture di diversi metri con «Faccette regolari» al 100% non perdono più metà delle faccette. Le facce ridotte al limite della lamiera restano 0,5% dentro il limite (niente più pezzi larghi un millimetro di troppo).",
+    "de": "Dünne Teile: Auch ein Rahmen aus dünnen Stäben oder eine für die Mindestseite zu dünne Vase wird jetzt verdickt (bisher nur, wenn kurze Nähte blieben) und behält viel mehr Facetten; das Verdicken ist bis zu 4× schneller. Skulpturen von mehreren Metern mit 100 % «Gleichmäßige Facetten» verlieren nicht mehr die Hälfte der Facetten. Flächen am Blechlimit bleiben 0,5 % darunter (keine Teile mehr, die einen Millimeter zu breit sind).",
+    "fr": "Parties fines : un cadre de barres fines ou un vase trop fin pour le côté minimal est désormais épaissi lui aussi (avant, seulement s'il restait des soudures courtes) et garde beaucoup plus de facettes ; l'épaississement est jusqu'à 4× plus rapide. Les sculptures de plusieurs mètres avec « Facettes régulières » à 100 % ne perdent plus la moitié de leurs facettes. Les faces réduites à la limite de la tôle restent 0,5 % en dessous (plus de pièces trop larges d'un millimètre).",
+    "es": "Partes finas: un bastidor de barras finas o un jarrón demasiado fino para el lado mínimo ahora también se engrosa (antes solo si quedaban cordones cortos) y conserva muchas más facetas; el engrosado es hasta 4 veces más rápido. Las esculturas de varios metros con «Facetas regulares» al 100 % ya no pierden la mitad de las facetas. Las caras reducidas al límite de la chapa se quedan un 0,5 % por dentro (no más piezas un milímetro demasiado anchas).",
+    "pt": "Partes finas: uma armação de barras finas ou um vaso fino demais para o lado mínimo agora também é engrossado (antes, só se restassem cordões curtos) e mantém muito mais facetas; o engrossamento é até 4× mais rápido. Esculturas de vários metros com «Facetas regulares» a 100% não perdem mais metade das facetas. Faces reduzidas no limite da chapa ficam 0,5% dentro dele (sem peças um milímetro largas demais).",
+    "ja": "細い部分：細い棒の枠や最小辺より薄い花瓶も肉厚化されるようになり（以前は短い継ぎ目が残る場合のみ）、はるかに多くの面を保ちます。肉厚化は最大4倍速くなりました。「均一な面」100%の数メートルの彫刻が面の半分を失うことはなくなりました。板の限界で縮小された面は限界の0.5%内側に収まります（1ミリ幅が広すぎる部品はなくなりました）。"
   },
   "history": [
+    {
+      "date": "2026-11-09T21:13:07Z",
+      "version": "1.3.79",
+      "notes": {
+        "en": "Thin parts: a frame of thin bars or a vase too thin for the minimum side now gets thickened too (before, only when short seams remained) and keeps far more facets; the thickening runs up to 4× faster. Sculptures of several metres at 100% Even facets no longer lose half of their facets. Faces reduced right at the sheet limit are now kept 0.5% inside it (no more pieces a millimetre too wide).",
+        "it": "Parti sottili: anche un telaio di barre sottili o un vaso troppo sottile per il lato minimo viene ingrossato (prima solo se restavano cordoni corti) e mantiene molte più faccette; l'ingrossamento è fino a 4 volte più veloce. Le sculture di diversi metri con «Faccette regolari» al 100% non perdono più metà delle faccette. Le facce ridotte al limite della lamiera restano 0,5% dentro il limite (niente più pezzi larghi un millimetro di troppo).",
+        "de": "Dünne Teile: Auch ein Rahmen aus dünnen Stäben oder eine für die Mindestseite zu dünne Vase wird jetzt verdickt (bisher nur, wenn kurze Nähte blieben) und behält viel mehr Facetten; das Verdicken ist bis zu 4× schneller. Skulpturen von mehreren Metern mit 100 % «Gleichmäßige Facetten» verlieren nicht mehr die Hälfte der Facetten. Flächen am Blechlimit bleiben 0,5 % darunter (keine Teile mehr, die einen Millimeter zu breit sind).",
+        "fr": "Parties fines : un cadre de barres fines ou un vase trop fin pour le côté minimal est désormais épaissi lui aussi (avant, seulement s'il restait des soudures courtes) et garde beaucoup plus de facettes ; l'épaississement est jusqu'à 4× plus rapide. Les sculptures de plusieurs mètres avec « Facettes régulières » à 100 % ne perdent plus la moitié de leurs facettes. Les faces réduites à la limite de la tôle restent 0,5 % en dessous (plus de pièces trop larges d'un millimètre).",
+        "es": "Partes finas: un bastidor de barras finas o un jarrón demasiado fino para el lado mínimo ahora también se engrosa (antes solo si quedaban cordones cortos) y conserva muchas más facetas; el engrosado es hasta 4 veces más rápido. Las esculturas de varios metros con «Facetas regulares» al 100 % ya no pierden la mitad de las facetas. Las caras reducidas al límite de la chapa se quedan un 0,5 % por dentro (no más piezas un milímetro demasiado anchas).",
+        "pt": "Partes finas: uma armação de barras finas ou um vaso fino demais para o lado mínimo agora também é engrossado (antes, só se restassem cordões curtos) e mantém muito mais facetas; o engrossamento é até 4× mais rápido. Esculturas de vários metros com «Facetas regulares» a 100% não perdem mais metade das facetas. Faces reduzidas no limite da chapa ficam 0,5% dentro dele (sem peças um milímetro largas demais).",
+        "ja": "細い部分：細い棒の枠や最小辺より薄い花瓶も肉厚化されるようになり（以前は短い継ぎ目が残る場合のみ）、はるかに多くの面を保ちます。肉厚化は最大4倍速くなりました。「均一な面」100%の数メートルの彫刻が面の半分を失うことはなくなりました。板の限界で縮小された面は限界の0.5%内側に収まります（1ミリ幅が広すぎる部品はなくなりました）。"
+      }
+    },
     {
       "date": "2026-11-09T19:34:55Z",
       "version": "1.3.78",
@@ -518,28 +531,15 @@
         "pt": "Menos cordões curtos nas esculturas pequenas: os pequenos túneis em crinas e caudas são fechados e as peças se unem nos lados curtos com uma dobra. O campo do tamanho não aceita mais valores impossíveis.",
         "ja": "小さな彫刻での短い溶接線を減らしました。たてがみや尾の細いトンネルを閉じ、短い辺では部品を曲げでつなぎます。サイズ欄にありえない値が入らなくなりました。"
       }
-    },
-    {
-      "date": "2026-11-08T08:50:24Z",
-      "version": "1.3.40",
-      "notes": {
-        "en": "Small sculptures: no more seams too short to weld. Across a short edge the piece continues with a bend instead of a seam; faces too small are merged more thoroughly.",
-        "it": "Sculture piccole: niente più cordoni troppo corti da saldare. Su un lato corto il pezzo continua con una piega invece che con un cordone; le facce troppo piccole vengono unite meglio.",
-        "de": "Kleine Skulpturen: keine Schweißnähte mehr, die zu kurz sind. An einer kurzen Kante geht das Teil mit einer Biegung statt einer Naht weiter; zu kleine Flächen werden gründlicher zusammengefasst.",
-        "fr": "Petites sculptures : plus de cordons trop courts à souder. Sur une arête courte, la pièce continue par un pli au lieu d'un cordon ; les faces trop petites sont mieux fusionnées.",
-        "es": "Esculturas pequeñas: ya no hay cordones demasiado cortos para soldar. En un lado corto la pieza sigue con un pliegue en vez de un cordón; las caras demasiado pequeñas se unen mejor.",
-        "pt": "Esculturas pequenas: sem mais cordões curtos demais para soldar. Num lado curto a peça continua com uma dobra em vez de um cordão; as faces pequenas demais são unidas melhor.",
-        "ja": "小さな彫刻：溶接するには短すぎる継ぎ目がなくなりました。短い辺では継ぎ目の代わりに曲げで部品をつなぎ、小さすぎる面はより確実にまとめます。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.78",
+    "version": "1.3.79",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "e249bf98aadfb4f7484c71b7e7c95c6b3ff4bf230b5a27ad79decf7cc709dd83"
+        "sha256": "8b6a5a31efe4620a514a01c5afd08f8707fd43404598bacf28e98929b3231997"
       }
     ]
   },

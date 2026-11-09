@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.75",
-  "notes": "Flat soles with a hole in the middle (the foot ring of a saucer, a hollow base) are now closed as a ring instead of a lid over the recess, which could come loose as a separate part. Nesting of hundreds of pieces on small sheets is faster.",
+  "latest": "1.3.76",
+  "notes": "Hair-thin seams (a tenth of a millimetre) left along the flat soles of some objects reduced for small sheets are now removed.",
   "notes_i18n": {
-    "en": "Flat soles with a hole in the middle (the foot ring of a saucer, a hollow base) are now closed as a ring instead of a lid over the recess, which could come loose as a separate part. Nesting of hundreds of pieces on small sheets is faster.",
-    "it": "Gli appoggi piatti con un foro in mezzo (l'anello di base di un piattino, una base cava) ora si chiudono come anello invece che con un coperchio sull'incavo, che poteva staccarsi come parte a sé. Annidamento di centinaia di pezzi su lamiere piccole più veloce.",
-    "de": "Flache Sohlen mit einem Loch in der Mitte (der Standring einer Untertasse, ein hohler Sockel) werden jetzt als Ring geschlossen statt mit einem Deckel über der Vertiefung, der sich als eigenes Teil lösen konnte. Das Verschachteln hunderter Teile auf kleinen Blechen ist schneller.",
-    "fr": "Les semelles plates percées au milieu (l'anneau de base d'une soucoupe, un socle creux) se ferment désormais en anneau plutôt qu'avec un couvercle sur le creux, qui pouvait se détacher comme pièce à part. L'imbrication de centaines de pièces sur de petites tôles est plus rapide.",
-    "es": "Las suelas planas con un agujero en medio (el anillo de base de un platillo, una base hueca) ahora se cierran como anillo en vez de con una tapa sobre el hueco, que podía soltarse como pieza aparte. El anidado de cientos de piezas en chapas pequeñas es más rápido.",
-    "pt": "As solas planas com um furo no meio (o anel de base de um pires, uma base oca) agora se fecham como anel em vez de uma tampa sobre o rebaixo, que podia se soltar como peça separada. O aninhamento de centenas de peças em chapas pequenas está mais rápido.",
-    "ja": "中央に穴のある平らな底面（受け皿の脚リング、中空の台座）は、くぼみの上の蓋ではなくリングとして閉じるようになりました（蓋は別部品として外れることがありました）。小さな板への数百部品のネスティングが高速化。"
+    "en": "Hair-thin seams (a tenth of a millimetre) left along the flat soles of some objects reduced for small sheets are now removed.",
+    "it": "Tolti i cordoni sottilissimi (un decimo di millimetro) che restavano lungo gli appoggi piatti di alcuni oggetti ridotti per lamiere piccole.",
+    "de": "Haarfeine Nähte (ein Zehntel Millimeter), die entlang der flachen Sohlen mancher für kleine Bleche reduzierter Objekte blieben, werden jetzt entfernt.",
+    "fr": "Les soudures fines comme un cheveu (un dixième de millimètre) qui restaient le long des semelles plates de certains objets réduits pour de petites tôles sont désormais supprimées.",
+    "es": "Se eliminan las costuras finísimas (una décima de milímetro) que quedaban a lo largo de las suelas planas de algunos objetos reducidos para chapas pequeñas.",
+    "pt": "Removidas as costuras finíssimas (um décimo de milímetro) que ficavam ao longo das solas planas de alguns objetos reduzidos para chapas pequenas.",
+    "ja": "小さな板向けに削減した一部の物の平らな底面に残っていた髪の毛ほどの継ぎ目（0.1 mm）を取り除くようになりました。"
   },
   "history": [
+    {
+      "date": "2026-11-09T16:32:29Z",
+      "version": "1.3.76",
+      "notes": {
+        "en": "Hair-thin seams (a tenth of a millimetre) left along the flat soles of some objects reduced for small sheets are now removed.",
+        "it": "Tolti i cordoni sottilissimi (un decimo di millimetro) che restavano lungo gli appoggi piatti di alcuni oggetti ridotti per lamiere piccole.",
+        "de": "Haarfeine Nähte (ein Zehntel Millimeter), die entlang der flachen Sohlen mancher für kleine Bleche reduzierter Objekte blieben, werden jetzt entfernt.",
+        "fr": "Les soudures fines comme un cheveu (un dixième de millimètre) qui restaient le long des semelles plates de certains objets réduits pour de petites tôles sont désormais supprimées.",
+        "es": "Se eliminan las costuras finísimas (una décima de milímetro) que quedaban a lo largo de las suelas planas de algunos objetos reducidos para chapas pequeñas.",
+        "pt": "Removidas as costuras finíssimas (um décimo de milímetro) que ficavam ao longo das solas planas de alguns objetos reduzidos para chapas pequenas.",
+        "ja": "小さな板向けに削減した一部の物の平らな底面に残っていた髪の毛ほどの継ぎ目（0.1 mm）を取り除くようになりました。"
+      }
+    },
     {
       "date": "2026-11-09T14:25:13Z",
       "version": "1.3.75",
@@ -518,28 +531,15 @@
         "pt": "«Procurar uma foto» agora usa o Wikimedia Commons.",
         "ja": "「写真を探す」は Wikimedia Commons を使うようになりました。"
       }
-    },
-    {
-      "date": "2026-11-08T08:41:45Z",
-      "version": "1.3.37",
-      "notes": {
-        "en": "Updates show only what this computer can use.",
-        "it": "Gli aggiornamenti mostrano solo ciò che questo computer può usare.",
-        "de": "Updates zeigen nur, was dieser Computer nutzen kann.",
-        "fr": "Les mises à jour ne montrent que ce que cet ordinateur peut utiliser.",
-        "es": "Las actualizaciones muestran solo lo que este ordenador puede usar.",
-        "pt": "As atualizações mostram apenas o que este computador pode usar.",
-        "ja": "このコンピュータで使えるものだけを更新として表示します。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.75",
+    "version": "1.3.76",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "b77e7ad0e5b8eb5e72ed817951b969a24a7729847b0841b41264e1686d1dfc70"
+        "sha256": "37e1d5f92be6bf5e84abb28a23f75412d5af65bfd29b362c9b0e8a74ce395b9f"
       }
     ]
   },

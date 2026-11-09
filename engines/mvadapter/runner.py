@@ -67,7 +67,7 @@ def cut_out(img, size):
     return Image.fromarray(out)
 
 def white_background(img):
-    from PIL import Image, ImageDraw
+    from PIL import ImageDraw
     out = img.convert('RGB')
     w, h = out.size
     step = max(1, min(w, h) // 32)

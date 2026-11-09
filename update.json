@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.70",
-  "notes": "The two picture engines that run on this computer now have different names (best quality, lighter), and the lighter one is not offered once the better one is installed.",
+  "latest": "1.3.71",
+  "notes": "The title of the photo-to-3D progress window reads better (\"Photo to 3D · engine\" instead of \"Photo to 3D with 3D from photos…\").",
   "notes_i18n": {
-    "en": "The two picture engines that run on this computer now have different names (best quality, lighter), and the lighter one is not offered once the better one is installed.",
-    "it": "I due generatori di immagini che lavorano su questo computer hanno ora nomi diversi (qualità migliore, leggero), e quello leggero non viene più proposto quando il migliore è installato.",
-    "de": "Die zwei Bildgeneratoren auf diesem Computer haben jetzt verschiedene Namen (beste Qualität, leichter), und der leichtere wird nicht mehr angeboten, sobald der bessere installiert ist.",
-    "fr": "Les deux générateurs d’images sur cet ordinateur ont désormais des noms différents (meilleure qualité, léger), et le léger n’est plus proposé quand le meilleur est installé.",
-    "es": "Los dos generadores de imágenes de este ordenador tienen ahora nombres distintos (mejor calidad, ligero), y el ligero ya no se ofrece cuando el mejor está instalado.",
-    "pt": "Os dois geradores de imagens deste computador agora têm nomes diferentes (melhor qualidade, leve), e o leve não é mais oferecido quando o melhor está instalado.",
-    "ja": "このコンピューターで動く 2 つの画像生成エンジンに別々の名前が付きました（最高品質、軽量）。優れた方がインストール済みなら軽量版は表示されません。"
+    "en": "The title of the photo-to-3D progress window reads better (\"Photo to 3D · engine\" instead of \"Photo to 3D with 3D from photos…\").",
+    "it": "Il titolo della finestra di avanzamento da foto a 3D si legge meglio («Da foto a 3D · motore» invece di «Da foto a 3D con 3D dalle foto…»).",
+    "de": "Der Titel des Fortschrittsfensters von Foto zu 3D liest sich besser („Von Foto zu 3D · Engine“ statt „Von Foto zu 3D mit 3D aus Fotos…“).",
+    "fr": "Le titre de la fenêtre de progression photo → 3D se lit mieux (« De la photo à la 3D · moteur » au lieu de « … avec 3D à partir de photos… »).",
+    "es": "El título de la ventana de progreso de foto a 3D se lee mejor («De foto a 3D · motor» en vez de «De foto a 3D con 3D desde fotos…»).",
+    "pt": "O título da janela de progresso de foto para 3D ficou mais claro («De foto a 3D · motor» em vez de «De foto a 3D com 3D das fotos…»).",
+    "ja": "写真から 3D への進行ウィンドウのタイトルが読みやすくなりました（「写真から 3D へ · エンジン」）。"
   },
   "history": [
+    {
+      "date": "2026-11-09T09:05:24Z",
+      "version": "1.3.71",
+      "notes": {
+        "en": "The title of the photo-to-3D progress window reads better (\"Photo to 3D · engine\" instead of \"Photo to 3D with 3D from photos…\").",
+        "it": "Il titolo della finestra di avanzamento da foto a 3D si legge meglio («Da foto a 3D · motore» invece di «Da foto a 3D con 3D dalle foto…»).",
+        "de": "Der Titel des Fortschrittsfensters von Foto zu 3D liest sich besser („Von Foto zu 3D · Engine“ statt „Von Foto zu 3D mit 3D aus Fotos…“).",
+        "fr": "Le titre de la fenêtre de progression photo → 3D se lit mieux (« De la photo à la 3D · moteur » au lieu de « … avec 3D à partir de photos… »).",
+        "es": "El título de la ventana de progreso de foto a 3D se lee mejor («De foto a 3D · motor» en vez de «De foto a 3D con 3D desde fotos…»).",
+        "pt": "O título da janela de progresso de foto para 3D ficou mais claro («De foto a 3D · motor» em vez de «De foto a 3D com 3D das fotos…»).",
+        "ja": "写真から 3D への進行ウィンドウのタイトルが読みやすくなりました（「写真から 3D へ · エンジン」）。"
+      }
+    },
     {
       "date": "2026-11-09T08:57:34Z",
       "version": "1.3.70",
@@ -508,12 +521,12 @@
     }
   ],
   "ui": {
-    "version": "1.3.70",
+    "version": "1.3.71",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "e1eb51b84ff99e6733688679d9e94f6100dfa0e386e891c837ab8de462d08a94"
+        "sha256": "76026944435df7a62bcf45856f3d79bfec7062fc25660d2edf4ff445b334a3ea"
       }
     ]
   },
@@ -662,7 +675,7 @@
         {
           "path": "runner.py",
           "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/mvadapter/runner.py",
-          "sha256": "cc68716f0f1e684cd134f3aa69a8d8649b95eabd6bf8562127ab428550fd553c"
+          "sha256": "16c97e6f7fdb7d4dd8a5f8fc2f3d60adb6eed8c4af6afdea7964193de69af1fa"
         }
       ]
     },

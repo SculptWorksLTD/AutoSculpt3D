@@ -1847,7 +1847,7 @@ function flattenBottom(V, F, W, up, band, minEdge) {
                     feet.get(r).push(v);
                 }
             }
-        const cap = lo + Math.max(band, 0.03) * (hi - lo);
+        const cap = lo + Math.max(band, 0.01) * (hi - lo);
         for (const vs of feet.values()) {
             let h = cut, wide = false;
             for (let it = 0; it < 12 && h <= cap; it++) {
@@ -2087,20 +2087,35 @@ function sculptOnce(V, F, target, onProgress, W, opts) {
         if (sym && opts.symSide < 0)
             sym = Object.assign({}, sym, { n: sym.n.map(x => -x), d: -sym.d });
         if (sym && (sym.symmetric || sym.forced)) {
-            const half = cutMesh(V, F, sym, weights);
-            let low = decimateMesh(half.V, half.F, Math.max(2, Math.round(target / 2)), onProgress, half.W, Object.assign({ lockPlane: sym }, dopts));
-            if (dopts.regular > 0)
-                flipEdges(low.V, low.F, 4);
-            if (opts.minEdge > 0 || sliver > 0) {
-                const c = collapseShortEdges(low.V, low.F, opts.minEdge || 0, sym, sliver, G);
-                low = Object.assign(low, { V: c.V, F: c.F });
-                flipEdges(low.V, low.F, 2);
+            const half = cutMesh(V, F, sym, weights), nh = half.F.length / 3;
+            const once = (tgt) => {
+                let low = decimateMesh(half.V, half.F, Math.max(2, Math.round(tgt / 2)), onProgress, half.W, Object.assign({ lockPlane: sym }, dopts));
+                if (dopts.regular > 0)
+                    flipEdges(low.V, low.F, 4);
+                const minLen = Math.max(opts.minEdge || 0, floorRel * meanEdge(low.V, low.F));
+                if (minLen > 0 || sliver > 0) {
+                    const c = collapseShortEdges(low.V, low.F, minLen, sym, sliver, G);
+                    low = Object.assign(low, { V: c.V, F: c.F });
+                    flipEdges(low.V, low.F, 2);
+                }
+                let m = mirrorMesh(low.V, low.F, sym);
+                if (opts.minEdge > 0) {
+                    const c = collapseShortEdges(m.V, m.F, opts.minEdge, sym, 0, G);
+                    m = { V: c.V, F: c.F };
+                }
+                m.maxEdgeHit = low.maxEdgeHit;
+                return m;
+            };
+            let best = null;
+            for (let tgt = target, round = 0; round < 3; round++) {
+                const t = once(tgt), got = t.F.length / 3;
+                if (!best || Math.abs(got - target) < Math.abs(best.got - target))
+                    best = { r: t, got };
+                if (got >= target * 0.95 || tgt / 2 >= nh || got < target * 0.5)
+                    break;
+                tgt = Math.min(2 * nh, Math.round(tgt * target / Math.max(1, got)));
             }
-            r = mirrorMesh(low.V, low.F, sym);
-            if (opts.minEdge > 0) {
-                const c = collapseShortEdges(r.V, r.F, opts.minEdge, sym, 0, G);
-                r = { V: c.V, F: c.F };
-            }
+            r = best.r;
         }
     }
     if (!r) {

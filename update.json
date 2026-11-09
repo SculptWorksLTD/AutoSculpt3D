@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.77",
-  "notes": "Frames of thin bars (chairs, cages, wire-like models) keep their bars: the clean-up no longer swallows them. With self-aligning tabs on, pieces leave room for the tabs so none is called oversize. Nesting on big sheets (1250 × 2500 and up) is up to three times faster.",
+  "latest": "1.3.78",
+  "notes": "Flat soles: when two feet meet at a point, the closing could create the same facet twice back to back, leaving a defective surface; fixed.",
   "notes_i18n": {
-    "en": "Frames of thin bars (chairs, cages, wire-like models) keep their bars: the clean-up no longer swallows them. With self-aligning tabs on, pieces leave room for the tabs so none is called oversize. Nesting on big sheets (1250 × 2500 and up) is up to three times faster.",
-    "it": "I telai di barre sottili (sedie, gabbie, modelli a filo) mantengono le barre: la pulizia non le inghiotte più. Con le linguette autoallineanti attive i pezzi lasciano spazio alle linguette, così nessuno risulta fuori lamiera. Annidamento su lamiere grandi (da 1250 × 2500 in su) fino a tre volte più veloce.",
-    "de": "Rahmen aus dünnen Stäben (Stühle, Käfige, drahtartige Modelle) behalten ihre Stäbe: die Bereinigung verschluckt sie nicht mehr. Mit selbstausrichtenden Laschen lassen die Teile Platz für die Laschen, sodass keines als zu groß gilt. Verschachteln auf großen Blechen (ab 1250 × 2500) bis zu dreimal schneller.",
-    "fr": "Les structures à barres fines (chaises, cages, modèles filaires) gardent leurs barres : le nettoyage ne les avale plus. Avec les languettes d'alignement, les pièces laissent la place aux languettes, donc aucune n'est signalée hors format. Imbrication sur grandes tôles (1250 × 2500 et plus) jusqu'à trois fois plus rapide.",
-    "es": "Las estructuras de barras finas (sillas, jaulas, modelos de alambre) conservan sus barras: la limpieza ya no se las traga. Con las pestañas autoalineantes activas, las piezas dejan sitio a las pestañas, así ninguna resulta fuera de medida. Anidado en chapas grandes (1250 × 2500 o más) hasta tres veces más rápido.",
-    "pt": "Estruturas de barras finas (cadeiras, gaiolas, modelos em arame) mantêm as barras: a limpeza não as engole mais. Com as abas autoalinhantes ativas, as peças deixam espaço para as abas, assim nenhuma fica fora de medida. Aninhamento em chapas grandes (1250 × 2500 ou mais) até três vezes mais rápido.",
-    "ja": "細い棒のフレーム（椅子、檻、ワイヤー状のモデル）は棒を保ちます（クリーンアップで消えなくなりました）。位置合わせタブを有効にすると部品がタブの余地を確保し、板からはみ出す判定になりません。大きな板（1250×2500以上）でのネスティングが最大3倍高速化。"
+    "en": "Flat soles: when two feet meet at a point, the closing could create the same facet twice back to back, leaving a defective surface; fixed.",
+    "it": "Appoggi piatti: quando due piedi si toccano in un punto, la chiusura poteva creare la stessa faccetta due volte, una contro l'altra, lasciando una superficie difettosa; corretto.",
+    "de": "Flache Sohlen: Wenn sich zwei Füße in einem Punkt berühren, konnte beim Schließen dieselbe Facette zweimal Rücken an Rücken entstehen und eine fehlerhafte Fläche hinterlassen; behoben.",
+    "fr": "Semelles plates : quand deux pieds se touchent en un point, la fermeture pouvait créer deux fois la même facette dos à dos, laissant une surface défectueuse ; corrigé.",
+    "es": "Suelas planas: cuando dos pies se tocan en un punto, el cierre podía crear la misma faceta dos veces, una contra otra, dejando una superficie defectuosa; corregido.",
+    "pt": "Solas planas: quando dois pés se tocam num ponto, o fechamento podia criar a mesma faceta duas vezes, uma contra a outra, deixando uma superfície defeituosa; corrigido.",
+    "ja": "平らな底面：2本の足が1点で接するとき、閉じる処理で同じ面が背中合わせに2回作られ、不良な面が残ることがありました。修正しました。"
   },
   "history": [
+    {
+      "date": "2026-11-09T19:34:55Z",
+      "version": "1.3.78",
+      "notes": {
+        "en": "Flat soles: when two feet meet at a point, the closing could create the same facet twice back to back, leaving a defective surface; fixed.",
+        "it": "Appoggi piatti: quando due piedi si toccano in un punto, la chiusura poteva creare la stessa faccetta due volte, una contro l'altra, lasciando una superficie difettosa; corretto.",
+        "de": "Flache Sohlen: Wenn sich zwei Füße in einem Punkt berühren, konnte beim Schließen dieselbe Facette zweimal Rücken an Rücken entstehen und eine fehlerhafte Fläche hinterlassen; behoben.",
+        "fr": "Semelles plates : quand deux pieds se touchent en un point, la fermeture pouvait créer deux fois la même facette dos à dos, laissant une surface défectueuse ; corrigé.",
+        "es": "Suelas planas: cuando dos pies se tocan en un punto, el cierre podía crear la misma faceta dos veces, una contra otra, dejando una superficie defectuosa; corregido.",
+        "pt": "Solas planas: quando dois pés se tocam num ponto, o fechamento podia criar a mesma faceta duas vezes, uma contra a outra, deixando uma superfície defeituosa; corrigido.",
+        "ja": "平らな底面：2本の足が1点で接するとき、閉じる処理で同じ面が背中合わせに2回作られ、不良な面が残ることがありました。修正しました。"
+      }
+    },
     {
       "date": "2026-11-09T18:14:06Z",
       "version": "1.3.77",
@@ -518,28 +531,15 @@
         "pt": "Esculturas pequenas: sem mais cordões curtos demais para soldar. Num lado curto a peça continua com uma dobra em vez de um cordão; as faces pequenas demais são unidas melhor.",
         "ja": "小さな彫刻：溶接するには短すぎる継ぎ目がなくなりました。短い辺では継ぎ目の代わりに曲げで部品をつなぎ、小さすぎる面はより確実にまとめます。"
       }
-    },
-    {
-      "date": "2026-11-08T08:44:18Z",
-      "version": "1.3.39",
-      "notes": {
-        "en": "Graph paper background: only the paper and the axes, no grid on the floor.",
-        "it": "Sfondo carta millimetrata: solo la carta e gli assi, senza griglia sul pavimento.",
-        "de": "Millimeterpapier-Hintergrund: nur das Papier und die Achsen, kein Raster am Boden.",
-        "fr": "Fond papier millimétré : seulement le papier et les axes, sans grille au sol.",
-        "es": "Fondo de papel milimetrado: solo el papel y los ejes, sin cuadrícula en el suelo.",
-        "pt": "Fundo de papel milimetrado: só o papel e os eixos, sem grade no piso.",
-        "ja": "方眼紙の背景：紙と座標軸だけになり、床のグリッドはなくなりました。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.77",
+    "version": "1.3.78",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "2ed98a7a81cf0e5ec5450b5c5923674e93897e18722f30dbb45005a978e36f64"
+        "sha256": "e249bf98aadfb4f7484c71b7e7c95c6b3ff4bf230b5a27ad79decf7cc709dd83"
       }
     ]
   },

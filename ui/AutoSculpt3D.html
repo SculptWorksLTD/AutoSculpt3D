@@ -2069,7 +2069,20 @@ function flattenBottom(V, F, W, up, band, minEdge) {
             F2.push(loop[idx[0]], loop[idx[1]], loop[idx[2]]);
         soles++;
     }
-    return { V: V2, F: Uint32Array.from(F2), W: r.W, plane: P, soles, cut: cut - lo };
+    const seenTri = new Map();
+    for (let f = 0; f < F2.length; f += 3) {
+        const k = [F2[f], F2[f + 1], F2[f + 2]].sort((a, b) => a - b).join(',');
+        if (!seenTri.has(k))
+            seenTri.set(k, []);
+        seenTri.get(k).push(f);
+    }
+    const dropF = new Set();
+    for (const idx of seenTri.values())
+        if (idx.length > 1)
+            for (const f of idx)
+                dropF.add(f);
+    const Fout = dropF.size ? F2.filter((_, i) => !dropF.has(i - i % 3)) : F2;
+    return { V: V2, F: Uint32Array.from(Fout), W: r.W, plane: P, soles, cut: cut - lo };
 }
 function dropCrumbs(V, F) {
     const nv = V.length / 3, nf = F.length / 3, par = new Int32Array(nv);

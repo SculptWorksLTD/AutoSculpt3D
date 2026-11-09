@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.73",
-  "notes": "Flat objects (a dish, a plaque, a ring lying down) are now measured by their longest side instead of their height when loaded, so a dish is no longer 7 metres wide. Plates, crosses, letters and gears keep their thickness: the clean-up no longer flattens the thin side faces of a plate. Models whose faces point both ways are rebuilt as a clean solid. Tested on a hundred models, including letters, hearts, stars, glasses, gears and springs.",
+  "latest": "1.3.74",
+  "notes": "Stress tests with random settings on a hundred models. Fixed: faces wider or longer than the sheet on very large sculptures with few facets (the clean-up and the final scaling could enlarge them); a flat sole that failed to close and left a hole (two feet meeting at a point, a border touching itself); tiny floating fragments left by a sole whose foot had been reduced away; \"Even facets\" at 100% removed most facets of round objects (an egg asked for 148 came out with 38).",
   "notes_i18n": {
-    "en": "Flat objects (a dish, a plaque, a ring lying down) are now measured by their longest side instead of their height when loaded, so a dish is no longer 7 metres wide. Plates, crosses, letters and gears keep their thickness: the clean-up no longer flattens the thin side faces of a plate. Models whose faces point both ways are rebuilt as a clean solid. Tested on a hundred models, including letters, hearts, stars, glasses, gears and springs.",
-    "it": "Gli oggetti piatti (un piatto, una targa, un anello sdraiato) all'apertura vengono misurati sul lato più lungo invece che sull'altezza: un piatto non diventa più largo 7 metri. Targhe, croci, lettere e ingranaggi mantengono lo spessore: la pulizia non appiattisce più le facce sottili di una piastra. I modelli con facce rivolte in entrambi i versi vengono ricostruiti come solido pulito. Collaudo su un centinaio di modelli, comprese lettere, cuori, stelle, bicchieri, ingranaggi e molle.",
-    "de": "Flache Objekte (ein Teller, eine Plakette, ein liegender Ring) werden beim Öffnen an der längsten Seite statt an der Höhe gemessen: ein Teller wird nicht mehr 7 Meter breit. Platten, Kreuze, Buchstaben und Zahnräder behalten ihre Dicke: die Bereinigung plättet die dünnen Seitenflächen einer Platte nicht mehr. Modelle mit in beide Richtungen gewandten Flächen werden als sauberer Körper neu aufgebaut. Getestet an hundert Modellen, darunter Buchstaben, Herzen, Sterne, Gläser, Zahnräder und Federn.",
-    "fr": "Les objets plats (une assiette, une plaque, un anneau couché) sont mesurés à l'ouverture sur leur plus grand côté plutôt que sur leur hauteur : une assiette ne fait plus 7 mètres de large. Plaques, croix, lettres et engrenages gardent leur épaisseur : le nettoyage n'aplatit plus les faces fines d'une plaque. Les modèles dont les faces sont orientées dans les deux sens sont reconstruits en solide propre. Testé sur une centaine de modèles, dont lettres, cœurs, étoiles, verres, engrenages et ressorts.",
-    "es": "Los objetos planos (un plato, una placa, un anillo tumbado) se miden al abrirlos por su lado más largo en vez de por la altura: un plato ya no mide 7 metros de ancho. Placas, cruces, letras y engranajes conservan su grosor: la limpieza ya no aplana las caras finas de una placa. Los modelos con caras orientadas en ambos sentidos se reconstruyen como un sólido limpio. Probado con un centenar de modelos, incluidos letras, corazones, estrellas, copas, engranajes y muelles.",
-    "pt": "Objetos planos (um prato, uma placa, um anel deitado) passam a ser medidos ao abrir pelo lado mais longo em vez da altura: um prato não fica mais com 7 metros de largura. Placas, cruzes, letras e engrenagens mantêm a espessura: a limpeza não achata mais as faces finas de uma placa. Modelos com faces voltadas para os dois lados são reconstruídos como um sólido limpo. Testado com uma centena de modelos, incluindo letras, corações, estrelas, taças, engrenagens e molas.",
-    "ja": "平らな物（皿、プレート、横たわったリング）は読み込み時に高さではなく最長辺で寸法を決めるようになり、皿が幅7メートルになることはなくなりました。プレート、十字架、文字、歯車は厚みを保ちます（クリーンアップで板の薄い側面がつぶれなくなりました）。面の向きが混在したモデルはきれいな立体として再構築されます。文字、ハート、星、グラス、歯車、ばねを含む約100種のモデルで検証しました。"
+    "en": "Stress tests with random settings on a hundred models. Fixed: faces wider or longer than the sheet on very large sculptures with few facets (the clean-up and the final scaling could enlarge them); a flat sole that failed to close and left a hole (two feet meeting at a point, a border touching itself); tiny floating fragments left by a sole whose foot had been reduced away; \"Even facets\" at 100% removed most facets of round objects (an egg asked for 148 came out with 38).",
+    "it": "Prove di sforzo con impostazioni casuali su un centinaio di modelli. Corretto: facce più larghe o più lunghe della lamiera su sculture molto grandi con poche faccette (la pulizia e la scala finale potevano ingrandirle); una suola piatta che non si chiudeva e lasciava un buco (due piedi che si toccano in un punto, un bordo che si tocca); frammenti minuscoli lasciati galleggiare da una suola il cui piede era stato ridotto via; «Faccette regolari» al 100% toglieva quasi tutte le faccette degli oggetti tondi (un uovo da 148 facce ne aveva 38).",
+    "de": "Belastungstests mit zufälligen Einstellungen an hundert Modellen. Behoben: Flächen breiter oder länger als das Blech bei sehr großen Skulpturen mit wenigen Facetten (Bereinigung und Endskalierung konnten sie vergrößern); eine flache Sohle, die sich nicht schloss und ein Loch ließ (zwei Füße, die sich in einem Punkt berühren, ein sich berührender Rand); winzige schwebende Reste einer Sohle, deren Fuß wegreduziert wurde; „Gleichmäßige Facetten“ bei 100 % entfernte fast alle Facetten runder Objekte (ein Ei mit 148 Facetten hatte 38).",
+    "fr": "Tests de résistance avec des réglages aléatoires sur une centaine de modèles. Corrigé : des faces plus larges ou plus longues que la tôle sur de très grandes sculptures à peu de facettes (le nettoyage et la mise à l'échelle finale pouvaient les agrandir) ; une semelle plate qui ne se fermait pas et laissait un trou (deux pieds qui se touchent en un point, un bord qui se touche) ; de minuscules fragments flottants laissés par une semelle dont le pied avait été réduit ; « Facettes régulières » à 100 % supprimait presque toutes les facettes des objets ronds (un œuf demandé à 148 facettes en avait 38).",
+    "es": "Pruebas de esfuerzo con ajustes aleatorios en un centenar de modelos. Corregido: caras más anchas o largas que la chapa en esculturas muy grandes con pocas facetas (la limpieza y el escalado final podían agrandarlas); una suela plana que no se cerraba y dejaba un agujero (dos pies que se tocan en un punto, un borde que se toca); fragmentos diminutos flotantes dejados por una suela cuyo pie se había reducido; «Facetas regulares» al 100 % eliminaba casi todas las facetas de los objetos redondos (un huevo pedido con 148 facetas tenía 38).",
+    "pt": "Testes de estresse com ajustes aleatórios em uma centena de modelos. Corrigido: faces mais largas ou longas que a chapa em esculturas muito grandes com poucas facetas (a limpeza e a escala final podiam aumentá-las); uma sola plana que não fechava e deixava um buraco (dois pés que se tocam num ponto, uma borda que se toca); fragmentos minúsculos flutuantes deixados por uma sola cujo pé fora reduzido; «Facetas regulares» a 100% removia quase todas as facetas dos objetos redondos (um ovo pedido com 148 facetas tinha 38).",
+    "ja": "約100種のモデルに対しランダム設定でのストレステストを実施。修正：面数の少ない非常に大きな彫刻で板より広い/長い面ができていた（クリーンアップと最終スケーリングで拡大されていた）、閉じずに穴を残す平らな底面（1点で接する2本の足、自己接触する縁）、足が削減された底面が残す浮遊する微小な断片、「均一な面」100%で丸い物の面がほとんど消えていた（148面の卵が38面に）。"
   },
   "history": [
+    {
+      "date": "2026-11-09T13:49:02Z",
+      "version": "1.3.74",
+      "notes": {
+        "en": "Stress tests with random settings on a hundred models. Fixed: faces wider or longer than the sheet on very large sculptures with few facets (the clean-up and the final scaling could enlarge them); a flat sole that failed to close and left a hole (two feet meeting at a point, a border touching itself); tiny floating fragments left by a sole whose foot had been reduced away; \"Even facets\" at 100% removed most facets of round objects (an egg asked for 148 came out with 38).",
+        "it": "Prove di sforzo con impostazioni casuali su un centinaio di modelli. Corretto: facce più larghe o più lunghe della lamiera su sculture molto grandi con poche faccette (la pulizia e la scala finale potevano ingrandirle); una suola piatta che non si chiudeva e lasciava un buco (due piedi che si toccano in un punto, un bordo che si tocca); frammenti minuscoli lasciati galleggiare da una suola il cui piede era stato ridotto via; «Faccette regolari» al 100% toglieva quasi tutte le faccette degli oggetti tondi (un uovo da 148 facce ne aveva 38).",
+        "de": "Belastungstests mit zufälligen Einstellungen an hundert Modellen. Behoben: Flächen breiter oder länger als das Blech bei sehr großen Skulpturen mit wenigen Facetten (Bereinigung und Endskalierung konnten sie vergrößern); eine flache Sohle, die sich nicht schloss und ein Loch ließ (zwei Füße, die sich in einem Punkt berühren, ein sich berührender Rand); winzige schwebende Reste einer Sohle, deren Fuß wegreduziert wurde; „Gleichmäßige Facetten“ bei 100 % entfernte fast alle Facetten runder Objekte (ein Ei mit 148 Facetten hatte 38).",
+        "fr": "Tests de résistance avec des réglages aléatoires sur une centaine de modèles. Corrigé : des faces plus larges ou plus longues que la tôle sur de très grandes sculptures à peu de facettes (le nettoyage et la mise à l'échelle finale pouvaient les agrandir) ; une semelle plate qui ne se fermait pas et laissait un trou (deux pieds qui se touchent en un point, un bord qui se touche) ; de minuscules fragments flottants laissés par une semelle dont le pied avait été réduit ; « Facettes régulières » à 100 % supprimait presque toutes les facettes des objets ronds (un œuf demandé à 148 facettes en avait 38).",
+        "es": "Pruebas de esfuerzo con ajustes aleatorios en un centenar de modelos. Corregido: caras más anchas o largas que la chapa en esculturas muy grandes con pocas facetas (la limpieza y el escalado final podían agrandarlas); una suela plana que no se cerraba y dejaba un agujero (dos pies que se tocan en un punto, un borde que se toca); fragmentos diminutos flotantes dejados por una suela cuyo pie se había reducido; «Facetas regulares» al 100 % eliminaba casi todas las facetas de los objetos redondos (un huevo pedido con 148 facetas tenía 38).",
+        "pt": "Testes de estresse com ajustes aleatórios em uma centena de modelos. Corrigido: faces mais largas ou longas que a chapa em esculturas muito grandes com poucas facetas (a limpeza e a escala final podiam aumentá-las); uma sola plana que não fechava e deixava um buraco (dois pés que se tocam num ponto, uma borda que se toca); fragmentos minúsculos flutuantes deixados por uma sola cujo pé fora reduzido; «Facetas regulares» a 100% removia quase todas as facetas dos objetos redondos (um ovo pedido com 148 facetas tinha 38).",
+        "ja": "約100種のモデルに対しランダム設定でのストレステストを実施。修正：面数の少ない非常に大きな彫刻で板より広い/長い面ができていた（クリーンアップと最終スケーリングで拡大されていた）、閉じずに穴を残す平らな底面（1点で接する2本の足、自己接触する縁）、足が削減された底面が残す浮遊する微小な断片、「均一な面」100%で丸い物の面がほとんど消えていた（148面の卵が38面に）。"
+      }
+    },
     {
       "date": "2026-11-09T12:49:43Z",
       "version": "1.3.73",
@@ -518,28 +531,15 @@
         "pt": "Novidade: Procurar uma foto. Fotos livres de coleções abertas (apenas licenças que permitem obras para vender) viram um modelo 3D; o autor fica registrado no projeto.",
         "ja": "新機能：写真を探す。オープンなコレクションの無料写真（販売用作品が認められたライセンスのみ）から3Dモデルを作成。作者はプロジェクトに記録されます。"
       }
-    },
-    {
-      "date": "2026-11-08T08:21:54Z",
-      "version": "1.3.36",
-      "notes": {
-        "en": "Pictures without pedestal or base: the sculpture alone.",
-        "it": "Immagini senza piedistallo né base: solo la scultura.",
-        "de": "Bilder ohne Sockel: nur die Skulptur.",
-        "fr": "Images sans socle : la sculpture seule.",
-        "es": "Imágenes sin pedestal ni base: solo la escultura.",
-        "pt": "Imagens sem pedestal nem base: só a escultura.",
-        "ja": "台座なしの画像：彫刻だけを描きます。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.73",
+    "version": "1.3.74",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "a55e2325087f443320915762775239764b440ee281b7c4cd312087e42659b862"
+        "sha256": "950fa1f2bbdcb0be7e23665ddf5cd53daa3d4ea2af37e692b281b2a9d1868782"
       }
     ]
   },

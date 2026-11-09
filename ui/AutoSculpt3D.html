@@ -2126,16 +2126,19 @@ function snapToPlane(V, P, tol) {
 }
 const FLOOR = 0.3;
 function meanMinEdge(V, F) {
-    let t = 0;
+    const m = [];
     for (let f = 0; f < F.length; f += 3) {
-        let m = Infinity;
+        let l = Infinity;
         for (let k = 0; k < 3; k++) {
             const a = 3 * F[f + k], b = 3 * F[f + (k + 1) % 3];
-            m = Math.min(m, Math.hypot(V[a] - V[b], V[a + 1] - V[b + 1], V[a + 2] - V[b + 2]));
+            l = Math.min(l, Math.hypot(V[a] - V[b], V[a + 1] - V[b + 1], V[a + 2] - V[b + 2]));
         }
-        t += m;
+        m.push(l);
     }
-    return F.length ? t / (F.length / 3) : 0;
+    if (!m.length)
+        return 0;
+    m.sort((a, b) => a - b);
+    return m[m.length >> 1];
 }
 function meanEdge(V, F) {
     let t = 0;
@@ -2824,7 +2827,8 @@ function unfoldMesh(V, F, opt) {
     }
     const corner = (f, k) => [C2[6 * f + 2 * k], C2[6 * f + 2 * k + 1]];
     const triOf = (f) => [corner(f, 0), corner(f, 1), corner(f, 2)];
-    const sheetMax = Math.max(o.sheetW, o.sheetH) - 2 * o.margin - 3, sheetMin = Math.min(o.sheetW, o.sheetH) - 2 * o.margin - 3;
+    const flapPad = o.flaps ? 2 * (o.flapD || 8) : 0;
+    const sheetMax = Math.max(o.sheetW, o.sheetH) - 2 * o.margin - nestRes(o) - flapPad, sheetMin = Math.min(o.sheetW, o.sheetH) - 2 * o.margin - nestRes(o) - flapPad;
     const order = Array.from({ length: nf }, (_, i) => i).sort((x, y) => A[y] - A[x]);
     for (const seed of order) {
         if (piece[seed] >= 0)
@@ -3218,9 +3222,10 @@ function nestPieces(entries, o) {
         entries = entries.map(pc => ({ pc }));
     return nestFromLayout(entries, nestLayout(entries, o));
 }
+function nestRes(o) { const a = (o.sheetW || 1000) * (o.sheetH || 2000); return o.res || (a > 4e6 ? 5 : a > 2.2e6 ? 4 : 3); }
 function nestLayout(entries, o) {
     const W = o.sheetW, H = o.sheetH, m = o.margin, gap = o.gap;
-    const slack = o.compact ? (o.res || 3) : 0, fitW = W - 2 * m - slack, fitH = H - 2 * m - slack;
+    const slack = o.compact ? nestRes(o) : 0, fitW = W - 2 * m - slack, fitH = H - 2 * m - slack;
     const transform = (pts, ang) => { const c = Math.cos(ang), s = Math.sin(ang); return pts.map(p => [p[0] * c - p[1] * s, p[0] * s + p[1] * c]); };
     const frame = (outer, ang) => {
         const tp = transform(outer, ang);
@@ -3321,7 +3326,7 @@ function nestFromLayout(entries, L) {
     return { sheets, oversize: L.oversize, W: L.W, H: L.H, usage: L.usage, count: L.count };
 }
 function rasterNest(items, sheets, oversize, o, frame) {
-    const W = o.sheetW, H = o.sheetH, m = o.margin, res = o.res || 3;
+    const W = o.sheetW, H = o.sheetH, m = o.margin, res = nestRes(o);
     const dc = Math.max(1, Math.ceil(o.gap / (2 * res)));
     const gW = Math.floor((W - 2 * m) / res) + 2 * dc, gH = Math.floor((H - 2 * m) / res) + 2 * dc;
     const mask = (it, ang) => {
@@ -4044,7 +4049,7 @@ if (typeof self !== 'undefined' && typeof window === 'undefined' && typeof impor
     };
 }
 if (typeof module !== 'undefined')
-    module.exports = { meshNeedsSolid, extrudeFlat, fillHoles, splitLongEdges, massEllipse, flattenBottom, loopsCentroid, stability, internalRibs, thinRingEdges, weldMesh, meshGenus, remeshSolid, decimateMesh, sculptMesh, collapseShortEdges, findSymmetry, cutMesh, mirrorMesh, flipEdges, detailWeights, meshBounds, unfoldMesh, nestPieces, nestLayout, nestFromLayout, buildDXF, basePlate, labelText };
+    module.exports = { nestRes, meanMinEdge, meanEdge, meshNeedsSolid, extrudeFlat, fillHoles, splitLongEdges, massEllipse, flattenBottom, loopsCentroid, stability, internalRibs, thinRingEdges, weldMesh, meshGenus, remeshSolid, decimateMesh, sculptMesh, collapseShortEdges, findSymmetry, cutMesh, mirrorMesh, flipEdges, detailWeights, meshBounds, unfoldMesh, nestPieces, nestLayout, nestFromLayout, buildDXF, basePlate, labelText };
 </script>
 
 <script type="module">
@@ -6841,13 +6846,14 @@ for (const id of ['sheetW', 'sheetH'])
         if (S.low.maxEdgeHit || lf.edge * S.mm.s > sheetMaxEdge() || lf.alt * S.mm.s > sheetMaxAlt())
             updateLow(false);
     });
+function flapPad() { return $('flaps').checked ? 2 * (+$('flapD').value || 8) : 0; }
 function sheetMaxEdge() {
     const W = +$('sheetW').value || 1000, H = +$('sheetH').value || 2000;
-    return Math.max(W, H) - 23;
+    return Math.max(W, H) - 20 - nestRes({ sheetW: W, sheetH: H }) - flapPad();
 }
 function sheetMaxAlt() {
     const W = +$('sheetW').value || 1000, H = +$('sheetH').value || 2000;
-    return Math.min(W, H) - 23;
+    return Math.min(W, H) - 20 - nestRes({ sheetW: W, sheetH: H }) - flapPad();
 }
 function largestFace(V, F) {
     let edge = 0, alt = 0;

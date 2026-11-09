@@ -1948,6 +1948,7 @@ function flattenBottom(V, F, W, up, band, minEdge) {
     const e2 = [up[1] * e1[2] - up[2] * e1[1], up[2] * e1[0] - up[0] * e1[2], up[0] * e1[1] - up[1] * e1[0]];
     const p2 = (v) => [e1[0] * V2[3 * v] + e1[1] * V2[3 * v + 1] + e1[2] * V2[3 * v + 2], e2[0] * V2[3 * v] + e2[1] * V2[3 * v + 1] + e2[2] * V2[3 * v + 2]];
     let soles = 0;
+    const loops = [];
     const take = (v) => { const l = next.get(v); return l && l.length ? l.pop() : undefined; };
     for (const start of [...next.keys()]) {
         while (next.get(start).length) {
@@ -1959,7 +1960,7 @@ function flattenBottom(V, F, W, up, band, minEdge) {
                     for (const u of sub)
                         at.delete(u);
                     if (sub.length >= 2)
-                        closeLoop([v].concat(sub));
+                        loops.push([v].concat(sub));
                 }
                 else {
                     at.set(v, loop.length);
@@ -1969,9 +1970,53 @@ function flattenBottom(V, F, W, up, band, minEdge) {
             }
             if (v !== start || loop.length < 3)
                 continue;
-            closeLoop(loop);
+            loops.push(loop);
         }
     }
+    const signedArea = (pts) => { let a = 0; for (let i = 0; i < pts.length; i++) {
+        const p = pts[i], q = pts[(i + 1) % pts.length];
+        a += p[0] * q[1] - q[0] * p[1];
+    } return a; };
+    const inside = (p, pts) => { let c = false; for (let i = 0, j = pts.length - 1; i < pts.length; j = i++) {
+        const a = pts[i], b = pts[j];
+        if ((a[1] > p[1]) !== (b[1] > p[1]) && p[0] < (b[0] - a[0]) * (p[1] - a[1]) / (b[1] - a[1]) + a[0])
+            c = !c;
+    } return c; };
+    const L = loops.map(loop => ({ loop, pts: loop.map(p2) }));
+    for (const l of L)
+        l.area = signedArea(l.pts);
+    let outerSign = 0;
+    for (const l of L)
+        if (Math.abs(l.area) > Math.abs(outerSign))
+            outerSign = l.area;
+    outerSign = Math.sign(outerSign) || 1;
+    const outers = L.filter(l => Math.sign(l.area) === outerSign), holes = L.filter(l => Math.sign(l.area) !== outerSign);
+    for (const h of holes) {
+        const host = outers.find(o => inside(h.pts[0], o.pts));
+        if (!host) {
+            closeLoop(h.loop);
+            continue;
+        }
+        let hi = 0;
+        for (let i = 1; i < h.pts.length; i++)
+            if (h.pts[i][0] > h.pts[hi][0])
+                hi = i;
+        let bi = 0, bd = Infinity;
+        for (let i = 0; i < host.pts.length; i++) {
+            const d = (host.pts[i][0] - h.pts[hi][0]) ** 2 + (host.pts[i][1] - h.pts[hi][1]) ** 2;
+            if (host.pts[i][0] >= h.pts[hi][0] && d < bd) {
+                bd = d;
+                bi = i;
+            }
+        }
+        const ring = [];
+        for (let k = 0; k <= h.loop.length; k++)
+            ring.push(h.loop[(hi + k) % h.loop.length]);
+        host.loop = host.loop.slice(0, bi + 1).concat(ring, [host.loop[bi]], host.loop.slice(bi + 1));
+        host.pts = host.loop.map(p2);
+    }
+    for (const o of outers)
+        closeLoop(o.loop);
     function closeLoop(loop) {
         const pts = loop.map(p2);
         let area = 0;
@@ -3322,6 +3367,7 @@ function rasterNest(items, sheets, oversize, o, frame) {
                     for (let k = Math.max(0, r - dc); k <= Math.min(mh - 1, r + dc); k++)
                         d[k * mw + c] = 1;
         const spans = [];
+        let cells = 0;
         for (let r = 0; r < mh; r++) {
             const row = [];
             let c = 0;
@@ -3331,15 +3377,16 @@ function rasterNest(items, sheets, oversize, o, frame) {
                     while (c < mw && d[r * mw + c])
                         c++;
                     row.push(s, c - 1);
+                    cells += c - s;
                 }
                 else
                     c++;
             }
             spans.push(row);
         }
-        return { ang, mw, mh, spans, x0: fr.x0, y0: fr.y0 };
+        return { ang, mw, mh, spans, cells, x0: fr.x0, y0: fr.y0 };
     };
-    const newSheet = () => { const sh = { items: [], occ: new Uint8Array(gW * gH), pre: new Int32Array(gH * (gW + 1)), minRow: 0 }; sheets.push(sh); return sh; };
+    const newSheet = () => { const sh = { items: [], occ: new Uint8Array(gW * gH), pre: new Int32Array(gH * (gW + 1)), rowFree: new Int32Array(gH).fill(gW), minRow: 0, free: gW * gH, minFail: Infinity }; sheets.push(sh); return sh; };
     const fits = (sh, mk, gx, gy) => {
         let next = gx + 1;
         for (let r = 0; r < mk.mh; r++) {
@@ -3370,9 +3417,11 @@ function rasterNest(items, sheets, oversize, o, frame) {
                 acc += sh.occ[y * gW + c];
                 sh.pre[base + c + 1] = acc;
             }
+            sh.rowFree[y] = gW - acc;
         }
         while (sh.minRow < gH && sh.pre[sh.minRow * (gW + 1) + gW] >= gW)
             sh.minRow++;
+        sh.free -= mk.cells;
     };
     items.sort((a, b) => b.area - a.area);
     for (const it of items) {
@@ -3385,14 +3434,20 @@ function rasterNest(items, sheets, oversize, o, frame) {
             continue;
         }
         let done = false;
+        const least = Math.min(...masks.map(mk => mk.cells));
         for (const sh of sheets) {
-            if (!sh.occ)
+            if (!sh.occ || sh.free < least || least >= sh.minFail)
                 continue;
             let best = null;
             for (const mk of masks) {
-                outer: for (let gy = sh.minRow; gy <= gH - mk.mh; gy++) {
+                let band = 0;
+                for (let r = sh.minRow; r < Math.min(gH, sh.minRow + mk.mh); r++)
+                    band += sh.rowFree[r];
+                outer: for (let gy = sh.minRow; gy <= gH - mk.mh; gy++, band += sh.rowFree[gy + mk.mh - 1] - sh.rowFree[gy - 1]) {
                     if (best && gy > best.gy)
                         break;
+                    if (band < mk.cells)
+                        continue;
                     for (let gx = 0; gx <= gW - mk.mw;) {
                         const nx = fits(sh, mk, gx, gy);
                         if (nx < 0) {
@@ -3410,6 +3465,7 @@ function rasterNest(items, sheets, oversize, o, frame) {
                 done = true;
                 break;
             }
+            sh.minFail = Math.min(sh.minFail, least);
         }
         if (!done) {
             const sh = newSheet(), mk = masks[0];

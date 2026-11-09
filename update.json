@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.74",
-  "notes": "Stress tests with random settings on a hundred models. Fixed: faces wider or longer than the sheet on very large sculptures with few facets (the clean-up and the final scaling could enlarge them); a flat sole that failed to close and left a hole (two feet meeting at a point, a border touching itself); tiny floating fragments left by a sole whose foot had been reduced away; \"Even facets\" at 100% removed most facets of round objects (an egg asked for 148 came out with 38).",
+  "latest": "1.3.75",
+  "notes": "Flat soles with a hole in the middle (the foot ring of a saucer, a hollow base) are now closed as a ring instead of a lid over the recess, which could come loose as a separate part. Nesting of hundreds of pieces on small sheets is faster.",
   "notes_i18n": {
-    "en": "Stress tests with random settings on a hundred models. Fixed: faces wider or longer than the sheet on very large sculptures with few facets (the clean-up and the final scaling could enlarge them); a flat sole that failed to close and left a hole (two feet meeting at a point, a border touching itself); tiny floating fragments left by a sole whose foot had been reduced away; \"Even facets\" at 100% removed most facets of round objects (an egg asked for 148 came out with 38).",
-    "it": "Prove di sforzo con impostazioni casuali su un centinaio di modelli. Corretto: facce più larghe o più lunghe della lamiera su sculture molto grandi con poche faccette (la pulizia e la scala finale potevano ingrandirle); una suola piatta che non si chiudeva e lasciava un buco (due piedi che si toccano in un punto, un bordo che si tocca); frammenti minuscoli lasciati galleggiare da una suola il cui piede era stato ridotto via; «Faccette regolari» al 100% toglieva quasi tutte le faccette degli oggetti tondi (un uovo da 148 facce ne aveva 38).",
-    "de": "Belastungstests mit zufälligen Einstellungen an hundert Modellen. Behoben: Flächen breiter oder länger als das Blech bei sehr großen Skulpturen mit wenigen Facetten (Bereinigung und Endskalierung konnten sie vergrößern); eine flache Sohle, die sich nicht schloss und ein Loch ließ (zwei Füße, die sich in einem Punkt berühren, ein sich berührender Rand); winzige schwebende Reste einer Sohle, deren Fuß wegreduziert wurde; „Gleichmäßige Facetten“ bei 100 % entfernte fast alle Facetten runder Objekte (ein Ei mit 148 Facetten hatte 38).",
-    "fr": "Tests de résistance avec des réglages aléatoires sur une centaine de modèles. Corrigé : des faces plus larges ou plus longues que la tôle sur de très grandes sculptures à peu de facettes (le nettoyage et la mise à l'échelle finale pouvaient les agrandir) ; une semelle plate qui ne se fermait pas et laissait un trou (deux pieds qui se touchent en un point, un bord qui se touche) ; de minuscules fragments flottants laissés par une semelle dont le pied avait été réduit ; « Facettes régulières » à 100 % supprimait presque toutes les facettes des objets ronds (un œuf demandé à 148 facettes en avait 38).",
-    "es": "Pruebas de esfuerzo con ajustes aleatorios en un centenar de modelos. Corregido: caras más anchas o largas que la chapa en esculturas muy grandes con pocas facetas (la limpieza y el escalado final podían agrandarlas); una suela plana que no se cerraba y dejaba un agujero (dos pies que se tocan en un punto, un borde que se toca); fragmentos diminutos flotantes dejados por una suela cuyo pie se había reducido; «Facetas regulares» al 100 % eliminaba casi todas las facetas de los objetos redondos (un huevo pedido con 148 facetas tenía 38).",
-    "pt": "Testes de estresse com ajustes aleatórios em uma centena de modelos. Corrigido: faces mais largas ou longas que a chapa em esculturas muito grandes com poucas facetas (a limpeza e a escala final podiam aumentá-las); uma sola plana que não fechava e deixava um buraco (dois pés que se tocam num ponto, uma borda que se toca); fragmentos minúsculos flutuantes deixados por uma sola cujo pé fora reduzido; «Facetas regulares» a 100% removia quase todas as facetas dos objetos redondos (um ovo pedido com 148 facetas tinha 38).",
-    "ja": "約100種のモデルに対しランダム設定でのストレステストを実施。修正：面数の少ない非常に大きな彫刻で板より広い/長い面ができていた（クリーンアップと最終スケーリングで拡大されていた）、閉じずに穴を残す平らな底面（1点で接する2本の足、自己接触する縁）、足が削減された底面が残す浮遊する微小な断片、「均一な面」100%で丸い物の面がほとんど消えていた（148面の卵が38面に）。"
+    "en": "Flat soles with a hole in the middle (the foot ring of a saucer, a hollow base) are now closed as a ring instead of a lid over the recess, which could come loose as a separate part. Nesting of hundreds of pieces on small sheets is faster.",
+    "it": "Gli appoggi piatti con un foro in mezzo (l'anello di base di un piattino, una base cava) ora si chiudono come anello invece che con un coperchio sull'incavo, che poteva staccarsi come parte a sé. Annidamento di centinaia di pezzi su lamiere piccole più veloce.",
+    "de": "Flache Sohlen mit einem Loch in der Mitte (der Standring einer Untertasse, ein hohler Sockel) werden jetzt als Ring geschlossen statt mit einem Deckel über der Vertiefung, der sich als eigenes Teil lösen konnte. Das Verschachteln hunderter Teile auf kleinen Blechen ist schneller.",
+    "fr": "Les semelles plates percées au milieu (l'anneau de base d'une soucoupe, un socle creux) se ferment désormais en anneau plutôt qu'avec un couvercle sur le creux, qui pouvait se détacher comme pièce à part. L'imbrication de centaines de pièces sur de petites tôles est plus rapide.",
+    "es": "Las suelas planas con un agujero en medio (el anillo de base de un platillo, una base hueca) ahora se cierran como anillo en vez de con una tapa sobre el hueco, que podía soltarse como pieza aparte. El anidado de cientos de piezas en chapas pequeñas es más rápido.",
+    "pt": "As solas planas com um furo no meio (o anel de base de um pires, uma base oca) agora se fecham como anel em vez de uma tampa sobre o rebaixo, que podia se soltar como peça separada. O aninhamento de centenas de peças em chapas pequenas está mais rápido.",
+    "ja": "中央に穴のある平らな底面（受け皿の脚リング、中空の台座）は、くぼみの上の蓋ではなくリングとして閉じるようになりました（蓋は別部品として外れることがありました）。小さな板への数百部品のネスティングが高速化。"
   },
   "history": [
+    {
+      "date": "2026-11-09T14:25:13Z",
+      "version": "1.3.75",
+      "notes": {
+        "en": "Flat soles with a hole in the middle (the foot ring of a saucer, a hollow base) are now closed as a ring instead of a lid over the recess, which could come loose as a separate part. Nesting of hundreds of pieces on small sheets is faster.",
+        "it": "Gli appoggi piatti con un foro in mezzo (l'anello di base di un piattino, una base cava) ora si chiudono come anello invece che con un coperchio sull'incavo, che poteva staccarsi come parte a sé. Annidamento di centinaia di pezzi su lamiere piccole più veloce.",
+        "de": "Flache Sohlen mit einem Loch in der Mitte (der Standring einer Untertasse, ein hohler Sockel) werden jetzt als Ring geschlossen statt mit einem Deckel über der Vertiefung, der sich als eigenes Teil lösen konnte. Das Verschachteln hunderter Teile auf kleinen Blechen ist schneller.",
+        "fr": "Les semelles plates percées au milieu (l'anneau de base d'une soucoupe, un socle creux) se ferment désormais en anneau plutôt qu'avec un couvercle sur le creux, qui pouvait se détacher comme pièce à part. L'imbrication de centaines de pièces sur de petites tôles est plus rapide.",
+        "es": "Las suelas planas con un agujero en medio (el anillo de base de un platillo, una base hueca) ahora se cierran como anillo en vez de con una tapa sobre el hueco, que podía soltarse como pieza aparte. El anidado de cientos de piezas en chapas pequeñas es más rápido.",
+        "pt": "As solas planas com um furo no meio (o anel de base de um pires, uma base oca) agora se fecham como anel em vez de uma tampa sobre o rebaixo, que podia se soltar como peça separada. O aninhamento de centenas de peças em chapas pequenas está mais rápido.",
+        "ja": "中央に穴のある平らな底面（受け皿の脚リング、中空の台座）は、くぼみの上の蓋ではなくリングとして閉じるようになりました（蓋は別部品として外れることがありました）。小さな板への数百部品のネスティングが高速化。"
+      }
+    },
     {
       "date": "2026-11-09T13:49:02Z",
       "version": "1.3.74",
@@ -518,28 +531,15 @@
         "pt": "As atualizações mostram apenas o que este computador pode usar.",
         "ja": "このコンピュータで使えるものだけを更新として表示します。"
       }
-    },
-    {
-      "date": "2026-11-08T08:27:54Z",
-      "version": "1.3.37",
-      "notes": {
-        "en": "New: Search a photo. Free photos from open collections (only licences that allow works for sale) become a 3D model; the author is recorded in the project.",
-        "it": "Novità: Cerca una foto. Foto libere da raccolte aperte (solo licenze che permettono opere da vendere) diventano un modello 3D; l'autore resta registrato nel progetto.",
-        "de": "Neu: Foto suchen. Freie Fotos aus offenen Sammlungen (nur Lizenzen, die verkäufliche Werke erlauben) werden zum 3D-Modell; der Urheber wird im Projekt vermerkt.",
-        "fr": "Nouveau : Chercher une photo. Des photos libres de collections ouvertes (uniquement des licences qui permettent des œuvres à vendre) deviennent un modèle 3D ; l'auteur est enregistré dans le projet.",
-        "es": "Novedad: Buscar una foto. Fotos libres de colecciones abiertas (solo licencias que permiten obras para vender) se convierten en un modelo 3D; el autor queda registrado en el proyecto.",
-        "pt": "Novidade: Procurar uma foto. Fotos livres de coleções abertas (apenas licenças que permitem obras para vender) viram um modelo 3D; o autor fica registrado no projeto.",
-        "ja": "新機能：写真を探す。オープンなコレクションの無料写真（販売用作品が認められたライセンスのみ）から3Dモデルを作成。作者はプロジェクトに記録されます。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.74",
+    "version": "1.3.75",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "950fa1f2bbdcb0be7e23665ddf5cd53daa3d4ea2af37e692b281b2a9d1868782"
+        "sha256": "b77e7ad0e5b8eb5e72ed817951b969a24a7729847b0841b41264e1686d1dfc70"
       }
     ]
   },

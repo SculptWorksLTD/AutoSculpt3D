@@ -3252,6 +3252,45 @@ function unfoldMesh(V, F, opt) {
     if (o.mirror)
         for (let i = 0; i < C2.length; i += 2)
             C2[i] = -C2[i];
+    for (const pc of pieces) {
+        const byV = new Map();
+        for (const f of pc.faces)
+            for (let k = 0; k < 3; k++) {
+                const v = F[3 * f + k];
+                if (!byV.has(v))
+                    byV.set(v, []);
+                byV.get(v).push(6 * f + 2 * k);
+            }
+        for (const idx of byV.values()) {
+            if (idx.length < 2)
+                continue;
+            const done = new Uint8Array(idx.length);
+            for (let i = 0; i < idx.length; i++) {
+                if (done[i])
+                    continue;
+                const grp = [idx[i]];
+                done[i] = 1;
+                for (let j = i + 1; j < idx.length; j++)
+                    if (!done[j] && Math.abs(C2[idx[j]] - C2[idx[i]]) + Math.abs(C2[idx[j] + 1] - C2[idx[i] + 1]) < 0.05) {
+                        grp.push(idx[j]);
+                        done[j] = 1;
+                    }
+                if (grp.length < 2)
+                    continue;
+                let x = 0, y = 0;
+                for (const t of grp) {
+                    x += C2[t];
+                    y += C2[t + 1];
+                }
+                x /= grp.length;
+                y /= grp.length;
+                for (const t of grp) {
+                    C2[t] = x;
+                    C2[t + 1] = y;
+                }
+            }
+        }
+    }
     const kp = (p) => Math.round(p[0] * 1000) + ':' + Math.round(p[1] * 1000);
     const shortList = [], noSlotList = [];
     let weldLen = 0, seams = 0, shortEdges = 0, bendCount = 0, cutLen = 0, slotCount = 0, bendNoSlot = 0, flapCount = 0;
@@ -3414,6 +3453,13 @@ function unfoldMesh(V, F, opt) {
             labels.push({ x: lx, y: ly, h: hh, rot: ang, text: String(c.partner + 1) });
         }
         const slots = [];
+        const segDist = (a, b, c, d) => {
+            const pd = (p, q, r) => { const dx = r[0] - q[0], dy = r[1] - q[1], l2 = dx * dx + dy * dy || 1e-12, t = Math.max(0, Math.min(1, ((p[0] - q[0]) * dx + (p[1] - q[1]) * dy) / l2)); return Math.hypot(p[0] - q[0] - t * dx, p[1] - q[1] - t * dy); };
+            const o2 = (p, q, r) => (q[0] - p[0]) * (r[1] - p[1]) - (q[1] - p[1]) * (r[0] - p[0]);
+            if (o2(a, b, c) * o2(a, b, d) < 0 && o2(c, d, a) * o2(c, d, b) < 0)
+                return 0;
+            return Math.min(pd(a, c, d), pd(b, c, d), pd(c, a, b), pd(d, a, b));
+        };
         for (const bd of bends) {
             if (bd.flap)
                 continue;
@@ -3442,10 +3488,14 @@ function unfoldMesh(V, F, opt) {
                 for (let i = 0; i < n; i++) {
                     const s0 = t + r, s1 = t + sl - r;
                     const P0 = [bd.a[0] + ux * s0, bd.a[1] + uy * s0], P1 = [bd.a[0] + ux * s1, bd.a[1] + uy * s1];
-                    slots.push({ pts: [[P0[0] - nx * r, P0[1] - ny * r], [P1[0] - nx * r, P1[1] - ny * r], [P1[0] + nx * r, P1[1] + ny * r], [P0[0] + nx * r, P0[1] + ny * r]], r });
+                    t += sl + o.slotBridge;
+                    if (slots.some(q => segDist(P0, P1, q.c[0], q.c[1]) < 2 * r + 1))
+                        continue;
+                    if (cuts.some(c => segDist(P0, P1, c.a, c.b) < r + 0.5))
+                        continue;
+                    slots.push({ pts: [[P0[0] - nx * r, P0[1] - ny * r], [P1[0] - nx * r, P1[1] - ny * r], [P1[0] + nx * r, P1[1] + ny * r], [P0[0] + nx * r, P0[1] + ny * r]], r, c: [P0, P1] });
                     cutLen += 2 * (s1 - s0) + 2 * Math.PI * r;
                     slotCount++;
-                    t += sl + o.slotBridge;
                 }
             }
             if (L >= 18 && bd.deg >= 3) {
@@ -4093,7 +4143,7 @@ function internalRibs(V, F, o) {
             const fld = new Float32Array(W * H);
             for (let c = 0; c < W * H; c++)
                 fld[c] = comp[c] !== id ? -1 : hole ? Math.min(dist[c] - o.gap, o.gap + o.ring - dist[c]) : dist[c] - o.gap;
-            const loops = contours(fld, W, H).map(L => simplifyLoop(L.map(([i, j]) => [X(i), Y(j)]), res * 0.6)).filter(L => L.length >= 3);
+            const loops = contours(fld, W, H).map(L => { const P = L.map(([i, j]) => [X(i), Y(j)]), S = simplifyLoop(P, res * 0.6); return selfCrosses(S) ? P : S; }).filter(L => L.length >= 3);
             if (!loops.length)
                 return;
             let area = 0;
@@ -4153,37 +4203,53 @@ function edt(mask, W, H) {
     return Array.from(d, Math.sqrt);
 }
 function contours(fld, W, H) {
-    const segs = [], at = (i, j) => fld[j * W + i];
-    const lerp = (i0, j0, i1, j1) => { const a = at(i0, j0), b = at(i1, j1), t = a / (a - b); return [i0 + t * (i1 - i0), j0 + t * (j1 - j0)]; };
+    const at = (i, j) => { const v = fld[j * W + i]; return v === 0 ? 1e-6 : v; };
+    const pt = new Map(), next = new Map();
+    const cross = (i0, j0, i1, j1) => {
+        const id = i0 === i1 ? 'v' + i0 + ',' + Math.min(j0, j1) : 'h' + Math.min(i0, i1) + ',' + j0;
+        if (!pt.has(id)) {
+            const a = at(i0, j0), b = at(i1, j1), t = a / (a - b);
+            pt.set(id, [i0 + t * (i1 - i0), j0 + t * (j1 - j0)]);
+        }
+        return id;
+    };
     for (let j = 0; j < H - 1; j++)
         for (let i = 0; i < W - 1; i++) {
             const c = (at(i, j) > 0 ? 1 : 0) | (at(i + 1, j) > 0 ? 2 : 0) | (at(i + 1, j + 1) > 0 ? 4 : 0) | (at(i, j + 1) > 0 ? 8 : 0);
             if (c === 0 || c === 15)
                 continue;
-            const e = [lerp(i, j, i + 1, j), lerp(i + 1, j, i + 1, j + 1), lerp(i, j + 1, i + 1, j + 1), lerp(i, j, i, j + 1)];
+            const e = [() => cross(i, j, i + 1, j), () => cross(i + 1, j, i + 1, j + 1), () => cross(i, j + 1, i + 1, j + 1), () => cross(i, j, i, j + 1)];
             const T = { 1: [[3, 0]], 2: [[0, 1]], 3: [[3, 1]], 4: [[1, 2]], 5: [[3, 2], [1, 0]], 6: [[0, 2]], 7: [[3, 2]], 8: [[2, 3]], 9: [[2, 0]], 10: [[0, 3], [2, 1]], 11: [[2, 1]], 12: [[1, 3]], 13: [[1, 0]], 14: [[0, 3]] }[c];
             for (const [a, b] of T)
-                segs.push([e[a], e[b]]);
+                next.set(e[a](), e[b]());
         }
-    const key = (p) => Math.round(p[0] * 1000) + ',' + Math.round(p[1] * 1000), next = new Map();
-    for (const s of segs)
-        next.set(key(s[0]), s);
     const used = new Set(), loops = [];
-    for (const s of segs) {
-        const k0 = key(s[0]);
-        if (used.has(k0))
+    for (const s0 of next.keys()) {
+        if (used.has(s0))
             continue;
         const L = [];
-        let cur = s;
-        while (cur && !used.has(key(cur[0]))) {
-            used.add(key(cur[0]));
-            L.push(cur[0]);
-            cur = next.get(key(cur[1]));
+        let k = s0;
+        while (k !== undefined && !used.has(k)) {
+            used.add(k);
+            L.push(pt.get(k));
+            k = next.get(k);
         }
         if (L.length >= 3)
             loops.push(L);
     }
     return loops;
+}
+function selfCrosses(L) {
+    const n = L.length, o = (p, q, r) => (q[0] - p[0]) * (r[1] - p[1]) - (q[1] - p[1]) * (r[0] - p[0]);
+    for (let i = 0; i < n; i++)
+        for (let j = i + 2; j < n; j++) {
+            if (i === 0 && j === n - 1)
+                continue;
+            const a = L[i], b = L[(i + 1) % n], c = L[j], d = L[(j + 1) % n];
+            if (o(a, b, c) * o(a, b, d) < 0 && o(c, d, a) * o(c, d, b) < 0)
+                return true;
+        }
+    return false;
 }
 function simplifyLoop(L, tol) {
     if (L.length < 8)

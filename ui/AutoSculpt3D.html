@@ -1994,17 +1994,37 @@ function flattenBottom(V, F, W, up, band, minEdge) {
             closeLoop(h.loop);
             continue;
         }
-        let hi = 0;
-        for (let i = 1; i < h.pts.length; i++)
-            if (h.pts[i][0] > h.pts[hi][0])
+        let hi = -1, bi = -1;
+        for (let i = 0; i < h.loop.length && hi < 0; i++) {
+            const j = host.loop.indexOf(h.loop[i]);
+            if (j >= 0) {
                 hi = i;
-        let bi = 0, bd = Infinity;
-        for (let i = 0; i < host.pts.length; i++) {
-            const d = (host.pts[i][0] - h.pts[hi][0]) ** 2 + (host.pts[i][1] - h.pts[hi][1]) ** 2;
-            if (host.pts[i][0] >= h.pts[hi][0] && d < bd) {
-                bd = d;
-                bi = i;
+                bi = j;
             }
+        }
+        if (hi >= 0) {
+            const ring = [];
+            for (let k = 1; k < h.loop.length; k++)
+                ring.push(h.loop[(hi + k) % h.loop.length]);
+            host.loop = host.loop.slice(0, bi + 1).concat(ring, [host.loop[bi]], host.loop.slice(bi + 1));
+            host.pts = host.loop.map(p2);
+            continue;
+        }
+        {
+            hi = 0;
+            for (let i = 1; i < h.pts.length; i++)
+                if (h.pts[i][0] > h.pts[hi][0])
+                    hi = i;
+            const segs = (l) => l.pts.map((p, i) => [p, l.pts[(i + 1) % l.pts.length]]);
+            const crossing = (p, q, [a, b]) => { const d = (x, y, z) => (y[0] - x[0]) * (z[1] - x[1]) - (y[1] - x[1]) * (z[0] - x[0]); return d(p, q, a) * d(p, q, b) < 0 && d(a, b, p) * d(a, b, q) < 0; };
+            const all = segs(host).concat(segs(h));
+            const cand = host.pts.map((p, i) => [(p[0] - h.pts[hi][0]) ** 2 + (p[1] - h.pts[hi][1]) ** 2, i]).filter(([, i]) => host.pts[i][0] >= h.pts[hi][0]).sort((a, b) => a[0] - b[0]);
+            bi = cand.length ? cand[0][1] : 0;
+            for (const [, i] of cand)
+                if (!all.some(sg => crossing(h.pts[hi], host.pts[i], sg))) {
+                    bi = i;
+                    break;
+                }
         }
         const ring = [];
         for (let k = 0; k <= h.loop.length; k++)
@@ -2704,6 +2724,44 @@ function remeshSolid(V, F, res, grow, opts) {
             }
             fld = out;
         }
+    if (steps > 0 || close > 1) {
+        const seen = new Uint8Array(fld.length);
+        qh = 0;
+        qt = 0;
+        seen[0] = 1;
+        queue[qt++] = 0;
+        while (qh < qt) {
+            const idx = queue[qh++], i = idx % nx, j = ((idx - i) / nx) % ny, k = (idx - i - j * nx) / nxy;
+            let m;
+            if (i > 0 && !seen[m = idx - 1] && fld[m] < 0.5) {
+                seen[m] = 1;
+                queue[qt++] = m;
+            }
+            if (i < nx - 1 && !seen[m = idx + 1] && fld[m] < 0.5) {
+                seen[m] = 1;
+                queue[qt++] = m;
+            }
+            if (j > 0 && !seen[m = idx - nx] && fld[m] < 0.5) {
+                seen[m] = 1;
+                queue[qt++] = m;
+            }
+            if (j < ny - 1 && !seen[m = idx + nx] && fld[m] < 0.5) {
+                seen[m] = 1;
+                queue[qt++] = m;
+            }
+            if (k > 0 && !seen[m = idx - nxy] && fld[m] < 0.5) {
+                seen[m] = 1;
+                queue[qt++] = m;
+            }
+            if (k < nz - 1 && !seen[m = idx + nxy] && fld[m] < 0.5) {
+                seen[m] = 1;
+                queue[qt++] = m;
+            }
+        }
+        for (let idx = 0; idx < fld.length; idx++)
+            if (!seen[idx] && fld[idx] < 0.5)
+                fld[idx] = 1;
+    }
     const nxy0 = nx * ny, IN = 0.5;
     for (let changed = true, guard = 0; changed && guard < 20; guard++) {
         changed = false;

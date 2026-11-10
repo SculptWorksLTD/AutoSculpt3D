@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.80",
-  "notes": "Symmetric sculptures: where the half touched the mirror plane with a flat facet, an edge or a single point (seen on a cat, an elephant and a camel) the result had edges shared by four faces and the pieces could not be unfolded there; the mirror now handles those spots cleanly.",
+  "latest": "1.3.81",
+  "notes": "Flat feet: a sole whose border touched itself (the neck of a bust) got three facets on one edge and could not be unfolded there; fixed. Thickening of thin parts: a model whose skin had many small tunnels (a strawberry) came out with a second, inside-out surface inside the sculpture; the thickened solid is now always one solid shell.",
   "notes_i18n": {
-    "en": "Symmetric sculptures: where the half touched the mirror plane with a flat facet, an edge or a single point (seen on a cat, an elephant and a camel) the result had edges shared by four faces and the pieces could not be unfolded there; the mirror now handles those spots cleanly.",
-    "it": "Sculture simmetriche: dove la metà toccava il piano di specchio con una faccetta piatta, uno spigolo o un solo punto (visto su un gatto, un elefante e un cammello) il risultato aveva lati condivisi da quattro facce e lì i pezzi non si sviluppavano; ora lo specchio sistema quei punti.",
-    "de": "Symmetrische Skulpturen: Wo die Hälfte die Spiegelebene mit einer flachen Facette, einer Kante oder einem einzelnen Punkt berührte (bei einer Katze, einem Elefanten und einem Kamel gesehen), hatte das Ergebnis Kanten mit vier Flächen und die Teile ließen sich dort nicht abwickeln; die Spiegelung bereinigt diese Stellen jetzt.",
-    "fr": "Sculptures symétriques : là où la moitié touchait le plan de symétrie par une facette plate, une arête ou un seul point (vu sur un chat, un éléphant et un chameau), le résultat avait des arêtes partagées par quatre faces et les pièces ne se dépliaient pas à cet endroit ; le miroir corrige maintenant ces points.",
-    "es": "Esculturas simétricas: donde la mitad tocaba el plano de simetría con una faceta plana, una arista o un solo punto (visto en un gato, un elefante y un camello) el resultado tenía aristas compartidas por cuatro caras y las piezas no se desplegaban allí; ahora el espejo arregla esos puntos.",
-    "pt": "Esculturas simétricas: onde a metade tocava o plano de espelho com uma faceta plana, uma aresta ou um único ponto (visto num gato, num elefante e num camelo) o resultado tinha arestas partilhadas por quatro faces e as peças não se desdobravam ali; agora o espelho trata esses pontos.",
-    "ja": "対称な彫刻：半分が平らな面・辺・1点で鏡面に接していた箇所（猫、象、ラクダで確認）では、結果に4つの面が共有する辺ができ、そこで部品を展開できませんでした。鏡映処理がそれらの箇所を正しく扱うようになりました。"
+    "en": "Flat feet: a sole whose border touched itself (the neck of a bust) got three facets on one edge and could not be unfolded there; fixed. Thickening of thin parts: a model whose skin had many small tunnels (a strawberry) came out with a second, inside-out surface inside the sculpture; the thickened solid is now always one solid shell.",
+    "it": "Appoggi piatti: una suola il cui bordo toccava sé stesso (il collo di un busto) aveva tre faccette su uno stesso lato e lì non si sviluppava; corretto. Ingrossamento delle parti sottili: un modello con la pelle piena di piccoli tunnel (una fragola) usciva con una seconda superficie rovesciata dentro la scultura; ora il solido ingrossato è sempre un guscio unico.",
+    "de": "Flache Füße: Eine Sohle, deren Rand sich selbst berührte (der Hals einer Büste), bekam drei Facetten an einer Kante und ließ sich dort nicht abwickeln; behoben. Verdickung dünner Teile: Ein Modell mit vielen kleinen Tunneln in der Haut (eine Erdbeere) bekam eine zweite, nach innen gekehrte Fläche im Inneren der Skulptur; der verdickte Körper ist jetzt immer eine einzige Schale.",
+    "fr": "Appuis plats : une semelle dont le bord se touchait lui-même (le cou d'un buste) recevait trois facettes sur une même arête et ne se dépliait pas à cet endroit ; corrigé. Épaississement des parties fines : un modèle dont la peau comportait de nombreux petits tunnels (une fraise) ressortait avec une seconde surface retournée à l'intérieur de la sculpture ; le solide épaissi est désormais toujours une seule coque.",
+    "es": "Apoyos planos: una suela cuyo borde se tocaba a sí mismo (el cuello de un busto) recibía tres facetas en una misma arista y allí no se desplegaba; corregido. Engrosado de las partes finas: un modelo con la piel llena de pequeños túneles (una fresa) salía con una segunda superficie invertida dentro de la escultura; ahora el sólido engrosado es siempre una sola cáscara.",
+    "pt": "Apoios planos: uma sola cujo contorno tocava a si mesmo (o pescoço de um busto) recebia três facetas numa mesma aresta e ali não se desdobrava; corrigido. Engrossamento das partes finas: um modelo com a pele cheia de pequenos túneis (um morango) saía com uma segunda superfície invertida dentro da escultura; agora o sólido engrossado é sempre uma única casca.",
+    "ja": "平らな足：縁が自身に接する底面（胸像の首）では1つの辺に3つの面ができ、そこで展開できませんでした。修正しました。細い部分の肉厚化：表面に小さなトンネルが多数あるモデル（イチゴ）では彫刻の内側に裏返しの第2の面ができていました。肉厚化した立体は常に1つの殻になります。"
   },
   "history": [
+    {
+      "date": "2026-11-10T03:57:46Z",
+      "version": "1.3.81",
+      "notes": {
+        "en": "Flat feet: a sole whose border touched itself (the neck of a bust) got three facets on one edge and could not be unfolded there; fixed. Thickening of thin parts: a model whose skin had many small tunnels (a strawberry) came out with a second, inside-out surface inside the sculpture; the thickened solid is now always one solid shell.",
+        "it": "Appoggi piatti: una suola il cui bordo toccava sé stesso (il collo di un busto) aveva tre faccette su uno stesso lato e lì non si sviluppava; corretto. Ingrossamento delle parti sottili: un modello con la pelle piena di piccoli tunnel (una fragola) usciva con una seconda superficie rovesciata dentro la scultura; ora il solido ingrossato è sempre un guscio unico.",
+        "de": "Flache Füße: Eine Sohle, deren Rand sich selbst berührte (der Hals einer Büste), bekam drei Facetten an einer Kante und ließ sich dort nicht abwickeln; behoben. Verdickung dünner Teile: Ein Modell mit vielen kleinen Tunneln in der Haut (eine Erdbeere) bekam eine zweite, nach innen gekehrte Fläche im Inneren der Skulptur; der verdickte Körper ist jetzt immer eine einzige Schale.",
+        "fr": "Appuis plats : une semelle dont le bord se touchait lui-même (le cou d'un buste) recevait trois facettes sur une même arête et ne se dépliait pas à cet endroit ; corrigé. Épaississement des parties fines : un modèle dont la peau comportait de nombreux petits tunnels (une fraise) ressortait avec une seconde surface retournée à l'intérieur de la sculpture ; le solide épaissi est désormais toujours une seule coque.",
+        "es": "Apoyos planos: una suela cuyo borde se tocaba a sí mismo (el cuello de un busto) recibía tres facetas en una misma arista y allí no se desplegaba; corregido. Engrosado de las partes finas: un modelo con la piel llena de pequeños túneles (una fresa) salía con una segunda superficie invertida dentro de la escultura; ahora el sólido engrosado es siempre una sola cáscara.",
+        "pt": "Apoios planos: uma sola cujo contorno tocava a si mesmo (o pescoço de um busto) recebia três facetas numa mesma aresta e ali não se desdobrava; corrigido. Engrossamento das partes finas: um modelo com a pele cheia de pequenos túneis (um morango) saía com uma segunda superfície invertida dentro da escultura; agora o sólido engrossado é sempre uma única casca.",
+        "ja": "平らな足：縁が自身に接する底面（胸像の首）では1つの辺に3つの面ができ、そこで展開できませんでした。修正しました。細い部分の肉厚化：表面に小さなトンネルが多数あるモデル（イチゴ）では彫刻の内側に裏返しの第2の面ができていました。肉厚化した立体は常に1つの殻になります。"
+      }
+    },
     {
       "date": "2026-11-10T02:48:04Z",
       "version": "1.3.80",
@@ -518,28 +531,15 @@
         "pt": "Rasgos nas dobras curtas: o rasgo agora cabe até em dobras de poucos milímetros, quase nenhuma dobra precisa de alicate.",
         "ja": "短い曲げのスリット：数ミリの曲げにもスリットが入るようになり、ペンチが必要な曲げはほとんどなくなりました。"
       }
-    },
-    {
-      "date": "2026-11-08T09:14:17Z",
-      "version": "1.3.42",
-      "notes": {
-        "en": "Bends that replace a short seam now stay within 120°.",
-        "it": "Le pieghe che sostituiscono un cordone corto restano entro 120°.",
-        "de": "Biegungen, die eine kurze Schweißnaht ersetzen, bleiben jetzt innerhalb von 120°.",
-        "fr": "Les plis qui remplacent un cordon court restent désormais dans les 120°.",
-        "es": "Los pliegues que sustituyen un cordón corto ahora no superan los 120°.",
-        "pt": "As dobras que substituem um cordão curto agora ficam dentro de 120°.",
-        "ja": "短い溶接線の代わりになる曲げは 120° 以内に収まるようになりました。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.80",
+    "version": "1.3.81",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "7af49c53578c3e7dea119af6f3fa08047da8443b7389ee95f6a39ccb99fabbcf"
+        "sha256": "1d9b35a5a953f2f4f399b46680e3a76c6b2cf350dfdc12f54b3b20613deb2b48"
       }
     ]
   },

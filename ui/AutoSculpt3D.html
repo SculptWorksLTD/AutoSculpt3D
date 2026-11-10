@@ -2479,25 +2479,44 @@ function sculptMesh(V, F, target, onProgress, W, opts) {
             n = m;
         }
         r = best.r;
-        if (!W && !opts.symmetric && !r.thickened && opts.shapeGuard !== false) {
-            const size = Math.max(...meshBounds(V).size), tol = 0.1 * size, far0 = shapeFar(V, F, r, tol);
-            if (far0 > 0.08) {
-                let bestFar = far0;
-                for (const grow of [0.5 * opts.minEdge, opts.minEdge]) {
-                    const base = thickBase(V, F, grow), k = ext(base.V) / e0;
-                    const t = sculptOnce(base.V, base.F, target, onProgress, null, Object.assign({}, opts, { minEdge: opts.minEdge * k }));
+    }
+    const extOf = (M) => {
+        const bb = meshBounds(M);
+        if (!opts.up)
+            return Math.max(...bb.size);
+        const L = Math.hypot(...opts.up), u = opts.up.map(x => x / L);
+        let lo = Infinity, hi = -Infinity;
+        for (let v = 0; v < M.length; v += 3) {
+            const d = u[0] * M[v] + u[1] * M[v + 1] + u[2] * M[v + 2];
+            lo = Math.min(lo, d);
+            hi = Math.max(hi, d);
+        }
+        return hi - lo;
+    };
+    const sealedBase = (V0, F0) => { const g = remeshSolid(V0, F0, 128, 0, { close: 4 }); return g.F.length / 3 > 20000 ? decimateMesh(g.V, g.F, 20000) : g; };
+    const thick = opts.minEdge > 0 && opts.thicken !== false;
+    if (!W && !opts.symmetric && !r.thickened && opts.shapeGuard !== false && opts.shapeGuard !== 0) {
+        const size = Math.max(...meshBounds(V).size), tol = 0.1 * size, far0 = shapeFar(V, F, r, tol);
+        if (far0 > 0.08) {
+            let bestFar = far0;
+            for (const grow of thick ? [0.5 * opts.minEdge, opts.minEdge] : [0]) {
+                const base = grow > 0 ? thickBase(V, F, grow) : sealedBase(V, F), k = extOf(base.V) / extOf(V);
+                const t = sculptOnce(base.V, base.F, target, onProgress, null, Object.assign({}, opts, { minEdge: opts.minEdge * k }));
+                if (grow > 0) {
                     t.thickened = grow;
                     t.thickK = k;
-                    const far = shapeFar(V, F, t, tol + grow);
-                    if (far < 0.5 * bestFar) {
-                        r = t;
-                        bestFar = far;
-                    }
-                    if (bestFar <= 0.08)
-                        break;
                 }
-                r.shapeFar = bestFar;
+                else
+                    t.rebuilt = true;
+                const far = shapeFar(V, F, t, tol + grow);
+                if (far < 0.5 * bestFar) {
+                    r = t;
+                    bestFar = far;
+                }
+                if (bestFar <= 0.08)
+                    break;
             }
+            r.shapeFar = bestFar;
         }
     }
     return r;

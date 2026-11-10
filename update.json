@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.97",
-  "notes": "With few faces, models full of small holes or hollow inside (a statue with gaps between the toes, a vase) no longer come out as a box or a spike: when the sculpture drifts too far from the model, the program rebuilds it slightly thicker and keeps the closer result.",
+  "latest": "1.3.98",
+  "notes": "The shape check introduced in the last version now also works with “Thicken the parts that are too thin” switched off: the model is rebuilt with its small holes sealed, at its own size.",
   "notes_i18n": {
-    "en": "With few faces, models full of small holes or hollow inside (a statue with gaps between the toes, a vase) no longer come out as a box or a spike: when the sculpture drifts too far from the model, the program rebuilds it slightly thicker and keeps the closer result.",
-    "it": "Con poche facce, i modelli pieni di piccoli fori o cavi all'interno (una statua con gli spazi tra le dita, un vaso) non escono più come una scatola o una punta: quando la scultura si allontana troppo dal modello, il programma la rifà leggermente ingrossata e tiene il risultato più fedele.",
-    "de": "Bei wenigen Flächen werden Modelle voller kleiner Löcher oder mit Hohlraum (eine Statue mit Lücken zwischen den Zehen, eine Vase) nicht mehr zu einer Kiste oder Spitze: Weicht die Skulptur zu stark vom Modell ab, baut das Programm sie leicht verstärkt neu auf und behält das genauere Ergebnis.",
-    "fr": "Avec peu de faces, les modèles pleins de petits trous ou creux à l'intérieur (une statue avec des espaces entre les doigts, un vase) ne sortent plus sous forme de boîte ou de pointe : quand la sculpture s'éloigne trop du modèle, le programme la refait légèrement épaissie et garde le résultat le plus fidèle.",
-    "es": "Con pocas caras, los modelos llenos de pequeños agujeros o huecos por dentro (una estatua con espacios entre los dedos, un jarrón) ya no salen como una caja o una punta: cuando la escultura se aleja demasiado del modelo, el programa la rehace ligeramente engrosada y conserva el resultado más fiel.",
-    "pt": "Com poucas faces, os modelos cheios de pequenos furos ou ocos por dentro (uma estátua com espaços entre os dedos, um vaso) já não saem como uma caixa ou uma ponta: quando a escultura se afasta demais do modelo, o programa refaz a escultura ligeiramente engrossada e mantém o resultado mais fiel.",
-    "ja": "面の数が少ないとき、小さな穴の多いモデルや中が空洞のモデル（指の間にすき間のある像、花瓶）が箱やとがった形になることがなくなりました。彫刻がモデルから離れすぎた場合は、少し太らせて作り直し、より近い結果を採用します。"
+    "en": "The shape check introduced in the last version now also works with “Thicken the parts that are too thin” switched off: the model is rebuilt with its small holes sealed, at its own size.",
+    "it": "Il controllo della forma introdotto nella versione precedente ora funziona anche con «Ingrossa le parti troppo sottili» spento: il modello viene ricostruito con i piccoli fori chiusi, alla sua misura.",
+    "de": "Die in der letzten Version eingeführte Formprüfung funktioniert jetzt auch, wenn „Zu dünne Teile verstärken“ ausgeschaltet ist: Das Modell wird mit verschlossenen kleinen Löchern in seiner eigenen Größe neu aufgebaut.",
+    "fr": "Le contrôle de la forme introduit dans la version précédente fonctionne désormais aussi avec « Épaissir les parties trop fines » désactivé : le modèle est reconstruit avec ses petits trous bouchés, à sa propre taille.",
+    "es": "La comprobación de la forma introducida en la versión anterior ahora funciona también con «Engrosar las partes demasiado finas» desactivado: el modelo se reconstruye con sus pequeños agujeros cerrados, a su propio tamaño.",
+    "pt": "A verificação da forma introduzida na versão anterior agora funciona também com «Engrossar as partes finas demais» desligado: o modelo é reconstruído com os pequenos furos fechados, no seu próprio tamanho.",
+    "ja": "前のバージョンで導入した形状チェックが、「細すぎる部分を太くする」をオフにしていても働くようになりました。小さな穴をふさいだ状態で、元の大きさのままモデルを作り直します。"
   },
   "history": [
+    {
+      "date": "2026-11-10T23:01:19Z",
+      "version": "1.3.98",
+      "notes": {
+        "en": "The shape check introduced in the last version now also works with “Thicken the parts that are too thin” switched off: the model is rebuilt with its small holes sealed, at its own size.",
+        "it": "Il controllo della forma introdotto nella versione precedente ora funziona anche con «Ingrossa le parti troppo sottili» spento: il modello viene ricostruito con i piccoli fori chiusi, alla sua misura.",
+        "de": "Die in der letzten Version eingeführte Formprüfung funktioniert jetzt auch, wenn „Zu dünne Teile verstärken“ ausgeschaltet ist: Das Modell wird mit verschlossenen kleinen Löchern in seiner eigenen Größe neu aufgebaut.",
+        "fr": "Le contrôle de la forme introduit dans la version précédente fonctionne désormais aussi avec « Épaissir les parties trop fines » désactivé : le modèle est reconstruit avec ses petits trous bouchés, à sa propre taille.",
+        "es": "La comprobación de la forma introducida en la versión anterior ahora funciona también con «Engrosar las partes demasiado finas» desactivado: el modelo se reconstruye con sus pequeños agujeros cerrados, a su propio tamaño.",
+        "pt": "A verificação da forma introduzida na versão anterior agora funciona também com «Engrossar as partes finas demais» desligado: o modelo é reconstruído com os pequenos furos fechados, no seu próprio tamanho.",
+        "ja": "前のバージョンで導入した形状チェックが、「細すぎる部分を太くする」をオフにしていても働くようになりました。小さな穴をふさいだ状態で、元の大きさのままモデルを作り直します。"
+      }
+    },
     {
       "date": "2026-11-10T22:16:20Z",
       "version": "1.3.97",
@@ -518,28 +531,15 @@
         "pt": "Apoios planos: o corte sob as partes que tocam o chão agora é de apenas 3 mm por padrão e pode ser ajustado em Forma e medidas.",
         "ja": "平らな接地面: 地面に触れる部分の切り取り量が標準でわずか 3 mm になり、「形とサイズ」で調整できます。"
       }
-    },
-    {
-      "date": "2026-11-08T16:52:28Z",
-      "version": "1.3.59",
-      "notes": {
-        "en": "Flat soles: whatever touches the ground (hooves, paws, the bottom of a statue) now rests on a flat face instead of faceted tips, at any number of faces (option in Shape and size). The balanced base plate now follows how the weight of the sculpture is spread: it reaches out under the parts that lean out.",
-        "it": "Appoggi piatti: tutto ciò che tocca terra (zoccoli, zampe, la base di una statua) ora poggia su una faccia piana invece che su punte sfaccettate, con qualsiasi numero di facce (opzione in Forma e misure). La piastra bilanciata ora segue come si distribuisce il peso della scultura: si allunga sotto le parti che sporgono.",
-        "de": "Flache Sohlen: Alles, was den Boden berührt (Hufe, Pfoten, der Fuß einer Statue), steht jetzt bei jeder Flächenzahl auf einer ebenen Fläche statt auf facettierten Spitzen (Option unter Form und Maße). Die ausbalancierte Grundplatte folgt jetzt der Gewichtsverteilung der Skulptur: Sie reicht unter die überhängenden Teile.",
-        "fr": "Semelles plates : tout ce qui touche le sol (sabots, pattes, le pied d’une statue) repose maintenant sur une face plane au lieu de pointes facettées, quel que soit le nombre de faces (option dans Forme et dimensions). La plaque équilibrée suit maintenant la répartition du poids de la sculpture : elle s’étend sous les parties en porte-à-faux.",
-        "es": "Apoyos planos: todo lo que toca el suelo (cascos, patas, la base de una estatua) ahora apoya sobre una cara plana en lugar de puntas facetadas, con cualquier número de caras (opción en Forma y medidas). La placa equilibrada ahora sigue cómo se reparte el peso de la escultura: se extiende bajo las partes que sobresalen.",
-        "pt": "Apoios planos: tudo o que toca o chão (cascos, patas, a base de uma estátua) agora apoia numa face plana em vez de pontas facetadas, com qualquer número de faces (opção em Forma e medidas). A placa equilibrada agora acompanha como o peso da escultura se distribui: estende-se sob as partes salientes.",
-        "ja": "平らな接地面: 地面に触れる部分（ひづめ、足、像の底）が、面数に関係なく多面の先端ではなく平らな面で接地するようになりました（「形とサイズ」で設定）。バランス台座は彫刻の重さの分布に沿った形になり、張り出した部分の下まで伸びます。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.97",
+    "version": "1.3.98",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "e1864da7487bc7dc38a9cb3038b6bc2fa7d6cf7189a40a987332d9dba8faa754"
+        "sha256": "8a98e7f7d6ba5be392da7d1a65c4148c296bda02d072d2431d804b03f3183dbe"
       }
     ]
   },

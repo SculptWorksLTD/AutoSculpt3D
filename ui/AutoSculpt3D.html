@@ -5405,9 +5405,13 @@ async function updateLow(reframe) {
     let low = await runDecimate(S.base.V, S.base.F, target, null, strokeWeights(), opts);
     if (tk !== S.token)
         return;
-    const q = extentAlongRef(S.base.V) / (extentAlongRef(low.V) || 1);
-    if (q > 1.002 && (largestFace(low.V, low.F).edge * q > opts.maxEdge || largestFace(low.V, low.F).alt * q > opts.maxAlt)) {
-        low = await runDecimate(S.base.V, S.base.F, target, null, strokeWeights(), Object.assign({}, opts, { maxEdge: opts.maxEdge / (1.01 * q), maxAlt: opts.maxAlt / (1.01 * q) }));
+    for (let it = 0, fac = 1; it < 3; it++) {
+        const q = extentAlongRef(S.base.V) / (extentAlongRef(low.V) || 1), lf = largestFace(low.V, low.F);
+        const over = Math.max(lf.edge * q / opts.maxEdge, lf.alt * q / opts.maxAlt);
+        if (over <= 1)
+            break;
+        fac *= 1.01 * over;
+        low = await runDecimate(S.base.V, S.base.F, target, null, strokeWeights(), Object.assign({}, opts, { maxEdge: opts.maxEdge / fac, maxAlt: opts.maxAlt / fac }));
         if (tk !== S.token)
             return;
     }

@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.83",
-  "notes": "Flat feet: when the cut at the ground split a sole in two at two points (the rim of a pizza), the sole was closed as one piece and got a seam shared by four facets; it now becomes two clean soles.",
+  "latest": "1.3.84",
+  "notes": "Symmetric sculptures, many fixes: plates and letters no longer vanish (the mirror across their thickness is skipped); a part that joins the body on the other side of the mirror no longer becomes a loose piece; models made of several parts keep all of them; fewer facets lost on bottles, dumbbells and cones; thin parts are thickened up to 3× faster with symmetry on.",
   "notes_i18n": {
-    "en": "Flat feet: when the cut at the ground split a sole in two at two points (the rim of a pizza), the sole was closed as one piece and got a seam shared by four facets; it now becomes two clean soles.",
-    "it": "Appoggi piatti: quando il taglio a terra divideva una suola in due in due punti (il bordo di una pizza), la suola veniva chiusa come un pezzo unico e ne usciva un lato condiviso da quattro faccette; ora diventa due suole pulite.",
-    "de": "Flache Füße: Wenn der Schnitt am Boden eine Sohle an zwei Punkten in zwei teilte (der Rand einer Pizza), wurde sie als ein Stück geschlossen und bekam eine Kante mit vier Facetten; jetzt entstehen zwei saubere Sohlen.",
-    "fr": "Appuis plats : quand la coupe au sol partageait une semelle en deux en deux points (le bord d'une pizza), la semelle était fermée d'un seul tenant et recevait une arête partagée par quatre facettes ; elle devient maintenant deux semelles propres.",
-    "es": "Apoyos planos: cuando el corte en el suelo dividía una suela en dos en dos puntos (el borde de una pizza), la suela se cerraba como una sola pieza y quedaba una arista compartida por cuatro facetas; ahora se convierte en dos suelas limpias.",
-    "pt": "Apoios planos: quando o corte no chão dividia uma sola em duas em dois pontos (a borda de uma pizza), a sola era fechada como uma só peça e ficava uma aresta partilhada por quatro facetas; agora passa a ser duas solas limpas.",
-    "ja": "平らな足：地面での切断が底面を2点で2つに分けていた場合（ピザの縁）、1つとして閉じられ4つの面が共有する辺ができていました。今はきれいな2つの底面になります。"
+    "en": "Symmetric sculptures, many fixes: plates and letters no longer vanish (the mirror across their thickness is skipped); a part that joins the body on the other side of the mirror no longer becomes a loose piece; models made of several parts keep all of them; fewer facets lost on bottles, dumbbells and cones; thin parts are thickened up to 3× faster with symmetry on.",
+    "it": "Sculture simmetriche, molte correzioni: targhe e lettere non spariscono più (lo specchio attraverso il loro spessore viene saltato); una parte che si attacca al corpo dall'altro lato dello specchio non diventa più un pezzo volante; i modelli fatti di più parti le tengono tutte; meno faccette perse su bottiglie, manubri e coni; con la simmetria l'ingrossamento delle parti sottili è fino a 3 volte più veloce.",
+    "de": "Symmetrische Skulpturen, viele Korrekturen: Schilder und Buchstaben verschwinden nicht mehr (die Spiegelung durch ihre Dicke wird übersprungen); ein Teil, das auf der anderen Seite des Spiegels am Körper hängt, wird kein loses Stück mehr; Modelle aus mehreren Teilen behalten alle; weniger verlorene Facetten bei Flaschen, Hanteln und Kegeln; mit Symmetrie ist das Verdicken dünner Teile bis zu 3× schneller.",
+    "fr": "Sculptures symétriques, nombreuses corrections : plaques et lettres ne disparaissent plus (le miroir à travers leur épaisseur est ignoré) ; une partie qui rejoint le corps de l'autre côté du miroir ne devient plus une pièce volante ; les modèles faits de plusieurs parties les gardent toutes ; moins de facettes perdues sur les bouteilles, haltères et cônes ; avec la symétrie, l'épaississement des parties fines est jusqu'à 3× plus rapide.",
+    "es": "Esculturas simétricas, muchas correcciones: placas y letras ya no desaparecen (se omite el espejo a través de su grosor); una parte que se une al cuerpo al otro lado del espejo ya no se convierte en una pieza suelta; los modelos de varias partes las conservan todas; menos facetas perdidas en botellas, mancuernas y conos; con simetría el engrosado de partes finas es hasta 3 veces más rápido.",
+    "pt": "Esculturas simétricas, muitas correções: placas e letras já não desaparecem (o espelho através da espessura é ignorado); uma parte que se liga ao corpo do outro lado do espelho já não vira uma peça solta; modelos feitos de várias partes mantêm todas; menos facetas perdidas em garrafas, halteres e cones; com simetria o engrossamento das partes finas é até 3× mais rápido.",
+    "ja": "対称な彫刻の多くの修正：プレートや文字が消えなくなりました（厚み方向の鏡映を行いません）。鏡の反対側で本体につながる部分が浮いた部品にならなくなりました。複数の部品からなるモデルはすべての部品を保ちます。ボトル、ダンベル、円錐で失われる面が減りました。対称時の細い部分の肉厚化が最大3倍速くなりました。"
   },
   "history": [
+    {
+      "date": "2026-11-10T12:46:13Z",
+      "version": "1.3.84",
+      "notes": {
+        "en": "Symmetric sculptures, many fixes: plates and letters no longer vanish (the mirror across their thickness is skipped); a part that joins the body on the other side of the mirror no longer becomes a loose piece; models made of several parts keep all of them; fewer facets lost on bottles, dumbbells and cones; thin parts are thickened up to 3× faster with symmetry on.",
+        "it": "Sculture simmetriche, molte correzioni: targhe e lettere non spariscono più (lo specchio attraverso il loro spessore viene saltato); una parte che si attacca al corpo dall'altro lato dello specchio non diventa più un pezzo volante; i modelli fatti di più parti le tengono tutte; meno faccette perse su bottiglie, manubri e coni; con la simmetria l'ingrossamento delle parti sottili è fino a 3 volte più veloce.",
+        "de": "Symmetrische Skulpturen, viele Korrekturen: Schilder und Buchstaben verschwinden nicht mehr (die Spiegelung durch ihre Dicke wird übersprungen); ein Teil, das auf der anderen Seite des Spiegels am Körper hängt, wird kein loses Stück mehr; Modelle aus mehreren Teilen behalten alle; weniger verlorene Facetten bei Flaschen, Hanteln und Kegeln; mit Symmetrie ist das Verdicken dünner Teile bis zu 3× schneller.",
+        "fr": "Sculptures symétriques, nombreuses corrections : plaques et lettres ne disparaissent plus (le miroir à travers leur épaisseur est ignoré) ; une partie qui rejoint le corps de l'autre côté du miroir ne devient plus une pièce volante ; les modèles faits de plusieurs parties les gardent toutes ; moins de facettes perdues sur les bouteilles, haltères et cônes ; avec la symétrie, l'épaississement des parties fines est jusqu'à 3× plus rapide.",
+        "es": "Esculturas simétricas, muchas correcciones: placas y letras ya no desaparecen (se omite el espejo a través de su grosor); una parte que se une al cuerpo al otro lado del espejo ya no se convierte en una pieza suelta; los modelos de varias partes las conservan todas; menos facetas perdidas en botellas, mancuernas y conos; con simetría el engrosado de partes finas es hasta 3 veces más rápido.",
+        "pt": "Esculturas simétricas, muitas correções: placas e letras já não desaparecem (o espelho através da espessura é ignorado); uma parte que se liga ao corpo do outro lado do espelho já não vira uma peça solta; modelos feitos de várias partes mantêm todas; menos facetas perdidas em garrafas, halteres e cones; com simetria o engrossamento das partes finas é até 3× mais rápido.",
+        "ja": "対称な彫刻の多くの修正：プレートや文字が消えなくなりました（厚み方向の鏡映を行いません）。鏡の反対側で本体につながる部分が浮いた部品にならなくなりました。複数の部品からなるモデルはすべての部品を保ちます。ボトル、ダンベル、円錐で失われる面が減りました。対称時の細い部分の肉厚化が最大3倍速くなりました。"
+      }
+    },
     {
       "date": "2026-11-10T11:11:05Z",
       "version": "1.3.83",
@@ -518,28 +531,15 @@
         "pt": "Os avisos sobre um único cordão ou uma única dobra agora estão escritos corretamente.",
         "ja": "溶接線や曲げが 1 か所だけのときの警告文を正しく表示するようにしました。"
       }
-    },
-    {
-      "date": "2026-11-08T09:42:55Z",
-      "version": "1.3.45",
-      "notes": {
-        "en": "A new model now starts at the standard size of 600 mm instead of the size of the project opened before.",
-        "it": "Un modello nuovo ora parte dalla misura standard di 600 mm invece che dalla misura del progetto aperto prima.",
-        "de": "Ein neues Modell beginnt jetzt mit der Standardgröße von 600 mm statt mit der Größe des zuvor geöffneten Projekts.",
-        "fr": "Un nouveau modèle démarre désormais à la taille standard de 600 mm au lieu de celle du projet ouvert auparavant.",
-        "es": "Un modelo nuevo ahora empieza con el tamaño estándar de 600 mm en lugar del tamaño del proyecto abierto antes.",
-        "pt": "Um modelo novo agora começa no tamanho padrão de 600 mm em vez do tamanho do projeto aberto antes.",
-        "ja": "新しいモデルは、前に開いたプロジェクトのサイズではなく、標準の 600 mm から始まるようになりました。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.83",
+    "version": "1.3.84",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "b33b4f8abd96bd4ce7fe252c3deee9da53b6ca120e0bc9c93472f0e1ff5a4015"
+        "sha256": "3ad35af554ec50cd0c737737df049b29b55411aacb61dbe6123cb02fd8d330a7"
       }
     ]
   },

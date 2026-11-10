@@ -2121,7 +2121,7 @@ function flattenBottom(V, F, W, up, band, minEdge) {
     const Fout = dropF.size ? F2.filter((_, i) => !dropF.has(i - i % 3)) : F2;
     return { V: V2, F: Uint32Array.from(Fout), W: r.W, plane: P, soles, cut: cut - lo };
 }
-function dropCrumbs(V, F) {
+function dropCrumbs(V, F, keepLargest) {
     const nv = V.length / 3, nf = F.length / 3, par = new Int32Array(nv);
     for (let i = 0; i < nv; i++)
         par[i] = i;
@@ -2143,9 +2143,14 @@ function dropCrumbs(V, F) {
     }
     if (cnt.size < 2)
         return null;
+    let big = null;
+    if (keepLargest)
+        for (const [r, a] of area)
+            if (!big || a > area.get(big))
+                big = r;
     const drop = new Set();
     for (const [r, n] of cnt)
-        if (n <= 4 || area.get(r) < 0.002 * total)
+        if (keepLargest ? r !== big : (n <= 4 || area.get(r) < 0.002 * total))
             drop.add(r);
     if (!drop.size || drop.size === cnt.size)
         return null;
@@ -2270,7 +2275,7 @@ function sculptMesh(V, F, target, onProgress, W, opts) {
         for (let grow = 0.5 * opts.minEdge, round = 0; round < 3 && (n > 0 || lost(best.r)); round++, grow += 0.5 * opts.minEdge) {
             const base = thickBase(V, F, grow);
             const k = ext(base.V) / e0;
-            const t = sculptOnce(base.V, base.F, target, onProgress, null, Object.assign({}, opts, { minEdge: opts.minEdge * k }));
+            const t = sculptOnce(base.V, base.F, target, onProgress, null, Object.assign({}, opts, { minEdge: opts.minEdge * k }, opts.symmetric ? { symPlane: r.symPlane || null } : {}));
             t.thickened = grow;
             t.thickK = k;
             const m = thinRingEdges(t.V, t.F, opts.minEdge * k), g = Math.min(got(t), target);
@@ -2325,15 +2330,46 @@ function sculptOnce(V, F, target, onProgress, W, opts) {
     const reg = opts.regular || 0, regHi = Math.max(0, reg - 0.5);
     const sliver = opts.sliver !== undefined ? opts.sliver : 0.15 + 0.4 * Math.min(reg, 0.5) + 0.2 * regHi;
     const slRel = 0.5 + Math.min(reg, 0.5) + 0.5 * regHi;
-    let sym = null, r;
+    let sym = null, symRaw = null, r;
     if (opts.symmetric) {
-        sym = findSymmetry(V, F, opts.up || null);
+        sym = opts.symPlane !== undefined ? (opts.symPlane && Object.assign({}, opts.symPlane)) : findSymmetry(V, F, opts.up || null);
+        symRaw = sym ? Object.assign({}, sym) : null;
+        if (sym) {
+            let lo = Infinity, hi = -Infinity;
+            for (let v = 0; v < V.length; v += 3) {
+                const d = sym.n[0] * V[v] + sym.n[1] * V[v + 1] + sym.n[2] * V[v + 2];
+                lo = Math.min(lo, d);
+                hi = Math.max(hi, d);
+            }
+            if (hi - lo < 0.1 * Math.max(...meshBounds(V).size))
+                sym = null;
+        }
         if (sym && !sym.symmetric && sym.score < 0.12)
             sym.forced = true;
         if (sym && opts.symSide < 0)
             sym = Object.assign({}, sym, { n: sym.n.map(x => -x), d: -sym.d });
         if (sym && (sym.symmetric || sym.forced)) {
             const half = cutMesh(V, F, sym, weights), nh = half.F.length / 3;
+            const oneBody = (() => {
+                const nv = V.length / 3, par = new Int32Array(nv);
+                for (let i = 0; i < nv; i++)
+                    par[i] = i;
+                const fd = (x) => { while (par[x] !== x)
+                    x = par[x] = par[par[x]]; return x; };
+                for (let f = 0; f < F.length; f += 3) {
+                    par[fd(F[f])] = fd(F[f + 1]);
+                    par[fd(F[f])] = fd(F[f + 2]);
+                }
+                let root = -1;
+                for (let f = 0; f < F.length; f += 3) {
+                    const r0 = fd(F[f]);
+                    if (root < 0)
+                        root = r0;
+                    else if (r0 !== root)
+                        return false;
+                }
+                return true;
+            })();
             const once = (tgt) => {
                 let low = decimateMesh(half.V, half.F, Math.max(2, Math.round(tgt / 2)), onProgress, half.W, Object.assign({ lockPlane: sym }, dopts));
                 if (dopts.regular > 0)
@@ -2345,6 +2381,9 @@ function sculptOnce(V, F, target, onProgress, W, opts) {
                     low = Object.assign(low, { V: c.V, F: c.F });
                     flipEdges(low.V, low.F, 2, lim);
                 }
+                const dc = dropCrumbs(low.V, low.F, oneBody);
+                if (dc)
+                    low = Object.assign(low, { V: dc.V, F: dc.F });
                 let m = mirrorMesh(low.V, low.F, sym);
                 if (opts.minEdge > 0) {
                     const c = collapseShortEdges(m.V, m.F, opts.minEdge, sym, 0, G, 0, lim);
@@ -2359,11 +2398,13 @@ function sculptOnce(V, F, target, onProgress, W, opts) {
                 const t = once(tgt), got = t.F.length / 3;
                 if (!best || Math.abs(got - target) < Math.abs(best.got - target))
                     best = { r: t, got };
-                if (got >= target * 0.95 || tgt / 2 >= nh || got < target * 0.5)
+                if (got >= target * 0.95 || tgt / 2 >= nh || (got < target * 0.5 && t.thinFrac > 0.1))
                     break;
                 tgt = Math.min(2 * nh, Math.round(tgt * target / Math.max(1, got)));
             }
             r = best.r;
+            if (best.got < 4)
+                r = null;
         }
     }
     if (!r) {
@@ -2411,6 +2452,7 @@ function sculptOnce(V, F, target, onProgress, W, opts) {
         }
     }
     r.sym = sym ? { n: sym.n, d: sym.d, score: sym.score, used: !!(sym.symmetric || sym.forced), forced: !!sym.forced } : null;
+    r.symPlane = opts.symmetric ? symRaw : undefined;
     if (flat) {
         const b = meshBounds(r.V).size;
         snapToPlane(r.V, flat.plane, 0.001 * Math.max(...b));
@@ -2446,7 +2488,7 @@ function mirrorMesh(V, F, P) {
             else
                 ef.set(kk, [f]);
         }
-    const onCut = new Uint8Array(nv);
+    const onCut = new Uint8Array(nv), split = [];
     for (const [kk, fs] of ef) {
         const a = Math.floor(kk / 4294967296), c = kk % 4294967296;
         if (fs.length === 1 && onP[a] && onP[c]) {
@@ -2476,12 +2518,43 @@ function mirrorMesh(V, F, P) {
                 F[3 * g + 1] = q;
                 F[3 * g + 2] = o1;
             }
+            else if (o1 >= 0 && o2 >= 0)
+                split.push([a, c, f, g]);
         }
     }
-    const out = Array.from(V), twin = new Int32Array(nv);
-    for (let v = 0; v < nv; v++) {
+    const Vx = Array.from(V), touched = new Set(), Fx = Array.from(F);
+    for (const [a, c, f, g] of split) {
+        if (touched.has(f) || touched.has(g))
+            continue;
+        touched.add(f);
+        touched.add(g);
+        let side = 0;
+        for (const h of [f, g])
+            for (let k = 0; k < 3; k++)
+                side += dP(F[3 * h + k]);
+        const L = Math.hypot(V[3 * a] - V[3 * c], V[3 * a + 1] - V[3 * c + 1], V[3 * a + 2] - V[3 * c + 2]), s = Math.sign(side) * 0.01 * L, m = Vx.length / 3;
+        Vx.push((V[3 * a] + V[3 * c]) / 2 + s * P.n[0], (V[3 * a + 1] + V[3 * c + 1]) / 2 + s * P.n[1], (V[3 * a + 2] + V[3 * c + 2]) / 2 + s * P.n[2]);
+        for (const h of [f, g]) {
+            let i = 0;
+            while (!((Fx[3 * h + i] === a || Fx[3 * h + i] === c) && (Fx[3 * h + (i + 1) % 3] === a || Fx[3 * h + (i + 1) % 3] === c)))
+                i++;
+            const pp = Fx[3 * h + i], q = Fx[3 * h + (i + 1) % 3], r = Fx[3 * h + (i + 2) % 3];
+            Fx[3 * h] = pp;
+            Fx[3 * h + 1] = m;
+            Fx[3 * h + 2] = r;
+            Fx.push(m, q, r);
+        }
+    }
+    if (split.length) {
+        V = Float64Array.from(Vx);
+        F = Uint32Array.from(Fx);
+    }
+    const nv2 = V.length / 3, onP2 = new Uint8Array(nv2);
+    onP2.set(onP);
+    const out = Array.from(V), twin = new Int32Array(nv2);
+    for (let v = 0; v < nv2; v++) {
         const x = V[3 * v], y = V[3 * v + 1], z = V[3 * v + 2], d = dP(v);
-        if (onP[v] && onCut[v]) {
+        if (onP2[v] && onCut[v]) {
             twin[v] = v;
             continue;
         }
@@ -3391,7 +3464,7 @@ function unfoldMesh(V, F, opt) {
         }
     for (const pc of pieces)
         pc.adj = Array.from(pc.adj);
-    return { pieces, faceToPiece: Array.from(piece), stats: { pieces: pieces.length, faces: nf, weldLen, seams, shortEdges, bendCount, area: totalArea, cutLen, slotCount, bendNoSlot, flapCount, twinGroups, shortList, noSlotList } };
+    return { pieces, faceToPiece: Array.from(piece), uv: C2, stats: { pieces: pieces.length, faces: nf, weldLen, seams, shortEdges, bendCount, area: totalArea, cutLen, slotCount, bendNoSlot, flapCount, twinGroups, shortList, noSlotList } };
 }
 function nestPieces(entries, o) {
     if (entries.length && entries[0].loops)

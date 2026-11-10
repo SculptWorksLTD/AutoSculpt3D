@@ -1995,13 +1995,35 @@ function flattenBottom(V, F, W, up, band, minEdge) {
             continue;
         }
         let hi = -1, bi = -1;
-        for (let i = 0; i < h.loop.length && hi < 0; i++) {
+        const shared = [];
+        for (let i = 0; i < h.loop.length; i++) {
             const j = host.loop.indexOf(h.loop[i]);
-            if (j >= 0) {
-                hi = i;
-                bi = j;
+            if (j >= 0)
+                shared.push([i, j]);
+        }
+        if (shared.length >= 2) {
+            const [[i1, j1], [i2, j2]] = shared, seg = (arr, a, b) => { const out = []; for (let k = a;; k = (k + 1) % arr.length) {
+                out.push(arr[k]);
+                if (k === b)
+                    break;
+            } return out; };
+            const P = seg(host.loop, j1, j2), Q = seg(host.loop, j2, j1), A = seg(h.loop, i1, i2), Bk = seg(h.loop, i2, i1);
+            const l1 = P.concat(Bk.slice(1, -1)), l2 = A.concat(Q.slice(1, -1));
+            if (l1.length >= 3 && l2.length >= 3) {
+                host.loop = l1;
+                host.pts = l1.map(p2);
+                host.area = signedArea(host.pts);
+                const n2 = { loop: l2, pts: l2.map(p2) };
+                n2.area = signedArea(n2.pts);
+                if (Math.sign(n2.area) === outerSign)
+                    outers.push(n2);
+                else
+                    holes.push(n2);
+                continue;
             }
         }
+        if (shared.length)
+            [hi, bi] = shared[0];
         if (hi >= 0) {
             const ring = [];
             for (let k = 1; k < h.loop.length; k++)

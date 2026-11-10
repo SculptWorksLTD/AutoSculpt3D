@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.82",
-  "notes": "Models with holes: a hole whose border touches itself (a torn corner of a plate) was left open and the model came out as a cloud of crumbs; it is now closed properly before the model is rebuilt as a solid.",
+  "latest": "1.3.83",
+  "notes": "Flat feet: when the cut at the ground split a sole in two at two points (the rim of a pizza), the sole was closed as one piece and got a seam shared by four facets; it now becomes two clean soles.",
   "notes_i18n": {
-    "en": "Models with holes: a hole whose border touches itself (a torn corner of a plate) was left open and the model came out as a cloud of crumbs; it is now closed properly before the model is rebuilt as a solid.",
-    "it": "Modelli con buchi: un buco il cui bordo tocca sé stesso (l'angolo strappato di una lastra) restava aperto e il modello usciva come una nuvola di briciole; ora viene chiuso correttamente prima di ricostruire il modello come solido.",
-    "de": "Modelle mit Löchern: Ein Loch, dessen Rand sich selbst berührt (eine abgerissene Ecke einer Platte), blieb offen und das Modell kam als Wolke von Krümeln heraus; es wird jetzt richtig geschlossen, bevor das Modell als Körper neu aufgebaut wird.",
-    "fr": "Modèles troués : un trou dont le bord se touche lui-même (le coin arraché d'une plaque) restait ouvert et le modèle ressortait en nuage de miettes ; il est maintenant refermé correctement avant la reconstruction du modèle en solide.",
-    "es": "Modelos con agujeros: un agujero cuyo borde se toca a sí mismo (la esquina arrancada de una placa) quedaba abierto y el modelo salía como una nube de migas; ahora se cierra correctamente antes de reconstruir el modelo como sólido.",
-    "pt": "Modelos com furos: um furo cujo contorno toca a si mesmo (o canto arrancado de uma placa) ficava aberto e o modelo saía como uma nuvem de migalhas; agora é fechado corretamente antes de reconstruir o modelo como sólido.",
-    "ja": "穴のあるモデル：縁が自身に接する穴（板の欠けた角）が開いたままになり、モデルが破片の雲になっていました。立体として再構築する前に正しく閉じるようになりました。"
+    "en": "Flat feet: when the cut at the ground split a sole in two at two points (the rim of a pizza), the sole was closed as one piece and got a seam shared by four facets; it now becomes two clean soles.",
+    "it": "Appoggi piatti: quando il taglio a terra divideva una suola in due in due punti (il bordo di una pizza), la suola veniva chiusa come un pezzo unico e ne usciva un lato condiviso da quattro faccette; ora diventa due suole pulite.",
+    "de": "Flache Füße: Wenn der Schnitt am Boden eine Sohle an zwei Punkten in zwei teilte (der Rand einer Pizza), wurde sie als ein Stück geschlossen und bekam eine Kante mit vier Facetten; jetzt entstehen zwei saubere Sohlen.",
+    "fr": "Appuis plats : quand la coupe au sol partageait une semelle en deux en deux points (le bord d'une pizza), la semelle était fermée d'un seul tenant et recevait une arête partagée par quatre facettes ; elle devient maintenant deux semelles propres.",
+    "es": "Apoyos planos: cuando el corte en el suelo dividía una suela en dos en dos puntos (el borde de una pizza), la suela se cerraba como una sola pieza y quedaba una arista compartida por cuatro facetas; ahora se convierte en dos suelas limpias.",
+    "pt": "Apoios planos: quando o corte no chão dividia uma sola em duas em dois pontos (a borda de uma pizza), a sola era fechada como uma só peça e ficava uma aresta partilhada por quatro facetas; agora passa a ser duas solas limpas.",
+    "ja": "平らな足：地面での切断が底面を2点で2つに分けていた場合（ピザの縁）、1つとして閉じられ4つの面が共有する辺ができていました。今はきれいな2つの底面になります。"
   },
   "history": [
+    {
+      "date": "2026-11-10T11:11:05Z",
+      "version": "1.3.83",
+      "notes": {
+        "en": "Flat feet: when the cut at the ground split a sole in two at two points (the rim of a pizza), the sole was closed as one piece and got a seam shared by four facets; it now becomes two clean soles.",
+        "it": "Appoggi piatti: quando il taglio a terra divideva una suola in due in due punti (il bordo di una pizza), la suola veniva chiusa come un pezzo unico e ne usciva un lato condiviso da quattro faccette; ora diventa due suole pulite.",
+        "de": "Flache Füße: Wenn der Schnitt am Boden eine Sohle an zwei Punkten in zwei teilte (der Rand einer Pizza), wurde sie als ein Stück geschlossen und bekam eine Kante mit vier Facetten; jetzt entstehen zwei saubere Sohlen.",
+        "fr": "Appuis plats : quand la coupe au sol partageait une semelle en deux en deux points (le bord d'une pizza), la semelle était fermée d'un seul tenant et recevait une arête partagée par quatre facettes ; elle devient maintenant deux semelles propres.",
+        "es": "Apoyos planos: cuando el corte en el suelo dividía una suela en dos en dos puntos (el borde de una pizza), la suela se cerraba como una sola pieza y quedaba una arista compartida por cuatro facetas; ahora se convierte en dos suelas limpias.",
+        "pt": "Apoios planos: quando o corte no chão dividia uma sola em duas em dois pontos (a borda de uma pizza), a sola era fechada como uma só peça e ficava uma aresta partilhada por quatro facetas; agora passa a ser duas solas limpas.",
+        "ja": "平らな足：地面での切断が底面を2点で2つに分けていた場合（ピザの縁）、1つとして閉じられ4つの面が共有する辺ができていました。今はきれいな2つの底面になります。"
+      }
+    },
     {
       "date": "2026-11-10T06:57:07Z",
       "version": "1.3.82",
@@ -518,28 +531,15 @@
         "pt": "Um modelo novo agora começa no tamanho padrão de 600 mm em vez do tamanho do projeto aberto antes.",
         "ja": "新しいモデルは、前に開いたプロジェクトのサイズではなく、標準の 600 mm から始まるようになりました。"
       }
-    },
-    {
-      "date": "2026-11-08T09:32:54Z",
-      "version": "1.3.44",
-      "notes": {
-        "en": "Models made from photos are cleaned up automatically: no more legs full of tiny facets and a body made of a few huge faces. The facets are now spread evenly over the whole sculpture. Saving without typing the extension now adds it.",
-        "it": "I modelli ricavati dalle foto vengono puliti da soli: niente più zampe piene di faccette minuscole e corpo fatto di poche facce enormi. Ora le faccette si distribuiscono in modo uniforme su tutta la scultura. Se salvi senza scrivere l’estensione, viene aggiunta da sola.",
-        "de": "Aus Fotos erstellte Modelle werden automatisch bereinigt: keine Beine voller winziger Facetten und kein Körper aus wenigen riesigen Flächen mehr. Die Facetten verteilen sich jetzt gleichmäßig über die ganze Skulptur. Beim Speichern ohne Dateiendung wird sie jetzt ergänzt.",
-        "fr": "Les modèles créés à partir de photos sont nettoyés automatiquement : plus de pattes pleines de facettes minuscules ni de corps fait de quelques faces énormes. Les facettes se répartissent désormais uniformément sur toute la sculpture. Si vous enregistrez sans taper l’extension, elle est ajoutée.",
-        "es": "Los modelos creados a partir de fotos se limpian solos: ya no hay patas llenas de facetas diminutas ni un cuerpo hecho de pocas caras enormes. Ahora las facetas se reparten de forma uniforme por toda la escultura. Si guardas sin escribir la extensión, se añade sola.",
-        "pt": "Os modelos criados a partir de fotos são limpos automaticamente: chega de patas cheias de facetas minúsculas e corpo feito de poucas faces enormes. Agora as facetas se distribuem de forma uniforme por toda a escultura. Se você salvar sem digitar a extensão, ela é adicionada.",
-        "ja": "写真から作ったモデルを自動で整えるようになりました。脚に細かいファセットが集中し、胴体が少数の大きな面になる問題がなくなり、彫刻全体に均等にファセットが配分されます。拡張子なしで保存しても自動で付きます。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.82",
+    "version": "1.3.83",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "e752e7536990f4977020d3981650530d06111d7fb92dbb7ae528abbced6ceb70"
+        "sha256": "b33b4f8abd96bd4ce7fe252c3deee9da53b6ca120e0bc9c93472f0e1ff5a4015"
       }
     ]
   },

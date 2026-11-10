@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.96",
-  "notes": "Symmetric sculptures with flat soles: the last very short seams on the ground along the mirror line are gone.",
+  "latest": "1.3.97",
+  "notes": "With few faces, models full of small holes or hollow inside (a statue with gaps between the toes, a vase) no longer come out as a box or a spike: when the sculpture drifts too far from the model, the program rebuilds it slightly thicker and keeps the closer result.",
   "notes_i18n": {
-    "en": "Symmetric sculptures with flat soles: the last very short seams on the ground along the mirror line are gone.",
-    "it": "Sculture simmetriche con appoggi piatti: spariti gli ultimi cordoni cortissimi a terra lungo la linea di specchio.",
-    "de": "Symmetrische Skulpturen mit flachen Sohlen: Die letzten sehr kurzen Nähte am Boden entlang der Spiegellinie sind verschwunden.",
-    "fr": "Sculptures symétriques avec semelles plates : les derniers cordons très courts au sol le long de la ligne de miroir ont disparu.",
-    "es": "Esculturas simétricas con apoyos planos: desaparecen los últimos cordones muy cortos en el suelo a lo largo de la línea de espejo.",
-    "pt": "Esculturas simétricas com apoios planos: desapareceram os últimos cordões muito curtos no chão ao longo da linha de espelho.",
-    "ja": "平らな底面を持つ対称の彫刻：鏡の線に沿った地面の、最後に残っていた極端に短い溶接線がなくなりました。"
+    "en": "With few faces, models full of small holes or hollow inside (a statue with gaps between the toes, a vase) no longer come out as a box or a spike: when the sculpture drifts too far from the model, the program rebuilds it slightly thicker and keeps the closer result.",
+    "it": "Con poche facce, i modelli pieni di piccoli fori o cavi all'interno (una statua con gli spazi tra le dita, un vaso) non escono più come una scatola o una punta: quando la scultura si allontana troppo dal modello, il programma la rifà leggermente ingrossata e tiene il risultato più fedele.",
+    "de": "Bei wenigen Flächen werden Modelle voller kleiner Löcher oder mit Hohlraum (eine Statue mit Lücken zwischen den Zehen, eine Vase) nicht mehr zu einer Kiste oder Spitze: Weicht die Skulptur zu stark vom Modell ab, baut das Programm sie leicht verstärkt neu auf und behält das genauere Ergebnis.",
+    "fr": "Avec peu de faces, les modèles pleins de petits trous ou creux à l'intérieur (une statue avec des espaces entre les doigts, un vase) ne sortent plus sous forme de boîte ou de pointe : quand la sculpture s'éloigne trop du modèle, le programme la refait légèrement épaissie et garde le résultat le plus fidèle.",
+    "es": "Con pocas caras, los modelos llenos de pequeños agujeros o huecos por dentro (una estatua con espacios entre los dedos, un jarrón) ya no salen como una caja o una punta: cuando la escultura se aleja demasiado del modelo, el programa la rehace ligeramente engrosada y conserva el resultado más fiel.",
+    "pt": "Com poucas faces, os modelos cheios de pequenos furos ou ocos por dentro (uma estátua com espaços entre os dedos, um vaso) já não saem como uma caixa ou uma ponta: quando a escultura se afasta demais do modelo, o programa refaz a escultura ligeiramente engrossada e mantém o resultado mais fiel.",
+    "ja": "面の数が少ないとき、小さな穴の多いモデルや中が空洞のモデル（指の間にすき間のある像、花瓶）が箱やとがった形になることがなくなりました。彫刻がモデルから離れすぎた場合は、少し太らせて作り直し、より近い結果を採用します。"
   },
   "history": [
+    {
+      "date": "2026-11-10T22:16:20Z",
+      "version": "1.3.97",
+      "notes": {
+        "en": "With few faces, models full of small holes or hollow inside (a statue with gaps between the toes, a vase) no longer come out as a box or a spike: when the sculpture drifts too far from the model, the program rebuilds it slightly thicker and keeps the closer result.",
+        "it": "Con poche facce, i modelli pieni di piccoli fori o cavi all'interno (una statua con gli spazi tra le dita, un vaso) non escono più come una scatola o una punta: quando la scultura si allontana troppo dal modello, il programma la rifà leggermente ingrossata e tiene il risultato più fedele.",
+        "de": "Bei wenigen Flächen werden Modelle voller kleiner Löcher oder mit Hohlraum (eine Statue mit Lücken zwischen den Zehen, eine Vase) nicht mehr zu einer Kiste oder Spitze: Weicht die Skulptur zu stark vom Modell ab, baut das Programm sie leicht verstärkt neu auf und behält das genauere Ergebnis.",
+        "fr": "Avec peu de faces, les modèles pleins de petits trous ou creux à l'intérieur (une statue avec des espaces entre les doigts, un vase) ne sortent plus sous forme de boîte ou de pointe : quand la sculpture s'éloigne trop du modèle, le programme la refait légèrement épaissie et garde le résultat le plus fidèle.",
+        "es": "Con pocas caras, los modelos llenos de pequeños agujeros o huecos por dentro (una estatua con espacios entre los dedos, un jarrón) ya no salen como una caja o una punta: cuando la escultura se aleja demasiado del modelo, el programa la rehace ligeramente engrosada y conserva el resultado más fiel.",
+        "pt": "Com poucas faces, os modelos cheios de pequenos furos ou ocos por dentro (uma estátua com espaços entre os dedos, um vaso) já não saem como uma caixa ou uma ponta: quando a escultura se afasta demais do modelo, o programa refaz a escultura ligeiramente engrossada e mantém o resultado mais fiel.",
+        "ja": "面の数が少ないとき、小さな穴の多いモデルや中が空洞のモデル（指の間にすき間のある像、花瓶）が箱やとがった形になることがなくなりました。彫刻がモデルから離れすぎた場合は、少し太らせて作り直し、より近い結果を採用します。"
+      }
+    },
     {
       "date": "2026-11-10T21:56:31Z",
       "version": "1.3.96",
@@ -518,28 +531,15 @@
         "pt": "Apoios planos: tudo o que toca o chão (cascos, patas, a base de uma estátua) agora apoia numa face plana em vez de pontas facetadas, com qualquer número de faces (opção em Forma e medidas). A placa equilibrada agora acompanha como o peso da escultura se distribui: estende-se sob as partes salientes.",
         "ja": "平らな接地面: 地面に触れる部分（ひづめ、足、像の底）が、面数に関係なく多面の先端ではなく平らな面で接地するようになりました（「形とサイズ」で設定）。バランス台座は彫刻の重さの分布に沿った形になり、張り出した部分の下まで伸びます。"
       }
-    },
-    {
-      "date": "2026-11-08T16:23:10Z",
-      "version": "1.3.58",
-      "notes": {
-        "en": "The balanced base plate is now centred on the centre of gravity of the whole sculpture (shell, internal ribs and the plate itself): it gets a regular shape, symmetric around the centre, and grows further only if needed to withstand the chosen tilt.",
-        "it": "La piastra bilanciata ora è centrata sul baricentro dell’intera scultura (guscio, centine interne e piastra stessa): ha una forma regolare, simmetrica attorno al baricentro, e si allarga ancora solo se serve per reggere l’inclinazione scelta.",
-        "de": "Die ausbalancierte Grundplatte ist jetzt auf den Schwerpunkt der ganzen Skulptur zentriert (Hülle, innere Spanten und die Platte selbst): Sie bekommt eine regelmäßige, um den Schwerpunkt symmetrische Form und wird nur bei Bedarf weiter vergrößert, um die gewählte Neigung auszuhalten.",
-        "fr": "La plaque équilibrée est maintenant centrée sur le centre de gravité de toute la sculpture (coque, gabarits internes et plaque elle-même) : elle prend une forme régulière, symétrique autour du centre, et ne s’agrandit davantage que si nécessaire pour supporter l’inclinaison choisie.",
-        "es": "La placa equilibrada ahora está centrada en el centro de gravedad de toda la escultura (carcasa, costillas internas y la propia placa): tiene una forma regular, simétrica alrededor del centro, y solo crece más si hace falta para soportar la inclinación elegida.",
-        "pt": "A placa equilibrada agora fica centrada no centro de gravidade de toda a escultura (casca, cavernas internas e a própria placa): tem forma regular, simétrica em torno do centro, e só cresce mais se for preciso para suportar a inclinação escolhida.",
-        "ja": "バランス台座が彫刻全体（外殻・内部リブ・台座自体）の重心を中心に配置されるようになりました。重心の周りで対称な整った形になり、選んだ傾きに耐えるのに必要な場合だけさらに広がります。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.96",
+    "version": "1.3.97",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "f6a692227a3119a774bbbba43b25c6d5db4b3b5004292ad41a307c2720758f12"
+        "sha256": "e1864da7487bc7dc38a9cb3038b6bc2fa7d6cf7189a40a987332d9dba8faa754"
       }
     ]
   },

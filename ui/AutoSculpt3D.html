@@ -2350,6 +2350,101 @@ function thickBase(V, F, grow) {
     thickCache.length = Math.min(thickCache.length, 4);
     return base;
 }
+function shapeFar(V, F, R, tol, N) {
+    N = N || 300;
+    const nb = F.length / 3, area = new Float64Array(nb);
+    let tot = 0;
+    for (let f = 0; f < nb; f++) {
+        const a = 3 * F[3 * f], b = 3 * F[3 * f + 1], d = 3 * F[3 * f + 2];
+        const ux = V[b] - V[a], uy = V[b + 1] - V[a + 1], uz = V[b + 2] - V[a + 2], wx = V[d] - V[a], wy = V[d + 1] - V[a + 1], wz = V[d + 2] - V[a + 2];
+        tot += area[f] = Math.hypot(uy * wz - uz * wy, uz * wx - ux * wz, ux * wy - uy * wx);
+    }
+    if (!(tot > 0) || R.F.length < 3)
+        return 1;
+    const pts = [];
+    let acc = 0, next = tot / N / 2, sd = 0.37;
+    for (let f = 0; f < nb && pts.length < N; f++) {
+        acc += area[f];
+        while (acc >= next && pts.length < N) {
+            sd = (sd * 9301 + 49297) % 233280 / 233280;
+            const t = (sd * 7.31) % 1;
+            let w1 = sd, w2 = t;
+            if (w1 + w2 > 1) {
+                w1 = 1 - w1;
+                w2 = 1 - w2;
+            }
+            const a = 3 * F[3 * f], b = 3 * F[3 * f + 1], d = 3 * F[3 * f + 2];
+            pts.push([V[a] + w1 * (V[b] - V[a]) + w2 * (V[d] - V[a]), V[a + 1] + w1 * (V[b + 1] - V[a + 1]) + w2 * (V[d + 1] - V[a + 1]), V[a + 2] + w1 * (V[b + 2] - V[a + 2]) + w2 * (V[d + 2] - V[a + 2])]);
+            next += tot / N;
+        }
+    }
+    const RV = R.V, RF = R.F, nf = RF.length / 3, t2 = tol * tol;
+    const d2 = (p, f) => {
+        const ia = 3 * RF[3 * f], ib = 3 * RF[3 * f + 1], ic = 3 * RF[3 * f + 2];
+        const ax = RV[ia], ay = RV[ia + 1], az = RV[ia + 2], abx = RV[ib] - ax, aby = RV[ib + 1] - ay, abz = RV[ib + 2] - az, acx = RV[ic] - ax, acy = RV[ic + 1] - ay, acz = RV[ic + 2] - az;
+        const apx = p[0] - ax, apy = p[1] - ay, apz = p[2] - az;
+        const e1 = abx * apx + aby * apy + abz * apz, e2 = acx * apx + acy * apy + acz * apz;
+        let v, w;
+        if (e1 <= 0 && e2 <= 0) {
+            v = 0;
+            w = 0;
+        }
+        else {
+            const bpx = apx - abx, bpy = apy - aby, bpz = apz - abz, e3 = abx * bpx + aby * bpy + abz * bpz, e4 = acx * bpx + acy * bpy + acz * bpz;
+            if (e3 >= 0 && e4 <= e3) {
+                v = 1;
+                w = 0;
+            }
+            else {
+                const vc = e1 * e4 - e3 * e2;
+                if (vc <= 0 && e1 >= 0 && e3 <= 0) {
+                    v = e1 / (e1 - e3);
+                    w = 0;
+                }
+                else {
+                    const cpx = apx - acx, cpy = apy - acy, cpz = apz - acz, e5 = abx * cpx + aby * cpy + abz * cpz, e6 = acx * cpx + acy * cpy + acz * cpz;
+                    if (e6 >= 0 && e5 <= e6) {
+                        v = 0;
+                        w = 1;
+                    }
+                    else {
+                        const vb = e5 * e2 - e1 * e6;
+                        if (vb <= 0 && e2 >= 0 && e6 <= 0) {
+                            v = 0;
+                            w = e2 / (e2 - e6);
+                        }
+                        else {
+                            const va = e3 * e6 - e5 * e4;
+                            if (va <= 0 && e4 - e3 >= 0 && e5 - e6 >= 0) {
+                                w = (e4 - e3) / ((e4 - e3) + (e5 - e6));
+                                v = 1 - w;
+                            }
+                            else {
+                                const den = 1 / (va + vb + vc);
+                                v = vb * den;
+                                w = vc * den;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        const qx = apx - abx * v - acx * w, qy = apy - aby * v - acy * w, qz = apz - abz * v - acz * w;
+        return qx * qx + qy * qy + qz * qz;
+    };
+    let far = 0;
+    for (const p of pts) {
+        let near = false;
+        for (let f = 0; f < nf; f++)
+            if (d2(p, f) <= t2) {
+                near = true;
+                break;
+            }
+        if (!near)
+            far++;
+    }
+    return far / pts.length;
+}
 function sculptMesh(V, F, target, onProgress, W, opts) {
     opts = opts || {};
     let r = sculptOnce(V, F, target, onProgress, W, opts);
@@ -2384,6 +2479,26 @@ function sculptMesh(V, F, target, onProgress, W, opts) {
             n = m;
         }
         r = best.r;
+        if (!W && !opts.symmetric && !r.thickened && opts.shapeGuard !== false) {
+            const size = Math.max(...meshBounds(V).size), tol = 0.1 * size, far0 = shapeFar(V, F, r, tol);
+            if (far0 > 0.08) {
+                let bestFar = far0;
+                for (const grow of [0.5 * opts.minEdge, opts.minEdge]) {
+                    const base = thickBase(V, F, grow), k = ext(base.V) / e0;
+                    const t = sculptOnce(base.V, base.F, target, onProgress, null, Object.assign({}, opts, { minEdge: opts.minEdge * k }));
+                    t.thickened = grow;
+                    t.thickK = k;
+                    const far = shapeFar(V, F, t, tol + grow);
+                    if (far < 0.5 * bestFar) {
+                        r = t;
+                        bestFar = far;
+                    }
+                    if (bestFar <= 0.08)
+                        break;
+                }
+                r.shapeFar = bestFar;
+            }
+        }
     }
     return r;
 }

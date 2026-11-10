@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.94",
-  "notes": "Shapes made of long strips (a glass, a bottle, a lamp) keep their other parts: the foot of a glass is no longer reduced to a triangle with “Regular facets” set high. Two faces are no longer joined along an edge shorter than 2 mm, where a triangle could come off the piece.",
+  "latest": "1.3.95",
+  "notes": "Symmetric sculptures and flat soles: no more hair-thin seams and slits where the cut passes close to a point of the model. With internal ribs switched on, a clear message says when none fits inside the shape.",
   "notes_i18n": {
-    "en": "Shapes made of long strips (a glass, a bottle, a lamp) keep their other parts: the foot of a glass is no longer reduced to a triangle with “Regular facets” set high. Two faces are no longer joined along an edge shorter than 2 mm, where a triangle could come off the piece.",
-    "it": "Le forme fatte di strisce lunghe (un bicchiere, una bottiglia, una lampada) conservano le altre parti: il piede di un bicchiere non si riduce più a un triangolo con «Faccette regolari» alto. Due facce non vengono più unite lungo un lato più corto di 2 mm, dove un triangolo poteva staccarsi dal pezzo.",
-    "de": "Formen aus langen Streifen (Glas, Flasche, Lampe) behalten ihre übrigen Teile: Der Fuß eines Glases wird bei hoch eingestellten „Regelmäßigen Facetten“ nicht mehr zu einem Dreieck. Zwei Flächen werden nicht mehr entlang einer Kante unter 2 mm verbunden, an der sich ein Dreieck vom Teil lösen konnte.",
-    "fr": "Les formes faites de longues bandes (un verre, une bouteille, une lampe) conservent leurs autres parties : le pied d'un verre n'est plus réduit à un triangle avec « Facettes régulières » élevé. Deux faces ne sont plus réunies le long d'une arête de moins de 2 mm, où un triangle pouvait se détacher de la pièce.",
-    "es": "Las formas hechas de tiras largas (una copa, una botella, una lámpara) conservan sus otras partes: el pie de una copa ya no se reduce a un triángulo con «Facetas regulares» alto. Dos caras ya no se unen a lo largo de una arista de menos de 2 mm, donde un triángulo podía desprenderse de la pieza.",
-    "pt": "As formas feitas de tiras longas (uma taça, uma garrafa, uma luminária) mantêm as outras partes: o pé de uma taça já não se reduz a um triângulo com «Facetas regulares» alto. Duas faces já não são unidas ao longo de uma aresta menor que 2 mm, onde um triângulo podia soltar-se da peça.",
-    "ja": "長い帯でできた形（グラス、ボトル、ランプ）で他の部分が保たれるようになりました。「均等な面」を高くしてもグラスの脚の台が三角形に潰れません。2 mm未満の辺で二つの面をつなぐこともなくなり、三角形が部品から外れることがなくなりました。"
+    "en": "Symmetric sculptures and flat soles: no more hair-thin seams and slits where the cut passes close to a point of the model. With internal ribs switched on, a clear message says when none fits inside the shape.",
+    "it": "Sculture simmetriche e appoggi piatti: niente più cordoni cortissimi e fessure dove il taglio passa vicino a un punto del modello. Con le centine interne attive, un messaggio chiaro dice quando nessuna entra nella forma.",
+    "de": "Symmetrische Skulpturen und flache Sohlen: keine haarfeinen Nähte und Schlitze mehr, wo der Schnitt nahe an einem Punkt des Modells verläuft. Bei eingeschalteten inneren Rippen sagt eine klare Meldung, wenn keine in die Form passt.",
+    "fr": "Sculptures symétriques et semelles plates : plus de cordons minuscules ni de fentes là où la coupe passe près d'un point du modèle. Avec les nervures internes activées, un message clair indique quand aucune ne tient dans la forme.",
+    "es": "Esculturas simétricas y apoyos planos: ya no hay cordones diminutos ni ranuras donde el corte pasa cerca de un punto del modelo. Con las costillas internas activadas, un mensaje claro indica cuándo ninguna cabe en la forma.",
+    "pt": "Esculturas simétricas e apoios planos: já não há cordões minúsculos nem fendas onde o corte passa perto de um ponto do modelo. Com as nervuras internas ativadas, uma mensagem clara indica quando nenhuma cabe na forma.",
+    "ja": "対称の彫刻と平らな底面：切断がモデルの点の近くを通る場所で、極端に短い溶接線やスリットができなくなりました。内部リブを有効にしていて形に収まるリブがない場合は、わかりやすいメッセージを表示します。"
   },
   "history": [
+    {
+      "date": "2026-11-10T21:23:19Z",
+      "version": "1.3.95",
+      "notes": {
+        "en": "Symmetric sculptures and flat soles: no more hair-thin seams and slits where the cut passes close to a point of the model. With internal ribs switched on, a clear message says when none fits inside the shape.",
+        "it": "Sculture simmetriche e appoggi piatti: niente più cordoni cortissimi e fessure dove il taglio passa vicino a un punto del modello. Con le centine interne attive, un messaggio chiaro dice quando nessuna entra nella forma.",
+        "de": "Symmetrische Skulpturen und flache Sohlen: keine haarfeinen Nähte und Schlitze mehr, wo der Schnitt nahe an einem Punkt des Modells verläuft. Bei eingeschalteten inneren Rippen sagt eine klare Meldung, wenn keine in die Form passt.",
+        "fr": "Sculptures symétriques et semelles plates : plus de cordons minuscules ni de fentes là où la coupe passe près d'un point du modèle. Avec les nervures internes activées, un message clair indique quand aucune ne tient dans la forme.",
+        "es": "Esculturas simétricas y apoyos planos: ya no hay cordones diminutos ni ranuras donde el corte pasa cerca de un punto del modelo. Con las costillas internas activadas, un mensaje claro indica cuándo ninguna cabe en la forma.",
+        "pt": "Esculturas simétricas e apoios planos: já não há cordões minúsculos nem fendas onde o corte passa perto de um ponto do modelo. Com as nervuras internas ativadas, uma mensagem clara indica quando nenhuma cabe na forma.",
+        "ja": "対称の彫刻と平らな底面：切断がモデルの点の近くを通る場所で、極端に短い溶接線やスリットができなくなりました。内部リブを有効にしていて形に収まるリブがない場合は、わかりやすいメッセージを表示します。"
+      }
+    },
     {
       "date": "2026-11-10T20:31:15Z",
       "version": "1.3.94",
@@ -518,28 +531,15 @@
         "pt": "Equilíbrio mais preciso: o centro de gravidade agora considera a placa de base (peso e posição) e as nervuras internas, e as alturas são medidas a partir do chão sob a placa. A placa equilibrada é dimensionada com isso.",
         "ja": "バランス計算がより正確になりました。重心に台座（重さと位置）と内部リブを含め、高さは台座の下の床から測ります。バランス台座はこれに基づいて寸法を決めます。"
       }
-    },
-    {
-      "date": "2026-11-08T13:00:42Z",
-      "version": "1.3.56",
-      "notes": {
-        "en": "The base plate can now shape itself to balance the sculpture: it grows on the side where the sculpture leans, until it withstands the tilt you choose (10° by default). It can be turned off in Base plate.",
-        "it": "La piastra di base ora si adatta da sola per bilanciare la scultura: si allarga dal lato verso cui pende, finché regge l’inclinazione scelta (10° di serie). Si può disattivare in Piastra di base.",
-        "de": "Die Grundplatte passt sich jetzt selbst an, um die Skulptur auszubalancieren: Sie wächst auf der Seite, zu der sich die Skulptur neigt, bis sie die gewählte Neigung aushält (standardmäßig 10°). Abschaltbar unter Grundplatte.",
-        "fr": "La plaque de base s’adapte maintenant d’elle-même pour équilibrer la sculpture : elle s’élargit du côté où celle-ci penche, jusqu’à supporter l’inclinaison choisie (10° par défaut). Désactivable dans Plaque de base.",
-        "es": "La placa base ahora se adapta sola para equilibrar la escultura: se ensancha por el lado hacia el que se inclina, hasta soportar la inclinación elegida (10° por defecto). Se puede desactivar en Placa base.",
-        "pt": "A placa de base agora se ajusta sozinha para equilibrar a escultura: cresce do lado para onde ela pende, até suportar a inclinação escolhida (10° por padrão). Pode ser desativada em Placa de base.",
-        "ja": "台座が彫刻のバランスに合わせて自動で形を変えるようになりました。彫刻が傾く側に広がり、選んだ傾き（標準 10°）に耐えられるようにします。「台座」でオフにできます。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.94",
+    "version": "1.3.95",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "0b87d81858cdbdbc9049d89f56a8308d5da8b454e30e878e4d481b3837e4437d"
+        "sha256": "bd082adf3e94039417ffaaebf4936c4457ddc018f76d7ea75f38a7d83435fb00"
       }
     ]
   },

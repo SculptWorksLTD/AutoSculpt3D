@@ -4487,7 +4487,8 @@ const S = { orig: null, base: null, low: null, mm: null, unfold: null, nest: nul
 const facesFromSlider = (v) => Math.round(30 * Math.pow(2000 / 30, v / 1000));
 const sliderFromFaces = (f) => Math.round(1000 * Math.log(f / 30) / Math.log(2000 / 30));
 $('faces').value = sliderFromFaces(220);
-const KEEP = ['lyCut', 'lySlot', 'lyBend', 'lyMark', 'outBends', 'outMarks', 'outSheet', 'outSplit', 'cSteel', 'cMatMode', 'cLaser', 'cSpeed', 'cPierce', 'cWeld', 'cBend', 'cFinish', 'cHour', 'cMargin', 'cVat', 'qDetail', 'sfToken'];
+const PROJECT_ONLY = ['lyCut', 'lySlot', 'lyBend', 'lyMark', 'outBends', 'outMarks', 'outSheet', 'outSplit', 'cSteel', 'cMatMode', 'cLaser', 'cSpeed', 'cPierce', 'cWeld', 'cBend', 'cFinish', 'cHour', 'cMargin', 'cVat', 'qDetail'];
+const KEEP = ['sfToken'];
 try {
     const st = JSON.parse(localStorage.getItem('autosculpt.prefs') || '{}');
     for (const id of KEEP)
@@ -5312,7 +5313,7 @@ const b64 = (arr) => { const u = new Uint8Array(arr.buffer, arr.byteOffset, arr.
 const unb64 = (s, T) => { const bin = atob(s), u = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++)
     u[i] = bin.charCodeAt(i); return new T(u.buffer); };
 const SETTINGS = ['workName', 'refAxis', 'size', 'material', 'thick', 'sheetW', 'sheetH', 'maxBend', 'maxFaces', 'minEdge', 'inside', 'slots', 'slotLen', 'slotBridge', 'slotWidth', 'slotMargin',
-    'flaps', 'flapW', 'flapD', 'baseOn', 'baseShape', 'baseMargin', 'baseHoles', 'baseHoleD', 'baseThick', 'baseBalance', 'baseTilt', 'compact', 'copies', 'gap', 'twins', 'finish', 'showSeams', 'qClient', 'gStep', 'bgSel', 'floorSel', 'bgLandscape', 'facetEven', 'facetDetail', 'symmetric', 'thicken', 'flatBase', 'flatCut', 'ribsOn', 'ribSpacing', 'ribRing', 'ribThick', 'stabOn', 'qSizes'];
+    'flaps', 'flapW', 'flapD', 'baseOn', 'baseShape', 'baseMargin', 'baseHoles', 'baseHoleD', 'baseThick', 'baseBalance', 'baseTilt', 'compact', 'copies', 'gap', 'twins', 'finish', 'showSeams', 'qClient', 'gStep', 'bgSel', 'floorSel', 'bgLandscape', 'facetEven', 'facetDetail', 'symmetric', 'thicken', 'flatBase', 'flatCut', 'ribsOn', 'ribSpacing', 'ribRing', 'ribThick', 'stabOn', 'qSizes', ...PROJECT_ONLY];
 const PROJECT_MIME = 'application/x-autosculpt3d';
 const PROJECT_EXT = /\.(as3d|json)$/i;
 async function projectFile() {

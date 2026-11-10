@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.91",
-  "notes": "Symmetric sculptures: a thin part lying on the mirror line (a tail, a crest) no longer leaves a loose fragment floating beside the sculpture.",
+  "latest": "1.3.92",
+  "notes": "Every new project now starts with all the settings of the left panel at their standard values, including costs, DXF layers and output options. What you change is saved in that project only.",
   "notes_i18n": {
-    "en": "Symmetric sculptures: a thin part lying on the mirror line (a tail, a crest) no longer leaves a loose fragment floating beside the sculpture.",
-    "it": "Sculture simmetriche: una parte sottile sulla linea di specchio (una coda, una cresta) non lascia più un frammento staccato accanto alla scultura.",
-    "de": "Symmetrische Skulpturen: Ein dünnes Teil auf der Spiegellinie (Schwanz, Kamm) hinterlässt kein loses Fragment mehr neben der Skulptur.",
-    "fr": "Sculptures symétriques : une partie fine située sur la ligne de miroir (une queue, une crête) ne laisse plus de fragment détaché à côté de la sculpture.",
-    "es": "Esculturas simétricas: una parte fina sobre la línea de espejo (una cola, una cresta) ya no deja un fragmento suelto junto a la escultura.",
-    "pt": "Esculturas simétricas: uma parte fina sobre a linha de espelho (uma cauda, uma crista) já não deixa um fragmento solto ao lado da escultura.",
-    "ja": "対称の彫刻：鏡の線上にある細い部分（尾やとさか）が、彫刻の横に離れた破片として残ることがなくなりました。"
+    "en": "Every new project now starts with all the settings of the left panel at their standard values, including costs, DXF layers and output options. What you change is saved in that project only.",
+    "it": "Ogni nuovo progetto parte con tutte le impostazioni del pannello sinistro ai valori standard, compresi costi, livelli del DXF e opzioni di uscita. Quello che cambi viene salvato solo in quel progetto.",
+    "de": "Jedes neue Projekt beginnt jetzt mit allen Einstellungen des linken Bereichs auf den Standardwerten, einschließlich Kosten, DXF-Ebenen und Ausgabeoptionen. Änderungen werden nur in diesem Projekt gespeichert.",
+    "fr": "Chaque nouveau projet démarre désormais avec tous les réglages du panneau de gauche à leurs valeurs standard, y compris les coûts, les calques DXF et les options de sortie. Vos modifications ne sont enregistrées que dans ce projet.",
+    "es": "Cada proyecto nuevo empieza ahora con todos los ajustes del panel izquierdo en sus valores estándar, incluidos costes, capas del DXF y opciones de salida. Lo que cambies se guarda solo en ese proyecto.",
+    "pt": "Cada novo projeto começa agora com todas as configurações do painel esquerdo nos valores padrão, incluindo custos, camadas do DXF e opções de saída. O que você alterar é salvo apenas nesse projeto.",
+    "ja": "新しいプロジェクトは、左パネルのすべての設定（コスト、DXFレイヤー、出力オプションを含む）が標準値の状態で始まるようになりました。変更した内容はそのプロジェクトにだけ保存されます。"
   },
   "history": [
+    {
+      "date": "2026-11-10T17:55:54Z",
+      "version": "1.3.92",
+      "notes": {
+        "en": "Every new project now starts with all the settings of the left panel at their standard values, including costs, DXF layers and output options. What you change is saved in that project only.",
+        "it": "Ogni nuovo progetto parte con tutte le impostazioni del pannello sinistro ai valori standard, compresi costi, livelli del DXF e opzioni di uscita. Quello che cambi viene salvato solo in quel progetto.",
+        "de": "Jedes neue Projekt beginnt jetzt mit allen Einstellungen des linken Bereichs auf den Standardwerten, einschließlich Kosten, DXF-Ebenen und Ausgabeoptionen. Änderungen werden nur in diesem Projekt gespeichert.",
+        "fr": "Chaque nouveau projet démarre désormais avec tous les réglages du panneau de gauche à leurs valeurs standard, y compris les coûts, les calques DXF et les options de sortie. Vos modifications ne sont enregistrées que dans ce projet.",
+        "es": "Cada proyecto nuevo empieza ahora con todos los ajustes del panel izquierdo en sus valores estándar, incluidos costes, capas del DXF y opciones de salida. Lo que cambies se guarda solo en ese proyecto.",
+        "pt": "Cada novo projeto começa agora com todas as configurações do painel esquerdo nos valores padrão, incluindo custos, camadas do DXF e opções de saída. O que você alterar é salvo apenas nesse projeto.",
+        "ja": "新しいプロジェクトは、左パネルのすべての設定（コスト、DXFレイヤー、出力オプションを含む）が標準値の状態で始まるようになりました。変更した内容はそのプロジェクトにだけ保存されます。"
+      }
+    },
     {
       "date": "2026-11-10T17:27:10Z",
       "version": "1.3.91",
@@ -518,28 +531,15 @@
         "pt": "Três novidades, todas opcionais. Realidade aumentada: Arquivo → Realidade aumentada para iPhone (USDZ) ou Android (GLB) cria um arquivo para enviar ao cliente, que vê a escultura em tamanho real no jardim ou na loja pelo celular. Vídeo 360°: Arquivo → Vídeo 360° para o cliente grava um vídeo de 12 segundos girando em volta da escultura no fundo escolhido. Orçamento em vários tamanhos: escreva outros tamanhos em Orçamento → Outros tamanhos, e o PDF ganha uma segunda página com medidas, peças, peso e preço de cada um. A verificação de estabilidade agora pode ser desligada.",
         "ja": "3つの新機能（すべて任意）。AR：ファイル → iPhone 用 AR (USDZ) / Android 用 AR (GLB) でお客様に送るファイルを作成し、お客様はスマートフォンで庭や店に実物大の彫刻を見られます。360° 動画：ファイル → お客様向け 360° 動画 で、選んだ背景の上で彫刻の周りを回る 12 秒の動画を録画します。複数サイズの見積もり：見積もり → 他のサイズ にサイズを入力すると、PDF の2ページ目に各サイズの寸法・部品数・重量・価格が載ります。安定性チェックはオフにできるようになりました。"
       }
-    },
-    {
-      "date": "2026-11-08T11:55:04Z",
-      "version": "1.3.53",
-      "notes": {
-        "en": "New Structure and stability section. The program calculates the centre of gravity and warns you if the sculpture cannot stand by itself or tips over too easily, also suggesting how wide the base plate should be. It can also draw internal stiffening ribs: flat frames welded inside the shell, numbered and with their position engraved, cut on their own sheets (Sheets view, and File → Internal ribs DXF). Their weight and cost go into the summary and the quote.",
-        "it": "Nuova sezione Struttura e stabilità. Il programma calcola il baricentro e ti avvisa se la scultura non sta in piedi da sola o si ribalta troppo facilmente, suggerendo anche quanto allargare la piastra di base. Può anche disegnare le centine interne di rinforzo: telai piani saldati dentro il guscio, numerati e con la posizione incisa, tagliati su lamiere a parte (vista Lamiere, e File → DXF delle centine interne). Peso e costo entrano nel riepilogo e nel preventivo.",
-        "de": "Neuer Bereich Struktur und Standfestigkeit. Das Programm berechnet den Schwerpunkt und warnt, wenn die Skulptur nicht von allein steht oder zu leicht kippt, und schlägt vor, wie breit die Grundplatte sein sollte. Es kann auch innere Versteifungsrippen zeichnen: flache Rahmen, innen an die Hülle geschweißt, nummeriert und mit eingravierter Position, auf eigenen Blechen geschnitten (Ansicht Bleche und Datei → DXF der inneren Rippen). Gewicht und Kosten fließen in Übersicht und Angebot ein.",
-        "fr": "Nouvelle section Structure et stabilité. Le programme calcule le centre de gravité et vous avertit si la sculpture ne tient pas debout seule ou bascule trop facilement, en suggérant la largeur de la plaque de base. Il peut aussi dessiner des nervures internes de renfort : cadres plats soudés à l’intérieur de la coque, numérotés avec leur position gravée, découpés sur leurs propres tôles (vue Tôles et Fichier → DXF des nervures internes). Leur poids et leur coût entrent dans le récapitulatif et le devis.",
-        "es": "Nueva sección Estructura y estabilidad. El programa calcula el centro de gravedad y te avisa si la escultura no se sostiene sola o vuelca con facilidad, sugiriendo también cuánto ensanchar la placa base. También puede dibujar costillas internas de refuerzo: marcos planos soldados dentro de la carcasa, numerados y con su posición grabada, cortados en chapas aparte (vista Chapas y Archivo → DXF de las costillas internas). Su peso y coste entran en el resumen y el presupuesto.",
-        "pt": "Nova seção Estrutura e estabilidade. O programa calcula o centro de gravidade e avisa se a escultura não fica em pé sozinha ou tomba com facilidade, sugerindo também quanto alargar a placa de base. Também pode desenhar nervuras internas de reforço: quadros planos soldados dentro da casca, numerados e com a posição gravada, cortados em chapas separadas (vista Chapas e Arquivo → DXF das nervuras internas). Peso e custo entram no resumo e no orçamento.",
-        "ja": "新しい「構造と安定性」セクション。重心を計算し、彫刻が自立しない場合や倒れやすい場合に警告し、ベースプレートの必要な広さも提案します。内部補強リブも作図できます。外殻の内側に溶接する平らなフレームで、番号と位置が刻印され、別の板で切断されます（板ビューと ファイル → 内部リブの DXF）。重量と費用は概要と見積もりに含まれます。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.91",
+    "version": "1.3.92",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "996af3cf63ea4d3db5cc38809b08690924d14dac7c2aadc6ad4c75450b83aa08"
+        "sha256": "09ee0cdd8dbccb9c19f6369927249fa7bddd8d54ac1ea66f553b96444fc31c35"
       }
     ]
   },

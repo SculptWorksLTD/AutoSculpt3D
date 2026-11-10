@@ -1915,6 +1915,34 @@ function cutMesh(V, F, P, W, epsMax) {
             if (poly[0] !== poly[k] && poly[k] !== poly[k + 1] && poly[0] !== poly[k + 1])
                 Fo.push(poly[0], poly[k], poly[k + 1]);
     }
+    const onCut = new Uint8Array(out.length / 3);
+    for (let v = 0; v < nv; v++)
+        if (id[v] >= 0 && s[v] === 0)
+            onCut[id[v]] = 1;
+    for (const r of edgeV.values())
+        onCut[r] = 1;
+    const par = new Int32Array(out.length / 3).map((_, q) => q), find = (x) => { while (par[x] !== x)
+        x = par[x] = par[par[x]]; return x; };
+    let merged = 0;
+    for (let f = 0; f < Fo.length; f += 3)
+        for (let k = 0; k < 3; k++) {
+            const a = Fo[f + k], c = Fo[f + (k + 1) % 3];
+            if (onCut[a] && onCut[c] && find(a) !== find(c) && Math.hypot(out[3 * a] - out[3 * c], out[3 * a + 1] - out[3 * c + 1], out[3 * a + 2] - out[3 * c + 2]) < 0.2 * eps) {
+                par[find(a)] = find(c);
+                merged++;
+            }
+        }
+    if (merged) {
+        const F2 = [];
+        for (let f = 0; f < Fo.length; f += 3) {
+            const a = find(Fo[f]), b = find(Fo[f + 1]), c = find(Fo[f + 2]);
+            if (a !== b && b !== c && a !== c)
+                F2.push(a, b, c);
+        }
+        Fo.length = 0;
+        for (const x of F2)
+            Fo.push(x);
+    }
     return { V: Float64Array.from(out), F: Uint32Array.from(Fo), W: W ? Float32Array.from(wOut) : null };
 }
 function flattenBottom(V, F, W, up, band, minEdge) {

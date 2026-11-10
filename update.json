@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.87",
-  "notes": "Very large sculptures on small sheets: every piece now fits the sheet. When resizing made some faces bigger than the sheet again after the first correction, the program now keeps correcting (up to three times) instead of leaving pieces too big to cut.",
+  "latest": "1.3.88",
+  "notes": "“Small details” now looks at the features that matter for the sculpture (ears, fingers, roofs) instead of surface texture such as bricks, tiles or fur: models with a rough surface keep their overall shape much better. Reducing the faces is also about twice as fast.",
   "notes_i18n": {
-    "en": "Very large sculptures on small sheets: every piece now fits the sheet. When resizing made some faces bigger than the sheet again after the first correction, the program now keeps correcting (up to three times) instead of leaving pieces too big to cut.",
-    "it": "Sculture molto grandi su lamiere piccole: ora ogni pezzo entra nella lamiera. Quando il ridimensionamento rendeva di nuovo alcune facce più grandi della lamiera dopo la prima correzione, il programma continua a correggere (fino a tre volte) invece di lasciare pezzi troppo grandi da tagliare.",
-    "de": "Sehr große Skulpturen auf kleinen Blechen: Jedes Teil passt jetzt aufs Blech. Wenn die Größenanpassung nach der ersten Korrektur einige Flächen wieder größer als das Blech machte, korrigiert das Programm weiter (bis zu dreimal), statt zu große Teile zu lassen.",
-    "fr": "Très grandes sculptures sur petites tôles : chaque pièce tient désormais sur la tôle. Quand le redimensionnement rendait de nouveau certaines faces plus grandes que la tôle après la première correction, le programme continue de corriger (jusqu'à trois fois) au lieu de laisser des pièces trop grandes.",
-    "es": "Esculturas muy grandes en chapas pequeñas: ahora cada pieza cabe en la chapa. Cuando el cambio de tamaño volvía a hacer algunas caras más grandes que la chapa tras la primera corrección, el programa sigue corrigiendo (hasta tres veces) en lugar de dejar piezas demasiado grandes.",
-    "pt": "Esculturas muito grandes em chapas pequenas: agora cada peça cabe na chapa. Quando o redimensionamento voltava a deixar algumas faces maiores que a chapa após a primeira correção, o programa continua a corrigir (até três vezes) em vez de deixar peças grandes demais.",
-    "ja": "小さな板での非常に大きな彫刻：すべての部品が板に収まるようになりました。最初の補正の後でサイズ変更により一部の面が再び板より大きくなった場合、大きすぎる部品を残さず最大3回まで補正を続けます。"
+    "en": "“Small details” now looks at the features that matter for the sculpture (ears, fingers, roofs) instead of surface texture such as bricks, tiles or fur: models with a rough surface keep their overall shape much better. Reducing the faces is also about twice as fast.",
+    "it": "«Piccoli dettagli» ora guarda le parti che contano per la scultura (orecchie, dita, tetti) e non la trama della superficie come mattoni, tegole o pelo: i modelli con la superficie ruvida mantengono molto meglio la forma d'insieme. La riduzione delle facce è anche circa due volte più veloce.",
+    "de": "„Kleine Details“ achtet jetzt auf die Merkmale, die für die Skulptur zählen (Ohren, Finger, Dächer), statt auf Oberflächenstrukturen wie Ziegel, Dachpfannen oder Fell: Modelle mit rauer Oberfläche behalten ihre Gesamtform deutlich besser. Die Flächenreduzierung ist außerdem etwa doppelt so schnell.",
+    "fr": "« Petits détails » regarde désormais les éléments qui comptent pour la sculpture (oreilles, doigts, toits) et non la texture de la surface comme les briques, les tuiles ou le pelage : les modèles à surface rugueuse conservent bien mieux leur forme d'ensemble. La réduction des faces est aussi environ deux fois plus rapide.",
+    "es": "«Pequeños detalles» ahora se fija en los rasgos que importan para la escultura (orejas, dedos, tejados) y no en la textura de la superficie como ladrillos, tejas o pelo: los modelos de superficie rugosa conservan mucho mejor su forma general. La reducción de caras es además unas dos veces más rápida.",
+    "pt": "«Pequenos detalhes» agora observa as partes que importam para a escultura (orelhas, dedos, telhados) e não a textura da superfície, como tijolos, telhas ou pelo: os modelos com superfície áspera mantêm muito melhor a forma geral. A redução das faces também ficou cerca de duas vezes mais rápida.",
+    "ja": "「細かいディテール」は、レンガ・瓦・毛並みなどの表面の模様ではなく、彫刻にとって大切な特徴（耳、指、屋根）を見るようになりました。表面が粗いモデルでも全体の形がずっとよく保たれます。面の削減も約2倍速くなりました。"
   },
   "history": [
+    {
+      "date": "2026-11-10T15:48:20Z",
+      "version": "1.3.88",
+      "notes": {
+        "en": "“Small details” now looks at the features that matter for the sculpture (ears, fingers, roofs) instead of surface texture such as bricks, tiles or fur: models with a rough surface keep their overall shape much better. Reducing the faces is also about twice as fast.",
+        "it": "«Piccoli dettagli» ora guarda le parti che contano per la scultura (orecchie, dita, tetti) e non la trama della superficie come mattoni, tegole o pelo: i modelli con la superficie ruvida mantengono molto meglio la forma d'insieme. La riduzione delle facce è anche circa due volte più veloce.",
+        "de": "„Kleine Details“ achtet jetzt auf die Merkmale, die für die Skulptur zählen (Ohren, Finger, Dächer), statt auf Oberflächenstrukturen wie Ziegel, Dachpfannen oder Fell: Modelle mit rauer Oberfläche behalten ihre Gesamtform deutlich besser. Die Flächenreduzierung ist außerdem etwa doppelt so schnell.",
+        "fr": "« Petits détails » regarde désormais les éléments qui comptent pour la sculpture (oreilles, doigts, toits) et non la texture de la surface comme les briques, les tuiles ou le pelage : les modèles à surface rugueuse conservent bien mieux leur forme d'ensemble. La réduction des faces est aussi environ deux fois plus rapide.",
+        "es": "«Pequeños detalles» ahora se fija en los rasgos que importan para la escultura (orejas, dedos, tejados) y no en la textura de la superficie como ladrillos, tejas o pelo: los modelos de superficie rugosa conservan mucho mejor su forma general. La reducción de caras es además unas dos veces más rápida.",
+        "pt": "«Pequenos detalhes» agora observa as partes que importam para a escultura (orelhas, dedos, telhados) e não a textura da superfície, como tijolos, telhas ou pelo: os modelos com superfície áspera mantêm muito melhor a forma geral. A redução das faces também ficou cerca de duas vezes mais rápida.",
+        "ja": "「細かいディテール」は、レンガ・瓦・毛並みなどの表面の模様ではなく、彫刻にとって大切な特徴（耳、指、屋根）を見るようになりました。表面が粗いモデルでも全体の形がずっとよく保たれます。面の削減も約2倍速くなりました。"
+      }
+    },
     {
       "date": "2026-11-10T14:16:06Z",
       "version": "1.3.87",
@@ -518,28 +531,15 @@
         "pt": "Limpeza interna: removidos código que sobrava e textos não usados. O funcionamento do programa não muda.",
         "ja": "内部の整理：残っていたコードと使われていないテキストを削除しました。プログラムの動作は変わりません。"
       }
-    },
-    {
-      "date": "2026-11-08T10:26:31Z",
-      "version": "1.3.49",
-      "notes": {
-        "en": "Small sculptures with no short seams: parts too thin to build, such as the legs or tail of a small sculpture, are made a little thicker so that every side can be cut and welded. You can turn this off in Shape and size.",
-        "it": "Sculture piccole senza cordoni corti: le parti troppo sottili per essere costruite, come le zampe o la coda di una scultura piccola, vengono ingrossate quanto basta perché ogni lato si possa tagliare e saldare. Si può disattivare in Forma e misure.",
-        "de": "Kleine Skulpturen ohne kurze Nähte: zu dünne Teile wie Beine oder Schwanz einer kleinen Skulptur werden etwas verstärkt, damit jede Seite geschnitten und geschweißt werden kann. Abschaltbar unter Form und Maße.",
-        "fr": "Petites sculptures sans cordons courts : les parties trop fines pour être construites, comme les pattes ou la queue d’une petite sculpture, sont un peu épaissies pour que chaque côté puisse être découpé et soudé. Désactivable dans Forme et dimensions.",
-        "es": "Esculturas pequeñas sin cordones cortos: las partes demasiado finas para construirse, como las patas o la cola de una escultura pequeña, se engrosan lo justo para que cada lado se pueda cortar y soldar. Se puede desactivar en Forma y medidas.",
-        "pt": "Esculturas pequenas sem cordões curtos: as partes finas demais para construir, como as patas ou a cauda de uma escultura pequena, são engrossadas o suficiente para que cada lado possa ser cortado e soldado. Pode ser desativado em Forma e medidas.",
-        "ja": "小さな彫刻でも短い溶接線が出なくなりました。小さな彫刻の脚や尾のように細すぎて作れない部分を少し太くし、すべての辺を切断・溶接できるようにします。「形とサイズ」でオフにできます。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.87",
+    "version": "1.3.88",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "4d04cd89ee06f0cbf203b59d5d09a5a0abc436f27bdb7e639f298b76e4cd7492"
+        "sha256": "552444ad97e2f106fa9dbe66c8d6106c8600db685768883230c1a25d0feb384b"
       }
     ]
   },

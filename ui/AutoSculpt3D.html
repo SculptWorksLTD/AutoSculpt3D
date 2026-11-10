@@ -2313,6 +2313,18 @@ function sculptOnce(V, F, target, onProgress, W, opts) {
         F = sp.F;
         W = sp.W;
     }
+    const dopts = { regular: opts.regular || 0, maxEdge: opts.maxEdge || 0, maxAlt: opts.maxAlt || 0 }, G = flat ? flat.plane : null;
+    const lim = dopts.maxEdge > 0 || dopts.maxAlt > 0 ? { maxEdge: dopts.maxEdge, maxAlt: dopts.maxAlt } : null;
+    if (G)
+        dopts.groundPlane = G;
+    let preHit = false;
+    const PRE = opts.detailPre || 16;
+    if (opts.detail > 0 && !W && F.length / 3 > target * PRE * 1.5) {
+        const p = decimateMesh(V, F, target * PRE, onProgress, null, dopts);
+        V = p.V;
+        F = p.F;
+        preHit = p.maxEdgeHit;
+    }
     let weights = W ? Float32Array.from(W) : null;
     if (opts.detail > 0) {
         const D = detailWeights(V, F, opts.detail);
@@ -2322,10 +2334,6 @@ function sculptOnce(V, F, target, onProgress, W, opts) {
         else
             weights = D;
     }
-    const dopts = { regular: opts.regular || 0, maxEdge: opts.maxEdge || 0, maxAlt: opts.maxAlt || 0 }, G = flat ? flat.plane : null;
-    const lim = dopts.maxEdge > 0 || dopts.maxAlt > 0 ? { maxEdge: dopts.maxEdge, maxAlt: dopts.maxAlt } : null;
-    if (G)
-        dopts.groundPlane = G;
     const floorRel = opts.floorRel !== undefined ? opts.floorRel : W ? 0 : FLOOR * 2 * (1 - (opts.detail || 0));
     const reg = opts.regular || 0, regHi = Math.max(0, reg - 0.5);
     const sliver = opts.sliver !== undefined ? opts.sliver : 0.15 + 0.4 * Math.min(reg, 0.5) + 0.2 * regHi;
@@ -2453,6 +2461,8 @@ function sculptOnce(V, F, target, onProgress, W, opts) {
     }
     r.sym = sym ? { n: sym.n, d: sym.d, score: sym.score, used: !!(sym.symmetric || sym.forced), forced: !!sym.forced } : null;
     r.symPlane = opts.symmetric ? symRaw : undefined;
+    if (preHit)
+        r.maxEdgeHit = true;
     if (flat) {
         const b = meshBounds(r.V).size;
         snapToPlane(r.V, flat.plane, 0.001 * Math.max(...b));

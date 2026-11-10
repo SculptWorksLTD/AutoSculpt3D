@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.89",
-  "notes": "Symmetric sculptures: a thin neck (a vase, a bottle) no longer splits the sculpture in two parts. Very large symmetric sculptures no longer produce pieces bigger than the sheet.",
+  "latest": "1.3.90",
+  "notes": "Bend angles are no longer engraved outside the metal on very narrow pieces.",
   "notes_i18n": {
-    "en": "Symmetric sculptures: a thin neck (a vase, a bottle) no longer splits the sculpture in two parts. Very large symmetric sculptures no longer produce pieces bigger than the sheet.",
-    "it": "Sculture simmetriche: un collo sottile (un vaso, una bottiglia) non divide più la scultura in due parti. Le sculture simmetriche molto grandi non producono più pezzi più grandi della lamiera.",
-    "de": "Symmetrische Skulpturen: Ein dünner Hals (Vase, Flasche) teilt die Skulptur nicht mehr in zwei Teile. Sehr große symmetrische Skulpturen ergeben keine Teile mehr, die größer als das Blech sind.",
-    "fr": "Sculptures symétriques : un col fin (vase, bouteille) ne sépare plus la sculpture en deux parties. Les très grandes sculptures symétriques ne produisent plus de pièces plus grandes que la tôle.",
-    "es": "Esculturas simétricas: un cuello fino (un jarrón, una botella) ya no divide la escultura en dos partes. Las esculturas simétricas muy grandes ya no producen piezas más grandes que la chapa.",
-    "pt": "Esculturas simétricas: um gargalo fino (um vaso, uma garrafa) já não divide a escultura em duas partes. Esculturas simétricas muito grandes já não produzem peças maiores do que a chapa.",
-    "ja": "対称の彫刻：細い首（花瓶やボトル）で彫刻が二つに分かれることがなくなりました。非常に大きな対称の彫刻で、板より大きな部品ができることもなくなりました。"
+    "en": "Bend angles are no longer engraved outside the metal on very narrow pieces.",
+    "it": "Sui pezzi molto stretti gli angoli di piega non vengono più incisi fuori dal metallo.",
+    "de": "Bei sehr schmalen Teilen werden Biegewinkel nicht mehr außerhalb des Metalls graviert.",
+    "fr": "Sur les pièces très étroites, les angles de pliage ne sont plus gravés en dehors du métal.",
+    "es": "En las piezas muy estrechas los ángulos de plegado ya no se graban fuera del metal.",
+    "pt": "Nas peças muito estreitas, os ângulos de dobra já não são gravados fora do metal.",
+    "ja": "非常に細い部品で、曲げ角度が金属の外に刻印されることがなくなりました。"
   },
   "history": [
+    {
+      "date": "2026-11-10T17:09:46Z",
+      "version": "1.3.90",
+      "notes": {
+        "en": "Bend angles are no longer engraved outside the metal on very narrow pieces.",
+        "it": "Sui pezzi molto stretti gli angoli di piega non vengono più incisi fuori dal metallo.",
+        "de": "Bei sehr schmalen Teilen werden Biegewinkel nicht mehr außerhalb des Metalls graviert.",
+        "fr": "Sur les pièces très étroites, les angles de pliage ne sont plus gravés en dehors du métal.",
+        "es": "En las piezas muy estrechas los ángulos de plegado ya no se graban fuera del metal.",
+        "pt": "Nas peças muito estreitas, os ângulos de dobra já não são gravados fora do metal.",
+        "ja": "非常に細い部品で、曲げ角度が金属の外に刻印されることがなくなりました。"
+      }
+    },
     {
       "date": "2026-11-10T16:29:03Z",
       "version": "1.3.89",
@@ -518,28 +531,15 @@
         "pt": "Paisagens realistas muito mais nítidas e não mais esticadas: o fundo usa a foto em alta resolução e o chão é projetado da altura do seu ponto de vista. A foto nova é baixada na primeira vez que você escolhe cada paisagem.",
         "ja": "リアルな風景がずっと鮮明になり、引き伸ばされなくなりました。背景に高解像度の写真を使い、地面は視点の高さから投影されます。新しい写真は各風景を最初に選んだときにダウンロードされます。"
       }
-    },
-    {
-      "date": "2026-11-08T10:53:45Z",
-      "version": "1.3.51",
-      "notes": {
-        "en": "More realistic mockup backgrounds: photo studio with a curved backdrop and spotlight, gallery with ceiling lights and wooden floor, outdoor sky with clouds and hills, sunset. Outdoors and in the gallery the metal reflects the surroundings, and at sunset it turns warm.",
-        "it": "Sfondi del mockup più realistici: sala di posa con fondale curvo e faretto, galleria con luci dal soffitto e parquet, cielo all’aperto con nuvole e colline, tramonto. All’aperto e in galleria il metallo riflette l’ambiente, e al tramonto si scalda di colore.",
-        "de": "Realistischere Hintergründe für das Mockup: Fotostudio mit Hohlkehle und Spot, Galerie mit Deckenlicht und Parkett, Himmel mit Wolken und Hügeln, Sonnenuntergang. Draußen und in der Galerie spiegelt das Metall die Umgebung, beim Sonnenuntergang wird es warm.",
-        "fr": "Fonds de maquette plus réalistes : studio photo avec fond courbe et projecteur, galerie avec éclairage au plafond et parquet, ciel avec nuages et collines, coucher de soleil. En extérieur et en galerie, le métal reflète l’environnement, et au coucher de soleil il prend une teinte chaude.",
-        "es": "Fondos de maqueta más realistas: estudio fotográfico con fondo curvo y foco, galería con luces en el techo y parqué, cielo con nubes y colinas, atardecer. Al aire libre y en la galería el metal refleja el entorno, y al atardecer toma un tono cálido.",
-        "pt": "Fundos de maquete mais realistas: estúdio fotográfico com fundo curvo e refletor, galeria com luzes no teto e piso de madeira, céu com nuvens e colinas, pôr do sol. Ao ar livre e na galeria o metal reflete o ambiente, e no pôr do sol fica com tom quente.",
-        "ja": "モックアップの背景をよりリアルにしました。曲面背景とスポットライトの撮影スタジオ、天井照明と木の床のギャラリー、雲と丘のある空、夕焼け。屋外とギャラリーでは金属が周囲を映し込み、夕焼けでは暖かい色になります。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.89",
+    "version": "1.3.90",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "35d464edc563364099606baf03073b05cb8ba80aff48532428a74f91d97b4f70"
+        "sha256": "dd04c63429949570dbdd2d2c022cfcad8b6fdc237ea446ff9ec48dd8065d0443"
       }
     ]
   },

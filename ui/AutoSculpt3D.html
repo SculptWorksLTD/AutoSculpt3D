@@ -3537,11 +3537,8 @@ function unfoldMesh(V, F, opt) {
                         }
                     }
                 }
-                if (!best) {
-                    const off = h * 0.9 + (o.slots ? o.slotWidth / 2 : 0);
-                    best = { x: mx + nx * off, y: my + ny * off, h };
-                }
-                labels.push({ x: best.x, y: best.y, h: best.h, rot: ang, text: (bd.mountain ? 'M ' : 'V ') + Math.round(bd.deg) + '°', bend: true });
+                if (best)
+                    labels.push({ x: best.x, y: best.y, h: best.h, rot: ang, text: (bd.mountain ? 'M ' : 'V ') + Math.round(bd.deg) + '°', bend: true });
             }
         }
         for (const L of loops)

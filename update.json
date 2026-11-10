@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.84",
-  "notes": "Symmetric sculptures, many fixes: plates and letters no longer vanish (the mirror across their thickness is skipped); a part that joins the body on the other side of the mirror no longer becomes a loose piece; models made of several parts keep all of them; fewer facets lost on bottles, dumbbells and cones; thin parts are thickened up to 3× faster with symmetry on.",
+  "latest": "1.3.85",
+  "notes": "Cut sheets ready for the workshop: the mating numbers and the bend angles are always engraved on the metal of their own piece (on narrow faces they used to fall outside it), and an edge between two faces of the same piece that already lie side by side is now a bend instead of a useless slit cut by the laser.",
   "notes_i18n": {
-    "en": "Symmetric sculptures, many fixes: plates and letters no longer vanish (the mirror across their thickness is skipped); a part that joins the body on the other side of the mirror no longer becomes a loose piece; models made of several parts keep all of them; fewer facets lost on bottles, dumbbells and cones; thin parts are thickened up to 3× faster with symmetry on.",
-    "it": "Sculture simmetriche, molte correzioni: targhe e lettere non spariscono più (lo specchio attraverso il loro spessore viene saltato); una parte che si attacca al corpo dall'altro lato dello specchio non diventa più un pezzo volante; i modelli fatti di più parti le tengono tutte; meno faccette perse su bottiglie, manubri e coni; con la simmetria l'ingrossamento delle parti sottili è fino a 3 volte più veloce.",
-    "de": "Symmetrische Skulpturen, viele Korrekturen: Schilder und Buchstaben verschwinden nicht mehr (die Spiegelung durch ihre Dicke wird übersprungen); ein Teil, das auf der anderen Seite des Spiegels am Körper hängt, wird kein loses Stück mehr; Modelle aus mehreren Teilen behalten alle; weniger verlorene Facetten bei Flaschen, Hanteln und Kegeln; mit Symmetrie ist das Verdicken dünner Teile bis zu 3× schneller.",
-    "fr": "Sculptures symétriques, nombreuses corrections : plaques et lettres ne disparaissent plus (le miroir à travers leur épaisseur est ignoré) ; une partie qui rejoint le corps de l'autre côté du miroir ne devient plus une pièce volante ; les modèles faits de plusieurs parties les gardent toutes ; moins de facettes perdues sur les bouteilles, haltères et cônes ; avec la symétrie, l'épaississement des parties fines est jusqu'à 3× plus rapide.",
-    "es": "Esculturas simétricas, muchas correcciones: placas y letras ya no desaparecen (se omite el espejo a través de su grosor); una parte que se une al cuerpo al otro lado del espejo ya no se convierte en una pieza suelta; los modelos de varias partes las conservan todas; menos facetas perdidas en botellas, mancuernas y conos; con simetría el engrosado de partes finas es hasta 3 veces más rápido.",
-    "pt": "Esculturas simétricas, muitas correções: placas e letras já não desaparecem (o espelho através da espessura é ignorado); uma parte que se liga ao corpo do outro lado do espelho já não vira uma peça solta; modelos feitos de várias partes mantêm todas; menos facetas perdidas em garrafas, halteres e cones; com simetria o engrossamento das partes finas é até 3× mais rápido.",
-    "ja": "対称な彫刻の多くの修正：プレートや文字が消えなくなりました（厚み方向の鏡映を行いません）。鏡の反対側で本体につながる部分が浮いた部品にならなくなりました。複数の部品からなるモデルはすべての部品を保ちます。ボトル、ダンベル、円錐で失われる面が減りました。対称時の細い部分の肉厚化が最大3倍速くなりました。"
+    "en": "Cut sheets ready for the workshop: the mating numbers and the bend angles are always engraved on the metal of their own piece (on narrow faces they used to fall outside it), and an edge between two faces of the same piece that already lie side by side is now a bend instead of a useless slit cut by the laser.",
+    "it": "Lamiere pronte per l'officina: i numeri di accoppiamento e gli angoli di piega vengono sempre incisi sul metallo del proprio pezzo (sulle faccette strette finivano fuori), e un lato tra due facce dello stesso pezzo già affiancate ora è una piega invece di una fessura inutile tagliata dal laser.",
+    "de": "Werkstattfertige Bleche: Passnummern und Biegewinkel werden immer auf das Metall ihres eigenen Teils graviert (bei schmalen Facetten lagen sie außerhalb), und eine Kante zwischen zwei bereits nebeneinanderliegenden Flächen desselben Teils ist jetzt eine Biegung statt eines unnötigen Laserschlitzes.",
+    "fr": "Tôles prêtes pour l'atelier : les numéros d'assemblage et les angles de pliage sont toujours gravés sur le métal de leur propre pièce (sur les facettes étroites ils tombaient à l'extérieur), et une arête entre deux faces d'une même pièce déjà côte à côte est maintenant un pli au lieu d'une fente inutile découpée au laser.",
+    "es": "Chapas listas para el taller: los números de unión y los ángulos de plegado se graban siempre sobre el metal de su propia pieza (en las facetas estrechas quedaban fuera), y una arista entre dos caras de la misma pieza ya contiguas ahora es un pliegue en lugar de una ranura inútil cortada por el láser.",
+    "pt": "Chapas prontas para a oficina: os números de montagem e os ângulos de dobra são sempre gravados no metal da própria peça (nas facetas estreitas ficavam fora), e uma aresta entre duas faces da mesma peça já lado a lado agora é uma dobra em vez de uma fenda inútil cortada pelo laser.",
+    "ja": "工場向けの板：合わせ番号と曲げ角度は常に自分の部品の金属上に刻印されます（細い面では外に出ていました）。同じ部品ですでに隣り合う2つの面の間の辺は、レーザーで切る無駄な切れ目ではなく曲げになりました。"
   },
   "history": [
+    {
+      "date": "2026-11-10T13:28:00Z",
+      "version": "1.3.85",
+      "notes": {
+        "en": "Cut sheets ready for the workshop: the mating numbers and the bend angles are always engraved on the metal of their own piece (on narrow faces they used to fall outside it), and an edge between two faces of the same piece that already lie side by side is now a bend instead of a useless slit cut by the laser.",
+        "it": "Lamiere pronte per l'officina: i numeri di accoppiamento e gli angoli di piega vengono sempre incisi sul metallo del proprio pezzo (sulle faccette strette finivano fuori), e un lato tra due facce dello stesso pezzo già affiancate ora è una piega invece di una fessura inutile tagliata dal laser.",
+        "de": "Werkstattfertige Bleche: Passnummern und Biegewinkel werden immer auf das Metall ihres eigenen Teils graviert (bei schmalen Facetten lagen sie außerhalb), und eine Kante zwischen zwei bereits nebeneinanderliegenden Flächen desselben Teils ist jetzt eine Biegung statt eines unnötigen Laserschlitzes.",
+        "fr": "Tôles prêtes pour l'atelier : les numéros d'assemblage et les angles de pliage sont toujours gravés sur le métal de leur propre pièce (sur les facettes étroites ils tombaient à l'extérieur), et une arête entre deux faces d'une même pièce déjà côte à côte est maintenant un pli au lieu d'une fente inutile découpée au laser.",
+        "es": "Chapas listas para el taller: los números de unión y los ángulos de plegado se graban siempre sobre el metal de su propia pieza (en las facetas estrechas quedaban fuera), y una arista entre dos caras de la misma pieza ya contiguas ahora es un pliegue en lugar de una ranura inútil cortada por el láser.",
+        "pt": "Chapas prontas para a oficina: os números de montagem e os ângulos de dobra são sempre gravados no metal da própria peça (nas facetas estreitas ficavam fora), e uma aresta entre duas faces da mesma peça já lado a lado agora é uma dobra em vez de uma fenda inútil cortada pelo laser.",
+        "ja": "工場向けの板：合わせ番号と曲げ角度は常に自分の部品の金属上に刻印されます（細い面では外に出ていました）。同じ部品ですでに隣り合う2つの面の間の辺は、レーザーで切る無駄な切れ目ではなく曲げになりました。"
+      }
+    },
     {
       "date": "2026-11-10T12:46:13Z",
       "version": "1.3.84",
@@ -518,28 +531,15 @@
         "pt": "Chega de facetas inúteis: partes pequenas e curvas, como cascos e orelhas, não acumulam mais leques de faces minúsculas e estreitas. As faces vão onde dão forma à escultura, em todo projeto.",
         "ja": "無駄なファセットをなくしました。ひづめや耳のような小さく曲がった部分に、細く小さな面が扇状に集まらなくなり、どのプロジェクトでも面が彫刻の形を作る場所に配分されます。"
       }
-    },
-    {
-      "date": "2026-11-08T09:51:31Z",
-      "version": "1.3.46",
-      "notes": {
-        "en": "Warnings about a single seam or bend are now worded correctly.",
-        "it": "Gli avvisi su un solo cordone o una sola piega ora sono scritti correttamente.",
-        "de": "Hinweise zu einer einzelnen Naht oder Biegung sind jetzt richtig formuliert.",
-        "fr": "Les avertissements portant sur un seul cordon ou un seul pli sont désormais correctement formulés.",
-        "es": "Los avisos sobre un solo cordón o un solo pliegue ahora están bien redactados.",
-        "pt": "Os avisos sobre um único cordão ou uma única dobra agora estão escritos corretamente.",
-        "ja": "溶接線や曲げが 1 か所だけのときの警告文を正しく表示するようにしました。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.84",
+    "version": "1.3.85",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "3ad35af554ec50cd0c737737df049b29b55411aacb61dbe6123cb02fd8d330a7"
+        "sha256": "bb6fb9088f98f31be2530c7de83bfc1240cf8dc2a0c6aa927d9e049d30f8023b"
       }
     ]
   },

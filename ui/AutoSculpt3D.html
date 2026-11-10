@@ -3277,6 +3277,23 @@ function unfoldMesh(V, F, opt) {
                     }
                     continue;
                 }
+                if (g && piece[g[0]] === pc.id) {
+                    const kg = [0, 1, 2].find(j => F[3 * g[0] + j] === vu), lg = [0, 1, 2].find(j => F[3 * g[0] + j] === vv);
+                    const qu = corner(g[0], kg), qv = corner(g[0], lg), tol = 1e-6 * (1 + Math.abs(pu[0]) + Math.abs(pu[1]));
+                    if (Math.hypot(qu[0] - pu[0], qu[1] - pu[1]) < tol && Math.hypot(qv[0] - pv[0], qv[1] - pv[1]) < tol) {
+                        if (f < g[0]) {
+                            const bd = bendDeg(f, g[0]);
+                            if (bd > 0.5) {
+                                const gw = [0, 1, 2].map(j => F[3 * g[0] + j]).find(x => x !== vu && x !== vv);
+                                const pw = P(gw), pu3 = P(vu);
+                                const conv = N[3 * f] * (pw[0] - pu3[0]) + N[3 * f + 1] * (pw[1] - pu3[1]) + N[3 * f + 2] * (pw[2] - pu3[2]) < 0;
+                                bends.push({ a: pu, b: pv, deg: bd, mountain: o.mirror ? !conv : conv, v: [vu, vv] });
+                                bendCount++;
+                            }
+                        }
+                        continue;
+                    }
+                }
                 const L = Math.hypot(pv[0] - pu[0], pv[1] - pu[1]);
                 const cut = { a: pu, b: pv, partner: g ? piece[g[0]] : -1, len: L, face: f };
                 cuts.push(cut);
@@ -3345,6 +3362,23 @@ function unfoldMesh(V, F, opt) {
             }
             loops.push(loop);
         }
+        let outer = loops[0] || [], outerA = 0;
+        for (const lp of loops) {
+            let a2 = 0;
+            for (let i = 0; i < lp.length; i++) {
+                const p0 = lp[i], p1 = lp[(i + 1) % lp.length];
+                a2 += p0[0] * p1[1] - p1[0] * p0[1];
+            }
+            if (Math.abs(a2) > outerA) {
+                outerA = Math.abs(a2);
+                outer = lp;
+            }
+        }
+        const insideOutline = (x, y) => { let c2 = false; for (let i = 0, j = outer.length - 1; i < outer.length; j = i++) {
+            const p0 = outer[i], p1 = outer[j];
+            if ((p0[1] > y) !== (p1[1] > y) && x < (p1[0] - p0[0]) * (y - p0[1]) / (p1[1] - p0[1]) + p0[0])
+                c2 = !c2;
+        } return c2; };
         for (const c of cuts) {
             if (c.partner < 0)
                 continue;
@@ -3363,7 +3397,21 @@ function unfoldMesh(V, F, opt) {
                 ang -= 180;
             if (ang < -90)
                 ang += 180;
-            labels.push({ x: mx + nx * h * 1.1, y: my + ny * h * 1.1, h, rot: ang, text: String(c.partner + 1) });
+            const inTri = (x, y) => { const d = (p, q) => (q[0] - p[0]) * (y - p[1]) - (q[1] - p[1]) * (x - p[0]); const s0 = d(tri[0], tri[1]), s1 = d(tri[1], tri[2]), s2 = d(tri[2], tri[0]); return (s0 >= 0 && s1 >= 0 && s2 >= 0) || (s0 <= 0 && s1 <= 0 && s2 <= 0); };
+            let hh = h, lx = mx + nx * hh * 1.1, ly = my + ny * hh * 1.1;
+            while (!inTri(lx, ly) && hh > 1.5) {
+                hh *= 0.75;
+                lx = mx + nx * hh * 1.1;
+                ly = my + ny * hh * 1.1;
+            }
+            if (!inTri(lx, ly)) {
+                const e = [0, 1, 2].map(i => Math.hypot(tri[(i + 1) % 3][0] - tri[(i + 2) % 3][0], tri[(i + 1) % 3][1] - tri[(i + 2) % 3][1])), per = e[0] + e[1] + e[2] || 1;
+                lx = (e[0] * tri[0][0] + e[1] * tri[1][0] + e[2] * tri[2][0]) / per;
+                ly = (e[0] * tri[0][1] + e[1] * tri[1][1] + e[2] * tri[2][1]) / per;
+                const ar = Math.abs((tri[1][0] - tri[0][0]) * (tri[2][1] - tri[0][1]) - (tri[1][1] - tri[0][1]) * (tri[2][0] - tri[0][0])) / 2;
+                hh = Math.max(1, Math.min(hh, 1.6 * ar / per * 2));
+            }
+            labels.push({ x: lx, y: ly, h: hh, rot: ang, text: String(c.partner + 1) });
         }
         const slots = [];
         for (const bd of bends) {
@@ -3407,8 +3455,22 @@ function unfoldMesh(V, F, opt) {
                     ang -= 180;
                 if (ang < -90)
                     ang += 180;
-                const off = h * 0.9 + (o.slots ? o.slotWidth / 2 : 0);
-                labels.push({ x: mx + nx * off, y: my + ny * off, h, rot: ang, text: (bd.mountain ? 'M ' : 'V ') + Math.round(bd.deg) + '°', bend: true });
+                let hh = h, best = null;
+                for (let tries = 0; tries < 4 && !best; tries++, hh *= 0.7) {
+                    const off = hh * 0.9 + (o.slots ? o.slotWidth / 2 : 0);
+                    for (const sg of [1, -1]) {
+                        const x = mx + sg * nx * off, y = my + sg * ny * off;
+                        if (insideOutline(x, y)) {
+                            best = { x, y, h: hh };
+                            break;
+                        }
+                    }
+                }
+                if (!best) {
+                    const off = h * 0.9 + (o.slots ? o.slotWidth / 2 : 0);
+                    best = { x: mx + nx * off, y: my + ny * off, h };
+                }
+                labels.push({ x: best.x, y: best.y, h: best.h, rot: ang, text: (bd.mountain ? 'M ' : 'V ') + Math.round(bd.deg) + '°', bend: true });
             }
         }
         for (const L of loops)

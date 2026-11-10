@@ -1018,6 +1018,21 @@ function decimateMesh(Vin, Fin, target, onProgress, weights, opts) {
             for (const f of vfs) {
                 if (f === s0 || f === s1 || !fAlive[f])
                     continue;
+                if (opts.keepThick && (onPlane[a] || onPlane[b])) {
+                    const v = side ? b : a;
+                    if (!onPlane[v]) {
+                        let on = 0;
+                        for (let k = 0; k < 3; k++) {
+                            const u = F[3 * f + k];
+                            if (u !== v && onPlane[u])
+                                on++;
+                        }
+                        if (on === 2) {
+                            ok = false;
+                            break;
+                        }
+                    }
+                }
                 faceNormals2(f, a, b, px, py, pz);
                 const l0 = Math.hypot(N0[0], N0[1], N0[2]), l1 = Math.hypot(N1[0], N1[1], N1[2]);
                 if (l1 < l0 * 1e-3 || (N0[0] * N1[0] + N0[1] * N1[1] + N0[2] * N1[2]) < 0.25 * l0 * l1) {
@@ -1538,6 +1553,11 @@ function collapseShortEdges(Vin, Fin, minLen, P, sliver, G, slMax, lim) {
                     if (shared.includes(f))
                         continue;
                     const t = [F[3 * f], F[3 * f + 1], F[3 * f + 2]], n0 = cross(t[0], t[1], t[2]);
+                    if (P && P.half && (pa || pb)) {
+                        const mv = t.find(v => v === a || v === b);
+                        if (!onPlane(mv) && t.every(v => v === mv || onPlane(v)))
+                            return false;
+                    }
                     const n1 = cross(t[0], t[1], t[2], t[0] === a || t[0] === b ? p : null, t[1] === a || t[1] === b ? p : null, t[2] === a || t[2] === b ? p : null);
                     const l0 = Math.hypot(...n0), l1 = Math.hypot(...n1);
                     if (l0 <= 1e-6 * minLen * minLen)
@@ -2159,9 +2179,10 @@ function dropCrumbs(V, F, keepLargest) {
         for (const [r, a] of area)
             if (!big || a > area.get(big))
                 big = r;
+    const cap = typeof keepLargest === 'number' ? keepLargest : 1;
     const drop = new Set();
     for (const [r, n] of cnt)
-        if (keepLargest ? r !== big : (n <= 4 || area.get(r) < 0.002 * total))
+        if (keepLargest ? r !== big && area.get(r) < cap * total : (n <= 4 || area.get(r) < 0.002 * total))
             drop.add(r);
     if (!drop.size || drop.size === cnt.size)
         return null;
@@ -2368,7 +2389,7 @@ function sculptOnce(V, F, target, onProgress, W, opts) {
         if (sym && opts.symSide < 0)
             sym = Object.assign({}, sym, { n: sym.n.map(x => -x), d: -sym.d });
         if (sym && (sym.symmetric || sym.forced)) {
-            const half = cutMesh(V, F, sym, weights), nh = half.F.length / 3;
+            const half = cutMesh(V, F, sym, weights, Math.min(opts.minEdge > 0 ? 0.25 * opts.minEdge : Infinity, 0.005 * Math.max(...meshBounds(V).size))), nh = half.F.length / 3;
             const oneBody = (() => {
                 const nv = V.length / 3, par = new Int32Array(nv);
                 for (let i = 0; i < nv; i++)
@@ -2389,14 +2410,14 @@ function sculptOnce(V, F, target, onProgress, W, opts) {
                 }
                 return true;
             })();
-            const once = (tgt) => {
-                let low = decimateMesh(half.V, half.F, Math.max(2, Math.round(tgt / 2)), onProgress, half.W, Object.assign({ lockPlane: sym }, dopts));
+            const onceWith = (tgt, keepThick) => {
+                let low = decimateMesh(half.V, half.F, Math.max(2, Math.round(tgt / 2)), onProgress, half.W, Object.assign({ lockPlane: sym, keepThick }, dopts));
                 if (dopts.regular > 0)
                     flipEdges(low.V, low.F, 4, lim);
                 const thinFrac = opts.minEdge > 0 ? shortFaceFrac(low.V, low.F, opts.minEdge) : 0;
                 const minLen = Math.max(opts.minEdge || 0, floorRel * meanMinEdge(low.V, low.F));
                 if (minLen > 0 || sliver > 0) {
-                    const c = collapseShortEdges(low.V, low.F, minLen, sym, sliver, G, slRel * meanMinEdge(low.V, low.F), lim);
+                    const c = collapseShortEdges(low.V, low.F, minLen, keepThick ? Object.assign({ half: true }, sym) : sym, sliver, G, slRel * meanMinEdge(low.V, low.F), lim);
                     low = Object.assign(low, { V: c.V, F: c.F });
                     flipEdges(low.V, low.F, 2, lim);
                 }
@@ -2409,7 +2430,7 @@ function sculptOnce(V, F, target, onProgress, W, opts) {
                     m = { V: c.V, F: c.F };
                 }
                 if (oneBody) {
-                    const d2 = dropCrumbs(m.V, m.F, true);
+                    const d2 = dropCrumbs(m.V, m.F, 0.05);
                     if (d2)
                         m = { V: d2.V, F: d2.F };
                 }
@@ -2417,11 +2438,15 @@ function sculptOnce(V, F, target, onProgress, W, opts) {
                 m.thinFrac = thinFrac;
                 return m;
             };
+            const sound = (m) => { const w = meshNeedsSolid(m.V, m.F); return !(w === 'nonmanifold' || w === 'open' || w === 'twisted' || (w === 'parts' && oneBody)); };
+            const once = (tgt) => { const a = onceWith(tgt, true); if (a.F.length < 12 || sound(a))
+                return a; const b = onceWith(tgt, false); return sound(b) ? b : a; };
             let best = null;
             for (let tgt = target, round = 0; round < 3; round++) {
                 const t = once(tgt), got = t.F.length / 3;
-                if (!best || Math.abs(got - target) < Math.abs(best.got - target))
-                    best = { r: t, got };
+                const ok = sound(t);
+                if (!best || (ok && !best.ok) || (ok === best.ok && Math.abs(got - target) < Math.abs(best.got - target)))
+                    best = { r: t, got, ok };
                 if (got >= target * 0.95 || tgt / 2 >= nh || (got < target * 0.5 && t.thinFrac > 0.1))
                     break;
                 tgt = Math.min(2 * nh, Math.round(tgt * target / Math.max(1, got)));
@@ -2429,6 +2454,10 @@ function sculptOnce(V, F, target, onProgress, W, opts) {
             r = best.r;
             if (best.got < 4)
                 r = null;
+            else if (!best.ok && best.got >= 12) {
+                r = null;
+                sym = null;
+            }
         }
     }
     if (!r) {

@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.92",
-  "notes": "Every new project now starts with all the settings of the left panel at their standard values, including costs, DXF layers and output options. What you change is saved in that project only.",
+  "latest": "1.3.93",
+  "notes": "Symmetric sculptures: thin parts on the mirror line (the stem of a glass, a neck, a tail) are no longer lost or cut through. If a symmetric result cannot be built, the sculpture is made without the mirror and the program says so.",
   "notes_i18n": {
-    "en": "Every new project now starts with all the settings of the left panel at their standard values, including costs, DXF layers and output options. What you change is saved in that project only.",
-    "it": "Ogni nuovo progetto parte con tutte le impostazioni del pannello sinistro ai valori standard, compresi costi, livelli del DXF e opzioni di uscita. Quello che cambi viene salvato solo in quel progetto.",
-    "de": "Jedes neue Projekt beginnt jetzt mit allen Einstellungen des linken Bereichs auf den Standardwerten, einschließlich Kosten, DXF-Ebenen und Ausgabeoptionen. Änderungen werden nur in diesem Projekt gespeichert.",
-    "fr": "Chaque nouveau projet démarre désormais avec tous les réglages du panneau de gauche à leurs valeurs standard, y compris les coûts, les calques DXF et les options de sortie. Vos modifications ne sont enregistrées que dans ce projet.",
-    "es": "Cada proyecto nuevo empieza ahora con todos los ajustes del panel izquierdo en sus valores estándar, incluidos costes, capas del DXF y opciones de salida. Lo que cambies se guarda solo en ese proyecto.",
-    "pt": "Cada novo projeto começa agora com todas as configurações do painel esquerdo nos valores padrão, incluindo custos, camadas do DXF e opções de saída. O que você alterar é salvo apenas nesse projeto.",
-    "ja": "新しいプロジェクトは、左パネルのすべての設定（コスト、DXFレイヤー、出力オプションを含む）が標準値の状態で始まるようになりました。変更した内容はそのプロジェクトにだけ保存されます。"
+    "en": "Symmetric sculptures: thin parts on the mirror line (the stem of a glass, a neck, a tail) are no longer lost or cut through. If a symmetric result cannot be built, the sculpture is made without the mirror and the program says so.",
+    "it": "Sculture simmetriche: le parti sottili sulla linea di specchio (lo stelo di un bicchiere, un collo, una coda) non vengono più perse o tagliate. Se un risultato simmetrico non si può costruire, la scultura viene fatta senza specchio e il programma lo dice.",
+    "de": "Symmetrische Skulpturen: Dünne Teile auf der Spiegellinie (Stiel eines Glases, Hals, Schwanz) gehen nicht mehr verloren und werden nicht mehr durchtrennt. Lässt sich ein symmetrisches Ergebnis nicht bauen, wird die Skulptur ohne Spiegelung erstellt, und das Programm weist darauf hin.",
+    "fr": "Sculptures symétriques : les parties fines sur la ligne de miroir (le pied d'un verre, un col, une queue) ne sont plus perdues ni coupées. Si un résultat symétrique ne peut pas être construit, la sculpture est faite sans miroir et le programme le signale.",
+    "es": "Esculturas simétricas: las partes finas sobre la línea de espejo (el tallo de una copa, un cuello, una cola) ya no se pierden ni se cortan. Si un resultado simétrico no se puede construir, la escultura se hace sin espejo y el programa lo indica.",
+    "pt": "Esculturas simétricas: as partes finas sobre a linha de espelho (a haste de uma taça, um gargalo, uma cauda) já não se perdem nem são cortadas. Se um resultado simétrico não puder ser construído, a escultura é feita sem espelho e o programa avisa.",
+    "ja": "対称の彫刻：鏡の線上にある細い部分（グラスの脚、首、尾）が失われたり切れたりしなくなりました。対称の結果が組み立てられない場合は鏡なしで彫刻を作り、その旨を表示します。"
   },
   "history": [
+    {
+      "date": "2026-11-10T19:30:23Z",
+      "version": "1.3.93",
+      "notes": {
+        "en": "Symmetric sculptures: thin parts on the mirror line (the stem of a glass, a neck, a tail) are no longer lost or cut through. If a symmetric result cannot be built, the sculpture is made without the mirror and the program says so.",
+        "it": "Sculture simmetriche: le parti sottili sulla linea di specchio (lo stelo di un bicchiere, un collo, una coda) non vengono più perse o tagliate. Se un risultato simmetrico non si può costruire, la scultura viene fatta senza specchio e il programma lo dice.",
+        "de": "Symmetrische Skulpturen: Dünne Teile auf der Spiegellinie (Stiel eines Glases, Hals, Schwanz) gehen nicht mehr verloren und werden nicht mehr durchtrennt. Lässt sich ein symmetrisches Ergebnis nicht bauen, wird die Skulptur ohne Spiegelung erstellt, und das Programm weist darauf hin.",
+        "fr": "Sculptures symétriques : les parties fines sur la ligne de miroir (le pied d'un verre, un col, une queue) ne sont plus perdues ni coupées. Si un résultat symétrique ne peut pas être construit, la sculpture est faite sans miroir et le programme le signale.",
+        "es": "Esculturas simétricas: las partes finas sobre la línea de espejo (el tallo de una copa, un cuello, una cola) ya no se pierden ni se cortan. Si un resultado simétrico no se puede construir, la escultura se hace sin espejo y el programa lo indica.",
+        "pt": "Esculturas simétricas: as partes finas sobre a linha de espelho (a haste de uma taça, um gargalo, uma cauda) já não se perdem nem são cortadas. Se um resultado simétrico não puder ser construído, a escultura é feita sem espelho e o programa avisa.",
+        "ja": "対称の彫刻：鏡の線上にある細い部分（グラスの脚、首、尾）が失われたり切れたりしなくなりました。対称の結果が組み立てられない場合は鏡なしで彫刻を作り、その旨を表示します。"
+      }
+    },
     {
       "date": "2026-11-10T17:55:54Z",
       "version": "1.3.92",
@@ -518,28 +531,15 @@
         "pt": "Os valores do painel lateral agora podem ser digitados em caixas ao lado das barras. Clique em um aviso no Resumo para ver na escultura onde está o problema: peças que não cabem, soldas curtas, dobras sem rasgo, centro de gravidade.",
         "ja": "サイドパネルの値をスライダー横の欄に直接入力できるようになりました。概要の警告をクリックすると、問題の場所（板に収まらないパーツ、短い溶接線、スロットのない折り目、重心）を彫刻上に表示します。"
       }
-    },
-    {
-      "date": "2026-11-08T12:09:07Z",
-      "version": "1.3.54",
-      "notes": {
-        "en": "Three new things, all optional. Augmented reality: File → Augmented reality for iPhone (USDZ) or Android (GLB) creates a file to send to the client, who sees the sculpture at real size in their garden or shop through the phone. 360° video: File → 360° video for the client records a 12-second video going around the sculpture on the chosen background. Quote in several sizes: write other sizes in Quote → Other sizes, and the PDF gets a second page with dimensions, pieces, weight and price for each. The stability check can now be switched off.",
-        "it": "Tre novità, tutte facoltative. Realtà aumentata: File → Realtà aumentata per iPhone (USDZ) o Android (GLB) crea un file da mandare al cliente, che vede la scultura a grandezza vera nel suo giardino o negozio attraverso il telefono. Video a 360°: File → Video a 360° per il cliente registra un video di 12 secondi che gira intorno alla scultura sullo sfondo scelto. Preventivo in più misure: scrivi altre misure in Preventivo → Altre misure, e il PDF ha una seconda pagina con dimensioni, pezzi, peso e prezzo per ciascuna. Il controllo della stabilità ora si può spegnere.",
-        "de": "Drei Neuheiten, alle optional. Augmented Reality: Datei → Augmented Reality für iPhone (USDZ) oder Android (GLB) erstellt eine Datei für den Kunden, der die Skulptur in Originalgröße in seinem Garten oder Laden durch das Handy sieht. 360°-Video: Datei → 360°-Video für den Kunden nimmt ein 12-Sekunden-Video rund um die Skulptur vor dem gewählten Hintergrund auf. Angebot in mehreren Größen: trage unter Angebot → Weitere Größen andere Größen ein, und das PDF erhält eine zweite Seite mit Maßen, Teilen, Gewicht und Preis. Die Standfestigkeitsprüfung lässt sich jetzt abschalten.",
-        "fr": "Trois nouveautés, toutes facultatives. Réalité augmentée : Fichier → Réalité augmentée pour iPhone (USDZ) ou Android (GLB) crée un fichier à envoyer au client, qui voit la sculpture en taille réelle dans son jardin ou sa boutique à travers son téléphone. Vidéo à 360° : Fichier → Vidéo à 360° pour le client enregistre une vidéo de 12 secondes qui tourne autour de la sculpture sur le fond choisi. Devis en plusieurs tailles : indiquez d’autres tailles dans Devis → Autres tailles, et le PDF gagne une deuxième page avec dimensions, pièces, poids et prix. Le contrôle de stabilité peut désormais être désactivé.",
-        "es": "Tres novedades, todas opcionales. Realidad aumentada: Archivo → Realidad aumentada para iPhone (USDZ) o Android (GLB) crea un archivo para enviar al cliente, que ve la escultura a tamaño real en su jardín o tienda a través del móvil. Vídeo de 360°: Archivo → Vídeo de 360° para el cliente graba un vídeo de 12 segundos que gira alrededor de la escultura sobre el fondo elegido. Presupuesto en varios tamaños: escribe otros tamaños en Presupuesto → Otros tamaños, y el PDF tiene una segunda página con medidas, piezas, peso y precio de cada uno. El control de estabilidad ahora se puede desactivar.",
-        "pt": "Três novidades, todas opcionais. Realidade aumentada: Arquivo → Realidade aumentada para iPhone (USDZ) ou Android (GLB) cria um arquivo para enviar ao cliente, que vê a escultura em tamanho real no jardim ou na loja pelo celular. Vídeo 360°: Arquivo → Vídeo 360° para o cliente grava um vídeo de 12 segundos girando em volta da escultura no fundo escolhido. Orçamento em vários tamanhos: escreva outros tamanhos em Orçamento → Outros tamanhos, e o PDF ganha uma segunda página com medidas, peças, peso e preço de cada um. A verificação de estabilidade agora pode ser desligada.",
-        "ja": "3つの新機能（すべて任意）。AR：ファイル → iPhone 用 AR (USDZ) / Android 用 AR (GLB) でお客様に送るファイルを作成し、お客様はスマートフォンで庭や店に実物大の彫刻を見られます。360° 動画：ファイル → お客様向け 360° 動画 で、選んだ背景の上で彫刻の周りを回る 12 秒の動画を録画します。複数サイズの見積もり：見積もり → 他のサイズ にサイズを入力すると、PDF の2ページ目に各サイズの寸法・部品数・重量・価格が載ります。安定性チェックはオフにできるようになりました。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.92",
+    "version": "1.3.93",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "09ee0cdd8dbccb9c19f6369927249fa7bddd8d54ac1ea66f553b96444fc31c35"
+        "sha256": "a8e6f047561be593b1fdeb1b1240465d7c60a36b9af43ecb898c97b9d3309e5c"
       }
     ]
   },

@@ -862,11 +862,6 @@ function decimateMesh(Vin, Fin, target, onProgress, weights, opts) {
         }
     }
     const ver = new Uint32Array(nv), vAlive = new Uint8Array(nv).fill(1), fAlive = new Uint8Array(nf).fill(1);
-    function evalQ(o, x, y, z) {
-        return Q[o] * x * x + 2 * Q[o + 1] * x * y + 2 * Q[o + 2] * x * z + 2 * Q[o + 3] * x
-            + Q[o + 4] * y * y + 2 * Q[o + 5] * y * z + 2 * Q[o + 6] * y
-            + Q[o + 7] * z * z + 2 * Q[o + 8] * z + Q[o + 9];
-    }
     const T = new Float64Array(10), R = new Float64Array(4);
     const evalT = (px, py, pz) => T[0] * px * px + 2 * T[1] * px * py + 2 * T[2] * px * pz + 2 * T[3] * px + T[4] * py * py + 2 * T[5] * py * pz + 2 * T[6] * py + T[7] * pz * pz + 2 * T[8] * pz + T[9];
     function cost(a, b) {
@@ -2389,10 +2384,62 @@ function sculptOnce(V, F, target, onProgress, W, opts) {
 }
 function mirrorMesh(V, F, P) {
     const nv = V.length / 3, b = meshBounds(V), eps = (Math.hypot(...b.size) || 1) * 1e-6;
+    const dP = (v) => P.n[0] * V[3 * v] + P.n[1] * V[3 * v + 1] + P.n[2] * V[3 * v + 2] + P.d;
+    const onP = new Uint8Array(nv);
+    for (let v = 0; v < nv; v++)
+        if (Math.abs(dP(v)) < eps)
+            onP[v] = 1;
+    F = Uint32Array.from(F);
+    const key = (a, c) => a < c ? a * 4294967296 + c : c * 4294967296 + a, ef = new Map();
+    const keep = [];
+    for (let f = 0; f < F.length; f += 3)
+        if (!(onP[F[f]] && onP[F[f + 1]] && onP[F[f + 2]]))
+            keep.push(F[f], F[f + 1], F[f + 2]);
+    F = Uint32Array.from(keep);
+    for (let f = 0; f < F.length / 3; f++)
+        for (let k = 0; k < 3; k++) {
+            const kk = key(F[3 * f + k], F[3 * f + (k + 1) % 3]), l = ef.get(kk);
+            if (l)
+                l.push(f);
+            else
+                ef.set(kk, [f]);
+        }
+    const onCut = new Uint8Array(nv);
+    for (const [kk, fs] of ef) {
+        const a = Math.floor(kk / 4294967296), c = kk % 4294967296;
+        if (fs.length === 1 && onP[a] && onP[c]) {
+            onCut[a] = 1;
+            onCut[c] = 1;
+        }
+        else if (fs.length === 2 && onP[a] && onP[c]) {
+            const [f, g] = fs;
+            let o1 = -1, o2 = -1;
+            for (let k = 0; k < 3; k++) {
+                const u = F[3 * f + k];
+                if (u !== a && u !== c)
+                    o1 = u;
+                const w = F[3 * g + k];
+                if (w !== a && w !== c)
+                    o2 = w;
+            }
+            if (o1 >= 0 && o2 >= 0 && o1 !== o2 && !ef.has(key(o1, o2))) {
+                let i = 0;
+                while (!((F[3 * f + i] === a && F[3 * f + (i + 1) % 3] === c) || (F[3 * f + i] === c && F[3 * f + (i + 1) % 3] === a)))
+                    i++;
+                const p = F[3 * f + i], q = F[3 * f + (i + 1) % 3];
+                F[3 * f] = p;
+                F[3 * f + 1] = o2;
+                F[3 * f + 2] = o1;
+                F[3 * g] = o2;
+                F[3 * g + 1] = q;
+                F[3 * g + 2] = o1;
+            }
+        }
+    }
     const out = Array.from(V), twin = new Int32Array(nv);
     for (let v = 0; v < nv; v++) {
-        const x = V[3 * v], y = V[3 * v + 1], z = V[3 * v + 2], d = P.n[0] * x + P.n[1] * y + P.n[2] * z + P.d;
-        if (Math.abs(d) < eps) {
+        const x = V[3 * v], y = V[3 * v + 1], z = V[3 * v + 2], d = dP(v);
+        if (onP[v] && onCut[v]) {
             twin[v] = v;
             continue;
         }
@@ -2883,7 +2930,7 @@ function unfoldMesh(V, F, opt) {
         addCands(seed);
         while (cand.length && faces.length < o.maxFaces + 6) {
             cand.sort((p, q) => p[0] - q[0]);
-            const [bd, f, k, g, kg] = cand.shift();
+            const [bd, f, k, g] = cand.shift();
             const shortE = dist(F[3 * f + k], F[3 * f + (k + 1) % 3]) < o.minEdge;
             if (piece[g] >= 0 || bd > (shortE ? Math.max(o.maxBend, 90) : o.maxBend))
                 continue;

@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.79",
-  "notes": "Thin parts: a frame of thin bars or a vase too thin for the minimum side now gets thickened too (before, only when short seams remained) and keeps far more facets; the thickening runs up to 4× faster. Sculptures of several metres at 100% Even facets no longer lose half of their facets. Faces reduced right at the sheet limit are now kept 0.5% inside it (no more pieces a millimetre too wide).",
+  "latest": "1.3.80",
+  "notes": "Symmetric sculptures: where the half touched the mirror plane with a flat facet, an edge or a single point (seen on a cat, an elephant and a camel) the result had edges shared by four faces and the pieces could not be unfolded there; the mirror now handles those spots cleanly.",
   "notes_i18n": {
-    "en": "Thin parts: a frame of thin bars or a vase too thin for the minimum side now gets thickened too (before, only when short seams remained) and keeps far more facets; the thickening runs up to 4× faster. Sculptures of several metres at 100% Even facets no longer lose half of their facets. Faces reduced right at the sheet limit are now kept 0.5% inside it (no more pieces a millimetre too wide).",
-    "it": "Parti sottili: anche un telaio di barre sottili o un vaso troppo sottile per il lato minimo viene ingrossato (prima solo se restavano cordoni corti) e mantiene molte più faccette; l'ingrossamento è fino a 4 volte più veloce. Le sculture di diversi metri con «Faccette regolari» al 100% non perdono più metà delle faccette. Le facce ridotte al limite della lamiera restano 0,5% dentro il limite (niente più pezzi larghi un millimetro di troppo).",
-    "de": "Dünne Teile: Auch ein Rahmen aus dünnen Stäben oder eine für die Mindestseite zu dünne Vase wird jetzt verdickt (bisher nur, wenn kurze Nähte blieben) und behält viel mehr Facetten; das Verdicken ist bis zu 4× schneller. Skulpturen von mehreren Metern mit 100 % «Gleichmäßige Facetten» verlieren nicht mehr die Hälfte der Facetten. Flächen am Blechlimit bleiben 0,5 % darunter (keine Teile mehr, die einen Millimeter zu breit sind).",
-    "fr": "Parties fines : un cadre de barres fines ou un vase trop fin pour le côté minimal est désormais épaissi lui aussi (avant, seulement s'il restait des soudures courtes) et garde beaucoup plus de facettes ; l'épaississement est jusqu'à 4× plus rapide. Les sculptures de plusieurs mètres avec « Facettes régulières » à 100 % ne perdent plus la moitié de leurs facettes. Les faces réduites à la limite de la tôle restent 0,5 % en dessous (plus de pièces trop larges d'un millimètre).",
-    "es": "Partes finas: un bastidor de barras finas o un jarrón demasiado fino para el lado mínimo ahora también se engrosa (antes solo si quedaban cordones cortos) y conserva muchas más facetas; el engrosado es hasta 4 veces más rápido. Las esculturas de varios metros con «Facetas regulares» al 100 % ya no pierden la mitad de las facetas. Las caras reducidas al límite de la chapa se quedan un 0,5 % por dentro (no más piezas un milímetro demasiado anchas).",
-    "pt": "Partes finas: uma armação de barras finas ou um vaso fino demais para o lado mínimo agora também é engrossado (antes, só se restassem cordões curtos) e mantém muito mais facetas; o engrossamento é até 4× mais rápido. Esculturas de vários metros com «Facetas regulares» a 100% não perdem mais metade das facetas. Faces reduzidas no limite da chapa ficam 0,5% dentro dele (sem peças um milímetro largas demais).",
-    "ja": "細い部分：細い棒の枠や最小辺より薄い花瓶も肉厚化されるようになり（以前は短い継ぎ目が残る場合のみ）、はるかに多くの面を保ちます。肉厚化は最大4倍速くなりました。「均一な面」100%の数メートルの彫刻が面の半分を失うことはなくなりました。板の限界で縮小された面は限界の0.5%内側に収まります（1ミリ幅が広すぎる部品はなくなりました）。"
+    "en": "Symmetric sculptures: where the half touched the mirror plane with a flat facet, an edge or a single point (seen on a cat, an elephant and a camel) the result had edges shared by four faces and the pieces could not be unfolded there; the mirror now handles those spots cleanly.",
+    "it": "Sculture simmetriche: dove la metà toccava il piano di specchio con una faccetta piatta, uno spigolo o un solo punto (visto su un gatto, un elefante e un cammello) il risultato aveva lati condivisi da quattro facce e lì i pezzi non si sviluppavano; ora lo specchio sistema quei punti.",
+    "de": "Symmetrische Skulpturen: Wo die Hälfte die Spiegelebene mit einer flachen Facette, einer Kante oder einem einzelnen Punkt berührte (bei einer Katze, einem Elefanten und einem Kamel gesehen), hatte das Ergebnis Kanten mit vier Flächen und die Teile ließen sich dort nicht abwickeln; die Spiegelung bereinigt diese Stellen jetzt.",
+    "fr": "Sculptures symétriques : là où la moitié touchait le plan de symétrie par une facette plate, une arête ou un seul point (vu sur un chat, un éléphant et un chameau), le résultat avait des arêtes partagées par quatre faces et les pièces ne se dépliaient pas à cet endroit ; le miroir corrige maintenant ces points.",
+    "es": "Esculturas simétricas: donde la mitad tocaba el plano de simetría con una faceta plana, una arista o un solo punto (visto en un gato, un elefante y un camello) el resultado tenía aristas compartidas por cuatro caras y las piezas no se desplegaban allí; ahora el espejo arregla esos puntos.",
+    "pt": "Esculturas simétricas: onde a metade tocava o plano de espelho com uma faceta plana, uma aresta ou um único ponto (visto num gato, num elefante e num camelo) o resultado tinha arestas partilhadas por quatro faces e as peças não se desdobravam ali; agora o espelho trata esses pontos.",
+    "ja": "対称な彫刻：半分が平らな面・辺・1点で鏡面に接していた箇所（猫、象、ラクダで確認）では、結果に4つの面が共有する辺ができ、そこで部品を展開できませんでした。鏡映処理がそれらの箇所を正しく扱うようになりました。"
   },
   "history": [
+    {
+      "date": "2026-11-10T02:48:04Z",
+      "version": "1.3.80",
+      "notes": {
+        "en": "Symmetric sculptures: where the half touched the mirror plane with a flat facet, an edge or a single point (seen on a cat, an elephant and a camel) the result had edges shared by four faces and the pieces could not be unfolded there; the mirror now handles those spots cleanly.",
+        "it": "Sculture simmetriche: dove la metà toccava il piano di specchio con una faccetta piatta, uno spigolo o un solo punto (visto su un gatto, un elefante e un cammello) il risultato aveva lati condivisi da quattro facce e lì i pezzi non si sviluppavano; ora lo specchio sistema quei punti.",
+        "de": "Symmetrische Skulpturen: Wo die Hälfte die Spiegelebene mit einer flachen Facette, einer Kante oder einem einzelnen Punkt berührte (bei einer Katze, einem Elefanten und einem Kamel gesehen), hatte das Ergebnis Kanten mit vier Flächen und die Teile ließen sich dort nicht abwickeln; die Spiegelung bereinigt diese Stellen jetzt.",
+        "fr": "Sculptures symétriques : là où la moitié touchait le plan de symétrie par une facette plate, une arête ou un seul point (vu sur un chat, un éléphant et un chameau), le résultat avait des arêtes partagées par quatre faces et les pièces ne se dépliaient pas à cet endroit ; le miroir corrige maintenant ces points.",
+        "es": "Esculturas simétricas: donde la mitad tocaba el plano de simetría con una faceta plana, una arista o un solo punto (visto en un gato, un elefante y un camello) el resultado tenía aristas compartidas por cuatro caras y las piezas no se desplegaban allí; ahora el espejo arregla esos puntos.",
+        "pt": "Esculturas simétricas: onde a metade tocava o plano de espelho com uma faceta plana, uma aresta ou um único ponto (visto num gato, num elefante e num camelo) o resultado tinha arestas partilhadas por quatro faces e as peças não se desdobravam ali; agora o espelho trata esses pontos.",
+        "ja": "対称な彫刻：半分が平らな面・辺・1点で鏡面に接していた箇所（猫、象、ラクダで確認）では、結果に4つの面が共有する辺ができ、そこで部品を展開できませんでした。鏡映処理がそれらの箇所を正しく扱うようになりました。"
+      }
+    },
     {
       "date": "2026-11-09T21:13:07Z",
       "version": "1.3.79",
@@ -518,28 +531,15 @@
         "pt": "As dobras que substituem um cordão curto agora ficam dentro de 120°.",
         "ja": "短い溶接線の代わりになる曲げは 120° 以内に収まるようになりました。"
       }
-    },
-    {
-      "date": "2026-11-08T09:09:55Z",
-      "version": "1.3.41",
-      "notes": {
-        "en": "Fewer short seams on small sculptures: thin tunnels in manes and tails are closed, and pieces are joined across short edges with a bend. The size field no longer accepts impossible values.",
-        "it": "Meno cordoni corti nelle sculture piccole: i piccoli tunnel in criniere e code vengono chiusi e i pezzi si uniscono lungo i lati corti con una piega. Il campo della misura non accetta più valori impossibili.",
-        "de": "Weniger kurze Schweißnähte bei kleinen Skulpturen: dünne Tunnel in Mähnen und Schweifen werden geschlossen, und Teile werden an kurzen Kanten mit einer Biegung verbunden. Das Größenfeld nimmt keine unmöglichen Werte mehr an.",
-        "fr": "Moins de cordons courts sur les petites sculptures : les petits tunnels dans les crinières et les queues sont fermés, et les pièces sont réunies le long des côtés courts par un pli. Le champ de la taille n’accepte plus de valeurs impossibles.",
-        "es": "Menos cordones cortos en las esculturas pequeñas: los pequeños túneles en crines y colas se cierran y las piezas se unen por los lados cortos con un pliegue. El campo del tamaño ya no acepta valores imposibles.",
-        "pt": "Menos cordões curtos nas esculturas pequenas: os pequenos túneis em crinas e caudas são fechados e as peças se unem nos lados curtos com uma dobra. O campo do tamanho não aceita mais valores impossíveis.",
-        "ja": "小さな彫刻での短い溶接線を減らしました。たてがみや尾の細いトンネルを閉じ、短い辺では部品を曲げでつなぎます。サイズ欄にありえない値が入らなくなりました。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.79",
+    "version": "1.3.80",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "8b6a5a31efe4620a514a01c5afd08f8707fd43404598bacf28e98929b3231997"
+        "sha256": "7af49c53578c3e7dea119af6f3fa08047da8443b7389ee95f6a39ccb99fabbcf"
       }
     ]
   },

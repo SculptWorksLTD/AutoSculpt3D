@@ -2408,6 +2408,11 @@ function sculptOnce(V, F, target, onProgress, W, opts) {
                     const c = collapseShortEdges(m.V, m.F, opts.minEdge, sym, 0, G, 0, lim);
                     m = { V: c.V, F: c.F };
                 }
+                if (oneBody) {
+                    const d2 = dropCrumbs(m.V, m.F, true);
+                    if (d2)
+                        m = { V: d2.V, F: d2.F };
+                }
                 m.maxEdgeHit = low.maxEdgeHit;
                 m.thinFrac = thinFrac;
                 return m;

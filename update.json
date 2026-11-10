@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.90",
-  "notes": "Bend angles are no longer engraved outside the metal on very narrow pieces.",
+  "latest": "1.3.91",
+  "notes": "Symmetric sculptures: a thin part lying on the mirror line (a tail, a crest) no longer leaves a loose fragment floating beside the sculpture.",
   "notes_i18n": {
-    "en": "Bend angles are no longer engraved outside the metal on very narrow pieces.",
-    "it": "Sui pezzi molto stretti gli angoli di piega non vengono più incisi fuori dal metallo.",
-    "de": "Bei sehr schmalen Teilen werden Biegewinkel nicht mehr außerhalb des Metalls graviert.",
-    "fr": "Sur les pièces très étroites, les angles de pliage ne sont plus gravés en dehors du métal.",
-    "es": "En las piezas muy estrechas los ángulos de plegado ya no se graban fuera del metal.",
-    "pt": "Nas peças muito estreitas, os ângulos de dobra já não são gravados fora do metal.",
-    "ja": "非常に細い部品で、曲げ角度が金属の外に刻印されることがなくなりました。"
+    "en": "Symmetric sculptures: a thin part lying on the mirror line (a tail, a crest) no longer leaves a loose fragment floating beside the sculpture.",
+    "it": "Sculture simmetriche: una parte sottile sulla linea di specchio (una coda, una cresta) non lascia più un frammento staccato accanto alla scultura.",
+    "de": "Symmetrische Skulpturen: Ein dünnes Teil auf der Spiegellinie (Schwanz, Kamm) hinterlässt kein loses Fragment mehr neben der Skulptur.",
+    "fr": "Sculptures symétriques : une partie fine située sur la ligne de miroir (une queue, une crête) ne laisse plus de fragment détaché à côté de la sculpture.",
+    "es": "Esculturas simétricas: una parte fina sobre la línea de espejo (una cola, una cresta) ya no deja un fragmento suelto junto a la escultura.",
+    "pt": "Esculturas simétricas: uma parte fina sobre a linha de espelho (uma cauda, uma crista) já não deixa um fragmento solto ao lado da escultura.",
+    "ja": "対称の彫刻：鏡の線上にある細い部分（尾やとさか）が、彫刻の横に離れた破片として残ることがなくなりました。"
   },
   "history": [
+    {
+      "date": "2026-11-10T17:27:10Z",
+      "version": "1.3.91",
+      "notes": {
+        "en": "Symmetric sculptures: a thin part lying on the mirror line (a tail, a crest) no longer leaves a loose fragment floating beside the sculpture.",
+        "it": "Sculture simmetriche: una parte sottile sulla linea di specchio (una coda, una cresta) non lascia più un frammento staccato accanto alla scultura.",
+        "de": "Symmetrische Skulpturen: Ein dünnes Teil auf der Spiegellinie (Schwanz, Kamm) hinterlässt kein loses Fragment mehr neben der Skulptur.",
+        "fr": "Sculptures symétriques : une partie fine située sur la ligne de miroir (une queue, une crête) ne laisse plus de fragment détaché à côté de la sculpture.",
+        "es": "Esculturas simétricas: una parte fina sobre la línea de espejo (una cola, una cresta) ya no deja un fragmento suelto junto a la escultura.",
+        "pt": "Esculturas simétricas: uma parte fina sobre a linha de espelho (uma cauda, uma crista) já não deixa um fragmento solto ao lado da escultura.",
+        "ja": "対称の彫刻：鏡の線上にある細い部分（尾やとさか）が、彫刻の横に離れた破片として残ることがなくなりました。"
+      }
+    },
     {
       "date": "2026-11-10T17:09:46Z",
       "version": "1.3.90",
@@ -518,28 +531,15 @@
         "pt": "Nova seção Estrutura e estabilidade. O programa calcula o centro de gravidade e avisa se a escultura não fica em pé sozinha ou tomba com facilidade, sugerindo também quanto alargar a placa de base. Também pode desenhar nervuras internas de reforço: quadros planos soldados dentro da casca, numerados e com a posição gravada, cortados em chapas separadas (vista Chapas e Arquivo → DXF das nervuras internas). Peso e custo entram no resumo e no orçamento.",
         "ja": "新しい「構造と安定性」セクション。重心を計算し、彫刻が自立しない場合や倒れやすい場合に警告し、ベースプレートの必要な広さも提案します。内部補強リブも作図できます。外殻の内側に溶接する平らなフレームで、番号と位置が刻印され、別の板で切断されます（板ビューと ファイル → 内部リブの DXF）。重量と費用は概要と見積もりに含まれます。"
       }
-    },
-    {
-      "date": "2026-11-08T11:00:56Z",
-      "version": "1.3.52",
-      "notes": {
-        "en": "Realistic landscapes much sharper and no longer stretched: the background uses the high-resolution photo and the ground is projected from the height of your viewpoint. The new photo is downloaded the first time you choose each landscape.",
-        "it": "Paesaggi realistici molto più nitidi e non più stirati: lo sfondo usa la foto ad alta risoluzione e il terreno è proiettato dall’altezza del tuo punto di vista. La foto nuova si scarica la prima volta che scegli ogni paesaggio.",
-        "de": "Realistische Landschaften viel schärfer und nicht mehr verzerrt: der Hintergrund nutzt das hochaufgelöste Foto, und der Boden wird aus der Höhe deines Blickpunkts projiziert. Das neue Foto wird beim ersten Auswählen jeder Landschaft geladen.",
-        "fr": "Paysages réalistes bien plus nets et plus étirés : le fond utilise la photo haute résolution et le sol est projeté depuis la hauteur de votre point de vue. La nouvelle photo est téléchargée la première fois que vous choisissez chaque paysage.",
-        "es": "Paisajes realistas mucho más nítidos y ya no estirados: el fondo usa la foto de alta resolución y el suelo se proyecta desde la altura de tu punto de vista. La foto nueva se descarga la primera vez que eliges cada paisaje.",
-        "pt": "Paisagens realistas muito mais nítidas e não mais esticadas: o fundo usa a foto em alta resolução e o chão é projetado da altura do seu ponto de vista. A foto nova é baixada na primeira vez que você escolhe cada paisagem.",
-        "ja": "リアルな風景がずっと鮮明になり、引き伸ばされなくなりました。背景に高解像度の写真を使い、地面は視点の高さから投影されます。新しい写真は各風景を最初に選んだときにダウンロードされます。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.90",
+    "version": "1.3.91",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "dd04c63429949570dbdd2d2c022cfcad8b6fdc237ea446ff9ec48dd8065d0443"
+        "sha256": "996af3cf63ea4d3db5cc38809b08690924d14dac7c2aadc6ad4c75450b83aa08"
       }
     ]
   },

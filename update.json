@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.81",
-  "notes": "Flat feet: a sole whose border touched itself (the neck of a bust) got three facets on one edge and could not be unfolded there; fixed. Thickening of thin parts: a model whose skin had many small tunnels (a strawberry) came out with a second, inside-out surface inside the sculpture; the thickened solid is now always one solid shell.",
+  "latest": "1.3.82",
+  "notes": "Models with holes: a hole whose border touches itself (a torn corner of a plate) was left open and the model came out as a cloud of crumbs; it is now closed properly before the model is rebuilt as a solid.",
   "notes_i18n": {
-    "en": "Flat feet: a sole whose border touched itself (the neck of a bust) got three facets on one edge and could not be unfolded there; fixed. Thickening of thin parts: a model whose skin had many small tunnels (a strawberry) came out with a second, inside-out surface inside the sculpture; the thickened solid is now always one solid shell.",
-    "it": "Appoggi piatti: una suola il cui bordo toccava sé stesso (il collo di un busto) aveva tre faccette su uno stesso lato e lì non si sviluppava; corretto. Ingrossamento delle parti sottili: un modello con la pelle piena di piccoli tunnel (una fragola) usciva con una seconda superficie rovesciata dentro la scultura; ora il solido ingrossato è sempre un guscio unico.",
-    "de": "Flache Füße: Eine Sohle, deren Rand sich selbst berührte (der Hals einer Büste), bekam drei Facetten an einer Kante und ließ sich dort nicht abwickeln; behoben. Verdickung dünner Teile: Ein Modell mit vielen kleinen Tunneln in der Haut (eine Erdbeere) bekam eine zweite, nach innen gekehrte Fläche im Inneren der Skulptur; der verdickte Körper ist jetzt immer eine einzige Schale.",
-    "fr": "Appuis plats : une semelle dont le bord se touchait lui-même (le cou d'un buste) recevait trois facettes sur une même arête et ne se dépliait pas à cet endroit ; corrigé. Épaississement des parties fines : un modèle dont la peau comportait de nombreux petits tunnels (une fraise) ressortait avec une seconde surface retournée à l'intérieur de la sculpture ; le solide épaissi est désormais toujours une seule coque.",
-    "es": "Apoyos planos: una suela cuyo borde se tocaba a sí mismo (el cuello de un busto) recibía tres facetas en una misma arista y allí no se desplegaba; corregido. Engrosado de las partes finas: un modelo con la piel llena de pequeños túneles (una fresa) salía con una segunda superficie invertida dentro de la escultura; ahora el sólido engrosado es siempre una sola cáscara.",
-    "pt": "Apoios planos: uma sola cujo contorno tocava a si mesmo (o pescoço de um busto) recebia três facetas numa mesma aresta e ali não se desdobrava; corrigido. Engrossamento das partes finas: um modelo com a pele cheia de pequenos túneis (um morango) saía com uma segunda superfície invertida dentro da escultura; agora o sólido engrossado é sempre uma única casca.",
-    "ja": "平らな足：縁が自身に接する底面（胸像の首）では1つの辺に3つの面ができ、そこで展開できませんでした。修正しました。細い部分の肉厚化：表面に小さなトンネルが多数あるモデル（イチゴ）では彫刻の内側に裏返しの第2の面ができていました。肉厚化した立体は常に1つの殻になります。"
+    "en": "Models with holes: a hole whose border touches itself (a torn corner of a plate) was left open and the model came out as a cloud of crumbs; it is now closed properly before the model is rebuilt as a solid.",
+    "it": "Modelli con buchi: un buco il cui bordo tocca sé stesso (l'angolo strappato di una lastra) restava aperto e il modello usciva come una nuvola di briciole; ora viene chiuso correttamente prima di ricostruire il modello come solido.",
+    "de": "Modelle mit Löchern: Ein Loch, dessen Rand sich selbst berührt (eine abgerissene Ecke einer Platte), blieb offen und das Modell kam als Wolke von Krümeln heraus; es wird jetzt richtig geschlossen, bevor das Modell als Körper neu aufgebaut wird.",
+    "fr": "Modèles troués : un trou dont le bord se touche lui-même (le coin arraché d'une plaque) restait ouvert et le modèle ressortait en nuage de miettes ; il est maintenant refermé correctement avant la reconstruction du modèle en solide.",
+    "es": "Modelos con agujeros: un agujero cuyo borde se toca a sí mismo (la esquina arrancada de una placa) quedaba abierto y el modelo salía como una nube de migas; ahora se cierra correctamente antes de reconstruir el modelo como sólido.",
+    "pt": "Modelos com furos: um furo cujo contorno toca a si mesmo (o canto arrancado de uma placa) ficava aberto e o modelo saía como uma nuvem de migalhas; agora é fechado corretamente antes de reconstruir o modelo como sólido.",
+    "ja": "穴のあるモデル：縁が自身に接する穴（板の欠けた角）が開いたままになり、モデルが破片の雲になっていました。立体として再構築する前に正しく閉じるようになりました。"
   },
   "history": [
+    {
+      "date": "2026-11-10T06:57:07Z",
+      "version": "1.3.82",
+      "notes": {
+        "en": "Models with holes: a hole whose border touches itself (a torn corner of a plate) was left open and the model came out as a cloud of crumbs; it is now closed properly before the model is rebuilt as a solid.",
+        "it": "Modelli con buchi: un buco il cui bordo tocca sé stesso (l'angolo strappato di una lastra) restava aperto e il modello usciva come una nuvola di briciole; ora viene chiuso correttamente prima di ricostruire il modello come solido.",
+        "de": "Modelle mit Löchern: Ein Loch, dessen Rand sich selbst berührt (eine abgerissene Ecke einer Platte), blieb offen und das Modell kam als Wolke von Krümeln heraus; es wird jetzt richtig geschlossen, bevor das Modell als Körper neu aufgebaut wird.",
+        "fr": "Modèles troués : un trou dont le bord se touche lui-même (le coin arraché d'une plaque) restait ouvert et le modèle ressortait en nuage de miettes ; il est maintenant refermé correctement avant la reconstruction du modèle en solide.",
+        "es": "Modelos con agujeros: un agujero cuyo borde se toca a sí mismo (la esquina arrancada de una placa) quedaba abierto y el modelo salía como una nube de migas; ahora se cierra correctamente antes de reconstruir el modelo como sólido.",
+        "pt": "Modelos com furos: um furo cujo contorno toca a si mesmo (o canto arrancado de uma placa) ficava aberto e o modelo saía como uma nuvem de migalhas; agora é fechado corretamente antes de reconstruir o modelo como sólido.",
+        "ja": "穴のあるモデル：縁が自身に接する穴（板の欠けた角）が開いたままになり、モデルが破片の雲になっていました。立体として再構築する前に正しく閉じるようになりました。"
+      }
+    },
     {
       "date": "2026-11-10T03:57:46Z",
       "version": "1.3.81",
@@ -518,28 +531,15 @@
         "pt": "Os modelos criados a partir de fotos são limpos automaticamente: chega de patas cheias de facetas minúsculas e corpo feito de poucas faces enormes. Agora as facetas se distribuem de forma uniforme por toda a escultura. Se você salvar sem digitar a extensão, ela é adicionada.",
         "ja": "写真から作ったモデルを自動で整えるようになりました。脚に細かいファセットが集中し、胴体が少数の大きな面になる問題がなくなり、彫刻全体に均等にファセットが配分されます。拡張子なしで保存しても自動で付きます。"
       }
-    },
-    {
-      "date": "2026-11-08T09:18:35Z",
-      "version": "1.3.43",
-      "notes": {
-        "en": "Slots on short bends: the slot now fits even on bends of a few millimetres, so almost no bend needs pliers.",
-        "it": "Asole sulle pieghe corte: l’asola ora entra anche nelle pieghe di pochi millimetri, quindi quasi nessuna piega richiede la pinza.",
-        "de": "Schlitze an kurzen Biegungen: der Schlitz passt jetzt auch in Biegungen von wenigen Millimetern, fast keine Biegung braucht noch die Zange.",
-        "fr": "Fentes sur les plis courts : la fente tient désormais même sur les plis de quelques millimètres, presque aucun pli ne demande la pince.",
-        "es": "Ranuras en los pliegues cortos: la ranura ahora cabe incluso en pliegues de pocos milímetros, casi ningún pliegue necesita alicates.",
-        "pt": "Rasgos nas dobras curtas: o rasgo agora cabe até em dobras de poucos milímetros, quase nenhuma dobra precisa de alicate.",
-        "ja": "短い曲げのスリット：数ミリの曲げにもスリットが入るようになり、ペンチが必要な曲げはほとんどなくなりました。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.81",
+    "version": "1.3.82",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "1d9b35a5a953f2f4f399b46680e3a76c6b2cf350dfdc12f54b3b20613deb2b48"
+        "sha256": "e752e7536990f4977020d3981650530d06111d7fb92dbb7ae528abbced6ceb70"
       }
     ]
   },

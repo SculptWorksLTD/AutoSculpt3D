@@ -2548,25 +2548,20 @@ function fillHoles(V, F) {
     for (let f = 0; f < F.length; f += 3)
         for (let k = 0; k < 3; k++) {
             const a = F[f + k], b = F[f + (k + 1) % 3];
-            if (count.get(key(a, b)) === 1)
-                next.set(b, a);
+            if (count.get(key(a, b)) === 1) {
+                if (!next.has(b))
+                    next.set(b, []);
+                next.get(b).push(a);
+            }
         }
     if (!next.size)
         return { V, F, holes: 0 };
-    const Vo = Array.from(V), Fo = Array.from(F), seen = new Set();
+    const Vo = Array.from(V), Fo = Array.from(F);
     let holes = 0;
-    for (const start of next.keys()) {
-        if (seen.has(start))
-            continue;
-        const loop = [];
-        let v = start;
-        while (v !== undefined && !seen.has(v)) {
-            seen.add(v);
-            loop.push(v);
-            v = next.get(v);
-        }
+    const take = (v) => { const l = next.get(v); return l && l.length ? l.pop() : undefined; };
+    const fan = (loop) => {
         if (loop.length < 3)
-            continue;
+            return;
         let cx = 0, cy = 0, cz = 0;
         for (const u of loop) {
             cx += V[3 * u];
@@ -2578,6 +2573,27 @@ function fillHoles(V, F) {
         for (let i = 0; i < loop.length; i++)
             Fo.push(loop[i], loop[(i + 1) % loop.length], c);
         holes++;
+    };
+    for (const start of [...next.keys()]) {
+        while (next.get(start).length) {
+            const loop = [start], at = new Map([[start, 0]]);
+            let v = take(start);
+            while (v !== undefined && v !== start && loop.length < 1000000) {
+                if (at.has(v)) {
+                    const i = at.get(v), sub = loop.splice(i + 1);
+                    for (const u of sub)
+                        at.delete(u);
+                    fan([v].concat(sub));
+                }
+                else {
+                    at.set(v, loop.length);
+                    loop.push(v);
+                }
+                v = take(v);
+            }
+            if (v === start)
+                fan(loop);
+        }
     }
     return { V: Float64Array.from(Vo), F: Uint32Array.from(Fo), holes };
 }

@@ -966,7 +966,8 @@ function decimateMesh(Vin, Fin, target, onProgress, weights, opts) {
     }
     const pt = (u) => [V[3 * u], V[3 * u + 1], V[3 * u + 2]];
     let qMin = opts.qHard > 0 ? opts.qHard : regular * 0.3, refused = [];
-    let alive = nf, steps = 0, maxEdgeHit = 0;
+    let alive = nf, steps = 0, maxEdgeHit = 0, refSum = 0, refN = 0;
+    const RELAX = opts.relax || 10;
     const total = nf - target;
     for (;;) {
         if (size === 0) {
@@ -977,14 +978,27 @@ function decimateMesh(Vin, Fin, target, onProgress, weights, opts) {
                 if (vAlive[x] && vAlive[y])
                     pushEdge(x, y);
             refused = [];
+            refSum = 0;
+            refN = 0;
             continue;
         }
         if (alive <= target)
             break;
-        const a = ha[0], b = hb[0], va = hva[0], vb = hvb[0], px = hx[0], py = hy[0], pz = hz[0];
+        const a = ha[0], b = hb[0], va = hva[0], vb = hvb[0], px = hx[0], py = hy[0], pz = hz[0], c0 = hc[0];
         pop();
         if (!vAlive[a] || !vAlive[b] || ver[a] !== va || ver[b] !== vb)
             continue;
+        if (refN > 0 && qMin > 0 && !(opts.qHard > 0) && c0 > RELAX * (refSum / refN) && refSum > 0) {
+            qMin = qMin > 0.05 ? qMin / 2 : 0;
+            for (const [x, y] of refused)
+                if (vAlive[x] && vAlive[y])
+                    pushEdge(x, y);
+            refused = [];
+            refSum = 0;
+            refN = 0;
+            pushEdge(a, b);
+            continue;
+        }
         let s0 = -1, s1 = -1, nShared = 0;
         for (const f of vf[a])
             if (fAlive[f] && (F[3 * f] === b || F[3 * f + 1] === b || F[3 * f + 2] === b)) {
@@ -1080,6 +1094,8 @@ function decimateMesh(Vin, Fin, target, onProgress, weights, opts) {
                 }
             if (qNew < qMin && qNew < qOld) {
                 refused.push([a, b]);
+                refSum += c0;
+                refN++;
                 continue;
             }
         }
@@ -1497,15 +1513,16 @@ function collapseShortEdges(Vin, Fin, minLen, P, sliver, G, slMax, lim) {
             const n = cross(a, b, c), area2 = Math.hypot(n[0], n[1], n[2]), lmax = Math.max(...l);
             const thin = lmax > 0 && area2 / lmax < minLen * 0.5;
             let sl = sliver > 0 && lmax > 0 && area2 / lmax < sliver * lmax && !(slMax > 0 && Math.min(...l) >= slMax);
-            if (sl) {
-                const k = l.indexOf(Math.min(...l)), u = F[3 * f + k], w = F[3 * f + (k + 1) % 3];
-                const g = vf[u].find(h => h !== f && (F[3 * h] === w || F[3 * h + 1] === w || F[3 * h + 2] === w));
-                if (g !== undefined) {
-                    const m = cross(F[3 * g], F[3 * g + 1], F[3 * g + 2]), lm = Math.hypot(m[0], m[1], m[2]) || 1;
-                    if ((n[0] * m[0] + n[1] * m[1] + n[2] * m[2]) / (area2 * lm || 1) < 0.34)
-                        sl = false;
+            if (sl)
+                for (let k = 0; k < 3 && sl; k++) {
+                    const u = F[3 * f + k], w = F[3 * f + (k + 1) % 3];
+                    const g = vf[u].find(h => h !== f && (F[3 * h] === w || F[3 * h + 1] === w || F[3 * h + 2] === w));
+                    if (g !== undefined) {
+                        const m = cross(F[3 * g], F[3 * g + 1], F[3 * g + 2]), lm = Math.hypot(m[0], m[1], m[2]) || 1;
+                        if ((n[0] * m[0] + n[1] * m[1] + n[2] * m[2]) / (area2 * lm || 1) < 0.34)
+                            sl = false;
+                    }
                 }
-            }
             for (let k = 0; k < 3; k++) {
                 const u = F[3 * f + k], w = F[3 * f + (k + 1) % 3], shortest = l[k] === Math.min(...l);
                 const soft = !(l[k] < minLen || (thin && shortest)) && sl && shortest;
@@ -2345,7 +2362,7 @@ function sculptOnce(V, F, target, onProgress, W, opts) {
         F = sp.F;
         W = sp.W;
     }
-    const dopts = { regular: opts.regular || 0, maxEdge: opts.maxEdge || 0, maxAlt: opts.maxAlt || 0 }, G = flat ? flat.plane : null;
+    const dopts = { regular: opts.regular || 0, maxEdge: opts.maxEdge || 0, maxAlt: opts.maxAlt || 0, relax: opts.relax }, G = flat ? flat.plane : null;
     const lim = dopts.maxEdge > 0 || dopts.maxAlt > 0 ? { maxEdge: dopts.maxEdge, maxAlt: dopts.maxAlt } : null;
     if (G)
         dopts.groundPlane = G;
@@ -3057,6 +3074,7 @@ function meshBounds(V) {
         }
     return { min: mn, max: mx, size: [mx[0] - mn[0], mx[1] - mn[1], mx[2] - mn[2]] };
 }
+const HINGE_MIN = 2;
 function unfoldMesh(V, F, opt) {
     const o = Object.assign({ maxBend: 20, maxFaces: 12, sheetW: 1000, sheetH: 2000, margin: 10, gap: 6, minEdge: 15,
         mirror: true, slots: false, slotLen: 15, slotBridge: 3, slotWidth: 1, slotMargin: 4,
@@ -3155,7 +3173,9 @@ function unfoldMesh(V, F, opt) {
         while (cand.length && faces.length < o.maxFaces + 6) {
             cand.sort((p, q) => p[0] - q[0]);
             const [bd, f, k, g] = cand.shift();
-            const shortE = dist(F[3 * f + k], F[3 * f + (k + 1) % 3]) < o.minEdge;
+            const eLen = dist(F[3 * f + k], F[3 * f + (k + 1) % 3]), shortE = eLen < o.minEdge;
+            if (eLen < HINGE_MIN)
+                continue;
             if (piece[g] >= 0 || bd > (shortE ? Math.max(o.maxBend, 90) : o.maxBend))
                 continue;
             if (!shortE && faces.length >= o.maxFaces)
@@ -3229,6 +3249,8 @@ function unfoldMesh(V, F, opt) {
         if (P1 === P2)
             return false;
         const vu = F[3 * f + k], vv = F[3 * f + (k + 1) % 3];
+        if (dist(vu, vv) < HINGE_MIN)
+            return false;
         const ju = [0, 1, 2].find(j => F[3 * g + j] === vu), jv = [0, 1, 2].find(j => F[3 * g + j] === vv);
         const a1 = corner(f, k), b1 = corner(f, (k + 1) % 3), a2 = corner(g, ju), b2 = corner(g, jv);
         const t1 = Math.atan2(b1[1] - a1[1], b1[0] - a1[0]), t2 = Math.atan2(b2[1] - a2[1], b2[0] - a2[0]);

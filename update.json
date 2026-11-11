@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.103",
-  "notes": "Internal ribs: the outline of a rib can no longer run across a tiny stray cut next to it.",
+  "latest": "1.3.104",
+  "notes": "Clearer messages: counts of one are now written in the singular (\"1 sheet\", \"1 flat sole\", \"1 rib\").",
   "notes_i18n": {
-    "en": "Internal ribs: the outline of a rib can no longer run across a tiny stray cut next to it.",
-    "it": "Centine interne: il contorno di una centina non può più passare sopra un minuscolo taglio isolato accanto al bordo.",
-    "de": "Innere Rippen: Die Kontur einer Rippe kann nicht mehr über einen winzigen einzelnen Schnitt am Rand laufen.",
-    "fr": "Nervures internes : le contour d'une nervure ne peut plus passer sur une minuscule découpe isolée près du bord.",
-    "es": "Costillas internas: el contorno de una costilla ya no puede pasar sobre un corte diminuto y aislado junto al borde.",
-    "pt": "Nervuras internas: o contorno de uma nervura já não pode passar sobre um corte minúsculo e isolado junto à borda.",
-    "ja": "内部リブ：リブの輪郭が、縁のそばにできたごく小さな孤立した切り込みの上を通ることがなくなりました。"
+    "en": "Clearer messages: counts of one are now written in the singular (\"1 sheet\", \"1 flat sole\", \"1 rib\").",
+    "it": "Messaggi più chiari: quando l'elemento è uno solo il testo è al singolare («1 lamiera», «1 appoggio piatto», «1 centina»).",
+    "de": "Klarere Meldungen: Bei genau einem Element steht der Text jetzt im Singular („1 Blech“, „1 flache Sohle“, „1 Rippe“).",
+    "fr": "Messages plus clairs : quand il n'y a qu'un seul élément, le texte est au singulier (« 1 tôle », « 1 semelle plate », « 1 nervure »).",
+    "es": "Mensajes más claros: cuando hay un solo elemento el texto va en singular («1 chapa», «1 apoyo plano», «1 costilla»).",
+    "pt": "Mensagens mais claras: quando há apenas um elemento o texto fica no singular («1 chapa», «1 apoio plano», «1 nervura»).",
+    "ja": "メッセージをわかりやすくしました：数が 1 のときの表記を整えました。"
   },
   "history": [
+    {
+      "date": "2026-11-11T05:14:23Z",
+      "version": "1.3.104",
+      "notes": {
+        "en": "Clearer messages: counts of one are now written in the singular (\"1 sheet\", \"1 flat sole\", \"1 rib\").",
+        "it": "Messaggi più chiari: quando l'elemento è uno solo il testo è al singolare («1 lamiera», «1 appoggio piatto», «1 centina»).",
+        "de": "Klarere Meldungen: Bei genau einem Element steht der Text jetzt im Singular („1 Blech“, „1 flache Sohle“, „1 Rippe“).",
+        "fr": "Messages plus clairs : quand il n'y a qu'un seul élément, le texte est au singulier (« 1 tôle », « 1 semelle plate », « 1 nervure »).",
+        "es": "Mensajes más claros: cuando hay un solo elemento el texto va en singular («1 chapa», «1 apoyo plano», «1 costilla»).",
+        "pt": "Mensagens mais claras: quando há apenas um elemento o texto fica no singular («1 chapa», «1 apoio plano», «1 nervura»).",
+        "ja": "メッセージをわかりやすくしました：数が 1 のときの表記を整えました。"
+      }
+    },
     {
       "date": "2026-11-11T05:07:48Z",
       "version": "1.3.103",
@@ -518,28 +531,15 @@
         "pt": "Arrastar a barra de faces já não enfileira uma redução a cada parada: só a última posição é calculada, e a escultura acompanha a barra em um ou dois segundos.",
         "ja": "面のスライダーをドラッグしても、止まるごとに削減が待ち行列に入ることはなくなりました。最後の位置だけが計算され、彫刻は 1〜2 秒でスライダーに追従します。"
       }
-    },
-    {
-      "date": "2026-11-08T23:12:40Z",
-      "version": "1.3.64",
-      "notes": {
-        "en": "Faster reduction: moving the faces slider or changing the size now takes about a third less, and a few more wasted slivers are removed where the surface hardly changes. Faces are also kept small enough to fit across the sheet, not only along it.",
-        "it": "Riduzione più veloce: spostare la barra delle facce o cambiare la misura richiede circa un terzo di tempo in meno, e qualche scheggia inutile in più viene tolta dove la superficie cambia poco. Le facce restano anche abbastanza piccole da entrare nella lamiera per il lato corto, non solo per il lungo.",
-        "de": "Schnellere Reduktion: den Flächenregler bewegen oder die Größe ändern dauert etwa ein Drittel weniger, und ein paar nutzlose Splitter mehr werden entfernt, wo sich die Oberfläche kaum ändert. Die Flächen bleiben außerdem klein genug, um auch quer aufs Blech zu passen, nicht nur längs.",
-        "fr": "Réduction plus rapide : déplacer le curseur des faces ou changer la taille prend environ un tiers de temps en moins, et quelques éclats inutiles de plus sont supprimés là où la surface change peu. Les faces restent aussi assez petites pour tenir sur la tôle dans le sens de la largeur, pas seulement de la longueur.",
-        "es": "Reducción más rápida: mover la barra de caras o cambiar el tamaño tarda cerca de un tercio menos, y se quitan algunas astillas inútiles más donde la superficie apenas cambia. Las caras también se mantienen lo bastante pequeñas para caber en la chapa a lo ancho, no solo a lo largo.",
-        "pt": "Redução mais rápida: mover a barra de faces ou mudar o tamanho leva cerca de um terço menos tempo, e mais algumas lascas inúteis são removidas onde a superfície quase não muda. As faces também ficam pequenas o bastante para caber na chapa na largura, não só no comprimento.",
-        "ja": "削減が速くなりました。面のスライダーを動かしたりサイズを変えたりする時間が約 3 分の 1 短くなり、表面がほとんど変わらない箇所では無駄な細長い面がさらに取り除かれます。面は板の長辺だけでなく短辺にも収まる大きさに保たれます。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.103",
+    "version": "1.3.104",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "e14923c7f2ddb37c19b5c7205a4c172753f1af8d28b873494f945d35394a94dd"
+        "sha256": "71a2a80b629f6996e45354a1ff0ae8046e031e02b011384da430819e17536094"
       }
     ]
   },

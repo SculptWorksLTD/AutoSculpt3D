@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.106",
-  "notes": "Short seams: a tiny sole under a pointed tip that touches the ground is now removed instead of leaving seams of a couple of millimetres.",
+  "latest": "1.3.107",
+  "notes": "Symmetric sculptures: on very large flat shapes no piece comes out bigger than the sheet any more, and a rare hair-thin slit along the mirror seam is gone.",
   "notes_i18n": {
-    "en": "Short seams: a tiny sole under a pointed tip that touches the ground is now removed instead of leaving seams of a couple of millimetres.",
-    "it": "Cordoni corti: la minuscola suola sotto una punta che tocca terra ora viene tolta, invece di lasciare cordoni di un paio di millimetri.",
-    "de": "Kurze Nähte: Die winzige Sohle unter einer Spitze, die den Boden berührt, wird jetzt entfernt, statt Nähte von wenigen Millimetern zu hinterlassen.",
-    "fr": "Cordons courts : la minuscule semelle sous une pointe qui touche le sol est désormais supprimée, au lieu de laisser des cordons de quelques millimètres.",
-    "es": "Cordones cortos: la suela diminuta bajo una punta que toca el suelo ahora se elimina, en lugar de dejar cordones de un par de milímetros.",
-    "pt": "Cordões curtos: a sola minúscula sob uma ponta que toca o chão agora é removida, em vez de deixar cordões de alguns milímetros.",
-    "ja": "短い溶接線：地面に触れる尖った先端の下にできるごく小さな底面を取り除き、数ミリの溶接線が残らないようにしました。"
+    "en": "Symmetric sculptures: on very large flat shapes no piece comes out bigger than the sheet any more, and a rare hair-thin slit along the mirror seam is gone.",
+    "it": "Sculture simmetriche: sulle forme piatte molto grandi nessun pezzo esce più grande della lamiera, e sparisce una rara fessura sottilissima lungo la cucitura dello specchio.",
+    "de": "Symmetrische Skulpturen: Bei sehr großen flachen Formen ist kein Teil mehr größer als das Blech, und ein seltener haarfeiner Schlitz entlang der Spiegelnaht ist verschwunden.",
+    "fr": "Sculptures symétriques : sur les très grandes formes plates, plus aucune pièce ne dépasse la tôle, et une rare fente très fine le long de la couture du miroir a disparu.",
+    "es": "Esculturas simétricas: en formas planas muy grandes ninguna pieza sale ya mayor que la chapa, y desaparece una rara ranura finísima a lo largo de la costura del espejo.",
+    "pt": "Esculturas simétricas: em formas planas muito grandes nenhuma peça sai maior que a chapa, e desaparece uma rara fenda finíssima ao longo da costura do espelho.",
+    "ja": "左右対称の彫刻：非常に大きく平らな形でパーツが板より大きくなることがなくなり、鏡の継ぎ目に沿ってまれに出ていた極細のスリットも解消しました。"
   },
   "history": [
+    {
+      "date": "2026-11-11T06:52:55Z",
+      "version": "1.3.107",
+      "notes": {
+        "en": "Symmetric sculptures: on very large flat shapes no piece comes out bigger than the sheet any more, and a rare hair-thin slit along the mirror seam is gone.",
+        "it": "Sculture simmetriche: sulle forme piatte molto grandi nessun pezzo esce più grande della lamiera, e sparisce una rara fessura sottilissima lungo la cucitura dello specchio.",
+        "de": "Symmetrische Skulpturen: Bei sehr großen flachen Formen ist kein Teil mehr größer als das Blech, und ein seltener haarfeiner Schlitz entlang der Spiegelnaht ist verschwunden.",
+        "fr": "Sculptures symétriques : sur les très grandes formes plates, plus aucune pièce ne dépasse la tôle, et une rare fente très fine le long de la couture du miroir a disparu.",
+        "es": "Esculturas simétricas: en formas planas muy grandes ninguna pieza sale ya mayor que la chapa, y desaparece una rara ranura finísima a lo largo de la costura del espejo.",
+        "pt": "Esculturas simétricas: em formas planas muito grandes nenhuma peça sai maior que a chapa, e desaparece uma rara fenda finíssima ao longo da costura do espelho.",
+        "ja": "左右対称の彫刻：非常に大きく平らな形でパーツが板より大きくなることがなくなり、鏡の継ぎ目に沿ってまれに出ていた極細のスリットも解消しました。"
+      }
+    },
     {
       "date": "2026-11-11T06:33:56Z",
       "version": "1.3.106",
@@ -518,28 +531,15 @@
         "pt": "Uma atualização instalada na abertura agora reinicia o programa assim que as janelas iniciais são fechadas, em vez de esperar a próxima abertura; e Ajuda → Verificar atualizações avisa quando uma versão mais nova está instalada mas ainda não em uso, com um botão Reiniciar.",
         "ja": "起動時にインストールされた更新は、次回起動を待たずに、最初のダイアログを閉じるとすぐプログラムを再起動するようになりました。ヘルプ → 更新を確認 では、新しいバージョンがインストール済みでまだ使用されていないときにその旨と再起動ボタンを表示します。"
       }
-    },
-    {
-      "date": "2026-11-09T06:39:58Z",
-      "version": "1.3.67",
-      "notes": {
-        "en": "Models that are not one closed surface (scans with holes, models made of several parts, surfaces with inner faces) are rebuilt as one solid before the reduction: interior surfaces disappear, the parts merge, and the sculpture keeps the outer shape instead of turning into a tangle of facets. The model panel says when this happened and why.",
-        "it": "I modelli che non sono una superficie chiusa unica (scansioni con buchi, modelli fatti di più parti, superfici con facce interne) vengono ricostruiti come un solido unico prima della riduzione: le superfici interne spariscono, le parti si fondono e la scultura tiene la forma esterna invece di diventare un groviglio di facce. Il pannello Modello dice quando è successo e perché.",
-        "de": "Modelle, die keine einzelne geschlossene Oberfläche sind (Scans mit Löchern, Modelle aus mehreren Teilen, Oberflächen mit Innenflächen), werden vor der Reduktion als ein Volumenkörper neu aufgebaut: Innenflächen verschwinden, die Teile verschmelzen, und die Skulptur behält die äußere Form statt zu einem Gewirr von Flächen zu werden. Die Modell-Leiste sagt, wann das geschah und warum.",
-        "fr": "Les modèles qui ne sont pas une seule surface fermée (scans troués, modèles en plusieurs parties, surfaces avec des faces intérieures) sont reconstruits en un seul solide avant la réduction : les surfaces intérieures disparaissent, les parties fusionnent et la sculpture garde sa forme extérieure au lieu de devenir un fouillis de facettes. Le panneau Modèle indique quand c’est arrivé et pourquoi.",
-        "es": "Los modelos que no son una sola superficie cerrada (escaneos con agujeros, modelos de varias partes, superficies con caras interiores) se reconstruyen como un solo sólido antes de la reducción: las superficies interiores desaparecen, las partes se funden y la escultura conserva la forma exterior en vez de convertirse en una maraña de caras. El panel Modelo indica cuándo ocurrió y por qué.",
-        "pt": "Modelos que não são uma única superfície fechada (digitalizações com furos, modelos feitos de várias partes, superfícies com faces internas) são reconstruídos como um sólido único antes da redução: as superfícies internas desaparecem, as partes se fundem e a escultura mantém a forma externa em vez de virar um emaranhado de faces. O painel Modelo informa quando isso aconteceu e por quê.",
-        "ja": "1 つの閉じた面でないモデル（穴のあるスキャン、複数部品のモデル、内側に面がある形状）は、削減の前に 1 つのソリッドとして再構築されます。内部の面は消え、部品は結合し、彫刻は面の絡まりにならずに外形を保ちます。モデルパネルに、いつ・なぜ再構築されたかが表示されます。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.106",
+    "version": "1.3.107",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "7eaf4b42dd393174d667825b55dccf2446003fe4812f77d73f8cde664cb77eb0"
+        "sha256": "cd02568d08617a962f7dbb9e3c49ce2ff800525496769cd5f122824fbf2905a4"
       }
     ]
   },

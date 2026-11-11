@@ -1397,7 +1397,7 @@ function collapseShortEdges(Vin, Fin, minLen, P, sliver, G, slMax, lim) {
         return [uy * wz - uz * wy, uz * wx - ux * wz, ux * wy - uy * wx];
     };
     let pinches = 0;
-    const pinchTunnels = () => {
+    const pinchTunnels = (limit, skip) => {
         const nf = F.length / 3, vf = Array.from({ length: nv }, () => []), nb = Array.from({ length: nv }, () => new Set()), faceKeys = new Set();
         for (let f = 0; f < nf; f++) {
             const t = [F[3 * f], F[3 * f + 1], F[3 * f + 2]];
@@ -1441,8 +1441,12 @@ function collapseShortEdges(Vin, Fin, minLen, P, sliver, G, slMax, lim) {
             return k < nUsed - 3;
         };
         const dirty = new Uint8Array(nv), alive = new Uint8Array(nf).fill(1);
-        let n = 0;
+        let n = 0, last = '';
         for (const [, a, b, c] of rings) {
+            if (n >= limit)
+                break;
+            if (skip.has(a + '_' + b + '_' + c))
+                continue;
             if (dirty[a] || dirty[b] || dirty[c] || onPlane(a) || onPlane(b) || onPlane(c))
                 continue;
             if (cutsApart(a, b, c))
@@ -1493,13 +1497,55 @@ function collapseShortEdges(Vin, Fin, minLen, P, sliver, G, slMax, lim) {
             }
             dirty[a] = dirty[b] = dirty[c] = 1;
             n++;
+            last = a + '_' + b + '_' + c;
         }
         const out = [];
         for (let f = 0; f < nf; f++)
             if (alive[f])
                 out.push(F[3 * f], F[3 * f + 1], F[3 * f + 2]);
         F = out;
-        return n;
+        return { n, last };
+    };
+    const partCount = () => {
+        const par = new Int32Array(nv);
+        for (let i = 0; i < nv; i++)
+            par[i] = i;
+        const fd = (x) => { while (par[x] !== x)
+            x = par[x] = par[par[x]]; return x; };
+        for (let f = 0; f < F.length; f += 3) {
+            par[fd(F[f])] = fd(F[f + 1]);
+            par[fd(F[f])] = fd(F[f + 2]);
+        }
+        const roots = new Set();
+        for (let f = 0; f < F.length; f += 3)
+            roots.add(fd(F[f]));
+        return roots.size;
+    };
+    const pinchSafe = () => {
+        const skip = new Set(), c0 = partCount();
+        let V0 = Float64Array.from(V), F0 = F.slice();
+        const all = pinchTunnels(Infinity, skip);
+        if (!all.n || partCount() <= c0)
+            return all.n;
+        V.set(V0);
+        F = F0.slice();
+        let done = 0;
+        for (let k = 0; k < 24; k++) {
+            const one = pinchTunnels(1, skip);
+            if (!one.n)
+                break;
+            if (partCount() > c0) {
+                V.set(V0);
+                F = F0.slice();
+                skip.add(one.last);
+            }
+            else {
+                done++;
+                V0 = Float64Array.from(V);
+                F0 = F.slice();
+            }
+        }
+        return done;
     };
     for (let pass = 0; pass < 40; pass++) {
         const minDot = pass < 12 ? 0.5 : 0.05;
@@ -1621,7 +1667,7 @@ function collapseShortEdges(Vin, Fin, minLen, P, sliver, G, slMax, lim) {
         F = out;
         collapsed += n;
         if (!n && pass >= 12) {
-            const k = pinches < 10 ? pinchTunnels() : 0;
+            const k = pinches < 10 ? pinchSafe() : 0;
             pinches++;
             if (!k)
                 break;

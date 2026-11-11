@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.108",
-  "notes": "Minimum side: on flat or mirrored sculptures that came out longer than the model, the sides could end up shorter than the minimum you set. Now they respect it.",
+  "latest": "1.3.109",
+  "notes": "Thin parts: the tip of a thin tail or handle that joins the body again can no longer come loose as a separate floating piece.",
   "notes_i18n": {
-    "en": "Minimum side: on flat or mirrored sculptures that came out longer than the model, the sides could end up shorter than the minimum you set. Now they respect it.",
-    "it": "Lato minimo: sulle sculture piatte o specchiate che uscivano più lunghe del modello, i lati potevano risultare più corti del minimo impostato. Ora lo rispettano.",
-    "de": "Mindestseite: Bei flachen oder gespiegelten Skulpturen, die länger als das Modell ausfielen, konnten die Seiten kürzer als das eingestellte Minimum werden. Jetzt wird es eingehalten.",
-    "fr": "Côté minimal : sur les sculptures plates ou en miroir qui sortaient plus longues que le modèle, les côtés pouvaient être plus courts que le minimum réglé. Il est désormais respecté.",
-    "es": "Lado mínimo: en esculturas planas o reflejadas que salían más largas que el modelo, los lados podían quedar más cortos que el mínimo fijado. Ahora lo respetan.",
-    "pt": "Lado mínimo: em esculturas planas ou espelhadas que saíam mais compridas que o modelo, os lados podiam ficar mais curtos que o mínimo definido. Agora respeitam-no.",
-    "ja": "最小辺：平らな彫刻や左右対称にした彫刻がモデルより長くなる場合に、辺が設定した最小値より短くなることがありました。現在は最小値が守られます。"
+    "en": "Thin parts: the tip of a thin tail or handle that joins the body again can no longer come loose as a separate floating piece.",
+    "it": "Parti sottili: la punta di una coda o di un manico sottile che si ricongiunge al corpo non può più staccarsi come pezzo a sé, sospeso.",
+    "de": "Dünne Teile: Die Spitze eines dünnen Schwanzes oder Griffs, der wieder in den Körper übergeht, kann sich nicht mehr als loses, schwebendes Teil ablösen.",
+    "fr": "Parties fines : la pointe d'une queue ou d'une anse fine qui rejoint le corps ne peut plus se détacher en pièce flottante séparée.",
+    "es": "Partes finas: la punta de una cola o un asa fina que vuelve a unirse al cuerpo ya no puede soltarse como una pieza aparte, flotando.",
+    "pt": "Partes finas: a ponta de uma cauda ou alça fina que volta a unir-se ao corpo já não pode soltar-se como peça separada, a flutuar.",
+    "ja": "細い部分：本体に再びつながる細い尾や取っ手の先端が、宙に浮いた別パーツとして切り離されることがなくなりました。"
   },
   "history": [
+    {
+      "date": "2026-11-11T08:19:16Z",
+      "version": "1.3.109",
+      "notes": {
+        "en": "Thin parts: the tip of a thin tail or handle that joins the body again can no longer come loose as a separate floating piece.",
+        "it": "Parti sottili: la punta di una coda o di un manico sottile che si ricongiunge al corpo non può più staccarsi come pezzo a sé, sospeso.",
+        "de": "Dünne Teile: Die Spitze eines dünnen Schwanzes oder Griffs, der wieder in den Körper übergeht, kann sich nicht mehr als loses, schwebendes Teil ablösen.",
+        "fr": "Parties fines : la pointe d'une queue ou d'une anse fine qui rejoint le corps ne peut plus se détacher en pièce flottante séparée.",
+        "es": "Partes finas: la punta de una cola o un asa fina que vuelve a unirse al cuerpo ya no puede soltarse como una pieza aparte, flotando.",
+        "pt": "Partes finas: a ponta de uma cauda ou alça fina que volta a unir-se ao corpo já não pode soltar-se como peça separada, a flutuar.",
+        "ja": "細い部分：本体に再びつながる細い尾や取っ手の先端が、宙に浮いた別パーツとして切り離されることがなくなりました。"
+      }
+    },
     {
       "date": "2026-11-11T07:39:58Z",
       "version": "1.3.108",
@@ -518,28 +531,15 @@
         "pt": "Os dois geradores de imagens deste computador agora têm nomes diferentes (melhor qualidade, leve), e o leve não é mais oferecido quando o melhor está instalado.",
         "ja": "このコンピューターで動く 2 つの画像生成エンジンに別々の名前が付きました（最高品質、軽量）。優れた方がインストール済みなら軽量版は表示されません。"
       }
-    },
-    {
-      "date": "2026-11-09T06:56:31Z",
-      "version": "1.3.69",
-      "notes": {
-        "en": "Symmetric sculptures now reach the number of faces asked for (a figure asked for 700 came out with 528), and the flat soles rise at most 1% of the height to find a foot wide enough (a 2.3 m horse lost 49 mm of its hooves).",
-        "it": "Le sculture simmetriche raggiungono ora il numero di facce chiesto (una figura da 700 facce ne aveva 528), e gli appoggi piatti salgono al massimo dell'1% dell'altezza per trovare un piede abbastanza largo (un cavallo di 2,3 m perdeva 49 mm di zoccoli).",
-        "de": "Symmetrische Skulpturen erreichen jetzt die gewünschte Flächenzahl (eine Figur mit 700 gewünschten Flächen hatte 528), und die flachen Standflächen steigen höchstens 1 % der Höhe, um einen breit genugen Fuß zu finden (ein Pferd von 2,3 m verlor 49 mm seiner Hufe).",
-        "fr": "Les sculptures symétriques atteignent désormais le nombre de faces demandé (une figure à 700 faces en avait 528), et les appuis plats montent d’au plus 1 % de la hauteur pour trouver un pied assez large (un cheval de 2,3 m perdait 49 mm de sabots).",
-        "es": "Las esculturas simétricas alcanzan ahora el número de caras pedido (una figura de 700 caras tenía 528), y los apoyos planos suben como máximo el 1 % de la altura para encontrar un pie bastante ancho (un caballo de 2,3 m perdía 49 mm de cascos).",
-        "pt": "As esculturas simétricas agora alcançam o número de faces pedido (uma figura de 700 faces tinha 528), e os apoios planos sobem no máximo 1% da altura para achar um pé largo o bastante (um cavalo de 2,3 m perdia 49 mm dos cascos).",
-        "ja": "対称な彫刻が指定した面数に達するようになりました（700 面を指定した像が 528 面でした）。平らな足裏は十分に広い足を探すために高さの最大 1% までしか上がりません（2.3 m の馬で蹄が 49 mm 失われていました）。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.108",
+    "version": "1.3.109",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "6c4172f28adf2975fca44984a42a204b0e7e137d28e4c4663132744307b79058"
+        "sha256": "641905cc2a6f67609b1f48fa4a3be38fd57c8cffeb2935803325cc3ff4905703"
       }
     ]
   },

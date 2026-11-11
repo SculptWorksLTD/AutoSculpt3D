@@ -29,13 +29,13 @@
       "date": "2026-11-11T13:55:15Z",
       "version": "1.3.115",
       "notes": {
-        "en": "The calculation engine of the program now has a name: SculpEngine. You find it in Help → About and in the manual.",
-        "it": "Il motore di calcolo del programma ora ha un nome: SculpEngine. Lo trovi in Aiuto → Informazioni e nel manuale.",
-        "de": "Die Berechnungs-Engine des Programms hat jetzt einen Namen: SculpEngine. Du findest sie unter Hilfe → Info und im Handbuch.",
-        "fr": "Le moteur de calcul du programme a désormais un nom : SculpEngine. Vous le trouvez dans Aide → À propos et dans le manuel.",
-        "es": "El motor de cálculo del programa ya tiene nombre: SculpEngine. Lo encuentras en Ayuda → Acerca de y en el manual.",
-        "pt": "O motor de cálculo do programa agora tem nome: SculpEngine. Encontra-o em Ajuda → Sobre e no manual.",
-        "ja": "プログラムの計算エンジンに名前が付きました：SculpEngine。ヘルプ → バージョン情報とマニュアルに記載しています。"
+        "en": "The calculation engine of the program now has a name: SculptEngine. You find it in Help → About and in the manual.",
+        "it": "Il motore di calcolo del programma ora ha un nome: SculptEngine. Lo trovi in Aiuto → Informazioni e nel manuale.",
+        "de": "Die Berechnungs-Engine des Programms hat jetzt einen Namen: SculptEngine. Du findest sie unter Hilfe → Info und im Handbuch.",
+        "fr": "Le moteur de calcul du programme a désormais un nom : SculptEngine. Vous le trouvez dans Aide → À propos et dans le manuel.",
+        "es": "El motor de cálculo del programa ya tiene nombre: SculptEngine. Lo encuentras en Ayuda → Acerca de y en el manual.",
+        "pt": "O motor de cálculo do programa agora tem nome: SculptEngine. Encontra-o em Ajuda → Sobre e no manual.",
+        "ja": "プログラムの計算エンジンに名前が付きました：SculptEngine。ヘルプ → バージョン情報とマニュアルに記載しています。"
       }
     },
     {

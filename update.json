@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.100",
-  "notes": "Large frames made of thin bars no longer produce pieces bigger than the sheet.",
+  "latest": "1.3.101",
+  "notes": "Flat soles: the sole of a round base is no longer left open on small models.",
   "notes_i18n": {
-    "en": "Large frames made of thin bars no longer produce pieces bigger than the sheet.",
-    "it": "I grandi telai fatti di barre sottili non producono più pezzi più grandi della lamiera.",
-    "de": "Große Rahmen aus dünnen Stäben ergeben keine Teile mehr, die größer als das Blech sind.",
-    "fr": "Les grands cadres faits de barres fines ne produisent plus de pièces plus grandes que la tôle.",
-    "es": "Los grandes bastidores hechos de barras finas ya no producen piezas más grandes que la chapa.",
-    "pt": "As grandes estruturas feitas de barras finas já não produzem peças maiores do que a chapa.",
-    "ja": "細い棒でできた大きなフレームで、板より大きな部品ができることがなくなりました。"
+    "en": "Flat soles: the sole of a round base is no longer left open on small models.",
+    "it": "Appoggi piatti: la suola di una base rotonda non resta più aperta sui modelli piccoli.",
+    "de": "Flache Sohlen: Die Sohle eines runden Sockels bleibt bei kleinen Modellen nicht mehr offen.",
+    "fr": "Semelles plates : la semelle d'une base ronde ne reste plus ouverte sur les petits modèles.",
+    "es": "Apoyos planos: la suela de una base redonda ya no queda abierta en los modelos pequeños.",
+    "pt": "Apoios planos: a sola de uma base redonda já não fica aberta nos modelos pequenos.",
+    "ja": "平らな底面：小さなモデルで、丸い台座の底面が開いたままになることがなくなりました。"
   },
   "history": [
+    {
+      "date": "2026-11-11T00:57:59Z",
+      "version": "1.3.101",
+      "notes": {
+        "en": "Flat soles: the sole of a round base is no longer left open on small models.",
+        "it": "Appoggi piatti: la suola di una base rotonda non resta più aperta sui modelli piccoli.",
+        "de": "Flache Sohlen: Die Sohle eines runden Sockels bleibt bei kleinen Modellen nicht mehr offen.",
+        "fr": "Semelles plates : la semelle d'une base ronde ne reste plus ouverte sur les petits modèles.",
+        "es": "Apoyos planos: la suela de una base redonda ya no queda abierta en los modelos pequeños.",
+        "pt": "Apoios planos: a sola de uma base redonda já não fica aberta nos modelos pequenos.",
+        "ja": "平らな底面：小さなモデルで、丸い台座の底面が開いたままになることがなくなりました。"
+      }
+    },
     {
       "date": "2026-11-11T00:35:58Z",
       "version": "1.3.100",
@@ -518,28 +531,15 @@
         "pt": "Nenhuma face mais alta que a chapa: um modelo desenhado com faces enormes é subdividido primeiro, e peças longas que cabem na chapa um pouco inclinadas já não são apontadas como grandes demais. Esculturas pequenas com muitas faces já não terminam com centenas de soldas curtas: o número de faces para onde o lado mínimo permite, e o resumo avisa. Uma escultura apoiada num único ponto recebe uma placa redonda; os apoios planos são cortados onde o pé é largo o bastante.",
         "ja": "板より高い面はなくなりました。巨大な面で描かれたモデルは先に分割され、少し斜めにすれば板に収まる長い部品は「大きすぎる」と表示されなくなりました。面の多い小さな彫刻が何百もの短い溶接線で終わることはなくなり、面数は最小辺が許すところで止まり、概要にその旨が表示されます。一点で立つ彫刻には丸いベースプレートが付き、平らな足裏は足が十分に広いところで切られます。"
       }
-    },
-    {
-      "date": "2026-11-08T21:58:42Z",
-      "version": "1.3.61",
-      "notes": {
-        "en": "Engines tuned: photos for the 3D engine get a cleaner cut-out (small holes closed, soft edge) and the resulting model is closed and repaired; the pictures drawn from a description show the whole subject from head to feet, without shadows, each from a different point of view; dictation hears quiet recordings better and makes fewer slips.",
-        "it": "Motori messi a punto: le foto per il motore 3D hanno uno scontorno più pulito (buchini chiusi, bordo morbido) e il modello che ne esce viene chiuso e riparato; le immagini disegnate da una descrizione mostrano il soggetto intero dalla testa ai piedi, senza ombre, ognuna da un punto di vista diverso; la dettatura sente meglio le registrazioni a basso volume e sbaglia meno parole.",
-        "de": "Engines abgestimmt: Fotos für die 3D-Engine werden sauberer freigestellt (kleine Löcher geschlossen, weicher Rand) und das Modell wird geschlossen und repariert; die aus einer Beschreibung gezeichneten Bilder zeigen das ganze Motiv von Kopf bis Fuß, ohne Schatten, jedes aus einem anderen Blickwinkel; das Diktat versteht leise Aufnahmen besser und macht weniger Fehler.",
-        "fr": "Moteurs réglés : les photos pour le moteur 3D sont détourées plus proprement (petits trous fermés, bord doux) et le modèle obtenu est fermé et réparé ; les images dessinées d’après une description montrent le sujet entier de la tête aux pieds, sans ombre, chacune sous un angle différent ; la dictée entend mieux les enregistrements faibles et fait moins d’erreurs.",
-        "es": "Motores afinados: las fotos para el motor 3D se recortan más limpias (agujeritos cerrados, borde suave) y el modelo resultante se cierra y repara; las imágenes dibujadas a partir de una descripción muestran el sujeto entero de la cabeza a los pies, sin sombras, cada una desde un punto de vista distinto; el dictado oye mejor las grabaciones flojas y se equivoca menos.",
-        "pt": "Motores afinados: as fotos para o motor 3D têm um recorte mais limpo (furinhos fechados, borda suave) e o modelo resultante é fechado e reparado; as imagens desenhadas a partir de uma descrição mostram o sujeito inteiro da cabeça aos pés, sem sombras, cada uma de um ponto de vista diferente; o ditado ouve melhor gravações baixas e erra menos.",
-        "ja": "エンジンを調整: 3D エンジン用の写真の切り抜きがよりきれいになり（小さな穴を閉じ、縁を滑らかに）、得られるモデルは閉じて修復されます。説明から描く画像は被写体全体を頭から足まで影なしで、それぞれ異なる視点から描きます。音声入力は小さな録音も聞き取りやすくなり、誤りが減りました。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.100",
+    "version": "1.3.101",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "b12dfd5dfab05d78e3a3176ef19ba36ecfc17f5e96f26867c90d6d6acaeee29f"
+        "sha256": "75a5c8dcabf782aa7475c9dbd1fc67e1790d78ae5c576bed3080d11119a1c4b9"
       }
     ]
   },

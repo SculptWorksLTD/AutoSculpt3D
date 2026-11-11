@@ -1584,8 +1584,11 @@ function collapseShortEdges(Vin, Fin, minLen, P, sliver, G, slMax, lim) {
                     if (minDot < 0.5 || lim) {
                         const P = t.map(v => v === a || v === b ? p : [V[3 * v], V[3 * v + 1], V[3 * v + 2]]);
                         const lm = Math.max(Math.hypot(P[0][0] - P[1][0], P[0][1] - P[1][1], P[0][2] - P[1][2]), Math.hypot(P[1][0] - P[2][0], P[1][1] - P[2][1], P[1][2] - P[2][2]), Math.hypot(P[2][0] - P[0][0], P[2][1] - P[0][1], P[2][2] - P[0][2]));
-                        if (minDot < 0.5 && l1 / lm < minLen * 0.25)
-                            return false;
+                        if (minDot < 0.5 && l1 / lm < minLen * 0.25) {
+                            const l0m = Math.max(len(t[0], t[1]), len(t[1], t[2]), len(t[2], t[0]));
+                            if (!(l0 / l0m < minLen * 0.25))
+                                return false;
+                        }
                         if (lim && len(a, b) >= 0.1 * minLen && ((lim.maxEdge > 0 && lm > lim.maxEdge) || (lim.maxAlt > 0 && l1 / lm > lim.maxAlt)))
                             return false;
                     }

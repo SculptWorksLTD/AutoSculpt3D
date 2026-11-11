@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
   "latest": "1.3.111",
-  "notes": "Flat soles: a facet with no area next to the edge of a sole could leave a slit in a piece, with its numbers outside the metal. It is now removed.",
+  "notes": "Updates: the program now also knows the new address of the update service. Restart it once to complete this update.",
   "notes_i18n": {
-    "en": "Flat soles: a facet with no area next to the edge of a sole could leave a slit in a piece, with its numbers outside the metal. It is now removed.",
-    "it": "Appoggi piatti: una faccetta senza area accanto al bordo di una suola poteva lasciare una fessura in un pezzo, con i numeri fuori dal metallo. Ora viene tolta.",
-    "de": "Flache Sohlen: Eine Facette ohne Fläche am Rand einer Sohle konnte einen Schlitz in einem Teil hinterlassen, mit den Nummern außerhalb des Metalls. Sie wird jetzt entfernt.",
-    "fr": "Semelles plates : une facette sans surface près du bord d'une semelle pouvait laisser une fente dans une pièce, avec ses numéros hors du métal. Elle est désormais supprimée.",
-    "es": "Apoyos planos: una faceta sin área junto al borde de una suela podía dejar una ranura en una pieza, con sus números fuera del metal. Ahora se elimina.",
-    "pt": "Apoios planos: uma faceta sem área junto à borda de uma sola podia deixar uma fenda numa peça, com os números fora do metal. Agora é removida.",
-    "ja": "平らな接地面：接地面の縁のそばにできる面積のない面が、パーツにスリットを残し番号が金属の外に出ることがありました。現在は取り除かれます。"
+    "en": "Updates: the program now also knows the new address of the update service. Restart it once to complete this update.",
+    "it": "Aggiornamenti: il programma ora conosce anche il nuovo indirizzo del servizio di aggiornamento. Riavvialo una volta per completare questo aggiornamento.",
+    "de": "Updates: Das Programm kennt jetzt auch die neue Adresse des Update-Dienstes. Starte es einmal neu, um dieses Update abzuschließen.",
+    "fr": "Mises à jour : le programme connaît désormais aussi la nouvelle adresse du service de mise à jour. Redémarrez-le une fois pour terminer cette mise à jour.",
+    "es": "Actualizaciones: el programa ahora conoce también la nueva dirección del servicio de actualización. Reinícialo una vez para completar esta actualización.",
+    "pt": "Atualizações: o programa agora conhece também o novo endereço do serviço de atualização. Reinicie-o uma vez para concluir esta atualização.",
+    "ja": "アップデート：プログラムが更新サービスの新しいアドレスにも対応しました。この更新を完了するには一度再起動してください。"
   },
   "history": [
+    {
+      "date": "2026-11-11T12:08:20Z",
+      "version": "1.3.111",
+      "notes": {
+        "en": "Updates: the program now also knows the new address of the update service. Restart it once to complete this update.",
+        "it": "Aggiornamenti: il programma ora conosce anche il nuovo indirizzo del servizio di aggiornamento. Riavvialo una volta per completare questo aggiornamento.",
+        "de": "Updates: Das Programm kennt jetzt auch die neue Adresse des Update-Dienstes. Starte es einmal neu, um dieses Update abzuschließen.",
+        "fr": "Mises à jour : le programme connaît désormais aussi la nouvelle adresse du service de mise à jour. Redémarrez-le une fois pour terminer cette mise à jour.",
+        "es": "Actualizaciones: el programa ahora conoce también la nueva dirección del servicio de actualización. Reinícialo una vez para completar esta actualización.",
+        "pt": "Atualizações: o programa agora conhece também o novo endereço do serviço de atualização. Reinicie-o uma vez para concluir esta atualização.",
+        "ja": "アップデート：プログラムが更新サービスの新しいアドレスにも対応しました。この更新を完了するには一度再起動してください。"
+      }
+    },
     {
       "date": "2026-11-11T11:40:29Z",
       "version": "1.3.111",
@@ -518,19 +531,6 @@
         "pt": "Objetos planos (um prato, uma placa, um anel deitado) passam a ser medidos ao abrir pelo lado mais longo em vez da altura: um prato não fica mais com 7 metros de largura. Placas, cruzes, letras e engrenagens mantêm a espessura: a limpeza não achata mais as faces finas de uma placa. Modelos com faces voltadas para os dois lados são reconstruídos como um sólido limpo. Testado com uma centena de modelos, incluindo letras, corações, estrelas, taças, engrenagens e molas.",
         "ja": "平らな物（皿、プレート、横たわったリング）は読み込み時に高さではなく最長辺で寸法を決めるようになり、皿が幅7メートルになることはなくなりました。プレート、十字架、文字、歯車は厚みを保ちます（クリーンアップで板の薄い側面がつぶれなくなりました）。面の向きが混在したモデルはきれいな立体として再構築されます。文字、ハート、星、グラス、歯車、ばねを含む約100種のモデルで検証しました。"
       }
-    },
-    {
-      "date": "2026-11-09T12:22:37Z",
-      "version": "1.3.72",
-      "notes": {
-        "en": "Tested on a hundred customer-type models (objects, figures, vehicles, furniture, scans). Bottles, lamps and pillars now get the number of facets asked for: their long strips are no longer removed as slivers. Flat drawings get a thickness; open models and models in several parts are closed into one solid; thin walls (a cup) are kept; models riddled with small tunnels (a helmet with vents) are sealed so the body keeps its shape; rebuilt solids are now clean, so the reduction never gets stuck. Faster: half the time on heavy models. A piece that fitted the sheet by a hair is no longer called oversize.",
-        "it": "Collaudo su un centinaio di modelli da cliente (oggetti, figure, veicoli, mobili, scansioni). Bottiglie, lampade e colonne ora ottengono il numero di faccette chiesto: le loro strisce lunghe non vengono più tolte come schegge. I disegni piatti ricevono uno spessore; i modelli aperti o in più parti diventano un solido unico; le pareti sottili (una tazza) restano; i modelli pieni di piccoli tunnel (un casco con le prese d'aria) vengono sigillati così il corpo mantiene la forma; i solidi ricostruiti sono puliti e la riduzione non si blocca più. Più veloce: metà tempo sui modelli pesanti. Un pezzo che entrava nella lamiera per un pelo non è più segnato come fuori misura.",
-        "de": "Getestet an hundert kundentypischen Modellen (Objekte, Figuren, Fahrzeuge, Möbel, Scans). Flaschen, Lampen und Säulen erhalten jetzt die gewünschte Facettenzahl: ihre langen Streifen werden nicht mehr als Splitter entfernt. Flache Zeichnungen bekommen eine Dicke; offene und mehrteilige Modelle werden zu einem Körper geschlossen; dünne Wände (eine Tasse) bleiben erhalten; Modelle voller kleiner Tunnel (ein Helm mit Lüftungsschlitzen) werden versiegelt, damit der Körper seine Form behält; neu aufgebaute Körper sind sauber, die Reduktion bleibt nicht mehr hängen. Schneller: halbe Zeit bei schweren Modellen. Ein Teil, das gerade so auf das Blech passte, gilt nicht mehr als zu groß.",
-        "fr": "Testé sur une centaine de modèles de type client (objets, figures, véhicules, meubles, scans). Bouteilles, lampes et colonnes obtiennent désormais le nombre de facettes demandé : leurs longues bandes ne sont plus retirées comme des éclats. Les dessins plats reçoivent une épaisseur ; les modèles ouverts ou en plusieurs parties deviennent un solide unique ; les parois fines (une tasse) sont conservées ; les modèles criblés de petits tunnels (un casque avec aérations) sont scellés pour que le corps garde sa forme ; les solides reconstruits sont propres et la réduction ne se bloque plus. Plus rapide : moitié moins de temps sur les modèles lourds. Une pièce qui tenait sur la tôle de justesse n'est plus signalée hors format.",
-        "es": "Probado con un centenar de modelos típicos de clientes (objetos, figuras, vehículos, muebles, escaneos). Botellas, lámparas y columnas obtienen ahora el número de facetas pedido: sus franjas largas ya no se eliminan como astillas. Los dibujos planos reciben un grosor; los modelos abiertos o en varias partes se cierran en un solo sólido; las paredes finas (una taza) se conservan; los modelos llenos de pequeños túneles (un casco con rejillas) se sellan para que el cuerpo mantenga su forma; los sólidos reconstruidos son limpios y la reducción ya no se atasca. Más rápido: la mitad de tiempo en modelos pesados. Una pieza que cabía en la chapa por un pelo ya no se marca como fuera de medida.",
-        "pt": "Testado com uma centena de modelos típicos de clientes (objetos, figuras, veículos, móveis, digitalizações). Garrafas, luminárias e colunas agora recebem o número de facetas pedido: suas faixas longas não são mais removidas como lascas. Desenhos planos ganham espessura; modelos abertos ou em várias partes viram um sólido único; paredes finas (uma xícara) são mantidas; modelos cheios de pequenos túneis (um capacete com aberturas) são selados para que o corpo mantenha a forma; os sólidos reconstruídos são limpos e a redução não trava mais. Mais rápido: metade do tempo nos modelos pesados. Uma peça que cabia na chapa por um triz não é mais marcada como fora de medida.",
-        "ja": "顧客が持ち込むような約100種のモデル（物、人形、乗り物、家具、スキャン）で検証しました。ボトル、ランプ、柱は指定した面数どおりになります（長い帯状の面が細片として削除されなくなりました）。平面の図形には厚みが付き、開いたモデルや複数パーツのモデルは一つの立体に閉じられ、薄い壁（カップ）は保持され、小さな穴だらけのモデル（通気口のあるヘルメット）は封じて本体の形を保ちます。再構築した立体はきれいになり、削減が止まらなくなりました。重いモデルで処理時間が半分に。ぎりぎり板に収まる部品が「板からはみ出す」と表示されなくなりました。"
-      }
     }
   ],
   "ui": {
@@ -544,12 +544,12 @@
     ]
   },
   "app": {
-    "version": "1.3.25",
+    "version": "1.3.26",
     "files": [
       {
         "path": "main.py",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/app/main.py",
-        "sha256": "eaa81982cf79990f875f0be0f4420380870f26d4ac83ab2797ca863002df3d45"
+        "sha256": "61f6aea8c60a5a4b2fe718fc3acf1725723f69954d22763620f20367eb74cd69"
       }
     ]
   },

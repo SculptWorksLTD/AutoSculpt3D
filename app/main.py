@@ -62,7 +62,7 @@ def documents_dir():
         except Exception:
             pass
     return Path.home() / 'Documents'
-UPDATE_URL = 'https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/update.json'
+UPDATE_URLS = ['https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3DRelease/main/update.json', 'https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/update.json']
 DEFAULT_SETTINGS = {'auto_check': True, 'last_check': 0}
 
 def log(*parts):
@@ -938,16 +938,22 @@ def product_version():
     return max((VERSION, ui_version()), key=vtuple)
 
 def fetch_manifest():
-    url = os.environ.get('AUTOSCULPT_UPDATE_URL', UPDATE_URL)
-    if url.startswith('https://'):
-        url += ('&' if '?' in url else '?') + 't=' + str(int(time.time()))
-    req = urllib.request.Request(url, headers={'User-Agent': 'AutoSculpt3D/' + VERSION, 'Cache-Control': 'no-cache', 'Pragma': 'no-cache'})
-    try:
-        with urlopen(req, 20) as r:
-            return json.loads(r.read().decode('utf-8'))
-    except Exception as exc:
-        log('Update check failed:', repr(exc))
-        raise UserError('The update server is not responding ({detail})', detail=str(getattr(exc, 'reason', exc)))
+    test = os.environ.get('AUTOSCULPT_UPDATE_URL')
+    last = None
+    for url in [test] if test else UPDATE_URLS:
+        if url.startswith('https://'):
+            url += ('&' if '?' in url else '?') + 't=' + str(int(time.time()))
+        req = urllib.request.Request(url, headers={'User-Agent': 'AutoSculpt3D/' + VERSION, 'Cache-Control': 'no-cache', 'Pragma': 'no-cache'})
+        try:
+            with urlopen(req, 20) as r:
+                m = json.loads(r.read().decode('utf-8'))
+            if isinstance(m, dict) and (m.get('ui') or m.get('app')):
+                return m
+            last = ValueError('not a manifest')
+        except Exception as exc:
+            last = exc
+            log('Update check failed:', url.split('?')[0], repr(exc))
+    raise UserError('The update server is not responding ({detail})', detail=str(getattr(last, 'reason', last)))
 
 def check_updates():
     m = fetch_manifest()

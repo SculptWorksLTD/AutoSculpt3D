@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.115",
-  "notes": "The calculation engine of the program now has a name: SculpEngine. You find it in Help → About and in the manual.",
+  "latest": "1.3.116",
+  "notes": "The calculation engine of the program is called SculptEngine (the name shown in the previous update had a typing mistake).",
   "notes_i18n": {
-    "en": "The calculation engine of the program now has a name: SculpEngine. You find it in Help → About and in the manual.",
-    "it": "Il motore di calcolo del programma ora ha un nome: SculpEngine. Lo trovi in Aiuto → Informazioni e nel manuale.",
-    "de": "Die Berechnungs-Engine des Programms hat jetzt einen Namen: SculpEngine. Du findest sie unter Hilfe → Info und im Handbuch.",
-    "fr": "Le moteur de calcul du programme a désormais un nom : SculpEngine. Vous le trouvez dans Aide → À propos et dans le manuel.",
-    "es": "El motor de cálculo del programa ya tiene nombre: SculpEngine. Lo encuentras en Ayuda → Acerca de y en el manual.",
-    "pt": "O motor de cálculo do programa agora tem nome: SculpEngine. Encontra-o em Ajuda → Sobre e no manual.",
-    "ja": "プログラムの計算エンジンに名前が付きました：SculpEngine。ヘルプ → バージョン情報とマニュアルに記載しています。"
+    "en": "The calculation engine of the program is called SculptEngine (the name shown in the previous update had a typing mistake).",
+    "it": "Il motore di calcolo del programma si chiama SculptEngine (nel precedente aggiornamento il nome aveva un errore di battitura).",
+    "de": "Die Berechnungs-Engine des Programms heißt SculptEngine (im vorigen Update enthielt der Name einen Tippfehler).",
+    "fr": "Le moteur de calcul du programme s'appelle SculptEngine (dans la mise à jour précédente, le nom contenait une faute de frappe).",
+    "es": "El motor de cálculo del programa se llama SculptEngine (en la actualización anterior el nombre tenía una errata).",
+    "pt": "O motor de cálculo do programa chama-se SculptEngine (na atualização anterior o nome tinha um erro de digitação).",
+    "ja": "プログラムの計算エンジンの名前は SculptEngine です（前回の更新では名前に入力ミスがありました）。"
   },
   "history": [
+    {
+      "date": "2026-11-11T14:02:15Z",
+      "version": "1.3.116",
+      "notes": {
+        "en": "The calculation engine of the program is called SculptEngine (the name shown in the previous update had a typing mistake).",
+        "it": "Il motore di calcolo del programma si chiama SculptEngine (nel precedente aggiornamento il nome aveva un errore di battitura).",
+        "de": "Die Berechnungs-Engine des Programms heißt SculptEngine (im vorigen Update enthielt der Name einen Tippfehler).",
+        "fr": "Le moteur de calcul du programme s'appelle SculptEngine (dans la mise à jour précédente, le nom contenait une faute de frappe).",
+        "es": "El motor de cálculo del programa se llama SculptEngine (en la actualización anterior el nombre tenía una errata).",
+        "pt": "O motor de cálculo do programa chama-se SculptEngine (na atualização anterior o nome tinha um erro de digitação).",
+        "ja": "プログラムの計算エンジンの名前は SculptEngine です（前回の更新では名前に入力ミスがありました）。"
+      }
+    },
     {
       "date": "2026-11-11T13:55:15Z",
       "version": "1.3.115",
@@ -518,28 +531,15 @@
         "pt": "Solas planas: quando dois pés se tocam num ponto, o fechamento podia criar a mesma faceta duas vezes, uma contra a outra, deixando uma superfície defeituosa; corrigido.",
         "ja": "平らな底面：2本の足が1点で接するとき、閉じる処理で同じ面が背中合わせに2回作られ、不良な面が残ることがありました。修正しました。"
       }
-    },
-    {
-      "date": "2026-11-09T18:14:06Z",
-      "version": "1.3.77",
-      "notes": {
-        "en": "Frames of thin bars (chairs, cages, wire-like models) keep their bars: the clean-up no longer swallows them. With self-aligning tabs on, pieces leave room for the tabs so none is called oversize. Nesting on big sheets (1250 × 2500 and up) is up to three times faster.",
-        "it": "I telai di barre sottili (sedie, gabbie, modelli a filo) mantengono le barre: la pulizia non le inghiotte più. Con le linguette autoallineanti attive i pezzi lasciano spazio alle linguette, così nessuno risulta fuori lamiera. Annidamento su lamiere grandi (da 1250 × 2500 in su) fino a tre volte più veloce.",
-        "de": "Rahmen aus dünnen Stäben (Stühle, Käfige, drahtartige Modelle) behalten ihre Stäbe: die Bereinigung verschluckt sie nicht mehr. Mit selbstausrichtenden Laschen lassen die Teile Platz für die Laschen, sodass keines als zu groß gilt. Verschachteln auf großen Blechen (ab 1250 × 2500) bis zu dreimal schneller.",
-        "fr": "Les structures à barres fines (chaises, cages, modèles filaires) gardent leurs barres : le nettoyage ne les avale plus. Avec les languettes d'alignement, les pièces laissent la place aux languettes, donc aucune n'est signalée hors format. Imbrication sur grandes tôles (1250 × 2500 et plus) jusqu'à trois fois plus rapide.",
-        "es": "Las estructuras de barras finas (sillas, jaulas, modelos de alambre) conservan sus barras: la limpieza ya no se las traga. Con las pestañas autoalineantes activas, las piezas dejan sitio a las pestañas, así ninguna resulta fuera de medida. Anidado en chapas grandes (1250 × 2500 o más) hasta tres veces más rápido.",
-        "pt": "Estruturas de barras finas (cadeiras, gaiolas, modelos em arame) mantêm as barras: a limpeza não as engole mais. Com as abas autoalinhantes ativas, as peças deixam espaço para as abas, assim nenhuma fica fora de medida. Aninhamento em chapas grandes (1250 × 2500 ou mais) até três vezes mais rápido.",
-        "ja": "細い棒のフレーム（椅子、檻、ワイヤー状のモデル）は棒を保ちます（クリーンアップで消えなくなりました）。位置合わせタブを有効にすると部品がタブの余地を確保し、板からはみ出す判定になりません。大きな板（1250×2500以上）でのネスティングが最大3倍高速化。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.115",
+    "version": "1.3.116",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "ed36cfaeb34fad351e05256364b18d3ee215ceec3966e29b9eae405db649a980"
+        "sha256": "3bd8cde5f3c536b9cf3779bcb338bc56bc0da4344d3023e54a01d69eed4e811e"
       }
     ]
   },

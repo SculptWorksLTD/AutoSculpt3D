@@ -2495,13 +2495,13 @@ function sculptMesh(V, F, target, onProgress, W, opts) {
     };
     const sealedBase = (V0, F0) => { const g = remeshSolid(V0, F0, 128, 0, { close: 4 }); return g.F.length / 3 > 20000 ? decimateMesh(g.V, g.F, 20000) : g; };
     const thick = opts.minEdge > 0 && opts.thicken !== false;
-    if (!W && !opts.symmetric && !r.thickened && opts.shapeGuard !== false && opts.shapeGuard !== 0) {
+    if (!W && !(opts.symmetric && r.sym && r.sym.forced) && !r.thickened && opts.shapeGuard !== false && opts.shapeGuard !== 0) {
         const size = Math.max(...meshBounds(V).size), tol = 0.1 * size, far0 = shapeFar(V, F, r, tol);
         if (far0 > 0.08) {
             let bestFar = far0;
             for (const grow of thick ? [0.5 * opts.minEdge, opts.minEdge] : [0]) {
                 const base = grow > 0 ? thickBase(V, F, grow) : sealedBase(V, F), k = extOf(base.V) / extOf(V);
-                const t = sculptOnce(base.V, base.F, target, onProgress, null, Object.assign({}, opts, { minEdge: opts.minEdge * k }));
+                const t = sculptOnce(base.V, base.F, target, onProgress, null, Object.assign({}, opts, { minEdge: opts.minEdge * k }, opts.symmetric ? { symPlane: r.symPlane || null } : {}));
                 if (grow > 0) {
                     t.thickened = grow;
                     t.thickK = k;

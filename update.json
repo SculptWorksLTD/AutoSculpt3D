@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.98",
-  "notes": "The shape check introduced in the last version now also works with “Thicken the parts that are too thin” switched off: the model is rebuilt with its small holes sealed, at its own size.",
+  "latest": "1.3.99",
+  "notes": "The shape check now also protects symmetric sculptures when the model really is symmetric.",
   "notes_i18n": {
-    "en": "The shape check introduced in the last version now also works with “Thicken the parts that are too thin” switched off: the model is rebuilt with its small holes sealed, at its own size.",
-    "it": "Il controllo della forma introdotto nella versione precedente ora funziona anche con «Ingrossa le parti troppo sottili» spento: il modello viene ricostruito con i piccoli fori chiusi, alla sua misura.",
-    "de": "Die in der letzten Version eingeführte Formprüfung funktioniert jetzt auch, wenn „Zu dünne Teile verstärken“ ausgeschaltet ist: Das Modell wird mit verschlossenen kleinen Löchern in seiner eigenen Größe neu aufgebaut.",
-    "fr": "Le contrôle de la forme introduit dans la version précédente fonctionne désormais aussi avec « Épaissir les parties trop fines » désactivé : le modèle est reconstruit avec ses petits trous bouchés, à sa propre taille.",
-    "es": "La comprobación de la forma introducida en la versión anterior ahora funciona también con «Engrosar las partes demasiado finas» desactivado: el modelo se reconstruye con sus pequeños agujeros cerrados, a su propio tamaño.",
-    "pt": "A verificação da forma introduzida na versão anterior agora funciona também com «Engrossar as partes finas demais» desligado: o modelo é reconstruído com os pequenos furos fechados, no seu próprio tamanho.",
-    "ja": "前のバージョンで導入した形状チェックが、「細すぎる部分を太くする」をオフにしていても働くようになりました。小さな穴をふさいだ状態で、元の大きさのままモデルを作り直します。"
+    "en": "The shape check now also protects symmetric sculptures when the model really is symmetric.",
+    "it": "Il controllo della forma ora protegge anche le sculture simmetriche, quando il modello è davvero simmetrico.",
+    "de": "Die Formprüfung schützt jetzt auch symmetrische Skulpturen, wenn das Modell wirklich symmetrisch ist.",
+    "fr": "Le contrôle de la forme protège désormais aussi les sculptures symétriques, lorsque le modèle est réellement symétrique.",
+    "es": "La comprobación de la forma ahora protege también las esculturas simétricas, cuando el modelo es realmente simétrico.",
+    "pt": "A verificação da forma agora protege também as esculturas simétricas, quando o modelo é realmente simétrico.",
+    "ja": "モデルが本当に対称な場合、形状チェックが対称の彫刻にも働くようになりました。"
   },
   "history": [
+    {
+      "date": "2026-11-11T00:01:01Z",
+      "version": "1.3.99",
+      "notes": {
+        "en": "The shape check now also protects symmetric sculptures when the model really is symmetric.",
+        "it": "Il controllo della forma ora protegge anche le sculture simmetriche, quando il modello è davvero simmetrico.",
+        "de": "Die Formprüfung schützt jetzt auch symmetrische Skulpturen, wenn das Modell wirklich symmetrisch ist.",
+        "fr": "Le contrôle de la forme protège désormais aussi les sculptures symétriques, lorsque le modèle est réellement symétrique.",
+        "es": "La comprobación de la forma ahora protege también las esculturas simétricas, cuando el modelo es realmente simétrico.",
+        "pt": "A verificação da forma agora protege também as esculturas simétricas, quando o modelo é realmente simétrico.",
+        "ja": "モデルが本当に対称な場合、形状チェックが対称の彫刻にも働くようになりました。"
+      }
+    },
     {
       "date": "2026-11-10T23:01:19Z",
       "version": "1.3.98",
@@ -518,28 +531,15 @@
         "pt": "Revisão geral: os apoios planos agora chegam a todos os pés mesmo quando não estão à mesma profundidade, e o Resumo indica quantos são e a altura do corte; a vista Chapas explica quando nenhuma caverna interna cabe; fechar um projeto limpa tudo; pequenas correções no programa e nos motores.",
         "ja": "総点検: 平らな底面が、足の深さが揃っていなくてもすべての足に届くようになり、概要に底面の数と切断高さを表示。板ビューは内部リブが収まらない理由を説明。プロジェクトを閉じるとすべてクリア。プログラムとエンジンの小さな修正。"
       }
-    },
-    {
-      "date": "2026-11-08T16:59:46Z",
-      "version": "1.3.60",
-      "notes": {
-        "en": "Flat soles: the cut under the parts touching the ground is now only 3 mm by default, and you can set it in Shape and size.",
-        "it": "Appoggi piatti: il taglio sotto le parti che toccano terra ora è di soli 3 mm di serie, e si può regolare in Forma e misure.",
-        "de": "Flache Sohlen: Der Schnitt unter den Teilen, die den Boden berühren, beträgt jetzt standardmäßig nur 3 mm und lässt sich unter Form und Maße einstellen.",
-        "fr": "Semelles plates : la coupe sous les parties qui touchent le sol n’est plus que de 3 mm par défaut, et elle se règle dans Forme et dimensions.",
-        "es": "Apoyos planos: el corte bajo las partes que tocan el suelo ahora es de solo 3 mm por defecto y se puede ajustar en Forma y medidas.",
-        "pt": "Apoios planos: o corte sob as partes que tocam o chão agora é de apenas 3 mm por padrão e pode ser ajustado em Forma e medidas.",
-        "ja": "平らな接地面: 地面に触れる部分の切り取り量が標準でわずか 3 mm になり、「形とサイズ」で調整できます。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.98",
+    "version": "1.3.99",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "8a98e7f7d6ba5be392da7d1a65c4148c296bda02d072d2431d804b03f3183dbe"
+        "sha256": "2b8977ecc7d2061a46bdb9b1a80447254a57cf52d9efd7400c82deba1f127c41"
       }
     ]
   },

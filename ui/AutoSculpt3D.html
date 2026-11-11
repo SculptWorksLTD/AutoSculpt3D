@@ -2843,7 +2843,7 @@ function mirrorMesh(V, F, P, lim, minEdge) {
         for (const h of [f, g])
             for (let k = 0; k < 3; k++)
                 side += dP(F[3 * h + k]);
-        const L = Math.hypot(V[3 * a] - V[3 * c], V[3 * a + 1] - V[3 * c + 1], V[3 * a + 2] - V[3 * c + 2]), s = Math.sign(side) * Math.max(0.01 * L, 0.5 * (minEdge || 0)), m = Vx.length / 3;
+        const L = Math.hypot(V[3 * a] - V[3 * c], V[3 * a + 1] - V[3 * c + 1], V[3 * a + 2] - V[3 * c + 2]), me = minEdge || 0, s = Math.sign(side) * Math.max(0.01 * L, 0.5 * me, Math.sqrt(Math.max(0, 1.1 * me * me - L * L / 4))), m = Vx.length / 3;
         Vx.push((V[3 * a] + V[3 * c]) / 2 + s * P.n[0], (V[3 * a + 1] + V[3 * c + 1]) / 2 + s * P.n[1], (V[3 * a + 2] + V[3 * c + 2]) / 2 + s * P.n[2]);
         for (const h of [f, g]) {
             let i = 0;

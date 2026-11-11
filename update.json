@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.109",
-  "notes": "Thin parts: the tip of a thin tail or handle that joins the body again can no longer come loose as a separate floating piece.",
+  "latest": "1.3.110",
+  "notes": "Symmetric sculptures: on small objects such as columns, the mirror seam no longer leaves sides shorter than the minimum or a thin slit in a piece.",
   "notes_i18n": {
-    "en": "Thin parts: the tip of a thin tail or handle that joins the body again can no longer come loose as a separate floating piece.",
-    "it": "Parti sottili: la punta di una coda o di un manico sottile che si ricongiunge al corpo non può più staccarsi come pezzo a sé, sospeso.",
-    "de": "Dünne Teile: Die Spitze eines dünnen Schwanzes oder Griffs, der wieder in den Körper übergeht, kann sich nicht mehr als loses, schwebendes Teil ablösen.",
-    "fr": "Parties fines : la pointe d'une queue ou d'une anse fine qui rejoint le corps ne peut plus se détacher en pièce flottante séparée.",
-    "es": "Partes finas: la punta de una cola o un asa fina que vuelve a unirse al cuerpo ya no puede soltarse como una pieza aparte, flotando.",
-    "pt": "Partes finas: a ponta de uma cauda ou alça fina que volta a unir-se ao corpo já não pode soltar-se como peça separada, a flutuar.",
-    "ja": "細い部分：本体に再びつながる細い尾や取っ手の先端が、宙に浮いた別パーツとして切り離されることがなくなりました。"
+    "en": "Symmetric sculptures: on small objects such as columns, the mirror seam no longer leaves sides shorter than the minimum or a thin slit in a piece.",
+    "it": "Sculture simmetriche: sugli oggetti piccoli come le colonne, la cucitura dello specchio non lascia più lati più corti del minimo né una fessura sottile in un pezzo.",
+    "de": "Symmetrische Skulpturen: Bei kleinen Objekten wie Säulen hinterlässt die Spiegelnaht keine Seiten mehr, die kürzer als das Minimum sind, und keinen feinen Schlitz in einem Teil.",
+    "fr": "Sculptures symétriques : sur les petits objets comme les colonnes, la couture du miroir ne laisse plus de côtés plus courts que le minimum ni de fente fine dans une pièce.",
+    "es": "Esculturas simétricas: en objetos pequeños como columnas, la costura del espejo ya no deja lados más cortos que el mínimo ni una ranura fina en una pieza.",
+    "pt": "Esculturas simétricas: em objetos pequenos como colunas, a costura do espelho já não deixa lados mais curtos que o mínimo nem uma fenda fina numa peça.",
+    "ja": "左右対称の彫刻：柱のような小さな物で、鏡の継ぎ目に最小値より短い辺や細いスリットが残らなくなりました。"
   },
   "history": [
+    {
+      "date": "2026-11-11T11:01:54Z",
+      "version": "1.3.110",
+      "notes": {
+        "en": "Symmetric sculptures: on small objects such as columns, the mirror seam no longer leaves sides shorter than the minimum or a thin slit in a piece.",
+        "it": "Sculture simmetriche: sugli oggetti piccoli come le colonne, la cucitura dello specchio non lascia più lati più corti del minimo né una fessura sottile in un pezzo.",
+        "de": "Symmetrische Skulpturen: Bei kleinen Objekten wie Säulen hinterlässt die Spiegelnaht keine Seiten mehr, die kürzer als das Minimum sind, und keinen feinen Schlitz in einem Teil.",
+        "fr": "Sculptures symétriques : sur les petits objets comme les colonnes, la couture du miroir ne laisse plus de côtés plus courts que le minimum ni de fente fine dans une pièce.",
+        "es": "Esculturas simétricas: en objetos pequeños como columnas, la costura del espejo ya no deja lados más cortos que el mínimo ni una ranura fina en una pieza.",
+        "pt": "Esculturas simétricas: em objetos pequenos como colunas, a costura do espelho já não deixa lados mais curtos que o mínimo nem uma fenda fina numa peça.",
+        "ja": "左右対称の彫刻：柱のような小さな物で、鏡の継ぎ目に最小値より短い辺や細いスリットが残らなくなりました。"
+      }
+    },
     {
       "date": "2026-11-11T08:19:16Z",
       "version": "1.3.109",
@@ -518,28 +531,15 @@
         "pt": "O título da janela de progresso de foto para 3D ficou mais claro («De foto a 3D · motor» em vez de «De foto a 3D com 3D das fotos…»).",
         "ja": "写真から 3D への進行ウィンドウのタイトルが読みやすくなりました（「写真から 3D へ · エンジン」）。"
       }
-    },
-    {
-      "date": "2026-11-09T08:57:34Z",
-      "version": "1.3.70",
-      "notes": {
-        "en": "The two picture engines that run on this computer now have different names (best quality, lighter), and the lighter one is not offered once the better one is installed.",
-        "it": "I due generatori di immagini che lavorano su questo computer hanno ora nomi diversi (qualità migliore, leggero), e quello leggero non viene più proposto quando il migliore è installato.",
-        "de": "Die zwei Bildgeneratoren auf diesem Computer haben jetzt verschiedene Namen (beste Qualität, leichter), und der leichtere wird nicht mehr angeboten, sobald der bessere installiert ist.",
-        "fr": "Les deux générateurs d’images sur cet ordinateur ont désormais des noms différents (meilleure qualité, léger), et le léger n’est plus proposé quand le meilleur est installé.",
-        "es": "Los dos generadores de imágenes de este ordenador tienen ahora nombres distintos (mejor calidad, ligero), y el ligero ya no se ofrece cuando el mejor está instalado.",
-        "pt": "Os dois geradores de imagens deste computador agora têm nomes diferentes (melhor qualidade, leve), e o leve não é mais oferecido quando o melhor está instalado.",
-        "ja": "このコンピューターで動く 2 つの画像生成エンジンに別々の名前が付きました（最高品質、軽量）。優れた方がインストール済みなら軽量版は表示されません。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.109",
+    "version": "1.3.110",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "641905cc2a6f67609b1f48fa4a3be38fd57c8cffeb2935803325cc3ff4905703"
+        "sha256": "5c1944c8636ae7ac0365099287be261d8567169638b0cec96bd5d97ad79461f7"
       }
     ]
   },

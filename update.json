@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.102",
-  "notes": "Flat soles: fixed a rare fault where two sole facets ended up on top of each other on models made of joined parts.",
+  "latest": "1.3.103",
+  "notes": "Internal ribs: the outline of a rib can no longer run across a tiny stray cut next to it.",
   "notes_i18n": {
-    "en": "Flat soles: fixed a rare fault where two sole facets ended up on top of each other on models made of joined parts.",
-    "it": "Appoggi piatti: corretto un difetto raro per cui due faccette della suola finivano una sopra l'altra sui modelli fatti di parti unite.",
-    "de": "Flache Sohlen: Ein seltener Fehler wurde behoben, bei dem zwei Facetten der Sohle bei zusammengesetzten Modellen übereinander lagen.",
-    "fr": "Semelles plates : correction d'un défaut rare où deux facettes de la semelle se retrouvaient l'une sur l'autre sur les modèles faits de parties réunies.",
-    "es": "Apoyos planos: corregido un defecto poco frecuente por el que dos facetas de la suela quedaban una sobre otra en los modelos hechos de partes unidas.",
-    "pt": "Apoios planos: corrigido um defeito raro em que duas facetas da sola ficavam uma sobre a outra nos modelos feitos de partes unidas.",
-    "ja": "平らな接地面：複数の部品をつないだモデルで、接地面の面が2枚重なってしまうまれな不具合を修正しました。"
+    "en": "Internal ribs: the outline of a rib can no longer run across a tiny stray cut next to it.",
+    "it": "Centine interne: il contorno di una centina non può più passare sopra un minuscolo taglio isolato accanto al bordo.",
+    "de": "Innere Rippen: Die Kontur einer Rippe kann nicht mehr über einen winzigen einzelnen Schnitt am Rand laufen.",
+    "fr": "Nervures internes : le contour d'une nervure ne peut plus passer sur une minuscule découpe isolée près du bord.",
+    "es": "Costillas internas: el contorno de una costilla ya no puede pasar sobre un corte diminuto y aislado junto al borde.",
+    "pt": "Nervuras internas: o contorno de uma nervura já não pode passar sobre um corte minúsculo e isolado junto à borda.",
+    "ja": "内部リブ：リブの輪郭が、縁のそばにできたごく小さな孤立した切り込みの上を通ることがなくなりました。"
   },
   "history": [
+    {
+      "date": "2026-11-11T05:07:48Z",
+      "version": "1.3.103",
+      "notes": {
+        "en": "Internal ribs: the outline of a rib can no longer run across a tiny stray cut next to it.",
+        "it": "Centine interne: il contorno di una centina non può più passare sopra un minuscolo taglio isolato accanto al bordo.",
+        "de": "Innere Rippen: Die Kontur einer Rippe kann nicht mehr über einen winzigen einzelnen Schnitt am Rand laufen.",
+        "fr": "Nervures internes : le contour d'une nervure ne peut plus passer sur une minuscule découpe isolée près du bord.",
+        "es": "Costillas internas: el contorno de una costilla ya no puede pasar sobre un corte diminuto y aislado junto al borde.",
+        "pt": "Nervuras internas: o contorno de uma nervura já não pode passar sobre um corte minúsculo e isolado junto à borda.",
+        "ja": "内部リブ：リブの輪郭が、縁のそばにできたごく小さな孤立した切り込みの上を通ることがなくなりました。"
+      }
+    },
     {
       "date": "2026-11-11T03:12:49Z",
       "version": "1.3.102",
@@ -518,28 +531,15 @@
         "pt": "Redução mais rápida: mover a barra de faces ou mudar o tamanho leva cerca de um terço menos tempo, e mais algumas lascas inúteis são removidas onde a superfície quase não muda. As faces também ficam pequenas o bastante para caber na chapa na largura, não só no comprimento.",
         "ja": "削減が速くなりました。面のスライダーを動かしたりサイズを変えたりする時間が約 3 分の 1 短くなり、表面がほとんど変わらない箇所では無駄な細長い面がさらに取り除かれます。面は板の長辺だけでなく短辺にも収まる大きさに保たれます。"
       }
-    },
-    {
-      "date": "2026-11-08T22:57:11Z",
-      "version": "1.3.63",
-      "notes": {
-        "en": "Compact nesting is now the default for new projects and runs in the background: it fills the gaps between the pieces and uses about half the sheets (a 2.3 m horse: 11 sheets → 5), which the quote reflects. It is also three times faster, and a piece that fits the sheet is never called oversize any more.",
-        "it": "L’annidamento compatto è ora predefinito per i progetti nuovi e lavora in sottofondo: riempie gli spazi tra i pezzi e usa circa la metà delle lamiere (un cavallo di 2,3 m: da 11 lamiere a 5), e il preventivo ne tiene conto. È anche tre volte più veloce, e un pezzo che entra nella lamiera non viene più segnalato come troppo grande.",
-        "de": "Die kompakte Anordnung ist jetzt für neue Projekte voreingestellt und läuft im Hintergrund: sie füllt die Lücken zwischen den Teilen und braucht etwa halb so viele Bleche (ein Pferd von 2,3 m: 11 Bleche → 5), was sich im Angebot zeigt. Sie ist außerdem dreimal schneller, und ein Teil, das aufs Blech passt, gilt nie mehr als zu groß.",
-        "fr": "L’imbrication compacte est désormais le réglage par défaut des nouveaux projets et travaille en arrière-plan : elle remplit les espaces entre les pièces et utilise environ la moitié des tôles (un cheval de 2,3 m : 11 tôles → 5), ce que le devis reflète. Elle est aussi trois fois plus rapide, et une pièce qui tient sur la tôle n’est plus jamais signalée comme trop grande.",
-        "es": "El anidado compacto es ahora el predeterminado para los proyectos nuevos y trabaja en segundo plano: rellena los huecos entre las piezas y usa aproximadamente la mitad de las chapas (un caballo de 2,3 m: de 11 chapas a 5), y el presupuesto lo refleja. Además es tres veces más rápido, y una pieza que cabe en la chapa ya no se señala como demasiado grande.",
-        "pt": "O encaixe compacto agora é o padrão para projetos novos e trabalha em segundo plano: preenche os espaços entre as peças e usa cerca de metade das chapas (um cavalo de 2,3 m: de 11 chapas para 5), e o orçamento reflete isso. Também é três vezes mais rápido, e uma peça que cabe na chapa nunca mais é apontada como grande demais.",
-        "ja": "コンパクト配置が新しいプロジェクトの既定になり、バックグラウンドで動作します。部品の間の隙間を埋め、板の枚数が約半分になります（2.3 m の馬：11 枚 → 5 枚）。見積にも反映されます。速度も 3 倍になり、板に収まる部品が「大きすぎる」と表示されることはなくなりました。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.102",
+    "version": "1.3.103",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "aef1e0e9df375fb0dbc331d62e2455de3fe336825020ee194936295c2391d3b3"
+        "sha256": "e14923c7f2ddb37c19b5c7205a4c172753f1af8d28b873494f945d35394a94dd"
       }
     ]
   },

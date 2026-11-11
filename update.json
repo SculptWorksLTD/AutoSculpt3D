@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.118",
-  "notes": "Flat supports: fixed a rare case where the flat sole under a foot was closed badly and the sculpture could not be built.",
+  "latest": "1.3.119",
+  "notes": "Symmetric sculptures: fixed a rare case that left a slit in the cut path and very short sides on the seam between the two halves.",
   "notes_i18n": {
-    "en": "Flat supports: fixed a rare case where the flat sole under a foot was closed badly and the sculpture could not be built.",
-    "it": "Appoggi piatti: corretto un caso raro in cui la suola piatta sotto un piede veniva chiusa male e la scultura non era costruibile.",
-    "de": "Flache Auflagen: Ein seltener Fall wurde behoben, in dem die flache Sohle unter einem Fuß falsch geschlossen wurde und die Skulptur nicht baubar war.",
-    "fr": "Appuis plats : correction d'un cas rare où la semelle plate sous un pied était mal fermée et la sculpture n'était pas réalisable.",
-    "es": "Apoyos planos: corregido un caso poco frecuente en el que la suela plana bajo un pie se cerraba mal y la escultura no se podía construir.",
-    "pt": "Apoios planos: corrigido um caso raro em que a sola plana sob um pé era fechada de forma errada e a escultura não podia ser construída.",
-    "ja": "平らな接地面：足の下の平らな底面が正しく閉じられず、彫刻を組み立てられなくなるまれな不具合を修正しました。"
+    "en": "Symmetric sculptures: fixed a rare case that left a slit in the cut path and very short sides on the seam between the two halves.",
+    "it": "Sculture simmetriche: corretto un caso raro che lasciava una fessura nel percorso di taglio e lati cortissimi sulla cucitura tra le due metà.",
+    "de": "Symmetrische Skulpturen: Ein seltener Fall wurde behoben, der einen Schlitz im Schnittweg und sehr kurze Seiten an der Naht zwischen den beiden Hälften hinterließ.",
+    "fr": "Sculptures symétriques : correction d'un cas rare qui laissait une fente dans le parcours de coupe et des côtés très courts sur la jonction entre les deux moitiés.",
+    "es": "Esculturas simétricas: corregido un caso poco frecuente que dejaba una ranura en el recorrido de corte y lados muy cortos en la unión entre las dos mitades.",
+    "pt": "Esculturas simétricas: corrigido um caso raro que deixava uma fenda no percurso de corte e lados muito curtos na junção entre as duas metades.",
+    "ja": "左右対称の彫刻：切断経路にすき間ができ、左右の合わせ目にごく短い辺が残るまれな不具合を修正しました。"
   },
   "history": [
+    {
+      "date": "2026-11-11T20:27:53Z",
+      "version": "1.3.119",
+      "notes": {
+        "en": "Symmetric sculptures: fixed a rare case that left a slit in the cut path and very short sides on the seam between the two halves.",
+        "it": "Sculture simmetriche: corretto un caso raro che lasciava una fessura nel percorso di taglio e lati cortissimi sulla cucitura tra le due metà.",
+        "de": "Symmetrische Skulpturen: Ein seltener Fall wurde behoben, der einen Schlitz im Schnittweg und sehr kurze Seiten an der Naht zwischen den beiden Hälften hinterließ.",
+        "fr": "Sculptures symétriques : correction d'un cas rare qui laissait une fente dans le parcours de coupe et des côtés très courts sur la jonction entre les deux moitiés.",
+        "es": "Esculturas simétricas: corregido un caso poco frecuente que dejaba una ranura en el recorrido de corte y lados muy cortos en la unión entre las dos mitades.",
+        "pt": "Esculturas simétricas: corrigido um caso raro que deixava uma fenda no percurso de corte e lados muito curtos na junção entre as duas metades.",
+        "ja": "左右対称の彫刻：切断経路にすき間ができ、左右の合わせ目にごく短い辺が残るまれな不具合を修正しました。"
+      }
+    },
     {
       "date": "2026-11-11T18:52:58Z",
       "version": "1.3.118",
@@ -518,28 +531,15 @@
         "pt": "Apoios planos: uma sola cujo contorno tocava a si mesmo (o pescoço de um busto) recebia três facetas numa mesma aresta e ali não se desdobrava; corrigido. Engrossamento das partes finas: um modelo com a pele cheia de pequenos túneis (um morango) saía com uma segunda superfície invertida dentro da escultura; agora o sólido engrossado é sempre uma única casca.",
         "ja": "平らな足：縁が自身に接する底面（胸像の首）では1つの辺に3つの面ができ、そこで展開できませんでした。修正しました。細い部分の肉厚化：表面に小さなトンネルが多数あるモデル（イチゴ）では彫刻の内側に裏返しの第2の面ができていました。肉厚化した立体は常に1つの殻になります。"
       }
-    },
-    {
-      "date": "2026-11-10T02:48:04Z",
-      "version": "1.3.80",
-      "notes": {
-        "en": "Symmetric sculptures: where the half touched the mirror plane with a flat facet, an edge or a single point (seen on a cat, an elephant and a camel) the result had edges shared by four faces and the pieces could not be unfolded there; the mirror now handles those spots cleanly.",
-        "it": "Sculture simmetriche: dove la metà toccava il piano di specchio con una faccetta piatta, uno spigolo o un solo punto (visto su un gatto, un elefante e un cammello) il risultato aveva lati condivisi da quattro facce e lì i pezzi non si sviluppavano; ora lo specchio sistema quei punti.",
-        "de": "Symmetrische Skulpturen: Wo die Hälfte die Spiegelebene mit einer flachen Facette, einer Kante oder einem einzelnen Punkt berührte (bei einer Katze, einem Elefanten und einem Kamel gesehen), hatte das Ergebnis Kanten mit vier Flächen und die Teile ließen sich dort nicht abwickeln; die Spiegelung bereinigt diese Stellen jetzt.",
-        "fr": "Sculptures symétriques : là où la moitié touchait le plan de symétrie par une facette plate, une arête ou un seul point (vu sur un chat, un éléphant et un chameau), le résultat avait des arêtes partagées par quatre faces et les pièces ne se dépliaient pas à cet endroit ; le miroir corrige maintenant ces points.",
-        "es": "Esculturas simétricas: donde la mitad tocaba el plano de simetría con una faceta plana, una arista o un solo punto (visto en un gato, un elefante y un camello) el resultado tenía aristas compartidas por cuatro caras y las piezas no se desplegaban allí; ahora el espejo arregla esos puntos.",
-        "pt": "Esculturas simétricas: onde a metade tocava o plano de espelho com uma faceta plana, uma aresta ou um único ponto (visto num gato, num elefante e num camelo) o resultado tinha arestas partilhadas por quatro faces e as peças não se desdobravam ali; agora o espelho trata esses pontos.",
-        "ja": "対称な彫刻：半分が平らな面・辺・1点で鏡面に接していた箇所（猫、象、ラクダで確認）では、結果に4つの面が共有する辺ができ、そこで部品を展開できませんでした。鏡映処理がそれらの箇所を正しく扱うようになりました。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.118",
+    "version": "1.3.119",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "880cac62dc921393e7addbd6cb413ce7072580394a3f1f7fdd0bbbc1b8226f3d"
+        "sha256": "613a52d0f304b22255f7cc7d03fafe00b7acbf433aa6876b58bc2fd3a179b784"
       }
     ]
   },

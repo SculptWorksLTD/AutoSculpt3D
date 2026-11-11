@@ -4015,12 +4015,25 @@ function rasterNest(items, sheets, oversize, o, frame) {
             }
             spans.push(row);
         }
-        return { ang, mw, mh, spans, cells, x0: fr.x0, y0: fr.y0 };
+        let wr = 0, ww = 0;
+        const rw = new Int32Array(mh);
+        for (let r = 0; r < mh; r++) {
+            for (let i = 0; i < spans[r].length; i += 2)
+                rw[r] = Math.max(rw[r], spans[r][i + 1] - spans[r][i] + 1);
+            if (rw[r] > ww) {
+                ww = rw[r];
+                wr = r;
+            }
+        }
+        return { ang, mw, mh, spans, cells, x0: fr.x0, y0: fr.y0, wr, ww, rw };
     };
-    const newSheet = () => { const sh = { items: [], occ: new Uint8Array(gW * gH), pre: new Int32Array(gH * (gW + 1)), rowFree: new Int32Array(gH).fill(gW), minRow: 0, free: gW * gH, minFail: Infinity }; sheets.push(sh); return sh; };
+    const newSheet = () => { const sh = { items: [], occ: new Uint8Array(gW * gH), pre: new Int32Array(gH * (gW + 1)), rowFree: new Int32Array(gH).fill(gW), maxRun: new Int32Array(gH).fill(gW), minRow: 0, free: gW * gH, minFail: Infinity }; sheets.push(sh); return sh; };
     const fits = (sh, mk, gx, gy) => {
         let next = gx + 1;
-        for (let r = 0; r < mk.mh; r++) {
+        for (let q = -1; q < mk.mh; q++) {
+            const r = q < 0 ? mk.wr : q;
+            if (q === mk.wr)
+                continue;
             const row = mk.spans[r];
             if (!row.length)
                 continue;
@@ -4044,11 +4057,18 @@ function rasterNest(items, sheets, oversize, o, frame) {
             const base = y * (gW + 1);
             let acc = 0;
             sh.pre[base] = 0;
+            let run = 0, best = 0;
             for (let c = 0; c < gW; c++) {
-                acc += sh.occ[y * gW + c];
+                const oc = sh.occ[y * gW + c];
+                acc += oc;
                 sh.pre[base + c + 1] = acc;
+                if (oc)
+                    run = 0;
+                else if (++run > best)
+                    best = run;
             }
             sh.rowFree[y] = gW - acc;
+            sh.maxRun[y] = best;
         }
         while (sh.minRow < gH && sh.pre[sh.minRow * (gW + 1) + gW] >= gW)
             sh.minRow++;
@@ -4077,8 +4097,18 @@ function rasterNest(items, sheets, oversize, o, frame) {
                 outer: for (let gy = sh.minRow; gy <= gH - mk.mh; gy++, band += sh.rowFree[gy + mk.mh - 1] - sh.rowFree[gy - 1]) {
                     if (best && gy > best.gy)
                         break;
-                    if (band < mk.cells)
+                    if (band < mk.cells || sh.maxRun[gy + mk.wr] < mk.ww)
                         continue;
+                    {
+                        let no = false;
+                        for (let r = 0; r < mk.mh; r++)
+                            if (sh.maxRun[gy + r] < mk.rw[r]) {
+                                no = true;
+                                break;
+                            }
+                        if (no)
+                            continue;
+                    }
                     for (let gx = 0; gx <= gW - mk.mw;) {
                         const nx = fits(sh, mk, gx, gy);
                         if (nx < 0) {

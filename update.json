@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.104",
-  "notes": "Clearer messages: counts of one are now written in the singular (\"1 sheet\", \"1 flat sole\", \"1 rib\").",
+  "latest": "1.3.105",
+  "notes": "Compact nesting is about twice as fast on large sculptures with many pieces; the sheets come out exactly the same.",
   "notes_i18n": {
-    "en": "Clearer messages: counts of one are now written in the singular (\"1 sheet\", \"1 flat sole\", \"1 rib\").",
-    "it": "Messaggi più chiari: quando l'elemento è uno solo il testo è al singolare («1 lamiera», «1 appoggio piatto», «1 centina»).",
-    "de": "Klarere Meldungen: Bei genau einem Element steht der Text jetzt im Singular („1 Blech“, „1 flache Sohle“, „1 Rippe“).",
-    "fr": "Messages plus clairs : quand il n'y a qu'un seul élément, le texte est au singulier (« 1 tôle », « 1 semelle plate », « 1 nervure »).",
-    "es": "Mensajes más claros: cuando hay un solo elemento el texto va en singular («1 chapa», «1 apoyo plano», «1 costilla»).",
-    "pt": "Mensagens mais claras: quando há apenas um elemento o texto fica no singular («1 chapa», «1 apoio plano», «1 nervura»).",
-    "ja": "メッセージをわかりやすくしました：数が 1 のときの表記を整えました。"
+    "en": "Compact nesting is about twice as fast on large sculptures with many pieces; the sheets come out exactly the same.",
+    "it": "L'annidamento compatto è circa due volte più veloce sulle sculture grandi con molti pezzi; le lamiere escono identiche a prima.",
+    "de": "Die kompakte Verschachtelung ist bei großen Skulpturen mit vielen Teilen etwa doppelt so schnell; die Bleche bleiben genau gleich.",
+    "fr": "L'imbrication compacte est environ deux fois plus rapide sur les grandes sculptures à nombreuses pièces ; les tôles restent identiques.",
+    "es": "El anidado compacto es aproximadamente el doble de rápido en esculturas grandes con muchas piezas; las chapas salen idénticas.",
+    "pt": "O encaixe compacto está cerca de duas vezes mais rápido em esculturas grandes com muitas peças; as chapas saem idênticas.",
+    "ja": "パーツの多い大きな彫刻で、コンパクトなネスティングが約2倍速くなりました。板の配置は以前とまったく同じです。"
   },
   "history": [
+    {
+      "date": "2026-11-11T05:32:55Z",
+      "version": "1.3.105",
+      "notes": {
+        "en": "Compact nesting is about twice as fast on large sculptures with many pieces; the sheets come out exactly the same.",
+        "it": "L'annidamento compatto è circa due volte più veloce sulle sculture grandi con molti pezzi; le lamiere escono identiche a prima.",
+        "de": "Die kompakte Verschachtelung ist bei großen Skulpturen mit vielen Teilen etwa doppelt so schnell; die Bleche bleiben genau gleich.",
+        "fr": "L'imbrication compacte est environ deux fois plus rapide sur les grandes sculptures à nombreuses pièces ; les tôles restent identiques.",
+        "es": "El anidado compacto es aproximadamente el doble de rápido en esculturas grandes con muchas piezas; las chapas salen idénticas.",
+        "pt": "O encaixe compacto está cerca de duas vezes mais rápido em esculturas grandes com muitas peças; as chapas saem idênticas.",
+        "ja": "パーツの多い大きな彫刻で、コンパクトなネスティングが約2倍速くなりました。板の配置は以前とまったく同じです。"
+      }
+    },
     {
       "date": "2026-11-11T05:14:23Z",
       "version": "1.3.104",
@@ -518,28 +531,15 @@
         "pt": "Ao fechar um projeto, ou abrir um modelo novo, todas as configurações voltam aos valores iniciais: tamanho, faces, chapa, dobras, placa, encaixe, mockup e orçamento não ficam mais os do projeto anterior.",
         "ja": "プロジェクトを閉じるか新しいモデルを開くと、すべての設定が初期値に戻ります。サイズ、面数、板、折り曲げ、プレート、配置、モックアップ、見積が前のプロジェクトから引き継がれることはなくなりました。"
       }
-    },
-    {
-      "date": "2026-11-08T23:17:03Z",
-      "version": "1.3.65",
-      "notes": {
-        "en": "Dragging the faces slider no longer queues a reduction for every stop: only the latest position is computed, so the sculpture follows the slider within a second or two.",
-        "it": "Trascinare la barra delle facce non accoda più una riduzione per ogni fermata: si calcola solo l’ultima posizione, così la scultura segue la barra entro un secondo o due.",
-        "de": "Beim Ziehen des Flächenreglers wird nicht mehr für jeden Halt eine Reduktion eingereiht: nur die letzte Stellung wird berechnet, die Skulptur folgt dem Regler innerhalb von ein, zwei Sekunden.",
-        "fr": "Déplacer le curseur des faces ne met plus une réduction en file pour chaque arrêt : seule la dernière position est calculée, et la sculpture suit le curseur en une ou deux secondes.",
-        "es": "Arrastrar la barra de caras ya no encola una reducción por cada parada: solo se calcula la última posición, y la escultura sigue la barra en uno o dos segundos.",
-        "pt": "Arrastar a barra de faces já não enfileira uma redução a cada parada: só a última posição é calculada, e a escultura acompanha a barra em um ou dois segundos.",
-        "ja": "面のスライダーをドラッグしても、止まるごとに削減が待ち行列に入ることはなくなりました。最後の位置だけが計算され、彫刻は 1〜2 秒でスライダーに追従します。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.104",
+    "version": "1.3.105",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "71a2a80b629f6996e45354a1ff0ae8046e031e02b011384da430819e17536094"
+        "sha256": "05508f071e8b3a5cbbcde560f57a428b31d30d2fa63fef7aef202b3e32e436bb"
       }
     ]
   },

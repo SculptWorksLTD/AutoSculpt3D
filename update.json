@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.99",
-  "notes": "The shape check now also protects symmetric sculptures when the model really is symmetric.",
+  "latest": "1.3.100",
+  "notes": "Large frames made of thin bars no longer produce pieces bigger than the sheet.",
   "notes_i18n": {
-    "en": "The shape check now also protects symmetric sculptures when the model really is symmetric.",
-    "it": "Il controllo della forma ora protegge anche le sculture simmetriche, quando il modello è davvero simmetrico.",
-    "de": "Die Formprüfung schützt jetzt auch symmetrische Skulpturen, wenn das Modell wirklich symmetrisch ist.",
-    "fr": "Le contrôle de la forme protège désormais aussi les sculptures symétriques, lorsque le modèle est réellement symétrique.",
-    "es": "La comprobación de la forma ahora protege también las esculturas simétricas, cuando el modelo es realmente simétrico.",
-    "pt": "A verificação da forma agora protege também as esculturas simétricas, quando o modelo é realmente simétrico.",
-    "ja": "モデルが本当に対称な場合、形状チェックが対称の彫刻にも働くようになりました。"
+    "en": "Large frames made of thin bars no longer produce pieces bigger than the sheet.",
+    "it": "I grandi telai fatti di barre sottili non producono più pezzi più grandi della lamiera.",
+    "de": "Große Rahmen aus dünnen Stäben ergeben keine Teile mehr, die größer als das Blech sind.",
+    "fr": "Les grands cadres faits de barres fines ne produisent plus de pièces plus grandes que la tôle.",
+    "es": "Los grandes bastidores hechos de barras finas ya no producen piezas más grandes que la chapa.",
+    "pt": "As grandes estruturas feitas de barras finas já não produzem peças maiores do que a chapa.",
+    "ja": "細い棒でできた大きなフレームで、板より大きな部品ができることがなくなりました。"
   },
   "history": [
+    {
+      "date": "2026-11-11T00:35:58Z",
+      "version": "1.3.100",
+      "notes": {
+        "en": "Large frames made of thin bars no longer produce pieces bigger than the sheet.",
+        "it": "I grandi telai fatti di barre sottili non producono più pezzi più grandi della lamiera.",
+        "de": "Große Rahmen aus dünnen Stäben ergeben keine Teile mehr, die größer als das Blech sind.",
+        "fr": "Les grands cadres faits de barres fines ne produisent plus de pièces plus grandes que la tôle.",
+        "es": "Los grandes bastidores hechos de barras finas ya no producen piezas más grandes que la chapa.",
+        "pt": "As grandes estruturas feitas de barras finas já não produzem peças maiores do que a chapa.",
+        "ja": "細い棒でできた大きなフレームで、板より大きな部品ができることがなくなりました。"
+      }
+    },
     {
       "date": "2026-11-11T00:01:01Z",
       "version": "1.3.99",
@@ -518,28 +531,15 @@
         "pt": "Motores afinados: as fotos para o motor 3D têm um recorte mais limpo (furinhos fechados, borda suave) e o modelo resultante é fechado e reparado; as imagens desenhadas a partir de uma descrição mostram o sujeito inteiro da cabeça aos pés, sem sombras, cada uma de um ponto de vista diferente; o ditado ouve melhor gravações baixas e erra menos.",
         "ja": "エンジンを調整: 3D エンジン用の写真の切り抜きがよりきれいになり（小さな穴を閉じ、縁を滑らかに）、得られるモデルは閉じて修復されます。説明から描く画像は被写体全体を頭から足まで影なしで、それぞれ異なる視点から描きます。音声入力は小さな録音も聞き取りやすくなり、誤りが減りました。"
       }
-    },
-    {
-      "date": "2026-11-08T21:45:28Z",
-      "version": "1.3.61",
-      "notes": {
-        "en": "General check-up: flat soles now reach every foot even when the feet are not all at the same depth, and the Summary says how many soles there are and how high the cut is; the sheet view explains when no internal rib fits; closing a project clears everything; small fixes in the program and the engines.",
-        "it": "Controllo generale: gli appoggi piatti ora arrivano a tutti i piedi anche quando non sono alla stessa profondità, e il Riepilogo dice quanti sono e quanto è alto il taglio; la vista Lamiere spiega quando nessuna centina entra; chiudendo un progetto si pulisce tutto; piccole correzioni nel programma e nei motori.",
-        "de": "Generalcheck: Flache Sohlen erreichen jetzt jeden Fuß, auch wenn die Füße nicht gleich tief stehen, und die Übersicht nennt ihre Zahl und die Schnitthöhe; die Blechansicht erklärt, wenn kein innerer Spant passt; das Schließen eines Projekts räumt alles auf; kleine Korrekturen in Programm und Engines.",
-        "fr": "Contrôle général : les semelles plates atteignent maintenant tous les pieds même s’ils ne sont pas à la même profondeur, et le Récapitulatif indique leur nombre et la hauteur de la coupe ; la vue Tôles explique quand aucun gabarit interne ne tient ; fermer un projet efface tout ; petites corrections dans le programme et les moteurs.",
-        "es": "Revisión general: los apoyos planos ahora llegan a todos los pies aunque no estén a la misma profundidad, y el Resumen indica cuántos son y la altura del corte; la vista Chapas explica cuándo ninguna costilla interna cabe; cerrar un proyecto limpia todo; pequeñas correcciones en el programa y en los motores.",
-        "pt": "Revisão geral: os apoios planos agora chegam a todos os pés mesmo quando não estão à mesma profundidade, e o Resumo indica quantos são e a altura do corte; a vista Chapas explica quando nenhuma caverna interna cabe; fechar um projeto limpa tudo; pequenas correções no programa e nos motores.",
-        "ja": "総点検: 平らな底面が、足の深さが揃っていなくてもすべての足に届くようになり、概要に底面の数と切断高さを表示。板ビューは内部リブが収まらない理由を説明。プロジェクトを閉じるとすべてクリア。プログラムとエンジンの小さな修正。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.99",
+    "version": "1.3.100",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "2b8977ecc7d2061a46bdb9b1a80447254a57cf52d9efd7400c82deba1f127c41"
+        "sha256": "b12dfd5dfab05d78e3a3176ef19ba36ecfc17f5e96f26867c90d6d6acaeee29f"
       }
     ]
   },

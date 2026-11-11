@@ -5662,12 +5662,12 @@ async function updateLow(reframe) {
     let low = await runDecimate(S.base.V, S.base.F, target, null, strokeWeights(), opts);
     if (tk !== S.token)
         return;
-    for (let it = 0, fac = 1; it < 3; it++) {
+    for (let it = 0, fac = 1; it < 5; it++) {
         const q = extentAlongRef(S.base.V) / (extentAlongRef(low.V) || 1), lf = largestFace(low.V, low.F);
         const over = Math.max(lf.edge * q / opts.maxEdge, lf.alt * q / opts.maxAlt);
         if (over <= 1)
             break;
-        fac = 1.01 * q > fac * 1.001 ? 1.01 * q : fac * 1.01 * over;
+        fac = Math.max(1.01 * q, fac * 1.01 * over);
         low = await runDecimate(S.base.V, S.base.F, target, null, strokeWeights(), Object.assign({}, opts, { maxEdge: opts.maxEdge / fac, maxAlt: opts.maxAlt / fac }));
         if (tk !== S.token)
             return;

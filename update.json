@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.112",
-  "notes": "Updates now arrive from the new address of the update service. Nothing changes in how you use the program.",
+  "latest": "1.3.113",
+  "notes": "Updates: the address of the update service is now the final one. Restart the program once to complete this update.",
   "notes_i18n": {
-    "en": "Updates now arrive from the new address of the update service. Nothing changes in how you use the program.",
-    "it": "Gli aggiornamenti ora arrivano dal nuovo indirizzo del servizio di aggiornamento. Nell'uso del programma non cambia nulla.",
-    "de": "Updates kommen jetzt von der neuen Adresse des Update-Dienstes. An der Bedienung des Programms ändert sich nichts.",
-    "fr": "Les mises à jour arrivent désormais depuis la nouvelle adresse du service de mise à jour. Rien ne change dans l'utilisation du programme.",
-    "es": "Las actualizaciones llegan ahora desde la nueva dirección del servicio de actualización. No cambia nada en el uso del programa.",
-    "pt": "As atualizações chegam agora do novo endereço do serviço de atualização. Nada muda no uso do programa.",
-    "ja": "アップデートは更新サービスの新しいアドレスから届くようになりました。プログラムの使い方は変わりません。"
+    "en": "Updates: the address of the update service is now the final one. Restart the program once to complete this update.",
+    "it": "Aggiornamenti: l'indirizzo del servizio di aggiornamento ora è quello definitivo. Riavvia il programma una volta per completare questo aggiornamento.",
+    "de": "Updates: Die Adresse des Update-Dienstes ist jetzt die endgültige. Starte das Programm einmal neu, um dieses Update abzuschließen.",
+    "fr": "Mises à jour : l'adresse du service de mise à jour est désormais définitive. Redémarrez le programme une fois pour terminer cette mise à jour.",
+    "es": "Actualizaciones: la dirección del servicio de actualización es ahora la definitiva. Reinicia el programa una vez para completar esta actualización.",
+    "pt": "Atualizações: o endereço do serviço de atualização é agora o definitivo. Reinicie o programa uma vez para concluir esta atualização.",
+    "ja": "アップデート：更新サービスのアドレスが最終的なものになりました。この更新を完了するには、プログラムを一度再起動してください。"
   },
   "history": [
+    {
+      "date": "2026-11-11T13:11:55Z",
+      "version": "1.3.113",
+      "notes": {
+        "en": "Updates: the address of the update service is now the final one. Restart the program once to complete this update.",
+        "it": "Aggiornamenti: l'indirizzo del servizio di aggiornamento ora è quello definitivo. Riavvia il programma una volta per completare questo aggiornamento.",
+        "de": "Updates: Die Adresse des Update-Dienstes ist jetzt die endgültige. Starte das Programm einmal neu, um dieses Update abzuschließen.",
+        "fr": "Mises à jour : l'adresse du service de mise à jour est désormais définitive. Redémarrez le programme une fois pour terminer cette mise à jour.",
+        "es": "Actualizaciones: la dirección del servicio de actualización es ahora la definitiva. Reinicia el programa una vez para completar esta actualización.",
+        "pt": "Atualizações: o endereço do serviço de atualização é agora o definitivo. Reinicie o programa uma vez para concluir esta atualização.",
+        "ja": "アップデート：更新サービスのアドレスが最終的なものになりました。この更新を完了するには、プログラムを一度再起動してください。"
+      }
+    },
     {
       "date": "2026-11-11T12:20:04Z",
       "version": "1.3.112",
@@ -518,38 +531,25 @@
         "pt": "As solas planas com um furo no meio (o anel de base de um pires, uma base oca) agora se fecham como anel em vez de uma tampa sobre o rebaixo, que podia se soltar como peça separada. O aninhamento de centenas de peças em chapas pequenas está mais rápido.",
         "ja": "中央に穴のある平らな底面（受け皿の脚リング、中空の台座）は、くぼみの上の蓋ではなくリングとして閉じるようになりました（蓋は別部品として外れることがありました）。小さな板への数百部品のネスティングが高速化。"
       }
-    },
-    {
-      "date": "2026-11-09T13:49:02Z",
-      "version": "1.3.74",
-      "notes": {
-        "en": "Stress tests with random settings on a hundred models. Fixed: faces wider or longer than the sheet on very large sculptures with few facets (the clean-up and the final scaling could enlarge them); a flat sole that failed to close and left a hole (two feet meeting at a point, a border touching itself); tiny floating fragments left by a sole whose foot had been reduced away; \"Even facets\" at 100% removed most facets of round objects (an egg asked for 148 came out with 38).",
-        "it": "Prove di sforzo con impostazioni casuali su un centinaio di modelli. Corretto: facce più larghe o più lunghe della lamiera su sculture molto grandi con poche faccette (la pulizia e la scala finale potevano ingrandirle); una suola piatta che non si chiudeva e lasciava un buco (due piedi che si toccano in un punto, un bordo che si tocca); frammenti minuscoli lasciati galleggiare da una suola il cui piede era stato ridotto via; «Faccette regolari» al 100% toglieva quasi tutte le faccette degli oggetti tondi (un uovo da 148 facce ne aveva 38).",
-        "de": "Belastungstests mit zufälligen Einstellungen an hundert Modellen. Behoben: Flächen breiter oder länger als das Blech bei sehr großen Skulpturen mit wenigen Facetten (Bereinigung und Endskalierung konnten sie vergrößern); eine flache Sohle, die sich nicht schloss und ein Loch ließ (zwei Füße, die sich in einem Punkt berühren, ein sich berührender Rand); winzige schwebende Reste einer Sohle, deren Fuß wegreduziert wurde; „Gleichmäßige Facetten“ bei 100 % entfernte fast alle Facetten runder Objekte (ein Ei mit 148 Facetten hatte 38).",
-        "fr": "Tests de résistance avec des réglages aléatoires sur une centaine de modèles. Corrigé : des faces plus larges ou plus longues que la tôle sur de très grandes sculptures à peu de facettes (le nettoyage et la mise à l'échelle finale pouvaient les agrandir) ; une semelle plate qui ne se fermait pas et laissait un trou (deux pieds qui se touchent en un point, un bord qui se touche) ; de minuscules fragments flottants laissés par une semelle dont le pied avait été réduit ; « Facettes régulières » à 100 % supprimait presque toutes les facettes des objets ronds (un œuf demandé à 148 facettes en avait 38).",
-        "es": "Pruebas de esfuerzo con ajustes aleatorios en un centenar de modelos. Corregido: caras más anchas o largas que la chapa en esculturas muy grandes con pocas facetas (la limpieza y el escalado final podían agrandarlas); una suela plana que no se cerraba y dejaba un agujero (dos pies que se tocan en un punto, un borde que se toca); fragmentos diminutos flotantes dejados por una suela cuyo pie se había reducido; «Facetas regulares» al 100 % eliminaba casi todas las facetas de los objetos redondos (un huevo pedido con 148 facetas tenía 38).",
-        "pt": "Testes de estresse com ajustes aleatórios em uma centena de modelos. Corrigido: faces mais largas ou longas que a chapa em esculturas muito grandes com poucas facetas (a limpeza e a escala final podiam aumentá-las); uma sola plana que não fechava e deixava um buraco (dois pés que se tocam num ponto, uma borda que se toca); fragmentos minúsculos flutuantes deixados por uma sola cujo pé fora reduzido; «Facetas regulares» a 100% removia quase todas as facetas dos objetos redondos (um ovo pedido com 148 facetas tinha 38).",
-        "ja": "約100種のモデルに対しランダム設定でのストレステストを実施。修正：面数の少ない非常に大きな彫刻で板より広い/長い面ができていた（クリーンアップと最終スケーリングで拡大されていた）、閉じずに穴を残す平らな底面（1点で接する2本の足、自己接触する縁）、足が削減された底面が残す浮遊する微小な断片、「均一な面」100%で丸い物の面がほとんど消えていた（148面の卵が38面に）。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.112",
+    "version": "1.3.113",
     "files": [
       {
         "path": "AutoSculpt3D.html",
-        "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3DRelease/main/ui/AutoSculpt3D.html",
+        "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
         "sha256": "d33e8625d9edbe5084468cf1388b73eb42f916795ca238c0d39a1a299d1f3638"
       }
     ]
   },
   "app": {
-    "version": "1.3.26",
+    "version": "1.3.27",
     "files": [
       {
         "path": "main.py",
-        "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3DRelease/main/app/main.py",
-        "sha256": "61f6aea8c60a5a4b2fe718fc3acf1725723f69954d22763620f20367eb74cd69"
+        "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/app/main.py",
+        "sha256": "6322871602a0bac0e063445e489ebc57d62e615649f10dfdbb18e94624946732"
       }
     ]
   },
@@ -561,12 +561,12 @@
       "files": [
         {
           "path": "engine.json",
-          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3DRelease/main/engines/fal/engine.json",
+          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/fal/engine.json",
           "sha256": "ef893db7e55f8bd8152a5a744b9de4a9ba637a3d3eeb19a771ca2a029b69a25d"
         },
         {
           "path": "runner.py",
-          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3DRelease/main/engines/fal/runner.py",
+          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/fal/runner.py",
           "sha256": "853da822ffd01951a187a516b6116361442901c86ca5147179dddf26f7561088"
         }
       ]
@@ -578,12 +578,12 @@
       "files": [
         {
           "path": "engine.json",
-          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3DRelease/main/engines/falflux/engine.json",
+          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/falflux/engine.json",
           "sha256": "480e2ecfb1e12d3e62a3a18599cc31f11fb45f0f48d5e1801e9b055e9114f7d0"
         },
         {
           "path": "runner.py",
-          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3DRelease/main/engines/falflux/runner.py",
+          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/falflux/runner.py",
           "sha256": "480d13243fbf2e7765fde76585b30b152afa211f7a52e4784920a1560f69026f"
         }
       ]
@@ -595,12 +595,12 @@
       "files": [
         {
           "path": "engine.json",
-          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3DRelease/main/engines/falviews/engine.json",
+          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/falviews/engine.json",
           "sha256": "144f8ed72a40f255d99eb5ec326e758a708b7114797ad6789ce34f8f50ede3d2"
         },
         {
           "path": "runner.py",
-          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3DRelease/main/engines/falviews/runner.py",
+          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/falviews/runner.py",
           "sha256": "c8ad5dacf4d8b3acd7caf462f3e87f4c193b519775e0ac05e84702bc48cff254"
         }
       ]
@@ -612,12 +612,12 @@
       "files": [
         {
           "path": "engine.json",
-          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3DRelease/main/engines/falwhisper/engine.json",
+          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/falwhisper/engine.json",
           "sha256": "bbe1ca6f268f62e1d30d7c4f91a701397eb8f679815b3282e2d4b065e964ba63"
         },
         {
           "path": "runner.py",
-          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3DRelease/main/engines/falwhisper/runner.py",
+          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/falwhisper/runner.py",
           "sha256": "614edf213581301170a95adadd72675bcefa2ea74191b1f355c083704ce3e76a"
         }
       ]
@@ -629,12 +629,12 @@
       "files": [
         {
           "path": "engine.json",
-          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3DRelease/main/engines/fluxcuda/engine.json",
+          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/fluxcuda/engine.json",
           "sha256": "728e9e30a6030adb4edb4e82915706b3bfd9ffba588add4c38ef347634743a92"
         },
         {
           "path": "runner.py",
-          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3DRelease/main/engines/fluxcuda/runner.py",
+          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/fluxcuda/runner.py",
           "sha256": "047b064d8e78f7e13aa9ce06ab110e643f49142126e7ef9801095e881e8f484d"
         }
       ],
@@ -647,12 +647,12 @@
       "files": [
         {
           "path": "engine.json",
-          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3DRelease/main/engines/fluxlocal/engine.json",
+          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/fluxlocal/engine.json",
           "sha256": "69c72a35582f1298293f54593e6fa2a928244d49e450ec2a310203d7f1d1845d"
         },
         {
           "path": "runner.py",
-          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3DRelease/main/engines/fluxlocal/runner.py",
+          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/fluxlocal/runner.py",
           "sha256": "e8518bfc496d9f4515fa42c2437baf664d1a0c08f05dea997ee2e5165c72d891"
         }
       ],
@@ -665,12 +665,12 @@
       "files": [
         {
           "path": "engine.json",
-          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3DRelease/main/engines/meshy/engine.json",
+          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/meshy/engine.json",
           "sha256": "9778fd274ea323e62d8bfa3f59a785e25ffc81b3a99f38cc6d9303e4d102dd4a"
         },
         {
           "path": "runner.py",
-          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3DRelease/main/engines/meshy/runner.py",
+          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/meshy/runner.py",
           "sha256": "4e66896b5eabc2c400153d8caa818614ccc8a0275bfc960560ad9d14e57169bd"
         }
       ]
@@ -682,12 +682,12 @@
       "files": [
         {
           "path": "engine.json",
-          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3DRelease/main/engines/mvadapter/engine.json",
+          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/mvadapter/engine.json",
           "sha256": "7ef057fef995bcaa11488e7f381c4b895ce2724260dc284b35661832fe2b0c4f"
         },
         {
           "path": "runner.py",
-          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3DRelease/main/engines/mvadapter/runner.py",
+          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/mvadapter/runner.py",
           "sha256": "16c97e6f7fdb7d4dd8a5f8fc2f3d60adb6eed8c4af6afdea7964193de69af1fa"
         }
       ]
@@ -699,12 +699,12 @@
       "files": [
         {
           "path": "engine.json",
-          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3DRelease/main/engines/ssd1b/engine.json",
+          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/ssd1b/engine.json",
           "sha256": "bfecdb7022c99853368930862597d3828207e56ccac5e55881d954212cd486cf"
         },
         {
           "path": "runner.py",
-          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3DRelease/main/engines/ssd1b/runner.py",
+          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/ssd1b/runner.py",
           "sha256": "97dc7f669a75948299498aebfb694df0c3556f480361c4f33227117cfe2d2bb5"
         }
       ],
@@ -717,12 +717,12 @@
       "files": [
         {
           "path": "engine.json",
-          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3DRelease/main/engines/tripo/engine.json",
+          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/tripo/engine.json",
           "sha256": "c2615de04e182490c65c6cfef30cacdc451d67a61ae288a992b7fcd83dbfc408"
         },
         {
           "path": "runner.py",
-          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3DRelease/main/engines/tripo/runner.py",
+          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/tripo/runner.py",
           "sha256": "3325767db41aedef165ad79a5db0e0e8f5e3a5af4e1598316c157c5522ec5e0b"
         }
       ]
@@ -734,12 +734,12 @@
       "files": [
         {
           "path": "engine.json",
-          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3DRelease/main/engines/triposg/engine.json",
+          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/triposg/engine.json",
           "sha256": "11a423a812d8381e69bfc25656825b6d64cfe454f9eb548254ac15a32d4a4def"
         },
         {
           "path": "runner.py",
-          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3DRelease/main/engines/triposg/runner.py",
+          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/triposg/runner.py",
           "sha256": "61ac268c29392cb1fa002e69f3f430c58a3ef2ad7634062f3ff57762c579d157"
         }
       ]
@@ -751,12 +751,12 @@
       "files": [
         {
           "path": "engine.json",
-          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3DRelease/main/engines/whisper/engine.json",
+          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/whisper/engine.json",
           "sha256": "631782507d78a449f14cca326b0ec9e02bba8e514568011028dda437adfdb5f0"
         },
         {
           "path": "runner.py",
-          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3DRelease/main/engines/whisper/runner.py",
+          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/whisper/runner.py",
           "sha256": "dd309affbdc50e71793c428e334fa9605b6492d8a2bec70e0eac658f270cd0dd"
         }
       ]

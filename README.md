@@ -9,8 +9,8 @@
 
 | | |
 |---|---|
-| **Mac** (chip Apple e Intel) | [**Scarica AutoSculpt 3D per Mac**](https://github.com/SculptWorksLTD/AutoSculpt3DRelease/raw/main/download/AutoSculpt3D.pkg) |
-| **Windows 10/11** | [**Scarica AutoSculpt 3D per Windows**](https://github.com/SculptWorksLTD/AutoSculpt3DRelease/raw/main/download/AutoSculpt3D-Setup.exe) |
+| **Mac** (chip Apple e Intel) | [**Scarica AutoSculpt 3D per Mac**](https://github.com/SculptWorksLTD/AutoSculpt3D/raw/main/download/AutoSculpt3D.pkg) |
+| **Windows 10/11** | [**Scarica AutoSculpt 3D per Windows**](https://github.com/SculptWorksLTD/AutoSculpt3D/raw/main/download/AutoSculpt3D-Setup.exe) |
 
 Dopo l'installazione il programma si aggiorna da solo all'ultima versione: al primo avvio lascialo collegato a internet e riavvialo quando lo chiede.
 *After installing, the program updates itself to the latest version: keep it online at the first start and restart it when asked.*

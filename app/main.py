@@ -62,7 +62,7 @@ def documents_dir():
         except Exception:
             pass
     return Path.home() / 'Documents'
-UPDATE_URLS = ['https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3DRelease/main/update.json', 'https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/update.json']
+UPDATE_URLS = ['https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/update.json', 'https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3DRelease/main/update.json']
 DEFAULT_SETTINGS = {'auto_check': True, 'last_check': 0}
 
 def log(*parts):

@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.113",
-  "notes": "Updates: the address of the update service is now the final one. Restart the program once to complete this update.",
+  "latest": "1.3.114",
+  "notes": "Internal maintenance of the program: lighter update download. Nothing changes in how you use it.",
   "notes_i18n": {
-    "en": "Updates: the address of the update service is now the final one. Restart the program once to complete this update.",
-    "it": "Aggiornamenti: l'indirizzo del servizio di aggiornamento ora è quello definitivo. Riavvia il programma una volta per completare questo aggiornamento.",
-    "de": "Updates: Die Adresse des Update-Dienstes ist jetzt die endgültige. Starte das Programm einmal neu, um dieses Update abzuschließen.",
-    "fr": "Mises à jour : l'adresse du service de mise à jour est désormais définitive. Redémarrez le programme une fois pour terminer cette mise à jour.",
-    "es": "Actualizaciones: la dirección del servicio de actualización es ahora la definitiva. Reinicia el programa una vez para completar esta actualización.",
-    "pt": "Atualizações: o endereço do serviço de atualização é agora o definitivo. Reinicie o programa uma vez para concluir esta atualização.",
-    "ja": "アップデート：更新サービスのアドレスが最終的なものになりました。この更新を完了するには、プログラムを一度再起動してください。"
+    "en": "Internal maintenance of the program: lighter update download. Nothing changes in how you use it.",
+    "it": "Manutenzione interna del programma: aggiornamento più leggero da scaricare. Nell'uso non cambia nulla.",
+    "de": "Interne Wartung des Programms: Das Update ist kleiner. An der Bedienung ändert sich nichts.",
+    "fr": "Maintenance interne du programme : mise à jour plus légère à télécharger. Rien ne change à l'utilisation.",
+    "es": "Mantenimiento interno del programa: actualización más ligera de descargar. No cambia nada en su uso.",
+    "pt": "Manutenção interna do programa: atualização mais leve para descarregar. Nada muda no uso.",
+    "ja": "プログラムの内部メンテナンス：アップデートのダウンロードが軽くなりました。使い方は変わりません。"
   },
   "history": [
+    {
+      "date": "2026-11-11T13:24:01Z",
+      "version": "1.3.114",
+      "notes": {
+        "en": "Internal maintenance of the program: lighter update download. Nothing changes in how you use it.",
+        "it": "Manutenzione interna del programma: aggiornamento più leggero da scaricare. Nell'uso non cambia nulla.",
+        "de": "Interne Wartung des Programms: Das Update ist kleiner. An der Bedienung ändert sich nichts.",
+        "fr": "Maintenance interne du programme : mise à jour plus légère à télécharger. Rien ne change à l'utilisation.",
+        "es": "Mantenimiento interno del programa: actualización más ligera de descargar. No cambia nada en su uso.",
+        "pt": "Manutenção interna do programa: atualização mais leve para descarregar. Nada muda no uso.",
+        "ja": "プログラムの内部メンテナンス：アップデートのダウンロードが軽くなりました。使い方は変わりません。"
+      }
+    },
     {
       "date": "2026-11-11T13:11:55Z",
       "version": "1.3.113",
@@ -518,28 +531,15 @@
         "pt": "Removidas as costuras finíssimas (um décimo de milímetro) que ficavam ao longo das solas planas de alguns objetos reduzidos para chapas pequenas.",
         "ja": "小さな板向けに削減した一部の物の平らな底面に残っていた髪の毛ほどの継ぎ目（0.1 mm）を取り除くようになりました。"
       }
-    },
-    {
-      "date": "2026-11-09T14:25:13Z",
-      "version": "1.3.75",
-      "notes": {
-        "en": "Flat soles with a hole in the middle (the foot ring of a saucer, a hollow base) are now closed as a ring instead of a lid over the recess, which could come loose as a separate part. Nesting of hundreds of pieces on small sheets is faster.",
-        "it": "Gli appoggi piatti con un foro in mezzo (l'anello di base di un piattino, una base cava) ora si chiudono come anello invece che con un coperchio sull'incavo, che poteva staccarsi come parte a sé. Annidamento di centinaia di pezzi su lamiere piccole più veloce.",
-        "de": "Flache Sohlen mit einem Loch in der Mitte (der Standring einer Untertasse, ein hohler Sockel) werden jetzt als Ring geschlossen statt mit einem Deckel über der Vertiefung, der sich als eigenes Teil lösen konnte. Das Verschachteln hunderter Teile auf kleinen Blechen ist schneller.",
-        "fr": "Les semelles plates percées au milieu (l'anneau de base d'une soucoupe, un socle creux) se ferment désormais en anneau plutôt qu'avec un couvercle sur le creux, qui pouvait se détacher comme pièce à part. L'imbrication de centaines de pièces sur de petites tôles est plus rapide.",
-        "es": "Las suelas planas con un agujero en medio (el anillo de base de un platillo, una base hueca) ahora se cierran como anillo en vez de con una tapa sobre el hueco, que podía soltarse como pieza aparte. El anidado de cientos de piezas en chapas pequeñas es más rápido.",
-        "pt": "As solas planas com um furo no meio (o anel de base de um pires, uma base oca) agora se fecham como anel em vez de uma tampa sobre o rebaixo, que podia se soltar como peça separada. O aninhamento de centenas de peças em chapas pequenas está mais rápido.",
-        "ja": "中央に穴のある平らな底面（受け皿の脚リング、中空の台座）は、くぼみの上の蓋ではなくリングとして閉じるようになりました（蓋は別部品として外れることがありました）。小さな板への数百部品のネスティングが高速化。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.113",
+    "version": "1.3.114",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "d33e8625d9edbe5084468cf1388b73eb42f916795ca238c0d39a1a299d1f3638"
+        "sha256": "d8e0f82865343309b17a2de77c859a6737c966069dda30fbb34a02aba4e566d3"
       }
     ]
   },

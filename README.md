@@ -20,6 +20,8 @@ Dopo l'installazione il programma si aggiorna da solo all'ultima versione: al pr
 AutoSculpt 3D trasforma un'idea in una **scultura in lamiera sfaccettata**, pronta da tagliare al laser e saldare a TIG.
 Si parte da un modello 3D, da una foto o anche solo da una descrizione: il programma pensa a tutto il resto.
 
+Tutti i calcoli (sfaccettatura, sviluppo dei pezzi, annidamento, file per il laser) sono fatti da **SculpEngine**, il motore proprietario di AutoSculpt 3D.
+
 ## Cosa fa
 
 - **Da una descrizione** – scrivi o detta cosa vuoi scolpire: il programma disegna le immagini, tu scegli la migliore e lui costruisce il modello 3D.
@@ -45,6 +47,8 @@ Si parte da un modello 3D, da una foto o anche solo da una descrizione: il progr
 AutoSculpt 3D turns an idea into a **faceted sheet-metal sculpture**, ready for laser cutting and TIG welding.
 Start from a 3D model, a photo or just a description: the program takes care of the rest.
 
+All the calculations (faceting, unfolding, nesting, laser files) are made by **SculpEngine**, the proprietary engine of AutoSculpt 3D.
+
 **Main features:** pictures and 3D models from a description or from photos · faceting with the number of faces you choose,
 also symmetric · numbered pieces with bends, slots and tabs · nesting on the sheets and DXF for the laser · realistic mockup
 in the chosen metal · quote and step-by-step assembly guide · automatic saving and updates · 7 languages.
@@ -54,6 +58,6 @@ an Apple chip or an NVIDIA card (otherwise the online services work without any 
 
 ---
 
-<sub>© 2026 Enrico Migliorati. Tutti i diritti riservati / All rights reserved. Software proprietario: copia, distribuzione e
+<sub>AutoSculpt 3D e SculpEngine · © 2026 Enrico Migliorati. Tutti i diritti riservati / All rights reserved. Software proprietario: copia, distribuzione e
 modifica non consentite senza autorizzazione scritta del titolare. Questo repository contiene solo gli installer e il canale degli
 aggiornamenti del programma.</sub>

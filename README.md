@@ -5,6 +5,16 @@
 
 ---
 
+## Download
+
+| | |
+|---|---|
+| **Mac** (chip Apple e Intel) | [**Scarica AutoSculpt 3D per Mac**](https://github.com/SculptWorksLTD/AutoSculpt3DRelease/raw/main/download/AutoSculpt3D.pkg) |
+| **Windows 10/11** | [**Scarica AutoSculpt 3D per Windows**](https://github.com/SculptWorksLTD/AutoSculpt3DRelease/raw/main/download/AutoSculpt3D-Setup.exe) |
+
+Dopo l'installazione il programma si aggiorna da solo all'ultima versione: al primo avvio lascialo collegato a internet e riavvialo quando lo chiede.
+*After installing, the program updates itself to the latest version: keep it online at the first start and restart it when asked.*
+
 ## Cos'è
 
 AutoSculpt 3D trasforma un'idea in una **scultura in lamiera sfaccettata**, pronta da tagliare al laser e saldare a TIG.
@@ -45,5 +55,5 @@ an Apple chip or an NVIDIA card (otherwise the online services work without any 
 ---
 
 <sub>© 2026 Enrico Migliorati. Tutti i diritti riservati / All rights reserved. Software proprietario: copia, distribuzione e
-modifica non consentite senza autorizzazione scritta del titolare. Questo repository contiene solo il canale degli aggiornamenti
-del programma.</sub>
+modifica non consentite senza autorizzazione scritta del titolare. Questo repository contiene solo gli installer e il canale degli
+aggiornamenti del programma.</sub>

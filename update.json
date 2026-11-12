@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.141",
-  "notes": "Grooves too narrow for the torch: where two faces meet in a concave seam that opens less than 45°, they are now opened a little so that the seam can be welded (option in «Shape and size», on by default). The summary says how many were opened; those that cannot be opened are still reported.",
+  "latest": "1.3.142",
+  "notes": "Opening the narrow grooves: if it would make two faces pass through each other, the sculpture is left as it was.",
   "notes_i18n": {
-    "en": "Grooves too narrow for the torch: where two faces meet in a concave seam that opens less than 45°, they are now opened a little so that the seam can be welded (option in «Shape and size», on by default). The summary says how many were opened; those that cannot be opened are still reported.",
-    "it": "Gole troppo strette per la torcia: dove due facce si incontrano in un cordone concavo che si apre meno di 45°, ora vengono aperte un poco perché il cordone si possa saldare (casella in «Forma e misure», attiva di serie). Il Riepilogo dice quante ne sono state aperte; quelle che non si possono aprire restano segnalate.",
-    "de": "Zu enge Kehlen für den Brenner: Wo zwei Flächen in einer konkaven Naht mit weniger als 45° Öffnung zusammentreffen, werden sie jetzt etwas geöffnet, damit sich die Naht schweißen lässt (Option in «Form und Maße», standardmäßig aktiv). Die Übersicht nennt die Anzahl; nicht zu öffnende Kehlen werden weiterhin gemeldet.",
-    "fr": "Gorges trop étroites pour la torche : là où deux faces se rejoignent en un cordon concave ouvert de moins de 45°, elles sont désormais un peu ouvertes pour que le cordon puisse être soudé (option dans « Forme et dimensions », activée par défaut). Le récapitulatif en indique le nombre ; celles qui ne peuvent pas être ouvertes restent signalées.",
-    "es": "Gargantas demasiado estrechas para la antorcha: donde dos caras se unen en un cordón cóncavo que abre menos de 45°, ahora se abren un poco para que el cordón pueda soldarse (opción en «Forma y medidas», activa de serie). El resumen indica cuántas se abrieron; las que no pueden abrirse siguen señaladas.",
-    "pt": "Gargantas estreitas demais para a tocha: onde duas faces se encontram em um cordão côncavo com abertura menor que 45°, agora elas são abertas um pouco para que o cordão possa ser soldado (opção em «Forma e medidas», ativa por padrão). O resumo informa quantas foram abertas; as que não podem ser abertas continuam sinalizadas.",
-    "ja": "トーチが入らない狭い溝：2つの面が45°未満の開きで凹んだ継ぎ目になる箇所を、溶接できるように少し開くようになりました（「形状と寸法」のオプション、標準でオン）。開いた数は概要に表示され、開けない溝はこれまでどおり通知されます。"
+    "en": "Opening the narrow grooves: if it would make two faces pass through each other, the sculpture is left as it was.",
+    "it": "Apertura delle gole strette: se farebbe attraversare due facce tra loro, la scultura resta com'era.",
+    "de": "Öffnen der engen Kehlen: Würden sich dadurch zwei Flächen durchdringen, bleibt die Skulptur, wie sie war.",
+    "fr": "Ouverture des gorges étroites : si elle faisait se traverser deux faces, la sculpture reste telle qu'elle était.",
+    "es": "Apertura de las gargantas estrechas: si hiciera que dos caras se atravesaran, la escultura queda como estaba.",
+    "pt": "Abertura das gargantas estreitas: se fizesse duas faces se atravessarem, a escultura fica como estava.",
+    "ja": "狭い溝を開く処理：2つの面が互いに突き抜けてしまう場合は、彫刻を元のままにします。"
   },
   "history": [
+    {
+      "date": "2026-11-12T21:54:10Z",
+      "version": "1.3.142",
+      "notes": {
+        "en": "Opening the narrow grooves: if it would make two faces pass through each other, the sculpture is left as it was.",
+        "it": "Apertura delle gole strette: se farebbe attraversare due facce tra loro, la scultura resta com'era.",
+        "de": "Öffnen der engen Kehlen: Würden sich dadurch zwei Flächen durchdringen, bleibt die Skulptur, wie sie war.",
+        "fr": "Ouverture des gorges étroites : si elle faisait se traverser deux faces, la sculpture reste telle qu'elle était.",
+        "es": "Apertura de las gargantas estrechas: si hiciera que dos caras se atravesaran, la escultura queda como estaba.",
+        "pt": "Abertura das gargantas estreitas: se fizesse duas faces se atravessarem, a escultura fica como estava.",
+        "ja": "狭い溝を開く処理：2つの面が互いに突き抜けてしまう場合は、彫刻を元のままにします。"
+      }
+    },
     {
       "date": "2026-11-12T21:26:23Z",
       "version": "1.3.141",
@@ -518,28 +531,15 @@
         "pt": "Mensagens mais claras: quando há apenas um elemento o texto fica no singular («1 chapa», «1 apoio plano», «1 nervura»).",
         "ja": "メッセージをわかりやすくしました：数が 1 のときの表記を整えました。"
       }
-    },
-    {
-      "date": "2026-11-11T05:07:48Z",
-      "version": "1.3.103",
-      "notes": {
-        "en": "Internal ribs: the outline of a rib can no longer run across a tiny stray cut next to it.",
-        "it": "Centine interne: il contorno di una centina non può più passare sopra un minuscolo taglio isolato accanto al bordo.",
-        "de": "Innere Rippen: Die Kontur einer Rippe kann nicht mehr über einen winzigen einzelnen Schnitt am Rand laufen.",
-        "fr": "Nervures internes : le contour d'une nervure ne peut plus passer sur une minuscule découpe isolée près du bord.",
-        "es": "Costillas internas: el contorno de una costilla ya no puede pasar sobre un corte diminuto y aislado junto al borde.",
-        "pt": "Nervuras internas: o contorno de uma nervura já não pode passar sobre um corte minúsculo e isolado junto à borda.",
-        "ja": "内部リブ：リブの輪郭が、縁のそばにできたごく小さな孤立した切り込みの上を通ることがなくなりました。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.141",
+    "version": "1.3.142",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "ecc7491607427779781fdd0a46b8a363c471fd267c258b3d641fa6080791f625"
+        "sha256": "27b9979b1d9aa3da339a9b007f74dda64dbe512bf55a539bd8afb2740b2aac76"
       }
     ]
   },

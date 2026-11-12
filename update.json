@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.123",
-  "notes": "Sheets view: you can now zoom and move the drawing. Mouse wheel or pinch to zoom, drag to move, double click (or «Whole sheet») to see the whole sheet again.",
+  "latest": "1.3.124",
+  "notes": "Models whose parts pass through each other (a tail stuck into the body, a stem into its foot) are now rebuilt as one solid when you open them, so the sculpture has no facets crossing each other.",
   "notes_i18n": {
-    "en": "Sheets view: you can now zoom and move the drawing. Mouse wheel or pinch to zoom, drag to move, double click (or «Whole sheet») to see the whole sheet again.",
-    "it": "Vista Lamiere: ora il disegno si può ingrandire e spostare. Rotella del mouse o pizzico per lo zoom, trascina per spostare, doppio clic (o «Lamiera intera») per rivedere tutta la lamiera.",
-    "de": "Blechansicht: Die Zeichnung lässt sich jetzt zoomen und verschieben. Mausrad oder Fingergeste zum Zoomen, Ziehen zum Verschieben, Doppelklick (oder «Ganzes Blech») für das ganze Blech.",
-    "fr": "Vue Tôles : le dessin peut maintenant être agrandi et déplacé. Molette ou pincement pour zoomer, glisser pour déplacer, double clic (ou « Tôle entière ») pour revoir toute la tôle.",
-    "es": "Vista Chapas: ahora el dibujo se puede ampliar y mover. Rueda del ratón o pellizco para el zoom, arrastra para mover, doble clic (o «Chapa entera») para ver de nuevo toda la chapa.",
-    "pt": "Vista Chapas: agora o desenho pode ser ampliado e movido. Roda do mouse ou pinça para o zoom, arraste para mover, duplo clique (ou «Chapa inteira») para ver a chapa toda de novo.",
-    "ja": "板のビュー：図面を拡大・移動できるようになりました。マウスホイールまたはピンチでズーム、ドラッグで移動、ダブルクリック（または「板全体」）で板全体に戻ります。"
+    "en": "Models whose parts pass through each other (a tail stuck into the body, a stem into its foot) are now rebuilt as one solid when you open them, so the sculpture has no facets crossing each other.",
+    "it": "I modelli con parti che si attraversano (una coda infilata nel corpo, uno stelo nel suo piede) ora vengono ricostruiti come un solido unico all'apertura, così la scultura non ha facce che si incrociano.",
+    "de": "Modelle, deren Teile sich durchdringen (ein Schwanz im Körper, ein Stiel im Fuß), werden beim Öffnen jetzt als ein einziger Körper neu aufgebaut, damit die Skulptur keine sich kreuzenden Facetten hat.",
+    "fr": "Les modèles dont des parties se traversent (une queue plantée dans le corps, une tige dans son pied) sont désormais reconstruits en un seul solide à l'ouverture : la sculpture n'a plus de facettes qui se croisent.",
+    "es": "Los modelos con partes que se atraviesan (una cola metida en el cuerpo, un tallo en su pie) ahora se reconstruyen como un único sólido al abrirlos, para que la escultura no tenga facetas que se crucen.",
+    "pt": "Os modelos com partes que se atravessam (uma cauda enfiada no corpo, uma haste no seu pé) agora são reconstruídos como um único sólido ao abrir, para que a escultura não tenha facetas que se cruzem.",
+    "ja": "部分どうしが突き抜けているモデル（胴体に刺さった尾、台座に刺さった脚など）は、開くときにひとつの立体として再構築されるようになりました。彫刻の面が交差しなくなります。"
   },
   "history": [
+    {
+      "date": "2026-11-12T08:29:50Z",
+      "version": "1.3.124",
+      "notes": {
+        "en": "Models whose parts pass through each other (a tail stuck into the body, a stem into its foot) are now rebuilt as one solid when you open them, so the sculpture has no facets crossing each other.",
+        "it": "I modelli con parti che si attraversano (una coda infilata nel corpo, uno stelo nel suo piede) ora vengono ricostruiti come un solido unico all'apertura, così la scultura non ha facce che si incrociano.",
+        "de": "Modelle, deren Teile sich durchdringen (ein Schwanz im Körper, ein Stiel im Fuß), werden beim Öffnen jetzt als ein einziger Körper neu aufgebaut, damit die Skulptur keine sich kreuzenden Facetten hat.",
+        "fr": "Les modèles dont des parties se traversent (une queue plantée dans le corps, une tige dans son pied) sont désormais reconstruits en un seul solide à l'ouverture : la sculpture n'a plus de facettes qui se croisent.",
+        "es": "Los modelos con partes que se atraviesan (una cola metida en el cuerpo, un tallo en su pie) ahora se reconstruyen como un único sólido al abrirlos, para que la escultura no tenga facetas que se crucen.",
+        "pt": "Os modelos com partes que se atravessam (uma cauda enfiada no corpo, uma haste no seu pé) agora são reconstruídos como um único sólido ao abrir, para que a escultura não tenha facetas que se cruzem.",
+        "ja": "部分どうしが突き抜けているモデル（胴体に刺さった尾、台座に刺さった脚など）は、開くときにひとつの立体として再構築されるようになりました。彫刻の面が交差しなくなります。"
+      }
+    },
     {
       "date": "2026-11-12T08:10:36Z",
       "version": "1.3.123",
@@ -518,28 +531,15 @@
         "pt": "Arquivos de laser mais limpos: os contornos das nervuras internas são desenhados corretamente (podiam partir-se em pequenos fragmentos que se cruzavam), as fendas de duas dobras lado a lado já não se fundem num só furo, as fendas nunca chegam à borda da peça perto de um ângulo agudo e as pequenas falhas nos contornos são fechadas.",
         "ja": "よりきれいなレーザーファイル：内部リブの輪郭が正しく描かれます（交差する小さな断片に分かれることがありました）。並んだ2つの曲げのスリットが1つの穴にならなくなり、鋭い角の近くでスリットが部品の縁に届かなくなり、輪郭の小さなすき間が閉じられます。"
       }
-    },
-    {
-      "date": "2026-11-10T13:28:00Z",
-      "version": "1.3.85",
-      "notes": {
-        "en": "Cut sheets ready for the workshop: the mating numbers and the bend angles are always engraved on the metal of their own piece (on narrow faces they used to fall outside it), and an edge between two faces of the same piece that already lie side by side is now a bend instead of a useless slit cut by the laser.",
-        "it": "Lamiere pronte per l'officina: i numeri di accoppiamento e gli angoli di piega vengono sempre incisi sul metallo del proprio pezzo (sulle faccette strette finivano fuori), e un lato tra due facce dello stesso pezzo già affiancate ora è una piega invece di una fessura inutile tagliata dal laser.",
-        "de": "Werkstattfertige Bleche: Passnummern und Biegewinkel werden immer auf das Metall ihres eigenen Teils graviert (bei schmalen Facetten lagen sie außerhalb), und eine Kante zwischen zwei bereits nebeneinanderliegenden Flächen desselben Teils ist jetzt eine Biegung statt eines unnötigen Laserschlitzes.",
-        "fr": "Tôles prêtes pour l'atelier : les numéros d'assemblage et les angles de pliage sont toujours gravés sur le métal de leur propre pièce (sur les facettes étroites ils tombaient à l'extérieur), et une arête entre deux faces d'une même pièce déjà côte à côte est maintenant un pli au lieu d'une fente inutile découpée au laser.",
-        "es": "Chapas listas para el taller: los números de unión y los ángulos de plegado se graban siempre sobre el metal de su propia pieza (en las facetas estrechas quedaban fuera), y una arista entre dos caras de la misma pieza ya contiguas ahora es un pliegue en lugar de una ranura inútil cortada por el láser.",
-        "pt": "Chapas prontas para a oficina: os números de montagem e os ângulos de dobra são sempre gravados no metal da própria peça (nas facetas estreitas ficavam fora), e uma aresta entre duas faces da mesma peça já lado a lado agora é uma dobra em vez de uma fenda inútil cortada pelo laser.",
-        "ja": "工場向けの板：合わせ番号と曲げ角度は常に自分の部品の金属上に刻印されます（細い面では外に出ていました）。同じ部品ですでに隣り合う2つの面の間の辺は、レーザーで切る無駄な切れ目ではなく曲げになりました。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.123",
+    "version": "1.3.124",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "3a32b9355059aea19854946dd847203f4762b5cd9762f93ce50d3bc217a9d5de"
+        "sha256": "82dc75221872968df455364e694dc5839ade39797a6c297d1a93e87cc587a9c2"
       }
     ]
   },

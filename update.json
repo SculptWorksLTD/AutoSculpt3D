@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.126",
-  "notes": "Facets passing through each other: the final clean-up of the short sides no longer creates them either. Sculptures with thin parts or made with the detail brush come out clean more often, without being thickened.",
+  "latest": "1.3.127",
+  "notes": "Internal ribs: their outline is now computed more precisely and always stays inside the sculpture. On tall sculptures some ribs came out of the shell by 1–2 mm and had to be ground to fit.",
   "notes_i18n": {
-    "en": "Facets passing through each other: the final clean-up of the short sides no longer creates them either. Sculptures with thin parts or made with the detail brush come out clean more often, without being thickened.",
-    "it": "Facce che si attraversano: nemmeno la pulizia finale dei lati corti le crea più. Le sculture con parti sottili o fatte col pennello del dettaglio escono pulite più spesso, senza essere ingrossate.",
-    "de": "Sich durchdringende Facetten: Auch die abschließende Bereinigung der kurzen Seiten erzeugt sie nicht mehr. Skulpturen mit dünnen Teilen oder mit dem Detailpinsel werden häufiger sauber, ohne verdickt zu werden.",
-    "fr": "Facettes qui se traversent : le nettoyage final des côtés courts n'en crée plus non plus. Les sculptures aux parties fines ou faites au pinceau de détail sortent plus souvent propres, sans être épaissies.",
-    "es": "Facetas que se atraviesan: la limpieza final de los lados cortos tampoco las crea ya. Las esculturas con partes finas o hechas con el pincel de detalle salen limpias más a menudo, sin engrosarse.",
-    "pt": "Facetas que se atravessam: a limpeza final dos lados curtos também não as cria mais. As esculturas com partes finas ou feitas com o pincel de detalhe saem limpas com mais frequência, sem serem engrossadas.",
-    "ja": "面の突き抜け：短い辺の最終的な整理でも発生しなくなりました。細い部分のある彫刻やディテールブラシを使った彫刻が、太くせずにきれいに仕上がることが増えます。"
+    "en": "Internal ribs: their outline is now computed more precisely and always stays inside the sculpture. On tall sculptures some ribs came out of the shell by 1–2 mm and had to be ground to fit.",
+    "it": "Centine interne: il contorno ora è calcolato con più precisione e resta sempre dentro la scultura. Sulle sculture alte alcune centine uscivano dal guscio di 1–2 mm e andavano molate per farle entrare.",
+    "de": "Innere Spanten: Ihr Umriss wird jetzt genauer berechnet und bleibt immer innerhalb der Skulptur. Bei hohen Skulpturen ragten einige Spanten 1–2 mm aus der Hülle und mussten nachgeschliffen werden.",
+    "fr": "Couples internes : leur contour est maintenant calculé plus précisément et reste toujours à l'intérieur de la sculpture. Sur les grandes sculptures, certains couples dépassaient de la coque de 1 à 2 mm et devaient être meulés.",
+    "es": "Costillas internas: su contorno ahora se calcula con más precisión y queda siempre dentro de la escultura. En esculturas altas algunas costillas sobresalían 1–2 mm del casco y había que amolarlas.",
+    "pt": "Cavernas internas: o contorno agora é calculado com mais precisão e fica sempre dentro da escultura. Em esculturas altas, algumas cavernas saíam do casco em 1–2 mm e precisavam ser esmerilhadas.",
+    "ja": "内部リブ：輪郭をより正確に計算し、常に彫刻の内側に収まるようになりました。背の高い彫刻では一部のリブが外殻から 1〜2 mm はみ出し、削って合わせる必要がありました。"
   },
   "history": [
+    {
+      "date": "2026-11-12T10:47:28Z",
+      "version": "1.3.127",
+      "notes": {
+        "en": "Internal ribs: their outline is now computed more precisely and always stays inside the sculpture. On tall sculptures some ribs came out of the shell by 1–2 mm and had to be ground to fit.",
+        "it": "Centine interne: il contorno ora è calcolato con più precisione e resta sempre dentro la scultura. Sulle sculture alte alcune centine uscivano dal guscio di 1–2 mm e andavano molate per farle entrare.",
+        "de": "Innere Spanten: Ihr Umriss wird jetzt genauer berechnet und bleibt immer innerhalb der Skulptur. Bei hohen Skulpturen ragten einige Spanten 1–2 mm aus der Hülle und mussten nachgeschliffen werden.",
+        "fr": "Couples internes : leur contour est maintenant calculé plus précisément et reste toujours à l'intérieur de la sculpture. Sur les grandes sculptures, certains couples dépassaient de la coque de 1 à 2 mm et devaient être meulés.",
+        "es": "Costillas internas: su contorno ahora se calcula con más precisión y queda siempre dentro de la escultura. En esculturas altas algunas costillas sobresalían 1–2 mm del casco y había que amolarlas.",
+        "pt": "Cavernas internas: o contorno agora é calculado com mais precisão e fica sempre dentro da escultura. Em esculturas altas, algumas cavernas saíam do casco em 1–2 mm e precisavam ser esmerilhadas.",
+        "ja": "内部リブ：輪郭をより正確に計算し、常に彫刻の内側に収まるようになりました。背の高い彫刻では一部のリブが外殻から 1〜2 mm はみ出し、削って合わせる必要がありました。"
+      }
+    },
     {
       "date": "2026-11-12T09:37:42Z",
       "version": "1.3.126",
@@ -518,28 +531,15 @@
         "pt": "Esculturas simétricas: um gargalo fino (um vaso, uma garrafa) já não divide a escultura em duas partes. Esculturas simétricas muito grandes já não produzem peças maiores do que a chapa.",
         "ja": "対称の彫刻：細い首（花瓶やボトル）で彫刻が二つに分かれることがなくなりました。非常に大きな対称の彫刻で、板より大きな部品ができることもなくなりました。"
       }
-    },
-    {
-      "date": "2026-11-10T15:48:20Z",
-      "version": "1.3.88",
-      "notes": {
-        "en": "“Small details” now looks at the features that matter for the sculpture (ears, fingers, roofs) instead of surface texture such as bricks, tiles or fur: models with a rough surface keep their overall shape much better. Reducing the faces is also about twice as fast.",
-        "it": "«Piccoli dettagli» ora guarda le parti che contano per la scultura (orecchie, dita, tetti) e non la trama della superficie come mattoni, tegole o pelo: i modelli con la superficie ruvida mantengono molto meglio la forma d'insieme. La riduzione delle facce è anche circa due volte più veloce.",
-        "de": "„Kleine Details“ achtet jetzt auf die Merkmale, die für die Skulptur zählen (Ohren, Finger, Dächer), statt auf Oberflächenstrukturen wie Ziegel, Dachpfannen oder Fell: Modelle mit rauer Oberfläche behalten ihre Gesamtform deutlich besser. Die Flächenreduzierung ist außerdem etwa doppelt so schnell.",
-        "fr": "« Petits détails » regarde désormais les éléments qui comptent pour la sculpture (oreilles, doigts, toits) et non la texture de la surface comme les briques, les tuiles ou le pelage : les modèles à surface rugueuse conservent bien mieux leur forme d'ensemble. La réduction des faces est aussi environ deux fois plus rapide.",
-        "es": "«Pequeños detalles» ahora se fija en los rasgos que importan para la escultura (orejas, dedos, tejados) y no en la textura de la superficie como ladrillos, tejas o pelo: los modelos de superficie rugosa conservan mucho mejor su forma general. La reducción de caras es además unas dos veces más rápida.",
-        "pt": "«Pequenos detalhes» agora observa as partes que importam para a escultura (orelhas, dedos, telhados) e não a textura da superfície, como tijolos, telhas ou pelo: os modelos com superfície áspera mantêm muito melhor a forma geral. A redução das faces também ficou cerca de duas vezes mais rápida.",
-        "ja": "「細かいディテール」は、レンガ・瓦・毛並みなどの表面の模様ではなく、彫刻にとって大切な特徴（耳、指、屋根）を見るようになりました。表面が粗いモデルでも全体の形がずっとよく保たれます。面の削減も約2倍速くなりました。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.126",
+    "version": "1.3.127",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "0b43df48e46d29f2315a99fc7351c03665f35a5b45b431a502407c28446c6858"
+        "sha256": "d177fcc2ad1a37864ee2cdcd2c44ffb219be942f40636f2bea5362219b1b6eeb"
       }
     ]
   },

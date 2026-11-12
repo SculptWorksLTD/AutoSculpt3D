@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.120",
-  "notes": "New workshop notice: the seams that lie in a narrow groove, where the torch hardly reaches, are listed in the Summary; click the notice to see them circled on the sculpture.",
+  "latest": "1.3.121",
+  "notes": "Thin parts (tails, legs, horns) no longer fold through themselves: when it happens the program thickens them and tries again. If a crossing remains, the Summary warns you and shows the pieces in red.",
   "notes_i18n": {
-    "en": "New workshop notice: the seams that lie in a narrow groove, where the torch hardly reaches, are listed in the Summary; click the notice to see them circled on the sculpture.",
-    "it": "Nuovo avviso da officina: i cordoni che stanno in una gola stretta, dove la torcia arriva a fatica, sono segnalati nel Riepilogo; clicca l'avviso per vederli cerchiati sulla scultura.",
-    "de": "Neuer Werkstatthinweis: Nähte in einer engen Kehle, die der Brenner kaum erreicht, werden in der Zusammenfassung gemeldet; ein Klick auf den Hinweis zeigt sie eingekreist an der Skulptur.",
-    "fr": "Nouvel avis d'atelier : les cordons situés dans une gorge étroite, que la torche atteint difficilement, sont signalés dans le Résumé ; cliquez sur l'avis pour les voir entourés sur la sculpture.",
-    "es": "Nuevo aviso de taller: los cordones que quedan en una garganta estrecha, donde la antorcha llega con dificultad, se indican en el Resumen; haz clic en el aviso para verlos rodeados en la escultura.",
-    "pt": "Novo aviso de oficina: os cordões que ficam numa garganta estreita, onde a tocha chega com dificuldade, são indicados no Resumo; clique no aviso para vê-los circulados na escultura.",
-    "ja": "工房向けの新しいお知らせ：トーチが届きにくい狭い溝の奥にある継ぎ目を「概要」に表示します。お知らせをクリックすると、彫刻上で丸で囲んで示します。"
+    "en": "Thin parts (tails, legs, horns) no longer fold through themselves: when it happens the program thickens them and tries again. If a crossing remains, the Summary warns you and shows the pieces in red.",
+    "it": "Le parti sottili (code, zampe, corna) non si ripiegano più attraverso sé stesse: quando succede il programma le ingrossa e riprova. Se resta un incrocio, il Riepilogo avvisa e mostra i pezzi in rosso.",
+    "de": "Dünne Teile (Schwänze, Beine, Hörner) falten sich nicht mehr durch sich selbst: Wenn es passiert, verdickt das Programm sie und versucht es erneut. Bleibt eine Durchdringung, warnt die Zusammenfassung und zeigt die Teile in Rot.",
+    "fr": "Les parties fines (queues, pattes, cornes) ne se replient plus à travers elles-mêmes : quand cela arrive, le programme les épaissit et réessaie. S'il reste un croisement, le Résumé vous avertit et montre les pièces en rouge.",
+    "es": "Las partes finas (colas, patas, cuernos) ya no se pliegan atravesándose a sí mismas: cuando ocurre, el programa las engrosa y vuelve a intentarlo. Si queda un cruce, el Resumen avisa y muestra las piezas en rojo.",
+    "pt": "As partes finas (caudas, patas, chifres) não se dobram mais atravessando a si mesmas: quando acontece, o programa as engrossa e tenta de novo. Se restar um cruzamento, o Resumo avisa e mostra as peças em vermelho.",
+    "ja": "細い部分（尾、脚、角）が自分自身を突き抜けて折り重なることがなくなりました。起きた場合は自動で太くしてやり直します。突き抜けが残る場合は「概要」で知らせ、該当する部品を赤で表示します。"
   },
   "history": [
+    {
+      "date": "2026-11-12T00:38:59Z",
+      "version": "1.3.121",
+      "notes": {
+        "en": "Thin parts (tails, legs, horns) no longer fold through themselves: when it happens the program thickens them and tries again. If a crossing remains, the Summary warns you and shows the pieces in red.",
+        "it": "Le parti sottili (code, zampe, corna) non si ripiegano più attraverso sé stesse: quando succede il programma le ingrossa e riprova. Se resta un incrocio, il Riepilogo avvisa e mostra i pezzi in rosso.",
+        "de": "Dünne Teile (Schwänze, Beine, Hörner) falten sich nicht mehr durch sich selbst: Wenn es passiert, verdickt das Programm sie und versucht es erneut. Bleibt eine Durchdringung, warnt die Zusammenfassung und zeigt die Teile in Rot.",
+        "fr": "Les parties fines (queues, pattes, cornes) ne se replient plus à travers elles-mêmes : quand cela arrive, le programme les épaissit et réessaie. S'il reste un croisement, le Résumé vous avertit et montre les pièces en rouge.",
+        "es": "Las partes finas (colas, patas, cuernos) ya no se pliegan atravesándose a sí mismas: cuando ocurre, el programa las engrosa y vuelve a intentarlo. Si queda un cruce, el Resumen avisa y muestra las piezas en rojo.",
+        "pt": "As partes finas (caudas, patas, chifres) não se dobram mais atravessando a si mesmas: quando acontece, o programa as engrossa e tenta de novo. Se restar um cruzamento, o Resumo avisa e mostra as peças em vermelho.",
+        "ja": "細い部分（尾、脚、角）が自分自身を突き抜けて折り重なることがなくなりました。起きた場合は自動で太くしてやり直します。突き抜けが残る場合は「概要」で知らせ、該当する部品を赤で表示します。"
+      }
+    },
     {
       "date": "2026-11-12T00:14:29Z",
       "version": "1.3.120",
@@ -518,28 +531,15 @@
         "pt": "Apoios planos: quando o corte no chão dividia uma sola em duas em dois pontos (a borda de uma pizza), a sola era fechada como uma só peça e ficava uma aresta partilhada por quatro facetas; agora passa a ser duas solas limpas.",
         "ja": "平らな足：地面での切断が底面を2点で2つに分けていた場合（ピザの縁）、1つとして閉じられ4つの面が共有する辺ができていました。今はきれいな2つの底面になります。"
       }
-    },
-    {
-      "date": "2026-11-10T06:57:07Z",
-      "version": "1.3.82",
-      "notes": {
-        "en": "Models with holes: a hole whose border touches itself (a torn corner of a plate) was left open and the model came out as a cloud of crumbs; it is now closed properly before the model is rebuilt as a solid.",
-        "it": "Modelli con buchi: un buco il cui bordo tocca sé stesso (l'angolo strappato di una lastra) restava aperto e il modello usciva come una nuvola di briciole; ora viene chiuso correttamente prima di ricostruire il modello come solido.",
-        "de": "Modelle mit Löchern: Ein Loch, dessen Rand sich selbst berührt (eine abgerissene Ecke einer Platte), blieb offen und das Modell kam als Wolke von Krümeln heraus; es wird jetzt richtig geschlossen, bevor das Modell als Körper neu aufgebaut wird.",
-        "fr": "Modèles troués : un trou dont le bord se touche lui-même (le coin arraché d'une plaque) restait ouvert et le modèle ressortait en nuage de miettes ; il est maintenant refermé correctement avant la reconstruction du modèle en solide.",
-        "es": "Modelos con agujeros: un agujero cuyo borde se toca a sí mismo (la esquina arrancada de una placa) quedaba abierto y el modelo salía como una nube de migas; ahora se cierra correctamente antes de reconstruir el modelo como sólido.",
-        "pt": "Modelos com furos: um furo cujo contorno toca a si mesmo (o canto arrancado de uma placa) ficava aberto e o modelo saía como uma nuvem de migalhas; agora é fechado corretamente antes de reconstruir o modelo como sólido.",
-        "ja": "穴のあるモデル：縁が自身に接する穴（板の欠けた角）が開いたままになり、モデルが破片の雲になっていました。立体として再構築する前に正しく閉じるようになりました。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.120",
+    "version": "1.3.121",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "936ab3d5e03a363b24ac3b3fd44a5f99915d769e705051ba7a93b4437214505a"
+        "sha256": "546af70535a8de9dc51b855917aab35090f4bc18e1806e4b481363d86fac5136"
       }
     ]
   },

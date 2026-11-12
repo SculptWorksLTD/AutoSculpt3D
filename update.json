@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.125",
-  "notes": "Windows: exporting the DXF (and every other file) now always works: the program shows the standard «Save as» window itself. If a file cannot be saved, the reason is shown at the bottom instead of nothing happening.",
+  "latest": "1.3.126",
+  "notes": "Facets passing through each other: the final clean-up of the short sides no longer creates them either. Sculptures with thin parts or made with the detail brush come out clean more often, without being thickened.",
   "notes_i18n": {
-    "en": "Windows: exporting the DXF (and every other file) now always works: the program shows the standard «Save as» window itself. If a file cannot be saved, the reason is shown at the bottom instead of nothing happening.",
-    "it": "Windows: l'esportazione del DXF (e di ogni altro file) ora funziona sempre: il programma mostra da solo la normale finestra «Salva con nome». Se un file non si può salvare, il motivo compare in basso invece di non succedere nulla.",
-    "de": "Windows: Der Export der DXF-Datei (und jeder anderen Datei) funktioniert jetzt immer: Das Programm zeigt selbst das normale Fenster «Speichern unter». Lässt sich eine Datei nicht speichern, steht der Grund unten, statt dass nichts passiert.",
-    "fr": "Windows : l'export du DXF (et de tout autre fichier) fonctionne désormais toujours : le programme affiche lui-même la fenêtre habituelle « Enregistrer sous ». Si un fichier ne peut pas être enregistré, la raison s'affiche en bas au lieu qu'il ne se passe rien.",
-    "es": "Windows: la exportación del DXF (y de cualquier otro archivo) ahora funciona siempre: el programa muestra por sí mismo la ventana normal «Guardar como». Si un archivo no se puede guardar, el motivo aparece abajo en lugar de no pasar nada.",
-    "pt": "Windows: a exportação do DXF (e de qualquer outro arquivo) agora funciona sempre: o programa mostra sozinho a janela normal «Salvar como». Se um arquivo não puder ser salvo, o motivo aparece embaixo em vez de nada acontecer.",
-    "ja": "Windows：DXF（およびその他すべてのファイル）の書き出しが常に動作するようになりました。プログラム自身が通常の「名前を付けて保存」ウィンドウを表示します。保存できない場合は、何も起きないのではなく理由が下部に表示されます。"
+    "en": "Facets passing through each other: the final clean-up of the short sides no longer creates them either. Sculptures with thin parts or made with the detail brush come out clean more often, without being thickened.",
+    "it": "Facce che si attraversano: nemmeno la pulizia finale dei lati corti le crea più. Le sculture con parti sottili o fatte col pennello del dettaglio escono pulite più spesso, senza essere ingrossate.",
+    "de": "Sich durchdringende Facetten: Auch die abschließende Bereinigung der kurzen Seiten erzeugt sie nicht mehr. Skulpturen mit dünnen Teilen oder mit dem Detailpinsel werden häufiger sauber, ohne verdickt zu werden.",
+    "fr": "Facettes qui se traversent : le nettoyage final des côtés courts n'en crée plus non plus. Les sculptures aux parties fines ou faites au pinceau de détail sortent plus souvent propres, sans être épaissies.",
+    "es": "Facetas que se atraviesan: la limpieza final de los lados cortos tampoco las crea ya. Las esculturas con partes finas o hechas con el pincel de detalle salen limpias más a menudo, sin engrosarse.",
+    "pt": "Facetas que se atravessam: a limpeza final dos lados curtos também não as cria mais. As esculturas com partes finas ou feitas com o pincel de detalhe saem limpas com mais frequência, sem serem engrossadas.",
+    "ja": "面の突き抜け：短い辺の最終的な整理でも発生しなくなりました。細い部分のある彫刻やディテールブラシを使った彫刻が、太くせずにきれいに仕上がることが増えます。"
   },
   "history": [
+    {
+      "date": "2026-11-12T09:37:42Z",
+      "version": "1.3.126",
+      "notes": {
+        "en": "Facets passing through each other: the final clean-up of the short sides no longer creates them either. Sculptures with thin parts or made with the detail brush come out clean more often, without being thickened.",
+        "it": "Facce che si attraversano: nemmeno la pulizia finale dei lati corti le crea più. Le sculture con parti sottili o fatte col pennello del dettaglio escono pulite più spesso, senza essere ingrossate.",
+        "de": "Sich durchdringende Facetten: Auch die abschließende Bereinigung der kurzen Seiten erzeugt sie nicht mehr. Skulpturen mit dünnen Teilen oder mit dem Detailpinsel werden häufiger sauber, ohne verdickt zu werden.",
+        "fr": "Facettes qui se traversent : le nettoyage final des côtés courts n'en crée plus non plus. Les sculptures aux parties fines ou faites au pinceau de détail sortent plus souvent propres, sans être épaissies.",
+        "es": "Facetas que se atraviesan: la limpieza final de los lados cortos tampoco las crea ya. Las esculturas con partes finas o hechas con el pincel de detalle salen limpias más a menudo, sin engrosarse.",
+        "pt": "Facetas que se atravessam: a limpeza final dos lados curtos também não as cria mais. As esculturas com partes finas ou feitas com o pincel de detalhe saem limpas com mais frequência, sem serem engrossadas.",
+        "ja": "面の突き抜け：短い辺の最終的な整理でも発生しなくなりました。細い部分のある彫刻やディテールブラシを使った彫刻が、太くせずにきれいに仕上がることが増えます。"
+      }
+    },
     {
       "date": "2026-11-12T09:10:44Z",
       "version": "1.3.125",
@@ -518,28 +531,15 @@
         "pt": "«Pequenos detalhes» agora observa as partes que importam para a escultura (orelhas, dedos, telhados) e não a textura da superfície, como tijolos, telhas ou pelo: os modelos com superfície áspera mantêm muito melhor a forma geral. A redução das faces também ficou cerca de duas vezes mais rápida.",
         "ja": "「細かいディテール」は、レンガ・瓦・毛並みなどの表面の模様ではなく、彫刻にとって大切な特徴（耳、指、屋根）を見るようになりました。表面が粗いモデルでも全体の形がずっとよく保たれます。面の削減も約2倍速くなりました。"
       }
-    },
-    {
-      "date": "2026-11-10T14:16:06Z",
-      "version": "1.3.87",
-      "notes": {
-        "en": "Very large sculptures on small sheets: every piece now fits the sheet. When resizing made some faces bigger than the sheet again after the first correction, the program now keeps correcting (up to three times) instead of leaving pieces too big to cut.",
-        "it": "Sculture molto grandi su lamiere piccole: ora ogni pezzo entra nella lamiera. Quando il ridimensionamento rendeva di nuovo alcune facce più grandi della lamiera dopo la prima correzione, il programma continua a correggere (fino a tre volte) invece di lasciare pezzi troppo grandi da tagliare.",
-        "de": "Sehr große Skulpturen auf kleinen Blechen: Jedes Teil passt jetzt aufs Blech. Wenn die Größenanpassung nach der ersten Korrektur einige Flächen wieder größer als das Blech machte, korrigiert das Programm weiter (bis zu dreimal), statt zu große Teile zu lassen.",
-        "fr": "Très grandes sculptures sur petites tôles : chaque pièce tient désormais sur la tôle. Quand le redimensionnement rendait de nouveau certaines faces plus grandes que la tôle après la première correction, le programme continue de corriger (jusqu'à trois fois) au lieu de laisser des pièces trop grandes.",
-        "es": "Esculturas muy grandes en chapas pequeñas: ahora cada pieza cabe en la chapa. Cuando el cambio de tamaño volvía a hacer algunas caras más grandes que la chapa tras la primera corrección, el programa sigue corrigiendo (hasta tres veces) en lugar de dejar piezas demasiado grandes.",
-        "pt": "Esculturas muito grandes em chapas pequenas: agora cada peça cabe na chapa. Quando o redimensionamento voltava a deixar algumas faces maiores que a chapa após a primeira correção, o programa continua a corrigir (até três vezes) em vez de deixar peças grandes demais.",
-        "ja": "小さな板での非常に大きな彫刻：すべての部品が板に収まるようになりました。最初の補正の後でサイズ変更により一部の面が再び板より大きくなった場合、大きすぎる部品を残さず最大3回まで補正を続けます。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.125",
+    "version": "1.3.126",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "f59c3c5010bd02354dfa0c3662cdfb12af4d9a0b3d3fe1235e4d0e55e5cbc8fe"
+        "sha256": "0b43df48e46d29f2315a99fc7351c03665f35a5b45b431a502407c28446c6858"
       }
     ]
   },

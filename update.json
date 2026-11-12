@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.142",
-  "notes": "Opening the narrow grooves: if it would make two faces pass through each other, the sculpture is left as it was.",
+  "latest": "1.3.143",
+  "notes": "Painted detail (brush): two faces could still pass through each other on a large sculpture; the reduction is now done again more carefully when that happens.",
   "notes_i18n": {
-    "en": "Opening the narrow grooves: if it would make two faces pass through each other, the sculpture is left as it was.",
-    "it": "Apertura delle gole strette: se farebbe attraversare due facce tra loro, la scultura resta com'era.",
-    "de": "Öffnen der engen Kehlen: Würden sich dadurch zwei Flächen durchdringen, bleibt die Skulptur, wie sie war.",
-    "fr": "Ouverture des gorges étroites : si elle faisait se traverser deux faces, la sculpture reste telle qu'elle était.",
-    "es": "Apertura de las gargantas estrechas: si hiciera que dos caras se atravesaran, la escultura queda como estaba.",
-    "pt": "Abertura das gargantas estreitas: se fizesse duas faces se atravessarem, a escultura fica como estava.",
-    "ja": "狭い溝を開く処理：2つの面が互いに突き抜けてしまう場合は、彫刻を元のままにします。"
+    "en": "Painted detail (brush): two faces could still pass through each other on a large sculpture; the reduction is now done again more carefully when that happens.",
+    "it": "Dettaglio a pennello: su una scultura grande due facce potevano ancora attraversarsi; ora, quando succede, la riduzione viene rifatta con più attenzione.",
+    "de": "Detail mit dem Pinsel: Bei einer großen Skulptur konnten sich noch zwei Flächen durchdringen; jetzt wird die Reduktion in diesem Fall sorgfältiger wiederholt.",
+    "fr": "Détail au pinceau : sur une grande sculpture, deux faces pouvaient encore se traverser ; la réduction est désormais refaite plus soigneusement dans ce cas.",
+    "es": "Detalle con pincel: en una escultura grande aún podían atravesarse dos caras; ahora, cuando ocurre, la reducción se repite con más cuidado.",
+    "pt": "Detalhe com pincel: em uma escultura grande, duas faces ainda podiam se atravessar; agora, quando isso acontece, a redução é refeita com mais cuidado.",
+    "ja": "ブラシによるディテール：大きな彫刻で2つの面が互いに突き抜けることがありましたが、その場合は簡略化をより慎重にやり直すようになりました。"
   },
   "history": [
+    {
+      "date": "2026-11-12T22:17:15Z",
+      "version": "1.3.143",
+      "notes": {
+        "en": "Painted detail (brush): two faces could still pass through each other on a large sculpture; the reduction is now done again more carefully when that happens.",
+        "it": "Dettaglio a pennello: su una scultura grande due facce potevano ancora attraversarsi; ora, quando succede, la riduzione viene rifatta con più attenzione.",
+        "de": "Detail mit dem Pinsel: Bei einer großen Skulptur konnten sich noch zwei Flächen durchdringen; jetzt wird die Reduktion in diesem Fall sorgfältiger wiederholt.",
+        "fr": "Détail au pinceau : sur une grande sculpture, deux faces pouvaient encore se traverser ; la réduction est désormais refaite plus soigneusement dans ce cas.",
+        "es": "Detalle con pincel: en una escultura grande aún podían atravesarse dos caras; ahora, cuando ocurre, la reducción se repite con más cuidado.",
+        "pt": "Detalhe com pincel: em uma escultura grande, duas faces ainda podiam se atravessar; agora, quando isso acontece, a redução é refeita com mais cuidado.",
+        "ja": "ブラシによるディテール：大きな彫刻で2つの面が互いに突き抜けることがありましたが、その場合は簡略化をより慎重にやり直すようになりました。"
+      }
+    },
     {
       "date": "2026-11-12T21:54:10Z",
       "version": "1.3.142",
@@ -518,28 +531,15 @@
         "pt": "O encaixe compacto está cerca de duas vezes mais rápido em esculturas grandes com muitas peças; as chapas saem idênticas.",
         "ja": "パーツの多い大きな彫刻で、コンパクトなネスティングが約2倍速くなりました。板の配置は以前とまったく同じです。"
       }
-    },
-    {
-      "date": "2026-11-11T05:14:23Z",
-      "version": "1.3.104",
-      "notes": {
-        "en": "Clearer messages: counts of one are now written in the singular (\"1 sheet\", \"1 flat sole\", \"1 rib\").",
-        "it": "Messaggi più chiari: quando l'elemento è uno solo il testo è al singolare («1 lamiera», «1 appoggio piatto», «1 centina»).",
-        "de": "Klarere Meldungen: Bei genau einem Element steht der Text jetzt im Singular („1 Blech“, „1 flache Sohle“, „1 Rippe“).",
-        "fr": "Messages plus clairs : quand il n'y a qu'un seul élément, le texte est au singulier (« 1 tôle », « 1 semelle plate », « 1 nervure »).",
-        "es": "Mensajes más claros: cuando hay un solo elemento el texto va en singular («1 chapa», «1 apoyo plano», «1 costilla»).",
-        "pt": "Mensagens mais claras: quando há apenas um elemento o texto fica no singular («1 chapa», «1 apoio plano», «1 nervura»).",
-        "ja": "メッセージをわかりやすくしました：数が 1 のときの表記を整えました。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.142",
+    "version": "1.3.143",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "27b9979b1d9aa3da339a9b007f74dda64dbe512bf55a539bd8afb2740b2aac76"
+        "sha256": "ac843cdedfd9ba9962de007eba166637fc2674777c27ef6e3925ab286553725e"
       }
     ]
   },

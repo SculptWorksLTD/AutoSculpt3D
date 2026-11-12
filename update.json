@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.130",
-  "notes": "Inner ribs of very large sculptures (several metres) are now calculated much faster.",
+  "latest": "1.3.131",
+  "notes": "A model that arrives lying down (its vertical on another axis, common with downloaded files) is now recognised: the summary offers to stand it up with one click. With «Symmetric sculpture» the mirror plane stays in the middle of the model.",
   "notes_i18n": {
-    "en": "Inner ribs of very large sculptures (several metres) are now calculated much faster.",
-    "it": "Le centine interne delle sculture molto grandi (diversi metri) ora si calcolano molto più in fretta.",
-    "de": "Die Innenspanten sehr großer Skulpturen (mehrere Meter) werden jetzt deutlich schneller berechnet.",
-    "fr": "Les couples internes des très grandes sculptures (plusieurs mètres) se calculent désormais beaucoup plus vite.",
-    "es": "Las costillas internas de las esculturas muy grandes (varios metros) ahora se calculan mucho más rápido.",
-    "pt": "As cavernas internas das esculturas muito grandes (vários metros) agora são calculadas muito mais rápido.",
-    "ja": "数メートル級の大きな彫刻で、内部リブの計算が大幅に速くなりました。"
+    "en": "A model that arrives lying down (its vertical on another axis, common with downloaded files) is now recognised: the summary offers to stand it up with one click. With «Symmetric sculpture» the mirror plane stays in the middle of the model.",
+    "it": "Un modello che arriva sdraiato (verticale su un altro asse, frequente nei file scaricati) ora viene riconosciuto: il Riepilogo propone di raddrizzarlo con un clic. Con «Scultura simmetrica» il piano di specchio resta al centro del modello.",
+    "de": "Ein Modell, das liegend ankommt (Senkrechte auf einer anderen Achse, häufig bei heruntergeladenen Dateien), wird jetzt erkannt: Die Übersicht bietet an, es mit einem Klick aufzurichten. Bei «Symmetrische Skulptur» bleibt die Spiegelebene in der Mitte des Modells.",
+    "fr": "Un modèle qui arrive couché (verticale sur un autre axe, fréquent avec les fichiers téléchargés) est désormais reconnu : le récapitulatif propose de le redresser d'un clic. Avec « Sculpture symétrique », le plan de symétrie reste au milieu du modèle.",
+    "es": "Un modelo que llega tumbado (vertical en otro eje, frecuente en archivos descargados) ahora se reconoce: el resumen propone ponerlo de pie con un clic. Con «Escultura simétrica» el plano de espejo queda en el centro del modelo.",
+    "pt": "Um modelo que chega deitado (vertical em outro eixo, comum em arquivos baixados) agora é reconhecido: o resumo oferece colocá-lo em pé com um clique. Com «Escultura simétrica» o plano de espelho fica no meio do modelo.",
+    "ja": "横倒しで読み込まれたモデル（上下が別の軸になっているもの。ダウンロードしたファイルによくあります）を検出し、概要からワンクリックで起こせるようになりました。「左右対称の彫刻」では、鏡面がモデルの中央に保たれます。"
   },
   "history": [
+    {
+      "date": "2026-11-12T13:33:21Z",
+      "version": "1.3.131",
+      "notes": {
+        "en": "A model that arrives lying down (its vertical on another axis, common with downloaded files) is now recognised: the summary offers to stand it up with one click. With «Symmetric sculpture» the mirror plane stays in the middle of the model.",
+        "it": "Un modello che arriva sdraiato (verticale su un altro asse, frequente nei file scaricati) ora viene riconosciuto: il Riepilogo propone di raddrizzarlo con un clic. Con «Scultura simmetrica» il piano di specchio resta al centro del modello.",
+        "de": "Ein Modell, das liegend ankommt (Senkrechte auf einer anderen Achse, häufig bei heruntergeladenen Dateien), wird jetzt erkannt: Die Übersicht bietet an, es mit einem Klick aufzurichten. Bei «Symmetrische Skulptur» bleibt die Spiegelebene in der Mitte des Modells.",
+        "fr": "Un modèle qui arrive couché (verticale sur un autre axe, fréquent avec les fichiers téléchargés) est désormais reconnu : le récapitulatif propose de le redresser d'un clic. Avec « Sculpture symétrique », le plan de symétrie reste au milieu du modèle.",
+        "es": "Un modelo que llega tumbado (vertical en otro eje, frecuente en archivos descargados) ahora se reconoce: el resumen propone ponerlo de pie con un clic. Con «Escultura simétrica» el plano de espejo queda en el centro del modelo.",
+        "pt": "Um modelo que chega deitado (vertical em outro eixo, comum em arquivos baixados) agora é reconhecido: o resumo oferece colocá-lo em pé com um clique. Com «Escultura simétrica» o plano de espelho fica no meio do modelo.",
+        "ja": "横倒しで読み込まれたモデル（上下が別の軸になっているもの。ダウンロードしたファイルによくあります）を検出し、概要からワンクリックで起こせるようになりました。「左右対称の彫刻」では、鏡面がモデルの中央に保たれます。"
+      }
+    },
     {
       "date": "2026-11-12T11:48:48Z",
       "version": "1.3.130",
@@ -518,28 +531,15 @@
         "pt": "Esculturas simétricas: as partes finas sobre a linha de espelho (a haste de uma taça, um gargalo, uma cauda) já não se perdem nem são cortadas. Se um resultado simétrico não puder ser construído, a escultura é feita sem espelho e o programa avisa.",
         "ja": "対称の彫刻：鏡の線上にある細い部分（グラスの脚、首、尾）が失われたり切れたりしなくなりました。対称の結果が組み立てられない場合は鏡なしで彫刻を作り、その旨を表示します。"
       }
-    },
-    {
-      "date": "2026-11-10T17:55:54Z",
-      "version": "1.3.92",
-      "notes": {
-        "en": "Every new project now starts with all the settings of the left panel at their standard values, including costs, DXF layers and output options. What you change is saved in that project only.",
-        "it": "Ogni nuovo progetto parte con tutte le impostazioni del pannello sinistro ai valori standard, compresi costi, livelli del DXF e opzioni di uscita. Quello che cambi viene salvato solo in quel progetto.",
-        "de": "Jedes neue Projekt beginnt jetzt mit allen Einstellungen des linken Bereichs auf den Standardwerten, einschließlich Kosten, DXF-Ebenen und Ausgabeoptionen. Änderungen werden nur in diesem Projekt gespeichert.",
-        "fr": "Chaque nouveau projet démarre désormais avec tous les réglages du panneau de gauche à leurs valeurs standard, y compris les coûts, les calques DXF et les options de sortie. Vos modifications ne sont enregistrées que dans ce projet.",
-        "es": "Cada proyecto nuevo empieza ahora con todos los ajustes del panel izquierdo en sus valores estándar, incluidos costes, capas del DXF y opciones de salida. Lo que cambies se guarda solo en ese proyecto.",
-        "pt": "Cada novo projeto começa agora com todas as configurações do painel esquerdo nos valores padrão, incluindo custos, camadas do DXF e opções de saída. O que você alterar é salvo apenas nesse projeto.",
-        "ja": "新しいプロジェクトは、左パネルのすべての設定（コスト、DXFレイヤー、出力オプションを含む）が標準値の状態で始まるようになりました。変更した内容はそのプロジェクトにだけ保存されます。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.130",
+    "version": "1.3.131",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "5c95bc68bc0634fdfd31ba5c93311941a464b438c09bf1d7a9f75c13fbbdb491"
+        "sha256": "042ed4f8418c8b16eb53444ab30224ea7b44aa15512652532b4421926e1fc8d2"
       }
     ]
   },

@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.135",
-  "notes": "Symmetric sculptures: the two halves no longer pass through each other along the centre line.",
+  "latest": "1.3.136",
+  "notes": "«Symmetric sculpture» on a winding shape (a dragon in an S): instead of keeping only a part of it, the sculpture is now made whole, without the mirror, and the summary says so.",
   "notes_i18n": {
-    "en": "Symmetric sculptures: the two halves no longer pass through each other along the centre line.",
-    "it": "Sculture simmetriche: le due metà non si attraversano più lungo la linea centrale.",
-    "de": "Symmetrische Skulpturen: Die beiden Hälften durchdringen sich entlang der Mittellinie nicht mehr.",
-    "fr": "Sculptures symétriques : les deux moitiés ne se traversent plus le long de la ligne centrale.",
-    "es": "Esculturas simétricas: las dos mitades ya no se atraviesan a lo largo de la línea central.",
-    "pt": "Esculturas simétricas: as duas metades não se atravessam mais ao longo da linha central.",
-    "ja": "左右対称の彫刻：中心線で左右の半分が互いに突き抜けることがなくなりました。"
+    "en": "«Symmetric sculpture» on a winding shape (a dragon in an S): instead of keeping only a part of it, the sculpture is now made whole, without the mirror, and the summary says so.",
+    "it": "«Scultura simmetrica» su una forma sinuosa (un drago a S): invece di tenerne solo una parte, ora la scultura viene fatta intera, senza specchio, e il Riepilogo lo dice.",
+    "de": "«Symmetrische Skulptur» bei einer gewundenen Form (ein Drache in S-Form): Statt nur einen Teil zu behalten, wird die Skulptur jetzt vollständig ohne Spiegelung erstellt, und die Übersicht weist darauf hin.",
+    "fr": "« Sculpture symétrique » sur une forme sinueuse (un dragon en S) : au lieu de n'en garder qu'une partie, la sculpture est désormais réalisée en entier, sans miroir, et le récapitulatif l'indique.",
+    "es": "«Escultura simétrica» en una forma sinuosa (un dragón en S): en lugar de conservar solo una parte, ahora la escultura se hace entera, sin espejo, y el resumen lo indica.",
+    "pt": "«Escultura simétrica» em uma forma sinuosa (um dragão em S): em vez de manter só uma parte, agora a escultura é feita inteira, sem espelho, e o resumo avisa.",
+    "ja": "うねった形（S字の竜など）で「左右対称の彫刻」を選んだ場合、一部だけが残るのではなく、鏡映なしで全体を作るようになりました。概要にその旨が表示されます。"
   },
   "history": [
+    {
+      "date": "2026-11-12T17:17:04Z",
+      "version": "1.3.136",
+      "notes": {
+        "en": "«Symmetric sculpture» on a winding shape (a dragon in an S): instead of keeping only a part of it, the sculpture is now made whole, without the mirror, and the summary says so.",
+        "it": "«Scultura simmetrica» su una forma sinuosa (un drago a S): invece di tenerne solo una parte, ora la scultura viene fatta intera, senza specchio, e il Riepilogo lo dice.",
+        "de": "«Symmetrische Skulptur» bei einer gewundenen Form (ein Drache in S-Form): Statt nur einen Teil zu behalten, wird die Skulptur jetzt vollständig ohne Spiegelung erstellt, und die Übersicht weist darauf hin.",
+        "fr": "« Sculpture symétrique » sur une forme sinueuse (un dragon en S) : au lieu de n'en garder qu'une partie, la sculpture est désormais réalisée en entier, sans miroir, et le récapitulatif l'indique.",
+        "es": "«Escultura simétrica» en una forma sinuosa (un dragón en S): en lugar de conservar solo una parte, ahora la escultura se hace entera, sin espejo, y el resumen lo indica.",
+        "pt": "«Escultura simétrica» em uma forma sinuosa (um dragão em S): em vez de manter só uma parte, agora a escultura é feita inteira, sem espelho, e o resumo avisa.",
+        "ja": "うねった形（S字の竜など）で「左右対称の彫刻」を選んだ場合、一部だけが残るのではなく、鏡映なしで全体を作るようになりました。概要にその旨が表示されます。"
+      }
+    },
     {
       "date": "2026-11-12T16:15:39Z",
       "version": "1.3.135",
@@ -518,28 +531,15 @@
         "pt": "A verificação da forma introduzida na versão anterior agora funciona também com «Engrossar as partes finas demais» desligado: o modelo é reconstruído com os pequenos furos fechados, no seu próprio tamanho.",
         "ja": "前のバージョンで導入した形状チェックが、「細すぎる部分を太くする」をオフにしていても働くようになりました。小さな穴をふさいだ状態で、元の大きさのままモデルを作り直します。"
       }
-    },
-    {
-      "date": "2026-11-10T22:16:20Z",
-      "version": "1.3.97",
-      "notes": {
-        "en": "With few faces, models full of small holes or hollow inside (a statue with gaps between the toes, a vase) no longer come out as a box or a spike: when the sculpture drifts too far from the model, the program rebuilds it slightly thicker and keeps the closer result.",
-        "it": "Con poche facce, i modelli pieni di piccoli fori o cavi all'interno (una statua con gli spazi tra le dita, un vaso) non escono più come una scatola o una punta: quando la scultura si allontana troppo dal modello, il programma la rifà leggermente ingrossata e tiene il risultato più fedele.",
-        "de": "Bei wenigen Flächen werden Modelle voller kleiner Löcher oder mit Hohlraum (eine Statue mit Lücken zwischen den Zehen, eine Vase) nicht mehr zu einer Kiste oder Spitze: Weicht die Skulptur zu stark vom Modell ab, baut das Programm sie leicht verstärkt neu auf und behält das genauere Ergebnis.",
-        "fr": "Avec peu de faces, les modèles pleins de petits trous ou creux à l'intérieur (une statue avec des espaces entre les doigts, un vase) ne sortent plus sous forme de boîte ou de pointe : quand la sculpture s'éloigne trop du modèle, le programme la refait légèrement épaissie et garde le résultat le plus fidèle.",
-        "es": "Con pocas caras, los modelos llenos de pequeños agujeros o huecos por dentro (una estatua con espacios entre los dedos, un jarrón) ya no salen como una caja o una punta: cuando la escultura se aleja demasiado del modelo, el programa la rehace ligeramente engrosada y conserva el resultado más fiel.",
-        "pt": "Com poucas faces, os modelos cheios de pequenos furos ou ocos por dentro (uma estátua com espaços entre os dedos, um vaso) já não saem como uma caixa ou uma ponta: quando a escultura se afasta demais do modelo, o programa refaz a escultura ligeiramente engrossada e mantém o resultado mais fiel.",
-        "ja": "面の数が少ないとき、小さな穴の多いモデルや中が空洞のモデル（指の間にすき間のある像、花瓶）が箱やとがった形になることがなくなりました。彫刻がモデルから離れすぎた場合は、少し太らせて作り直し、より近い結果を採用します。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.135",
+    "version": "1.3.136",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "8bad2ae687289d32d467a7f8e0c4f907aec0ed5a043260cdba12edc3a9689863"
+        "sha256": "bd2367630421c38ef5cc311e05ca72ef920402f58a1713945b35410c6d73fd3c"
       }
     ]
   },

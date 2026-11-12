@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.140",
-  "notes": "Antlers, horns, tails and ears: thin parts are now made thick enough to be built, and only they — body and legs keep their shape. A deer's antlers come out as faceted beams with their tines instead of thin splinters. The summary says how thick they were made.",
+  "latest": "1.3.141",
+  "notes": "Grooves too narrow for the torch: where two faces meet in a concave seam that opens less than 45°, they are now opened a little so that the seam can be welded (option in «Shape and size», on by default). The summary says how many were opened; those that cannot be opened are still reported.",
   "notes_i18n": {
-    "en": "Antlers, horns, tails and ears: thin parts are now made thick enough to be built, and only they — body and legs keep their shape. A deer's antlers come out as faceted beams with their tines instead of thin splinters. The summary says how thick they were made.",
-    "it": "Corna, code e orecchie: le parti sottili ora vengono ingrossate quanto basta per costruirle, e solo loro — corpo e zampe tengono la loro forma. Le corna di un cervo escono come travi sfaccettate con i loro rami invece di schegge sottili. Il Riepilogo dice a quanti millimetri sono state portate.",
-    "de": "Geweihe, Hörner, Schwänze und Ohren: Dünne Teile werden jetzt gerade so dick gemacht, dass sie sich bauen lassen, und nur sie — Körper und Beine behalten ihre Form. Das Geweih eines Hirsches entsteht als facettierte Stangen mit Enden statt als dünne Splitter. Die Übersicht nennt die erreichte Dicke.",
-    "fr": "Bois, cornes, queues et oreilles : les parties fines sont désormais épaissies juste assez pour être construites, et elles seules — le corps et les pattes gardent leur forme. Les bois d'un cerf sortent en poutres facettées avec leurs andouillers au lieu d'éclats fins. Le récapitulatif indique l'épaisseur obtenue.",
-    "es": "Cuernas, cuernos, colas y orejas: las partes finas ahora se engrosan lo justo para poder construirlas, y solo ellas: el cuerpo y las patas conservan su forma. La cuerna de un ciervo sale como vigas facetadas con sus puntas en lugar de astillas finas. El resumen indica el grosor alcanzado.",
-    "pt": "Galhadas, chifres, caudas e orelhas: as partes finas agora são engrossadas só o necessário para serem construídas, e apenas elas — corpo e pernas mantêm a forma. A galhada de um cervo sai como vigas facetadas com suas pontas em vez de lascas finas. O resumo informa a espessura obtida.",
-    "ja": "枝角、角、尾、耳：細い部分だけを、製作できる太さまで太くするようになりました。胴体や脚の形は変わりません。鹿の枝角は細い破片ではなく、枝のある面取りされた梁として出力されます。概要に、どの太さにしたかが表示されます。"
+    "en": "Grooves too narrow for the torch: where two faces meet in a concave seam that opens less than 45°, they are now opened a little so that the seam can be welded (option in «Shape and size», on by default). The summary says how many were opened; those that cannot be opened are still reported.",
+    "it": "Gole troppo strette per la torcia: dove due facce si incontrano in un cordone concavo che si apre meno di 45°, ora vengono aperte un poco perché il cordone si possa saldare (casella in «Forma e misure», attiva di serie). Il Riepilogo dice quante ne sono state aperte; quelle che non si possono aprire restano segnalate.",
+    "de": "Zu enge Kehlen für den Brenner: Wo zwei Flächen in einer konkaven Naht mit weniger als 45° Öffnung zusammentreffen, werden sie jetzt etwas geöffnet, damit sich die Naht schweißen lässt (Option in «Form und Maße», standardmäßig aktiv). Die Übersicht nennt die Anzahl; nicht zu öffnende Kehlen werden weiterhin gemeldet.",
+    "fr": "Gorges trop étroites pour la torche : là où deux faces se rejoignent en un cordon concave ouvert de moins de 45°, elles sont désormais un peu ouvertes pour que le cordon puisse être soudé (option dans « Forme et dimensions », activée par défaut). Le récapitulatif en indique le nombre ; celles qui ne peuvent pas être ouvertes restent signalées.",
+    "es": "Gargantas demasiado estrechas para la antorcha: donde dos caras se unen en un cordón cóncavo que abre menos de 45°, ahora se abren un poco para que el cordón pueda soldarse (opción en «Forma y medidas», activa de serie). El resumen indica cuántas se abrieron; las que no pueden abrirse siguen señaladas.",
+    "pt": "Gargantas estreitas demais para a tocha: onde duas faces se encontram em um cordão côncavo com abertura menor que 45°, agora elas são abertas um pouco para que o cordão possa ser soldado (opção em «Forma e medidas», ativa por padrão). O resumo informa quantas foram abertas; as que não podem ser abertas continuam sinalizadas.",
+    "ja": "トーチが入らない狭い溝：2つの面が45°未満の開きで凹んだ継ぎ目になる箇所を、溶接できるように少し開くようになりました（「形状と寸法」のオプション、標準でオン）。開いた数は概要に表示され、開けない溝はこれまでどおり通知されます。"
   },
   "history": [
+    {
+      "date": "2026-11-12T21:26:23Z",
+      "version": "1.3.141",
+      "notes": {
+        "en": "Grooves too narrow for the torch: where two faces meet in a concave seam that opens less than 45°, they are now opened a little so that the seam can be welded (option in «Shape and size», on by default). The summary says how many were opened; those that cannot be opened are still reported.",
+        "it": "Gole troppo strette per la torcia: dove due facce si incontrano in un cordone concavo che si apre meno di 45°, ora vengono aperte un poco perché il cordone si possa saldare (casella in «Forma e misure», attiva di serie). Il Riepilogo dice quante ne sono state aperte; quelle che non si possono aprire restano segnalate.",
+        "de": "Zu enge Kehlen für den Brenner: Wo zwei Flächen in einer konkaven Naht mit weniger als 45° Öffnung zusammentreffen, werden sie jetzt etwas geöffnet, damit sich die Naht schweißen lässt (Option in «Form und Maße», standardmäßig aktiv). Die Übersicht nennt die Anzahl; nicht zu öffnende Kehlen werden weiterhin gemeldet.",
+        "fr": "Gorges trop étroites pour la torche : là où deux faces se rejoignent en un cordon concave ouvert de moins de 45°, elles sont désormais un peu ouvertes pour que le cordon puisse être soudé (option dans « Forme et dimensions », activée par défaut). Le récapitulatif en indique le nombre ; celles qui ne peuvent pas être ouvertes restent signalées.",
+        "es": "Gargantas demasiado estrechas para la antorcha: donde dos caras se unen en un cordón cóncavo que abre menos de 45°, ahora se abren un poco para que el cordón pueda soldarse (opción en «Forma y medidas», activa de serie). El resumen indica cuántas se abrieron; las que no pueden abrirse siguen señaladas.",
+        "pt": "Gargantas estreitas demais para a tocha: onde duas faces se encontram em um cordão côncavo com abertura menor que 45°, agora elas são abertas um pouco para que o cordão possa ser soldado (opção em «Forma e medidas», ativa por padrão). O resumo informa quantas foram abertas; as que não podem ser abertas continuam sinalizadas.",
+        "ja": "トーチが入らない狭い溝：2つの面が45°未満の開きで凹んだ継ぎ目になる箇所を、溶接できるように少し開くようになりました（「形状と寸法」のオプション、標準でオン）。開いた数は概要に表示され、開けない溝はこれまでどおり通知されます。"
+      }
+    },
     {
       "date": "2026-11-12T20:15:52Z",
       "version": "1.3.140",
@@ -518,28 +531,15 @@
         "pt": "Nervuras internas: o contorno de uma nervura já não pode passar sobre um corte minúsculo e isolado junto à borda.",
         "ja": "内部リブ：リブの輪郭が、縁のそばにできたごく小さな孤立した切り込みの上を通ることがなくなりました。"
       }
-    },
-    {
-      "date": "2026-11-11T03:12:49Z",
-      "version": "1.3.102",
-      "notes": {
-        "en": "Flat soles: fixed a rare fault where two sole facets ended up on top of each other on models made of joined parts.",
-        "it": "Appoggi piatti: corretto un difetto raro per cui due faccette della suola finivano una sopra l'altra sui modelli fatti di parti unite.",
-        "de": "Flache Sohlen: Ein seltener Fehler wurde behoben, bei dem zwei Facetten der Sohle bei zusammengesetzten Modellen übereinander lagen.",
-        "fr": "Semelles plates : correction d'un défaut rare où deux facettes de la semelle se retrouvaient l'une sur l'autre sur les modèles faits de parties réunies.",
-        "es": "Apoyos planos: corregido un defecto poco frecuente por el que dos facetas de la suela quedaban una sobre otra en los modelos hechos de partes unidas.",
-        "pt": "Apoios planos: corrigido um defeito raro em que duas facetas da sola ficavam uma sobre a outra nos modelos feitos de partes unidas.",
-        "ja": "平らな接地面：複数の部品をつないだモデルで、接地面の面が2枚重なってしまうまれな不具合を修正しました。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.140",
+    "version": "1.3.141",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "cc3c5519c96c3011cabe569baaf3214612e669affc131a5de206475f006282fb"
+        "sha256": "ecc7491607427779781fdd0a46b8a363c471fd267c258b3d641fa6080791f625"
       }
     ]
   },

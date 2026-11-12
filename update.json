@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.119",
-  "notes": "Symmetric sculptures: fixed a rare case that left a slit in the cut path and very short sides on the seam between the two halves.",
+  "latest": "1.3.120",
+  "notes": "New workshop notice: the seams that lie in a narrow groove, where the torch hardly reaches, are listed in the Summary; click the notice to see them circled on the sculpture.",
   "notes_i18n": {
-    "en": "Symmetric sculptures: fixed a rare case that left a slit in the cut path and very short sides on the seam between the two halves.",
-    "it": "Sculture simmetriche: corretto un caso raro che lasciava una fessura nel percorso di taglio e lati cortissimi sulla cucitura tra le due metà.",
-    "de": "Symmetrische Skulpturen: Ein seltener Fall wurde behoben, der einen Schlitz im Schnittweg und sehr kurze Seiten an der Naht zwischen den beiden Hälften hinterließ.",
-    "fr": "Sculptures symétriques : correction d'un cas rare qui laissait une fente dans le parcours de coupe et des côtés très courts sur la jonction entre les deux moitiés.",
-    "es": "Esculturas simétricas: corregido un caso poco frecuente que dejaba una ranura en el recorrido de corte y lados muy cortos en la unión entre las dos mitades.",
-    "pt": "Esculturas simétricas: corrigido um caso raro que deixava uma fenda no percurso de corte e lados muito curtos na junção entre as duas metades.",
-    "ja": "左右対称の彫刻：切断経路にすき間ができ、左右の合わせ目にごく短い辺が残るまれな不具合を修正しました。"
+    "en": "New workshop notice: the seams that lie in a narrow groove, where the torch hardly reaches, are listed in the Summary; click the notice to see them circled on the sculpture.",
+    "it": "Nuovo avviso da officina: i cordoni che stanno in una gola stretta, dove la torcia arriva a fatica, sono segnalati nel Riepilogo; clicca l'avviso per vederli cerchiati sulla scultura.",
+    "de": "Neuer Werkstatthinweis: Nähte in einer engen Kehle, die der Brenner kaum erreicht, werden in der Zusammenfassung gemeldet; ein Klick auf den Hinweis zeigt sie eingekreist an der Skulptur.",
+    "fr": "Nouvel avis d'atelier : les cordons situés dans une gorge étroite, que la torche atteint difficilement, sont signalés dans le Résumé ; cliquez sur l'avis pour les voir entourés sur la sculpture.",
+    "es": "Nuevo aviso de taller: los cordones que quedan en una garganta estrecha, donde la antorcha llega con dificultad, se indican en el Resumen; haz clic en el aviso para verlos rodeados en la escultura.",
+    "pt": "Novo aviso de oficina: os cordões que ficam numa garganta estreita, onde a tocha chega com dificuldade, são indicados no Resumo; clique no aviso para vê-los circulados na escultura.",
+    "ja": "工房向けの新しいお知らせ：トーチが届きにくい狭い溝の奥にある継ぎ目を「概要」に表示します。お知らせをクリックすると、彫刻上で丸で囲んで示します。"
   },
   "history": [
+    {
+      "date": "2026-11-12T00:14:29Z",
+      "version": "1.3.120",
+      "notes": {
+        "en": "New workshop notice: the seams that lie in a narrow groove, where the torch hardly reaches, are listed in the Summary; click the notice to see them circled on the sculpture.",
+        "it": "Nuovo avviso da officina: i cordoni che stanno in una gola stretta, dove la torcia arriva a fatica, sono segnalati nel Riepilogo; clicca l'avviso per vederli cerchiati sulla scultura.",
+        "de": "Neuer Werkstatthinweis: Nähte in einer engen Kehle, die der Brenner kaum erreicht, werden in der Zusammenfassung gemeldet; ein Klick auf den Hinweis zeigt sie eingekreist an der Skulptur.",
+        "fr": "Nouvel avis d'atelier : les cordons situés dans une gorge étroite, que la torche atteint difficilement, sont signalés dans le Résumé ; cliquez sur l'avis pour les voir entourés sur la sculpture.",
+        "es": "Nuevo aviso de taller: los cordones que quedan en una garganta estrecha, donde la antorcha llega con dificultad, se indican en el Resumen; haz clic en el aviso para verlos rodeados en la escultura.",
+        "pt": "Novo aviso de oficina: os cordões que ficam numa garganta estreita, onde a tocha chega com dificuldade, são indicados no Resumo; clique no aviso para vê-los circulados na escultura.",
+        "ja": "工房向けの新しいお知らせ：トーチが届きにくい狭い溝の奥にある継ぎ目を「概要」に表示します。お知らせをクリックすると、彫刻上で丸で囲んで示します。"
+      }
+    },
     {
       "date": "2026-11-11T20:27:53Z",
       "version": "1.3.119",
@@ -518,28 +531,15 @@
         "pt": "Modelos com furos: um furo cujo contorno toca a si mesmo (o canto arrancado de uma placa) ficava aberto e o modelo saía como uma nuvem de migalhas; agora é fechado corretamente antes de reconstruir o modelo como sólido.",
         "ja": "穴のあるモデル：縁が自身に接する穴（板の欠けた角）が開いたままになり、モデルが破片の雲になっていました。立体として再構築する前に正しく閉じるようになりました。"
       }
-    },
-    {
-      "date": "2026-11-10T03:57:46Z",
-      "version": "1.3.81",
-      "notes": {
-        "en": "Flat feet: a sole whose border touched itself (the neck of a bust) got three facets on one edge and could not be unfolded there; fixed. Thickening of thin parts: a model whose skin had many small tunnels (a strawberry) came out with a second, inside-out surface inside the sculpture; the thickened solid is now always one solid shell.",
-        "it": "Appoggi piatti: una suola il cui bordo toccava sé stesso (il collo di un busto) aveva tre faccette su uno stesso lato e lì non si sviluppava; corretto. Ingrossamento delle parti sottili: un modello con la pelle piena di piccoli tunnel (una fragola) usciva con una seconda superficie rovesciata dentro la scultura; ora il solido ingrossato è sempre un guscio unico.",
-        "de": "Flache Füße: Eine Sohle, deren Rand sich selbst berührte (der Hals einer Büste), bekam drei Facetten an einer Kante und ließ sich dort nicht abwickeln; behoben. Verdickung dünner Teile: Ein Modell mit vielen kleinen Tunneln in der Haut (eine Erdbeere) bekam eine zweite, nach innen gekehrte Fläche im Inneren der Skulptur; der verdickte Körper ist jetzt immer eine einzige Schale.",
-        "fr": "Appuis plats : une semelle dont le bord se touchait lui-même (le cou d'un buste) recevait trois facettes sur une même arête et ne se dépliait pas à cet endroit ; corrigé. Épaississement des parties fines : un modèle dont la peau comportait de nombreux petits tunnels (une fraise) ressortait avec une seconde surface retournée à l'intérieur de la sculpture ; le solide épaissi est désormais toujours une seule coque.",
-        "es": "Apoyos planos: una suela cuyo borde se tocaba a sí mismo (el cuello de un busto) recibía tres facetas en una misma arista y allí no se desplegaba; corregido. Engrosado de las partes finas: un modelo con la piel llena de pequeños túneles (una fresa) salía con una segunda superficie invertida dentro de la escultura; ahora el sólido engrosado es siempre una sola cáscara.",
-        "pt": "Apoios planos: uma sola cujo contorno tocava a si mesmo (o pescoço de um busto) recebia três facetas numa mesma aresta e ali não se desdobrava; corrigido. Engrossamento das partes finas: um modelo com a pele cheia de pequenos túneis (um morango) saía com uma segunda superfície invertida dentro da escultura; agora o sólido engrossado é sempre uma única casca.",
-        "ja": "平らな足：縁が自身に接する底面（胸像の首）では1つの辺に3つの面ができ、そこで展開できませんでした。修正しました。細い部分の肉厚化：表面に小さなトンネルが多数あるモデル（イチゴ）では彫刻の内側に裏返しの第2の面ができていました。肉厚化した立体は常に1つの殻になります。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.119",
+    "version": "1.3.120",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "613a52d0f304b22255f7cc7d03fafe00b7acbf433aa6876b58bc2fd3a179b784"
+        "sha256": "936ab3d5e03a363b24ac3b3fd44a5f99915d769e705051ba7a93b4437214505a"
       }
     ]
   },

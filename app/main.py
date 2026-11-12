@@ -913,7 +913,7 @@ def native_menu(bridge):
         js = f'window.AS_MENU && window.AS_MENU({int(mi)}, {json.dumps(label)})'
 
         def run():
-            threading.Thread(target=lambda: bridge.window and bridge.window.evaluate_js(js), daemon=True).start()
+            threading.Thread(target=lambda: bridge._win and bridge._win.evaluate_js(js), daemon=True).start()
         return run
     menus = []
     try:
@@ -1280,6 +1280,15 @@ class Handler(BaseHTTPRequestHandler):
             if path == '/api/update/apply':
                 job = run_job(Job('update', 'Update'), apply_updates)
                 return self.send_json(job.as_dict())
+            if path == '/api/clientlog':
+                log('Page:', str(b.get('text', ''))[:800].replace('\n', ' | '))
+                return self.send_json({'ok': True})
+            if path == '/api/export':
+                try:
+                    return self.send_json(export_file(b.get('name', ''), b.get('b64', ''), b.get('path')))
+                except Exception as exc:
+                    log('Export failed:', exc)
+                    return self.send_json({'error': str(exc)}, 400)
             if path == '/api/webstate':
                 if not isinstance(b, dict):
                     return self.send_json({'error': 'invalid'}, 400)
@@ -1326,11 +1335,91 @@ def start_server():
             continue
     threading.Thread(target=srv.serve_forever, daemon=True).start()
     return srv
+EXPORT_EXT = {'.as3d', '.dxf', '.zip', '.obj', '.stl', '.png', '.pdf', '.usdz', '.glb', '.mp4', '.webm', '.json', '.txt', '.csv', '.svg', '.html'}
+
+def win_save_dialog(name, directory):
+    import ctypes
+    from ctypes import wintypes
+
+    class OPENFILENAMEW(ctypes.Structure):
+        _fields_ = [('lStructSize', wintypes.DWORD), ('hwndOwner', wintypes.HWND), ('hInstance', wintypes.HINSTANCE), ('lpstrFilter', wintypes.LPCWSTR), ('lpstrCustomFilter', wintypes.LPWSTR), ('nMaxCustFilter', wintypes.DWORD), ('nFilterIndex', wintypes.DWORD), ('lpstrFile', wintypes.LPWSTR), ('nMaxFile', wintypes.DWORD), ('lpstrFileTitle', wintypes.LPWSTR), ('nMaxFileTitle', wintypes.DWORD), ('lpstrInitialDir', wintypes.LPCWSTR), ('lpstrTitle', wintypes.LPCWSTR), ('Flags', wintypes.DWORD), ('nFileOffset', wintypes.WORD), ('nFileExtension', wintypes.WORD), ('lpstrDefExt', wintypes.LPCWSTR), ('lCustData', wintypes.LPARAM), ('lpfnHook', ctypes.c_void_p), ('lpTemplateName', wintypes.LPCWSTR), ('pvReserved', ctypes.c_void_p), ('dwReserved', wintypes.DWORD), ('FlagsEx', wintypes.DWORD)]
+    ext = Path(name).suffix.lstrip('.')
+    buf = ctypes.create_unicode_buffer(name, 2048)
+    filt = ctypes.create_unicode_buffer(f'*.{ext}\x00*.{ext}\x00*.*\x00*.*\x00\x00' if ext else '*.*\x00*.*\x00\x00')
+    user32, comdlg32, ole32 = (ctypes.windll.user32, ctypes.windll.comdlg32, ctypes.windll.ole32)
+    user32.GetForegroundWindow.restype = wintypes.HWND
+    ofn = OPENFILENAMEW()
+    ofn.lStructSize = ctypes.sizeof(OPENFILENAMEW)
+    ofn.hwndOwner = user32.GetForegroundWindow()
+    ofn.lpstrFilter = ctypes.cast(filt, wintypes.LPCWSTR)
+    ofn.lpstrFile = ctypes.cast(buf, wintypes.LPWSTR)
+    ofn.nMaxFile = 2048
+    ofn.lpstrInitialDir = str(directory)
+    if ext:
+        ofn.lpstrDefExt = ext
+    ofn.Flags = 524288 | 2 | 4 | 2048 | 8
+    comdlg32.GetSaveFileNameW.argtypes = [ctypes.POINTER(OPENFILENAMEW)]
+    comdlg32.GetSaveFileNameW.restype = wintypes.BOOL
+    com = ole32.CoInitializeEx(None, 2) in (0, 1)
+    try:
+        if comdlg32.GetSaveFileNameW(ctypes.byref(ofn)):
+            return buf.value
+        err = comdlg32.CommDlgExtendedError()
+        if err:
+            raise OSError(f'save dialog error {err:#x}')
+        return ''
+    finally:
+        if com:
+            ole32.CoUninitialize()
+
+def export_file(name, b64, path=None):
+    name = ''.join((ch for ch in Path(str(name)).name if ch not in '/\\:*?"<>|' and ord(ch) >= 32)).strip() or 'export'
+    if Path(name).suffix.lower() not in EXPORT_EXT:
+        raise ValueError('file type not allowed')
+    data = base64.b64decode(b64)
+    fallback = False
+    if path:
+        path = Path(str(path))
+        if not path.is_absolute() or path.suffix.lower() not in EXPORT_EXT:
+            raise ValueError('invalid path')
+    else:
+        chosen = None
+        if IS_WIN:
+            try:
+                chosen = win_save_dialog(name, documents_dir())
+                if chosen == '':
+                    return {'cancelled': True}
+            except Exception:
+                log('Save dialog failed:', traceback.format_exc().strip().splitlines()[-1])
+                chosen = None
+        if chosen:
+            path = Path(chosen)
+            if not path.suffix and Path(name).suffix:
+                path = Path(str(path) + Path(name).suffix)
+        else:
+            folder = documents_dir() / 'AutoSculpt 3D'
+            folder.mkdir(parents=True, exist_ok=True)
+            stem, suf, n = (Path(name).stem, Path(name).suffix, 2)
+            path = folder / name
+            while path.exists():
+                path, n = (folder / f'{stem} {n}{suf}', n + 1)
+            fallback = True
+    path.write_bytes(data)
+    log('Saved', path)
+    if fallback:
+        try:
+            if IS_WIN:
+                subprocess.Popen(['explorer', '/select,', str(path)], **NO_WINDOW)
+            elif IS_MAC:
+                subprocess.run(['open', '-R', str(path)])
+        except Exception:
+            pass
+    return {'path': str(path), 'name': path.name, 'fallback': fallback}
 
 class Bridge:
 
     def __init__(self):
-        self.window = None
+        self._win = None
 
     def _dialog(self, kind, multiple=False, **kw):
         import webview
@@ -1338,7 +1427,7 @@ class Bridge:
         const = {'save': getattr(fd, 'SAVE', None) if fd else None, 'open': getattr(fd, 'OPEN', None) if fd else None}[kind]
         if const is None:
             const = webview.SAVE_DIALOG if kind == 'save' else webview.OPEN_DIALOG
-        r = self.window.create_file_dialog(const, allow_multiple=multiple, **kw) if multiple else self.window.create_file_dialog(const, **kw)
+        r = self._win.create_file_dialog(const, allow_multiple=multiple, **kw) if multiple else self._win.create_file_dialog(const, **kw)
         if multiple:
             return list(r or [])
         if isinstance(r, (list, tuple)):
@@ -1421,7 +1510,7 @@ class Bridge:
             time.sleep(0.3)
             threading.Timer(3.0, lambda: (stop_engines(), os._exit(0))).start()
             try:
-                self.window.destroy()
+                self._win.destroy()
             except Exception:
                 log('Closing the window failed:', traceback.format_exc())
             time.sleep(0.5)
@@ -1633,7 +1722,7 @@ def main():
         win = webview.create_window(APP_NAME, url, js_api=bridge, width=1440, height=900, min_size=(1024, 680), text_select=True, maximized=True)
     except TypeError:
         win = webview.create_window(APP_NAME, url, js_api=bridge, width=1440, height=900, min_size=(1024, 680), text_select=True)
-    bridge.window = win
+    bridge._win = win
     if IS_WIN:
         try:
             import ctypes

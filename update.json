@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.124",
-  "notes": "Models whose parts pass through each other (a tail stuck into the body, a stem into its foot) are now rebuilt as one solid when you open them, so the sculpture has no facets crossing each other.",
+  "latest": "1.3.125",
+  "notes": "Windows: exporting the DXF (and every other file) now always works: the program shows the standard «Save as» window itself. If a file cannot be saved, the reason is shown at the bottom instead of nothing happening.",
   "notes_i18n": {
-    "en": "Models whose parts pass through each other (a tail stuck into the body, a stem into its foot) are now rebuilt as one solid when you open them, so the sculpture has no facets crossing each other.",
-    "it": "I modelli con parti che si attraversano (una coda infilata nel corpo, uno stelo nel suo piede) ora vengono ricostruiti come un solido unico all'apertura, così la scultura non ha facce che si incrociano.",
-    "de": "Modelle, deren Teile sich durchdringen (ein Schwanz im Körper, ein Stiel im Fuß), werden beim Öffnen jetzt als ein einziger Körper neu aufgebaut, damit die Skulptur keine sich kreuzenden Facetten hat.",
-    "fr": "Les modèles dont des parties se traversent (une queue plantée dans le corps, une tige dans son pied) sont désormais reconstruits en un seul solide à l'ouverture : la sculpture n'a plus de facettes qui se croisent.",
-    "es": "Los modelos con partes que se atraviesan (una cola metida en el cuerpo, un tallo en su pie) ahora se reconstruyen como un único sólido al abrirlos, para que la escultura no tenga facetas que se crucen.",
-    "pt": "Os modelos com partes que se atravessam (uma cauda enfiada no corpo, uma haste no seu pé) agora são reconstruídos como um único sólido ao abrir, para que a escultura não tenha facetas que se cruzem.",
-    "ja": "部分どうしが突き抜けているモデル（胴体に刺さった尾、台座に刺さった脚など）は、開くときにひとつの立体として再構築されるようになりました。彫刻の面が交差しなくなります。"
+    "en": "Windows: exporting the DXF (and every other file) now always works: the program shows the standard «Save as» window itself. If a file cannot be saved, the reason is shown at the bottom instead of nothing happening.",
+    "it": "Windows: l'esportazione del DXF (e di ogni altro file) ora funziona sempre: il programma mostra da solo la normale finestra «Salva con nome». Se un file non si può salvare, il motivo compare in basso invece di non succedere nulla.",
+    "de": "Windows: Der Export der DXF-Datei (und jeder anderen Datei) funktioniert jetzt immer: Das Programm zeigt selbst das normale Fenster «Speichern unter». Lässt sich eine Datei nicht speichern, steht der Grund unten, statt dass nichts passiert.",
+    "fr": "Windows : l'export du DXF (et de tout autre fichier) fonctionne désormais toujours : le programme affiche lui-même la fenêtre habituelle « Enregistrer sous ». Si un fichier ne peut pas être enregistré, la raison s'affiche en bas au lieu qu'il ne se passe rien.",
+    "es": "Windows: la exportación del DXF (y de cualquier otro archivo) ahora funciona siempre: el programa muestra por sí mismo la ventana normal «Guardar como». Si un archivo no se puede guardar, el motivo aparece abajo en lugar de no pasar nada.",
+    "pt": "Windows: a exportação do DXF (e de qualquer outro arquivo) agora funciona sempre: o programa mostra sozinho a janela normal «Salvar como». Se um arquivo não puder ser salvo, o motivo aparece embaixo em vez de nada acontecer.",
+    "ja": "Windows：DXF（およびその他すべてのファイル）の書き出しが常に動作するようになりました。プログラム自身が通常の「名前を付けて保存」ウィンドウを表示します。保存できない場合は、何も起きないのではなく理由が下部に表示されます。"
   },
   "history": [
+    {
+      "date": "2026-11-12T09:10:44Z",
+      "version": "1.3.125",
+      "notes": {
+        "en": "Windows: exporting the DXF (and every other file) now always works: the program shows the standard «Save as» window itself. If a file cannot be saved, the reason is shown at the bottom instead of nothing happening.",
+        "it": "Windows: l'esportazione del DXF (e di ogni altro file) ora funziona sempre: il programma mostra da solo la normale finestra «Salva con nome». Se un file non si può salvare, il motivo compare in basso invece di non succedere nulla.",
+        "de": "Windows: Der Export der DXF-Datei (und jeder anderen Datei) funktioniert jetzt immer: Das Programm zeigt selbst das normale Fenster «Speichern unter». Lässt sich eine Datei nicht speichern, steht der Grund unten, statt dass nichts passiert.",
+        "fr": "Windows : l'export du DXF (et de tout autre fichier) fonctionne désormais toujours : le programme affiche lui-même la fenêtre habituelle « Enregistrer sous ». Si un fichier ne peut pas être enregistré, la raison s'affiche en bas au lieu qu'il ne se passe rien.",
+        "es": "Windows: la exportación del DXF (y de cualquier otro archivo) ahora funciona siempre: el programa muestra por sí mismo la ventana normal «Guardar como». Si un archivo no se puede guardar, el motivo aparece abajo en lugar de no pasar nada.",
+        "pt": "Windows: a exportação do DXF (e de qualquer outro arquivo) agora funciona sempre: o programa mostra sozinho a janela normal «Salvar como». Se um arquivo não puder ser salvo, o motivo aparece embaixo em vez de nada acontecer.",
+        "ja": "Windows：DXF（およびその他すべてのファイル）の書き出しが常に動作するようになりました。プログラム自身が通常の「名前を付けて保存」ウィンドウを表示します。保存できない場合は、何も起きないのではなく理由が下部に表示されます。"
+      }
+    },
     {
       "date": "2026-11-12T08:29:50Z",
       "version": "1.3.124",
@@ -518,38 +531,25 @@
         "pt": "Esculturas muito grandes em chapas pequenas: agora cada peça cabe na chapa. Quando o redimensionamento voltava a deixar algumas faces maiores que a chapa após a primeira correção, o programa continua a corrigir (até três vezes) em vez de deixar peças grandes demais.",
         "ja": "小さな板での非常に大きな彫刻：すべての部品が板に収まるようになりました。最初の補正の後でサイズ変更により一部の面が再び板より大きくなった場合、大きすぎる部品を残さず最大3回まで補正を続けます。"
       }
-    },
-    {
-      "date": "2026-11-10T13:53:39Z",
-      "version": "1.3.86",
-      "notes": {
-        "en": "Cleaner laser files: the outlines of the internal ribs are drawn correctly (they could break into small crossing fragments), slots on two bends side by side no longer merge into one hole, slots never reach the edge of a piece near a sharp corner, and tiny gaps in the piece outlines are closed.",
-        "it": "File per il laser più puliti: i contorni delle centine interne sono disegnati correttamente (potevano spezzarsi in piccoli frammenti che si incrociavano), le asole di due pieghe affiancate non si fondono più in un unico buco, le asole non arrivano mai al bordo del pezzo vicino agli angoli acuti e i piccoli scarti nei contorni dei pezzi vengono chiusi.",
-        "de": "Sauberere Laserdateien: Die Umrisse der inneren Spanten werden korrekt gezeichnet (sie konnten in kleine, sich kreuzende Stücke zerfallen), Schlitze zweier nebeneinanderliegender Biegungen verschmelzen nicht mehr zu einem Loch, Schlitze reichen an spitzen Ecken nie bis zum Rand des Teils, und winzige Lücken in den Umrissen werden geschlossen.",
-        "fr": "Fichiers laser plus propres : les contours des nervures internes sont tracés correctement (ils pouvaient se briser en petits fragments qui se croisaient), les fentes de deux plis côte à côte ne fusionnent plus en un seul trou, les fentes n'atteignent jamais le bord d'une pièce près d'un angle aigu, et les minuscules écarts dans les contours sont refermés.",
-        "es": "Archivos láser más limpios: los contornos de las costillas internas se dibujan correctamente (podían romperse en pequeños fragmentos que se cruzaban), las ranuras de dos pliegues contiguos ya no se funden en un solo agujero, las ranuras nunca llegan al borde de la pieza cerca de un ángulo agudo y se cierran los pequeños huecos de los contornos.",
-        "pt": "Arquivos de laser mais limpos: os contornos das nervuras internas são desenhados corretamente (podiam partir-se em pequenos fragmentos que se cruzavam), as fendas de duas dobras lado a lado já não se fundem num só furo, as fendas nunca chegam à borda da peça perto de um ângulo agudo e as pequenas falhas nos contornos são fechadas.",
-        "ja": "よりきれいなレーザーファイル：内部リブの輪郭が正しく描かれます（交差する小さな断片に分かれることがありました）。並んだ2つの曲げのスリットが1つの穴にならなくなり、鋭い角の近くでスリットが部品の縁に届かなくなり、輪郭の小さなすき間が閉じられます。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.124",
+    "version": "1.3.125",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "82dc75221872968df455364e694dc5839ade39797a6c297d1a93e87cc587a9c2"
+        "sha256": "f59c3c5010bd02354dfa0c3662cdfb12af4d9a0b3d3fe1235e4d0e55e5cbc8fe"
       }
     ]
   },
   "app": {
-    "version": "1.3.27",
+    "version": "1.3.28",
     "files": [
       {
         "path": "main.py",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/app/main.py",
-        "sha256": "6322871602a0bac0e063445e489ebc57d62e615649f10dfdbb18e94624946732"
+        "sha256": "9ccad48664da0ebc73cfe2d4dd8118bd5178903a20ad45df794bfae8839d03d8"
       }
     ]
   },

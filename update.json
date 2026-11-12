@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.127",
-  "notes": "Internal ribs: their outline is now computed more precisely and always stays inside the sculpture. On tall sculptures some ribs came out of the shell by 1–2 mm and had to be ground to fit.",
+  "latest": "1.3.128",
+  "notes": "New warning: when a part of the model is too thin to be built with the minimum side and disappears from the sculpture, the Summary now says so and tells you what to change.",
   "notes_i18n": {
-    "en": "Internal ribs: their outline is now computed more precisely and always stays inside the sculpture. On tall sculptures some ribs came out of the shell by 1–2 mm and had to be ground to fit.",
-    "it": "Centine interne: il contorno ora è calcolato con più precisione e resta sempre dentro la scultura. Sulle sculture alte alcune centine uscivano dal guscio di 1–2 mm e andavano molate per farle entrare.",
-    "de": "Innere Spanten: Ihr Umriss wird jetzt genauer berechnet und bleibt immer innerhalb der Skulptur. Bei hohen Skulpturen ragten einige Spanten 1–2 mm aus der Hülle und mussten nachgeschliffen werden.",
-    "fr": "Couples internes : leur contour est maintenant calculé plus précisément et reste toujours à l'intérieur de la sculpture. Sur les grandes sculptures, certains couples dépassaient de la coque de 1 à 2 mm et devaient être meulés.",
-    "es": "Costillas internas: su contorno ahora se calcula con más precisión y queda siempre dentro de la escultura. En esculturas altas algunas costillas sobresalían 1–2 mm del casco y había que amolarlas.",
-    "pt": "Cavernas internas: o contorno agora é calculado com mais precisão e fica sempre dentro da escultura. Em esculturas altas, algumas cavernas saíam do casco em 1–2 mm e precisavam ser esmerilhadas.",
-    "ja": "内部リブ：輪郭をより正確に計算し、常に彫刻の内側に収まるようになりました。背の高い彫刻では一部のリブが外殻から 1〜2 mm はみ出し、削って合わせる必要がありました。"
+    "en": "New warning: when a part of the model is too thin to be built with the minimum side and disappears from the sculpture, the Summary now says so and tells you what to change.",
+    "it": "Nuovo avviso: quando una parte del modello è troppo sottile per il lato minimo e sparisce dalla scultura, il Riepilogo ora lo dice e indica cosa cambiare.",
+    "de": "Neue Warnung: Wenn ein Teil des Modells für die Mindestseite zu dünn ist und aus der Skulptur verschwindet, meldet die Zusammenfassung das jetzt und sagt, was zu ändern ist.",
+    "fr": "Nouvel avertissement : lorsqu'une partie du modèle est trop fine pour le côté minimal et disparaît de la sculpture, le Résumé le signale désormais et indique quoi modifier.",
+    "es": "Nuevo aviso: cuando una parte del modelo es demasiado fina para el lado mínimo y desaparece de la escultura, el Resumen ahora lo indica y dice qué cambiar.",
+    "pt": "Novo aviso: quando uma parte do modelo é fina demais para o lado mínimo e some da escultura, o Resumo agora avisa e indica o que mudar.",
+    "ja": "新しい警告：モデルの一部が最小辺に対して細すぎて彫刻から消えてしまう場合、「概要」でそのことを知らせ、変更すべき点を示します。"
   },
   "history": [
+    {
+      "date": "2026-11-12T11:09:28Z",
+      "version": "1.3.128",
+      "notes": {
+        "en": "New warning: when a part of the model is too thin to be built with the minimum side and disappears from the sculpture, the Summary now says so and tells you what to change.",
+        "it": "Nuovo avviso: quando una parte del modello è troppo sottile per il lato minimo e sparisce dalla scultura, il Riepilogo ora lo dice e indica cosa cambiare.",
+        "de": "Neue Warnung: Wenn ein Teil des Modells für die Mindestseite zu dünn ist und aus der Skulptur verschwindet, meldet die Zusammenfassung das jetzt und sagt, was zu ändern ist.",
+        "fr": "Nouvel avertissement : lorsqu'une partie du modèle est trop fine pour le côté minimal et disparaît de la sculpture, le Résumé le signale désormais et indique quoi modifier.",
+        "es": "Nuevo aviso: cuando una parte del modelo es demasiado fina para el lado mínimo y desaparece de la escultura, el Resumen ahora lo indica y dice qué cambiar.",
+        "pt": "Novo aviso: quando uma parte do modelo é fina demais para o lado mínimo e some da escultura, o Resumo agora avisa e indica o que mudar.",
+        "ja": "新しい警告：モデルの一部が最小辺に対して細すぎて彫刻から消えてしまう場合、「概要」でそのことを知らせ、変更すべき点を示します。"
+      }
+    },
     {
       "date": "2026-11-12T10:47:28Z",
       "version": "1.3.127",
@@ -518,28 +531,15 @@
         "pt": "Nas peças muito estreitas, os ângulos de dobra já não são gravados fora do metal.",
         "ja": "非常に細い部品で、曲げ角度が金属の外に刻印されることがなくなりました。"
       }
-    },
-    {
-      "date": "2026-11-10T16:29:03Z",
-      "version": "1.3.89",
-      "notes": {
-        "en": "Symmetric sculptures: a thin neck (a vase, a bottle) no longer splits the sculpture in two parts. Very large symmetric sculptures no longer produce pieces bigger than the sheet.",
-        "it": "Sculture simmetriche: un collo sottile (un vaso, una bottiglia) non divide più la scultura in due parti. Le sculture simmetriche molto grandi non producono più pezzi più grandi della lamiera.",
-        "de": "Symmetrische Skulpturen: Ein dünner Hals (Vase, Flasche) teilt die Skulptur nicht mehr in zwei Teile. Sehr große symmetrische Skulpturen ergeben keine Teile mehr, die größer als das Blech sind.",
-        "fr": "Sculptures symétriques : un col fin (vase, bouteille) ne sépare plus la sculpture en deux parties. Les très grandes sculptures symétriques ne produisent plus de pièces plus grandes que la tôle.",
-        "es": "Esculturas simétricas: un cuello fino (un jarrón, una botella) ya no divide la escultura en dos partes. Las esculturas simétricas muy grandes ya no producen piezas más grandes que la chapa.",
-        "pt": "Esculturas simétricas: um gargalo fino (um vaso, uma garrafa) já não divide a escultura em duas partes. Esculturas simétricas muito grandes já não produzem peças maiores do que a chapa.",
-        "ja": "対称の彫刻：細い首（花瓶やボトル）で彫刻が二つに分かれることがなくなりました。非常に大きな対称の彫刻で、板より大きな部品ができることもなくなりました。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.127",
+    "version": "1.3.128",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "d177fcc2ad1a37864ee2cdcd2c44ffb219be942f40636f2bea5362219b1b6eeb"
+        "sha256": "6b1ef9dd7a01cf81f4e780175316cad9512090c86cff31ef658f2175734883ee"
       }
     ]
   },

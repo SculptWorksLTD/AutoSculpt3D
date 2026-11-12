@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.131",
-  "notes": "A model that arrives lying down (its vertical on another axis, common with downloaded files) is now recognised: the summary offers to stand it up with one click. With «Symmetric sculpture» the mirror plane stays in the middle of the model.",
+  "latest": "1.3.132",
+  "notes": "«Symmetric sculpture» now also works on models that lean a little (a head tilted by a few degrees): the mirror plane follows the model instead of being forced upright.",
   "notes_i18n": {
-    "en": "A model that arrives lying down (its vertical on another axis, common with downloaded files) is now recognised: the summary offers to stand it up with one click. With «Symmetric sculpture» the mirror plane stays in the middle of the model.",
-    "it": "Un modello che arriva sdraiato (verticale su un altro asse, frequente nei file scaricati) ora viene riconosciuto: il Riepilogo propone di raddrizzarlo con un clic. Con «Scultura simmetrica» il piano di specchio resta al centro del modello.",
-    "de": "Ein Modell, das liegend ankommt (Senkrechte auf einer anderen Achse, häufig bei heruntergeladenen Dateien), wird jetzt erkannt: Die Übersicht bietet an, es mit einem Klick aufzurichten. Bei «Symmetrische Skulptur» bleibt die Spiegelebene in der Mitte des Modells.",
-    "fr": "Un modèle qui arrive couché (verticale sur un autre axe, fréquent avec les fichiers téléchargés) est désormais reconnu : le récapitulatif propose de le redresser d'un clic. Avec « Sculpture symétrique », le plan de symétrie reste au milieu du modèle.",
-    "es": "Un modelo que llega tumbado (vertical en otro eje, frecuente en archivos descargados) ahora se reconoce: el resumen propone ponerlo de pie con un clic. Con «Escultura simétrica» el plano de espejo queda en el centro del modelo.",
-    "pt": "Um modelo que chega deitado (vertical em outro eixo, comum em arquivos baixados) agora é reconhecido: o resumo oferece colocá-lo em pé com um clique. Com «Escultura simétrica» o plano de espelho fica no meio do modelo.",
-    "ja": "横倒しで読み込まれたモデル（上下が別の軸になっているもの。ダウンロードしたファイルによくあります）を検出し、概要からワンクリックで起こせるようになりました。「左右対称の彫刻」では、鏡面がモデルの中央に保たれます。"
+    "en": "«Symmetric sculpture» now also works on models that lean a little (a head tilted by a few degrees): the mirror plane follows the model instead of being forced upright.",
+    "it": "«Scultura simmetrica» ora funziona anche sui modelli un po' inclinati (una testa piegata di qualche grado): il piano di specchio segue il modello invece di essere forzato in verticale.",
+    "de": "«Symmetrische Skulptur» funktioniert jetzt auch bei leicht geneigten Modellen (ein um einige Grad gekippter Kopf): Die Spiegelebene folgt dem Modell, statt senkrecht erzwungen zu werden.",
+    "fr": "« Sculpture symétrique » fonctionne désormais aussi sur les modèles légèrement inclinés (une tête penchée de quelques degrés) : le plan de symétrie suit le modèle au lieu d'être forcé à la verticale.",
+    "es": "«Escultura simétrica» ahora también funciona con modelos algo inclinados (una cabeza ladeada unos grados): el plano de espejo sigue al modelo en lugar de forzarse en vertical.",
+    "pt": "«Escultura simétrica» agora também funciona em modelos um pouco inclinados (uma cabeça tombada alguns graus): o plano de espelho acompanha o modelo em vez de ser forçado na vertical.",
+    "ja": "「左右対称の彫刻」が、少し傾いたモデル（数度かしいだ頭部など）でも正しく働くようになりました。鏡面を無理に垂直にせず、モデルの傾きに合わせます。"
   },
   "history": [
+    {
+      "date": "2026-11-12T13:57:16Z",
+      "version": "1.3.132",
+      "notes": {
+        "en": "«Symmetric sculpture» now also works on models that lean a little (a head tilted by a few degrees): the mirror plane follows the model instead of being forced upright.",
+        "it": "«Scultura simmetrica» ora funziona anche sui modelli un po' inclinati (una testa piegata di qualche grado): il piano di specchio segue il modello invece di essere forzato in verticale.",
+        "de": "«Symmetrische Skulptur» funktioniert jetzt auch bei leicht geneigten Modellen (ein um einige Grad gekippter Kopf): Die Spiegelebene folgt dem Modell, statt senkrecht erzwungen zu werden.",
+        "fr": "« Sculpture symétrique » fonctionne désormais aussi sur les modèles légèrement inclinés (une tête penchée de quelques degrés) : le plan de symétrie suit le modèle au lieu d'être forcé à la verticale.",
+        "es": "«Escultura simétrica» ahora también funciona con modelos algo inclinados (una cabeza ladeada unos grados): el plano de espejo sigue al modelo en lugar de forzarse en vertical.",
+        "pt": "«Escultura simétrica» agora também funciona em modelos um pouco inclinados (uma cabeça tombada alguns graus): o plano de espelho acompanha o modelo em vez de ser forçado na vertical.",
+        "ja": "「左右対称の彫刻」が、少し傾いたモデル（数度かしいだ頭部など）でも正しく働くようになりました。鏡面を無理に垂直にせず、モデルの傾きに合わせます。"
+      }
+    },
     {
       "date": "2026-11-12T13:33:21Z",
       "version": "1.3.131",
@@ -518,28 +531,15 @@
         "pt": "As formas feitas de tiras longas (uma taça, uma garrafa, uma luminária) mantêm as outras partes: o pé de uma taça já não se reduz a um triângulo com «Facetas regulares» alto. Duas faces já não são unidas ao longo de uma aresta menor que 2 mm, onde um triângulo podia soltar-se da peça.",
         "ja": "長い帯でできた形（グラス、ボトル、ランプ）で他の部分が保たれるようになりました。「均等な面」を高くしてもグラスの脚の台が三角形に潰れません。2 mm未満の辺で二つの面をつなぐこともなくなり、三角形が部品から外れることがなくなりました。"
       }
-    },
-    {
-      "date": "2026-11-10T19:30:23Z",
-      "version": "1.3.93",
-      "notes": {
-        "en": "Symmetric sculptures: thin parts on the mirror line (the stem of a glass, a neck, a tail) are no longer lost or cut through. If a symmetric result cannot be built, the sculpture is made without the mirror and the program says so.",
-        "it": "Sculture simmetriche: le parti sottili sulla linea di specchio (lo stelo di un bicchiere, un collo, una coda) non vengono più perse o tagliate. Se un risultato simmetrico non si può costruire, la scultura viene fatta senza specchio e il programma lo dice.",
-        "de": "Symmetrische Skulpturen: Dünne Teile auf der Spiegellinie (Stiel eines Glases, Hals, Schwanz) gehen nicht mehr verloren und werden nicht mehr durchtrennt. Lässt sich ein symmetrisches Ergebnis nicht bauen, wird die Skulptur ohne Spiegelung erstellt, und das Programm weist darauf hin.",
-        "fr": "Sculptures symétriques : les parties fines sur la ligne de miroir (le pied d'un verre, un col, une queue) ne sont plus perdues ni coupées. Si un résultat symétrique ne peut pas être construit, la sculpture est faite sans miroir et le programme le signale.",
-        "es": "Esculturas simétricas: las partes finas sobre la línea de espejo (el tallo de una copa, un cuello, una cola) ya no se pierden ni se cortan. Si un resultado simétrico no se puede construir, la escultura se hace sin espejo y el programa lo indica.",
-        "pt": "Esculturas simétricas: as partes finas sobre a linha de espelho (a haste de uma taça, um gargalo, uma cauda) já não se perdem nem são cortadas. Se um resultado simétrico não puder ser construído, a escultura é feita sem espelho e o programa avisa.",
-        "ja": "対称の彫刻：鏡の線上にある細い部分（グラスの脚、首、尾）が失われたり切れたりしなくなりました。対称の結果が組み立てられない場合は鏡なしで彫刻を作り、その旨を表示します。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.131",
+    "version": "1.3.132",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "042ed4f8418c8b16eb53444ab30224ea7b44aa15512652532b4421926e1fc8d2"
+        "sha256": "1db4cf5bda3d8d9a28109bfe17950eb50a65752436d0b0362b165af1f9a782f3"
       }
     ]
   },

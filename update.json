@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.121",
-  "notes": "Thin parts (tails, legs, horns) no longer fold through themselves: when it happens the program thickens them and tries again. If a crossing remains, the Summary warns you and shows the pieces in red.",
+  "latest": "1.3.122",
+  "notes": "Thin parts and thin walls: while reducing the faces the program now refuses the steps that would make two facets pass through each other, so fewer sculptures need thickening and fewer warnings appear.",
   "notes_i18n": {
-    "en": "Thin parts (tails, legs, horns) no longer fold through themselves: when it happens the program thickens them and tries again. If a crossing remains, the Summary warns you and shows the pieces in red.",
-    "it": "Le parti sottili (code, zampe, corna) non si ripiegano più attraverso sé stesse: quando succede il programma le ingrossa e riprova. Se resta un incrocio, il Riepilogo avvisa e mostra i pezzi in rosso.",
-    "de": "Dünne Teile (Schwänze, Beine, Hörner) falten sich nicht mehr durch sich selbst: Wenn es passiert, verdickt das Programm sie und versucht es erneut. Bleibt eine Durchdringung, warnt die Zusammenfassung und zeigt die Teile in Rot.",
-    "fr": "Les parties fines (queues, pattes, cornes) ne se replient plus à travers elles-mêmes : quand cela arrive, le programme les épaissit et réessaie. S'il reste un croisement, le Résumé vous avertit et montre les pièces en rouge.",
-    "es": "Las partes finas (colas, patas, cuernos) ya no se pliegan atravesándose a sí mismas: cuando ocurre, el programa las engrosa y vuelve a intentarlo. Si queda un cruce, el Resumen avisa y muestra las piezas en rojo.",
-    "pt": "As partes finas (caudas, patas, chifres) não se dobram mais atravessando a si mesmas: quando acontece, o programa as engrossa e tenta de novo. Se restar um cruzamento, o Resumo avisa e mostra as peças em vermelho.",
-    "ja": "細い部分（尾、脚、角）が自分自身を突き抜けて折り重なることがなくなりました。起きた場合は自動で太くしてやり直します。突き抜けが残る場合は「概要」で知らせ、該当する部品を赤で表示します。"
+    "en": "Thin parts and thin walls: while reducing the faces the program now refuses the steps that would make two facets pass through each other, so fewer sculptures need thickening and fewer warnings appear.",
+    "it": "Parti e pareti sottili: mentre riduce le facce il programma ora rifiuta i passaggi che farebbero attraversare due facce, così meno sculture hanno bisogno dell'ingrossamento e compaiono meno avvisi.",
+    "de": "Dünne Teile und dünne Wände: Beim Reduzieren der Flächen lehnt das Programm jetzt Schritte ab, bei denen sich zwei Facetten durchdringen würden. So müssen weniger Skulpturen verdickt werden und es erscheinen weniger Warnungen.",
+    "fr": "Parties et parois fines : pendant la réduction des faces, le programme refuse désormais les étapes qui feraient se traverser deux facettes ; moins de sculptures ont besoin d'être épaissies et moins d'avertissements apparaissent.",
+    "es": "Partes y paredes finas: al reducir las caras, el programa ahora rechaza los pasos que harían que dos facetas se atravesaran, así menos esculturas necesitan engrosarse y aparecen menos avisos.",
+    "pt": "Partes e paredes finas: ao reduzir as faces, o programa agora recusa os passos que fariam duas facetas se atravessarem; assim menos esculturas precisam ser engrossadas e aparecem menos avisos.",
+    "ja": "細い部分と薄い壁：面を減らす途中で、2 つの面が互いに突き抜けてしまう手順を行わないようになりました。太くする必要のある彫刻が減り、警告も少なくなります。"
   },
   "history": [
+    {
+      "date": "2026-11-12T07:52:40Z",
+      "version": "1.3.122",
+      "notes": {
+        "en": "Thin parts and thin walls: while reducing the faces the program now refuses the steps that would make two facets pass through each other, so fewer sculptures need thickening and fewer warnings appear.",
+        "it": "Parti e pareti sottili: mentre riduce le facce il programma ora rifiuta i passaggi che farebbero attraversare due facce, così meno sculture hanno bisogno dell'ingrossamento e compaiono meno avvisi.",
+        "de": "Dünne Teile und dünne Wände: Beim Reduzieren der Flächen lehnt das Programm jetzt Schritte ab, bei denen sich zwei Facetten durchdringen würden. So müssen weniger Skulpturen verdickt werden und es erscheinen weniger Warnungen.",
+        "fr": "Parties et parois fines : pendant la réduction des faces, le programme refuse désormais les étapes qui feraient se traverser deux facettes ; moins de sculptures ont besoin d'être épaissies et moins d'avertissements apparaissent.",
+        "es": "Partes y paredes finas: al reducir las caras, el programa ahora rechaza los pasos que harían que dos facetas se atravesaran, así menos esculturas necesitan engrosarse y aparecen menos avisos.",
+        "pt": "Partes e paredes finas: ao reduzir as faces, o programa agora recusa os passos que fariam duas facetas se atravessarem; assim menos esculturas precisam ser engrossadas e aparecem menos avisos.",
+        "ja": "細い部分と薄い壁：面を減らす途中で、2 つの面が互いに突き抜けてしまう手順を行わないようになりました。太くする必要のある彫刻が減り、警告も少なくなります。"
+      }
+    },
     {
       "date": "2026-11-12T00:38:59Z",
       "version": "1.3.121",
@@ -518,28 +531,15 @@
         "pt": "Esculturas simétricas, muitas correções: placas e letras já não desaparecem (o espelho através da espessura é ignorado); uma parte que se liga ao corpo do outro lado do espelho já não vira uma peça solta; modelos feitos de várias partes mantêm todas; menos facetas perdidas em garrafas, halteres e cones; com simetria o engrossamento das partes finas é até 3× mais rápido.",
         "ja": "対称な彫刻の多くの修正：プレートや文字が消えなくなりました（厚み方向の鏡映を行いません）。鏡の反対側で本体につながる部分が浮いた部品にならなくなりました。複数の部品からなるモデルはすべての部品を保ちます。ボトル、ダンベル、円錐で失われる面が減りました。対称時の細い部分の肉厚化が最大3倍速くなりました。"
       }
-    },
-    {
-      "date": "2026-11-10T11:11:05Z",
-      "version": "1.3.83",
-      "notes": {
-        "en": "Flat feet: when the cut at the ground split a sole in two at two points (the rim of a pizza), the sole was closed as one piece and got a seam shared by four facets; it now becomes two clean soles.",
-        "it": "Appoggi piatti: quando il taglio a terra divideva una suola in due in due punti (il bordo di una pizza), la suola veniva chiusa come un pezzo unico e ne usciva un lato condiviso da quattro faccette; ora diventa due suole pulite.",
-        "de": "Flache Füße: Wenn der Schnitt am Boden eine Sohle an zwei Punkten in zwei teilte (der Rand einer Pizza), wurde sie als ein Stück geschlossen und bekam eine Kante mit vier Facetten; jetzt entstehen zwei saubere Sohlen.",
-        "fr": "Appuis plats : quand la coupe au sol partageait une semelle en deux en deux points (le bord d'une pizza), la semelle était fermée d'un seul tenant et recevait une arête partagée par quatre facettes ; elle devient maintenant deux semelles propres.",
-        "es": "Apoyos planos: cuando el corte en el suelo dividía una suela en dos en dos puntos (el borde de una pizza), la suela se cerraba como una sola pieza y quedaba una arista compartida por cuatro facetas; ahora se convierte en dos suelas limpias.",
-        "pt": "Apoios planos: quando o corte no chão dividia uma sola em duas em dois pontos (a borda de uma pizza), a sola era fechada como uma só peça e ficava uma aresta partilhada por quatro facetas; agora passa a ser duas solas limpas.",
-        "ja": "平らな足：地面での切断が底面を2点で2つに分けていた場合（ピザの縁）、1つとして閉じられ4つの面が共有する辺ができていました。今はきれいな2つの底面になります。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.121",
+    "version": "1.3.122",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "546af70535a8de9dc51b855917aab35090f4bc18e1806e4b481363d86fac5136"
+        "sha256": "dda6d815e304bd43811fcb51e20c202301d9f5f58f97e20b10708208e81909b9"
       }
     ]
   },

@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.122",
-  "notes": "Thin parts and thin walls: while reducing the faces the program now refuses the steps that would make two facets pass through each other, so fewer sculptures need thickening and fewer warnings appear.",
+  "latest": "1.3.123",
+  "notes": "Sheets view: you can now zoom and move the drawing. Mouse wheel or pinch to zoom, drag to move, double click (or «Whole sheet») to see the whole sheet again.",
   "notes_i18n": {
-    "en": "Thin parts and thin walls: while reducing the faces the program now refuses the steps that would make two facets pass through each other, so fewer sculptures need thickening and fewer warnings appear.",
-    "it": "Parti e pareti sottili: mentre riduce le facce il programma ora rifiuta i passaggi che farebbero attraversare due facce, così meno sculture hanno bisogno dell'ingrossamento e compaiono meno avvisi.",
-    "de": "Dünne Teile und dünne Wände: Beim Reduzieren der Flächen lehnt das Programm jetzt Schritte ab, bei denen sich zwei Facetten durchdringen würden. So müssen weniger Skulpturen verdickt werden und es erscheinen weniger Warnungen.",
-    "fr": "Parties et parois fines : pendant la réduction des faces, le programme refuse désormais les étapes qui feraient se traverser deux facettes ; moins de sculptures ont besoin d'être épaissies et moins d'avertissements apparaissent.",
-    "es": "Partes y paredes finas: al reducir las caras, el programa ahora rechaza los pasos que harían que dos facetas se atravesaran, así menos esculturas necesitan engrosarse y aparecen menos avisos.",
-    "pt": "Partes e paredes finas: ao reduzir as faces, o programa agora recusa os passos que fariam duas facetas se atravessarem; assim menos esculturas precisam ser engrossadas e aparecem menos avisos.",
-    "ja": "細い部分と薄い壁：面を減らす途中で、2 つの面が互いに突き抜けてしまう手順を行わないようになりました。太くする必要のある彫刻が減り、警告も少なくなります。"
+    "en": "Sheets view: you can now zoom and move the drawing. Mouse wheel or pinch to zoom, drag to move, double click (or «Whole sheet») to see the whole sheet again.",
+    "it": "Vista Lamiere: ora il disegno si può ingrandire e spostare. Rotella del mouse o pizzico per lo zoom, trascina per spostare, doppio clic (o «Lamiera intera») per rivedere tutta la lamiera.",
+    "de": "Blechansicht: Die Zeichnung lässt sich jetzt zoomen und verschieben. Mausrad oder Fingergeste zum Zoomen, Ziehen zum Verschieben, Doppelklick (oder «Ganzes Blech») für das ganze Blech.",
+    "fr": "Vue Tôles : le dessin peut maintenant être agrandi et déplacé. Molette ou pincement pour zoomer, glisser pour déplacer, double clic (ou « Tôle entière ») pour revoir toute la tôle.",
+    "es": "Vista Chapas: ahora el dibujo se puede ampliar y mover. Rueda del ratón o pellizco para el zoom, arrastra para mover, doble clic (o «Chapa entera») para ver de nuevo toda la chapa.",
+    "pt": "Vista Chapas: agora o desenho pode ser ampliado e movido. Roda do mouse ou pinça para o zoom, arraste para mover, duplo clique (ou «Chapa inteira») para ver a chapa toda de novo.",
+    "ja": "板のビュー：図面を拡大・移動できるようになりました。マウスホイールまたはピンチでズーム、ドラッグで移動、ダブルクリック（または「板全体」）で板全体に戻ります。"
   },
   "history": [
+    {
+      "date": "2026-11-12T08:10:36Z",
+      "version": "1.3.123",
+      "notes": {
+        "en": "Sheets view: you can now zoom and move the drawing. Mouse wheel or pinch to zoom, drag to move, double click (or «Whole sheet») to see the whole sheet again.",
+        "it": "Vista Lamiere: ora il disegno si può ingrandire e spostare. Rotella del mouse o pizzico per lo zoom, trascina per spostare, doppio clic (o «Lamiera intera») per rivedere tutta la lamiera.",
+        "de": "Blechansicht: Die Zeichnung lässt sich jetzt zoomen und verschieben. Mausrad oder Fingergeste zum Zoomen, Ziehen zum Verschieben, Doppelklick (oder «Ganzes Blech») für das ganze Blech.",
+        "fr": "Vue Tôles : le dessin peut maintenant être agrandi et déplacé. Molette ou pincement pour zoomer, glisser pour déplacer, double clic (ou « Tôle entière ») pour revoir toute la tôle.",
+        "es": "Vista Chapas: ahora el dibujo se puede ampliar y mover. Rueda del ratón o pellizco para el zoom, arrastra para mover, doble clic (o «Chapa entera») para ver de nuevo toda la chapa.",
+        "pt": "Vista Chapas: agora o desenho pode ser ampliado e movido. Roda do mouse ou pinça para o zoom, arraste para mover, duplo clique (ou «Chapa inteira») para ver a chapa toda de novo.",
+        "ja": "板のビュー：図面を拡大・移動できるようになりました。マウスホイールまたはピンチでズーム、ドラッグで移動、ダブルクリック（または「板全体」）で板全体に戻ります。"
+      }
+    },
     {
       "date": "2026-11-12T07:52:40Z",
       "version": "1.3.122",
@@ -518,28 +531,15 @@
         "pt": "Chapas prontas para a oficina: os números de montagem e os ângulos de dobra são sempre gravados no metal da própria peça (nas facetas estreitas ficavam fora), e uma aresta entre duas faces da mesma peça já lado a lado agora é uma dobra em vez de uma fenda inútil cortada pelo laser.",
         "ja": "工場向けの板：合わせ番号と曲げ角度は常に自分の部品の金属上に刻印されます（細い面では外に出ていました）。同じ部品ですでに隣り合う2つの面の間の辺は、レーザーで切る無駄な切れ目ではなく曲げになりました。"
       }
-    },
-    {
-      "date": "2026-11-10T12:46:13Z",
-      "version": "1.3.84",
-      "notes": {
-        "en": "Symmetric sculptures, many fixes: plates and letters no longer vanish (the mirror across their thickness is skipped); a part that joins the body on the other side of the mirror no longer becomes a loose piece; models made of several parts keep all of them; fewer facets lost on bottles, dumbbells and cones; thin parts are thickened up to 3× faster with symmetry on.",
-        "it": "Sculture simmetriche, molte correzioni: targhe e lettere non spariscono più (lo specchio attraverso il loro spessore viene saltato); una parte che si attacca al corpo dall'altro lato dello specchio non diventa più un pezzo volante; i modelli fatti di più parti le tengono tutte; meno faccette perse su bottiglie, manubri e coni; con la simmetria l'ingrossamento delle parti sottili è fino a 3 volte più veloce.",
-        "de": "Symmetrische Skulpturen, viele Korrekturen: Schilder und Buchstaben verschwinden nicht mehr (die Spiegelung durch ihre Dicke wird übersprungen); ein Teil, das auf der anderen Seite des Spiegels am Körper hängt, wird kein loses Stück mehr; Modelle aus mehreren Teilen behalten alle; weniger verlorene Facetten bei Flaschen, Hanteln und Kegeln; mit Symmetrie ist das Verdicken dünner Teile bis zu 3× schneller.",
-        "fr": "Sculptures symétriques, nombreuses corrections : plaques et lettres ne disparaissent plus (le miroir à travers leur épaisseur est ignoré) ; une partie qui rejoint le corps de l'autre côté du miroir ne devient plus une pièce volante ; les modèles faits de plusieurs parties les gardent toutes ; moins de facettes perdues sur les bouteilles, haltères et cônes ; avec la symétrie, l'épaississement des parties fines est jusqu'à 3× plus rapide.",
-        "es": "Esculturas simétricas, muchas correcciones: placas y letras ya no desaparecen (se omite el espejo a través de su grosor); una parte que se une al cuerpo al otro lado del espejo ya no se convierte en una pieza suelta; los modelos de varias partes las conservan todas; menos facetas perdidas en botellas, mancuernas y conos; con simetría el engrosado de partes finas es hasta 3 veces más rápido.",
-        "pt": "Esculturas simétricas, muitas correções: placas e letras já não desaparecem (o espelho através da espessura é ignorado); uma parte que se liga ao corpo do outro lado do espelho já não vira uma peça solta; modelos feitos de várias partes mantêm todas; menos facetas perdidas em garrafas, halteres e cones; com simetria o engrossamento das partes finas é até 3× mais rápido.",
-        "ja": "対称な彫刻の多くの修正：プレートや文字が消えなくなりました（厚み方向の鏡映を行いません）。鏡の反対側で本体につながる部分が浮いた部品にならなくなりました。複数の部品からなるモデルはすべての部品を保ちます。ボトル、ダンベル、円錐で失われる面が減りました。対称時の細い部分の肉厚化が最大3倍速くなりました。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.122",
+    "version": "1.3.123",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "dda6d815e304bd43811fcb51e20c202301d9f5f58f97e20b10708208e81909b9"
+        "sha256": "3a32b9355059aea19854946dd847203f4762b5cd9762f93ce50d3bc217a9d5de"
       }
     ]
   },

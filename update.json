@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.138",
-  "notes": "PDF quote and assembly guide: long lines no longer run into the next one, and the files in Japanese are about nine times lighter.",
+  "latest": "1.3.139",
+  "notes": "New projects start with a maximum bend of 60° instead of 40°: about half as many pieces to fit and tack, a little less welding, slightly more sheet. Saved projects keep their own value; the slider is still there.",
   "notes_i18n": {
-    "en": "PDF quote and assembly guide: long lines no longer run into the next one, and the files in Japanese are about nine times lighter.",
-    "it": "PDF del preventivo e della guida di montaggio: le righe lunghe non finiscono più sopra la successiva, e i file in giapponese pesano circa nove volte meno.",
-    "de": "PDF von Angebot und Montageanleitung: Lange Zeilen laufen nicht mehr in die nächste, und die Dateien auf Japanisch sind etwa neunmal kleiner.",
-    "fr": "PDF du devis et du guide de montage : les lignes longues ne débordent plus sur la suivante, et les fichiers en japonais sont environ neuf fois plus légers.",
-    "es": "PDF del presupuesto y de la guía de montaje: las líneas largas ya no se montan sobre la siguiente, y los archivos en japonés pesan unas nueve veces menos.",
-    "pt": "PDF do orçamento e do guia de montagem: as linhas longas não invadem mais a seguinte, e os arquivos em japonês ficaram cerca de nove vezes mais leves.",
-    "ja": "見積書と組立ガイドのPDF：長い行が次の行に重ならなくなり、日本語のファイルサイズが約9分の1になりました。"
+    "en": "New projects start with a maximum bend of 60° instead of 40°: about half as many pieces to fit and tack, a little less welding, slightly more sheet. Saved projects keep their own value; the slider is still there.",
+    "it": "I progetti nuovi partono con una piega massima di 60° invece di 40°: circa la metà dei pezzi da accostare e puntare, un po' meno saldatura, un po' più di lamiera. I progetti salvati tengono il loro valore; la barra resta a disposizione.",
+    "de": "Neue Projekte starten mit einer maximalen Biegung von 60° statt 40°: etwa halb so viele Teile zum Anpassen und Heften, etwas weniger Schweißen, etwas mehr Blech. Gespeicherte Projekte behalten ihren Wert; der Regler bleibt verfügbar.",
+    "fr": "Les nouveaux projets démarrent avec un pli maximal de 60° au lieu de 40° : environ deux fois moins de pièces à ajuster et pointer, un peu moins de soudure, un peu plus de tôle. Les projets enregistrés gardent leur valeur ; le curseur reste disponible.",
+    "es": "Los proyectos nuevos empiezan con un pliegue máximo de 60° en lugar de 40°: cerca de la mitad de piezas que ajustar y puntear, algo menos de soldadura, algo más de chapa. Los proyectos guardados conservan su valor; el control sigue disponible.",
+    "pt": "Os projetos novos começam com dobra máxima de 60° em vez de 40°: cerca de metade das peças para ajustar e pontear, um pouco menos de solda, um pouco mais de chapa. Os projetos salvos mantêm o próprio valor; o controle continua disponível.",
+    "ja": "新しいプロジェクトの最大曲げ角度が40°から60°になりました。合わせて仮付けするパーツが約半分になり、溶接も少し減りますが、板材は少し増えます。保存済みのプロジェクトは元の値のままで、スライダーで変更できます。"
   },
   "history": [
+    {
+      "date": "2026-11-12T19:42:45Z",
+      "version": "1.3.139",
+      "notes": {
+        "en": "New projects start with a maximum bend of 60° instead of 40°: about half as many pieces to fit and tack, a little less welding, slightly more sheet. Saved projects keep their own value; the slider is still there.",
+        "it": "I progetti nuovi partono con una piega massima di 60° invece di 40°: circa la metà dei pezzi da accostare e puntare, un po' meno saldatura, un po' più di lamiera. I progetti salvati tengono il loro valore; la barra resta a disposizione.",
+        "de": "Neue Projekte starten mit einer maximalen Biegung von 60° statt 40°: etwa halb so viele Teile zum Anpassen und Heften, etwas weniger Schweißen, etwas mehr Blech. Gespeicherte Projekte behalten ihren Wert; der Regler bleibt verfügbar.",
+        "fr": "Les nouveaux projets démarrent avec un pli maximal de 60° au lieu de 40° : environ deux fois moins de pièces à ajuster et pointer, un peu moins de soudure, un peu plus de tôle. Les projets enregistrés gardent leur valeur ; le curseur reste disponible.",
+        "es": "Los proyectos nuevos empiezan con un pliegue máximo de 60° en lugar de 40°: cerca de la mitad de piezas que ajustar y puntear, algo menos de soldadura, algo más de chapa. Los proyectos guardados conservan su valor; el control sigue disponible.",
+        "pt": "Os projetos novos começam com dobra máxima de 60° em vez de 40°: cerca de metade das peças para ajustar e pontear, um pouco menos de solda, um pouco mais de chapa. Os projetos salvos mantêm o próprio valor; o controle continua disponível.",
+        "ja": "新しいプロジェクトの最大曲げ角度が40°から60°になりました。合わせて仮付けするパーツが約半分になり、溶接も少し減りますが、板材は少し増えます。保存済みのプロジェクトは元の値のままで、スライダーで変更できます。"
+      }
+    },
     {
       "date": "2026-11-12T19:12:30Z",
       "version": "1.3.138",
@@ -518,28 +531,15 @@
         "pt": "Apoios planos: a sola de uma base redonda já não fica aberta nos modelos pequenos.",
         "ja": "平らな底面：小さなモデルで、丸い台座の底面が開いたままになることがなくなりました。"
       }
-    },
-    {
-      "date": "2026-11-11T00:35:58Z",
-      "version": "1.3.100",
-      "notes": {
-        "en": "Large frames made of thin bars no longer produce pieces bigger than the sheet.",
-        "it": "I grandi telai fatti di barre sottili non producono più pezzi più grandi della lamiera.",
-        "de": "Große Rahmen aus dünnen Stäben ergeben keine Teile mehr, die größer als das Blech sind.",
-        "fr": "Les grands cadres faits de barres fines ne produisent plus de pièces plus grandes que la tôle.",
-        "es": "Los grandes bastidores hechos de barras finas ya no producen piezas más grandes que la chapa.",
-        "pt": "As grandes estruturas feitas de barras finas já não produzem peças maiores do que a chapa.",
-        "ja": "細い棒でできた大きなフレームで、板より大きな部品ができることがなくなりました。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.138",
+    "version": "1.3.139",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "42ba0a1d1074d3a9dc817742234925220e16e69889ca00dee2536b8502a8b5c6"
+        "sha256": "b73cec02b3459ed92bcf44eafba0661ffaab0095a90e3973bf0e8082895d292f"
       }
     ]
   },

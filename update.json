@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.133",
-  "notes": "Symmetric sculptures: fewer seams too short to weld along the centre line.",
+  "latest": "1.3.134",
+  "notes": "Thin parts such as wings and ears: the two sides no longer pass through each other after the facets are evened out.",
   "notes_i18n": {
-    "en": "Symmetric sculptures: fewer seams too short to weld along the centre line.",
-    "it": "Sculture simmetriche: meno cordoni troppo corti da saldare lungo la linea centrale.",
-    "de": "Symmetrische Skulpturen: weniger zu kurze Schweißnähte entlang der Mittellinie.",
-    "fr": "Sculptures symétriques : moins de cordons trop courts à souder le long de la ligne centrale.",
-    "es": "Esculturas simétricas: menos cordones demasiado cortos para soldar a lo largo de la línea central.",
-    "pt": "Esculturas simétricas: menos cordões curtos demais para soldar ao longo da linha central.",
-    "ja": "左右対称の彫刻：中心線上で、溶接するには短すぎる継ぎ目が減りました。"
+    "en": "Thin parts such as wings and ears: the two sides no longer pass through each other after the facets are evened out.",
+    "it": "Parti sottili come ali e orecchie: le due facce opposte non si attraversano più dopo la regolarizzazione delle faccette.",
+    "de": "Dünne Teile wie Flügel und Ohren: Die beiden Seiten durchdringen sich nach dem Angleichen der Facetten nicht mehr.",
+    "fr": "Parties fines comme les ailes et les oreilles : les deux côtés ne se traversent plus après la régularisation des facettes.",
+    "es": "Partes finas como alas y orejas: las dos caras ya no se atraviesan tras regularizar las facetas.",
+    "pt": "Partes finas como asas e orelhas: os dois lados não se atravessam mais depois da regularização das facetas.",
+    "ja": "翼や耳のような薄い部分で、面を整えたあとに表と裏の面が互いに突き抜けることがなくなりました。"
   },
   "history": [
+    {
+      "date": "2026-11-12T15:50:00Z",
+      "version": "1.3.134",
+      "notes": {
+        "en": "Thin parts such as wings and ears: the two sides no longer pass through each other after the facets are evened out.",
+        "it": "Parti sottili come ali e orecchie: le due facce opposte non si attraversano più dopo la regolarizzazione delle faccette.",
+        "de": "Dünne Teile wie Flügel und Ohren: Die beiden Seiten durchdringen sich nach dem Angleichen der Facetten nicht mehr.",
+        "fr": "Parties fines comme les ailes et les oreilles : les deux côtés ne se traversent plus après la régularisation des facettes.",
+        "es": "Partes finas como alas y orejas: las dos caras ya no se atraviesan tras regularizar las facetas.",
+        "pt": "Partes finas como asas e orelhas: os dois lados não se atravessam mais depois da regularização das facetas.",
+        "ja": "翼や耳のような薄い部分で、面を整えたあとに表と裏の面が互いに突き抜けることがなくなりました。"
+      }
+    },
     {
       "date": "2026-11-12T15:23:55Z",
       "version": "1.3.133",
@@ -518,28 +531,15 @@
         "pt": "Esculturas simétricas com apoios planos: desapareceram os últimos cordões muito curtos no chão ao longo da linha de espelho.",
         "ja": "平らな底面を持つ対称の彫刻：鏡の線に沿った地面の、最後に残っていた極端に短い溶接線がなくなりました。"
       }
-    },
-    {
-      "date": "2026-11-10T21:23:19Z",
-      "version": "1.3.95",
-      "notes": {
-        "en": "Symmetric sculptures and flat soles: no more hair-thin seams and slits where the cut passes close to a point of the model. With internal ribs switched on, a clear message says when none fits inside the shape.",
-        "it": "Sculture simmetriche e appoggi piatti: niente più cordoni cortissimi e fessure dove il taglio passa vicino a un punto del modello. Con le centine interne attive, un messaggio chiaro dice quando nessuna entra nella forma.",
-        "de": "Symmetrische Skulpturen und flache Sohlen: keine haarfeinen Nähte und Schlitze mehr, wo der Schnitt nahe an einem Punkt des Modells verläuft. Bei eingeschalteten inneren Rippen sagt eine klare Meldung, wenn keine in die Form passt.",
-        "fr": "Sculptures symétriques et semelles plates : plus de cordons minuscules ni de fentes là où la coupe passe près d'un point du modèle. Avec les nervures internes activées, un message clair indique quand aucune ne tient dans la forme.",
-        "es": "Esculturas simétricas y apoyos planos: ya no hay cordones diminutos ni ranuras donde el corte pasa cerca de un punto del modelo. Con las costillas internas activadas, un mensaje claro indica cuándo ninguna cabe en la forma.",
-        "pt": "Esculturas simétricas e apoios planos: já não há cordões minúsculos nem fendas onde o corte passa perto de um ponto do modelo. Com as nervuras internas ativadas, uma mensagem clara indica quando nenhuma cabe na forma.",
-        "ja": "対称の彫刻と平らな底面：切断がモデルの点の近くを通る場所で、極端に短い溶接線やスリットができなくなりました。内部リブを有効にしていて形に収まるリブがない場合は、わかりやすいメッセージを表示します。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.133",
+    "version": "1.3.134",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "7b1f152516e1ce365498a5aa499bee82b27df2b37da9e6dc35f2029ffae6b435"
+        "sha256": "129e6f74d14224af3d2f8f468ed87876e0581a82df696fe4f1baebac8d7b89e7"
       }
     ]
   },

@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.136",
-  "notes": "«Symmetric sculpture» on a winding shape (a dragon in an S): instead of keeping only a part of it, the sculpture is now made whole, without the mirror, and the summary says so.",
+  "latest": "1.3.137",
+  "notes": "Assembly guide: every step now shows its pieces close up, with a small picture of where they are on the sculpture; seams in a narrow groove are marked to be welded from the inside first; the base plate and the inner ribs are mentioned. Summary: when the sculpture does not stand by itself, one click adds the base plate.",
   "notes_i18n": {
-    "en": "«Symmetric sculpture» on a winding shape (a dragon in an S): instead of keeping only a part of it, the sculpture is now made whole, without the mirror, and the summary says so.",
-    "it": "«Scultura simmetrica» su una forma sinuosa (un drago a S): invece di tenerne solo una parte, ora la scultura viene fatta intera, senza specchio, e il Riepilogo lo dice.",
-    "de": "«Symmetrische Skulptur» bei einer gewundenen Form (ein Drache in S-Form): Statt nur einen Teil zu behalten, wird die Skulptur jetzt vollständig ohne Spiegelung erstellt, und die Übersicht weist darauf hin.",
-    "fr": "« Sculpture symétrique » sur une forme sinueuse (un dragon en S) : au lieu de n'en garder qu'une partie, la sculpture est désormais réalisée en entier, sans miroir, et le récapitulatif l'indique.",
-    "es": "«Escultura simétrica» en una forma sinuosa (un dragón en S): en lugar de conservar solo una parte, ahora la escultura se hace entera, sin espejo, y el resumen lo indica.",
-    "pt": "«Escultura simétrica» em uma forma sinuosa (um dragão em S): em vez de manter só uma parte, agora a escultura é feita inteira, sem espelho, e o resumo avisa.",
-    "ja": "うねった形（S字の竜など）で「左右対称の彫刻」を選んだ場合、一部だけが残るのではなく、鏡映なしで全体を作るようになりました。概要にその旨が表示されます。"
+    "en": "Assembly guide: every step now shows its pieces close up, with a small picture of where they are on the sculpture; seams in a narrow groove are marked to be welded from the inside first; the base plate and the inner ribs are mentioned. Summary: when the sculpture does not stand by itself, one click adds the base plate.",
+    "it": "Guida di montaggio: ogni passaggio ora mostra i suoi pezzi da vicino, con una piccola immagine di dove si trovano sulla scultura; i cordoni in gola stretta sono segnalati da saldare prima, dall'interno; sono citate la piastra di base e le centine interne. Riepilogo: quando la scultura non sta in piedi da sola, un clic aggiunge la piastra di base.",
+    "de": "Montageanleitung: Jeder Schritt zeigt seine Teile jetzt aus der Nähe, mit einem kleinen Bild, wo sie an der Skulptur sitzen; Nähte in einer engen Kehle sind markiert und werden zuerst von innen geschweißt; Grundplatte und Innenspanten werden erwähnt. Übersicht: Steht die Skulptur nicht von selbst, fügt ein Klick die Grundplatte hinzu.",
+    "fr": "Guide de montage : chaque étape montre désormais ses pièces de près, avec une petite image de leur position sur la sculpture ; les cordons en gorge étroite sont signalés, à souder d'abord de l'intérieur ; la platine de base et les couples internes sont mentionnés. Récapitulatif : si la sculpture ne tient pas debout seule, un clic ajoute la platine de base.",
+    "es": "Guía de montaje: cada paso muestra ahora sus piezas de cerca, con una imagen pequeña de dónde están en la escultura; los cordones en garganta estrecha se señalan para soldarlos primero por dentro; se mencionan la placa base y las costillas internas. Resumen: si la escultura no se sostiene sola, un clic añade la placa base.",
+    "pt": "Guia de montagem: cada passo agora mostra suas peças de perto, com uma imagem pequena de onde ficam na escultura; os cordões em garganta estreita são indicados para soldar primeiro por dentro; a base e as cavernas internas são mencionadas. Resumo: quando a escultura não fica em pé sozinha, um clique adiciona a base.",
+    "ja": "組立ガイド：各ステップでパーツを大きく表示し、彫刻のどこにあるかを小さな図で示すようになりました。狭い溝の継ぎ目は先に内側から溶接するよう表示し、ベースプレートと内部リブにも触れています。概要：彫刻が自立しない場合、ワンクリックでベースプレートを追加できます。"
   },
   "history": [
+    {
+      "date": "2026-11-12T18:28:42Z",
+      "version": "1.3.137",
+      "notes": {
+        "en": "Assembly guide: every step now shows its pieces close up, with a small picture of where they are on the sculpture; seams in a narrow groove are marked to be welded from the inside first; the base plate and the inner ribs are mentioned. Summary: when the sculpture does not stand by itself, one click adds the base plate.",
+        "it": "Guida di montaggio: ogni passaggio ora mostra i suoi pezzi da vicino, con una piccola immagine di dove si trovano sulla scultura; i cordoni in gola stretta sono segnalati da saldare prima, dall'interno; sono citate la piastra di base e le centine interne. Riepilogo: quando la scultura non sta in piedi da sola, un clic aggiunge la piastra di base.",
+        "de": "Montageanleitung: Jeder Schritt zeigt seine Teile jetzt aus der Nähe, mit einem kleinen Bild, wo sie an der Skulptur sitzen; Nähte in einer engen Kehle sind markiert und werden zuerst von innen geschweißt; Grundplatte und Innenspanten werden erwähnt. Übersicht: Steht die Skulptur nicht von selbst, fügt ein Klick die Grundplatte hinzu.",
+        "fr": "Guide de montage : chaque étape montre désormais ses pièces de près, avec une petite image de leur position sur la sculpture ; les cordons en gorge étroite sont signalés, à souder d'abord de l'intérieur ; la platine de base et les couples internes sont mentionnés. Récapitulatif : si la sculpture ne tient pas debout seule, un clic ajoute la platine de base.",
+        "es": "Guía de montaje: cada paso muestra ahora sus piezas de cerca, con una imagen pequeña de dónde están en la escultura; los cordones en garganta estrecha se señalan para soldarlos primero por dentro; se mencionan la placa base y las costillas internas. Resumen: si la escultura no se sostiene sola, un clic añade la placa base.",
+        "pt": "Guia de montagem: cada passo agora mostra suas peças de perto, com uma imagem pequena de onde ficam na escultura; os cordões em garganta estreita são indicados para soldar primeiro por dentro; a base e as cavernas internas são mencionadas. Resumo: quando a escultura não fica em pé sozinha, um clique adiciona a base.",
+        "ja": "組立ガイド：各ステップでパーツを大きく表示し、彫刻のどこにあるかを小さな図で示すようになりました。狭い溝の継ぎ目は先に内側から溶接するよう表示し、ベースプレートと内部リブにも触れています。概要：彫刻が自立しない場合、ワンクリックでベースプレートを追加できます。"
+      }
+    },
     {
       "date": "2026-11-12T17:17:04Z",
       "version": "1.3.136",
@@ -518,28 +531,15 @@
         "pt": "A verificação da forma agora protege também as esculturas simétricas, quando o modelo é realmente simétrico.",
         "ja": "モデルが本当に対称な場合、形状チェックが対称の彫刻にも働くようになりました。"
       }
-    },
-    {
-      "date": "2026-11-10T23:01:19Z",
-      "version": "1.3.98",
-      "notes": {
-        "en": "The shape check introduced in the last version now also works with “Thicken the parts that are too thin” switched off: the model is rebuilt with its small holes sealed, at its own size.",
-        "it": "Il controllo della forma introdotto nella versione precedente ora funziona anche con «Ingrossa le parti troppo sottili» spento: il modello viene ricostruito con i piccoli fori chiusi, alla sua misura.",
-        "de": "Die in der letzten Version eingeführte Formprüfung funktioniert jetzt auch, wenn „Zu dünne Teile verstärken“ ausgeschaltet ist: Das Modell wird mit verschlossenen kleinen Löchern in seiner eigenen Größe neu aufgebaut.",
-        "fr": "Le contrôle de la forme introduit dans la version précédente fonctionne désormais aussi avec « Épaissir les parties trop fines » désactivé : le modèle est reconstruit avec ses petits trous bouchés, à sa propre taille.",
-        "es": "La comprobación de la forma introducida en la versión anterior ahora funciona también con «Engrosar las partes demasiado finas» desactivado: el modelo se reconstruye con sus pequeños agujeros cerrados, a su propio tamaño.",
-        "pt": "A verificação da forma introduzida na versão anterior agora funciona também com «Engrossar as partes finas demais» desligado: o modelo é reconstruído com os pequenos furos fechados, no seu próprio tamanho.",
-        "ja": "前のバージョンで導入した形状チェックが、「細すぎる部分を太くする」をオフにしていても働くようになりました。小さな穴をふさいだ状態で、元の大きさのままモデルを作り直します。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.136",
+    "version": "1.3.137",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "bd2367630421c38ef5cc311e05ca72ef920402f58a1713945b35410c6d73fd3c"
+        "sha256": "56fd9018574951a45d0a8ff3420601fcb1b23fb8d422187a292f8663c6cd0a5a"
       }
     ]
   },

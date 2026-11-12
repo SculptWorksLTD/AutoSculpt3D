@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.139",
-  "notes": "New projects start with a maximum bend of 60° instead of 40°: about half as many pieces to fit and tack, a little less welding, slightly more sheet. Saved projects keep their own value; the slider is still there.",
+  "latest": "1.3.140",
+  "notes": "Antlers, horns, tails and ears: thin parts are now made thick enough to be built, and only they — body and legs keep their shape. A deer's antlers come out as faceted beams with their tines instead of thin splinters. The summary says how thick they were made.",
   "notes_i18n": {
-    "en": "New projects start with a maximum bend of 60° instead of 40°: about half as many pieces to fit and tack, a little less welding, slightly more sheet. Saved projects keep their own value; the slider is still there.",
-    "it": "I progetti nuovi partono con una piega massima di 60° invece di 40°: circa la metà dei pezzi da accostare e puntare, un po' meno saldatura, un po' più di lamiera. I progetti salvati tengono il loro valore; la barra resta a disposizione.",
-    "de": "Neue Projekte starten mit einer maximalen Biegung von 60° statt 40°: etwa halb so viele Teile zum Anpassen und Heften, etwas weniger Schweißen, etwas mehr Blech. Gespeicherte Projekte behalten ihren Wert; der Regler bleibt verfügbar.",
-    "fr": "Les nouveaux projets démarrent avec un pli maximal de 60° au lieu de 40° : environ deux fois moins de pièces à ajuster et pointer, un peu moins de soudure, un peu plus de tôle. Les projets enregistrés gardent leur valeur ; le curseur reste disponible.",
-    "es": "Los proyectos nuevos empiezan con un pliegue máximo de 60° en lugar de 40°: cerca de la mitad de piezas que ajustar y puntear, algo menos de soldadura, algo más de chapa. Los proyectos guardados conservan su valor; el control sigue disponible.",
-    "pt": "Os projetos novos começam com dobra máxima de 60° em vez de 40°: cerca de metade das peças para ajustar e pontear, um pouco menos de solda, um pouco mais de chapa. Os projetos salvos mantêm o próprio valor; o controle continua disponível.",
-    "ja": "新しいプロジェクトの最大曲げ角度が40°から60°になりました。合わせて仮付けするパーツが約半分になり、溶接も少し減りますが、板材は少し増えます。保存済みのプロジェクトは元の値のままで、スライダーで変更できます。"
+    "en": "Antlers, horns, tails and ears: thin parts are now made thick enough to be built, and only they — body and legs keep their shape. A deer's antlers come out as faceted beams with their tines instead of thin splinters. The summary says how thick they were made.",
+    "it": "Corna, code e orecchie: le parti sottili ora vengono ingrossate quanto basta per costruirle, e solo loro — corpo e zampe tengono la loro forma. Le corna di un cervo escono come travi sfaccettate con i loro rami invece di schegge sottili. Il Riepilogo dice a quanti millimetri sono state portate.",
+    "de": "Geweihe, Hörner, Schwänze und Ohren: Dünne Teile werden jetzt gerade so dick gemacht, dass sie sich bauen lassen, und nur sie — Körper und Beine behalten ihre Form. Das Geweih eines Hirsches entsteht als facettierte Stangen mit Enden statt als dünne Splitter. Die Übersicht nennt die erreichte Dicke.",
+    "fr": "Bois, cornes, queues et oreilles : les parties fines sont désormais épaissies juste assez pour être construites, et elles seules — le corps et les pattes gardent leur forme. Les bois d'un cerf sortent en poutres facettées avec leurs andouillers au lieu d'éclats fins. Le récapitulatif indique l'épaisseur obtenue.",
+    "es": "Cuernas, cuernos, colas y orejas: las partes finas ahora se engrosan lo justo para poder construirlas, y solo ellas: el cuerpo y las patas conservan su forma. La cuerna de un ciervo sale como vigas facetadas con sus puntas en lugar de astillas finas. El resumen indica el grosor alcanzado.",
+    "pt": "Galhadas, chifres, caudas e orelhas: as partes finas agora são engrossadas só o necessário para serem construídas, e apenas elas — corpo e pernas mantêm a forma. A galhada de um cervo sai como vigas facetadas com suas pontas em vez de lascas finas. O resumo informa a espessura obtida.",
+    "ja": "枝角、角、尾、耳：細い部分だけを、製作できる太さまで太くするようになりました。胴体や脚の形は変わりません。鹿の枝角は細い破片ではなく、枝のある面取りされた梁として出力されます。概要に、どの太さにしたかが表示されます。"
   },
   "history": [
+    {
+      "date": "2026-11-12T20:15:52Z",
+      "version": "1.3.140",
+      "notes": {
+        "en": "Antlers, horns, tails and ears: thin parts are now made thick enough to be built, and only they — body and legs keep their shape. A deer's antlers come out as faceted beams with their tines instead of thin splinters. The summary says how thick they were made.",
+        "it": "Corna, code e orecchie: le parti sottili ora vengono ingrossate quanto basta per costruirle, e solo loro — corpo e zampe tengono la loro forma. Le corna di un cervo escono come travi sfaccettate con i loro rami invece di schegge sottili. Il Riepilogo dice a quanti millimetri sono state portate.",
+        "de": "Geweihe, Hörner, Schwänze und Ohren: Dünne Teile werden jetzt gerade so dick gemacht, dass sie sich bauen lassen, und nur sie — Körper und Beine behalten ihre Form. Das Geweih eines Hirsches entsteht als facettierte Stangen mit Enden statt als dünne Splitter. Die Übersicht nennt die erreichte Dicke.",
+        "fr": "Bois, cornes, queues et oreilles : les parties fines sont désormais épaissies juste assez pour être construites, et elles seules — le corps et les pattes gardent leur forme. Les bois d'un cerf sortent en poutres facettées avec leurs andouillers au lieu d'éclats fins. Le récapitulatif indique l'épaisseur obtenue.",
+        "es": "Cuernas, cuernos, colas y orejas: las partes finas ahora se engrosan lo justo para poder construirlas, y solo ellas: el cuerpo y las patas conservan su forma. La cuerna de un ciervo sale como vigas facetadas con sus puntas en lugar de astillas finas. El resumen indica el grosor alcanzado.",
+        "pt": "Galhadas, chifres, caudas e orelhas: as partes finas agora são engrossadas só o necessário para serem construídas, e apenas elas — corpo e pernas mantêm a forma. A galhada de um cervo sai como vigas facetadas com suas pontas em vez de lascas finas. O resumo informa a espessura obtida.",
+        "ja": "枝角、角、尾、耳：細い部分だけを、製作できる太さまで太くするようになりました。胴体や脚の形は変わりません。鹿の枝角は細い破片ではなく、枝のある面取りされた梁として出力されます。概要に、どの太さにしたかが表示されます。"
+      }
+    },
     {
       "date": "2026-11-12T19:42:45Z",
       "version": "1.3.139",
@@ -518,28 +531,15 @@
         "pt": "Apoios planos: corrigido um defeito raro em que duas facetas da sola ficavam uma sobre a outra nos modelos feitos de partes unidas.",
         "ja": "平らな接地面：複数の部品をつないだモデルで、接地面の面が2枚重なってしまうまれな不具合を修正しました。"
       }
-    },
-    {
-      "date": "2026-11-11T00:57:59Z",
-      "version": "1.3.101",
-      "notes": {
-        "en": "Flat soles: the sole of a round base is no longer left open on small models.",
-        "it": "Appoggi piatti: la suola di una base rotonda non resta più aperta sui modelli piccoli.",
-        "de": "Flache Sohlen: Die Sohle eines runden Sockels bleibt bei kleinen Modellen nicht mehr offen.",
-        "fr": "Semelles plates : la semelle d'une base ronde ne reste plus ouverte sur les petits modèles.",
-        "es": "Apoyos planos: la suela de una base redonda ya no queda abierta en los modelos pequeños.",
-        "pt": "Apoios planos: a sola de uma base redonda já não fica aberta nos modelos pequenos.",
-        "ja": "平らな底面：小さなモデルで、丸い台座の底面が開いたままになることがなくなりました。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.139",
+    "version": "1.3.140",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "b73cec02b3459ed92bcf44eafba0661ffaab0095a90e3973bf0e8082895d292f"
+        "sha256": "cc3c5519c96c3011cabe569baaf3214612e669affc131a5de206475f006282fb"
       }
     ]
   },

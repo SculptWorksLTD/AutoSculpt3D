@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
   "latest": "1.3.146",
-  "notes": "Safer automatic updates: the program checks more strictly where update files may be written.",
+  "notes": "Tripo online engine: clearer messages when the service is busy or the account has no credits.",
   "notes_i18n": {
-    "en": "Safer automatic updates: the program checks more strictly where update files may be written.",
-    "it": "Aggiornamenti automatici più sicuri: il programma controlla in modo più severo dove possono essere scritti i file degli aggiornamenti.",
-    "de": "Sicherere automatische Updates: Das Programm prüft strenger, wohin Update-Dateien geschrieben werden dürfen.",
-    "fr": "Mises à jour automatiques plus sûres : le programme vérifie plus strictement où les fichiers de mise à jour peuvent être écrits.",
-    "es": "Actualizaciones automáticas más seguras: el programa comprueba con más rigor dónde pueden escribirse los archivos de actualización.",
-    "pt": "Atualizações automáticas mais seguras: o programa verifica com mais rigor onde os arquivos de atualização podem ser gravados.",
-    "ja": "自動更新の安全性向上：更新ファイルの書き込み先をより厳しく確認するようになりました。"
+    "en": "Tripo online engine: clearer messages when the service is busy or the account has no credits.",
+    "it": "Motore online Tripo: messaggi più chiari quando il servizio è occupato o l'account non ha crediti.",
+    "de": "Online-Engine Tripo: klarere Meldungen, wenn der Dienst ausgelastet ist oder das Konto kein Guthaben hat.",
+    "fr": "Moteur en ligne Tripo : messages plus clairs quand le service est occupé ou que le compte n'a plus de crédits.",
+    "es": "Motor en línea Tripo: mensajes más claros cuando el servicio está ocupado o la cuenta no tiene créditos.",
+    "pt": "Motor online Tripo: mensagens mais claras quando o serviço está ocupado ou a conta não tem créditos.",
+    "ja": "オンラインエンジン Tripo：サービスが混雑しているときやクレジットが不足しているときのメッセージが分かりやすくなりました。"
   },
   "history": [
+    {
+      "date": "2026-11-13T06:29:14Z",
+      "version": "1.3.146",
+      "notes": {
+        "en": "Tripo online engine: clearer messages when the service is busy or the account has no credits.",
+        "it": "Motore online Tripo: messaggi più chiari quando il servizio è occupato o l'account non ha crediti.",
+        "de": "Online-Engine Tripo: klarere Meldungen, wenn der Dienst ausgelastet ist oder das Konto kein Guthaben hat.",
+        "fr": "Moteur en ligne Tripo : messages plus clairs quand le service est occupé ou que le compte n'a plus de crédits.",
+        "es": "Motor en línea Tripo: mensajes más claros cuando el servicio está ocupado o la cuenta no tiene créditos.",
+        "pt": "Motor online Tripo: mensagens mais claras quando o serviço está ocupado ou a conta não tem créditos.",
+        "ja": "オンラインエンジン Tripo：サービスが混雑しているときやクレジットが不足しているときのメッセージが分かりやすくなりました。"
+      }
+    },
     {
       "date": "2026-11-13T05:26:03Z",
       "version": "1.3.146",
@@ -518,19 +531,6 @@
         "pt": "Esculturas simétricas: em objetos pequenos como colunas, a costura do espelho já não deixa lados mais curtos que o mínimo nem uma fenda fina numa peça.",
         "ja": "左右対称の彫刻：柱のような小さな物で、鏡の継ぎ目に最小値より短い辺や細いスリットが残らなくなりました。"
       }
-    },
-    {
-      "date": "2026-11-11T08:19:16Z",
-      "version": "1.3.109",
-      "notes": {
-        "en": "Thin parts: the tip of a thin tail or handle that joins the body again can no longer come loose as a separate floating piece.",
-        "it": "Parti sottili: la punta di una coda o di un manico sottile che si ricongiunge al corpo non può più staccarsi come pezzo a sé, sospeso.",
-        "de": "Dünne Teile: Die Spitze eines dünnen Schwanzes oder Griffs, der wieder in den Körper übergeht, kann sich nicht mehr als loses, schwebendes Teil ablösen.",
-        "fr": "Parties fines : la pointe d'une queue ou d'une anse fine qui rejoint le corps ne peut plus se détacher en pièce flottante séparée.",
-        "es": "Partes finas: la punta de una cola o un asa fina que vuelve a unirse al cuerpo ya no puede soltarse como una pieza aparte, flotando.",
-        "pt": "Partes finas: a ponta de uma cauda ou alça fina que volta a unir-se ao corpo já não pode soltar-se como peça separada, a flutuar.",
-        "ja": "細い部分：本体に再びつながる細い尾や取っ手の先端が、宙に浮いた別パーツとして切り離されることがなくなりました。"
-      }
     }
   ],
   "ui": {
@@ -713,17 +713,17 @@
     {
       "id": "tripo",
       "name": "Tripo",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "files": [
         {
           "path": "engine.json",
           "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/tripo/engine.json",
-          "sha256": "c2615de04e182490c65c6cfef30cacdc451d67a61ae288a992b7fcd83dbfc408"
+          "sha256": "b62cb2cf072d9f888c0f09d90686f9b434b7f44e66f464c897b7ff214ef69375"
         },
         {
           "path": "runner.py",
           "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/tripo/runner.py",
-          "sha256": "3325767db41aedef165ad79a5db0e0e8f5e3a5af4e1598316c157c5522ec5e0b"
+          "sha256": "1f8e2b000302a435cb59b1a91f53a99d4f2a06d93a4e41d99b0f972520a5cf6e"
         }
       ]
     },

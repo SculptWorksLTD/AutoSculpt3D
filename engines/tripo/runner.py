@@ -65,6 +65,10 @@ def upload(path, key):
     except urllib.error.HTTPError as e:
         if e.code in (401, 403):
             raise Fail('{service} refused the API key: check it in Tools → Photo → 3D engines', service=SERVICE)
+        if e.code == 402:
+            raise Fail('Not enough credits on your {service} account (the API needs a paid plan)', service=SERVICE)
+        if e.code == 429:
+            raise Fail('{service} is busy: try again in a minute', service=SERVICE)
         raise Fail('{service} error {code}: {detail}', service=SERVICE, code=e.code, detail=e.read().decode('utf-8', 'replace')[:300])
     except urllib.error.URLError as e:
         raise Fail('Cannot reach {service}: check the internet connection ({detail})', service=SERVICE, detail=str(e.reason))

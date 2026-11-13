@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.144",
-  "notes": "Narrow grooves: the program now has a second way to open the grooves that are too narrow for the torch, so far fewer of them remain, especially in symmetric sculptures.",
+  "latest": "1.3.145",
+  "notes": "Symmetric sculptures are calculated faster, and heads covered in fine relief (a lion's mane) keep all the facets you ask for.",
   "notes_i18n": {
-    "en": "Narrow grooves: the program now has a second way to open the grooves that are too narrow for the torch, so far fewer of them remain, especially in symmetric sculptures.",
-    "it": "Gole strette: il programma ha ora un secondo modo per aprire le gole troppo strette per la torcia, quindi ne restano molte meno, soprattutto nelle sculture simmetriche.",
-    "de": "Enge Kehlen: Das Programm hat jetzt eine zweite Methode, um Kehlen zu öffnen, die für den Brenner zu eng sind. Es bleiben deutlich weniger übrig, vor allem bei symmetrischen Skulpturen.",
-    "fr": "Gorges étroites : le programme dispose désormais d'une deuxième façon d'ouvrir les gorges trop étroites pour la torche ; il en reste beaucoup moins, surtout dans les sculptures symétriques.",
-    "es": "Gargantas estrechas: el programa tiene ahora una segunda forma de abrir las gargantas demasiado estrechas para la antorcha, así que quedan muchas menos, sobre todo en las esculturas simétricas.",
-    "pt": "Gargantas estreitas: o programa tem agora uma segunda maneira de abrir as gargantas estreitas demais para a tocha, então sobram muito menos, principalmente nas esculturas simétricas.",
-    "ja": "狭い溝：トーチが入らないほど狭い溝を開く方法がもう一つ加わり、特に左右対称の彫刻で残る溝が大幅に減りました。"
+    "en": "Symmetric sculptures are calculated faster, and heads covered in fine relief (a lion's mane) keep all the facets you ask for.",
+    "it": "Le sculture simmetriche si calcolano più in fretta, e le teste coperte di rilievi fini (la criniera di un leone) tengono tutte le facce chieste.",
+    "de": "Symmetrische Skulpturen werden schneller berechnet, und Köpfe mit feinem Relief (eine Löwenmähne) behalten alle gewünschten Facetten.",
+    "fr": "Les sculptures symétriques se calculent plus vite, et les têtes couvertes de reliefs fins (la crinière d'un lion) gardent toutes les facettes demandées.",
+    "es": "Las esculturas simétricas se calculan más rápido, y las cabezas cubiertas de relieves finos (la melena de un león) conservan todas las facetas pedidas.",
+    "pt": "As esculturas simétricas são calculadas mais rápido, e as cabeças cobertas de relevos finos (a juba de um leão) mantêm todas as facetas pedidas.",
+    "ja": "左右対称の彫刻の計算が速くなり、細かい起伏のある頭部（ライオンのたてがみなど）でも指定した面数が保たれます。"
   },
   "history": [
+    {
+      "date": "2026-11-13T01:30:38Z",
+      "version": "1.3.145",
+      "notes": {
+        "en": "Symmetric sculptures are calculated faster, and heads covered in fine relief (a lion's mane) keep all the facets you ask for.",
+        "it": "Le sculture simmetriche si calcolano più in fretta, e le teste coperte di rilievi fini (la criniera di un leone) tengono tutte le facce chieste.",
+        "de": "Symmetrische Skulpturen werden schneller berechnet, und Köpfe mit feinem Relief (eine Löwenmähne) behalten alle gewünschten Facetten.",
+        "fr": "Les sculptures symétriques se calculent plus vite, et les têtes couvertes de reliefs fins (la crinière d'un lion) gardent toutes les facettes demandées.",
+        "es": "Las esculturas simétricas se calculan más rápido, y las cabezas cubiertas de relieves finos (la melena de un león) conservan todas las facetas pedidas.",
+        "pt": "As esculturas simétricas são calculadas mais rápido, e as cabeças cobertas de relevos finos (a juba de um leão) mantêm todas as facetas pedidas.",
+        "ja": "左右対称の彫刻の計算が速くなり、細かい起伏のある頭部（ライオンのたてがみなど）でも指定した面数が保たれます。"
+      }
+    },
     {
       "date": "2026-11-13T00:28:56Z",
       "version": "1.3.144",
@@ -518,28 +531,15 @@
         "pt": "Esculturas simétricas: em formas planas muito grandes nenhuma peça sai maior que a chapa, e desaparece uma rara fenda finíssima ao longo da costura do espelho.",
         "ja": "左右対称の彫刻：非常に大きく平らな形でパーツが板より大きくなることがなくなり、鏡の継ぎ目に沿ってまれに出ていた極細のスリットも解消しました。"
       }
-    },
-    {
-      "date": "2026-11-11T06:33:56Z",
-      "version": "1.3.106",
-      "notes": {
-        "en": "Short seams: a tiny sole under a pointed tip that touches the ground is now removed instead of leaving seams of a couple of millimetres.",
-        "it": "Cordoni corti: la minuscola suola sotto una punta che tocca terra ora viene tolta, invece di lasciare cordoni di un paio di millimetri.",
-        "de": "Kurze Nähte: Die winzige Sohle unter einer Spitze, die den Boden berührt, wird jetzt entfernt, statt Nähte von wenigen Millimetern zu hinterlassen.",
-        "fr": "Cordons courts : la minuscule semelle sous une pointe qui touche le sol est désormais supprimée, au lieu de laisser des cordons de quelques millimètres.",
-        "es": "Cordones cortos: la suela diminuta bajo una punta que toca el suelo ahora se elimina, en lugar de dejar cordones de un par de milímetros.",
-        "pt": "Cordões curtos: a sola minúscula sob uma ponta que toca o chão agora é removida, em vez de deixar cordões de alguns milímetros.",
-        "ja": "短い溶接線：地面に触れる尖った先端の下にできるごく小さな底面を取り除き、数ミリの溶接線が残らないようにしました。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.144",
+    "version": "1.3.145",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "eea73ca0df1a4cd168a2ea028320d5eaa6b18979d122861c6e7ad81a942da6a4"
+        "sha256": "83b3c76bc7e0475c4f042baf5e2b2536618f813636932c5b75df56fc11721376"
       }
     ]
   },

@@ -993,7 +993,7 @@ def apply_updates(job):
             stage = Path(tempfile.mkdtemp(dir=SUPPORT / 'updates'))
             for f in c['files']:
                 rel = f['path']
-                if '..' in Path(rel).parts or rel.startswith(('/', '\\')) or Path(rel).is_absolute() or (':' in rel):
+                if '..' in Path(rel).parts or '\\' in rel or rel.startswith('/') or Path(rel).is_absolute() or (':' in rel):
                     raise UserError('Invalid path in the manifest: {path}', path=rel)
                 dest = stage / rel
                 dest.parent.mkdir(parents=True, exist_ok=True)

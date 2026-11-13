@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
   "latest": "1.3.146",
-  "notes": "Brush: thin parts such as antlers, tails and ears are now still made thick enough to weld when you paint with the detail brush.",
+  "notes": "Safer automatic updates: the program checks more strictly where update files may be written.",
   "notes_i18n": {
-    "en": "Brush: thin parts such as antlers, tails and ears are now still made thick enough to weld when you paint with the detail brush.",
-    "it": "Pennello: le parti sottili come corna, code e orecchie restano abbastanza grosse da saldare anche quando dipingi col pennello del dettaglio.",
-    "de": "Pinsel: Dünne Teile wie Geweihe, Schwänze und Ohren bleiben jetzt auch beim Malen mit dem Detailpinsel dick genug zum Schweißen.",
-    "fr": "Pinceau : les parties fines comme les bois, les queues et les oreilles restent assez épaisses pour être soudées même quand vous peignez avec le pinceau de détail.",
-    "es": "Pincel: las partes finas como cuernas, colas y orejas siguen siendo lo bastante gruesas para soldar también cuando pintas con el pincel de detalle.",
-    "pt": "Pincel: as partes finas como galhadas, caudas e orelhas continuam grossas o bastante para soldar mesmo quando você pinta com o pincel de detalhe.",
-    "ja": "ブラシ：ディテールブラシで塗っても、角・尾・耳などの細い部分が溶接できる太さに保たれるようになりました。"
+    "en": "Safer automatic updates: the program checks more strictly where update files may be written.",
+    "it": "Aggiornamenti automatici più sicuri: il programma controlla in modo più severo dove possono essere scritti i file degli aggiornamenti.",
+    "de": "Sicherere automatische Updates: Das Programm prüft strenger, wohin Update-Dateien geschrieben werden dürfen.",
+    "fr": "Mises à jour automatiques plus sûres : le programme vérifie plus strictement où les fichiers de mise à jour peuvent être écrits.",
+    "es": "Actualizaciones automáticas más seguras: el programa comprueba con más rigor dónde pueden escribirse los archivos de actualización.",
+    "pt": "Atualizações automáticas mais seguras: o programa verifica com mais rigor onde os arquivos de atualização podem ser gravados.",
+    "ja": "自動更新の安全性向上：更新ファイルの書き込み先をより厳しく確認するようになりました。"
   },
   "history": [
+    {
+      "date": "2026-11-13T05:26:03Z",
+      "version": "1.3.146",
+      "notes": {
+        "en": "Safer automatic updates: the program checks more strictly where update files may be written.",
+        "it": "Aggiornamenti automatici più sicuri: il programma controlla in modo più severo dove possono essere scritti i file degli aggiornamenti.",
+        "de": "Sicherere automatische Updates: Das Programm prüft strenger, wohin Update-Dateien geschrieben werden dürfen.",
+        "fr": "Mises à jour automatiques plus sûres : le programme vérifie plus strictement où les fichiers de mise à jour peuvent être écrits.",
+        "es": "Actualizaciones automáticas más seguras: el programa comprueba con más rigor dónde pueden escribirse los archivos de actualización.",
+        "pt": "Atualizações automáticas mais seguras: o programa verifica com mais rigor onde os arquivos de atualização podem ser gravados.",
+        "ja": "自動更新の安全性向上：更新ファイルの書き込み先をより厳しく確認するようになりました。"
+      }
+    },
     {
       "date": "2026-11-13T03:28:25Z",
       "version": "1.3.146",
@@ -518,19 +531,6 @@
         "pt": "Partes finas: a ponta de uma cauda ou alça fina que volta a unir-se ao corpo já não pode soltar-se como peça separada, a flutuar.",
         "ja": "細い部分：本体に再びつながる細い尾や取っ手の先端が、宙に浮いた別パーツとして切り離されることがなくなりました。"
       }
-    },
-    {
-      "date": "2026-11-11T07:39:58Z",
-      "version": "1.3.108",
-      "notes": {
-        "en": "Minimum side: on flat or mirrored sculptures that came out longer than the model, the sides could end up shorter than the minimum you set. Now they respect it.",
-        "it": "Lato minimo: sulle sculture piatte o specchiate che uscivano più lunghe del modello, i lati potevano risultare più corti del minimo impostato. Ora lo rispettano.",
-        "de": "Mindestseite: Bei flachen oder gespiegelten Skulpturen, die länger als das Modell ausfielen, konnten die Seiten kürzer als das eingestellte Minimum werden. Jetzt wird es eingehalten.",
-        "fr": "Côté minimal : sur les sculptures plates ou en miroir qui sortaient plus longues que le modèle, les côtés pouvaient être plus courts que le minimum réglé. Il est désormais respecté.",
-        "es": "Lado mínimo: en esculturas planas o reflejadas que salían más largas que el modelo, los lados podían quedar más cortos que el mínimo fijado. Ahora lo respetan.",
-        "pt": "Lado mínimo: em esculturas planas ou espelhadas que saíam mais compridas que o modelo, os lados podiam ficar mais curtos que o mínimo definido. Agora respeitam-no.",
-        "ja": "最小辺：平らな彫刻や左右対称にした彫刻がモデルより長くなる場合に、辺が設定した最小値より短くなることがありました。現在は最小値が守られます。"
-      }
     }
   ],
   "ui": {
@@ -544,12 +544,12 @@
     ]
   },
   "app": {
-    "version": "1.3.28",
+    "version": "1.3.29",
     "files": [
       {
         "path": "main.py",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/app/main.py",
-        "sha256": "9ccad48664da0ebc73cfe2d4dd8118bd5178903a20ad45df794bfae8839d03d8"
+        "sha256": "21e61bcf8da9f50657a9a4d6d7d7d437149e3d017cdf950c92346cf2d94b571a"
       }
     ]
   },

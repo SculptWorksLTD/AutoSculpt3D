@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.156",
-  "notes": "New field «Hole clearance (mm)» for gates, grilles and fences: how much wider than the bar the holes in the rails are (1 mm by default). Every new or reopened project starts with the panel's sections closed and all settings back to the standard values.",
+  "latest": "1.3.157",
+  "notes": "Metalwork: the 3D view now shows all the accessories in their places — hinges, locks, handles, drop bolts and stops, track, wheels, top guide and catch of sliding gates, rack and operator when motorised, anchors with nuts and washers on every plate, tube caps, levelling feet, roof sheets, polycarbonate, flooring and wooden tops.",
   "notes_i18n": {
-    "en": "New field «Hole clearance (mm)» for gates, grilles and fences: how much wider than the bar the holes in the rails are (1 mm by default). Every new or reopened project starts with the panel's sections closed and all settings back to the standard values.",
-    "it": "Nuovo campo «Gioco dei fori (mm)» per cancelli, inferriate e recinzioni: quanto i fori dei traversi sono più larghi della barra (1 mm di serie). Ogni progetto nuovo o riaperto parte con le tendine del pannello chiuse e tutti i parametri ai valori standard.",
-    "de": "Neues Feld «Lochspiel (mm)» für Tore, Gitter und Zäune: wie viel größer als der Stab die Löcher in den Riegeln sind (standardmäßig 1 mm). Jedes neue oder wieder geöffnete Projekt beginnt mit geschlossenen Bereichen im Seitenfeld und allen Werten auf Standard.",
-    "fr": "Nouveau champ « Jeu des trous (mm) » pour portails, grilles et clôtures : de combien les trous des traverses sont plus larges que le barreau (1 mm par défaut). Chaque projet nouveau ou rouvert commence avec les sections du panneau fermées et tous les réglages aux valeurs standard.",
-    "es": "Nuevo campo «Holgura de los agujeros (mm)» para cancelas, rejas y vallas: cuánto más anchos que el barrote son los agujeros de los travesaños (1 mm de serie). Cada proyecto nuevo o reabierto empieza con las secciones del panel cerradas y todos los ajustes en los valores estándar.",
-    "pt": "Novo campo «Folga dos furos (mm)» para portões, grades e cercas: quanto os furos das travessas são mais largos que a barra (1 mm de série). Cada projeto novo ou reaberto começa com as seções do painel fechadas e todos os ajustes nos valores padrão.",
-    "ja": "門扉・面格子・フェンスに「穴のクリアランス (mm)」を追加：横材の穴を格子よりどれだけ大きくするか (標準 1 mm)。新規または開き直したプロジェクトは、パネルの項目がすべて閉じ、設定が標準値に戻った状態で始まります。"
+    "en": "Metalwork: the 3D view now shows all the accessories in their places — hinges, locks, handles, drop bolts and stops, track, wheels, top guide and catch of sliding gates, rack and operator when motorised, anchors with nuts and washers on every plate, tube caps, levelling feet, roof sheets, polycarbonate, flooring and wooden tops.",
+    "it": "Carpenteria: la vista 3D mostra ora tutti gli accessori al loro posto — cerniere, serrature, maniglie, catenacci e fermi, binario, ruote, guida superiore e incontro dei cancelli scorrevoli, cremagliera e motore se motorizzato, ancoranti con dadi e rondelle su ogni piastra, tappi dei tubi, piedini, coperture, policarbonato, pavimenti e piani in legno.",
+    "de": "Metallbau: die 3D-Ansicht zeigt jetzt alle Zubehörteile an ihrem Platz — Scharniere, Schlösser, Griffe, Bodenriegel und Anschläge, Laufschiene, Rollen, Führung und Fangbock bei Schiebetoren, Zahnstange und Antrieb bei Motorisierung, Anker mit Muttern und Scheiben an jeder Platte, Rohrstopfen, Stellfüße, Dacheindeckung, Polycarbonat, Böden und Holzplatten.",
+    "fr": "Métallerie : la vue 3D montre maintenant tous les accessoires à leur place — gonds, serrures, poignées, verrous et butées, rail, roues, guide haut et réceptacle des portails coulissants, crémaillère et moteur si motorisé, chevilles avec écrous et rondelles sur chaque platine, embouts des tubes, pieds réglables, couvertures, polycarbonate, planchers et plateaux en bois.",
+    "es": "Cerrajería: la vista 3D muestra ahora todos los accesorios en su sitio — bisagras, cerraduras, manillas, cerrojos y topes, carril, ruedas, guía superior y recibidor de las cancelas correderas, cremallera y motor si está motorizada, anclajes con tuercas y arandelas en cada placa, tapones de los tubos, patas niveladoras, cubiertas, policarbonato, suelos y tableros de madera.",
+    "pt": "Serralheria: a vista 3D mostra agora todos os acessórios no seu lugar — dobradiças, fechaduras, maçanetas, ferrolhos e batentes, trilho, rodas, guia superior e receptor dos portões de correr, cremalheira e motor se motorizado, chumbadores com porcas e arruelas em cada chapa, tampões dos tubos, pés niveladores, coberturas, policarbonato, pisos e tampos de madeira.",
+    "ja": "金属加工：3Dビューにすべての付属品が取り付け位置に表示されるようになりました — 丁番、錠、ハンドル、落とし棒とストッパー、引き戸のレール・車輪・上部ガイド・受け金具、電動時のラックとモーター、各プレートのアンカー（ナットと座金）、パイプキャップ、アジャスター、屋根材、ポリカーボネート、床材、木製天板。"
   },
   "history": [
+    {
+      "date": "2026-11-13T15:17:22Z",
+      "version": "1.3.157",
+      "notes": {
+        "en": "Metalwork: the 3D view now shows all the accessories in their places — hinges, locks, handles, drop bolts and stops, track, wheels, top guide and catch of sliding gates, rack and operator when motorised, anchors with nuts and washers on every plate, tube caps, levelling feet, roof sheets, polycarbonate, flooring and wooden tops.",
+        "it": "Carpenteria: la vista 3D mostra ora tutti gli accessori al loro posto — cerniere, serrature, maniglie, catenacci e fermi, binario, ruote, guida superiore e incontro dei cancelli scorrevoli, cremagliera e motore se motorizzato, ancoranti con dadi e rondelle su ogni piastra, tappi dei tubi, piedini, coperture, policarbonato, pavimenti e piani in legno.",
+        "de": "Metallbau: die 3D-Ansicht zeigt jetzt alle Zubehörteile an ihrem Platz — Scharniere, Schlösser, Griffe, Bodenriegel und Anschläge, Laufschiene, Rollen, Führung und Fangbock bei Schiebetoren, Zahnstange und Antrieb bei Motorisierung, Anker mit Muttern und Scheiben an jeder Platte, Rohrstopfen, Stellfüße, Dacheindeckung, Polycarbonat, Böden und Holzplatten.",
+        "fr": "Métallerie : la vue 3D montre maintenant tous les accessoires à leur place — gonds, serrures, poignées, verrous et butées, rail, roues, guide haut et réceptacle des portails coulissants, crémaillère et moteur si motorisé, chevilles avec écrous et rondelles sur chaque platine, embouts des tubes, pieds réglables, couvertures, polycarbonate, planchers et plateaux en bois.",
+        "es": "Cerrajería: la vista 3D muestra ahora todos los accesorios en su sitio — bisagras, cerraduras, manillas, cerrojos y topes, carril, ruedas, guía superior y recibidor de las cancelas correderas, cremallera y motor si está motorizada, anclajes con tuercas y arandelas en cada placa, tapones de los tubos, patas niveladoras, cubiertas, policarbonato, suelos y tableros de madera.",
+        "pt": "Serralheria: a vista 3D mostra agora todos os acessórios no seu lugar — dobradiças, fechaduras, maçanetas, ferrolhos e batentes, trilho, rodas, guia superior e receptor dos portões de correr, cremalheira e motor se motorizado, chumbadores com porcas e arruelas em cada chapa, tampões dos tubos, pés niveladores, coberturas, policarbonato, pisos e tampos de madeira.",
+        "ja": "金属加工：3Dビューにすべての付属品が取り付け位置に表示されるようになりました — 丁番、錠、ハンドル、落とし棒とストッパー、引き戸のレール・車輪・上部ガイド・受け金具、電動時のラックとモーター、各プレートのアンカー（ナットと座金）、パイプキャップ、アジャスター、屋根材、ポリカーボネート、床材、木製天板。"
+      }
+    },
     {
       "date": "2026-11-13T14:51:19Z",
       "version": "1.3.156",
@@ -518,28 +531,15 @@
         "pt": "Novo aviso de oficina: os cordões que ficam numa garganta estreita, onde a tocha chega com dificuldade, são indicados no Resumo; clique no aviso para vê-los circulados na escultura.",
         "ja": "工房向けの新しいお知らせ：トーチが届きにくい狭い溝の奥にある継ぎ目を「概要」に表示します。お知らせをクリックすると、彫刻上で丸で囲んで示します。"
       }
-    },
-    {
-      "date": "2026-11-11T20:27:53Z",
-      "version": "1.3.119",
-      "notes": {
-        "en": "Symmetric sculptures: fixed a rare case that left a slit in the cut path and very short sides on the seam between the two halves.",
-        "it": "Sculture simmetriche: corretto un caso raro che lasciava una fessura nel percorso di taglio e lati cortissimi sulla cucitura tra le due metà.",
-        "de": "Symmetrische Skulpturen: Ein seltener Fall wurde behoben, der einen Schlitz im Schnittweg und sehr kurze Seiten an der Naht zwischen den beiden Hälften hinterließ.",
-        "fr": "Sculptures symétriques : correction d'un cas rare qui laissait une fente dans le parcours de coupe et des côtés très courts sur la jonction entre les deux moitiés.",
-        "es": "Esculturas simétricas: corregido un caso poco frecuente que dejaba una ranura en el recorrido de corte y lados muy cortos en la unión entre las dos mitades.",
-        "pt": "Esculturas simétricas: corrigido um caso raro que deixava uma fenda no percurso de corte e lados muito curtos na junção entre as duas metades.",
-        "ja": "左右対称の彫刻：切断経路にすき間ができ、左右の合わせ目にごく短い辺が残るまれな不具合を修正しました。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.156",
+    "version": "1.3.157",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "e76698a7e1522f3b7e6b5116cf648341890346e7efd0fc192b2899c3e6d95b4a"
+        "sha256": "6f600ff02e7bb9cf3c387a4fe8d25fd06a57cb6083a2b5372166b2abfc2e1532"
       }
     ]
   },

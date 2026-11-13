@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.148",
-  "notes": "Metalwork now opens on a catalogue: one index by kind of work, with a picture of every model. New: railings, straight stairs (indoor and outdoor), spiral stairs, gazebos, shelving, street furniture (bicycle racks, planters, bollards) and ornamental sheets with 13 laser-cut patterns (holes, slots, honeycomb, diamonds, stars, leaves, waves, bubbles, sunburst…), also as infill of gates and railings. Choose a model, then change its sizes. Lighter on slow computers: the 3D view is drawn only when something changes and the calculation engine starts only when it is needed. New command Tools → Disk space: see what the program keeps on the disk (engines, job results, landscapes) and remove it.",
+  "latest": "1.3.149",
+  "notes": "Metalwork from a description: at the top of the catalogue write what you need, for example “sliding gate 4 m wide and 1.8 m high, sheet with a leaf pattern, anthracite”, and the program prepares the piece with those sizes and choices, ready to adjust in the panel. It understands the seven languages and works at once, with nothing to download.",
   "notes_i18n": {
-    "en": "Metalwork now opens on a catalogue: one index by kind of work, with a picture of every model. New: railings, straight stairs (indoor and outdoor), spiral stairs, gazebos, shelving, street furniture (bicycle racks, planters, bollards) and ornamental sheets with 13 laser-cut patterns (holes, slots, honeycomb, diamonds, stars, leaves, waves, bubbles, sunburst…), also as infill of gates and railings. Choose a model, then change its sizes. Lighter on slow computers: the 3D view is drawn only when something changes and the calculation engine starts only when it is needed. New command Tools → Disk space: see what the program keeps on the disk (engines, job results, landscapes) and remove it.",
-    "it": "La Carpenteria ora si apre su un catalogo: un indice unico per tipo di lavorazione, con l'immagine di ogni modello. Novità: ringhiere, scale a rampa (interne ed esterne), scale a chiocciola, gazebo, scaffalature, arredo urbano (rastrelliere per bici, fioriere, dissuasori) e lamiere ornamentali con 13 disegni tagliati al laser (fori, asole, nido d'ape, rombi, stelle, foglie, onde, bolle, raggiera…), anche come tamponamento di cancelli e ringhiere. Scegli un modello, poi cambia le misure. Più leggero sui computer lenti: la vista 3D si ridisegna solo quando cambia qualcosa e il motore di calcolo parte solo quando serve. Nuovo comando Strumenti → Spazio su disco: vedi quanto occupano motori, risultati e paesaggi ed eliminali.",
-    "de": "Der Metallbau öffnet jetzt mit einem Katalog: ein Verzeichnis nach Art der Arbeit, mit einem Bild jedes Modells. Neu: Geländer, gerade Treppen (innen und außen), Wendeltreppen, Pavillons, Regalanlagen, Stadtmobiliar (Fahrradständer, Pflanzkübel, Poller) und Zierbleche mit 13 lasergeschnittenen Mustern (Löcher, Langlöcher, Waben, Rauten, Sterne, Blätter, Wellen, Blasen, Strahlen…), auch als Füllung von Toren und Geländern. Modell wählen, dann die Maße ändern. Leichter auf langsamen Computern: Die 3D-Ansicht wird nur gezeichnet, wenn sich etwas ändert, und die Rechen-Engine startet erst bei Bedarf. Neuer Befehl Werkzeuge → Speicherplatz: zeigt, was das Programm auf dem Datenträger hält (Engines, Ergebnisse, Landschaften), und entfernt es.",
-    "fr": "La Métallerie s'ouvre maintenant sur un catalogue : un index unique par type d'ouvrage, avec l'image de chaque modèle. Nouveautés : garde-corps, escaliers droits (intérieurs et extérieurs), escaliers en colimaçon, gloriettes, rayonnages, mobilier urbain (range-vélos, jardinières, bornes) et tôles décoratives avec 13 motifs découpés au laser (trous, oblongs, nid d'abeille, losanges, étoiles, feuilles, vagues, bulles, rayons…), aussi en remplissage des portails et garde-corps. Choisissez un modèle, puis changez ses dimensions. Plus léger sur les ordinateurs lents : la vue 3D n'est redessinée que lorsque quelque chose change et le moteur de calcul ne démarre que si nécessaire. Nouvelle commande Outils → Espace disque : voyez ce que le programme conserve sur le disque (moteurs, résultats, paysages) et supprimez-le.",
-    "es": "La Carpintería metálica se abre ahora con un catálogo: un índice único por tipo de trabajo, con la imagen de cada modelo. Novedades: barandillas, escaleras rectas (interiores y exteriores), escaleras de caracol, cenadores, estanterías, mobiliario urbano (aparcabicicletas, jardineras, bolardos) y chapas ornamentales con 13 dibujos cortados con láser (agujeros, colisos, panal, rombos, estrellas, hojas, ondas, burbujas, rayos…), también como relleno de cancelas y barandillas. Elige un modelo y luego cambia sus medidas. Más ligero en ordenadores lentos: la vista 3D solo se redibuja cuando algo cambia y el motor de cálculo arranca solo cuando hace falta. Nuevo comando Herramientas → Espacio en disco: mira lo que el programa guarda en el disco (motores, resultados, paisajes) y elimínalo.",
-    "pt": "A Serralheria agora abre com um catálogo: um índice único por tipo de trabalho, com a imagem de cada modelo. Novidades: guarda-corpos, escadas retas (internas e externas), escadas caracol, gazebos, estanterias, mobiliário urbano (bicicletários, floreiras, balizadores) e chapas ornamentais com 13 padrões cortados a laser (furos, oblongos, favo de mel, losangos, estrelas, folhas, ondas, bolhas, raios…), também como fechamento de portões e guarda-corpos. Escolha um modelo e depois altere as medidas. Mais leve em computadores lentos: a vista 3D só é redesenhada quando algo muda e o motor de cálculo só inicia quando é preciso. Novo comando Ferramentas → Espaço em disco: veja o que o programa guarda no disco (motores, resultados, paisagens) e remova.",
-    "ja": "金属製作はカタログから始まるようになりました。仕事の種類ごとの一覧に、各モデルの画像が並びます。新しく追加：手すり柵、直階段（屋内・屋外）、らせん階段、ガゼボ、スチールラック、ストリートファニチャー（自転車ラック、プランター、車止め）、レーザー切断の 13 種類の模様（丸穴、長穴、ハニカム、ひし形、星、木の葉、波、バブル、放射模様など）の装飾パネル。装飾パネルは門扉や手すり柵のパネルにも使えます。モデルを選んでから寸法を変更してください。 低速なコンピューターでも軽く動作：3D 表示は変化があったときだけ描画し、計算エンジンは必要なときだけ起動します。新しいコマンド「ツール → ディスク容量」：エンジン、処理結果、風景がディスクに占める容量を確認して削除できます。"
+    "en": "Metalwork from a description: at the top of the catalogue write what you need, for example “sliding gate 4 m wide and 1.8 m high, sheet with a leaf pattern, anthracite”, and the program prepares the piece with those sizes and choices, ready to adjust in the panel. It understands the seven languages and works at once, with nothing to download.",
+    "it": "Carpenteria da una descrizione: in cima al catalogo scrivi cosa ti serve, per esempio «cancello scorrevole largo 4 m e alto 1,8 m, lamiera a foglie, antracite», e il programma prepara il pezzo con quelle misure e quelle scelte, pronto da ritoccare nel pannello. Capisce le sette lingue e risponde subito, senza scaricare nulla.",
+    "de": "Metallbau aus einer Beschreibung: Schreib oben im Katalog, was du brauchst, zum Beispiel „Schiebetor 4 m breit und 1,8 m hoch, Blech mit Blattmuster, anthrazit“, und das Programm bereitet das Teil mit diesen Maßen und Optionen vor, bereit zum Anpassen im Bedienfeld. Es versteht die sieben Sprachen und antwortet sofort, ohne etwas herunterzuladen.",
+    "fr": "Métallerie d’après une description : en haut du catalogue, écris ce qu’il te faut, par exemple « portail coulissant largeur 4 m, hauteur 1,8 m, tôle à motif feuilles, anthracite », et le programme prépare la pièce avec ces dimensions et ces choix, prête à être ajustée dans le panneau. Il comprend les sept langues et répond tout de suite, sans rien télécharger.",
+    "es": "Cerrajería a partir de una descripción: arriba del catálogo escribe lo que necesitas, por ejemplo «cancela corredera de 4 m de ancho y 1,8 m de alto, chapa con hojas, antracita», y el programa prepara la pieza con esas medidas y opciones, lista para ajustar en el panel. Entiende los siete idiomas y responde al instante, sin descargar nada.",
+    "pt": "Serralheria a partir de uma descrição: no topo do catálogo escreva o que precisa, por exemplo «portão de correr com 4 m de largura e 1,8 m de altura, chapa com folhas, antracite», e o programa prepara a peça com essas medidas e opções, pronta para ajustar no painel. Entende os sete idiomas e responde na hora, sem baixar nada.",
+    "ja": "説明から金物を作成：カタログの上部に必要なものを書くと（例：「幅4メートル高さ1.8メートルの引き戸の門、葉の模様の板、アンスラサイト」）、その寸法と選択で製品を用意します。あとはパネルで調整するだけです。7つの言語に対応し、ダウンロード不要ですぐに動きます。"
   },
   "history": [
+    {
+      "date": "2026-11-13T11:58:58Z",
+      "version": "1.3.149",
+      "notes": {
+        "en": "Metalwork from a description: at the top of the catalogue write what you need, for example “sliding gate 4 m wide and 1.8 m high, sheet with a leaf pattern, anthracite”, and the program prepares the piece with those sizes and choices, ready to adjust in the panel. It understands the seven languages and works at once, with nothing to download.",
+        "it": "Carpenteria da una descrizione: in cima al catalogo scrivi cosa ti serve, per esempio «cancello scorrevole largo 4 m e alto 1,8 m, lamiera a foglie, antracite», e il programma prepara il pezzo con quelle misure e quelle scelte, pronto da ritoccare nel pannello. Capisce le sette lingue e risponde subito, senza scaricare nulla.",
+        "de": "Metallbau aus einer Beschreibung: Schreib oben im Katalog, was du brauchst, zum Beispiel „Schiebetor 4 m breit und 1,8 m hoch, Blech mit Blattmuster, anthrazit“, und das Programm bereitet das Teil mit diesen Maßen und Optionen vor, bereit zum Anpassen im Bedienfeld. Es versteht die sieben Sprachen und antwortet sofort, ohne etwas herunterzuladen.",
+        "fr": "Métallerie d’après une description : en haut du catalogue, écris ce qu’il te faut, par exemple « portail coulissant largeur 4 m, hauteur 1,8 m, tôle à motif feuilles, anthracite », et le programme prépare la pièce avec ces dimensions et ces choix, prête à être ajustée dans le panneau. Il comprend les sept langues et répond tout de suite, sans rien télécharger.",
+        "es": "Cerrajería a partir de una descripción: arriba del catálogo escribe lo que necesitas, por ejemplo «cancela corredera de 4 m de ancho y 1,8 m de alto, chapa con hojas, antracita», y el programa prepara la pieza con esas medidas y opciones, lista para ajustar en el panel. Entiende los siete idiomas y responde al instante, sin descargar nada.",
+        "pt": "Serralheria a partir de uma descrição: no topo do catálogo escreva o que precisa, por exemplo «portão de correr com 4 m de largura e 1,8 m de altura, chapa com folhas, antracite», e o programa prepara a peça com essas medidas e opções, pronta para ajustar no painel. Entende os sete idiomas e responde na hora, sem baixar nada.",
+        "ja": "説明から金物を作成：カタログの上部に必要なものを書くと（例：「幅4メートル高さ1.8メートルの引き戸の門、葉の模様の板、アンスラサイト」）、その寸法と選択で製品を用意します。あとはパネルで調整するだけです。7つの言語に対応し、ダウンロード不要ですぐに動きます。"
+      }
+    },
     {
       "date": "2026-11-13T11:14:43Z",
       "version": "1.3.148",
@@ -518,38 +531,25 @@
         "pt": "As atualizações chegam agora do novo endereço do serviço de atualização. Nada muda no uso do programa.",
         "ja": "アップデートは更新サービスの新しいアドレスから届くようになりました。プログラムの使い方は変わりません。"
       }
-    },
-    {
-      "date": "2026-11-11T12:08:20Z",
-      "version": "1.3.111",
-      "notes": {
-        "en": "Updates: the program now also knows the new address of the update service. Restart it once to complete this update.",
-        "it": "Aggiornamenti: il programma ora conosce anche il nuovo indirizzo del servizio di aggiornamento. Riavvialo una volta per completare questo aggiornamento.",
-        "de": "Updates: Das Programm kennt jetzt auch die neue Adresse des Update-Dienstes. Starte es einmal neu, um dieses Update abzuschließen.",
-        "fr": "Mises à jour : le programme connaît désormais aussi la nouvelle adresse du service de mise à jour. Redémarrez-le une fois pour terminer cette mise à jour.",
-        "es": "Actualizaciones: el programa ahora conoce también la nueva dirección del servicio de actualización. Reinícialo una vez para completar esta actualización.",
-        "pt": "Atualizações: o programa agora conhece também o novo endereço do serviço de atualização. Reinicie-o uma vez para concluir esta atualização.",
-        "ja": "アップデート：プログラムが更新サービスの新しいアドレスにも対応しました。この更新を完了するには一度再起動してください。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.148",
+    "version": "1.3.149",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "21574989b629a0682e05ac5961043200f0d0119deb77245eb6208027d55b2d6a"
+        "sha256": "ea4e94eff923c51a3b0d3e5950bdf28c9c583caf8d970043cbe0a465ec245a37"
       }
     ]
   },
   "app": {
-    "version": "1.3.30",
+    "version": "1.3.31",
     "files": [
       {
         "path": "main.py",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/app/main.py",
-        "sha256": "00e2b05da9e255a2747ec6f946e7b8dc227d655945126ae017e87eac0490b59c"
+        "sha256": "b8051cddcf8a211202a991053206b6c6fa7e4052fd7d887c42b38fb962e7bb95"
       }
     ]
   },

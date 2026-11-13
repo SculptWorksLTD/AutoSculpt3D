@@ -63,7 +63,7 @@ def documents_dir():
             pass
     return Path.home() / 'Documents'
 UPDATE_URLS = ['https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/update.json', 'https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3DRelease/main/update.json']
-DEFAULT_SETTINGS = {'auto_check': True, 'last_check': 0}
+DEFAULT_SETTINGS = {'auto_check': True, 'last_check': 0, 'auto_diary': None}
 
 def log(*parts):
     line = time.strftime('%Y-%m-%d %H:%M:%S ') + ' '.join((str(p) for p in parts))
@@ -996,6 +996,154 @@ def native_menu(bridge):
 
 def product_version():
     return max((VERSION, ui_version()), key=vtuple)
+SERVICE_URLS = [u.rsplit('/', 1)[0] + '/service.json' for u in UPDATE_URLS]
+REPORT_TEXT_MAX, REPORT_DIARY_MAX, REPORT_CONTEXT_MAX = (8000, 400000, 20000)
+_service = {'at': 0.0, 'data': {}}
+
+def service_config(wait=True):
+    test = os.environ.get('AUTOSCULPT_REPORT_URL')
+    if test:
+        return {'report_url': test}
+    cache = SUPPORT / 'service.json'
+    if time.time() - _service['at'] < 6 * 3600:
+        return _service['data']
+    data = None
+    if wait:
+        for url in SERVICE_URLS:
+            try:
+                req = urllib.request.Request(url + '?t=' + str(int(time.time())), headers={'User-Agent': 'AutoSculpt3D/' + VERSION, 'Cache-Control': 'no-cache'})
+                with urlopen(req, 12) as r:
+                    got = json.loads(r.read().decode('utf-8'))
+                if isinstance(got, dict):
+                    data = got
+                    break
+            except Exception:
+                continue
+    if data is not None:
+        _service.update(at=time.time(), data=data)
+        try:
+            cache.write_text(json.dumps(data), encoding='utf-8')
+        except OSError:
+            pass
+        return data
+    try:
+        got = json.loads(cache.read_text(encoding='utf-8'))
+        return got if isinstance(got, dict) else {}
+    except Exception:
+        return {}
+
+def report_url(wait=True):
+    url = str(service_config(wait).get('report_url') or '')
+    return url if url.startswith('https://') or (os.environ.get('AUTOSCULPT_REPORT_URL') and url.startswith('http://127.0.0.1')) else ''
+
+def anonymize(text):
+    out = str(text)
+    home = str(Path.home())
+    names = set()
+    for var in ('USER', 'USERNAME', 'LOGNAME'):
+        if os.environ.get(var):
+            names.add(os.environ[var])
+    try:
+        import getpass
+        names.add(getpass.getuser())
+    except Exception:
+        pass
+    if len(Path(home).name) >= 3:
+        names.add(Path(home).name)
+    hosts = {platform.node(), platform.node().split('.')[0], os.environ.get('COMPUTERNAME', '')}
+    for h in (home, home.replace('\\', '/'), home.replace('\\', '\\\\')):
+        if len(h) > 3:
+            out = out.replace(h, '~')
+    for n in sorted(names, key=len, reverse=True):
+        if len(n) >= 3:
+            out = re.sub('(?<![A-Za-z0-9])' + re.escape(n) + '(?![A-Za-z0-9])', '<user>', out)
+    for h in sorted(hosts, key=len, reverse=True):
+        if len(h) >= 3 and h.lower() not in ('localhost',):
+            out = out.replace(h, '<pc>')
+    out = re.sub('[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}', '<email>', out)
+    out = re.sub('\\b(?:[0-9A-Fa-f]{2}[:-]){5}[0-9A-Fa-f]{2}\\b', '<mac>', out)
+    out = re.sub('\\b(?!127\\.|0\\.0\\.0\\.0)(?:\\d{1,3}\\.){3}\\d{1,3}\\b', '<ip>', out)
+    out = re.sub('(token=)[A-Za-z0-9_\\-]+', '\\1<…>', out)
+    return out
+
+def report_diary(which):
+    if which not in ('last', 'week'):
+        return ''
+    try:
+        lines = LOG.read_text(encoding='utf-8', errors='replace').splitlines()
+    except OSError:
+        return ''
+    if which == 'last':
+        start = 0
+        for i, ln in enumerate(lines):
+            if f' {APP_NAME} ' in ln[:60] and ' interface ' in ln:
+                start = i
+        lines = lines[start:]
+    else:
+        since = time.strftime('%Y-%m-%d', time.localtime(time.time() - 7 * 86400))
+        lines = [ln for ln in lines if ln[:10] >= since or not re.match('\\d{4}-\\d\\d-\\d\\d ', ln)]
+    text = anonymize('\n'.join(lines))
+    if len(text) > REPORT_DIARY_MAX:
+        text = '… (the beginning is left out)\n' + text[-REPORT_DIARY_MAX:]
+    return text
+
+def build_report(b):
+    kind = 'idea' if b.get('kind') == 'idea' else 'bug'
+    text = str(b.get('text') or '').strip()[:REPORT_TEXT_MAX]
+    if not text:
+        raise UserError('Write a few words before sending')
+    diary = report_diary(b.get('diary'))
+    context = anonymize(str(b.get('context') or '')[:REPORT_CONTEXT_MAX]).strip()
+    if context:
+        diary = '--- what was open ---\n' + context + ('\n\n--- diary ---\n' + diary if diary else '')
+    system = {'darwin': 'macOS', 'win32': 'Windows'}.get(sys.platform, 'Linux')
+    return {'app': APP_NAME, 'kind': kind, 'text': text, 'contact': str(b.get('contact') or '').strip()[:120], 'lang': str(b.get('lang') or '')[:5], 'version': product_version(), 'os': system + ' ' + platform.release()[:12], 'arch': platform.machine()[:12], 'diary': diary}
+
+def send_report(b):
+    payload = build_report(b)
+    if b.get('preview'):
+        return {'payload': payload}
+    url = report_url()
+    if not url:
+        raise UserError('The report service is not available yet')
+    req = urllib.request.Request(url, data=json.dumps(payload).encode('utf-8'), method='POST', headers={'Content-Type': 'application/json', 'User-Agent': 'AutoSculpt3D/' + VERSION})
+    try:
+        with urlopen(req, 30) as r:
+            got = json.loads(r.read().decode('utf-8'))
+    except urllib.error.HTTPError as exc:
+        detail = ''
+        try:
+            detail = str(json.loads(exc.read().decode('utf-8')).get('error') or '')
+        except Exception:
+            pass
+        log('Report not sent:', exc.code, detail)
+        if exc.code == 429:
+            raise UserError('Too many reports in a short time: try again later')
+        raise UserError('The report service is not responding ({detail})', detail=detail or str(exc.code))
+    except Exception as exc:
+        log('Report not sent:', repr(exc))
+        raise UserError('The report service is not responding ({detail})', detail=str(getattr(exc, 'reason', exc)))
+    log('Report sent:', payload['kind'], 'reference', got.get('id'))
+    return {'id': str(got.get('id') or '')}
+DIARY_ERRORS = re.compile('Traceback|Page:|ERROR|[Ff]ailed|not sent|Exception')
+
+def send_auto_diary():
+    try:
+        if load_settings().get('auto_diary') is not True:
+            return False
+        url = report_url(wait=False)
+        diary = report_diary('last')
+        if not url or not diary:
+            return False
+        errors = sum((1 for ln in diary.splitlines() if DIARY_ERRORS.search(ln)))
+        system = {'darwin': 'macOS', 'win32': 'Windows'}.get(sys.platform, 'Linux')
+        payload = {'app': APP_NAME, 'kind': 'auto', 'text': 'automatic diary', 'errors': errors, 'version': product_version(), 'os': system + ' ' + platform.release()[:12], 'arch': platform.machine()[:12], 'diary': diary[-200000:]}
+        req = urllib.request.Request(url, data=json.dumps(payload).encode('utf-8'), method='POST', headers={'Content-Type': 'application/json', 'User-Agent': 'AutoSculpt3D/' + VERSION})
+        with urlopen(req, 6) as r:
+            r.read()
+        return True
+    except Exception:
+        return False
 
 def fetch_manifest():
     test = os.environ.get('AUTOSCULPT_UPDATE_URL')
@@ -1229,6 +1377,8 @@ class Handler(BaseHTTPRequestHandler):
                     return self.send_file(f, ctype, {'X-AS-Name': f.name})
                 except UserError as exc:
                     return self.send_json({'error': exc.text, 'error_values': exc.values}, 502)
+            if path == '/api/report':
+                return self.send_json({'available': bool(report_url())})
             if path == '/api/disk':
                 return self.send_json(disk_usage_report())
             if path == '/api/log':
@@ -1344,6 +1494,11 @@ class Handler(BaseHTTPRequestHandler):
             if path == '/api/update/apply':
                 job = run_job(Job('update', 'Update'), apply_updates)
                 return self.send_json(job.as_dict())
+            if path == '/api/report':
+                try:
+                    return self.send_json(send_report(b))
+                except UserError as exc:
+                    return self.send_json({'error': exc.text, 'values': exc.values}, 502)
             if path == '/api/clientlog':
                 log('Page:', str(b.get('text', ''))[:800].replace('\n', ' | '))
                 return self.send_json({'ok': True})
@@ -1369,7 +1524,7 @@ class Handler(BaseHTTPRequestHandler):
                 return self.send_json({'changed': changed, 'active': NATIVE_MENU})
             if path == '/api/settings':
                 s = load_settings()
-                for k in ('auto_check',):
+                for k in ('auto_check', 'auto_diary'):
                     if k in b:
                         s[k] = b[k]
                 save_settings(s)
@@ -1767,6 +1922,7 @@ def main():
             while True:
                 time.sleep(3600)
         except KeyboardInterrupt:
+            send_auto_diary()
             return
     import webview
     try:
@@ -1803,5 +1959,6 @@ def main():
         webview.start(private_mode=False, storage_path=str(SUPPORT / 'webview'))
     finally:
         stop_engines()
+        send_auto_diary()
 if __name__ == '__main__':
     main()

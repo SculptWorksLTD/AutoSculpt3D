@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.151",
-  "notes": "New option in Preferences: «Show the recent projects on the start page». Turn it off to keep the names of your works and customers out of sight on the start page; the recent projects stay in the File menu.",
+  "latest": "1.3.152",
+  "notes": "The recent projects are no longer shown on the start page unless you turn them on in Preferences («Show the recent projects on the start page»). They are always in the File menu.",
   "notes_i18n": {
-    "en": "New option in Preferences: «Show the recent projects on the start page». Turn it off to keep the names of your works and customers out of sight on the start page; the recent projects stay in the File menu.",
-    "it": "Nuova opzione nelle Preferenze: «Mostra i progetti recenti nella pagina iniziale». Spegnila per non mostrare i nomi dei lavori e dei clienti nella pagina iniziale; i progetti recenti restano nel menu File.",
-    "de": "Neue Option in den Einstellungen: „Zuletzt verwendete Projekte auf der Startseite anzeigen“. Schalte sie aus, damit die Namen deiner Arbeiten und Kunden auf der Startseite nicht zu sehen sind; die letzten Projekte bleiben im Menü Datei.",
-    "fr": "Nouvelle option dans les Préférences : « Afficher les projets récents sur la page d’accueil ». Désactive-la pour ne pas montrer les noms de tes travaux et de tes clients sur la page d’accueil ; les projets récents restent dans le menu Fichier.",
-    "es": "Nueva opción en Preferencias: «Mostrar los proyectos recientes en la página de inicio». Desactívala para no mostrar los nombres de tus trabajos y clientes en la página de inicio; los proyectos recientes siguen en el menú Archivo.",
-    "pt": "Nova opção nas Preferências: «Mostrar os projetos recentes na página inicial». Desative-a para não mostrar os nomes dos seus trabalhos e clientes na página inicial; os projetos recentes continuam no menu Arquivo.",
-    "ja": "環境設定に新しいオプション「スタートページに最近のプロジェクトを表示する」を追加しました。オフにすると、スタートページに作品名や顧客名が表示されません。最近のプロジェクトは「ファイル」メニューから引き続き開けます。"
+    "en": "The recent projects are no longer shown on the start page unless you turn them on in Preferences («Show the recent projects on the start page»). They are always in the File menu.",
+    "it": "I progetti recenti non compaiono più nella pagina iniziale, a meno che non li accendi nelle Preferenze («Mostra i progetti recenti nella pagina iniziale»). Restano sempre nel menu File.",
+    "de": "Die zuletzt verwendeten Projekte werden auf der Startseite nicht mehr angezeigt, außer du schaltest sie in den Einstellungen ein („Zuletzt verwendete Projekte auf der Startseite anzeigen“). Sie bleiben immer im Menü Datei.",
+    "fr": "Les projets récents ne s’affichent plus sur la page d’accueil, sauf si tu les actives dans les Préférences (« Afficher les projets récents sur la page d’accueil »). Ils restent toujours dans le menu Fichier.",
+    "es": "Los proyectos recientes ya no aparecen en la página de inicio, salvo que los actives en Preferencias («Mostrar los proyectos recientes en la página de inicio»). Siguen siempre en el menú Archivo.",
+    "pt": "Os projetos recentes não aparecem mais na página inicial, a menos que você os ative nas Preferências («Mostrar os projetos recentes na página inicial»). Eles continuam sempre no menu Arquivo.",
+    "ja": "最近のプロジェクトは、環境設定で「スタートページに最近のプロジェクトを表示する」をオンにしない限り、スタートページに表示されなくなりました。「ファイル」メニューからはいつでも開けます。"
   },
   "history": [
+    {
+      "date": "2026-11-13T12:49:12Z",
+      "version": "1.3.152",
+      "notes": {
+        "en": "The recent projects are no longer shown on the start page unless you turn them on in Preferences («Show the recent projects on the start page»). They are always in the File menu.",
+        "it": "I progetti recenti non compaiono più nella pagina iniziale, a meno che non li accendi nelle Preferenze («Mostra i progetti recenti nella pagina iniziale»). Restano sempre nel menu File.",
+        "de": "Die zuletzt verwendeten Projekte werden auf der Startseite nicht mehr angezeigt, außer du schaltest sie in den Einstellungen ein („Zuletzt verwendete Projekte auf der Startseite anzeigen“). Sie bleiben immer im Menü Datei.",
+        "fr": "Les projets récents ne s’affichent plus sur la page d’accueil, sauf si tu les actives dans les Préférences (« Afficher les projets récents sur la page d’accueil »). Ils restent toujours dans le menu Fichier.",
+        "es": "Los proyectos recientes ya no aparecen en la página de inicio, salvo que los actives en Preferencias («Mostrar los proyectos recientes en la página de inicio»). Siguen siempre en el menú Archivo.",
+        "pt": "Os projetos recentes não aparecem mais na página inicial, a menos que você os ative nas Preferências («Mostrar os projetos recentes na página inicial»). Eles continuam sempre no menu Arquivo.",
+        "ja": "最近のプロジェクトは、環境設定で「スタートページに最近のプロジェクトを表示する」をオンにしない限り、スタートページに表示されなくなりました。「ファイル」メニューからはいつでも開けます。"
+      }
+    },
     {
       "date": "2026-11-13T12:46:06Z",
       "version": "1.3.151",
@@ -518,28 +531,15 @@
         "pt": "O motor de cálculo do programa agora tem nome: SculptEngine. Encontra-o em Ajuda → Sobre e no manual.",
         "ja": "プログラムの計算エンジンに名前が付きました：SculptEngine。ヘルプ → バージョン情報とマニュアルに記載しています。"
       }
-    },
-    {
-      "date": "2026-11-11T13:24:01Z",
-      "version": "1.3.114",
-      "notes": {
-        "en": "Internal maintenance of the program: lighter update download. Nothing changes in how you use it.",
-        "it": "Manutenzione interna del programma: aggiornamento più leggero da scaricare. Nell'uso non cambia nulla.",
-        "de": "Interne Wartung des Programms: Das Update ist kleiner. An der Bedienung ändert sich nichts.",
-        "fr": "Maintenance interne du programme : mise à jour plus légère à télécharger. Rien ne change à l'utilisation.",
-        "es": "Mantenimiento interno del programa: actualización más ligera de descargar. No cambia nada en su uso.",
-        "pt": "Manutenção interna do programa: atualização mais leve para descarregar. Nada muda no uso.",
-        "ja": "プログラムの内部メンテナンス：アップデートのダウンロードが軽くなりました。使い方は変わりません。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.151",
+    "version": "1.3.152",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "2a2894f069810cba9deb02ee1bbf8cea6f96331118f86a2d5a9672976a4b0970"
+        "sha256": "5c6b84483fb4b4121272b16e5136f8b0cc374d7e30f3760c10838da50b66b80e"
       }
     ]
   },

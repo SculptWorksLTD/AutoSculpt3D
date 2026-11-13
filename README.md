@@ -34,7 +34,7 @@ Tutti i calcoli (sfaccettatura, sviluppo dei pezzi, annidamento, file per il las
 - **Pezzi e pieghe** – divide la scultura in pezzi numerati, con pieghe, asole e linguette; scarta i pezzi troppo piccoli.
 - **Taglio laser** – dispone i pezzi sulle lamiere e prepara i file DXF per il taglio.
 - **Mockup** – mostra la scultura finita nel materiale scelto (acciaio inox, ferro, ottone, rame, alluminio), con sfondi da studio, paesaggi, la tua foto o carta millimetrata, vista da tutti i lati.
-- **Carpenteria** – cancelli (a una o due ante, scorrevoli), inferriate, pensiline, tavoli, panche e scaffali su misura: distinta di taglio dei profili, barre da ordinare, parti in lamiera in DXF, preventivo e scheda di lavorazione in PDF.
+- **Carpenteria** – un catalogo di modelli su misura: cancelli, ringhiere, scale a rampa e a chiocciola, inferriate, pensiline, gazebo, scaffalature, arredo urbano, mobili e lamiere ornamentali con disegni tagliati al laser: distinta di taglio dei profili, barre da ordinare, parti in lamiera in DXF, preventivo e scheda di lavorazione in PDF.
 - **Preventivo e montaggio** – calcola materiale e costi e prepara la guida di montaggio passo per passo.
 - **Progetti** – salvataggio automatico, file di progetto propri (.as3d) con anteprima, aggiornamenti automatici.
 - **7 lingue** – italiano, inglese, tedesco, francese, spagnolo, portoghese e giapponese.

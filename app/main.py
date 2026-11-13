@@ -501,6 +501,66 @@ def library_file(src, uid):
     f.write_bytes(data)
     return (f, ctype)
 
+def folder_bytes(path):
+    total = 0
+    for root, _, files in os.walk(path):
+        for f in files:
+            try:
+                total += os.path.getsize(os.path.join(root, f))
+            except OSError:
+                pass
+    return total
+DISK_FOLDERS = {'jobs': 'jobs', 'hdri': 'hdri', 'library': 'library'}
+
+def disk_usage_report():
+    items = []
+    for eid, spec in engine_specs(any_platform=True).items():
+        if spec.get('type') == 'cloud':
+            continue
+        home = engine_home(eid)
+        size = folder_bytes(home) if home.exists() else 0
+        if size > 0:
+            items.append({'id': 'engine:' + eid, 'kind': 'engine', 'name': spec.get('name', eid), 'bytes': size})
+    for key, name in DISK_FOLDERS.items():
+        size = folder_bytes(SUPPORT / name) if (SUPPORT / name).exists() else 0
+        if size > 0:
+            items.append({'id': key, 'kind': key, 'name': key, 'bytes': size})
+    old = sum((folder_bytes(d) for d in (SUPPORT / 'updates').glob('*-previous'))) if (SUPPORT / 'updates').exists() else 0
+    if old > 0:
+        items.append({'id': 'updates', 'kind': 'updates', 'name': 'updates', 'bytes': old})
+    return {'items': items, 'total': sum((i['bytes'] for i in items)), 'free': shutil.disk_usage(SUPPORT).free}
+
+def disk_clean(ids):
+    freed = 0
+    specs = engine_specs(any_platform=True)
+    with JOBS_LOCK:
+        running = {j.id for j in JOBS.values() if getattr(j, 'state', '') in ('running', 'queued')}
+    for i in ids:
+        if i.startswith('engine:'):
+            eid = i[7:]
+            if eid not in specs or specs[eid].get('type') == 'cloud':
+                continue
+            home = engine_home(eid)
+            freed += folder_bytes(home) if home.exists() else 0
+            for sub in ('venv', 'weights', 'src'):
+                shutil.rmtree(home / sub, ignore_errors=True)
+            (home / 'installed.json').unlink(missing_ok=True)
+        elif i == 'jobs':
+            for d in (SUPPORT / 'jobs').iterdir() if (SUPPORT / 'jobs').exists() else []:
+                if d.name not in running:
+                    freed += folder_bytes(d)
+                    shutil.rmtree(d, ignore_errors=True)
+        elif i in DISK_FOLDERS:
+            d = SUPPORT / DISK_FOLDERS[i]
+            freed += folder_bytes(d) if d.exists() else 0
+            shutil.rmtree(d, ignore_errors=True)
+        elif i == 'updates':
+            for d in (SUPPORT / 'updates').glob('*-previous') if (SUPPORT / 'updates').exists() else []:
+                freed += folder_bytes(d)
+                shutil.rmtree(d, ignore_errors=True)
+    log('Disk cleaned:', ', '.join(ids), 'freed', freed)
+    return {'ok': True, 'freed': freed}
+
 def engine_home(eid):
     return SUPPORT / 'engines' / eid
 
@@ -1169,6 +1229,8 @@ class Handler(BaseHTTPRequestHandler):
                     return self.send_file(f, ctype, {'X-AS-Name': f.name})
                 except UserError as exc:
                     return self.send_json({'error': exc.text, 'error_values': exc.values}, 502)
+            if path == '/api/disk':
+                return self.send_json(disk_usage_report())
             if path == '/api/log':
                 return self.send_file(LOG, 'text/plain; charset=utf-8') if LOG.exists() else self.send_json({})
             return self.send_error(404)
@@ -1188,6 +1250,8 @@ class Handler(BaseHTTPRequestHandler):
                     return self.send_json({'error': 'unknown engine'}, 404)
                 job = run_job(Job('install', 'Installation ' + spec['name']), lambda j: install_engine(j, spec))
                 return self.send_json(job.as_dict())
+            if path == '/api/disk/clean':
+                return self.send_json(disk_clean([str(x) for x in b.get('ids') or []]))
             if path.startswith('/api/engines/') and path.endswith('/remove'):
                 eid = path.split('/')[3]
                 if eid not in engine_specs():

@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.150",
-  "notes": "Sculptures now have a catalogue of ready-made shapes: 69 models in six groups (geometric shapes, vases and turned shapes, signs and symbols, nature, abstract, stylised animals), made by the program itself with nothing to download. Choose one from the start page, then set size, faces and material as with any other model. New button at the bottom of the window to report a problem or an idea.",
+  "latest": "1.3.151",
+  "notes": "New option in Preferences: «Show the recent projects on the start page». Turn it off to keep the names of your works and customers out of sight on the start page; the recent projects stay in the File menu.",
   "notes_i18n": {
-    "en": "Sculptures now have a catalogue of ready-made shapes: 69 models in six groups (geometric shapes, vases and turned shapes, signs and symbols, nature, abstract, stylised animals), made by the program itself with nothing to download. Choose one from the start page, then set size, faces and material as with any other model. New button at the bottom of the window to report a problem or an idea.",
-    "it": "Le sculture hanno ora un catalogo di forme già pronte: 69 modelli in sei gruppi (forme geometriche, vasi e forme tornite, segni e simboli, natura, astratte, animali stilizzati), creati dal programma stesso senza scaricare nulla. Scegline uno dalla pagina iniziale, poi imposta misura, facce e materiale come per qualsiasi altro modello. Nuovo pulsante in fondo alla finestra per segnalare un problema o un'idea.",
-    "de": "Für Skulpturen gibt es jetzt einen Katalog fertiger Formen: 69 Modelle in sechs Gruppen (geometrische Formen, Vasen und gedrehte Formen, Zeichen und Symbole, Natur, Abstrakt, stilisierte Tiere), vom Programm selbst erzeugt, ohne etwas herunterzuladen. Wähle eines auf der Startseite und stelle dann Größe, Flächen und Material ein wie bei jedem anderen Modell. Neue Schaltfläche unten im Fenster, um ein Problem oder eine Idee zu melden.",
-    "fr": "Les sculptures ont maintenant un catalogue de formes prêtes : 69 modèles en six groupes (formes géométriques, vases et formes tournées, signes et symboles, nature, abstraites, animaux stylisés), créés par le programme lui-même sans rien télécharger. Choisis-en un sur la page d’accueil, puis règle la taille, les faces et le matériau comme pour tout autre modèle. Nouveau bouton en bas de la fenêtre pour signaler un problème ou une idée.",
-    "es": "Las esculturas tienen ahora un catálogo de formas listas: 69 modelos en seis grupos (formas geométricas, jarrones y formas torneadas, signos y símbolos, naturaleza, abstractas, animales estilizados), creados por el propio programa sin descargar nada. Elige uno en la página de inicio y ajusta medida, caras y material como con cualquier otro modelo. Nuevo botón en la parte inferior de la ventana para informar de un problema o una idea.",
-    "pt": "As esculturas agora têm um catálogo de formas prontas: 69 modelos em seis grupos (formas geométricas, vasos e formas torneadas, sinais e símbolos, natureza, abstratas, animais estilizados), criados pelo próprio programa sem baixar nada. Escolha um na página inicial e ajuste medida, faces e material como em qualquer outro modelo. Novo botão na parte de baixo da janela para relatar um problema ou uma ideia.",
-    "ja": "彫刻にすぐ使える形のカタログが加わりました。6つのグループ（幾何学的な形、花瓶と回転体、記号とシンボル、自然、抽象、デフォルメした動物）に69のモデルがあり、プログラム自身が作るのでダウンロードは不要です。スタートページから選び、ほかのモデルと同じように寸法、面数、素材を設定します。ウィンドウ下部に、問題やアイデアを送る新しいボタンを追加しました。"
+    "en": "New option in Preferences: «Show the recent projects on the start page». Turn it off to keep the names of your works and customers out of sight on the start page; the recent projects stay in the File menu.",
+    "it": "Nuova opzione nelle Preferenze: «Mostra i progetti recenti nella pagina iniziale». Spegnila per non mostrare i nomi dei lavori e dei clienti nella pagina iniziale; i progetti recenti restano nel menu File.",
+    "de": "Neue Option in den Einstellungen: „Zuletzt verwendete Projekte auf der Startseite anzeigen“. Schalte sie aus, damit die Namen deiner Arbeiten und Kunden auf der Startseite nicht zu sehen sind; die letzten Projekte bleiben im Menü Datei.",
+    "fr": "Nouvelle option dans les Préférences : « Afficher les projets récents sur la page d’accueil ». Désactive-la pour ne pas montrer les noms de tes travaux et de tes clients sur la page d’accueil ; les projets récents restent dans le menu Fichier.",
+    "es": "Nueva opción en Preferencias: «Mostrar los proyectos recientes en la página de inicio». Desactívala para no mostrar los nombres de tus trabajos y clientes en la página de inicio; los proyectos recientes siguen en el menú Archivo.",
+    "pt": "Nova opção nas Preferências: «Mostrar os projetos recentes na página inicial». Desative-a para não mostrar os nomes dos seus trabalhos e clientes na página inicial; os projetos recentes continuam no menu Arquivo.",
+    "ja": "環境設定に新しいオプション「スタートページに最近のプロジェクトを表示する」を追加しました。オフにすると、スタートページに作品名や顧客名が表示されません。最近のプロジェクトは「ファイル」メニューから引き続き開けます。"
   },
   "history": [
+    {
+      "date": "2026-11-13T12:46:06Z",
+      "version": "1.3.151",
+      "notes": {
+        "en": "New option in Preferences: «Show the recent projects on the start page». Turn it off to keep the names of your works and customers out of sight on the start page; the recent projects stay in the File menu.",
+        "it": "Nuova opzione nelle Preferenze: «Mostra i progetti recenti nella pagina iniziale». Spegnila per non mostrare i nomi dei lavori e dei clienti nella pagina iniziale; i progetti recenti restano nel menu File.",
+        "de": "Neue Option in den Einstellungen: „Zuletzt verwendete Projekte auf der Startseite anzeigen“. Schalte sie aus, damit die Namen deiner Arbeiten und Kunden auf der Startseite nicht zu sehen sind; die letzten Projekte bleiben im Menü Datei.",
+        "fr": "Nouvelle option dans les Préférences : « Afficher les projets récents sur la page d’accueil ». Désactive-la pour ne pas montrer les noms de tes travaux et de tes clients sur la page d’accueil ; les projets récents restent dans le menu Fichier.",
+        "es": "Nueva opción en Preferencias: «Mostrar los proyectos recientes en la página de inicio». Desactívala para no mostrar los nombres de tus trabajos y clientes en la página de inicio; los proyectos recientes siguen en el menú Archivo.",
+        "pt": "Nova opção nas Preferências: «Mostrar os projetos recentes na página inicial». Desative-a para não mostrar os nomes dos seus trabalhos e clientes na página inicial; os projetos recentes continuam no menu Arquivo.",
+        "ja": "環境設定に新しいオプション「スタートページに最近のプロジェクトを表示する」を追加しました。オフにすると、スタートページに作品名や顧客名が表示されません。最近のプロジェクトは「ファイル」メニューから引き続き開けます。"
+      }
+    },
     {
       "date": "2026-11-13T12:32:33Z",
       "version": "1.3.150",
@@ -518,28 +531,15 @@
         "pt": "Manutenção interna do programa: atualização mais leve para descarregar. Nada muda no uso.",
         "ja": "プログラムの内部メンテナンス：アップデートのダウンロードが軽くなりました。使い方は変わりません。"
       }
-    },
-    {
-      "date": "2026-11-11T13:11:55Z",
-      "version": "1.3.113",
-      "notes": {
-        "en": "Updates: the address of the update service is now the final one. Restart the program once to complete this update.",
-        "it": "Aggiornamenti: l'indirizzo del servizio di aggiornamento ora è quello definitivo. Riavvia il programma una volta per completare questo aggiornamento.",
-        "de": "Updates: Die Adresse des Update-Dienstes ist jetzt die endgültige. Starte das Programm einmal neu, um dieses Update abzuschließen.",
-        "fr": "Mises à jour : l'adresse du service de mise à jour est désormais définitive. Redémarrez le programme une fois pour terminer cette mise à jour.",
-        "es": "Actualizaciones: la dirección del servicio de actualización es ahora la definitiva. Reinicia el programa una vez para completar esta actualización.",
-        "pt": "Atualizações: o endereço do serviço de atualização é agora o definitivo. Reinicie o programa uma vez para concluir esta atualização.",
-        "ja": "アップデート：更新サービスのアドレスが最終的なものになりました。この更新を完了するには、プログラムを一度再起動してください。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.150",
+    "version": "1.3.151",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "8bf00ca1cd9cb57e0cef20e6cb25848a57affae6a91934f8623d1d5f75dec777"
+        "sha256": "2a2894f069810cba9deb02ee1bbf8cea6f96331118f86a2d5a9672976a4b0970"
       }
     ]
   },

@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.143",
-  "notes": "Painted detail (brush): two faces could still pass through each other on a large sculpture; the reduction is now done again more carefully when that happens.",
+  "latest": "1.3.144",
+  "notes": "Narrow grooves: the program now has a second way to open the grooves that are too narrow for the torch, so far fewer of them remain, especially in symmetric sculptures.",
   "notes_i18n": {
-    "en": "Painted detail (brush): two faces could still pass through each other on a large sculpture; the reduction is now done again more carefully when that happens.",
-    "it": "Dettaglio a pennello: su una scultura grande due facce potevano ancora attraversarsi; ora, quando succede, la riduzione viene rifatta con più attenzione.",
-    "de": "Detail mit dem Pinsel: Bei einer großen Skulptur konnten sich noch zwei Flächen durchdringen; jetzt wird die Reduktion in diesem Fall sorgfältiger wiederholt.",
-    "fr": "Détail au pinceau : sur une grande sculpture, deux faces pouvaient encore se traverser ; la réduction est désormais refaite plus soigneusement dans ce cas.",
-    "es": "Detalle con pincel: en una escultura grande aún podían atravesarse dos caras; ahora, cuando ocurre, la reducción se repite con más cuidado.",
-    "pt": "Detalhe com pincel: em uma escultura grande, duas faces ainda podiam se atravessar; agora, quando isso acontece, a redução é refeita com mais cuidado.",
-    "ja": "ブラシによるディテール：大きな彫刻で2つの面が互いに突き抜けることがありましたが、その場合は簡略化をより慎重にやり直すようになりました。"
+    "en": "Narrow grooves: the program now has a second way to open the grooves that are too narrow for the torch, so far fewer of them remain, especially in symmetric sculptures.",
+    "it": "Gole strette: il programma ha ora un secondo modo per aprire le gole troppo strette per la torcia, quindi ne restano molte meno, soprattutto nelle sculture simmetriche.",
+    "de": "Enge Kehlen: Das Programm hat jetzt eine zweite Methode, um Kehlen zu öffnen, die für den Brenner zu eng sind. Es bleiben deutlich weniger übrig, vor allem bei symmetrischen Skulpturen.",
+    "fr": "Gorges étroites : le programme dispose désormais d'une deuxième façon d'ouvrir les gorges trop étroites pour la torche ; il en reste beaucoup moins, surtout dans les sculptures symétriques.",
+    "es": "Gargantas estrechas: el programa tiene ahora una segunda forma de abrir las gargantas demasiado estrechas para la antorcha, así que quedan muchas menos, sobre todo en las esculturas simétricas.",
+    "pt": "Gargantas estreitas: o programa tem agora uma segunda maneira de abrir as gargantas estreitas demais para a tocha, então sobram muito menos, principalmente nas esculturas simétricas.",
+    "ja": "狭い溝：トーチが入らないほど狭い溝を開く方法がもう一つ加わり、特に左右対称の彫刻で残る溝が大幅に減りました。"
   },
   "history": [
+    {
+      "date": "2026-11-13T00:28:56Z",
+      "version": "1.3.144",
+      "notes": {
+        "en": "Narrow grooves: the program now has a second way to open the grooves that are too narrow for the torch, so far fewer of them remain, especially in symmetric sculptures.",
+        "it": "Gole strette: il programma ha ora un secondo modo per aprire le gole troppo strette per la torcia, quindi ne restano molte meno, soprattutto nelle sculture simmetriche.",
+        "de": "Enge Kehlen: Das Programm hat jetzt eine zweite Methode, um Kehlen zu öffnen, die für den Brenner zu eng sind. Es bleiben deutlich weniger übrig, vor allem bei symmetrischen Skulpturen.",
+        "fr": "Gorges étroites : le programme dispose désormais d'une deuxième façon d'ouvrir les gorges trop étroites pour la torche ; il en reste beaucoup moins, surtout dans les sculptures symétriques.",
+        "es": "Gargantas estrechas: el programa tiene ahora una segunda forma de abrir las gargantas demasiado estrechas para la antorcha, así que quedan muchas menos, sobre todo en las esculturas simétricas.",
+        "pt": "Gargantas estreitas: o programa tem agora uma segunda maneira de abrir as gargantas estreitas demais para a tocha, então sobram muito menos, principalmente nas esculturas simétricas.",
+        "ja": "狭い溝：トーチが入らないほど狭い溝を開く方法がもう一つ加わり、特に左右対称の彫刻で残る溝が大幅に減りました。"
+      }
+    },
     {
       "date": "2026-11-12T22:17:15Z",
       "version": "1.3.143",
@@ -518,28 +531,15 @@
         "pt": "Cordões curtos: a sola minúscula sob uma ponta que toca o chão agora é removida, em vez de deixar cordões de alguns milímetros.",
         "ja": "短い溶接線：地面に触れる尖った先端の下にできるごく小さな底面を取り除き、数ミリの溶接線が残らないようにしました。"
       }
-    },
-    {
-      "date": "2026-11-11T05:32:55Z",
-      "version": "1.3.105",
-      "notes": {
-        "en": "Compact nesting is about twice as fast on large sculptures with many pieces; the sheets come out exactly the same.",
-        "it": "L'annidamento compatto è circa due volte più veloce sulle sculture grandi con molti pezzi; le lamiere escono identiche a prima.",
-        "de": "Die kompakte Verschachtelung ist bei großen Skulpturen mit vielen Teilen etwa doppelt so schnell; die Bleche bleiben genau gleich.",
-        "fr": "L'imbrication compacte est environ deux fois plus rapide sur les grandes sculptures à nombreuses pièces ; les tôles restent identiques.",
-        "es": "El anidado compacto es aproximadamente el doble de rápido en esculturas grandes con muchas piezas; las chapas salen idénticas.",
-        "pt": "O encaixe compacto está cerca de duas vezes mais rápido em esculturas grandes com muitas peças; as chapas saem idênticas.",
-        "ja": "パーツの多い大きな彫刻で、コンパクトなネスティングが約2倍速くなりました。板の配置は以前とまったく同じです。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.143",
+    "version": "1.3.144",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "ac843cdedfd9ba9962de007eba166637fc2674777c27ef6e3925ab286553725e"
+        "sha256": "eea73ca0df1a4cd168a2ea028320d5eaa6b18979d122861c6e7ad81a942da6a4"
       }
     ]
   },

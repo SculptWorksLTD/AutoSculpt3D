@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.160",
-  "notes": "Model gallery cleaned up: every model was checked by eye and the broken, unfinished or wrong ones were removed. About 1,800 good models remain.",
+  "latest": "1.3.161",
+  "notes": "New area: 2D drawing (CAD) for laser parts. Draw lines, circles, arcs, polylines, slots, texts and dimensions with measures typed in and snaps; move, copy, rotate, mirror, offset, trim and fillet. Open DXF and SVG files, see parts, cut length and cost, nest on the sheet and export the DXF. Ten ready-made parts to start from.",
   "notes_i18n": {
-    "en": "Model gallery cleaned up: every model was checked by eye and the broken, unfinished or wrong ones were removed. About 1,800 good models remain.",
-    "it": "Galleria dei modelli ripulita: ogni modello è stato guardato a uno a uno e quelli rotti, incompleti o sbagliati sono stati tolti. Restano circa 1.800 modelli buoni.",
-    "de": "Modellgalerie bereinigt: Jedes Modell wurde einzeln angesehen, defekte, unvollständige oder falsche wurden entfernt. Es bleiben rund 1.800 gute Modelle.",
-    "fr": "Galerie de modèles nettoyée : chaque modèle a été vérifié un par un et les modèles cassés, incomplets ou erronés ont été retirés. Il reste environ 1 800 bons modèles.",
-    "es": "Galería de modelos depurada: cada modelo se revisó uno a uno y se quitaron los rotos, incompletos o equivocados. Quedan unos 1.800 modelos buenos.",
-    "pt": "Galeria de modelos revisada: cada modelo foi conferido um a um e os quebrados, incompletos ou errados foram removidos. Restam cerca de 1.800 modelos bons.",
-    "ja": "モデルギャラリーを整理しました。すべてのモデルを1つずつ確認し、壊れたもの・未完成のもの・間違ったものを削除しました。良いモデルが約1,800点残っています。"
+    "en": "New area: 2D drawing (CAD) for laser parts. Draw lines, circles, arcs, polylines, slots, texts and dimensions with measures typed in and snaps; move, copy, rotate, mirror, offset, trim and fillet. Open DXF and SVG files, see parts, cut length and cost, nest on the sheet and export the DXF. Ten ready-made parts to start from.",
+    "it": "Nuova area: Disegno 2D (CAD) per i pezzi laser. Disegna linee, cerchi, archi, polilinee, asole, testi e quote con le misure scritte a mano e gli agganci; sposta, copia, ruota, specchia, offset, taglia e raccorda. Apre file DXF e SVG, mostra pezzi, metri di taglio e costo, annida sulla lamiera ed esporta il DXF. Dieci pezzi pronti da cui partire.",
+    "de": "Neuer Bereich: 2D-Zeichnung (CAD) für Laserteile. Linien, Kreise, Bögen, Polylinien, Langlöcher, Texte und Bemaßungen mit eingetippten Maßen und Fang zeichnen; verschieben, kopieren, drehen, spiegeln, versetzen, stutzen und abrunden. Öffnet DXF und SVG, zeigt Teile, Schnittlänge und Kosten, verschachtelt auf dem Blech und exportiert das DXF. Zehn fertige Teile zum Start.",
+    "fr": "Nouvelle zone : Dessin 2D (CAO) pour les pièces laser. Dessinez lignes, cercles, arcs, polylignes, boutonnières, textes et cotes avec des mesures tapées et l’accrochage ; déplacer, copier, rotation, symétrie, décalage, ajuster et raccord. Ouvre les fichiers DXF et SVG, montre pièces, longueur de coupe et coût, imbrique sur la tôle et exporte le DXF. Dix pièces prêtes pour commencer.",
+    "es": "Nueva área: Dibujo 2D (CAD) para piezas láser. Dibuja líneas, círculos, arcos, polilíneas, ojales, textos y cotas con medidas escritas y enganches; mover, copiar, girar, simetría, desfase, recortar y empalmar. Abre archivos DXF y SVG, muestra piezas, longitud de corte y coste, anida en la chapa y exporta el DXF. Diez piezas listas para empezar.",
+    "pt": "Nova área: Desenho 2D (CAD) para peças a laser. Desenhe linhas, círculos, arcos, polilinhas, rasgos, textos e cotas com medidas digitadas e encaixes; mover, copiar, girar, espelhar, deslocar, aparar e concordar. Abre arquivos DXF e SVG, mostra peças, comprimento de corte e custo, encaixa na chapa e exporta o DXF. Dez peças prontas para começar.",
+    "ja": "新エリア：レーザー部品用の2D図面 (CAD)。数値入力とスナップで線・円・円弧・ポリライン・長穴・文字・寸法を作図し、移動・コピー・回転・鏡像・オフセット・トリム・フィレットができます。DXFとSVGを開き、部品数・切断長・コストを表示、板材にネスティングしてDXFを出力します。すぐ使える既成部品10種類付き。"
   },
   "history": [
+    {
+      "date": "2026-11-18T23:32:27Z",
+      "version": "1.3.161",
+      "notes": {
+        "en": "New area: 2D drawing (CAD) for laser parts. Draw lines, circles, arcs, polylines, slots, texts and dimensions with measures typed in and snaps; move, copy, rotate, mirror, offset, trim and fillet. Open DXF and SVG files, see parts, cut length and cost, nest on the sheet and export the DXF. Ten ready-made parts to start from.",
+        "it": "Nuova area: Disegno 2D (CAD) per i pezzi laser. Disegna linee, cerchi, archi, polilinee, asole, testi e quote con le misure scritte a mano e gli agganci; sposta, copia, ruota, specchia, offset, taglia e raccorda. Apre file DXF e SVG, mostra pezzi, metri di taglio e costo, annida sulla lamiera ed esporta il DXF. Dieci pezzi pronti da cui partire.",
+        "de": "Neuer Bereich: 2D-Zeichnung (CAD) für Laserteile. Linien, Kreise, Bögen, Polylinien, Langlöcher, Texte und Bemaßungen mit eingetippten Maßen und Fang zeichnen; verschieben, kopieren, drehen, spiegeln, versetzen, stutzen und abrunden. Öffnet DXF und SVG, zeigt Teile, Schnittlänge und Kosten, verschachtelt auf dem Blech und exportiert das DXF. Zehn fertige Teile zum Start.",
+        "fr": "Nouvelle zone : Dessin 2D (CAO) pour les pièces laser. Dessinez lignes, cercles, arcs, polylignes, boutonnières, textes et cotes avec des mesures tapées et l’accrochage ; déplacer, copier, rotation, symétrie, décalage, ajuster et raccord. Ouvre les fichiers DXF et SVG, montre pièces, longueur de coupe et coût, imbrique sur la tôle et exporte le DXF. Dix pièces prêtes pour commencer.",
+        "es": "Nueva área: Dibujo 2D (CAD) para piezas láser. Dibuja líneas, círculos, arcos, polilíneas, ojales, textos y cotas con medidas escritas y enganches; mover, copiar, girar, simetría, desfase, recortar y empalmar. Abre archivos DXF y SVG, muestra piezas, longitud de corte y coste, anida en la chapa y exporta el DXF. Diez piezas listas para empezar.",
+        "pt": "Nova área: Desenho 2D (CAD) para peças a laser. Desenhe linhas, círculos, arcos, polilinhas, rasgos, textos e cotas com medidas digitadas e encaixes; mover, copiar, girar, espelhar, deslocar, aparar e concordar. Abre arquivos DXF e SVG, mostra peças, comprimento de corte e custo, encaixa na chapa e exporta o DXF. Dez peças prontas para começar.",
+        "ja": "新エリア：レーザー部品用の2D図面 (CAD)。数値入力とスナップで線・円・円弧・ポリライン・長穴・文字・寸法を作図し、移動・コピー・回転・鏡像・オフセット・トリム・フィレットができます。DXFとSVGを開き、部品数・切断長・コストを表示、板材にネスティングしてDXFを出力します。すぐ使える既成部品10種類付き。"
+      }
+    },
     {
       "date": "2026-11-18T23:02:37Z",
       "version": "1.3.160",
@@ -518,38 +531,25 @@
         "pt": "Os modelos com partes que se atravessam (uma cauda enfiada no corpo, uma haste no seu pé) agora são reconstruídos como um único sólido ao abrir, para que a escultura não tenha facetas que se cruzem.",
         "ja": "部分どうしが突き抜けているモデル（胴体に刺さった尾、台座に刺さった脚など）は、開くときにひとつの立体として再構築されるようになりました。彫刻の面が交差しなくなります。"
       }
-    },
-    {
-      "date": "2026-11-12T08:10:36Z",
-      "version": "1.3.123",
-      "notes": {
-        "en": "Sheets view: you can now zoom and move the drawing. Mouse wheel or pinch to zoom, drag to move, double click (or «Whole sheet») to see the whole sheet again.",
-        "it": "Vista Lamiere: ora il disegno si può ingrandire e spostare. Rotella del mouse o pizzico per lo zoom, trascina per spostare, doppio clic (o «Lamiera intera») per rivedere tutta la lamiera.",
-        "de": "Blechansicht: Die Zeichnung lässt sich jetzt zoomen und verschieben. Mausrad oder Fingergeste zum Zoomen, Ziehen zum Verschieben, Doppelklick (oder «Ganzes Blech») für das ganze Blech.",
-        "fr": "Vue Tôles : le dessin peut maintenant être agrandi et déplacé. Molette ou pincement pour zoomer, glisser pour déplacer, double clic (ou « Tôle entière ») pour revoir toute la tôle.",
-        "es": "Vista Chapas: ahora el dibujo se puede ampliar y mover. Rueda del ratón o pellizco para el zoom, arrastra para mover, doble clic (o «Chapa entera») para ver de nuevo toda la chapa.",
-        "pt": "Vista Chapas: agora o desenho pode ser ampliado e movido. Roda do mouse ou pinça para o zoom, arraste para mover, duplo clique (ou «Chapa inteira») para ver a chapa toda de novo.",
-        "ja": "板のビュー：図面を拡大・移動できるようになりました。マウスホイールまたはピンチでズーム、ドラッグで移動、ダブルクリック（または「板全体」）で板全体に戻ります。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.160",
+    "version": "1.3.161",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "227b28b7f73e1b3aba4bb3e5ce84ed48f18623c3a7b0de2ef6645cabd7b64f70"
+        "sha256": "8aba2b07fbdc05081132fef5228ab0418a00cf45c1a95439b45e6fbfa5e3f1f9"
       }
     ]
   },
   "app": {
-    "version": "1.3.33",
+    "version": "1.3.34",
     "files": [
       {
         "path": "main.py",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/app/main.py",
-        "sha256": "08b95cebecfe70c7df473370aec2ae9c91584124b31b5275b8f652f6e5c36b81"
+        "sha256": "5e511b8779ab7327becb9b6f60871c541c7e5c547f2381b21fd89ceac54c1626"
       }
     ]
   },

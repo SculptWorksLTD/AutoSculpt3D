@@ -35,6 +35,7 @@ Tutti i calcoli (sfaccettatura, sviluppo dei pezzi, annidamento, file per il las
 - **Taglio laser** – dispone i pezzi sulle lamiere e prepara i file DXF per il taglio.
 - **Mockup** – mostra la scultura finita nel materiale scelto (acciaio inox, ferro, ottone, rame, alluminio), con sfondi da studio, paesaggi, la tua foto o carta millimetrata, vista da tutti i lati.
 - **Carpenteria** – un catalogo di modelli su misura: cancelli, ringhiere, scale a rampa e a chiocciola, inferriate, pensiline, gazebo, scaffalature, arredo urbano, mobili e lamiere ornamentali con disegni tagliati al laser: distinta di taglio dei profili, barre da ordinare, parti in lamiera in DXF, preventivo e scheda di lavorazione in PDF.
+- **Disegno 2D (CAD)** – pezzi piani a misura per il laser: linee, cerchi, archi, polilinee, asole, testi e quote, misure scritte a mano, agganci, sposta/copia/ruota/specchia, offset, taglia e raccordi; apre e salva DXF (e apre SVG), conta pezzi, metri di taglio e costo, annida sulla lamiera. Con una serie di pezzi pronti: piastre, flange, staffe, rondelle, targhe.
 - **Preventivo e montaggio** – calcola materiale e costi e prepara la guida di montaggio passo per passo.
 - **Progetti** – salvataggio automatico, file di progetto propri (.as3d) con anteprima, aggiornamenti automatici.
 - **7 lingue** – italiano, inglese, tedesco, francese, spagnolo, portoghese e giapponese.
@@ -53,6 +54,9 @@ Start from a 3D model, a photo or just a description: the program takes care of 
 
 The same window also does everyday **metalwork**: gates, window grilles, canopies and furniture made to measure,
 with the cutting list, the sheet parts for the laser and the quote.
+
+And it is a **2D CAD** for flat laser parts: draw to measure (or open a DXF or SVG), get parts, cut length and cost,
+nest them on the sheet and export the DXF.
 
 All the calculations (faceting, unfolding, nesting, laser files) are made by **SculptEngine**, the proprietary engine of AutoSculpt 3D.
 

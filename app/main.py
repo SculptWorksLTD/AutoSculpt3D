@@ -1,6 +1,7 @@
 # AutoSculpt 3D - (c) 2026 Enrico Migliorati. All rights reserved.
 import argparse
 import base64
+import gzip
 import hashlib
 import json
 import mimetypes
@@ -454,6 +455,47 @@ def photo_get(url):
         raise UserError('The picture is too big')
     kind = 'image/png' if data[:8] == b'\x89PNG\r\n\x1a\n' else 'image/webp' if data[8:12] == b'WEBP' else 'image/jpeg'
     return (data, kind)
+GALLERY_URL = os.environ.get('AUTOSCULPT_GALLERY_URL', 'https://pub-6a60f5de67aa452fa66fa8d7cc451b99.r2.dev/gallery/v1')
+_gallery_index = [None]
+
+def gallery_get(rel, binary=True, timeout=40):
+    req = urllib.request.Request(GALLERY_URL + '/' + rel, headers={'User-Agent': f'AutoSculpt3D/{VERSION}'})
+    try:
+        with urlopen(req, timeout) as r:
+            data = r.read()
+    except urllib.error.HTTPError as e:
+        raise UserError('The model gallery replied {code}', code=e.code)
+    except Exception as e:
+        raise UserError('Cannot reach the model gallery: {error}', error=str(getattr(e, 'reason', e)))
+    return data if binary else json.loads(data)
+
+def gallery_index():
+    if _gallery_index[0] is not None:
+        return _gallery_index[0]
+    cache = SUPPORT / 'library' / 'gallery'
+    cache.mkdir(parents=True, exist_ok=True)
+    try:
+        data = gallery_get('index.json?t=' + str(int(time.time() // 3600)), binary=False)
+        (cache / 'index.json').write_text(json.dumps(data), encoding='utf-8')
+    except UserError:
+        if not (cache / 'index.json').exists():
+            raise
+        data = json.loads((cache / 'index.json').read_text(encoding='utf-8'))
+    _gallery_index[0] = data
+    return data
+
+def gallery_model(cat, mid):
+    if not re.match('^[a-z0-9_]{1,40}$', cat or '') or not re.match('^[a-z0-9_@-]{1,120}$', mid or ''):
+        raise UserError('Unknown model')
+    cache = SUPPORT / 'library' / 'gallery' / cat
+    cache.mkdir(parents=True, exist_ok=True)
+    f = cache / (mid + '.obj')
+    if not f.exists() or f.stat().st_size == 0:
+        raw = gzip.decompress(gallery_get(f'{cat}/{mid}.obj.gz'))
+        tmp = f.with_suffix('.part')
+        tmp.write_bytes(raw)
+        tmp.replace(f)
+    return f
 
 def library_file(src, uid):
     _lib_now[0] = src
@@ -1375,6 +1417,15 @@ class Handler(BaseHTTPRequestHandler):
                         return self.send_json(library_search(src, (q.get('q') or [''])[0][:120]))
                     f, ctype = library_file(src, (q.get('id') or [''])[0][:300])
                     return self.send_file(f, ctype, {'X-AS-Name': f.name})
+                except UserError as exc:
+                    return self.send_json({'error': exc.text, 'error_values': exc.values}, 502)
+            if path in ('/api/gallery/index', '/api/gallery/model'):
+                q = urllib.parse.parse_qs(urllib.parse.urlparse(self.path).query)
+                try:
+                    if path.endswith('index'):
+                        return self.send_json(gallery_index())
+                    f = gallery_model((q.get('cat') or [''])[0], (q.get('id') or [''])[0])
+                    return self.send_file(f, 'text/plain; charset=utf-8')
                 except UserError as exc:
                     return self.send_json({'error': exc.text, 'error_values': exc.values}, 502)
             if path == '/api/report':

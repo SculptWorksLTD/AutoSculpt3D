@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.158",
-  "notes": "New: Gallery of ready-made models. In Sculptures you find more than 3,500 models, already checked one by one, in 28 groups (animals, birds, figures, mythology, objects, vehicles…): click one and it becomes your sculpture.",
+  "latest": "1.3.159",
+  "notes": "The program no longer sends anything by itself: the anonymous diary at closing and the usage notes are removed. Only the reports you write yourself (Help → Report a problem or an idea) are sent.",
   "notes_i18n": {
-    "en": "New: Gallery of ready-made models. In Sculptures you find more than 3,500 models, already checked one by one, in 28 groups (animals, birds, figures, mythology, objects, vehicles…): click one and it becomes your sculpture.",
-    "it": "Novità: Galleria di modelli pronti. In Sculture trovi più di 3.500 modelli, già controllati uno per uno, in 28 gruppi (animali, uccelli, figure, mitologia, oggetti, veicoli…): ne clicchi uno e diventa la tua scultura.",
-    "de": "Neu: Galerie fertiger Modelle. Unter Skulpturen findest du über 3.500 einzeln geprüfte Modelle in 28 Gruppen (Tiere, Vögel, Figuren, Mythologie, Objekte, Fahrzeuge…): ein Klick und es wird deine Skulptur.",
-    "fr": "Nouveau : galerie de modèles prêts. Dans Sculptures, plus de 3 500 modèles vérifiés un par un, en 28 groupes (animaux, oiseaux, personnages, mythologie, objets, véhicules…) : un clic et il devient votre sculpture.",
-    "es": "Novedad: galería de modelos listos. En Esculturas hay más de 3.500 modelos revisados uno por uno, en 28 grupos (animales, aves, figuras, mitología, objetos, vehículos…): haz clic y se convierte en tu escultura.",
-    "pt": "Novidade: galeria de modelos prontos. Em Esculturas há mais de 3.500 modelos verificados um a um, em 28 grupos (animais, aves, figuras, mitologia, objetos, veículos…): clique e ele vira a sua escultura.",
-    "ja": "新機能：完成モデルのギャラリー。「彫刻」に、一つずつ確認済みの3,500以上のモデルが28のグループ（動物、鳥、人物、神話、オブジェ、乗り物…）で並んでいます。クリックするとあなたの彫刻になります。"
+    "en": "The program no longer sends anything by itself: the anonymous diary at closing and the usage notes are removed. Only the reports you write yourself (Help → Report a problem or an idea) are sent.",
+    "it": "Il programma non manda più niente da solo: tolti il diario anonimo alla chiusura e le note d'uso. Parte solo una segnalazione che scrivi tu (Aiuto → Segnala un problema o un'idea).",
+    "de": "Das Programm sendet nichts mehr von selbst: das anonyme Protokoll beim Schließen und die Nutzungsnotizen sind entfernt. Gesendet wird nur eine Meldung, die du selbst schreibst (Hilfe → Problem oder Idee melden).",
+    "fr": "Le programme n'envoie plus rien tout seul : le journal anonyme à la fermeture et les notes d'utilisation sont supprimés. Seul un signalement que vous écrivez vous-même est envoyé (Aide → Signaler un problème ou une idée).",
+    "es": "El programa ya no envía nada por sí solo: se quitaron el diario anónimo al cerrar y las notas de uso. Solo se envía un aviso que escribes tú (Ayuda → Informar de un problema o una idea).",
+    "pt": "O programa não envia mais nada sozinho: foram removidos o diário anônimo ao fechar e as notas de uso. Só é enviado um relato que você mesmo escreve (Ajuda → Relatar um problema ou uma ideia).",
+    "ja": "プログラムが自動で何かを送信することはなくなりました。終了時の匿名ログと使用メモを削除しました。送信されるのは、ご自身で書いた報告（ヘルプ → 問題やアイデアを報告）だけです。"
   },
   "history": [
+    {
+      "date": "2026-11-18T22:07:50Z",
+      "version": "1.3.159",
+      "notes": {
+        "en": "The program no longer sends anything by itself: the anonymous diary at closing and the usage notes are removed. Only the reports you write yourself (Help → Report a problem or an idea) are sent.",
+        "it": "Il programma non manda più niente da solo: tolti il diario anonimo alla chiusura e le note d'uso. Parte solo una segnalazione che scrivi tu (Aiuto → Segnala un problema o un'idea).",
+        "de": "Das Programm sendet nichts mehr von selbst: das anonyme Protokoll beim Schließen und die Nutzungsnotizen sind entfernt. Gesendet wird nur eine Meldung, die du selbst schreibst (Hilfe → Problem oder Idee melden).",
+        "fr": "Le programme n'envoie plus rien tout seul : le journal anonyme à la fermeture et les notes d'utilisation sont supprimés. Seul un signalement que vous écrivez vous-même est envoyé (Aide → Signaler un problème ou une idée).",
+        "es": "El programa ya no envía nada por sí solo: se quitaron el diario anónimo al cerrar y las notas de uso. Solo se envía un aviso que escribes tú (Ayuda → Informar de un problema o una idea).",
+        "pt": "O programa não envia mais nada sozinho: foram removidos o diário anônimo ao fechar e as notas de uso. Só é enviado um relato que você mesmo escreve (Ajuda → Relatar um problema ou uma ideia).",
+        "ja": "プログラムが自動で何かを送信することはなくなりました。終了時の匿名ログと使用メモを削除しました。送信されるのは、ご自身で書いた報告（ヘルプ → 問題やアイデアを報告）だけです。"
+      }
+    },
     {
       "date": "2026-11-18T22:03:55Z",
       "version": "1.3.158",
@@ -518,38 +531,25 @@
         "pt": "Partes e paredes finas: ao reduzir as faces, o programa agora recusa os passos que fariam duas facetas se atravessarem; assim menos esculturas precisam ser engrossadas e aparecem menos avisos.",
         "ja": "細い部分と薄い壁：面を減らす途中で、2 つの面が互いに突き抜けてしまう手順を行わないようになりました。太くする必要のある彫刻が減り、警告も少なくなります。"
       }
-    },
-    {
-      "date": "2026-11-12T00:38:59Z",
-      "version": "1.3.121",
-      "notes": {
-        "en": "Thin parts (tails, legs, horns) no longer fold through themselves: when it happens the program thickens them and tries again. If a crossing remains, the Summary warns you and shows the pieces in red.",
-        "it": "Le parti sottili (code, zampe, corna) non si ripiegano più attraverso sé stesse: quando succede il programma le ingrossa e riprova. Se resta un incrocio, il Riepilogo avvisa e mostra i pezzi in rosso.",
-        "de": "Dünne Teile (Schwänze, Beine, Hörner) falten sich nicht mehr durch sich selbst: Wenn es passiert, verdickt das Programm sie und versucht es erneut. Bleibt eine Durchdringung, warnt die Zusammenfassung und zeigt die Teile in Rot.",
-        "fr": "Les parties fines (queues, pattes, cornes) ne se replient plus à travers elles-mêmes : quand cela arrive, le programme les épaissit et réessaie. S'il reste un croisement, le Résumé vous avertit et montre les pièces en rouge.",
-        "es": "Las partes finas (colas, patas, cuernos) ya no se pliegan atravesándose a sí mismas: cuando ocurre, el programa las engrosa y vuelve a intentarlo. Si queda un cruce, el Resumen avisa y muestra las piezas en rojo.",
-        "pt": "As partes finas (caudas, patas, chifres) não se dobram mais atravessando a si mesmas: quando acontece, o programa as engrossa e tenta de novo. Se restar um cruzamento, o Resumo avisa e mostra as peças em vermelho.",
-        "ja": "細い部分（尾、脚、角）が自分自身を突き抜けて折り重なることがなくなりました。起きた場合は自動で太くしてやり直します。突き抜けが残る場合は「概要」で知らせ、該当する部品を赤で表示します。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.158",
+    "version": "1.3.159",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "095b7e2532b609eaf7f3de7e87ac41f31f176fc887dab60cd1858a6784dc8108"
+        "sha256": "c52f63cd2dfbc574b4314d300cb3e0850360edca170c5ad8f8d81e57d4634e55"
       }
     ]
   },
   "app": {
-    "version": "1.3.32",
+    "version": "1.3.33",
     "files": [
       {
         "path": "main.py",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/app/main.py",
-        "sha256": "d7bb9c5fa148eaf9f0743a84fb0f9b40a45dfc95adb9ba7af777cb611f97ab95"
+        "sha256": "08b95cebecfe70c7df473370aec2ae9c91584124b31b5275b8f652f6e5c36b81"
       }
     ]
   },

@@ -64,7 +64,7 @@ def documents_dir():
             pass
     return Path.home() / 'Documents'
 UPDATE_URLS = ['https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/update.json', 'https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3DRelease/main/update.json']
-DEFAULT_SETTINGS = {'auto_check': True, 'last_check': 0, 'auto_diary': None}
+DEFAULT_SETTINGS = {'auto_check': True, 'last_check': 0}
 
 def log(*parts):
     line = time.strftime('%Y-%m-%d %H:%M:%S ') + ' '.join((str(p) for p in parts))
@@ -86,7 +86,9 @@ def vtuple(v):
 
 def load_settings():
     try:
-        return {**DEFAULT_SETTINGS, **json.loads(SETTINGS_FILE.read_text())}
+        d = {**DEFAULT_SETTINGS, **json.loads(SETTINGS_FILE.read_text())}
+        d.pop('auto_diary', None)
+        return d
     except Exception:
         return dict(DEFAULT_SETTINGS)
 
@@ -1167,25 +1169,6 @@ def send_report(b):
         raise UserError('The report service is not responding ({detail})', detail=str(getattr(exc, 'reason', exc)))
     log('Report sent:', payload['kind'], 'reference', got.get('id'))
     return {'id': str(got.get('id') or '')}
-DIARY_ERRORS = re.compile('Traceback|Page:|ERROR|[Ff]ailed|not sent|Exception')
-
-def send_auto_diary():
-    try:
-        if load_settings().get('auto_diary') is not True:
-            return False
-        url = report_url(wait=False)
-        diary = report_diary('last')
-        if not url or not diary:
-            return False
-        errors = sum((1 for ln in diary.splitlines() if DIARY_ERRORS.search(ln)))
-        system = {'darwin': 'macOS', 'win32': 'Windows'}.get(sys.platform, 'Linux')
-        payload = {'app': APP_NAME, 'kind': 'auto', 'text': 'automatic diary', 'errors': errors, 'version': product_version(), 'os': system + ' ' + platform.release()[:12], 'arch': platform.machine()[:12], 'diary': diary[-200000:]}
-        req = urllib.request.Request(url, data=json.dumps(payload).encode('utf-8'), method='POST', headers={'Content-Type': 'application/json', 'User-Agent': 'AutoSculpt3D/' + VERSION})
-        with urlopen(req, 6) as r:
-            r.read()
-        return True
-    except Exception:
-        return False
 
 def fetch_manifest():
     test = os.environ.get('AUTOSCULPT_UPDATE_URL')
@@ -1575,7 +1558,7 @@ class Handler(BaseHTTPRequestHandler):
                 return self.send_json({'changed': changed, 'active': NATIVE_MENU})
             if path == '/api/settings':
                 s = load_settings()
-                for k in ('auto_check', 'auto_diary'):
+                for k in ('auto_check',):
                     if k in b:
                         s[k] = b[k]
                 save_settings(s)
@@ -1973,7 +1956,6 @@ def main():
             while True:
                 time.sleep(3600)
         except KeyboardInterrupt:
-            send_auto_diary()
             return
     import webview
     try:
@@ -2010,6 +1992,5 @@ def main():
         webview.start(private_mode=False, storage_path=str(SUPPORT / 'webview'))
     finally:
         stop_engines()
-        send_auto_diary()
 if __name__ == '__main__':
     main()

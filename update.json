@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.173",
-  "notes": "The pedestal of a model is removed by itself (option in Shape and size). One strip of tabs: 3D, Pieces, Sheets, 2D drawing and Quote. 2D parts (brackets, plates, a plaque) drawn with the sculpture, nested, in the DXF and in the quote. Measuring tool (M) on the 3D view and on the sheets. Gallery previews without pedestals.",
+  "latest": "1.3.174",
+  "notes": "Edit the 3D by hand: drag the corners of the faceted sculpture (key E), with a soft radius and the mirror twin on symmetric sculptures; pieces, sheets and quote follow. 2D parts in metalwork too, each with its own thickness, engravings and texts in the DXF. A distance measured on a sheet can be kept as a dimension.",
   "notes_i18n": {
-    "en": "The pedestal of a model is removed by itself (option in Shape and size). One strip of tabs: 3D, Pieces, Sheets, 2D drawing and Quote. 2D parts (brackets, plates, a plaque) drawn with the sculpture, nested, in the DXF and in the quote. Measuring tool (M) on the 3D view and on the sheets. Gallery previews without pedestals.",
-    "it": "Il piedistallo dei modelli si toglie da solo (opzione in Forma e misure). Una sola fila di schede: 3D, Pezzi, Lamiere, Disegno 2D e Preventivo. Parti 2D (staffe, piastre, una targa) disegnate insieme alla scultura, annidate, nel DXF e nel preventivo. Strumento Misura (M) nella vista 3D e sulle lamiere. Anteprime della galleria senza piedistalli.",
-    "de": "Der Sockel eines Modells wird von selbst entfernt (Option in Form und Maße). Eine Reihe von Registerkarten: 3D, Teile, Bleche, 2D-Zeichnung und Angebot. 2D-Teile (Halter, Platten, ein Schild) mit der Skulptur gezeichnet, verschachtelt, im DXF und im Angebot. Messwerkzeug (M) in der 3D-Ansicht und auf den Blechen. Galerie-Vorschauen ohne Sockel.",
-    "fr": "Le socle d'un modèle est retiré tout seul (option dans Forme et dimensions). Une seule rangée d'onglets : 3D, Pièces, Tôles, Dessin 2D et Devis. Pièces 2D (pattes, platines, une plaque) dessinées avec la sculpture, imbriquées, dans le DXF et dans le devis. Outil Mesurer (M) dans la vue 3D et sur les tôles. Aperçus de la galerie sans socle.",
-    "es": "El pedestal de un modelo se quita solo (opción en Forma y medidas). Una sola fila de pestañas: 3D, Piezas, Chapas, Dibujo 2D y Presupuesto. Piezas 2D (soportes, placas, una placa) dibujadas con la escultura, anidadas, en el DXF y en el presupuesto. Herramienta Medir (M) en la vista 3D y en las chapas. Vistas previas de la galería sin pedestal.",
-    "pt": "O pedestal de um modelo é removido sozinho (opção em Forma e medidas). Uma só fila de abas: 3D, Peças, Chapas, Desenho 2D e Orçamento. Peças 2D (suportes, placas, uma placa) desenhadas com a escultura, aninhadas, no DXF e no orçamento. Ferramenta Medir (M) na vista 3D e nas chapas. Pré-visualizações da galeria sem pedestal.",
-    "ja": "モデルの台座が自動で取り除かれます（形状と寸法のオプション）。タブは1列に：3D、パーツ、板、2D図面、見積もり。彫刻と一緒に描く2D部品（ブラケット、プレート、銘板）は配置され、DXFと見積もりに含まれます。3Dビューと板で使える計測ツール（M）。ギャラリーのプレビューは台座なし。"
+    "en": "Edit the 3D by hand: drag the corners of the faceted sculpture (key E), with a soft radius and the mirror twin on symmetric sculptures; pieces, sheets and quote follow. 2D parts in metalwork too, each with its own thickness, engravings and texts in the DXF. A distance measured on a sheet can be kept as a dimension.",
+    "it": "Modifica il 3D a mano: trascina gli spigoli della scultura sfaccettata (tasto E), con raggio morbido e spigolo gemello nelle sculture simmetriche; pezzi, lamiere e preventivo si aggiornano. Parti 2D anche nella carpenteria, ognuna col suo spessore, incisioni e testi nel DXF. Una distanza misurata su una lamiera si può tenere come quota.",
+    "de": "3D von Hand bearbeiten: Ecken der facettierten Skulptur ziehen (Taste E), mit weichem Radius und Zwillingsecke bei symmetrischen Skulpturen; Teile, Bleche und Angebot folgen. 2D-Teile auch im Metallbau, jedes mit eigener Dicke, Gravuren und Texte im DXF. Ein auf einem Blech gemessener Abstand kann als Maß behalten werden.",
+    "fr": "Modifier la 3D à la main : faites glisser les coins de la sculpture à facettes (touche E), avec un rayon doux et le coin jumeau sur les sculptures symétriques ; pièces, tôles et devis suivent. Pièces 2D aussi en métallerie, chacune avec son épaisseur, gravures et textes dans le DXF. Une distance mesurée sur une tôle peut être gardée comme cote.",
+    "es": "Editar el 3D a mano: arrastra las esquinas de la escultura facetada (tecla E), con radio suave y esquina gemela en esculturas simétricas; piezas, chapas y presupuesto se actualizan. Piezas 2D también en carpintería metálica, cada una con su espesor, grabados y textos en el DXF. Una distancia medida en una chapa se puede guardar como cota.",
+    "pt": "Editar o 3D à mão: arraste os cantos da escultura facetada (tecla E), com raio suave e canto gêmeo nas esculturas simétricas; peças, chapas e orçamento acompanham. Peças 2D também na serralheria, cada uma com a sua espessura, gravações e textos no DXF. Uma distância medida numa chapa pode ser mantida como cota.",
+    "ja": "3Dを手で編集：多面体の彫刻の角をドラッグ（Eキー）、ソフト半径と対称彫刻の対の角にも対応。パーツ、板、見積もりが追従します。金属加工にも2D部品、部品ごとの板厚、刻印と文字はDXFに。板で測った距離を寸法として残せます。"
   },
   "history": [
+    {
+      "date": "2026-11-23T22:59:51Z",
+      "version": "1.3.174",
+      "notes": {
+        "en": "Edit the 3D by hand: drag the corners of the faceted sculpture (key E), with a soft radius and the mirror twin on symmetric sculptures; pieces, sheets and quote follow. 2D parts in metalwork too, each with its own thickness, engravings and texts in the DXF. A distance measured on a sheet can be kept as a dimension.",
+        "it": "Modifica il 3D a mano: trascina gli spigoli della scultura sfaccettata (tasto E), con raggio morbido e spigolo gemello nelle sculture simmetriche; pezzi, lamiere e preventivo si aggiornano. Parti 2D anche nella carpenteria, ognuna col suo spessore, incisioni e testi nel DXF. Una distanza misurata su una lamiera si può tenere come quota.",
+        "de": "3D von Hand bearbeiten: Ecken der facettierten Skulptur ziehen (Taste E), mit weichem Radius und Zwillingsecke bei symmetrischen Skulpturen; Teile, Bleche und Angebot folgen. 2D-Teile auch im Metallbau, jedes mit eigener Dicke, Gravuren und Texte im DXF. Ein auf einem Blech gemessener Abstand kann als Maß behalten werden.",
+        "fr": "Modifier la 3D à la main : faites glisser les coins de la sculpture à facettes (touche E), avec un rayon doux et le coin jumeau sur les sculptures symétriques ; pièces, tôles et devis suivent. Pièces 2D aussi en métallerie, chacune avec son épaisseur, gravures et textes dans le DXF. Une distance mesurée sur une tôle peut être gardée comme cote.",
+        "es": "Editar el 3D a mano: arrastra las esquinas de la escultura facetada (tecla E), con radio suave y esquina gemela en esculturas simétricas; piezas, chapas y presupuesto se actualizan. Piezas 2D también en carpintería metálica, cada una con su espesor, grabados y textos en el DXF. Una distancia medida en una chapa se puede guardar como cota.",
+        "pt": "Editar o 3D à mão: arraste os cantos da escultura facetada (tecla E), com raio suave e canto gêmeo nas esculturas simétricas; peças, chapas e orçamento acompanham. Peças 2D também na serralheria, cada uma com a sua espessura, gravações e textos no DXF. Uma distância medida numa chapa pode ser mantida como cota.",
+        "ja": "3Dを手で編集：多面体の彫刻の角をドラッグ（Eキー）、ソフト半径と対称彫刻の対の角にも対応。パーツ、板、見積もりが追従します。金属加工にも2D部品、部品ごとの板厚、刻印と文字はDXFに。板で測った距離を寸法として残せます。"
+      }
+    },
     {
       "date": "2026-11-23T20:56:07Z",
       "version": "1.3.173",
@@ -518,28 +531,15 @@
         "pt": "Guia de montagem: cada passo agora mostra suas peças de perto, com uma imagem pequena de onde ficam na escultura; os cordões em garganta estreita são indicados para soldar primeiro por dentro; a base e as cavernas internas são mencionadas. Resumo: quando a escultura não fica em pé sozinha, um clique adiciona a base.",
         "ja": "組立ガイド：各ステップでパーツを大きく表示し、彫刻のどこにあるかを小さな図で示すようになりました。狭い溝の継ぎ目は先に内側から溶接するよう表示し、ベースプレートと内部リブにも触れています。概要：彫刻が自立しない場合、ワンクリックでベースプレートを追加できます。"
       }
-    },
-    {
-      "date": "2026-11-12T17:17:04Z",
-      "version": "1.3.136",
-      "notes": {
-        "en": "«Symmetric sculpture» on a winding shape (a dragon in an S): instead of keeping only a part of it, the sculpture is now made whole, without the mirror, and the summary says so.",
-        "it": "«Scultura simmetrica» su una forma sinuosa (un drago a S): invece di tenerne solo una parte, ora la scultura viene fatta intera, senza specchio, e il Riepilogo lo dice.",
-        "de": "«Symmetrische Skulptur» bei einer gewundenen Form (ein Drache in S-Form): Statt nur einen Teil zu behalten, wird die Skulptur jetzt vollständig ohne Spiegelung erstellt, und die Übersicht weist darauf hin.",
-        "fr": "« Sculpture symétrique » sur une forme sinueuse (un dragon en S) : au lieu de n'en garder qu'une partie, la sculpture est désormais réalisée en entier, sans miroir, et le récapitulatif l'indique.",
-        "es": "«Escultura simétrica» en una forma sinuosa (un dragón en S): en lugar de conservar solo una parte, ahora la escultura se hace entera, sin espejo, y el resumen lo indica.",
-        "pt": "«Escultura simétrica» em uma forma sinuosa (um dragão em S): em vez de manter só uma parte, agora a escultura é feita inteira, sem espelho, e o resumo avisa.",
-        "ja": "うねった形（S字の竜など）で「左右対称の彫刻」を選んだ場合、一部だけが残るのではなく、鏡映なしで全体を作るようになりました。概要にその旨が表示されます。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.173",
+    "version": "1.3.174",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "f7ff66d9853b0554120de69dd90cd08cee85ffd2cdb99100f53cb39fc58453f5"
+        "sha256": "3acb48a1fc1b766c383616137ea1a0236edcfcacacb515f60d1b72050742b645"
       }
     ]
   },

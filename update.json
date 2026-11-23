@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.174",
-  "notes": "Edit the 3D by hand: drag the corners of the faceted sculpture (key E), with a soft radius and the mirror twin on symmetric sculptures; pieces, sheets and quote follow. 2D parts in metalwork too, each with its own thickness, engravings and texts in the DXF. A distance measured on a sheet can be kept as a dimension.",
+  "latest": "1.3.175",
+  "notes": "Support column under the sculpture (Base plate section): tube, plates and anchors in the 3D, on the sheets, in the quote and in the assembly guide. Heads for the wall get two keyhole plates by themselves.",
   "notes_i18n": {
-    "en": "Edit the 3D by hand: drag the corners of the faceted sculpture (key E), with a soft radius and the mirror twin on symmetric sculptures; pieces, sheets and quote follow. 2D parts in metalwork too, each with its own thickness, engravings and texts in the DXF. A distance measured on a sheet can be kept as a dimension.",
-    "it": "Modifica il 3D a mano: trascina gli spigoli della scultura sfaccettata (tasto E), con raggio morbido e spigolo gemello nelle sculture simmetriche; pezzi, lamiere e preventivo si aggiornano. Parti 2D anche nella carpenteria, ognuna col suo spessore, incisioni e testi nel DXF. Una distanza misurata su una lamiera si può tenere come quota.",
-    "de": "3D von Hand bearbeiten: Ecken der facettierten Skulptur ziehen (Taste E), mit weichem Radius und Zwillingsecke bei symmetrischen Skulpturen; Teile, Bleche und Angebot folgen. 2D-Teile auch im Metallbau, jedes mit eigener Dicke, Gravuren und Texte im DXF. Ein auf einem Blech gemessener Abstand kann als Maß behalten werden.",
-    "fr": "Modifier la 3D à la main : faites glisser les coins de la sculpture à facettes (touche E), avec un rayon doux et le coin jumeau sur les sculptures symétriques ; pièces, tôles et devis suivent. Pièces 2D aussi en métallerie, chacune avec son épaisseur, gravures et textes dans le DXF. Une distance mesurée sur une tôle peut être gardée comme cote.",
-    "es": "Editar el 3D a mano: arrastra las esquinas de la escultura facetada (tecla E), con radio suave y esquina gemela en esculturas simétricas; piezas, chapas y presupuesto se actualizan. Piezas 2D también en carpintería metálica, cada una con su espesor, grabados y textos en el DXF. Una distancia medida en una chapa se puede guardar como cota.",
-    "pt": "Editar o 3D à mão: arraste os cantos da escultura facetada (tecla E), com raio suave e canto gêmeo nas esculturas simétricas; peças, chapas e orçamento acompanham. Peças 2D também na serralheria, cada uma com a sua espessura, gravações e textos no DXF. Uma distância medida numa chapa pode ser mantida como cota.",
-    "ja": "3Dを手で編集：多面体の彫刻の角をドラッグ（Eキー）、ソフト半径と対称彫刻の対の角にも対応。パーツ、板、見積もりが追従します。金属加工にも2D部品、部品ごとの板厚、刻印と文字はDXFに。板で測った距離を寸法として残せます。"
+    "en": "Support column under the sculpture (Base plate section): tube, plates and anchors in the 3D, on the sheets, in the quote and in the assembly guide. Heads for the wall get two keyhole plates by themselves.",
+    "it": "Colonna di sostegno sotto la scultura (sezione Piastra di base): tubo, piastre e ancoranti nel 3D, sulle lamiere, nel preventivo e nella guida di montaggio. Le teste da parete ricevono da sole due piastre con asola a buco di serratura.",
+    "de": "Stützsäule unter der Skulptur (Bereich Grundplatte): Rohr, Platten und Anker im 3D, auf den Blechen, im Angebot und in der Montageanleitung. Wandköpfe bekommen von selbst zwei Schlüssellochplatten.",
+    "fr": "Colonne de support sous la sculpture (section Plaque de base) : tube, platines et ancrages dans la 3D, sur les tôles, dans le devis et dans le guide de montage. Les têtes murales reçoivent d'elles-mêmes deux plaques à trou de serrure.",
+    "es": "Columna de soporte bajo la escultura (sección Placa base): tubo, placas y anclajes en el 3D, en las chapas, en el presupuesto y en la guía de montaje. Las cabezas de pared reciben solas dos placas con ojo de cerradura.",
+    "pt": "Coluna de suporte sob a escultura (seção Placa de base): tubo, placas e chumbadores no 3D, nas chapas, no orçamento e no guia de montagem. As cabeças de parede recebem sozinhas duas placas com furo de fechadura.",
+    "ja": "彫刻の下の支柱（ベースプレートの項目）：パイプ、プレート、アンカーが3D、板、見積もり、組立ガイドに入ります。壁掛けの頭像には鍵穴プレート2枚が自動で付きます。"
   },
   "history": [
+    {
+      "date": "2026-11-23T23:41:08Z",
+      "version": "1.3.175",
+      "notes": {
+        "en": "Support column under the sculpture (Base plate section): tube, plates and anchors in the 3D, on the sheets, in the quote and in the assembly guide. Heads for the wall get two keyhole plates by themselves.",
+        "it": "Colonna di sostegno sotto la scultura (sezione Piastra di base): tubo, piastre e ancoranti nel 3D, sulle lamiere, nel preventivo e nella guida di montaggio. Le teste da parete ricevono da sole due piastre con asola a buco di serratura.",
+        "de": "Stützsäule unter der Skulptur (Bereich Grundplatte): Rohr, Platten und Anker im 3D, auf den Blechen, im Angebot und in der Montageanleitung. Wandköpfe bekommen von selbst zwei Schlüssellochplatten.",
+        "fr": "Colonne de support sous la sculpture (section Plaque de base) : tube, platines et ancrages dans la 3D, sur les tôles, dans le devis et dans le guide de montage. Les têtes murales reçoivent d'elles-mêmes deux plaques à trou de serrure.",
+        "es": "Columna de soporte bajo la escultura (sección Placa base): tubo, placas y anclajes en el 3D, en las chapas, en el presupuesto y en la guía de montaje. Las cabezas de pared reciben solas dos placas con ojo de cerradura.",
+        "pt": "Coluna de suporte sob a escultura (seção Placa de base): tubo, placas e chumbadores no 3D, nas chapas, no orçamento e no guia de montagem. As cabeças de parede recebem sozinhas duas placas com furo de fechadura.",
+        "ja": "彫刻の下の支柱（ベースプレートの項目）：パイプ、プレート、アンカーが3D、板、見積もり、組立ガイドに入ります。壁掛けの頭像には鍵穴プレート2枚が自動で付きます。"
+      }
+    },
     {
       "date": "2026-11-23T22:59:51Z",
       "version": "1.3.174",
@@ -518,28 +531,15 @@
         "pt": "PDF do orçamento e do guia de montagem: as linhas longas não invadem mais a seguinte, e os arquivos em japonês ficaram cerca de nove vezes mais leves.",
         "ja": "見積書と組立ガイドのPDF：長い行が次の行に重ならなくなり、日本語のファイルサイズが約9分の1になりました。"
       }
-    },
-    {
-      "date": "2026-11-12T18:28:42Z",
-      "version": "1.3.137",
-      "notes": {
-        "en": "Assembly guide: every step now shows its pieces close up, with a small picture of where they are on the sculpture; seams in a narrow groove are marked to be welded from the inside first; the base plate and the inner ribs are mentioned. Summary: when the sculpture does not stand by itself, one click adds the base plate.",
-        "it": "Guida di montaggio: ogni passaggio ora mostra i suoi pezzi da vicino, con una piccola immagine di dove si trovano sulla scultura; i cordoni in gola stretta sono segnalati da saldare prima, dall'interno; sono citate la piastra di base e le centine interne. Riepilogo: quando la scultura non sta in piedi da sola, un clic aggiunge la piastra di base.",
-        "de": "Montageanleitung: Jeder Schritt zeigt seine Teile jetzt aus der Nähe, mit einem kleinen Bild, wo sie an der Skulptur sitzen; Nähte in einer engen Kehle sind markiert und werden zuerst von innen geschweißt; Grundplatte und Innenspanten werden erwähnt. Übersicht: Steht die Skulptur nicht von selbst, fügt ein Klick die Grundplatte hinzu.",
-        "fr": "Guide de montage : chaque étape montre désormais ses pièces de près, avec une petite image de leur position sur la sculpture ; les cordons en gorge étroite sont signalés, à souder d'abord de l'intérieur ; la platine de base et les couples internes sont mentionnés. Récapitulatif : si la sculpture ne tient pas debout seule, un clic ajoute la platine de base.",
-        "es": "Guía de montaje: cada paso muestra ahora sus piezas de cerca, con una imagen pequeña de dónde están en la escultura; los cordones en garganta estrecha se señalan para soldarlos primero por dentro; se mencionan la placa base y las costillas internas. Resumen: si la escultura no se sostiene sola, un clic añade la placa base.",
-        "pt": "Guia de montagem: cada passo agora mostra suas peças de perto, com uma imagem pequena de onde ficam na escultura; os cordões em garganta estreita são indicados para soldar primeiro por dentro; a base e as cavernas internas são mencionadas. Resumo: quando a escultura não fica em pé sozinha, um clique adiciona a base.",
-        "ja": "組立ガイド：各ステップでパーツを大きく表示し、彫刻のどこにあるかを小さな図で示すようになりました。狭い溝の継ぎ目は先に内側から溶接するよう表示し、ベースプレートと内部リブにも触れています。概要：彫刻が自立しない場合、ワンクリックでベースプレートを追加できます。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.174",
+    "version": "1.3.175",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "3acb48a1fc1b766c383616137ea1a0236edcfcacacb515f60d1b72050742b645"
+        "sha256": "97ba23b0f67c8e53f268ad8ea79b8cae20b6df169a89f7bb204f0f1f04b480e5"
       }
     ]
   },

@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.166",
-  "notes": "Mockup in the real site: put the sculpture or the metalwork piece in photos of the place (for example the roads of a roundabout) or in a 360° panorama, drag it where it stands, choose its size in the place without changing the project, with real shadow and sun; tour of the views, images and video for the client.",
+  "latest": "1.3.167",
+  "notes": "Fixed: opening a second model while the first was still loading could leave the sculpture unreduced (thousands of faces).",
   "notes_i18n": {
-    "en": "Mockup in the real site: put the sculpture or the metalwork piece in photos of the place (for example the roads of a roundabout) or in a 360° panorama, drag it where it stands, choose its size in the place without changing the project, with real shadow and sun; tour of the views, images and video for the client.",
-    "it": "Mockup nel luogo vero: metti la scultura o il lavoro di carpenteria nelle foto del posto (per esempio le strade di una rotonda) o in un panorama a 360°, trascinala dove deve stare, scegli la sua misura nel luogo senza cambiare il progetto, con ombra e sole veri; giro delle viste, immagini e video per il cliente.",
-    "de": "Mockup am realen Ort: Skulptur oder Metallbauteil in Fotos des Ortes (zum Beispiel die Straßen eines Kreisverkehrs) oder in ein 360°-Panorama setzen, an seinen Platz ziehen, die Größe am Ort wählen, ohne das Projekt zu ändern, mit echtem Schatten und Sonne; Rundgang durch die Ansichten, Bilder und Video für den Kunden.",
-    "fr": "Maquette dans le lieu réel : placez la sculpture ou l'ouvrage dans des photos du lieu (par exemple les routes d'un rond-point) ou dans un panorama à 360°, faites-la glisser à sa place, choisissez sa taille sur place sans changer le projet, avec ombre et soleil réels ; tour des vues, images et vidéo pour le client.",
-    "es": "Maqueta en el lugar real: coloca la escultura o el trabajo de carpintería en fotos del sitio (por ejemplo las calles de una rotonda) o en un panorama de 360°, arrástrala a su sitio, elige su tamaño en el lugar sin cambiar el proyecto, con sombra y sol reales; recorrido de las vistas, imágenes y vídeo para el cliente.",
-    "pt": "Mockup no local real: coloque a escultura ou o trabalho de serralheria em fotos do local (por exemplo as ruas de uma rotatória) ou num panorama 360°, arraste para o lugar, escolha o tamanho no local sem mudar o projeto, com sombra e sol reais; volta pelas vistas, imagens e vídeo para o cliente.",
-    "ja": "実際の場所でのモックアップ：彫刻や金属加工品を設置場所の写真（たとえばロータリーの各道路）や360°パノラマに配置し、ドラッグで位置を決め、プロジェクトを変えずに現地での大きさを選べます。本物の影と太陽光付き。ビューの一周、画像、お客様向け動画。"
+    "en": "Fixed: opening a second model while the first was still loading could leave the sculpture unreduced (thousands of faces).",
+    "it": "Corretto: aprendo un secondo modello mentre il primo si stava ancora caricando, la scultura poteva restare non ridotta (migliaia di facce).",
+    "de": "Behoben: Wurde ein zweites Modell geöffnet, während das erste noch lud, blieb die Skulptur manchmal unreduziert (Tausende Flächen).",
+    "fr": "Corrigé : ouvrir un second modèle pendant le chargement du premier pouvait laisser la sculpture non réduite (des milliers de faces).",
+    "es": "Corregido: abrir un segundo modelo mientras el primero aún se cargaba podía dejar la escultura sin reducir (miles de caras).",
+    "pt": "Corrigido: abrir um segundo modelo enquanto o primeiro ainda carregava podia deixar a escultura sem redução (milhares de faces).",
+    "ja": "修正：最初のモデルの読み込み中に別のモデルを開くと、彫刻が削減されないまま（数千面）になることがありました。"
   },
   "history": [
+    {
+      "date": "2026-11-23T16:31:22Z",
+      "version": "1.3.167",
+      "notes": {
+        "en": "Fixed: opening a second model while the first was still loading could leave the sculpture unreduced (thousands of faces).",
+        "it": "Corretto: aprendo un secondo modello mentre il primo si stava ancora caricando, la scultura poteva restare non ridotta (migliaia di facce).",
+        "de": "Behoben: Wurde ein zweites Modell geöffnet, während das erste noch lud, blieb die Skulptur manchmal unreduziert (Tausende Flächen).",
+        "fr": "Corrigé : ouvrir un second modèle pendant le chargement du premier pouvait laisser la sculpture non réduite (des milliers de faces).",
+        "es": "Corregido: abrir un segundo modelo mientras el primero aún se cargaba podía dejar la escultura sin reducir (miles de caras).",
+        "pt": "Corrigido: abrir um segundo modelo enquanto o primeiro ainda carregava podia deixar a escultura sem redução (milhares de faces).",
+        "ja": "修正：最初のモデルの読み込み中に別のモデルを開くと、彫刻が削減されないまま（数千面）になることがありました。"
+      }
+    },
     {
       "date": "2026-11-23T15:50:26Z",
       "version": "1.3.166",
@@ -518,28 +531,15 @@
         "pt": "As cavernas internas das esculturas muito grandes (vários metros) agora são calculadas muito mais rápido.",
         "ja": "数メートル級の大きな彫刻で、内部リブの計算が大幅に速くなりました。"
       }
-    },
-    {
-      "date": "2026-11-12T11:45:55Z",
-      "version": "1.3.129",
-      "notes": {
-        "en": "Quote: every parameter can now be changed (scrap %, tacking of the inner ribs, other costs). The sheet price shows the current market reference and the last price you used, with one click to apply it. New «Price history»: the material prices of your earlier jobs, exportable as CSV. The base plate outline is now counted in the cutting length.",
-        "it": "Preventivo: ora ogni parametro è modificabile (percentuale di sfrido, puntatura delle centine, altri costi). Accanto al prezzo della lamiera trovi il riferimento di mercato attuale e l'ultimo prezzo che hai usato, da applicare con un clic. Nuovo «Storico dei prezzi»: i costi del materiale dei lavori precedenti, esportabili in CSV. Il contorno della piastra ora è contato nei metri di taglio.",
-        "de": "Angebot: Jetzt lässt sich jeder Wert ändern (Verschnitt in %, Heften der Innenspanten, sonstige Kosten). Neben dem Blechpreis stehen der aktuelle Marktrichtwert und der zuletzt verwendete Preis, mit einem Klick zu übernehmen. Neu: «Preisverlauf» mit den Materialpreisen früherer Aufträge, als CSV exportierbar. Der Umriss der Grundplatte zählt jetzt zur Schnittlänge.",
-        "fr": "Devis : tous les paramètres sont désormais modifiables (pourcentage de chute, pointage des couples internes, autres coûts). À côté du prix de la tôle figurent la référence de marché actuelle et le dernier prix utilisé, à appliquer d'un clic. Nouveau « Historique des prix » : les prix matière de vos travaux précédents, exportables en CSV. Le contour de la platine est maintenant compté dans la longueur de coupe.",
-        "es": "Presupuesto: ahora se puede cambiar cada parámetro (porcentaje de desperdicio, punteado de las costillas internas, otros costes). Junto al precio de la chapa aparecen la referencia de mercado actual y el último precio que usaste, para aplicarlo con un clic. Nuevo «Historial de precios»: los precios del material de tus trabajos anteriores, exportables en CSV. El contorno de la placa base ahora cuenta en la longitud de corte.",
-        "pt": "Orçamento: agora todos os parâmetros podem ser alterados (percentual de sobra, ponteamento das cavernas internas, outros custos). Ao lado do preço da chapa aparecem a referência de mercado atual e o último preço que você usou, para aplicar com um clique. Novo «Histórico de preços»: os preços do material dos trabalhos anteriores, exportáveis em CSV. O contorno da base agora entra no comprimento de corte.",
-        "ja": "見積もり：すべての項目を変更できるようになりました（端材の割合、内部リブの仮付け、その他の費用）。板材の単価の横に現在の市場参考価格と前回使った単価が表示され、ワンクリックで適用できます。新機能「価格履歴」：これまでの仕事の材料単価を一覧し、CSVで書き出せます。ベースプレートの輪郭も切断長さに含まれるようになりました。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.166",
+    "version": "1.3.167",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "1fe4afae98315118cc2d0df11819726b6fa541889fa9dc3908cd31ff390fb236"
+        "sha256": "81893ede325b46e6bcde3fe9b150c165d7e202a01dc9d1f32648e6cc7c57e948"
       }
     ]
   },

@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.172",
-  "notes": "The model gallery is now copied onto your computer (about 170 MB, once) and works without internet; the catalogues open from a drop-down list of categories; when you quit with unsaved changes the program asks whether to save; new File → Quit and Close (Ctrl+W).",
+  "latest": "1.3.173",
+  "notes": "The pedestal of a model is removed by itself (option in Shape and size). One strip of tabs: 3D, Pieces, Sheets, 2D drawing and Quote. 2D parts (brackets, plates, a plaque) drawn with the sculpture, nested, in the DXF and in the quote. Measuring tool (M) on the 3D view and on the sheets. Gallery previews without pedestals.",
   "notes_i18n": {
-    "en": "The model gallery is now copied onto your computer (about 170 MB, once) and works without internet; the catalogues open from a drop-down list of categories; when you quit with unsaved changes the program asks whether to save; new File → Quit and Close (Ctrl+W).",
-    "it": "La galleria dei modelli ora viene copiata sul tuo computer (circa 170 MB, una volta sola) e funziona anche senza internet; i cataloghi si aprono da un menu a tendina delle categorie; se esci con modifiche non salvate il programma chiede se salvarle; nuovi File → Esci e Chiudi (Ctrl+W).",
-    "de": "Die Modellgalerie wird jetzt auf Ihren Computer kopiert (ca. 170 MB, einmalig) und funktioniert auch ohne Internet; die Kataloge öffnen sich über eine Kategorienliste; beim Beenden mit ungespeicherten Änderungen fragt das Programm, ob gespeichert werden soll; neu: Datei → Beenden und Schließen (Strg+W).",
-    "fr": "La galerie de modèles est maintenant copiée sur votre ordinateur (environ 170 Mo, une fois) et fonctionne sans internet ; les catalogues s'ouvrent depuis une liste déroulante de catégories ; en quittant avec des modifications non enregistrées, le programme demande s'il faut enregistrer ; nouveaux Fichier → Quitter et Fermer (Ctrl+W).",
-    "es": "La galería de modelos ahora se copia en tu ordenador (unos 170 MB, una vez) y funciona sin internet; los catálogos se abren desde una lista desplegable de categorías; al salir con cambios sin guardar el programa pregunta si guardarlos; nuevos Archivo → Salir y Cerrar (Ctrl+W).",
-    "pt": "A galeria de modelos agora é copiada para o seu computador (cerca de 170 MB, uma vez) e funciona sem internet; os catálogos abrem a partir de uma lista suspensa de categorias; ao sair com alterações não salvas o programa pergunta se deseja salvá-las; novos Arquivo → Sair e Fechar (Ctrl+W).",
-    "ja": "モデルギャラリーはコンピューターにコピーされるようになりました(約 170 MB、1 回のみ)。インターネットなしでも使えます。カタログはカテゴリのドロップダウンから開きます。未保存の変更があるまま終了すると保存するか確認します。ファイル → 終了、閉じる(Ctrl+W)を追加しました。"
+    "en": "The pedestal of a model is removed by itself (option in Shape and size). One strip of tabs: 3D, Pieces, Sheets, 2D drawing and Quote. 2D parts (brackets, plates, a plaque) drawn with the sculpture, nested, in the DXF and in the quote. Measuring tool (M) on the 3D view and on the sheets. Gallery previews without pedestals.",
+    "it": "Il piedistallo dei modelli si toglie da solo (opzione in Forma e misure). Una sola fila di schede: 3D, Pezzi, Lamiere, Disegno 2D e Preventivo. Parti 2D (staffe, piastre, una targa) disegnate insieme alla scultura, annidate, nel DXF e nel preventivo. Strumento Misura (M) nella vista 3D e sulle lamiere. Anteprime della galleria senza piedistalli.",
+    "de": "Der Sockel eines Modells wird von selbst entfernt (Option in Form und Maße). Eine Reihe von Registerkarten: 3D, Teile, Bleche, 2D-Zeichnung und Angebot. 2D-Teile (Halter, Platten, ein Schild) mit der Skulptur gezeichnet, verschachtelt, im DXF und im Angebot. Messwerkzeug (M) in der 3D-Ansicht und auf den Blechen. Galerie-Vorschauen ohne Sockel.",
+    "fr": "Le socle d'un modèle est retiré tout seul (option dans Forme et dimensions). Une seule rangée d'onglets : 3D, Pièces, Tôles, Dessin 2D et Devis. Pièces 2D (pattes, platines, une plaque) dessinées avec la sculpture, imbriquées, dans le DXF et dans le devis. Outil Mesurer (M) dans la vue 3D et sur les tôles. Aperçus de la galerie sans socle.",
+    "es": "El pedestal de un modelo se quita solo (opción en Forma y medidas). Una sola fila de pestañas: 3D, Piezas, Chapas, Dibujo 2D y Presupuesto. Piezas 2D (soportes, placas, una placa) dibujadas con la escultura, anidadas, en el DXF y en el presupuesto. Herramienta Medir (M) en la vista 3D y en las chapas. Vistas previas de la galería sin pedestal.",
+    "pt": "O pedestal de um modelo é removido sozinho (opção em Forma e medidas). Uma só fila de abas: 3D, Peças, Chapas, Desenho 2D e Orçamento. Peças 2D (suportes, placas, uma placa) desenhadas com a escultura, aninhadas, no DXF e no orçamento. Ferramenta Medir (M) na vista 3D e nas chapas. Pré-visualizações da galeria sem pedestal.",
+    "ja": "モデルの台座が自動で取り除かれます（形状と寸法のオプション）。タブは1列に：3D、パーツ、板、2D図面、見積もり。彫刻と一緒に描く2D部品（ブラケット、プレート、銘板）は配置され、DXFと見積もりに含まれます。3Dビューと板で使える計測ツール（M）。ギャラリーのプレビューは台座なし。"
   },
   "history": [
+    {
+      "date": "2026-11-23T20:56:07Z",
+      "version": "1.3.173",
+      "notes": {
+        "en": "The pedestal of a model is removed by itself (option in Shape and size). One strip of tabs: 3D, Pieces, Sheets, 2D drawing and Quote. 2D parts (brackets, plates, a plaque) drawn with the sculpture, nested, in the DXF and in the quote. Measuring tool (M) on the 3D view and on the sheets. Gallery previews without pedestals.",
+        "it": "Il piedistallo dei modelli si toglie da solo (opzione in Forma e misure). Una sola fila di schede: 3D, Pezzi, Lamiere, Disegno 2D e Preventivo. Parti 2D (staffe, piastre, una targa) disegnate insieme alla scultura, annidate, nel DXF e nel preventivo. Strumento Misura (M) nella vista 3D e sulle lamiere. Anteprime della galleria senza piedistalli.",
+        "de": "Der Sockel eines Modells wird von selbst entfernt (Option in Form und Maße). Eine Reihe von Registerkarten: 3D, Teile, Bleche, 2D-Zeichnung und Angebot. 2D-Teile (Halter, Platten, ein Schild) mit der Skulptur gezeichnet, verschachtelt, im DXF und im Angebot. Messwerkzeug (M) in der 3D-Ansicht und auf den Blechen. Galerie-Vorschauen ohne Sockel.",
+        "fr": "Le socle d'un modèle est retiré tout seul (option dans Forme et dimensions). Une seule rangée d'onglets : 3D, Pièces, Tôles, Dessin 2D et Devis. Pièces 2D (pattes, platines, une plaque) dessinées avec la sculpture, imbriquées, dans le DXF et dans le devis. Outil Mesurer (M) dans la vue 3D et sur les tôles. Aperçus de la galerie sans socle.",
+        "es": "El pedestal de un modelo se quita solo (opción en Forma y medidas). Una sola fila de pestañas: 3D, Piezas, Chapas, Dibujo 2D y Presupuesto. Piezas 2D (soportes, placas, una placa) dibujadas con la escultura, anidadas, en el DXF y en el presupuesto. Herramienta Medir (M) en la vista 3D y en las chapas. Vistas previas de la galería sin pedestal.",
+        "pt": "O pedestal de um modelo é removido sozinho (opção em Forma e medidas). Uma só fila de abas: 3D, Peças, Chapas, Desenho 2D e Orçamento. Peças 2D (suportes, placas, uma placa) desenhadas com a escultura, aninhadas, no DXF e no orçamento. Ferramenta Medir (M) na vista 3D e nas chapas. Pré-visualizações da galeria sem pedestal.",
+        "ja": "モデルの台座が自動で取り除かれます（形状と寸法のオプション）。タブは1列に：3D、パーツ、板、2D図面、見積もり。彫刻と一緒に描く2D部品（ブラケット、プレート、銘板）は配置され、DXFと見積もりに含まれます。3Dビューと板で使える計測ツール（M）。ギャラリーのプレビューは台座なし。"
+      }
+    },
     {
       "date": "2026-11-23T19:41:44Z",
       "version": "1.3.172",
@@ -518,28 +531,15 @@
         "pt": "«Escultura simétrica» em uma forma sinuosa (um dragão em S): em vez de manter só uma parte, agora a escultura é feita inteira, sem espelho, e o resumo avisa.",
         "ja": "うねった形（S字の竜など）で「左右対称の彫刻」を選んだ場合、一部だけが残るのではなく、鏡映なしで全体を作るようになりました。概要にその旨が表示されます。"
       }
-    },
-    {
-      "date": "2026-11-12T16:15:39Z",
-      "version": "1.3.135",
-      "notes": {
-        "en": "Symmetric sculptures: the two halves no longer pass through each other along the centre line.",
-        "it": "Sculture simmetriche: le due metà non si attraversano più lungo la linea centrale.",
-        "de": "Symmetrische Skulpturen: Die beiden Hälften durchdringen sich entlang der Mittellinie nicht mehr.",
-        "fr": "Sculptures symétriques : les deux moitiés ne se traversent plus le long de la ligne centrale.",
-        "es": "Esculturas simétricas: las dos mitades ya no se atraviesan a lo largo de la línea central.",
-        "pt": "Esculturas simétricas: as duas metades não se atravessam mais ao longo da linha central.",
-        "ja": "左右対称の彫刻：中心線で左右の半分が互いに突き抜けることがなくなりました。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.172",
+    "version": "1.3.173",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "12c7180913d6b90d210c03abc0a9089a444380389a18133ec09235862930e15c"
+        "sha256": "f7ff66d9853b0554120de69dd90cd08cee85ffd2cdb99100f53cb39fc58453f5"
       }
     ]
   },

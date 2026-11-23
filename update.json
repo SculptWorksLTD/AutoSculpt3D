@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.168",
-  "notes": "Preferences: boxes for the prices of your supplier (€/kg of sheet and profiles for every material); every new job starts from them.",
+  "latest": "1.3.169",
+  "notes": "The number of faces now grows with the size of the sculpture (220 at 60 cm, 450 at 1.2 m, 700 at 2 m) until you move the faces bar yourself.",
   "notes_i18n": {
-    "en": "Preferences: boxes for the prices of your supplier (€/kg of sheet and profiles for every material); every new job starts from them.",
-    "it": "Preferenze: caselle per i prezzi del tuo fornitore (€/kg di lamiera e profili per ogni materiale); ogni lavoro nuovo parte da questi.",
-    "de": "Einstellungen: Felder für die Preise deines Lieferanten (€/kg Blech und Profile je Material); jeder neue Auftrag beginnt damit.",
-    "fr": "Préférences : cases pour les prix de ton fournisseur (€/kg de tôle et de profilés pour chaque matériau) ; chaque nouveau travail part de ceux-ci.",
-    "es": "Preferencias: casillas para los precios de tu proveedor (€/kg de chapa y perfiles por material); cada trabajo nuevo parte de ellos.",
-    "pt": "Preferências: caixas para os preços do seu fornecedor (€/kg de chapa e perfis por material); cada trabalho novo começa com eles.",
-    "ja": "環境設定：仕入先の価格（材料ごとの板材・形材の€/kg）を入力する欄。新しい仕事はこの価格から始まります。"
+    "en": "The number of faces now grows with the size of the sculpture (220 at 60 cm, 450 at 1.2 m, 700 at 2 m) until you move the faces bar yourself.",
+    "it": "Il numero di facce ora cresce con la misura della scultura (220 a 60 cm, 450 a 1,2 m, 700 a 2 m) finché non sposti tu la barra delle facce.",
+    "de": "Die Anzahl der Flächen wächst jetzt mit der Größe der Skulptur (220 bei 60 cm, 450 bei 1,2 m, 700 bei 2 m), bis du den Flächenregler selbst bewegst.",
+    "fr": "Le nombre de faces augmente maintenant avec la taille de la sculpture (220 à 60 cm, 450 à 1,2 m, 700 à 2 m) jusqu'à ce que tu déplaces toi-même le curseur.",
+    "es": "El número de caras ahora crece con la medida de la escultura (220 a 60 cm, 450 a 1,2 m, 700 a 2 m) hasta que muevas tú la barra de caras.",
+    "pt": "O número de faces agora cresce com a medida da escultura (220 a 60 cm, 450 a 1,2 m, 700 a 2 m) até você mover a barra de faces.",
+    "ja": "面数が彫刻のサイズに合わせて増えるようになりました（60 cmで220、1.2 mで450、2 mで700）。面数のバーを自分で動かすまで自動です。"
   },
   "history": [
+    {
+      "date": "2026-11-23T17:30:59Z",
+      "version": "1.3.169",
+      "notes": {
+        "en": "The number of faces now grows with the size of the sculpture (220 at 60 cm, 450 at 1.2 m, 700 at 2 m) until you move the faces bar yourself.",
+        "it": "Il numero di facce ora cresce con la misura della scultura (220 a 60 cm, 450 a 1,2 m, 700 a 2 m) finché non sposti tu la barra delle facce.",
+        "de": "Die Anzahl der Flächen wächst jetzt mit der Größe der Skulptur (220 bei 60 cm, 450 bei 1,2 m, 700 bei 2 m), bis du den Flächenregler selbst bewegst.",
+        "fr": "Le nombre de faces augmente maintenant avec la taille de la sculpture (220 à 60 cm, 450 à 1,2 m, 700 à 2 m) jusqu'à ce que tu déplaces toi-même le curseur.",
+        "es": "El número de caras ahora crece con la medida de la escultura (220 a 60 cm, 450 a 1,2 m, 700 a 2 m) hasta que muevas tú la barra de caras.",
+        "pt": "O número de faces agora cresce com a medida da escultura (220 a 60 cm, 450 a 1,2 m, 700 a 2 m) até você mover a barra de faces.",
+        "ja": "面数が彫刻のサイズに合わせて増えるようになりました（60 cmで220、1.2 mで450、2 mで700）。面数のバーを自分で動かすまで自動です。"
+      }
+    },
     {
       "date": "2026-11-23T16:44:02Z",
       "version": "1.3.168",
@@ -518,28 +531,15 @@
         "pt": "«Escultura simétrica» agora também funciona em modelos um pouco inclinados (uma cabeça tombada alguns graus): o plano de espelho acompanha o modelo em vez de ser forçado na vertical.",
         "ja": "「左右対称の彫刻」が、少し傾いたモデル（数度かしいだ頭部など）でも正しく働くようになりました。鏡面を無理に垂直にせず、モデルの傾きに合わせます。"
       }
-    },
-    {
-      "date": "2026-11-12T13:33:21Z",
-      "version": "1.3.131",
-      "notes": {
-        "en": "A model that arrives lying down (its vertical on another axis, common with downloaded files) is now recognised: the summary offers to stand it up with one click. With «Symmetric sculpture» the mirror plane stays in the middle of the model.",
-        "it": "Un modello che arriva sdraiato (verticale su un altro asse, frequente nei file scaricati) ora viene riconosciuto: il Riepilogo propone di raddrizzarlo con un clic. Con «Scultura simmetrica» il piano di specchio resta al centro del modello.",
-        "de": "Ein Modell, das liegend ankommt (Senkrechte auf einer anderen Achse, häufig bei heruntergeladenen Dateien), wird jetzt erkannt: Die Übersicht bietet an, es mit einem Klick aufzurichten. Bei «Symmetrische Skulptur» bleibt die Spiegelebene in der Mitte des Modells.",
-        "fr": "Un modèle qui arrive couché (verticale sur un autre axe, fréquent avec les fichiers téléchargés) est désormais reconnu : le récapitulatif propose de le redresser d'un clic. Avec « Sculpture symétrique », le plan de symétrie reste au milieu du modèle.",
-        "es": "Un modelo que llega tumbado (vertical en otro eje, frecuente en archivos descargados) ahora se reconoce: el resumen propone ponerlo de pie con un clic. Con «Escultura simétrica» el plano de espejo queda en el centro del modelo.",
-        "pt": "Um modelo que chega deitado (vertical em outro eixo, comum em arquivos baixados) agora é reconhecido: o resumo oferece colocá-lo em pé com um clique. Com «Escultura simétrica» o plano de espelho fica no meio do modelo.",
-        "ja": "横倒しで読み込まれたモデル（上下が別の軸になっているもの。ダウンロードしたファイルによくあります）を検出し、概要からワンクリックで起こせるようになりました。「左右対称の彫刻」では、鏡面がモデルの中央に保たれます。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.168",
+    "version": "1.3.169",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "571c3a975b749fddf874b347a86d6bb15e3cd1cb817189c4415b6ac622bfca5c"
+        "sha256": "c34a5ebe0c51cc8d24e866de7acee4b0434aeb4a32aa00d06b8aae847bdc2ef3"
       }
     ]
   },

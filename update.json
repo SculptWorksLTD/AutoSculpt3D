@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.164",
-  "notes": "A more professional look: quick tools and a switch between the three workspaces at the top, view buttons and X Y Z axes in the 3D view, clearer panels and status bar. In the 2D drawing: grips to drag ends, radii and dimensions, a crosshair pointer, the command history and the snaps as buttons.",
+  "latest": "1.3.165",
+  "notes": "2D drawing: text in any font installed on the computer, and turned into outlines the laser cuts; new angular dimension. Metalwork: files for the profile machines (DSTV) in the Tube cutting tab.",
   "notes_i18n": {
-    "en": "A more professional look: quick tools and a switch between the three workspaces at the top, view buttons and X Y Z axes in the 3D view, clearer panels and status bar. In the 2D drawing: grips to drag ends, radii and dimensions, a crosshair pointer, the command history and the snaps as buttons.",
-    "it": "Una veste più professionale: strumenti rapidi e scelta tra le tre aree di lavoro in alto, pulsanti di vista e assi X Y Z nella vista 3D, pannelli e barra di stato più chiari. Nel disegno 2D: maniglie per trascinare estremi, raggi e quote, mirino a croce, cronologia dei comandi e agganci come pulsanti.",
-    "de": "Ein professionelleres Aussehen: Schnellzugriff und Wechsel zwischen den drei Arbeitsbereichen oben, Ansichtsschaltflächen und X-Y-Z-Achsen in der 3D-Ansicht, klarere Bedienfelder und Statusleiste. In der 2D-Zeichnung: Griffe zum Ziehen von Enden, Radien und Maßen, Fadenkreuz, Befehlsverlauf und Fangfunktionen als Schaltflächen.",
-    "fr": "Un aspect plus professionnel : outils rapides et choix entre les trois espaces de travail en haut, boutons de vue et axes X Y Z dans la vue 3D, panneaux et barre d'état plus clairs. Dans le dessin 2D : poignées pour faire glisser extrémités, rayons et cotes, réticule, historique des commandes et accrochages en boutons.",
-    "es": "Un aspecto más profesional: herramientas rápidas y cambio entre las tres áreas de trabajo arriba, botones de vista y ejes X Y Z en la vista 3D, paneles y barra de estado más claros. En el dibujo 2D: pinzamientos para arrastrar extremos, radios y cotas, cursor en cruz, historial de comandos y referencias como botones.",
-    "pt": "Um visual mais profissional: ferramentas rápidas e troca entre as três áreas de trabalho no alto, botões de vista e eixos X Y Z na vista 3D, painéis e barra de status mais claros. No desenho 2D: alças para arrastar pontas, raios e cotas, mira em cruz, histórico de comandos e ajustes como botões.",
-    "ja": "よりプロらしい外観に：上部にクイックツールと3つの作業領域の切り替え、3Dビューに視点ボタンとX・Y・Z軸、見やすいパネルとステータスバー。2D作図では端点・半径・寸法をドラッグできるグリップ、十字カーソル、コマンド履歴、ボタン式のスナップ。"
+    "en": "2D drawing: text in any font installed on the computer, and turned into outlines the laser cuts; new angular dimension. Metalwork: files for the profile machines (DSTV) in the Tube cutting tab.",
+    "it": "Disegno 2D: testo in qualsiasi font installato sul computer, anche trasformato in contorni che il laser taglia; nuova quota angolare. Carpenteria: file per le macchine dei profili (DSTV) nella scheda Taglio tubi.",
+    "de": "2D-Zeichnung: Text in jeder auf dem Computer installierten Schrift, auch als Konturen, die der Laser schneidet; neue Winkelbemaßung. Metallbau: Dateien für Profilmaschinen (DSTV) im Reiter Rohrzuschnitt.",
+    "fr": "Dessin 2D : texte dans n'importe quelle police installée sur l'ordinateur, aussi converti en contours que le laser découpe ; nouvelle cote angulaire. Serrurerie : fichiers pour les machines à profilés (DSTV) dans l'onglet Coupe des tubes.",
+    "es": "Dibujo 2D: texto en cualquier fuente instalada en el ordenador, también convertido en contornos que el láser corta; nueva cota angular. Carpintería metálica: archivos para las máquinas de perfiles (DSTV) en la pestaña Corte de tubos.",
+    "pt": "Desenho 2D: texto em qualquer fonte instalada no computador, também transformado em contornos que o laser corta; nova cota angular. Serralheria: arquivos para as máquinas de perfis (DSTV) na aba Corte de tubos.",
+    "ja": "2D図面：コンピューターにインストールされた任意のフォントで文字を入力でき、レーザーで切断する輪郭にも変換できます。角度寸法を追加。金属加工：「パイプ切断」タブに形材加工機用ファイル（DSTV）を追加。"
   },
   "history": [
+    {
+      "date": "2026-11-23T15:08:44Z",
+      "version": "1.3.165",
+      "notes": {
+        "en": "2D drawing: text in any font installed on the computer, and turned into outlines the laser cuts; new angular dimension. Metalwork: files for the profile machines (DSTV) in the Tube cutting tab.",
+        "it": "Disegno 2D: testo in qualsiasi font installato sul computer, anche trasformato in contorni che il laser taglia; nuova quota angolare. Carpenteria: file per le macchine dei profili (DSTV) nella scheda Taglio tubi.",
+        "de": "2D-Zeichnung: Text in jeder auf dem Computer installierten Schrift, auch als Konturen, die der Laser schneidet; neue Winkelbemaßung. Metallbau: Dateien für Profilmaschinen (DSTV) im Reiter Rohrzuschnitt.",
+        "fr": "Dessin 2D : texte dans n'importe quelle police installée sur l'ordinateur, aussi converti en contours que le laser découpe ; nouvelle cote angulaire. Serrurerie : fichiers pour les machines à profilés (DSTV) dans l'onglet Coupe des tubes.",
+        "es": "Dibujo 2D: texto en cualquier fuente instalada en el ordenador, también convertido en contornos que el láser corta; nueva cota angular. Carpintería metálica: archivos para las máquinas de perfiles (DSTV) en la pestaña Corte de tubos.",
+        "pt": "Desenho 2D: texto em qualquer fonte instalada no computador, também transformado em contornos que o laser corta; nova cota angular. Serralheria: arquivos para as máquinas de perfis (DSTV) na aba Corte de tubos.",
+        "ja": "2D図面：コンピューターにインストールされた任意のフォントで文字を入力でき、レーザーで切断する輪郭にも変換できます。角度寸法を追加。金属加工：「パイプ切断」タブに形材加工機用ファイル（DSTV）を追加。"
+      }
+    },
     {
       "date": "2026-11-23T12:10:11Z",
       "version": "1.3.164",
@@ -518,28 +531,15 @@
         "pt": "Novo aviso: quando uma parte do modelo é fina demais para o lado mínimo e some da escultura, o Resumo agora avisa e indica o que mudar.",
         "ja": "新しい警告：モデルの一部が最小辺に対して細すぎて彫刻から消えてしまう場合、「概要」でそのことを知らせ、変更すべき点を示します。"
       }
-    },
-    {
-      "date": "2026-11-12T10:47:28Z",
-      "version": "1.3.127",
-      "notes": {
-        "en": "Internal ribs: their outline is now computed more precisely and always stays inside the sculpture. On tall sculptures some ribs came out of the shell by 1–2 mm and had to be ground to fit.",
-        "it": "Centine interne: il contorno ora è calcolato con più precisione e resta sempre dentro la scultura. Sulle sculture alte alcune centine uscivano dal guscio di 1–2 mm e andavano molate per farle entrare.",
-        "de": "Innere Spanten: Ihr Umriss wird jetzt genauer berechnet und bleibt immer innerhalb der Skulptur. Bei hohen Skulpturen ragten einige Spanten 1–2 mm aus der Hülle und mussten nachgeschliffen werden.",
-        "fr": "Couples internes : leur contour est maintenant calculé plus précisément et reste toujours à l'intérieur de la sculpture. Sur les grandes sculptures, certains couples dépassaient de la coque de 1 à 2 mm et devaient être meulés.",
-        "es": "Costillas internas: su contorno ahora se calcula con más precisión y queda siempre dentro de la escultura. En esculturas altas algunas costillas sobresalían 1–2 mm del casco y había que amolarlas.",
-        "pt": "Cavernas internas: o contorno agora é calculado com mais precisão e fica sempre dentro da escultura. Em esculturas altas, algumas cavernas saíam do casco em 1–2 mm e precisavam ser esmerilhadas.",
-        "ja": "内部リブ：輪郭をより正確に計算し、常に彫刻の内側に収まるようになりました。背の高い彫刻では一部のリブが外殻から 1〜2 mm はみ出し、削って合わせる必要がありました。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.164",
+    "version": "1.3.165",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "c583e5b343be33efcf05c72b0d75ad61297a8a6eb955a822cb7bfb0dfc319ae7"
+        "sha256": "063f34ae0c8d1f5a8e69f8f04af237c066f35e5d38ba80d8160c36cad78e9737"
       }
     ]
   },

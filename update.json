@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.167",
-  "notes": "Fixed: opening a second model while the first was still loading could leave the sculpture unreduced (thousands of faces).",
+  "latest": "1.3.168",
+  "notes": "Preferences: boxes for the prices of your supplier (€/kg of sheet and profiles for every material); every new job starts from them.",
   "notes_i18n": {
-    "en": "Fixed: opening a second model while the first was still loading could leave the sculpture unreduced (thousands of faces).",
-    "it": "Corretto: aprendo un secondo modello mentre il primo si stava ancora caricando, la scultura poteva restare non ridotta (migliaia di facce).",
-    "de": "Behoben: Wurde ein zweites Modell geöffnet, während das erste noch lud, blieb die Skulptur manchmal unreduziert (Tausende Flächen).",
-    "fr": "Corrigé : ouvrir un second modèle pendant le chargement du premier pouvait laisser la sculpture non réduite (des milliers de faces).",
-    "es": "Corregido: abrir un segundo modelo mientras el primero aún se cargaba podía dejar la escultura sin reducir (miles de caras).",
-    "pt": "Corrigido: abrir um segundo modelo enquanto o primeiro ainda carregava podia deixar a escultura sem redução (milhares de faces).",
-    "ja": "修正：最初のモデルの読み込み中に別のモデルを開くと、彫刻が削減されないまま（数千面）になることがありました。"
+    "en": "Preferences: boxes for the prices of your supplier (€/kg of sheet and profiles for every material); every new job starts from them.",
+    "it": "Preferenze: caselle per i prezzi del tuo fornitore (€/kg di lamiera e profili per ogni materiale); ogni lavoro nuovo parte da questi.",
+    "de": "Einstellungen: Felder für die Preise deines Lieferanten (€/kg Blech und Profile je Material); jeder neue Auftrag beginnt damit.",
+    "fr": "Préférences : cases pour les prix de ton fournisseur (€/kg de tôle et de profilés pour chaque matériau) ; chaque nouveau travail part de ceux-ci.",
+    "es": "Preferencias: casillas para los precios de tu proveedor (€/kg de chapa y perfiles por material); cada trabajo nuevo parte de ellos.",
+    "pt": "Preferências: caixas para os preços do seu fornecedor (€/kg de chapa e perfis por material); cada trabalho novo começa com eles.",
+    "ja": "環境設定：仕入先の価格（材料ごとの板材・形材の€/kg）を入力する欄。新しい仕事はこの価格から始まります。"
   },
   "history": [
+    {
+      "date": "2026-11-23T16:44:02Z",
+      "version": "1.3.168",
+      "notes": {
+        "en": "Preferences: boxes for the prices of your supplier (€/kg of sheet and profiles for every material); every new job starts from them.",
+        "it": "Preferenze: caselle per i prezzi del tuo fornitore (€/kg di lamiera e profili per ogni materiale); ogni lavoro nuovo parte da questi.",
+        "de": "Einstellungen: Felder für die Preise deines Lieferanten (€/kg Blech und Profile je Material); jeder neue Auftrag beginnt damit.",
+        "fr": "Préférences : cases pour les prix de ton fournisseur (€/kg de tôle et de profilés pour chaque matériau) ; chaque nouveau travail part de ceux-ci.",
+        "es": "Preferencias: casillas para los precios de tu proveedor (€/kg de chapa y perfiles por material); cada trabajo nuevo parte de ellos.",
+        "pt": "Preferências: caixas para os preços do seu fornecedor (€/kg de chapa e perfis por material); cada trabalho novo começa com eles.",
+        "ja": "環境設定：仕入先の価格（材料ごとの板材・形材の€/kg）を入力する欄。新しい仕事はこの価格から始まります。"
+      }
+    },
     {
       "date": "2026-11-23T16:31:22Z",
       "version": "1.3.167",
@@ -518,28 +531,15 @@
         "pt": "Um modelo que chega deitado (vertical em outro eixo, comum em arquivos baixados) agora é reconhecido: o resumo oferece colocá-lo em pé com um clique. Com «Escultura simétrica» o plano de espelho fica no meio do modelo.",
         "ja": "横倒しで読み込まれたモデル（上下が別の軸になっているもの。ダウンロードしたファイルによくあります）を検出し、概要からワンクリックで起こせるようになりました。「左右対称の彫刻」では、鏡面がモデルの中央に保たれます。"
       }
-    },
-    {
-      "date": "2026-11-12T11:48:48Z",
-      "version": "1.3.130",
-      "notes": {
-        "en": "Inner ribs of very large sculptures (several metres) are now calculated much faster.",
-        "it": "Le centine interne delle sculture molto grandi (diversi metri) ora si calcolano molto più in fretta.",
-        "de": "Die Innenspanten sehr großer Skulpturen (mehrere Meter) werden jetzt deutlich schneller berechnet.",
-        "fr": "Les couples internes des très grandes sculptures (plusieurs mètres) se calculent désormais beaucoup plus vite.",
-        "es": "Las costillas internas de las esculturas muy grandes (varios metros) ahora se calculan mucho más rápido.",
-        "pt": "As cavernas internas das esculturas muito grandes (vários metros) agora são calculadas muito mais rápido.",
-        "ja": "数メートル級の大きな彫刻で、内部リブの計算が大幅に速くなりました。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.167",
+    "version": "1.3.168",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "81893ede325b46e6bcde3fe9b150c165d7e202a01dc9d1f32648e6cc7c57e948"
+        "sha256": "571c3a975b749fddf874b347a86d6bb15e3cd1cb817189c4415b6ac622bfca5c"
       }
     ]
   },

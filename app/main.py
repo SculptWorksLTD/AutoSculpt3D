@@ -3,6 +3,7 @@ import argparse
 import base64
 import gzip
 import hashlib
+import io
 import json
 import mimetypes
 import os
@@ -19,8 +20,8 @@ import traceback
 import urllib.error
 import urllib.parse
 import urllib.request
-import uuid
 import zipfile
+import uuid
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 APP_NAME = 'AutoSculpt 3D'
@@ -457,6 +458,7 @@ def photo_get(url):
         raise UserError('The picture is too big')
     kind = 'image/png' if data[:8] == b'\x89PNG\r\n\x1a\n' else 'image/webp' if data[8:12] == b'WEBP' else 'image/jpeg'
     return (data, kind)
+QUIT = {'dirty': False, 'allow': False, 'win': None}
 GALLERY_URL = os.environ.get('AUTOSCULPT_GALLERY_URL', 'https://pub-6a60f5de67aa452fa66fa8d7cc451b99.r2.dev/gallery/v1')
 _gallery_index = [None]
 
@@ -470,8 +472,112 @@ def gallery_get(rel, binary=True, timeout=40):
     except Exception as e:
         raise UserError('Cannot reach the model gallery: {error}', error=str(getattr(e, 'reason', e)))
     return data if binary else json.loads(data)
+CHANNEL_BASE = os.environ.get('AUTOSCULPT_CHANNEL_URL', UPDATE_URLS[0].rsplit('/', 1)[0])
+GALLERY_DIR = SUPPORT / 'gallery'
+GALLERY_SYNC = {'state': 'idle', 'done': 0, 'total': 0, 'error': ''}
+_gallery_lock = threading.Lock()
+
+def channel_get(rel, timeout=60):
+    req = urllib.request.Request(CHANNEL_BASE + '/' + rel, headers={'User-Agent': f'AutoSculpt3D/{VERSION}'})
+    with urlopen(req, timeout) as r:
+        return r.read()
+
+def gallery_local_index():
+    f = GALLERY_DIR / 'index.json'
+    try:
+        return json.loads(f.read_text(encoding='utf-8')) if f.exists() else None
+    except Exception:
+        return None
+
+def gallery_sync(only_pack=None):
+    with _gallery_lock:
+        GALLERY_DIR.mkdir(parents=True, exist_ok=True)
+        done_f = GALLERY_DIR / 'packs.json'
+        try:
+            have = json.loads(done_f.read_text(encoding='utf-8')) if done_f.exists() else {}
+        except Exception:
+            have = {}
+        idx = None
+        try:
+            idx = json.loads(channel_get('gallery/index.json?t=' + str(int(time.time() // 3600)), 30))
+            if not isinstance(idx, dict) or not isinstance(idx.get('packs'), list) or (not isinstance(idx.get('models'), list)):
+                raise ValueError('not a gallery index')
+        except Exception as exc:
+            idx = gallery_local_index()
+            if not idx:
+                GALLERY_SYNC.update(error=str(getattr(exc, 'reason', exc)))
+                if only_pack is None:
+                    GALLERY_SYNC['state'] = 'error'
+                return False
+        packs = [p for p in idx['packs'] if only_pack is None or p.get('n') == only_pack]
+        GALLERY_SYNC.update(done=sum((1 for p in idx['packs'] if have.get(p['file']) == p['sha256'])), total=len(idx['packs']))
+        if only_pack is None:
+            GALLERY_SYNC.update(state='running', error='')
+        for p in packs:
+            if have.get(p['file']) == p['sha256']:
+                continue
+            if not re.match('^pack_[0-9]{1,3}\\.zip$', p.get('file', '')):
+                continue
+            try:
+                data = channel_get('gallery/' + p['file'], 600)
+                if hashlib.sha256(data).hexdigest() != p['sha256']:
+                    raise ValueError('checksum')
+                with zipfile.ZipFile(io.BytesIO(data)) as z:
+                    for name in z.namelist():
+                        m = re.match('^(models|thumbs)/([a-z0-9_@-]{1,120})\\.(obj\\.gz|jpg)$', name)
+                        if not m:
+                            continue
+                        out = GALLERY_DIR / m.group(1) / (m.group(2) + '.' + m.group(3))
+                        out.parent.mkdir(parents=True, exist_ok=True)
+                        tmp = out.with_name(out.name + '.part')
+                        tmp.write_bytes(z.read(name))
+                        tmp.replace(out)
+                have[p['file']] = p['sha256']
+                done_f.write_text(json.dumps(have), encoding='utf-8')
+                GALLERY_SYNC['done'] += 1
+            except Exception as exc:
+                log('gallery pack', p.get('file'), exc)
+                GALLERY_SYNC.update(error=str(getattr(exc, 'reason', exc)))
+                if only_pack is None:
+                    GALLERY_SYNC['state'] = 'error'
+                return False
+        keep = {m['id'] for m in idx['models']}
+        (GALLERY_DIR / 'index.json').write_text(json.dumps(idx), encoding='utf-8')
+        if only_pack is None:
+            for sub, ext in (('models', '.obj.gz'), ('thumbs', '.jpg')):
+                for f in (GALLERY_DIR / sub).glob('*' + ext) if (GALLERY_DIR / sub).exists() else []:
+                    if f.name[:-len(ext)] not in keep:
+                        f.unlink(missing_ok=True)
+            GALLERY_SYNC.update(state='done')
+            shutil.rmtree(SUPPORT / 'library' / 'gallery', ignore_errors=True)
+        return True
+_gallery_started = [False]
+
+def gallery_sync_later(delay=15):
+    if _gallery_started[0] and GALLERY_SYNC['state'] != 'error':
+        return
+    _gallery_started[0] = True
+    GALLERY_SYNC.update(state='running', error='')
+
+    def run():
+        time.sleep(delay)
+        try:
+            gallery_sync()
+        except Exception as exc:
+            log('gallery sync', exc)
+    threading.Thread(target=run, daemon=True).start()
 
 def gallery_index():
+    idx = gallery_local_index()
+    if idx:
+        if not _gallery_started[0] or GALLERY_SYNC['state'] == 'error':
+            gallery_sync_later(0)
+        out = dict(idx)
+        out['local'] = True
+        out['sync'] = dict(GALLERY_SYNC)
+        return out
+    if gallery_sync(only_pack=-1) and gallery_local_index():
+        return gallery_index()
     if _gallery_index[0] is not None:
         return _gallery_index[0]
     cache = SUPPORT / 'library' / 'gallery'
@@ -489,6 +595,22 @@ def gallery_index():
 def gallery_model(cat, mid):
     if not re.match('^[a-z0-9_]{1,40}$', cat or '') or not re.match('^[a-z0-9_@-]{1,120}$', mid or ''):
         raise UserError('Unknown model')
+    idx = gallery_local_index()
+    if idx:
+        m = next((x for x in idx['models'] if x.get('id') == mid), None)
+        if not m:
+            raise UserError('Unknown model')
+        gz = GALLERY_DIR / 'models' / (mid + '.obj.gz')
+        if not gz.exists():
+            gallery_sync(only_pack=m.get('pack'))
+        if not gz.exists():
+            raise UserError('Cannot reach the model gallery: {error}', error=GALLERY_SYNC.get('error') or '?')
+        f = GALLERY_DIR / 'models' / (mid + '.obj')
+        if not f.exists() or f.stat().st_mtime < gz.stat().st_mtime:
+            tmp = f.with_name(f.name + '.part')
+            tmp.write_bytes(gzip.decompress(gz.read_bytes()))
+            tmp.replace(f)
+        return f
     cache = SUPPORT / 'library' / 'gallery' / cat
     cache.mkdir(parents=True, exist_ok=True)
     f = cache / (mid + '.obj')
@@ -1317,6 +1439,10 @@ class Handler(BaseHTTPRequestHandler):
                 self.end_headers()
                 self.wfile.write(body)
                 return
+            m = re.match('^/gallery-thumb/([a-z0-9_@-]{1,120})\\.jpg$', path)
+            if m:
+                f = GALLERY_DIR / 'thumbs' / (m.group(1) + '.jpg')
+                return self.send_file(f, 'image/jpeg', {'Cache-Control': 'max-age=86400'}) if f.exists() else self.send_error(404)
             if path.startswith('/vendor/'):
                 d, bundled = ui_dir()
                 rel = Path(urllib.parse.unquote(path[1:]))
@@ -1434,6 +1560,15 @@ class Handler(BaseHTTPRequestHandler):
                     return self.send_json({'error': 'unknown engine'}, 404)
                 job = run_job(Job('install', 'Installation ' + spec['name']), lambda j: install_engine(j, spec))
                 return self.send_json(job.as_dict())
+            if path == '/api/dirty':
+                QUIT['dirty'] = bool(b.get('dirty'))
+                return self.send_json({'ok': True})
+            if path == '/api/quit':
+                QUIT['allow'] = True
+                w = QUIT.get('win')
+                if w:
+                    threading.Thread(target=lambda: (time.sleep(0.2), w.destroy()), daemon=True).start()
+                return self.send_json({'ok': True})
             if path == '/api/disk/clean':
                 return self.send_json(disk_clean([str(x) for x in b.get('ids') or []]))
             if path.startswith('/api/engines/') and path.endswith('/remove'):
@@ -1976,6 +2111,18 @@ def main():
     except TypeError:
         win = webview.create_window(APP_NAME, url, js_api=bridge, width=1440, height=900, min_size=(1024, 680), text_select=True)
     bridge._win = win
+    QUIT['win'] = win
+
+    def on_closing():
+        if QUIT['dirty'] and (not QUIT['allow']):
+            threading.Thread(target=lambda: win.evaluate_js('window.AS_QUIT && window.AS_QUIT()'), daemon=True).start()
+            return False
+        return True
+    try:
+        win.events.closing += on_closing
+    except Exception as exc:
+        log('closing event', exc)
+    gallery_sync_later()
     if IS_WIN:
         try:
             import ctypes

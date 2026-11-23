@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.171",
-  "notes": "The gallery now holds 943 ready low-poly sculptures of 1.2 m: the previews show the faceted sculpture, the bad models were removed, and a model opens ready to build at 1.2 m.",
+  "latest": "1.3.172",
+  "notes": "The model gallery is now copied onto your computer (about 170 MB, once) and works without internet; the catalogues open from a drop-down list of categories; when you quit with unsaved changes the program asks whether to save; new File → Quit and Close (Ctrl+W).",
   "notes_i18n": {
-    "en": "The gallery now holds 943 ready low-poly sculptures of 1.2 m: the previews show the faceted sculpture, the bad models were removed, and a model opens ready to build at 1.2 m.",
-    "it": "La galleria ora contiene 943 sculture low poly pronte da 1,2 m: le anteprime mostrano già la scultura sfaccettata, i modelli venuti male sono stati tolti e un modello si apre già pronto da costruire a 1,2 m.",
-    "de": "Die Galerie enthält jetzt 943 fertige Low-Poly-Skulpturen von 1,2 m: Die Vorschauen zeigen die facettierte Skulptur, misslungene Modelle wurden entfernt, und ein Modell öffnet sich baufertig in 1,2 m.",
-    "fr": "La galerie contient maintenant 943 sculptures low poly prêtes de 1,2 m : les aperçus montrent la sculpture à facettes, les modèles ratés ont été retirés et un modèle s'ouvre prêt à construire à 1,2 m.",
-    "es": "La galería ahora contiene 943 esculturas low poly listas de 1,2 m: las vistas previas muestran la escultura facetada, se quitaron los modelos defectuosos y un modelo se abre listo para construir a 1,2 m.",
-    "pt": "A galeria agora tem 943 esculturas low poly prontas de 1,2 m: as prévias mostram a escultura facetada, os modelos ruins foram removidos e um modelo abre pronto para construir a 1,2 m.",
-    "ja": "ギャラリーに 1.2 m のローポリ彫刻 943 点を用意しました。プレビューは多面体の彫刻を表示し、出来の悪いモデルは削除済みで、開くと 1.2 m ですぐに製作できます。"
+    "en": "The model gallery is now copied onto your computer (about 170 MB, once) and works without internet; the catalogues open from a drop-down list of categories; when you quit with unsaved changes the program asks whether to save; new File → Quit and Close (Ctrl+W).",
+    "it": "La galleria dei modelli ora viene copiata sul tuo computer (circa 170 MB, una volta sola) e funziona anche senza internet; i cataloghi si aprono da un menu a tendina delle categorie; se esci con modifiche non salvate il programma chiede se salvarle; nuovi File → Esci e Chiudi (Ctrl+W).",
+    "de": "Die Modellgalerie wird jetzt auf Ihren Computer kopiert (ca. 170 MB, einmalig) und funktioniert auch ohne Internet; die Kataloge öffnen sich über eine Kategorienliste; beim Beenden mit ungespeicherten Änderungen fragt das Programm, ob gespeichert werden soll; neu: Datei → Beenden und Schließen (Strg+W).",
+    "fr": "La galerie de modèles est maintenant copiée sur votre ordinateur (environ 170 Mo, une fois) et fonctionne sans internet ; les catalogues s'ouvrent depuis une liste déroulante de catégories ; en quittant avec des modifications non enregistrées, le programme demande s'il faut enregistrer ; nouveaux Fichier → Quitter et Fermer (Ctrl+W).",
+    "es": "La galería de modelos ahora se copia en tu ordenador (unos 170 MB, una vez) y funciona sin internet; los catálogos se abren desde una lista desplegable de categorías; al salir con cambios sin guardar el programa pregunta si guardarlos; nuevos Archivo → Salir y Cerrar (Ctrl+W).",
+    "pt": "A galeria de modelos agora é copiada para o seu computador (cerca de 170 MB, uma vez) e funciona sem internet; os catálogos abrem a partir de uma lista suspensa de categorias; ao sair com alterações não salvas o programa pergunta se deseja salvá-las; novos Arquivo → Sair e Fechar (Ctrl+W).",
+    "ja": "モデルギャラリーはコンピューターにコピーされるようになりました(約 170 MB、1 回のみ)。インターネットなしでも使えます。カタログはカテゴリのドロップダウンから開きます。未保存の変更があるまま終了すると保存するか確認します。ファイル → 終了、閉じる(Ctrl+W)を追加しました。"
   },
   "history": [
+    {
+      "date": "2026-11-23T19:41:44Z",
+      "version": "1.3.172",
+      "notes": {
+        "en": "The model gallery is now copied onto your computer (about 170 MB, once) and works without internet; the catalogues open from a drop-down list of categories; when you quit with unsaved changes the program asks whether to save; new File → Quit and Close (Ctrl+W).",
+        "it": "La galleria dei modelli ora viene copiata sul tuo computer (circa 170 MB, una volta sola) e funziona anche senza internet; i cataloghi si aprono da un menu a tendina delle categorie; se esci con modifiche non salvate il programma chiede se salvarle; nuovi File → Esci e Chiudi (Ctrl+W).",
+        "de": "Die Modellgalerie wird jetzt auf Ihren Computer kopiert (ca. 170 MB, einmalig) und funktioniert auch ohne Internet; die Kataloge öffnen sich über eine Kategorienliste; beim Beenden mit ungespeicherten Änderungen fragt das Programm, ob gespeichert werden soll; neu: Datei → Beenden und Schließen (Strg+W).",
+        "fr": "La galerie de modèles est maintenant copiée sur votre ordinateur (environ 170 Mo, une fois) et fonctionne sans internet ; les catalogues s'ouvrent depuis une liste déroulante de catégories ; en quittant avec des modifications non enregistrées, le programme demande s'il faut enregistrer ; nouveaux Fichier → Quitter et Fermer (Ctrl+W).",
+        "es": "La galería de modelos ahora se copia en tu ordenador (unos 170 MB, una vez) y funciona sin internet; los catálogos se abren desde una lista desplegable de categorías; al salir con cambios sin guardar el programa pregunta si guardarlos; nuevos Archivo → Salir y Cerrar (Ctrl+W).",
+        "pt": "A galeria de modelos agora é copiada para o seu computador (cerca de 170 MB, uma vez) e funciona sem internet; os catálogos abrem a partir de uma lista suspensa de categorias; ao sair com alterações não salvas o programa pergunta se deseja salvá-las; novos Arquivo → Sair e Fechar (Ctrl+W).",
+        "ja": "モデルギャラリーはコンピューターにコピーされるようになりました(約 170 MB、1 回のみ)。インターネットなしでも使えます。カタログはカテゴリのドロップダウンから開きます。未保存の変更があるまま終了すると保存するか確認します。ファイル → 終了、閉じる(Ctrl+W)を追加しました。"
+      }
+    },
     {
       "date": "2026-11-23T19:19:41Z",
       "version": "1.3.171",
@@ -518,38 +531,25 @@
         "pt": "Esculturas simétricas: as duas metades não se atravessam mais ao longo da linha central.",
         "ja": "左右対称の彫刻：中心線で左右の半分が互いに突き抜けることがなくなりました。"
       }
-    },
-    {
-      "date": "2026-11-12T15:50:00Z",
-      "version": "1.3.134",
-      "notes": {
-        "en": "Thin parts such as wings and ears: the two sides no longer pass through each other after the facets are evened out.",
-        "it": "Parti sottili come ali e orecchie: le due facce opposte non si attraversano più dopo la regolarizzazione delle faccette.",
-        "de": "Dünne Teile wie Flügel und Ohren: Die beiden Seiten durchdringen sich nach dem Angleichen der Facetten nicht mehr.",
-        "fr": "Parties fines comme les ailes et les oreilles : les deux côtés ne se traversent plus après la régularisation des facettes.",
-        "es": "Partes finas como alas y orejas: las dos caras ya no se atraviesan tras regularizar las facetas.",
-        "pt": "Partes finas como asas e orelhas: os dois lados não se atravessam mais depois da regularização das facetas.",
-        "ja": "翼や耳のような薄い部分で、面を整えたあとに表と裏の面が互いに突き抜けることがなくなりました。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.171",
+    "version": "1.3.172",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "dca764a7e05c3b7f54ddabaa7be9636cd53147ff996562ce1783b87be3f875fb"
+        "sha256": "12c7180913d6b90d210c03abc0a9089a444380389a18133ec09235862930e15c"
       }
     ]
   },
   "app": {
-    "version": "1.3.34",
+    "version": "1.3.35",
     "files": [
       {
         "path": "main.py",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/app/main.py",
-        "sha256": "5e511b8779ab7327becb9b6f60871c541c7e5c547f2381b21fd89ceac54c1626"
+        "sha256": "186c00ec838a7c23e56560d4b017ff729171a0e0a14f8fa09a93c37d78fc2a8a"
       }
     ]
   },

@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.163",
-  "notes": "The 2D drawing works like a professional CAD: typed commands (L, C, TR, EX…), perpendicular and tangent snaps, extend, break and chamfer, layers you can hide or lock, automatic dimensions and a PDF drawing sheet with title block and scale. For the laser: lead-ins, micro-joints, the cutting order and the machine time. Metalwork jobs get a dimensioned drawing in three views, and the assembly of a sculpture can be played in 3D.",
+  "latest": "1.3.164",
+  "notes": "A more professional look: quick tools and a switch between the three workspaces at the top, view buttons and X Y Z axes in the 3D view, clearer panels and status bar. In the 2D drawing: grips to drag ends, radii and dimensions, a crosshair pointer, the command history and the snaps as buttons.",
   "notes_i18n": {
-    "en": "The 2D drawing works like a professional CAD: typed commands (L, C, TR, EX…), perpendicular and tangent snaps, extend, break and chamfer, layers you can hide or lock, automatic dimensions and a PDF drawing sheet with title block and scale. For the laser: lead-ins, micro-joints, the cutting order and the machine time. Metalwork jobs get a dimensioned drawing in three views, and the assembly of a sculpture can be played in 3D.",
-    "it": "Il disegno 2D funziona come un CAD professionale: comandi scritti (L, C, TR, EX…), agganci perpendicolare e tangente, estendi, spezza e smusso, layer da nascondere o bloccare, quote automatiche e tavola PDF con cartiglio e scala. Per il laser: attacchi, microgiunzioni, ordine di taglio e tempo macchina. I lavori di carpenteria hanno il disegno quotato in tre viste, e il montaggio di una scultura si può riprodurre in 3D.",
-    "de": "Die 2D-Zeichnung arbeitet wie ein professionelles CAD: eingetippte Befehle (L, C, TR, EX…), Fang lotrecht und tangential, Dehnen, Brechen und Fasen, Layer zum Ausblenden oder Sperren, automatische Bemaßung und ein PDF-Zeichnungsblatt mit Schriftfeld und Maßstab. Für den Laser: Anfahrfahnen, Mikrostege, Schneidreihenfolge und Maschinenzeit. Metallbauarbeiten erhalten eine bemaßte Zeichnung in drei Ansichten, und die Montage einer Skulptur lässt sich in 3D abspielen.",
-    "fr": "Le dessin 2D fonctionne comme une CAO professionnelle : commandes tapées (L, C, TR, EX…), accrochage perpendiculaire et tangent, prolonger, couper et chanfreiner, calques à masquer ou verrouiller, cotation automatique et plan PDF avec cartouche et échelle. Pour le laser : attaques, micro-attaches, ordre de coupe et temps machine. Les ouvrages de métallerie ont un plan coté en trois vues, et l'assemblage d'une sculpture peut être joué en 3D.",
-    "es": "El dibujo 2D funciona como un CAD profesional: comandos escritos (L, C, TR, EX…), referencias perpendicular y tangente, alargar, partir y achaflanar, capas que se pueden ocultar o bloquear, acotado automático y plano PDF con cajetín y escala. Para el láser: entradas, microuniones, orden de corte y tiempo de máquina. Los trabajos de cerrajería tienen el plano acotado en tres vistas, y el montaje de una escultura se puede reproducir en 3D.",
-    "pt": "O desenho 2D funciona como um CAD profissional: comandos digitados (L, C, TR, EX…), ajuste perpendicular e tangente, estender, dividir e chanfrar, camadas que podem ser ocultadas ou bloqueadas, cotas automáticas e folha de desenho em PDF com legenda e escala. Para o laser: entradas, micropontes, ordem de corte e tempo de máquina. Os trabalhos de serralheria têm o desenho cotado em três vistas, e a montagem de uma escultura pode ser reproduzida em 3D.",
-    "ja": "2D作図がプロ向けCADと同じように使えます：コマンド入力（L、C、TR、EX…）、垂線・接線スナップ、延長・分割・面取り、非表示やロックができるレイヤー、自動寸法、表題欄と尺度付きの図面PDF。レーザー向けにアプローチ、ミクロジョイント、切断順序、加工時間。金物工事には3面の寸法入り図面が付き、彫刻の組立を3Dで再生できます。"
+    "en": "A more professional look: quick tools and a switch between the three workspaces at the top, view buttons and X Y Z axes in the 3D view, clearer panels and status bar. In the 2D drawing: grips to drag ends, radii and dimensions, a crosshair pointer, the command history and the snaps as buttons.",
+    "it": "Una veste più professionale: strumenti rapidi e scelta tra le tre aree di lavoro in alto, pulsanti di vista e assi X Y Z nella vista 3D, pannelli e barra di stato più chiari. Nel disegno 2D: maniglie per trascinare estremi, raggi e quote, mirino a croce, cronologia dei comandi e agganci come pulsanti.",
+    "de": "Ein professionelleres Aussehen: Schnellzugriff und Wechsel zwischen den drei Arbeitsbereichen oben, Ansichtsschaltflächen und X-Y-Z-Achsen in der 3D-Ansicht, klarere Bedienfelder und Statusleiste. In der 2D-Zeichnung: Griffe zum Ziehen von Enden, Radien und Maßen, Fadenkreuz, Befehlsverlauf und Fangfunktionen als Schaltflächen.",
+    "fr": "Un aspect plus professionnel : outils rapides et choix entre les trois espaces de travail en haut, boutons de vue et axes X Y Z dans la vue 3D, panneaux et barre d'état plus clairs. Dans le dessin 2D : poignées pour faire glisser extrémités, rayons et cotes, réticule, historique des commandes et accrochages en boutons.",
+    "es": "Un aspecto más profesional: herramientas rápidas y cambio entre las tres áreas de trabajo arriba, botones de vista y ejes X Y Z en la vista 3D, paneles y barra de estado más claros. En el dibujo 2D: pinzamientos para arrastrar extremos, radios y cotas, cursor en cruz, historial de comandos y referencias como botones.",
+    "pt": "Um visual mais profissional: ferramentas rápidas e troca entre as três áreas de trabalho no alto, botões de vista e eixos X Y Z na vista 3D, painéis e barra de status mais claros. No desenho 2D: alças para arrastar pontas, raios e cotas, mira em cruz, histórico de comandos e ajustes como botões.",
+    "ja": "よりプロらしい外観に：上部にクイックツールと3つの作業領域の切り替え、3Dビューに視点ボタンとX・Y・Z軸、見やすいパネルとステータスバー。2D作図では端点・半径・寸法をドラッグできるグリップ、十字カーソル、コマンド履歴、ボタン式のスナップ。"
   },
   "history": [
+    {
+      "date": "2026-11-23T12:10:11Z",
+      "version": "1.3.164",
+      "notes": {
+        "en": "A more professional look: quick tools and a switch between the three workspaces at the top, view buttons and X Y Z axes in the 3D view, clearer panels and status bar. In the 2D drawing: grips to drag ends, radii and dimensions, a crosshair pointer, the command history and the snaps as buttons.",
+        "it": "Una veste più professionale: strumenti rapidi e scelta tra le tre aree di lavoro in alto, pulsanti di vista e assi X Y Z nella vista 3D, pannelli e barra di stato più chiari. Nel disegno 2D: maniglie per trascinare estremi, raggi e quote, mirino a croce, cronologia dei comandi e agganci come pulsanti.",
+        "de": "Ein professionelleres Aussehen: Schnellzugriff und Wechsel zwischen den drei Arbeitsbereichen oben, Ansichtsschaltflächen und X-Y-Z-Achsen in der 3D-Ansicht, klarere Bedienfelder und Statusleiste. In der 2D-Zeichnung: Griffe zum Ziehen von Enden, Radien und Maßen, Fadenkreuz, Befehlsverlauf und Fangfunktionen als Schaltflächen.",
+        "fr": "Un aspect plus professionnel : outils rapides et choix entre les trois espaces de travail en haut, boutons de vue et axes X Y Z dans la vue 3D, panneaux et barre d'état plus clairs. Dans le dessin 2D : poignées pour faire glisser extrémités, rayons et cotes, réticule, historique des commandes et accrochages en boutons.",
+        "es": "Un aspecto más profesional: herramientas rápidas y cambio entre las tres áreas de trabajo arriba, botones de vista y ejes X Y Z en la vista 3D, paneles y barra de estado más claros. En el dibujo 2D: pinzamientos para arrastrar extremos, radios y cotas, cursor en cruz, historial de comandos y referencias como botones.",
+        "pt": "Um visual mais profissional: ferramentas rápidas e troca entre as três áreas de trabalho no alto, botões de vista e eixos X Y Z na vista 3D, painéis e barra de status mais claros. No desenho 2D: alças para arrastar pontas, raios e cotas, mira em cruz, histórico de comandos e ajustes como botões.",
+        "ja": "よりプロらしい外観に：上部にクイックツールと3つの作業領域の切り替え、3Dビューに視点ボタンとX・Y・Z軸、見やすいパネルとステータスバー。2D作図では端点・半径・寸法をドラッグできるグリップ、十字カーソル、コマンド履歴、ボタン式のスナップ。"
+      }
+    },
     {
       "date": "2026-11-23T11:35:43Z",
       "version": "1.3.163",
@@ -518,28 +531,15 @@
         "pt": "Cavernas internas: o contorno agora é calculado com mais precisão e fica sempre dentro da escultura. Em esculturas altas, algumas cavernas saíam do casco em 1–2 mm e precisavam ser esmerilhadas.",
         "ja": "内部リブ：輪郭をより正確に計算し、常に彫刻の内側に収まるようになりました。背の高い彫刻では一部のリブが外殻から 1〜2 mm はみ出し、削って合わせる必要がありました。"
       }
-    },
-    {
-      "date": "2026-11-12T09:37:42Z",
-      "version": "1.3.126",
-      "notes": {
-        "en": "Facets passing through each other: the final clean-up of the short sides no longer creates them either. Sculptures with thin parts or made with the detail brush come out clean more often, without being thickened.",
-        "it": "Facce che si attraversano: nemmeno la pulizia finale dei lati corti le crea più. Le sculture con parti sottili o fatte col pennello del dettaglio escono pulite più spesso, senza essere ingrossate.",
-        "de": "Sich durchdringende Facetten: Auch die abschließende Bereinigung der kurzen Seiten erzeugt sie nicht mehr. Skulpturen mit dünnen Teilen oder mit dem Detailpinsel werden häufiger sauber, ohne verdickt zu werden.",
-        "fr": "Facettes qui se traversent : le nettoyage final des côtés courts n'en crée plus non plus. Les sculptures aux parties fines ou faites au pinceau de détail sortent plus souvent propres, sans être épaissies.",
-        "es": "Facetas que se atraviesan: la limpieza final de los lados cortos tampoco las crea ya. Las esculturas con partes finas o hechas con el pincel de detalle salen limpias más a menudo, sin engrosarse.",
-        "pt": "Facetas que se atravessam: a limpeza final dos lados curtos também não as cria mais. As esculturas com partes finas ou feitas com o pincel de detalhe saem limpas com mais frequência, sem serem engrossadas.",
-        "ja": "面の突き抜け：短い辺の最終的な整理でも発生しなくなりました。細い部分のある彫刻やディテールブラシを使った彫刻が、太くせずにきれいに仕上がることが増えます。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.163",
+    "version": "1.3.164",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "0292ae50693171072d5e2fb31582ef0352b220804f88855544215e46f72b6979"
+        "sha256": "c583e5b343be33efcf05c72b0d75ad61297a8a6eb955a822cb7bfb0dfc319ae7"
       }
     ]
   },

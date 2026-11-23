@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.162",
-  "notes": "The 2D drawing now works inside the sculptures and the metalwork too: in the sheets view, \"Edit in the 2D drawing\" opens a sheet with its cut, slot, bend and marking lines; add holes, texts or changes and apply: the laser DXF and the project keep them.",
+  "latest": "1.3.163",
+  "notes": "The 2D drawing works like a professional CAD: typed commands (L, C, TR, EX…), perpendicular and tangent snaps, extend, break and chamfer, layers you can hide or lock, automatic dimensions and a PDF drawing sheet with title block and scale. For the laser: lead-ins, micro-joints, the cutting order and the machine time. Metalwork jobs get a dimensioned drawing in three views, and the assembly of a sculpture can be played in 3D.",
   "notes_i18n": {
-    "en": "The 2D drawing now works inside the sculptures and the metalwork too: in the sheets view, \"Edit in the 2D drawing\" opens a sheet with its cut, slot, bend and marking lines; add holes, texts or changes and apply: the laser DXF and the project keep them.",
-    "it": "Il disegno 2D ora funziona anche dentro le sculture e la carpenteria: nella vista delle lamiere, «Modifica nel disegno 2D» apre una lamiera con tagli, asole, pieghe e marcature; aggiungi fori, scritte o modifiche e applica: il DXF per il laser e il progetto le tengono.",
-    "de": "Die 2D-Zeichnung funktioniert jetzt auch in den Skulpturen und im Metallbau: in der Blechansicht öffnet „In der 2D-Zeichnung bearbeiten“ ein Blech mit Schnitt-, Schlitz-, Biege- und Markierungslinien; Löcher, Texte oder Änderungen hinzufügen und übernehmen: Laser-DXF und Projekt behalten sie.",
-    "fr": "Le dessin 2D fonctionne maintenant aussi dans les sculptures et la métallerie : dans la vue des tôles, « Modifier dans le dessin 2D » ouvre une tôle avec ses lignes de coupe, boutonnières, plis et marquages ; ajoutez trous, textes ou modifications et appliquez : le DXF laser et le projet les gardent.",
-    "es": "El dibujo 2D ahora funciona también dentro de las esculturas y la carpintería metálica: en la vista de chapas, «Editar en el dibujo 2D» abre una chapa con cortes, ojales, pliegues y marcas; añade agujeros, textos o cambios y aplica: el DXF para el láser y el proyecto los conservan.",
-    "pt": "O desenho 2D agora funciona também dentro das esculturas e da serralharia: na vista das chapas, «Editar no desenho 2D» abre uma chapa com cortes, rasgos, dobras e marcações; acrescente furos, textos ou alterações e aplique: o DXF para o laser e o projeto guardam-nas.",
-    "ja": "2D図面が彫刻と金物の中でも使えるようになりました。板材ビューの「2D図面で編集」で切断・長穴・曲げ・刻印の線ごと板を開き、穴や文字や変更を加えて適用すると、レーザー用DXFとプロジェクトに反映されます。"
+    "en": "The 2D drawing works like a professional CAD: typed commands (L, C, TR, EX…), perpendicular and tangent snaps, extend, break and chamfer, layers you can hide or lock, automatic dimensions and a PDF drawing sheet with title block and scale. For the laser: lead-ins, micro-joints, the cutting order and the machine time. Metalwork jobs get a dimensioned drawing in three views, and the assembly of a sculpture can be played in 3D.",
+    "it": "Il disegno 2D funziona come un CAD professionale: comandi scritti (L, C, TR, EX…), agganci perpendicolare e tangente, estendi, spezza e smusso, layer da nascondere o bloccare, quote automatiche e tavola PDF con cartiglio e scala. Per il laser: attacchi, microgiunzioni, ordine di taglio e tempo macchina. I lavori di carpenteria hanno il disegno quotato in tre viste, e il montaggio di una scultura si può riprodurre in 3D.",
+    "de": "Die 2D-Zeichnung arbeitet wie ein professionelles CAD: eingetippte Befehle (L, C, TR, EX…), Fang lotrecht und tangential, Dehnen, Brechen und Fasen, Layer zum Ausblenden oder Sperren, automatische Bemaßung und ein PDF-Zeichnungsblatt mit Schriftfeld und Maßstab. Für den Laser: Anfahrfahnen, Mikrostege, Schneidreihenfolge und Maschinenzeit. Metallbauarbeiten erhalten eine bemaßte Zeichnung in drei Ansichten, und die Montage einer Skulptur lässt sich in 3D abspielen.",
+    "fr": "Le dessin 2D fonctionne comme une CAO professionnelle : commandes tapées (L, C, TR, EX…), accrochage perpendiculaire et tangent, prolonger, couper et chanfreiner, calques à masquer ou verrouiller, cotation automatique et plan PDF avec cartouche et échelle. Pour le laser : attaques, micro-attaches, ordre de coupe et temps machine. Les ouvrages de métallerie ont un plan coté en trois vues, et l'assemblage d'une sculpture peut être joué en 3D.",
+    "es": "El dibujo 2D funciona como un CAD profesional: comandos escritos (L, C, TR, EX…), referencias perpendicular y tangente, alargar, partir y achaflanar, capas que se pueden ocultar o bloquear, acotado automático y plano PDF con cajetín y escala. Para el láser: entradas, microuniones, orden de corte y tiempo de máquina. Los trabajos de cerrajería tienen el plano acotado en tres vistas, y el montaje de una escultura se puede reproducir en 3D.",
+    "pt": "O desenho 2D funciona como um CAD profissional: comandos digitados (L, C, TR, EX…), ajuste perpendicular e tangente, estender, dividir e chanfrar, camadas que podem ser ocultadas ou bloqueadas, cotas automáticas e folha de desenho em PDF com legenda e escala. Para o laser: entradas, micropontes, ordem de corte e tempo de máquina. Os trabalhos de serralheria têm o desenho cotado em três vistas, e a montagem de uma escultura pode ser reproduzida em 3D.",
+    "ja": "2D作図がプロ向けCADと同じように使えます：コマンド入力（L、C、TR、EX…）、垂線・接線スナップ、延長・分割・面取り、非表示やロックができるレイヤー、自動寸法、表題欄と尺度付きの図面PDF。レーザー向けにアプローチ、ミクロジョイント、切断順序、加工時間。金物工事には3面の寸法入り図面が付き、彫刻の組立を3Dで再生できます。"
   },
   "history": [
+    {
+      "date": "2026-11-23T11:35:43Z",
+      "version": "1.3.163",
+      "notes": {
+        "en": "The 2D drawing works like a professional CAD: typed commands (L, C, TR, EX…), perpendicular and tangent snaps, extend, break and chamfer, layers you can hide or lock, automatic dimensions and a PDF drawing sheet with title block and scale. For the laser: lead-ins, micro-joints, the cutting order and the machine time. Metalwork jobs get a dimensioned drawing in three views, and the assembly of a sculpture can be played in 3D.",
+        "it": "Il disegno 2D funziona come un CAD professionale: comandi scritti (L, C, TR, EX…), agganci perpendicolare e tangente, estendi, spezza e smusso, layer da nascondere o bloccare, quote automatiche e tavola PDF con cartiglio e scala. Per il laser: attacchi, microgiunzioni, ordine di taglio e tempo macchina. I lavori di carpenteria hanno il disegno quotato in tre viste, e il montaggio di una scultura si può riprodurre in 3D.",
+        "de": "Die 2D-Zeichnung arbeitet wie ein professionelles CAD: eingetippte Befehle (L, C, TR, EX…), Fang lotrecht und tangential, Dehnen, Brechen und Fasen, Layer zum Ausblenden oder Sperren, automatische Bemaßung und ein PDF-Zeichnungsblatt mit Schriftfeld und Maßstab. Für den Laser: Anfahrfahnen, Mikrostege, Schneidreihenfolge und Maschinenzeit. Metallbauarbeiten erhalten eine bemaßte Zeichnung in drei Ansichten, und die Montage einer Skulptur lässt sich in 3D abspielen.",
+        "fr": "Le dessin 2D fonctionne comme une CAO professionnelle : commandes tapées (L, C, TR, EX…), accrochage perpendiculaire et tangent, prolonger, couper et chanfreiner, calques à masquer ou verrouiller, cotation automatique et plan PDF avec cartouche et échelle. Pour le laser : attaques, micro-attaches, ordre de coupe et temps machine. Les ouvrages de métallerie ont un plan coté en trois vues, et l'assemblage d'une sculpture peut être joué en 3D.",
+        "es": "El dibujo 2D funciona como un CAD profesional: comandos escritos (L, C, TR, EX…), referencias perpendicular y tangente, alargar, partir y achaflanar, capas que se pueden ocultar o bloquear, acotado automático y plano PDF con cajetín y escala. Para el láser: entradas, microuniones, orden de corte y tiempo de máquina. Los trabajos de cerrajería tienen el plano acotado en tres vistas, y el montaje de una escultura se puede reproducir en 3D.",
+        "pt": "O desenho 2D funciona como um CAD profissional: comandos digitados (L, C, TR, EX…), ajuste perpendicular e tangente, estender, dividir e chanfrar, camadas que podem ser ocultadas ou bloqueadas, cotas automáticas e folha de desenho em PDF com legenda e escala. Para o laser: entradas, micropontes, ordem de corte e tempo de máquina. Os trabalhos de serralheria têm o desenho cotado em três vistas, e a montagem de uma escultura pode ser reproduzida em 3D.",
+        "ja": "2D作図がプロ向けCADと同じように使えます：コマンド入力（L、C、TR、EX…）、垂線・接線スナップ、延長・分割・面取り、非表示やロックができるレイヤー、自動寸法、表題欄と尺度付きの図面PDF。レーザー向けにアプローチ、ミクロジョイント、切断順序、加工時間。金物工事には3面の寸法入り図面が付き、彫刻の組立を3Dで再生できます。"
+      }
+    },
     {
       "date": "2026-11-19T07:33:23Z",
       "version": "1.3.162",
@@ -518,28 +531,15 @@
         "pt": "Facetas que se atravessam: a limpeza final dos lados curtos também não as cria mais. As esculturas com partes finas ou feitas com o pincel de detalhe saem limpas com mais frequência, sem serem engrossadas.",
         "ja": "面の突き抜け：短い辺の最終的な整理でも発生しなくなりました。細い部分のある彫刻やディテールブラシを使った彫刻が、太くせずにきれいに仕上がることが増えます。"
       }
-    },
-    {
-      "date": "2026-11-12T09:10:44Z",
-      "version": "1.3.125",
-      "notes": {
-        "en": "Windows: exporting the DXF (and every other file) now always works: the program shows the standard «Save as» window itself. If a file cannot be saved, the reason is shown at the bottom instead of nothing happening.",
-        "it": "Windows: l'esportazione del DXF (e di ogni altro file) ora funziona sempre: il programma mostra da solo la normale finestra «Salva con nome». Se un file non si può salvare, il motivo compare in basso invece di non succedere nulla.",
-        "de": "Windows: Der Export der DXF-Datei (und jeder anderen Datei) funktioniert jetzt immer: Das Programm zeigt selbst das normale Fenster «Speichern unter». Lässt sich eine Datei nicht speichern, steht der Grund unten, statt dass nichts passiert.",
-        "fr": "Windows : l'export du DXF (et de tout autre fichier) fonctionne désormais toujours : le programme affiche lui-même la fenêtre habituelle « Enregistrer sous ». Si un fichier ne peut pas être enregistré, la raison s'affiche en bas au lieu qu'il ne se passe rien.",
-        "es": "Windows: la exportación del DXF (y de cualquier otro archivo) ahora funciona siempre: el programa muestra por sí mismo la ventana normal «Guardar como». Si un archivo no se puede guardar, el motivo aparece abajo en lugar de no pasar nada.",
-        "pt": "Windows: a exportação do DXF (e de qualquer outro arquivo) agora funciona sempre: o programa mostra sozinho a janela normal «Salvar como». Se um arquivo não puder ser salvo, o motivo aparece embaixo em vez de nada acontecer.",
-        "ja": "Windows：DXF（およびその他すべてのファイル）の書き出しが常に動作するようになりました。プログラム自身が通常の「名前を付けて保存」ウィンドウを表示します。保存できない場合は、何も起きないのではなく理由が下部に表示されます。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.162",
+    "version": "1.3.163",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "40a76c00fc5c7adff81bdadf9a49f31c85972c381d580f69611c5de323a1da47"
+        "sha256": "0292ae50693171072d5e2fb31582ef0352b220804f88855544215e46f72b6979"
       }
     ]
   },

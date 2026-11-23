@@ -36,6 +36,7 @@ Tutti i calcoli (sfaccettatura, sviluppo dei pezzi, annidamento, file per il las
 - **Mockup** – mostra la scultura finita nel materiale scelto (acciaio inox, ferro, ottone, rame, alluminio), con sfondi da studio, paesaggi, la tua foto o carta millimetrata, vista da tutti i lati.
 - **Carpenteria** – un catalogo di modelli su misura: cancelli, ringhiere, scale a rampa e a chiocciola, inferriate, pensiline, gazebo, scaffalature, arredo urbano, mobili e lamiere ornamentali con disegni tagliati al laser: distinta di taglio dei profili, barre da ordinare, parti in lamiera in DXF, preventivo e scheda di lavorazione in PDF.
 - **Disegno 2D (CAD)** – pezzi piani a misura per il laser: linee, cerchi, archi, polilinee, asole, testi e quote, misure scritte a mano, agganci, sposta/copia/ruota/specchia, offset, taglia e raccordi; apre e salva DXF (e apre SVG), conta pezzi, metri di taglio e costo, annida sulla lamiera. Con una serie di pezzi pronti: piastre, flange, staffe, rondelle, targhe.
+  Come nei CAD professionali: comandi scritti (L, C, TR, EX…), agganci perpendicolare e tangente, estendi, spezza, smusso, layer da nascondere o bloccare, quote automatiche e tavola PDF con cartiglio e scala; per il laser attacchi, microgiunzioni, ordine di taglio e tempo macchina. Per la carpenteria il disegno quotato in tre viste.
 - **Preventivo e montaggio** – calcola materiale e costi e prepara la guida di montaggio passo per passo.
 - **Progetti** – salvataggio automatico, file di progetto propri (.as3d) con anteprima, aggiornamenti automatici.
 - **7 lingue** – italiano, inglese, tedesco, francese, spagnolo, portoghese e giapponese.
@@ -56,7 +57,8 @@ The same window also does everyday **metalwork**: gates, window grilles, canopie
 with the cutting list, the sheet parts for the laser and the quote.
 
 And it is a **2D CAD** for flat laser parts: draw to measure (or open a DXF or SVG), get parts, cut length and cost,
-nest them on the sheet and export the DXF.
+nest them on the sheet and export the DXF, with typed commands, perpendicular and tangent snaps, layers, automatic
+dimensions, a PDF drawing sheet with title block, lead-ins, micro-joints and the cutting order. Metalwork jobs get a dimensioned drawing in three views.
 
 All the calculations (faceting, unfolding, nesting, laser files) are made by **SculptEngine**, the proprietary engine of AutoSculpt 3D.
 

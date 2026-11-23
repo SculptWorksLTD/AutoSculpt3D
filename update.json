@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.169",
-  "notes": "The number of faces now grows with the size of the sculpture (220 at 60 cm, 450 at 1.2 m, 700 at 2 m) until you move the faces bar yourself.",
+  "latest": "1.3.170",
+  "notes": "New: flat back to hang on a wall (Shape and size). For heads and busts: the back is cut flat at the depth you choose and closed with one panel.",
   "notes_i18n": {
-    "en": "The number of faces now grows with the size of the sculpture (220 at 60 cm, 450 at 1.2 m, 700 at 2 m) until you move the faces bar yourself.",
-    "it": "Il numero di facce ora cresce con la misura della scultura (220 a 60 cm, 450 a 1,2 m, 700 a 2 m) finché non sposti tu la barra delle facce.",
-    "de": "Die Anzahl der Flächen wächst jetzt mit der Größe der Skulptur (220 bei 60 cm, 450 bei 1,2 m, 700 bei 2 m), bis du den Flächenregler selbst bewegst.",
-    "fr": "Le nombre de faces augmente maintenant avec la taille de la sculpture (220 à 60 cm, 450 à 1,2 m, 700 à 2 m) jusqu'à ce que tu déplaces toi-même le curseur.",
-    "es": "El número de caras ahora crece con la medida de la escultura (220 a 60 cm, 450 a 1,2 m, 700 a 2 m) hasta que muevas tú la barra de caras.",
-    "pt": "O número de faces agora cresce com a medida da escultura (220 a 60 cm, 450 a 1,2 m, 700 a 2 m) até você mover a barra de faces.",
-    "ja": "面数が彫刻のサイズに合わせて増えるようになりました（60 cmで220、1.2 mで450、2 mで700）。面数のバーを自分で動かすまで自動です。"
+    "en": "New: flat back to hang on a wall (Shape and size). For heads and busts: the back is cut flat at the depth you choose and closed with one panel.",
+    "it": "Novità: retro piatto da appendere al muro (Forma e misure). Per teste e busti: il retro viene tagliato piatto alla profondità che scegli e chiuso con un pannello.",
+    "de": "Neu: flache Rückseite zum Aufhängen an der Wand (Form und Maße). Für Köpfe und Büsten: Die Rückseite wird in der gewählten Tiefe flach abgeschnitten und mit einer Platte geschlossen.",
+    "fr": "Nouveau : dos plat à accrocher au mur (Forme et dimensions). Pour les têtes et bustes : l'arrière est coupé à plat à la profondeur choisie et fermé par un panneau.",
+    "es": "Nuevo: parte trasera plana para colgar en la pared (Forma y medidas). Para cabezas y bustos: la parte trasera se corta plana a la profundidad elegida y se cierra con un panel.",
+    "pt": "Novo: traseira plana para pendurar na parede (Forma e medidas). Para cabeças e bustos: a traseira é cortada plana na profundidade escolhida e fechada com um painel.",
+    "ja": "新機能：壁掛け用の平らな背面（形とサイズ）。頭部や胸像向け：選んだ奥行きで背面を平らに切り、1枚のパネルで閉じます。"
   },
   "history": [
+    {
+      "date": "2026-11-23T17:51:21Z",
+      "version": "1.3.170",
+      "notes": {
+        "en": "New: flat back to hang on a wall (Shape and size). For heads and busts: the back is cut flat at the depth you choose and closed with one panel.",
+        "it": "Novità: retro piatto da appendere al muro (Forma e misure). Per teste e busti: il retro viene tagliato piatto alla profondità che scegli e chiuso con un pannello.",
+        "de": "Neu: flache Rückseite zum Aufhängen an der Wand (Form und Maße). Für Köpfe und Büsten: Die Rückseite wird in der gewählten Tiefe flach abgeschnitten und mit einer Platte geschlossen.",
+        "fr": "Nouveau : dos plat à accrocher au mur (Forme et dimensions). Pour les têtes et bustes : l'arrière est coupé à plat à la profondeur choisie et fermé par un panneau.",
+        "es": "Nuevo: parte trasera plana para colgar en la pared (Forma y medidas). Para cabezas y bustos: la parte trasera se corta plana a la profundidad elegida y se cierra con un panel.",
+        "pt": "Novo: traseira plana para pendurar na parede (Forma e medidas). Para cabeças e bustos: a traseira é cortada plana na profundidade escolhida e fechada com um painel.",
+        "ja": "新機能：壁掛け用の平らな背面（形とサイズ）。頭部や胸像向け：選んだ奥行きで背面を平らに切り、1枚のパネルで閉じます。"
+      }
+    },
     {
       "date": "2026-11-23T17:30:59Z",
       "version": "1.3.169",
@@ -518,28 +531,15 @@
         "pt": "Esculturas simétricas: menos cordões curtos demais para soldar ao longo da linha central.",
         "ja": "左右対称の彫刻：中心線上で、溶接するには短すぎる継ぎ目が減りました。"
       }
-    },
-    {
-      "date": "2026-11-12T13:57:16Z",
-      "version": "1.3.132",
-      "notes": {
-        "en": "«Symmetric sculpture» now also works on models that lean a little (a head tilted by a few degrees): the mirror plane follows the model instead of being forced upright.",
-        "it": "«Scultura simmetrica» ora funziona anche sui modelli un po' inclinati (una testa piegata di qualche grado): il piano di specchio segue il modello invece di essere forzato in verticale.",
-        "de": "«Symmetrische Skulptur» funktioniert jetzt auch bei leicht geneigten Modellen (ein um einige Grad gekippter Kopf): Die Spiegelebene folgt dem Modell, statt senkrecht erzwungen zu werden.",
-        "fr": "« Sculpture symétrique » fonctionne désormais aussi sur les modèles légèrement inclinés (une tête penchée de quelques degrés) : le plan de symétrie suit le modèle au lieu d'être forcé à la verticale.",
-        "es": "«Escultura simétrica» ahora también funciona con modelos algo inclinados (una cabeza ladeada unos grados): el plano de espejo sigue al modelo en lugar de forzarse en vertical.",
-        "pt": "«Escultura simétrica» agora também funciona em modelos um pouco inclinados (uma cabeça tombada alguns graus): o plano de espelho acompanha o modelo em vez de ser forçado na vertical.",
-        "ja": "「左右対称の彫刻」が、少し傾いたモデル（数度かしいだ頭部など）でも正しく働くようになりました。鏡面を無理に垂直にせず、モデルの傾きに合わせます。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.169",
+    "version": "1.3.170",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "c34a5ebe0c51cc8d24e866de7acee4b0434aeb4a32aa00d06b8aae847bdc2ef3"
+        "sha256": "4834c9f43c9bdef0d330d8fd0b4ae06dd4216519ca60fbc5c0271b0dfd0ebdb1"
       }
     ]
   },

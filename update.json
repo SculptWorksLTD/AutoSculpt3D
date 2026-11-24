@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.183",
-  "notes": "New: assembly without welding (Quick assembly section). Every seam gets a tab with a hole and the neighbouring piece the matching hole: the sculpture is closed with blind rivets, for kits sold to people without a welder. The summary tells how many rivets, and the few seams where no tab fits.",
+  "latest": "1.3.184",
+  "notes": "SculptLock: a new way to join the pieces without welding. On every outer seam small teeth go through notches of the neighbouring piece and are hammered flat from outside with a mallet: nothing to reach from inside, no rivets, screws or glue.",
   "notes_i18n": {
-    "en": "New: assembly without welding (Quick assembly section). Every seam gets a tab with a hole and the neighbouring piece the matching hole: the sculpture is closed with blind rivets, for kits sold to people without a welder. The summary tells how many rivets, and the few seams where no tab fits.",
-    "it": "Novità: montaggio senza saldatura (sezione Montaggio rapido). Ogni giunzione ha una linguetta con un foro e il pezzo vicino il foro corrispondente: la scultura si chiude con rivetti a strappo, per i kit venduti a chi non ha la saldatrice. Il riepilogo dice quanti rivetti servono e le poche giunzioni dove una linguetta non entra.",
-    "de": "Neu: Montage ohne Schweißen (Bereich Schnellmontage). Jede Naht bekommt eine Lasche mit Loch, das Nachbarteil das passende Loch: die Skulptur wird mit Blindnieten geschlossen, für Bausätze an Kunden ohne Schweißgerät. Die Übersicht nennt die Zahl der Nieten und die wenigen Nähte ohne Platz für eine Lasche.",
-    "fr": "Nouveau : montage sans soudure (section Montage rapide). Chaque jonction a une patte percée et la pièce voisine le trou correspondant : la sculpture se ferme avec des rivets aveugles, pour les kits vendus à qui n'a pas de poste à souder. Le résumé indique le nombre de rivets et les quelques jonctions sans place pour une patte.",
-    "es": "Novedad: montaje sin soldadura (sección Montaje rápido). Cada unión lleva una pestaña con agujero y la pieza vecina el agujero correspondiente: la escultura se cierra con remaches ciegos, para kits vendidos a quien no tiene soldadora. El resumen indica cuántos remaches hacen falta y las pocas uniones sin sitio para una pestaña.",
-    "pt": "Novidade: montagem sem solda (seção Montagem rápida). Cada junção tem uma aba com furo e a peça vizinha o furo correspondente: a escultura se fecha com rebites de repuxo, para kits vendidos a quem não tem máquina de solda. O resumo diz quantos rebites são necessários e as poucas junções sem espaço para uma aba.",
-    "ja": "新機能：溶接なしの組立（クイック組立）。各継ぎ目に穴あきタブ、隣のパーツに対応する穴を付け、ブラインドリベットで彫刻を閉じます。溶接機を持たない方向けのキットに。概要にリベットの本数と、タブが入らない少数の継ぎ目を表示します。"
+    "en": "SculptLock: a new way to join the pieces without welding. On every outer seam small teeth go through notches of the neighbouring piece and are hammered flat from outside with a mallet: nothing to reach from inside, no rivets, screws or glue.",
+    "it": "SculptLock: un modo nuovo di unire i pezzi senza saldare. Su ogni giunzione esterna piccoli denti passano nelle tacche del pezzo vicino e si ribattono da fuori col mazzuolo: niente da raggiungere dall'interno, niente rivetti, viti o colla.",
+    "de": "SculptLock: eine neue Art, die Teile ohne Schweißen zu verbinden. An jeder Außennaht gehen kleine Zähne durch Kerben des Nachbarteils und werden von außen mit dem Hammer flach geklopft: nichts von innen, keine Nieten, Schrauben oder Kleber.",
+    "fr": "SculptLock : une nouvelle façon d'assembler les pièces sans soudure. Sur chaque jointure extérieure de petites dents passent dans les encoches de la pièce voisine et se rabattent de l'extérieur au maillet : rien à atteindre par l'intérieur, ni rivets, ni vis, ni colle.",
+    "es": "SculptLock: una nueva forma de unir las piezas sin soldar. En cada unión exterior pequeños dientes pasan por las muescas de la pieza vecina y se remachan desde fuera con un mazo: nada que alcanzar por dentro, sin remaches, tornillos ni pegamento.",
+    "pt": "SculptLock: um novo jeito de unir as peças sem solda. Em cada junta externa pequenos dentes passam pelos entalhes da peça vizinha e são rebatidos por fora com um martelo de borracha: nada a alcançar por dentro, sem rebites, parafusos ou cola.",
+    "ja": "SculptLock：溶接なしで部品をつなぐ新しい方法。外側の各継ぎ目で小さな爪が隣の部品の切り欠きを通り、外から木槌で叩いて倒します。内側に手を入れる必要も、リベット・ネジ・接着剤もいりません。"
   },
   "history": [
+    {
+      "date": "2026-11-24T11:53:14Z",
+      "version": "1.3.184",
+      "notes": {
+        "en": "SculptLock: a new way to join the pieces without welding. On every outer seam small teeth go through notches of the neighbouring piece and are hammered flat from outside with a mallet: nothing to reach from inside, no rivets, screws or glue.",
+        "it": "SculptLock: un modo nuovo di unire i pezzi senza saldare. Su ogni giunzione esterna piccoli denti passano nelle tacche del pezzo vicino e si ribattono da fuori col mazzuolo: niente da raggiungere dall'interno, niente rivetti, viti o colla.",
+        "de": "SculptLock: eine neue Art, die Teile ohne Schweißen zu verbinden. An jeder Außennaht gehen kleine Zähne durch Kerben des Nachbarteils und werden von außen mit dem Hammer flach geklopft: nichts von innen, keine Nieten, Schrauben oder Kleber.",
+        "fr": "SculptLock : une nouvelle façon d'assembler les pièces sans soudure. Sur chaque jointure extérieure de petites dents passent dans les encoches de la pièce voisine et se rabattent de l'extérieur au maillet : rien à atteindre par l'intérieur, ni rivets, ni vis, ni colle.",
+        "es": "SculptLock: una nueva forma de unir las piezas sin soldar. En cada unión exterior pequeños dientes pasan por las muescas de la pieza vecina y se remachan desde fuera con un mazo: nada que alcanzar por dentro, sin remaches, tornillos ni pegamento.",
+        "pt": "SculptLock: um novo jeito de unir as peças sem solda. Em cada junta externa pequenos dentes passam pelos entalhes da peça vizinha e são rebatidos por fora com um martelo de borracha: nada a alcançar por dentro, sem rebites, parafusos ou cola.",
+        "ja": "SculptLock：溶接なしで部品をつなぐ新しい方法。外側の各継ぎ目で小さな爪が隣の部品の切り欠きを通り、外から木槌で叩いて倒します。内側に手を入れる必要も、リベット・ネジ・接着剤もいりません。"
+      }
+    },
     {
       "date": "2026-11-24T11:16:56Z",
       "version": "1.3.183",
@@ -518,28 +531,15 @@
         "pt": "Pincel: as partes finas como galhadas, caudas e orelhas continuam grossas o bastante para soldar mesmo quando você pinta com o pincel de detalhe.",
         "ja": "ブラシ：ディテールブラシで塗っても、角・尾・耳などの細い部分が溶接できる太さに保たれるようになりました。"
       }
-    },
-    {
-      "date": "2026-11-13T01:30:38Z",
-      "version": "1.3.145",
-      "notes": {
-        "en": "Symmetric sculptures are calculated faster, and heads covered in fine relief (a lion's mane) keep all the facets you ask for.",
-        "it": "Le sculture simmetriche si calcolano più in fretta, e le teste coperte di rilievi fini (la criniera di un leone) tengono tutte le facce chieste.",
-        "de": "Symmetrische Skulpturen werden schneller berechnet, und Köpfe mit feinem Relief (eine Löwenmähne) behalten alle gewünschten Facetten.",
-        "fr": "Les sculptures symétriques se calculent plus vite, et les têtes couvertes de reliefs fins (la crinière d'un lion) gardent toutes les facettes demandées.",
-        "es": "Las esculturas simétricas se calculan más rápido, y las cabezas cubiertas de relieves finos (la melena de un león) conservan todas las facetas pedidas.",
-        "pt": "As esculturas simétricas são calculadas mais rápido, e as cabeças cobertas de relevos finos (a juba de um leão) mantêm todas as facetas pedidas.",
-        "ja": "左右対称の彫刻の計算が速くなり、細かい起伏のある頭部（ライオンのたてがみなど）でも指定した面数が保たれます。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.183",
+    "version": "1.3.184",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "374d6d382611a02605fb7b7e7ad7aafaa04685dedcbf2f12138816956b300cfe"
+        "sha256": "8f4fdeeb359b572176ff1e7f13a416ad093aaa03a4e78389884fe24a92ff740c"
       }
     ]
   },

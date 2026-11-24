@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.181",
-  "notes": "New: Package for sale (Assembly guide section, and File menu). One ZIP with what you can sell to other workshops instead of the finished sculpture: the DXF, a folding dossier with one drawing per piece (bends in red and blue, numbered in the suggested order, the pieces to weld on each edge), the assembly guide, an overview picture with one colour per piece, a product sheet and a manufacturing licence. The small picture in the assembly guide now shows the whole sculpture. 3D editing: Shift + click picks several corners (shown in green); dragging one of them moves them all together. Esc clears the choice.",
+  "latest": "1.3.182",
+  "notes": "Hand bending: new projects get dashed bend lines cut by the laser beam alone (with small bridges) instead of wide slots: they bend by hand the same, close up when bent and hardly show on the finished sculpture. The kind is chosen in Hand bending; projects saved earlier keep their slots.",
   "notes_i18n": {
-    "en": "New: Package for sale (Assembly guide section, and File menu). One ZIP with what you can sell to other workshops instead of the finished sculpture: the DXF, a folding dossier with one drawing per piece (bends in red and blue, numbered in the suggested order, the pieces to weld on each edge), the assembly guide, an overview picture with one colour per piece, a product sheet and a manufacturing licence. The small picture in the assembly guide now shows the whole sculpture. 3D editing: Shift + click picks several corners (shown in green); dragging one of them moves them all together. Esc clears the choice.",
-    "it": "Novità: Pacchetto da vendere (sezione Guida di montaggio e menu File). Uno ZIP con ciò che puoi vendere ad altre officine al posto della scultura finita: il DXF, le schede di piegatura con un disegno per pezzo (pieghe in rosso e blu, numerate nell'ordine consigliato, i pezzi da saldare su ogni lato), la guida di montaggio, un'immagine d'insieme con un colore per pezzo, una scheda prodotto e una licenza di fabbricazione. Il riquadro piccolo della guida di montaggio ora mostra tutta la scultura. Modifica del 3D: Maiusc + clic sceglie più spigoli (in verde); trascinandone uno si muovono tutti insieme. Esc toglie la scelta.",
-    "de": "Neu: Verkaufspaket (Bereich Montageanleitung und Menü Datei). Ein ZIP mit dem, was du statt der fertigen Skulptur an andere Werkstätten verkaufen kannst: die DXF, eine Biegemappe mit einer Zeichnung pro Teil (Biegungen rot und blau, in empfohlener Reihenfolge nummeriert, die an jeder Kante anzuschweißenden Teile), die Montageanleitung, ein Übersichtsbild mit einer Farbe pro Teil, ein Produktblatt und eine Fertigungslizenz. Das kleine Bild in der Montageanleitung zeigt jetzt die ganze Skulptur. 3D-Bearbeitung: Umschalt + Klick wählt mehrere Ecken (grün); zieht man eine, bewegen sich alle zusammen. Esc hebt die Wahl auf.",
-    "fr": "Nouveau : Pack à vendre (section Guide d'assemblage et menu Fichier). Un ZIP avec ce que vous pouvez vendre à d'autres ateliers à la place de la sculpture finie : le DXF, un dossier de pliage avec un dessin par pièce (plis en rouge et bleu, numérotés dans l'ordre conseillé, les pièces à souder sur chaque bord), le guide d'assemblage, une vue d'ensemble avec une couleur par pièce, une fiche produit et une licence de fabrication. La petite image du guide d'assemblage montre maintenant toute la sculpture. Modification de la 3D : Maj + clic choisit plusieurs coins (en vert) ; en tirant l'un d'eux, tous bougent ensemble. Échap annule le choix.",
-    "es": "Novedad: Paquete para vender (sección Guía de montaje y menú Archivo). Un ZIP con lo que puedes vender a otros talleres en lugar de la escultura terminada: el DXF, un dosier de plegado con un dibujo por pieza (pliegues en rojo y azul, numerados en el orden aconsejado, las piezas que se sueldan en cada lado), la guía de montaje, una imagen de conjunto con un color por pieza, una ficha de producto y una licencia de fabricación. La imagen pequeña de la guía de montaje ahora muestra toda la escultura. Edición del 3D: Mayús + clic elige varias esquinas (en verde); al arrastrar una se mueven todas juntas. Esc quita la elección.",
-    "pt": "Novidade: Pacote para vender (seção Guia de montagem e menu Arquivo). Um ZIP com o que você pode vender a outras oficinas no lugar da escultura pronta: o DXF, um dossiê de dobra com um desenho por peça (dobras em vermelho e azul, numeradas na ordem sugerida, as peças a soldar em cada borda), o guia de montagem, uma imagem de conjunto com uma cor por peça, uma ficha de produto e uma licença de fabricação. A imagem pequena do guia de montagem agora mostra toda a escultura. Edição do 3D: Shift + clique escolhe vários cantos (em verde); arrastando um, movem-se todos juntos. Esc limpa a escolha.",
-    "ja": "新機能：販売用パッケージ（組立ガイドの項目とファイルメニュー）。完成した彫刻の代わりにほかの工房へ販売できるものを1つのZIPにまとめます：DXF、パーツごとの図の折り加工資料（折り線は赤と青、推奨の順番で番号付き、各辺に溶接するパーツ）、組立ガイド、パーツごとに色分けした全体図、製品シート、製作ライセンス。組立ガイドの小さな画像に彫刻全体が表示されるようになりました。 3D編集：Shift＋クリックで複数の角を選べます（緑色）。そのうち1つをドラッグするとすべて一緒に動きます。Escで選択を解除します。"
+    "en": "Hand bending: new projects get dashed bend lines cut by the laser beam alone (with small bridges) instead of wide slots: they bend by hand the same, close up when bent and hardly show on the finished sculpture. The kind is chosen in Hand bending; projects saved earlier keep their slots.",
+    "it": "Piega a mano: nei progetti nuovi le linee di piega sono un tratteggio tagliato dal solo raggio laser (con piccoli ponticelli) al posto delle asole larghe: si piegano a mano allo stesso modo, piegando si chiudono e sulla scultura finita quasi non si vedono. Il tipo si sceglie in Piega a mano; i progetti salvati prima tengono le asole.",
+    "de": "Biegen von Hand: Neue Projekte erhalten statt breiter Langlöcher vom Laserstrahl geschnittene Strichlinien (mit kleinen Stegen): sie biegen sich gleich von Hand, schließen sich beim Biegen und sind an der fertigen Skulptur kaum zu sehen. Die Art wählst du unter Biegen von Hand; früher gespeicherte Projekte behalten ihre Langlöcher.",
+    "fr": "Pliage à la main : les nouveaux projets ont des lignes de pliage en pointillé découpées par le seul faisceau laser (avec de petits ponts) au lieu de fentes larges : elles se plient pareil à la main, se referment au pliage et se voient à peine sur la sculpture finie. Le type se choisit dans Pliage à la main ; les projets enregistrés avant gardent leurs fentes.",
+    "es": "Plegado a mano: los proyectos nuevos tienen líneas de plegado discontinuas cortadas solo por el haz láser (con pequeños puentes) en lugar de ranuras anchas: se pliegan igual a mano, se cierran al plegar y casi no se ven en la escultura terminada. El tipo se elige en Plegado a mano; los proyectos guardados antes conservan sus ranuras.",
+    "pt": "Dobra à mão: os projetos novos têm linhas de dobra tracejadas cortadas só pelo feixe do laser (com pequenas pontes) no lugar de rasgos largos: dobram igual à mão, fecham-se ao dobrar e quase não se veem na escultura pronta. O tipo se escolhe em Dobra à mão; os projetos salvos antes mantêm os rasgos.",
+    "ja": "手曲げ：新しいプロジェクトでは、幅のある長穴の代わりにレーザー光だけで切る破線（小さなブリッジ付き）の折り線になります。同じように手で折れ、折ると閉じて完成した彫刻ではほとんど目立ちません。種類は「手曲げ」で選べます。以前に保存したプロジェクトは長穴のままです。"
   },
   "history": [
+    {
+      "date": "2026-11-24T11:05:30Z",
+      "version": "1.3.182",
+      "notes": {
+        "en": "Hand bending: new projects get dashed bend lines cut by the laser beam alone (with small bridges) instead of wide slots: they bend by hand the same, close up when bent and hardly show on the finished sculpture. The kind is chosen in Hand bending; projects saved earlier keep their slots.",
+        "it": "Piega a mano: nei progetti nuovi le linee di piega sono un tratteggio tagliato dal solo raggio laser (con piccoli ponticelli) al posto delle asole larghe: si piegano a mano allo stesso modo, piegando si chiudono e sulla scultura finita quasi non si vedono. Il tipo si sceglie in Piega a mano; i progetti salvati prima tengono le asole.",
+        "de": "Biegen von Hand: Neue Projekte erhalten statt breiter Langlöcher vom Laserstrahl geschnittene Strichlinien (mit kleinen Stegen): sie biegen sich gleich von Hand, schließen sich beim Biegen und sind an der fertigen Skulptur kaum zu sehen. Die Art wählst du unter Biegen von Hand; früher gespeicherte Projekte behalten ihre Langlöcher.",
+        "fr": "Pliage à la main : les nouveaux projets ont des lignes de pliage en pointillé découpées par le seul faisceau laser (avec de petits ponts) au lieu de fentes larges : elles se plient pareil à la main, se referment au pliage et se voient à peine sur la sculpture finie. Le type se choisit dans Pliage à la main ; les projets enregistrés avant gardent leurs fentes.",
+        "es": "Plegado a mano: los proyectos nuevos tienen líneas de plegado discontinuas cortadas solo por el haz láser (con pequeños puentes) en lugar de ranuras anchas: se pliegan igual a mano, se cierran al plegar y casi no se ven en la escultura terminada. El tipo se elige en Plegado a mano; los proyectos guardados antes conservan sus ranuras.",
+        "pt": "Dobra à mão: os projetos novos têm linhas de dobra tracejadas cortadas só pelo feixe do laser (com pequenas pontes) no lugar de rasgos largos: dobram igual à mão, fecham-se ao dobrar e quase não se veem na escultura pronta. O tipo se escolhe em Dobra à mão; os projetos salvos antes mantêm os rasgos.",
+        "ja": "手曲げ：新しいプロジェクトでは、幅のある長穴の代わりにレーザー光だけで切る破線（小さなブリッジ付き）の折り線になります。同じように手で折れ、折ると閉じて完成した彫刻ではほとんど目立ちません。種類は「手曲げ」で選べます。以前に保存したプロジェクトは長穴のままです。"
+      }
+    },
     {
       "date": "2026-11-24T10:47:27Z",
       "version": "1.3.181",
@@ -518,28 +531,15 @@
         "pt": "Gargantas estreitas: o programa tem agora uma segunda maneira de abrir as gargantas estreitas demais para a tocha, então sobram muito menos, principalmente nas esculturas simétricas.",
         "ja": "狭い溝：トーチが入らないほど狭い溝を開く方法がもう一つ加わり、特に左右対称の彫刻で残る溝が大幅に減りました。"
       }
-    },
-    {
-      "date": "2026-11-12T22:17:15Z",
-      "version": "1.3.143",
-      "notes": {
-        "en": "Painted detail (brush): two faces could still pass through each other on a large sculpture; the reduction is now done again more carefully when that happens.",
-        "it": "Dettaglio a pennello: su una scultura grande due facce potevano ancora attraversarsi; ora, quando succede, la riduzione viene rifatta con più attenzione.",
-        "de": "Detail mit dem Pinsel: Bei einer großen Skulptur konnten sich noch zwei Flächen durchdringen; jetzt wird die Reduktion in diesem Fall sorgfältiger wiederholt.",
-        "fr": "Détail au pinceau : sur une grande sculpture, deux faces pouvaient encore se traverser ; la réduction est désormais refaite plus soigneusement dans ce cas.",
-        "es": "Detalle con pincel: en una escultura grande aún podían atravesarse dos caras; ahora, cuando ocurre, la reducción se repite con más cuidado.",
-        "pt": "Detalhe com pincel: em uma escultura grande, duas faces ainda podiam se atravessar; agora, quando isso acontece, a redução é refeita com mais cuidado.",
-        "ja": "ブラシによるディテール：大きな彫刻で2つの面が互いに突き抜けることがありましたが、その場合は簡略化をより慎重にやり直すようになりました。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.181",
+    "version": "1.3.182",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "c5bebc84ffa92736d83ee5f0f300ee146bf969f27bcdcdf03badc38b1f9cf009"
+        "sha256": "8dca5eac8695fbab579a6ddff7533b23b2dffebfd87e710d258f0b6cbf448a5a"
       }
     ]
   },

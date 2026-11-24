@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.176",
-  "notes": "Edit the 3D by hand: drop a corner on a corner next to it to join them (a face less), useful to remove small facets. Undo works as usual.",
+  "latest": "1.3.177",
+  "notes": "3D editing: Alt + click on a face adds a corner there, then drag it to shape the face (muzzles, ears, feet).",
   "notes_i18n": {
-    "en": "Edit the 3D by hand: drop a corner on a corner next to it to join them (a face less), useful to remove small facets. Undo works as usual.",
-    "it": "Modifica il 3D a mano: lascia uno spigolo su uno spigolo vicino per unirli (una faccia in meno), utile per togliere faccette piccole. Annulla funziona come sempre.",
-    "de": "3D von Hand bearbeiten: eine Ecke auf eine benachbarte fallen lassen, um sie zu vereinen (eine Fläche weniger), gut gegen kleine Facetten. Rückgängig funktioniert wie immer.",
-    "fr": "Modifier la 3D à la main : lâchez un coin sur un coin voisin pour les réunir (une face de moins), utile pour retirer les petites facettes. Annuler fonctionne comme d'habitude.",
-    "es": "Editar el 3D a mano: suelta una esquina sobre una vecina para unirlas (una cara menos), útil para quitar facetas pequeñas. Deshacer funciona como siempre.",
-    "pt": "Editar o 3D à mão: solte um canto sobre um canto vizinho para uni-los (uma face a menos), útil para tirar facetas pequenas. Desfazer funciona como sempre.",
-    "ja": "3Dを手で編集：角を隣の角の上で離すと結合されます（面が1つ減ります）。小さな面の除去に便利です。元に戻すもいつも通り使えます。"
+    "en": "3D editing: Alt + click on a face adds a corner there, then drag it to shape the face (muzzles, ears, feet).",
+    "it": "Modifica del 3D: Alt + clic su una faccia aggiunge lì uno spigolo, poi trascinalo per dare forma alla faccia (musi, orecchie, zampe).",
+    "de": "3D-Bearbeitung: Alt + Klick auf eine Fläche fügt dort eine Ecke hinzu; dann ziehen, um die Fläche zu formen (Schnauzen, Ohren, Füße).",
+    "fr": "Modification de la 3D : Alt + clic sur une face y ajoute un coin, puis faites-le glisser pour former la face (museaux, oreilles, pattes).",
+    "es": "Edición del 3D: Alt + clic en una cara añade ahí una esquina; luego arrástrala para dar forma a la cara (hocicos, orejas, patas).",
+    "pt": "Edição do 3D: Alt + clique numa face acrescenta ali um canto; depois arraste-o para dar forma à face (focinhos, orelhas, patas).",
+    "ja": "3D編集：面をAlt＋クリックするとそこに角が加わります。ドラッグして面の形を整えられます（鼻先、耳、足など）。"
   },
   "history": [
+    {
+      "date": "2026-11-24T01:05:25Z",
+      "version": "1.3.177",
+      "notes": {
+        "en": "3D editing: Alt + click on a face adds a corner there, then drag it to shape the face (muzzles, ears, feet).",
+        "it": "Modifica del 3D: Alt + clic su una faccia aggiunge lì uno spigolo, poi trascinalo per dare forma alla faccia (musi, orecchie, zampe).",
+        "de": "3D-Bearbeitung: Alt + Klick auf eine Fläche fügt dort eine Ecke hinzu; dann ziehen, um die Fläche zu formen (Schnauzen, Ohren, Füße).",
+        "fr": "Modification de la 3D : Alt + clic sur une face y ajoute un coin, puis faites-le glisser pour former la face (museaux, oreilles, pattes).",
+        "es": "Edición del 3D: Alt + clic en una cara añade ahí una esquina; luego arrástrala para dar forma a la cara (hocicos, orejas, patas).",
+        "pt": "Edição do 3D: Alt + clique numa face acrescenta ali um canto; depois arraste-o para dar forma à face (focinhos, orelhas, patas).",
+        "ja": "3D編集：面をAlt＋クリックするとそこに角が加わります。ドラッグして面の形を整えられます（鼻先、耳、足など）。"
+      }
+    },
     {
       "date": "2026-11-24T00:37:25Z",
       "version": "1.3.176",
@@ -518,28 +531,15 @@
         "pt": "Galhadas, chifres, caudas e orelhas: as partes finas agora são engrossadas só o necessário para serem construídas, e apenas elas — corpo e pernas mantêm a forma. A galhada de um cervo sai como vigas facetadas com suas pontas em vez de lascas finas. O resumo informa a espessura obtida.",
         "ja": "枝角、角、尾、耳：細い部分だけを、製作できる太さまで太くするようになりました。胴体や脚の形は変わりません。鹿の枝角は細い破片ではなく、枝のある面取りされた梁として出力されます。概要に、どの太さにしたかが表示されます。"
       }
-    },
-    {
-      "date": "2026-11-12T19:42:45Z",
-      "version": "1.3.139",
-      "notes": {
-        "en": "New projects start with a maximum bend of 60° instead of 40°: about half as many pieces to fit and tack, a little less welding, slightly more sheet. Saved projects keep their own value; the slider is still there.",
-        "it": "I progetti nuovi partono con una piega massima di 60° invece di 40°: circa la metà dei pezzi da accostare e puntare, un po' meno saldatura, un po' più di lamiera. I progetti salvati tengono il loro valore; la barra resta a disposizione.",
-        "de": "Neue Projekte starten mit einer maximalen Biegung von 60° statt 40°: etwa halb so viele Teile zum Anpassen und Heften, etwas weniger Schweißen, etwas mehr Blech. Gespeicherte Projekte behalten ihren Wert; der Regler bleibt verfügbar.",
-        "fr": "Les nouveaux projets démarrent avec un pli maximal de 60° au lieu de 40° : environ deux fois moins de pièces à ajuster et pointer, un peu moins de soudure, un peu plus de tôle. Les projets enregistrés gardent leur valeur ; le curseur reste disponible.",
-        "es": "Los proyectos nuevos empiezan con un pliegue máximo de 60° en lugar de 40°: cerca de la mitad de piezas que ajustar y puntear, algo menos de soldadura, algo más de chapa. Los proyectos guardados conservan su valor; el control sigue disponible.",
-        "pt": "Os projetos novos começam com dobra máxima de 60° em vez de 40°: cerca de metade das peças para ajustar e pontear, um pouco menos de solda, um pouco mais de chapa. Os projetos salvos mantêm o próprio valor; o controle continua disponível.",
-        "ja": "新しいプロジェクトの最大曲げ角度が40°から60°になりました。合わせて仮付けするパーツが約半分になり、溶接も少し減りますが、板材は少し増えます。保存済みのプロジェクトは元の値のままで、スライダーで変更できます。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.176",
+    "version": "1.3.177",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "d58d53cb86dcbae8aa197884795ac1b1eb9b09f001fe2d2b6d15839a1dce9f56"
+        "sha256": "e29630503b53419f7afffe108deb1bf94922ac89707484a4ca1ba9706b85e3e0"
       }
     ]
   },

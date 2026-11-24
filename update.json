@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.184",
-  "notes": "SculptLock: a new way to join the pieces without welding. On every outer seam small teeth go through notches of the neighbouring piece and are hammered flat from outside with a mallet: nothing to reach from inside, no rivets, screws or glue.",
+  "latest": "1.3.185",
+  "notes": "SculptLock now holds the inner seams too: there the tooth is at the tip of the tab, is bent up square and comes out of a slit in the neighbouring piece, to be hammered flat like the others. Far fewer seams are left needing a spot of weld.",
   "notes_i18n": {
-    "en": "SculptLock: a new way to join the pieces without welding. On every outer seam small teeth go through notches of the neighbouring piece and are hammered flat from outside with a mallet: nothing to reach from inside, no rivets, screws or glue.",
-    "it": "SculptLock: un modo nuovo di unire i pezzi senza saldare. Su ogni giunzione esterna piccoli denti passano nelle tacche del pezzo vicino e si ribattono da fuori col mazzuolo: niente da raggiungere dall'interno, niente rivetti, viti o colla.",
-    "de": "SculptLock: eine neue Art, die Teile ohne Schweißen zu verbinden. An jeder Außennaht gehen kleine Zähne durch Kerben des Nachbarteils und werden von außen mit dem Hammer flach geklopft: nichts von innen, keine Nieten, Schrauben oder Kleber.",
-    "fr": "SculptLock : une nouvelle façon d'assembler les pièces sans soudure. Sur chaque jointure extérieure de petites dents passent dans les encoches de la pièce voisine et se rabattent de l'extérieur au maillet : rien à atteindre par l'intérieur, ni rivets, ni vis, ni colle.",
-    "es": "SculptLock: una nueva forma de unir las piezas sin soldar. En cada unión exterior pequeños dientes pasan por las muescas de la pieza vecina y se remachan desde fuera con un mazo: nada que alcanzar por dentro, sin remaches, tornillos ni pegamento.",
-    "pt": "SculptLock: um novo jeito de unir as peças sem solda. Em cada junta externa pequenos dentes passam pelos entalhes da peça vizinha e são rebatidos por fora com um martelo de borracha: nada a alcançar por dentro, sem rebites, parafusos ou cola.",
-    "ja": "SculptLock：溶接なしで部品をつなぐ新しい方法。外側の各継ぎ目で小さな爪が隣の部品の切り欠きを通り、外から木槌で叩いて倒します。内側に手を入れる必要も、リベット・ネジ・接着剤もいりません。"
+    "en": "SculptLock now holds the inner seams too: there the tooth is at the tip of the tab, is bent up square and comes out of a slit in the neighbouring piece, to be hammered flat like the others. Far fewer seams are left needing a spot of weld.",
+    "it": "SculptLock ora tiene anche le giunzioni interne: lì il dente sta in punta alla linguetta, si piega a squadra ed esce da una fessura del pezzo vicino, poi si ribatte come gli altri. Restano molte meno giunzioni da fissare con un punto di saldatura.",
+    "de": "SculptLock hält jetzt auch die Innennähte: dort sitzt der Zahn an der Spitze der Lasche, wird rechtwinklig gebogen, kommt aus einem Schlitz des Nachbarteils und wird wie die anderen flach geklopft. Viel weniger Nähte brauchen noch einen Schweißpunkt.",
+    "fr": "SculptLock tient maintenant aussi les jointures rentrantes : la dent est au bout de la languette, se plie à l'équerre, sort par une fente de la pièce voisine et se rabat comme les autres. Beaucoup moins de jointures demandent encore un point de soudure.",
+    "es": "SculptLock ahora sujeta también las uniones interiores: allí el diente va en la punta de la pestaña, se dobla a escuadra, sale por una ranura de la pieza vecina y se remacha como los demás. Quedan muchas menos uniones que necesiten un punto de soldadura.",
+    "pt": "O SculptLock agora segura também as juntas internas: ali o dente fica na ponta da aba, é dobrado no esquadro, sai por uma fenda da peça vizinha e é rebatido como os outros. Sobram bem menos juntas que precisam de um ponto de solda.",
+    "ja": "SculptLock が内側の継ぎ目にも対応しました。そこでは爪がタブの先端にあり、直角に曲げると隣の部品の切れ込みから出てくるので、ほかと同じように叩いて倒します。点溶接が必要な継ぎ目が大幅に減りました。"
   },
   "history": [
+    {
+      "date": "2026-11-24T18:05:04Z",
+      "version": "1.3.185",
+      "notes": {
+        "en": "SculptLock now holds the inner seams too: there the tooth is at the tip of the tab, is bent up square and comes out of a slit in the neighbouring piece, to be hammered flat like the others. Far fewer seams are left needing a spot of weld.",
+        "it": "SculptLock ora tiene anche le giunzioni interne: lì il dente sta in punta alla linguetta, si piega a squadra ed esce da una fessura del pezzo vicino, poi si ribatte come gli altri. Restano molte meno giunzioni da fissare con un punto di saldatura.",
+        "de": "SculptLock hält jetzt auch die Innennähte: dort sitzt der Zahn an der Spitze der Lasche, wird rechtwinklig gebogen, kommt aus einem Schlitz des Nachbarteils und wird wie die anderen flach geklopft. Viel weniger Nähte brauchen noch einen Schweißpunkt.",
+        "fr": "SculptLock tient maintenant aussi les jointures rentrantes : la dent est au bout de la languette, se plie à l'équerre, sort par une fente de la pièce voisine et se rabat comme les autres. Beaucoup moins de jointures demandent encore un point de soudure.",
+        "es": "SculptLock ahora sujeta también las uniones interiores: allí el diente va en la punta de la pestaña, se dobla a escuadra, sale por una ranura de la pieza vecina y se remacha como los demás. Quedan muchas menos uniones que necesiten un punto de soldadura.",
+        "pt": "O SculptLock agora segura também as juntas internas: ali o dente fica na ponta da aba, é dobrado no esquadro, sai por uma fenda da peça vizinha e é rebatido como os outros. Sobram bem menos juntas que precisam de um ponto de solda.",
+        "ja": "SculptLock が内側の継ぎ目にも対応しました。そこでは爪がタブの先端にあり、直角に曲げると隣の部品の切れ込みから出てくるので、ほかと同じように叩いて倒します。点溶接が必要な継ぎ目が大幅に減りました。"
+      }
+    },
     {
       "date": "2026-11-24T11:53:14Z",
       "version": "1.3.184",
@@ -518,28 +531,15 @@
         "pt": "Atualizações automáticas mais seguras: o programa verifica com mais rigor onde os arquivos de atualização podem ser gravados.",
         "ja": "自動更新の安全性向上：更新ファイルの書き込み先をより厳しく確認するようになりました。"
       }
-    },
-    {
-      "date": "2026-11-13T03:28:25Z",
-      "version": "1.3.146",
-      "notes": {
-        "en": "Brush: thin parts such as antlers, tails and ears are now still made thick enough to weld when you paint with the detail brush.",
-        "it": "Pennello: le parti sottili come corna, code e orecchie restano abbastanza grosse da saldare anche quando dipingi col pennello del dettaglio.",
-        "de": "Pinsel: Dünne Teile wie Geweihe, Schwänze und Ohren bleiben jetzt auch beim Malen mit dem Detailpinsel dick genug zum Schweißen.",
-        "fr": "Pinceau : les parties fines comme les bois, les queues et les oreilles restent assez épaisses pour être soudées même quand vous peignez avec le pinceau de détail.",
-        "es": "Pincel: las partes finas como cuernas, colas y orejas siguen siendo lo bastante gruesas para soldar también cuando pintas con el pincel de detalle.",
-        "pt": "Pincel: as partes finas como galhadas, caudas e orelhas continuam grossas o bastante para soldar mesmo quando você pinta com o pincel de detalhe.",
-        "ja": "ブラシ：ディテールブラシで塗っても、角・尾・耳などの細い部分が溶接できる太さに保たれるようになりました。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.184",
+    "version": "1.3.185",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "8f4fdeeb359b572176ff1e7f13a416ad093aaa03a4e78389884fe24a92ff740c"
+        "sha256": "bc6e825f80e0dbed00117c8a955890f6e7ab58af58eece619f8252c5dd27d2ba"
       }
     ]
   },

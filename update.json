@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.175",
-  "notes": "Support column under the sculpture (Base plate section): tube, plates and anchors in the 3D, on the sheets, in the quote and in the assembly guide. Heads for the wall get two keyhole plates by themselves.",
+  "latest": "1.3.176",
+  "notes": "Edit the 3D by hand: drop a corner on a corner next to it to join them (a face less), useful to remove small facets. Undo works as usual.",
   "notes_i18n": {
-    "en": "Support column under the sculpture (Base plate section): tube, plates and anchors in the 3D, on the sheets, in the quote and in the assembly guide. Heads for the wall get two keyhole plates by themselves.",
-    "it": "Colonna di sostegno sotto la scultura (sezione Piastra di base): tubo, piastre e ancoranti nel 3D, sulle lamiere, nel preventivo e nella guida di montaggio. Le teste da parete ricevono da sole due piastre con asola a buco di serratura.",
-    "de": "Stützsäule unter der Skulptur (Bereich Grundplatte): Rohr, Platten und Anker im 3D, auf den Blechen, im Angebot und in der Montageanleitung. Wandköpfe bekommen von selbst zwei Schlüssellochplatten.",
-    "fr": "Colonne de support sous la sculpture (section Plaque de base) : tube, platines et ancrages dans la 3D, sur les tôles, dans le devis et dans le guide de montage. Les têtes murales reçoivent d'elles-mêmes deux plaques à trou de serrure.",
-    "es": "Columna de soporte bajo la escultura (sección Placa base): tubo, placas y anclajes en el 3D, en las chapas, en el presupuesto y en la guía de montaje. Las cabezas de pared reciben solas dos placas con ojo de cerradura.",
-    "pt": "Coluna de suporte sob a escultura (seção Placa de base): tubo, placas e chumbadores no 3D, nas chapas, no orçamento e no guia de montagem. As cabeças de parede recebem sozinhas duas placas com furo de fechadura.",
-    "ja": "彫刻の下の支柱（ベースプレートの項目）：パイプ、プレート、アンカーが3D、板、見積もり、組立ガイドに入ります。壁掛けの頭像には鍵穴プレート2枚が自動で付きます。"
+    "en": "Edit the 3D by hand: drop a corner on a corner next to it to join them (a face less), useful to remove small facets. Undo works as usual.",
+    "it": "Modifica il 3D a mano: lascia uno spigolo su uno spigolo vicino per unirli (una faccia in meno), utile per togliere faccette piccole. Annulla funziona come sempre.",
+    "de": "3D von Hand bearbeiten: eine Ecke auf eine benachbarte fallen lassen, um sie zu vereinen (eine Fläche weniger), gut gegen kleine Facetten. Rückgängig funktioniert wie immer.",
+    "fr": "Modifier la 3D à la main : lâchez un coin sur un coin voisin pour les réunir (une face de moins), utile pour retirer les petites facettes. Annuler fonctionne comme d'habitude.",
+    "es": "Editar el 3D a mano: suelta una esquina sobre una vecina para unirlas (una cara menos), útil para quitar facetas pequeñas. Deshacer funciona como siempre.",
+    "pt": "Editar o 3D à mão: solte um canto sobre um canto vizinho para uni-los (uma face a menos), útil para tirar facetas pequenas. Desfazer funciona como sempre.",
+    "ja": "3Dを手で編集：角を隣の角の上で離すと結合されます（面が1つ減ります）。小さな面の除去に便利です。元に戻すもいつも通り使えます。"
   },
   "history": [
+    {
+      "date": "2026-11-24T00:37:25Z",
+      "version": "1.3.176",
+      "notes": {
+        "en": "Edit the 3D by hand: drop a corner on a corner next to it to join them (a face less), useful to remove small facets. Undo works as usual.",
+        "it": "Modifica il 3D a mano: lascia uno spigolo su uno spigolo vicino per unirli (una faccia in meno), utile per togliere faccette piccole. Annulla funziona come sempre.",
+        "de": "3D von Hand bearbeiten: eine Ecke auf eine benachbarte fallen lassen, um sie zu vereinen (eine Fläche weniger), gut gegen kleine Facetten. Rückgängig funktioniert wie immer.",
+        "fr": "Modifier la 3D à la main : lâchez un coin sur un coin voisin pour les réunir (une face de moins), utile pour retirer les petites facettes. Annuler fonctionne comme d'habitude.",
+        "es": "Editar el 3D a mano: suelta una esquina sobre una vecina para unirlas (una cara menos), útil para quitar facetas pequeñas. Deshacer funciona como siempre.",
+        "pt": "Editar o 3D à mão: solte um canto sobre um canto vizinho para uni-los (uma face a menos), útil para tirar facetas pequenas. Desfazer funciona como sempre.",
+        "ja": "3Dを手で編集：角を隣の角の上で離すと結合されます（面が1つ減ります）。小さな面の除去に便利です。元に戻すもいつも通り使えます。"
+      }
+    },
     {
       "date": "2026-11-23T23:41:08Z",
       "version": "1.3.175",
@@ -518,28 +531,15 @@
         "pt": "Os projetos novos começam com dobra máxima de 60° em vez de 40°: cerca de metade das peças para ajustar e pontear, um pouco menos de solda, um pouco mais de chapa. Os projetos salvos mantêm o próprio valor; o controle continua disponível.",
         "ja": "新しいプロジェクトの最大曲げ角度が40°から60°になりました。合わせて仮付けするパーツが約半分になり、溶接も少し減りますが、板材は少し増えます。保存済みのプロジェクトは元の値のままで、スライダーで変更できます。"
       }
-    },
-    {
-      "date": "2026-11-12T19:12:30Z",
-      "version": "1.3.138",
-      "notes": {
-        "en": "PDF quote and assembly guide: long lines no longer run into the next one, and the files in Japanese are about nine times lighter.",
-        "it": "PDF del preventivo e della guida di montaggio: le righe lunghe non finiscono più sopra la successiva, e i file in giapponese pesano circa nove volte meno.",
-        "de": "PDF von Angebot und Montageanleitung: Lange Zeilen laufen nicht mehr in die nächste, und die Dateien auf Japanisch sind etwa neunmal kleiner.",
-        "fr": "PDF du devis et du guide de montage : les lignes longues ne débordent plus sur la suivante, et les fichiers en japonais sont environ neuf fois plus légers.",
-        "es": "PDF del presupuesto y de la guía de montaje: las líneas largas ya no se montan sobre la siguiente, y los archivos en japonés pesan unas nueve veces menos.",
-        "pt": "PDF do orçamento e do guia de montagem: as linhas longas não invadem mais a seguinte, e os arquivos em japonês ficaram cerca de nove vezes mais leves.",
-        "ja": "見積書と組立ガイドのPDF：長い行が次の行に重ならなくなり、日本語のファイルサイズが約9分の1になりました。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.175",
+    "version": "1.3.176",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "97ba23b0f67c8e53f268ad8ea79b8cae20b6df169a89f7bb204f0f1f04b480e5"
+        "sha256": "d58d53cb86dcbae8aa197884795ac1b1eb9b09f001fe2d2b6d15839a1dce9f56"
       }
     ]
   },

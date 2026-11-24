@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.182",
-  "notes": "Hand bending: new projects get dashed bend lines cut by the laser beam alone (with small bridges) instead of wide slots: they bend by hand the same, close up when bent and hardly show on the finished sculpture. The kind is chosen in Hand bending; projects saved earlier keep their slots.",
+  "latest": "1.3.183",
+  "notes": "New: assembly without welding (Quick assembly section). Every seam gets a tab with a hole and the neighbouring piece the matching hole: the sculpture is closed with blind rivets, for kits sold to people without a welder. The summary tells how many rivets, and the few seams where no tab fits.",
   "notes_i18n": {
-    "en": "Hand bending: new projects get dashed bend lines cut by the laser beam alone (with small bridges) instead of wide slots: they bend by hand the same, close up when bent and hardly show on the finished sculpture. The kind is chosen in Hand bending; projects saved earlier keep their slots.",
-    "it": "Piega a mano: nei progetti nuovi le linee di piega sono un tratteggio tagliato dal solo raggio laser (con piccoli ponticelli) al posto delle asole larghe: si piegano a mano allo stesso modo, piegando si chiudono e sulla scultura finita quasi non si vedono. Il tipo si sceglie in Piega a mano; i progetti salvati prima tengono le asole.",
-    "de": "Biegen von Hand: Neue Projekte erhalten statt breiter Langlöcher vom Laserstrahl geschnittene Strichlinien (mit kleinen Stegen): sie biegen sich gleich von Hand, schließen sich beim Biegen und sind an der fertigen Skulptur kaum zu sehen. Die Art wählst du unter Biegen von Hand; früher gespeicherte Projekte behalten ihre Langlöcher.",
-    "fr": "Pliage à la main : les nouveaux projets ont des lignes de pliage en pointillé découpées par le seul faisceau laser (avec de petits ponts) au lieu de fentes larges : elles se plient pareil à la main, se referment au pliage et se voient à peine sur la sculpture finie. Le type se choisit dans Pliage à la main ; les projets enregistrés avant gardent leurs fentes.",
-    "es": "Plegado a mano: los proyectos nuevos tienen líneas de plegado discontinuas cortadas solo por el haz láser (con pequeños puentes) en lugar de ranuras anchas: se pliegan igual a mano, se cierran al plegar y casi no se ven en la escultura terminada. El tipo se elige en Plegado a mano; los proyectos guardados antes conservan sus ranuras.",
-    "pt": "Dobra à mão: os projetos novos têm linhas de dobra tracejadas cortadas só pelo feixe do laser (com pequenas pontes) no lugar de rasgos largos: dobram igual à mão, fecham-se ao dobrar e quase não se veem na escultura pronta. O tipo se escolhe em Dobra à mão; os projetos salvos antes mantêm os rasgos.",
-    "ja": "手曲げ：新しいプロジェクトでは、幅のある長穴の代わりにレーザー光だけで切る破線（小さなブリッジ付き）の折り線になります。同じように手で折れ、折ると閉じて完成した彫刻ではほとんど目立ちません。種類は「手曲げ」で選べます。以前に保存したプロジェクトは長穴のままです。"
+    "en": "New: assembly without welding (Quick assembly section). Every seam gets a tab with a hole and the neighbouring piece the matching hole: the sculpture is closed with blind rivets, for kits sold to people without a welder. The summary tells how many rivets, and the few seams where no tab fits.",
+    "it": "Novità: montaggio senza saldatura (sezione Montaggio rapido). Ogni giunzione ha una linguetta con un foro e il pezzo vicino il foro corrispondente: la scultura si chiude con rivetti a strappo, per i kit venduti a chi non ha la saldatrice. Il riepilogo dice quanti rivetti servono e le poche giunzioni dove una linguetta non entra.",
+    "de": "Neu: Montage ohne Schweißen (Bereich Schnellmontage). Jede Naht bekommt eine Lasche mit Loch, das Nachbarteil das passende Loch: die Skulptur wird mit Blindnieten geschlossen, für Bausätze an Kunden ohne Schweißgerät. Die Übersicht nennt die Zahl der Nieten und die wenigen Nähte ohne Platz für eine Lasche.",
+    "fr": "Nouveau : montage sans soudure (section Montage rapide). Chaque jonction a une patte percée et la pièce voisine le trou correspondant : la sculpture se ferme avec des rivets aveugles, pour les kits vendus à qui n'a pas de poste à souder. Le résumé indique le nombre de rivets et les quelques jonctions sans place pour une patte.",
+    "es": "Novedad: montaje sin soldadura (sección Montaje rápido). Cada unión lleva una pestaña con agujero y la pieza vecina el agujero correspondiente: la escultura se cierra con remaches ciegos, para kits vendidos a quien no tiene soldadora. El resumen indica cuántos remaches hacen falta y las pocas uniones sin sitio para una pestaña.",
+    "pt": "Novidade: montagem sem solda (seção Montagem rápida). Cada junção tem uma aba com furo e a peça vizinha o furo correspondente: a escultura se fecha com rebites de repuxo, para kits vendidos a quem não tem máquina de solda. O resumo diz quantos rebites são necessários e as poucas junções sem espaço para uma aba.",
+    "ja": "新機能：溶接なしの組立（クイック組立）。各継ぎ目に穴あきタブ、隣のパーツに対応する穴を付け、ブラインドリベットで彫刻を閉じます。溶接機を持たない方向けのキットに。概要にリベットの本数と、タブが入らない少数の継ぎ目を表示します。"
   },
   "history": [
+    {
+      "date": "2026-11-24T11:16:56Z",
+      "version": "1.3.183",
+      "notes": {
+        "en": "New: assembly without welding (Quick assembly section). Every seam gets a tab with a hole and the neighbouring piece the matching hole: the sculpture is closed with blind rivets, for kits sold to people without a welder. The summary tells how many rivets, and the few seams where no tab fits.",
+        "it": "Novità: montaggio senza saldatura (sezione Montaggio rapido). Ogni giunzione ha una linguetta con un foro e il pezzo vicino il foro corrispondente: la scultura si chiude con rivetti a strappo, per i kit venduti a chi non ha la saldatrice. Il riepilogo dice quanti rivetti servono e le poche giunzioni dove una linguetta non entra.",
+        "de": "Neu: Montage ohne Schweißen (Bereich Schnellmontage). Jede Naht bekommt eine Lasche mit Loch, das Nachbarteil das passende Loch: die Skulptur wird mit Blindnieten geschlossen, für Bausätze an Kunden ohne Schweißgerät. Die Übersicht nennt die Zahl der Nieten und die wenigen Nähte ohne Platz für eine Lasche.",
+        "fr": "Nouveau : montage sans soudure (section Montage rapide). Chaque jonction a une patte percée et la pièce voisine le trou correspondant : la sculpture se ferme avec des rivets aveugles, pour les kits vendus à qui n'a pas de poste à souder. Le résumé indique le nombre de rivets et les quelques jonctions sans place pour une patte.",
+        "es": "Novedad: montaje sin soldadura (sección Montaje rápido). Cada unión lleva una pestaña con agujero y la pieza vecina el agujero correspondiente: la escultura se cierra con remaches ciegos, para kits vendidos a quien no tiene soldadora. El resumen indica cuántos remaches hacen falta y las pocas uniones sin sitio para una pestaña.",
+        "pt": "Novidade: montagem sem solda (seção Montagem rápida). Cada junção tem uma aba com furo e a peça vizinha o furo correspondente: a escultura se fecha com rebites de repuxo, para kits vendidos a quem não tem máquina de solda. O resumo diz quantos rebites são necessários e as poucas junções sem espaço para uma aba.",
+        "ja": "新機能：溶接なしの組立（クイック組立）。各継ぎ目に穴あきタブ、隣のパーツに対応する穴を付け、ブラインドリベットで彫刻を閉じます。溶接機を持たない方向けのキットに。概要にリベットの本数と、タブが入らない少数の継ぎ目を表示します。"
+      }
+    },
     {
       "date": "2026-11-24T11:05:30Z",
       "version": "1.3.182",
@@ -518,28 +531,15 @@
         "pt": "As esculturas simétricas são calculadas mais rápido, e as cabeças cobertas de relevos finos (a juba de um leão) mantêm todas as facetas pedidas.",
         "ja": "左右対称の彫刻の計算が速くなり、細かい起伏のある頭部（ライオンのたてがみなど）でも指定した面数が保たれます。"
       }
-    },
-    {
-      "date": "2026-11-13T00:28:56Z",
-      "version": "1.3.144",
-      "notes": {
-        "en": "Narrow grooves: the program now has a second way to open the grooves that are too narrow for the torch, so far fewer of them remain, especially in symmetric sculptures.",
-        "it": "Gole strette: il programma ha ora un secondo modo per aprire le gole troppo strette per la torcia, quindi ne restano molte meno, soprattutto nelle sculture simmetriche.",
-        "de": "Enge Kehlen: Das Programm hat jetzt eine zweite Methode, um Kehlen zu öffnen, die für den Brenner zu eng sind. Es bleiben deutlich weniger übrig, vor allem bei symmetrischen Skulpturen.",
-        "fr": "Gorges étroites : le programme dispose désormais d'une deuxième façon d'ouvrir les gorges trop étroites pour la torche ; il en reste beaucoup moins, surtout dans les sculptures symétriques.",
-        "es": "Gargantas estrechas: el programa tiene ahora una segunda forma de abrir las gargantas demasiado estrechas para la antorcha, así que quedan muchas menos, sobre todo en las esculturas simétricas.",
-        "pt": "Gargantas estreitas: o programa tem agora uma segunda maneira de abrir as gargantas estreitas demais para a tocha, então sobram muito menos, principalmente nas esculturas simétricas.",
-        "ja": "狭い溝：トーチが入らないほど狭い溝を開く方法がもう一つ加わり、特に左右対称の彫刻で残る溝が大幅に減りました。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.182",
+    "version": "1.3.183",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "8dca5eac8695fbab579a6ddff7533b23b2dffebfd87e710d258f0b6cbf448a5a"
+        "sha256": "374d6d382611a02605fb7b7e7ad7aafaa04685dedcbf2f12138816956b300cfe"
       }
     ]
   },

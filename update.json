@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.177",
-  "notes": "3D editing: Alt + click on a face adds a corner there, then drag it to shape the face (muzzles, ears, feet).",
+  "latest": "1.3.178",
+  "notes": "3D editing: Ctrl + click on a corner (⌘ + click on the Mac), or Delete with the pointer on it, removes it; the faces around it are joined in the way that changes the shape the least. Shift + Alt + click near a side turns the diagonal between its two faces, so the fold falls the other way. A whole face can be dragged from its middle (with Shift straight in or out). A file or link dropped on the panel can no longer take the window away from the program.",
   "notes_i18n": {
-    "en": "3D editing: Alt + click on a face adds a corner there, then drag it to shape the face (muzzles, ears, feet).",
-    "it": "Modifica del 3D: Alt + clic su una faccia aggiunge lì uno spigolo, poi trascinalo per dare forma alla faccia (musi, orecchie, zampe).",
-    "de": "3D-Bearbeitung: Alt + Klick auf eine Fläche fügt dort eine Ecke hinzu; dann ziehen, um die Fläche zu formen (Schnauzen, Ohren, Füße).",
-    "fr": "Modification de la 3D : Alt + clic sur une face y ajoute un coin, puis faites-le glisser pour former la face (museaux, oreilles, pattes).",
-    "es": "Edición del 3D: Alt + clic en una cara añade ahí una esquina; luego arrástrala para dar forma a la cara (hocicos, orejas, patas).",
-    "pt": "Edição do 3D: Alt + clique numa face acrescenta ali um canto; depois arraste-o para dar forma à face (focinhos, orelhas, patas).",
-    "ja": "3D編集：面をAlt＋クリックするとそこに角が加わります。ドラッグして面の形を整えられます（鼻先、耳、足など）。"
+    "en": "3D editing: Ctrl + click on a corner (⌘ + click on the Mac), or Delete with the pointer on it, removes it; the faces around it are joined in the way that changes the shape the least. Shift + Alt + click near a side turns the diagonal between its two faces, so the fold falls the other way. A whole face can be dragged from its middle (with Shift straight in or out). A file or link dropped on the panel can no longer take the window away from the program.",
+    "it": "Modifica del 3D: Ctrl + clic su uno spigolo (⌘ + clic sul Mac), o Canc con il puntatore sopra, lo toglie; le facce attorno si uniscono nel modo che cambia meno la forma. Maiusc + Alt + clic vicino a un lato gira la diagonale tra le sue due facce: la piega cade dall'altra parte. Una faccia intera si trascina dal centro (con Maiusc dritta dentro o fuori). Un file o un collegamento lasciato cadere sul pannello non può più far uscire la finestra dal programma.",
+    "de": "3D-Bearbeitung: Strg + Klick auf eine Ecke (⌘ + Klick auf dem Mac) oder Entf mit dem Zeiger darauf entfernt sie; die Flächen ringsum werden so vereint, dass sich die Form am wenigsten ändert. Umschalt + Alt + Klick nahe einer Kante dreht die Diagonale zwischen ihren zwei Flächen: der Knick fällt andersherum. Eine ganze Fläche lässt sich aus der Mitte ziehen (mit Umschalt gerade hinein oder heraus). Eine auf das Bedienfeld fallen gelassene Datei oder ein Link kann das Fenster nicht mehr aus dem Programm führen.",
+    "fr": "Modification de la 3D : Ctrl + clic sur un coin (⌘ + clic sur Mac), ou Suppr avec le pointeur dessus, le retire ; les faces autour sont réunies en changeant la forme le moins possible. Maj + Alt + clic près d'un côté tourne la diagonale entre ses deux faces : le pli tombe de l'autre côté. Une face entière se tire par son milieu (avec Maj droit vers l'intérieur ou l'extérieur). Un fichier ou un lien lâché sur le panneau ne peut plus faire quitter le programme à la fenêtre.",
+    "es": "Edición del 3D: Ctrl + clic en una esquina (⌘ + clic en el Mac), o Supr con el puntero encima, la quita; las caras de alrededor se unen cambiando la forma lo menos posible. Mayús + Alt + clic cerca de un lado gira la diagonal entre sus dos caras: el pliegue cae hacia el otro lado. Una cara entera se arrastra desde el centro (con Mayús recta hacia dentro o fuera). Un archivo o enlace soltado sobre el panel ya no puede sacar la ventana del programa.",
+    "pt": "Edição do 3D: Ctrl + clique num canto (⌘ + clique no Mac), ou Delete com o ponteiro sobre ele, o remove; as faces em volta se unem mudando a forma o mínimo possível. Shift + Alt + clique perto de um lado gira a diagonal entre as suas duas faces: a dobra cai para o outro lado. Uma face inteira se arrasta pelo centro (com Shift reta para dentro ou para fora). Um arquivo ou link solto sobre o painel não pode mais tirar a janela do programa.",
+    "ja": "3D編集：角をCtrl＋クリック（Macでは⌘＋クリック）、またはポインターを置いてDeleteキーで角を削除できます。周りの面は形の変化が最も小さくなるようにまとめられます。 辺の近くをShift＋Alt＋クリックすると2つの面の間の対角線が入れ替わり、折り目が逆向きになります。 面の中央からドラッグすると面全体を動かせます（Shiftで面に対してまっすぐ内外へ）。 パネルにファイルやリンクを落としても、ウィンドウがプログラムから離れることはなくなりました。"
   },
   "history": [
+    {
+      "date": "2026-11-24T09:27:46Z",
+      "version": "1.3.178",
+      "notes": {
+        "en": "3D editing: Ctrl + click on a corner (⌘ + click on the Mac), or Delete with the pointer on it, removes it; the faces around it are joined in the way that changes the shape the least. Shift + Alt + click near a side turns the diagonal between its two faces, so the fold falls the other way. A whole face can be dragged from its middle (with Shift straight in or out). A file or link dropped on the panel can no longer take the window away from the program.",
+        "it": "Modifica del 3D: Ctrl + clic su uno spigolo (⌘ + clic sul Mac), o Canc con il puntatore sopra, lo toglie; le facce attorno si uniscono nel modo che cambia meno la forma. Maiusc + Alt + clic vicino a un lato gira la diagonale tra le sue due facce: la piega cade dall'altra parte. Una faccia intera si trascina dal centro (con Maiusc dritta dentro o fuori). Un file o un collegamento lasciato cadere sul pannello non può più far uscire la finestra dal programma.",
+        "de": "3D-Bearbeitung: Strg + Klick auf eine Ecke (⌘ + Klick auf dem Mac) oder Entf mit dem Zeiger darauf entfernt sie; die Flächen ringsum werden so vereint, dass sich die Form am wenigsten ändert. Umschalt + Alt + Klick nahe einer Kante dreht die Diagonale zwischen ihren zwei Flächen: der Knick fällt andersherum. Eine ganze Fläche lässt sich aus der Mitte ziehen (mit Umschalt gerade hinein oder heraus). Eine auf das Bedienfeld fallen gelassene Datei oder ein Link kann das Fenster nicht mehr aus dem Programm führen.",
+        "fr": "Modification de la 3D : Ctrl + clic sur un coin (⌘ + clic sur Mac), ou Suppr avec le pointeur dessus, le retire ; les faces autour sont réunies en changeant la forme le moins possible. Maj + Alt + clic près d'un côté tourne la diagonale entre ses deux faces : le pli tombe de l'autre côté. Une face entière se tire par son milieu (avec Maj droit vers l'intérieur ou l'extérieur). Un fichier ou un lien lâché sur le panneau ne peut plus faire quitter le programme à la fenêtre.",
+        "es": "Edición del 3D: Ctrl + clic en una esquina (⌘ + clic en el Mac), o Supr con el puntero encima, la quita; las caras de alrededor se unen cambiando la forma lo menos posible. Mayús + Alt + clic cerca de un lado gira la diagonal entre sus dos caras: el pliegue cae hacia el otro lado. Una cara entera se arrastra desde el centro (con Mayús recta hacia dentro o fuera). Un archivo o enlace soltado sobre el panel ya no puede sacar la ventana del programa.",
+        "pt": "Edição do 3D: Ctrl + clique num canto (⌘ + clique no Mac), ou Delete com o ponteiro sobre ele, o remove; as faces em volta se unem mudando a forma o mínimo possível. Shift + Alt + clique perto de um lado gira a diagonal entre as suas duas faces: a dobra cai para o outro lado. Uma face inteira se arrasta pelo centro (com Shift reta para dentro ou para fora). Um arquivo ou link solto sobre o painel não pode mais tirar a janela do programa.",
+        "ja": "3D編集：角をCtrl＋クリック（Macでは⌘＋クリック）、またはポインターを置いてDeleteキーで角を削除できます。周りの面は形の変化が最も小さくなるようにまとめられます。 辺の近くをShift＋Alt＋クリックすると2つの面の間の対角線が入れ替わり、折り目が逆向きになります。 面の中央からドラッグすると面全体を動かせます（Shiftで面に対してまっすぐ内外へ）。 パネルにファイルやリンクを落としても、ウィンドウがプログラムから離れることはなくなりました。"
+      }
+    },
     {
       "date": "2026-11-24T01:05:25Z",
       "version": "1.3.177",
@@ -518,28 +531,15 @@
         "pt": "Gargantas estreitas demais para a tocha: onde duas faces se encontram em um cordão côncavo com abertura menor que 45°, agora elas são abertas um pouco para que o cordão possa ser soldado (opção em «Forma e medidas», ativa por padrão). O resumo informa quantas foram abertas; as que não podem ser abertas continuam sinalizadas.",
         "ja": "トーチが入らない狭い溝：2つの面が45°未満の開きで凹んだ継ぎ目になる箇所を、溶接できるように少し開くようになりました（「形状と寸法」のオプション、標準でオン）。開いた数は概要に表示され、開けない溝はこれまでどおり通知されます。"
       }
-    },
-    {
-      "date": "2026-11-12T20:15:52Z",
-      "version": "1.3.140",
-      "notes": {
-        "en": "Antlers, horns, tails and ears: thin parts are now made thick enough to be built, and only they — body and legs keep their shape. A deer's antlers come out as faceted beams with their tines instead of thin splinters. The summary says how thick they were made.",
-        "it": "Corna, code e orecchie: le parti sottili ora vengono ingrossate quanto basta per costruirle, e solo loro — corpo e zampe tengono la loro forma. Le corna di un cervo escono come travi sfaccettate con i loro rami invece di schegge sottili. Il Riepilogo dice a quanti millimetri sono state portate.",
-        "de": "Geweihe, Hörner, Schwänze und Ohren: Dünne Teile werden jetzt gerade so dick gemacht, dass sie sich bauen lassen, und nur sie — Körper und Beine behalten ihre Form. Das Geweih eines Hirsches entsteht als facettierte Stangen mit Enden statt als dünne Splitter. Die Übersicht nennt die erreichte Dicke.",
-        "fr": "Bois, cornes, queues et oreilles : les parties fines sont désormais épaissies juste assez pour être construites, et elles seules — le corps et les pattes gardent leur forme. Les bois d'un cerf sortent en poutres facettées avec leurs andouillers au lieu d'éclats fins. Le récapitulatif indique l'épaisseur obtenue.",
-        "es": "Cuernas, cuernos, colas y orejas: las partes finas ahora se engrosan lo justo para poder construirlas, y solo ellas: el cuerpo y las patas conservan su forma. La cuerna de un ciervo sale como vigas facetadas con sus puntas en lugar de astillas finas. El resumen indica el grosor alcanzado.",
-        "pt": "Galhadas, chifres, caudas e orelhas: as partes finas agora são engrossadas só o necessário para serem construídas, e apenas elas — corpo e pernas mantêm a forma. A galhada de um cervo sai como vigas facetadas com suas pontas em vez de lascas finas. O resumo informa a espessura obtida.",
-        "ja": "枝角、角、尾、耳：細い部分だけを、製作できる太さまで太くするようになりました。胴体や脚の形は変わりません。鹿の枝角は細い破片ではなく、枝のある面取りされた梁として出力されます。概要に、どの太さにしたかが表示されます。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.177",
+    "version": "1.3.178",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "e29630503b53419f7afffe108deb1bf94922ac89707484a4ca1ba9706b85e3e0"
+        "sha256": "b69a59d425e238e65c490268a71e6b99e2a7090f889b935f72a3ac0e033dfd0c"
       }
     ]
   },

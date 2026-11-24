@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.179",
-  "notes": "3D editing: Ctrl + Shift + click on a face (⌘ + Shift on the Mac) puts the faces around it that are almost on its plane exactly on one plane, for clean flat sides, bases and plaques.",
+  "latest": "1.3.181",
+  "notes": "New: Package for sale (Assembly guide section, and File menu). One ZIP with what you can sell to other workshops instead of the finished sculpture: the DXF, a folding dossier with one drawing per piece (bends in red and blue, numbered in the suggested order, the pieces to weld on each edge), the assembly guide, an overview picture with one colour per piece, a product sheet and a manufacturing licence. The small picture in the assembly guide now shows the whole sculpture. 3D editing: Shift + click picks several corners (shown in green); dragging one of them moves them all together. Esc clears the choice.",
   "notes_i18n": {
-    "en": "3D editing: Ctrl + Shift + click on a face (⌘ + Shift on the Mac) puts the faces around it that are almost on its plane exactly on one plane, for clean flat sides, bases and plaques.",
-    "it": "Modifica del 3D: Ctrl + Maiusc + clic su una faccia (⌘ + Maiusc sul Mac) porta esattamente su un piano le facce attorno che sono quasi sul suo piano, per fianchi, basi e targhe piane e pulite.",
-    "de": "3D-Bearbeitung: Strg + Umschalt + Klick auf eine Fläche (⌘ + Umschalt auf dem Mac) bringt die Flächen ringsum, die fast in ihrer Ebene liegen, genau in eine Ebene – für saubere ebene Seiten, Sockel und Schilder.",
-    "fr": "Modification de la 3D : Ctrl + Maj + clic sur une face (⌘ + Maj sur Mac) met exactement sur un plan les faces autour presque sur le sien, pour des flancs, socles et plaques bien plans.",
-    "es": "Edición del 3D: Ctrl + Mayús + clic en una cara (⌘ + Mayús en el Mac) lleva exactamente a un plano las caras de alrededor casi en su plano, para lados, bases y placas planas y limpias.",
-    "pt": "Edição do 3D: Ctrl + Shift + clique numa face (⌘ + Shift no Mac) leva exatamente a um plano as faces em volta quase no seu plano, para lados, bases e placas planas e limpas.",
-    "ja": "3D編集：面をCtrl＋Shift＋クリック（Macでは⌘＋Shift）すると、周りのほぼ同じ平面の面がぴったり1つの平面にそろい、側面や台座、プレートをきれいな平面にできます。"
+    "en": "New: Package for sale (Assembly guide section, and File menu). One ZIP with what you can sell to other workshops instead of the finished sculpture: the DXF, a folding dossier with one drawing per piece (bends in red and blue, numbered in the suggested order, the pieces to weld on each edge), the assembly guide, an overview picture with one colour per piece, a product sheet and a manufacturing licence. The small picture in the assembly guide now shows the whole sculpture. 3D editing: Shift + click picks several corners (shown in green); dragging one of them moves them all together. Esc clears the choice.",
+    "it": "Novità: Pacchetto da vendere (sezione Guida di montaggio e menu File). Uno ZIP con ciò che puoi vendere ad altre officine al posto della scultura finita: il DXF, le schede di piegatura con un disegno per pezzo (pieghe in rosso e blu, numerate nell'ordine consigliato, i pezzi da saldare su ogni lato), la guida di montaggio, un'immagine d'insieme con un colore per pezzo, una scheda prodotto e una licenza di fabbricazione. Il riquadro piccolo della guida di montaggio ora mostra tutta la scultura. Modifica del 3D: Maiusc + clic sceglie più spigoli (in verde); trascinandone uno si muovono tutti insieme. Esc toglie la scelta.",
+    "de": "Neu: Verkaufspaket (Bereich Montageanleitung und Menü Datei). Ein ZIP mit dem, was du statt der fertigen Skulptur an andere Werkstätten verkaufen kannst: die DXF, eine Biegemappe mit einer Zeichnung pro Teil (Biegungen rot und blau, in empfohlener Reihenfolge nummeriert, die an jeder Kante anzuschweißenden Teile), die Montageanleitung, ein Übersichtsbild mit einer Farbe pro Teil, ein Produktblatt und eine Fertigungslizenz. Das kleine Bild in der Montageanleitung zeigt jetzt die ganze Skulptur. 3D-Bearbeitung: Umschalt + Klick wählt mehrere Ecken (grün); zieht man eine, bewegen sich alle zusammen. Esc hebt die Wahl auf.",
+    "fr": "Nouveau : Pack à vendre (section Guide d'assemblage et menu Fichier). Un ZIP avec ce que vous pouvez vendre à d'autres ateliers à la place de la sculpture finie : le DXF, un dossier de pliage avec un dessin par pièce (plis en rouge et bleu, numérotés dans l'ordre conseillé, les pièces à souder sur chaque bord), le guide d'assemblage, une vue d'ensemble avec une couleur par pièce, une fiche produit et une licence de fabrication. La petite image du guide d'assemblage montre maintenant toute la sculpture. Modification de la 3D : Maj + clic choisit plusieurs coins (en vert) ; en tirant l'un d'eux, tous bougent ensemble. Échap annule le choix.",
+    "es": "Novedad: Paquete para vender (sección Guía de montaje y menú Archivo). Un ZIP con lo que puedes vender a otros talleres en lugar de la escultura terminada: el DXF, un dosier de plegado con un dibujo por pieza (pliegues en rojo y azul, numerados en el orden aconsejado, las piezas que se sueldan en cada lado), la guía de montaje, una imagen de conjunto con un color por pieza, una ficha de producto y una licencia de fabricación. La imagen pequeña de la guía de montaje ahora muestra toda la escultura. Edición del 3D: Mayús + clic elige varias esquinas (en verde); al arrastrar una se mueven todas juntas. Esc quita la elección.",
+    "pt": "Novidade: Pacote para vender (seção Guia de montagem e menu Arquivo). Um ZIP com o que você pode vender a outras oficinas no lugar da escultura pronta: o DXF, um dossiê de dobra com um desenho por peça (dobras em vermelho e azul, numeradas na ordem sugerida, as peças a soldar em cada borda), o guia de montagem, uma imagem de conjunto com uma cor por peça, uma ficha de produto e uma licença de fabricação. A imagem pequena do guia de montagem agora mostra toda a escultura. Edição do 3D: Shift + clique escolhe vários cantos (em verde); arrastando um, movem-se todos juntos. Esc limpa a escolha.",
+    "ja": "新機能：販売用パッケージ（組立ガイドの項目とファイルメニュー）。完成した彫刻の代わりにほかの工房へ販売できるものを1つのZIPにまとめます：DXF、パーツごとの図の折り加工資料（折り線は赤と青、推奨の順番で番号付き、各辺に溶接するパーツ）、組立ガイド、パーツごとに色分けした全体図、製品シート、製作ライセンス。組立ガイドの小さな画像に彫刻全体が表示されるようになりました。 3D編集：Shift＋クリックで複数の角を選べます（緑色）。そのうち1つをドラッグするとすべて一緒に動きます。Escで選択を解除します。"
   },
   "history": [
+    {
+      "date": "2026-11-24T10:47:27Z",
+      "version": "1.3.181",
+      "notes": {
+        "en": "New: Package for sale (Assembly guide section, and File menu). One ZIP with what you can sell to other workshops instead of the finished sculpture: the DXF, a folding dossier with one drawing per piece (bends in red and blue, numbered in the suggested order, the pieces to weld on each edge), the assembly guide, an overview picture with one colour per piece, a product sheet and a manufacturing licence. The small picture in the assembly guide now shows the whole sculpture. 3D editing: Shift + click picks several corners (shown in green); dragging one of them moves them all together. Esc clears the choice.",
+        "it": "Novità: Pacchetto da vendere (sezione Guida di montaggio e menu File). Uno ZIP con ciò che puoi vendere ad altre officine al posto della scultura finita: il DXF, le schede di piegatura con un disegno per pezzo (pieghe in rosso e blu, numerate nell'ordine consigliato, i pezzi da saldare su ogni lato), la guida di montaggio, un'immagine d'insieme con un colore per pezzo, una scheda prodotto e una licenza di fabbricazione. Il riquadro piccolo della guida di montaggio ora mostra tutta la scultura. Modifica del 3D: Maiusc + clic sceglie più spigoli (in verde); trascinandone uno si muovono tutti insieme. Esc toglie la scelta.",
+        "de": "Neu: Verkaufspaket (Bereich Montageanleitung und Menü Datei). Ein ZIP mit dem, was du statt der fertigen Skulptur an andere Werkstätten verkaufen kannst: die DXF, eine Biegemappe mit einer Zeichnung pro Teil (Biegungen rot und blau, in empfohlener Reihenfolge nummeriert, die an jeder Kante anzuschweißenden Teile), die Montageanleitung, ein Übersichtsbild mit einer Farbe pro Teil, ein Produktblatt und eine Fertigungslizenz. Das kleine Bild in der Montageanleitung zeigt jetzt die ganze Skulptur. 3D-Bearbeitung: Umschalt + Klick wählt mehrere Ecken (grün); zieht man eine, bewegen sich alle zusammen. Esc hebt die Wahl auf.",
+        "fr": "Nouveau : Pack à vendre (section Guide d'assemblage et menu Fichier). Un ZIP avec ce que vous pouvez vendre à d'autres ateliers à la place de la sculpture finie : le DXF, un dossier de pliage avec un dessin par pièce (plis en rouge et bleu, numérotés dans l'ordre conseillé, les pièces à souder sur chaque bord), le guide d'assemblage, une vue d'ensemble avec une couleur par pièce, une fiche produit et une licence de fabrication. La petite image du guide d'assemblage montre maintenant toute la sculpture. Modification de la 3D : Maj + clic choisit plusieurs coins (en vert) ; en tirant l'un d'eux, tous bougent ensemble. Échap annule le choix.",
+        "es": "Novedad: Paquete para vender (sección Guía de montaje y menú Archivo). Un ZIP con lo que puedes vender a otros talleres en lugar de la escultura terminada: el DXF, un dosier de plegado con un dibujo por pieza (pliegues en rojo y azul, numerados en el orden aconsejado, las piezas que se sueldan en cada lado), la guía de montaje, una imagen de conjunto con un color por pieza, una ficha de producto y una licencia de fabricación. La imagen pequeña de la guía de montaje ahora muestra toda la escultura. Edición del 3D: Mayús + clic elige varias esquinas (en verde); al arrastrar una se mueven todas juntas. Esc quita la elección.",
+        "pt": "Novidade: Pacote para vender (seção Guia de montagem e menu Arquivo). Um ZIP com o que você pode vender a outras oficinas no lugar da escultura pronta: o DXF, um dossiê de dobra com um desenho por peça (dobras em vermelho e azul, numeradas na ordem sugerida, as peças a soldar em cada borda), o guia de montagem, uma imagem de conjunto com uma cor por peça, uma ficha de produto e uma licença de fabricação. A imagem pequena do guia de montagem agora mostra toda a escultura. Edição do 3D: Shift + clique escolhe vários cantos (em verde); arrastando um, movem-se todos juntos. Esc limpa a escolha.",
+        "ja": "新機能：販売用パッケージ（組立ガイドの項目とファイルメニュー）。完成した彫刻の代わりにほかの工房へ販売できるものを1つのZIPにまとめます：DXF、パーツごとの図の折り加工資料（折り線は赤と青、推奨の順番で番号付き、各辺に溶接するパーツ）、組立ガイド、パーツごとに色分けした全体図、製品シート、製作ライセンス。組立ガイドの小さな画像に彫刻全体が表示されるようになりました。 3D編集：Shift＋クリックで複数の角を選べます（緑色）。そのうち1つをドラッグするとすべて一緒に動きます。Escで選択を解除します。"
+      }
+    },
     {
       "date": "2026-11-24T10:06:33Z",
       "version": "1.3.179",
@@ -518,28 +531,15 @@
         "pt": "Detalhe com pincel: em uma escultura grande, duas faces ainda podiam se atravessar; agora, quando isso acontece, a redução é refeita com mais cuidado.",
         "ja": "ブラシによるディテール：大きな彫刻で2つの面が互いに突き抜けることがありましたが、その場合は簡略化をより慎重にやり直すようになりました。"
       }
-    },
-    {
-      "date": "2026-11-12T21:54:10Z",
-      "version": "1.3.142",
-      "notes": {
-        "en": "Opening the narrow grooves: if it would make two faces pass through each other, the sculpture is left as it was.",
-        "it": "Apertura delle gole strette: se farebbe attraversare due facce tra loro, la scultura resta com'era.",
-        "de": "Öffnen der engen Kehlen: Würden sich dadurch zwei Flächen durchdringen, bleibt die Skulptur, wie sie war.",
-        "fr": "Ouverture des gorges étroites : si elle faisait se traverser deux faces, la sculpture reste telle qu'elle était.",
-        "es": "Apertura de las gargantas estrechas: si hiciera que dos caras se atravesaran, la escultura queda como estaba.",
-        "pt": "Abertura das gargantas estreitas: se fizesse duas faces se atravessarem, a escultura fica como estava.",
-        "ja": "狭い溝を開く処理：2つの面が互いに突き抜けてしまう場合は、彫刻を元のままにします。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.179",
+    "version": "1.3.181",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "40d71765bc7c5609f32565d9e2e90bda7107ee6212db39cc9c876772f03c4f4c"
+        "sha256": "c5bebc84ffa92736d83ee5f0f300ee146bf969f27bcdcdf03badc38b1f9cf009"
       }
     ]
   },

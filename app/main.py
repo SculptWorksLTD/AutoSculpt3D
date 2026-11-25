@@ -277,7 +277,7 @@ def sha256(path):
         for chunk in iter(lambda: fh.read(1 << 20), b''):
             h.update(chunk)
     return h.hexdigest()
-RETIRED_ENGINES = {'triposr'}
+RETIRED_ENGINES = {'triposr', 'ssd1b', 'fluxlocal', 'fluxcuda', 'mvadapter', 'whisper', 'falflux', 'falviews', 'falwhisper'}
 APPLE_CHIP = IS_MAC and platform.machine() == 'arm64'
 _NVIDIA = []
 
@@ -302,11 +302,11 @@ def remove_retired_engines():
             if d.exists():
                 shutil.rmtree(d, ignore_errors=True)
                 log('Removed the retired engine', eid)
-    if any(((SUPPORT / 'engines' / e / 'installed.json').exists() for e in ('fluxlocal', 'fluxcuda'))):
-        old = SUPPORT / 'engines' / 'ssd1b'
-        if old.exists():
-            shutil.rmtree(old, ignore_errors=True)
-            log('Removed the replaced engine ssd1b')
+    keys = load_keys()
+    if any((k.startswith('lib:') for k in keys)):
+        for k in [k for k in keys if k.startswith('lib:')]:
+            save_key(k, '')
+        log('Removed the keys of the model libraries')
 
 def engine_specs(any_platform=False):
     specs = {}
@@ -345,119 +345,6 @@ def save_key(eid, key):
         os.chmod(KEYS_FILE, 384)
     except OSError:
         pass
-LIBRARIES = {'sketchfab': {'name': 'Sketchfab', 'key': 'required to download', 'key_url': 'https://sketchfab.com/settings/password', 'key_hint': 'Settings → Password & API → API token'}, 'polypizza': {'name': 'Poly Pizza', 'key': 'required', 'key_url': 'https://poly.pizza/settings/api', 'key_hint': 'free account → Settings → API'}, 'thingiverse': {'name': 'Thingiverse', 'key': 'required', 'key_url': 'https://www.thingiverse.com/apps/create', 'key_hint': 'create a free app (Desktop app) and copy its App Token'}, 'smithsonian': {'name': 'Smithsonian 3D', 'key': 'optional', 'key_url': 'https://api.data.gov/signup/', 'key_hint': 'free api.data.gov key (without it there is a shared limit of a few searches per hour)'}}
-FREE_LICENSES = ('cc0', 'public domain', 'cc attribution', 'cc-by', 'cc by', 'creative commons - attribution', 'creative commons - public domain')
-NON_COMMERCIAL = ('noncommercial', 'non-commercial', 'non commercial', '-nc', ' nc', 'noderivatives', 'noderivs', 'no derivatives', '-nd', 'gnu', 'gpl', 'lgpl', 'bsd')
-
-def lib_key(src):
-    return load_keys().get('lib:' + src, '')
-
-def lib_get(url, headers=None, binary=False, timeout=40):
-    req = urllib.request.Request(url, headers={'User-Agent': f'AutoSculpt3D/{VERSION}', **(headers or {})})
-    try:
-        with urlopen(req, timeout) as r:
-            data = r.read()
-    except urllib.error.HTTPError as e:
-        if e.code in (401, 403) and _lib_now[0] not in LIBRARIES:
-            raise UserError('{name} refused the request ({code})', name=_lib_now[0].title(), code=e.code)
-        if e.code in (401, 403):
-            raise UserError('The key for {name} is not valid: check it in Tools → Accounts and keys', name=LIBRARIES.get(_lib_now[0], {}).get('name') or _lib_now[0].title())
-        if e.code == 429:
-            raise UserError('Too many requests to {name}: wait a minute and try again', name=LIBRARIES.get(_lib_now[0], {}).get('name') or _lib_now[0].title())
-        raise UserError('{name} replied {code}', name=LIBRARIES.get(_lib_now[0], {}).get('name') or _lib_now[0].title(), code=e.code)
-    except UserError:
-        raise
-    except Exception as e:
-        raise UserError('Cannot reach {name}: {error}', name=LIBRARIES.get(_lib_now[0], {}).get('name') or _lib_now[0].title(), error=str(getattr(e, 'reason', e)))
-    return data if binary else json.loads(data)
-_lib_now = ['']
-
-def commercial_ok(lic):
-    l = (lic or '').lower()
-    return any((f in l for f in FREE_LICENSES)) and (not any((n in l for n in NON_COMMERCIAL)))
-
-def library_search(src, q):
-    _lib_now[0] = src
-    key, qq = (lib_key(src), urllib.parse.quote(q))
-    out = []
-    if src == 'polypizza':
-        if not key:
-            raise UserError('{name} needs a free key: add it in Tools → Accounts and keys', name='Poly Pizza')
-        j = lib_get(f'https://api.poly.pizza/v1.1/search/{qq}?limit=32', {'X-Auth-Token': key})
-        for m in j.get('results', []):
-            lic = m.get('Licence') or m.get('License') or ''
-            if not commercial_ok(lic):
-                continue
-            creator = m.get('Creator') or {}
-            out.append({'src': src, 'uid': m.get('ID'), 'name': m.get('Title'), 'author': creator.get('Username') if isinstance(creator, dict) else str(creator), 'license': lic, 'thumb': m.get('Thumbnail'), 'faces': m.get('TriangleCount') or m.get('Tri Count'), 'url': f"https://poly.pizza/m/{m.get('ID')}"})
-    elif src == 'thingiverse':
-        if not key:
-            raise UserError('{name} needs a free key: add it in Tools → Accounts and keys', name='Thingiverse')
-        h = {'Authorization': 'Bearer ' + key}
-        j = lib_get(f'https://api.thingiverse.com/search/{qq}/?type=things&per_page=30&sort=relevant', h)
-        hits = j.get('hits', j) if isinstance(j, dict) else j
-        for t in (hits or [])[:30]:
-            lic = t.get('license') or ''
-            if not lic:
-                try:
-                    lic = lib_get(f"https://api.thingiverse.com/things/{t['id']}", h, timeout=20).get('license', '')
-                except UserError:
-                    continue
-            if not commercial_ok(lic):
-                continue
-            cr = t.get('creator') or {}
-            out.append({'src': src, 'uid': str(t.get('id')), 'name': t.get('name'), 'author': cr.get('name') or cr.get('first_name') or '', 'license': lic, 'thumb': t.get('preview_image') or t.get('thumbnail'), 'url': t.get('public_url') or f"https://www.thingiverse.com/thing:{t.get('id')}"})
-    elif src == 'smithsonian':
-        j = lib_get(f"https://3d-api.si.edu/api/v1.0/content/file/search?q={qq}&file_type=glb&rows=100&api_key={urllib.parse.quote(key or 'DEMO_KEY')}")
-        best, rank = ({}, {'Medium': 0, 'Low': 1, 'High': 2, 'Thumb': 3})
-        for r in j.get('rows', []):
-            c = r.get('content') or {}
-            pk = c.get('model_url') or c.get('uri')
-            if c.get('quality') not in rank or not c.get('uri'):
-                continue
-            if pk not in best or rank[c['quality']] < rank[best[pk]['content']['quality']]:
-                best[pk] = r
-        for pk, r in best.items():
-            out.append({'src': src, 'uid': r['content']['uri'], 'name': r.get('title') or 'Smithsonian', 'author': 'Smithsonian Institution', 'license': 'CC0', 'thumb': '', 'url': 'https://3d.si.edu/explorer?q=' + qq})
-    else:
-        raise UserError('Unknown library')
-    return out
-_photo_urls = set()
-
-def _strip_html(t):
-    import re
-    return re.sub('\\s+', ' ', re.sub('<[^>]+>', '', t or '')).strip()
-
-def photo_search(q, page=1):
-    _lib_now[0] = 'wikimedia commons'
-    page = max(1, int(page))
-    url = f'https://commons.wikimedia.org/w/api.php?action=query&format=json&generator=search&gsrnamespace=6&gsrlimit=30&gsroffset={(page - 1) * 30}&gsrsearch=' + urllib.parse.quote(q + ' filetype:bitmap') + '&prop=imageinfo&iiprop=url|extmetadata|size&iiurlwidth=360&iiextmetadatafilter=LicenseShortName|Artist|ObjectName'
-    j = lib_get(url, {'User-Agent': f'AutoSculpt3D/{VERSION} (https://github.com/SculptWorksLTD/AutoSculpt3D)'})
-    pages = sorted((j.get('query') or {}).get('pages', {}).values(), key=lambda p: p.get('index', 0))
-    out = []
-    for p in pages:
-        ii = (p.get('imageinfo') or [{}])[0]
-        meta = ii.get('extmetadata') or {}
-        lic = _strip_html((meta.get('LicenseShortName') or {}).get('value', ''))
-        l = lic.lower()
-        ok = l in ('cc0', 'public domain', 'pd') or l.startswith('cc0') or l.startswith('public domain') or (l.startswith('cc by') and 'nc' not in l.split() and ('-nc' not in l) and ('nd' not in l.split()) and ('-nd' not in l))
-        full, thumb = (ii.get('url') or '', ii.get('thumburl') or ii.get('url') or '')
-        if not ok or not full.startswith('https://') or (not (ii.get('width') or 0) >= 400):
-            continue
-        _photo_urls.add(full)
-        title = _strip_html((meta.get('ObjectName') or {}).get('value', '')) or (p.get('title') or '').replace('File:', '').rsplit('.', 1)[0]
-        out.append({'id': p.get('pageid'), 'title': title[:120], 'thumb': thumb, 'url': full, 'author': _strip_html((meta.get('Artist') or {}).get('value', ''))[:80], 'license': lic, 'page': ii.get('descriptionurl') or '', 'source': 'Wikimedia Commons', 'width': ii.get('width'), 'height': ii.get('height')})
-    return {'results': out, 'more': 'continue' in j}
-
-def photo_get(url):
-    if url not in _photo_urls:
-        raise UserError('This picture is not among the search results')
-    _lib_now[0] = 'wikimedia commons'
-    data = lib_get(url, {'User-Agent': f'AutoSculpt3D/{VERSION} (https://github.com/SculptWorksLTD/AutoSculpt3D)'}, binary=True, timeout=60)
-    if len(data) > 25 * 2 ** 20:
-        raise UserError('The picture is too big')
-    kind = 'image/png' if data[:8] == b'\x89PNG\r\n\x1a\n' else 'image/webp' if data[8:12] == b'WEBP' else 'image/jpeg'
-    return (data, kind)
 QUIT = {'dirty': False, 'allow': False, 'win': None}
 GALLERY_URL = os.environ.get('AUTOSCULPT_GALLERY_URL', 'https://pub-6a60f5de67aa452fa66fa8d7cc451b99.r2.dev/gallery/v1')
 _gallery_index = [None]
@@ -621,52 +508,6 @@ def gallery_model(cat, mid):
         tmp.replace(f)
     return f
 
-def library_file(src, uid):
-    _lib_now[0] = src
-    cache = SUPPORT / 'library'
-    cache.mkdir(exist_ok=True)
-    safe = re.sub('[^A-Za-z0-9_-]', '_', uid)[-80:]
-    for ext, ctype in (('.glb', 'model/gltf-binary'), ('.zip', 'application/zip'), ('.stl', 'model/stl'), ('.obj', 'text/plain')):
-        f = cache / f'{src}_{safe}{ext}'
-        if f.exists() and f.stat().st_size > 0:
-            return (f, ctype)
-    key = lib_key(src)
-    if src == 'sketchfab':
-        if not key:
-            raise UserError('{name} needs a free key: add it in Tools → Accounts and keys', name='Sketchfab')
-        j = lib_get(f'https://api.sketchfab.com/v3/models/{urllib.parse.quote(uid)}/download', {'Authorization': 'Token ' + key})
-        if j.get('glb', {}).get('url'):
-            data, ext, ctype = (lib_get(j['glb']['url'], binary=True, timeout=180), '.glb', 'model/gltf-binary')
-        elif j.get('gltf', {}).get('url'):
-            data, ext, ctype = (lib_get(j['gltf']['url'], binary=True, timeout=180), '.zip', 'application/zip')
-        else:
-            raise UserError('unexpected download format')
-    elif src == 'polypizza':
-        j = lib_get(f'https://api.poly.pizza/v1.1/model/{urllib.parse.quote(uid)}', {'X-Auth-Token': key})
-        url = j.get('Download') or (j.get('results') or [{}])[0].get('Download')
-        if not url:
-            raise UserError('unexpected download format')
-        data, ext, ctype = (lib_get(url, binary=True, timeout=180), '.glb', 'model/gltf-binary')
-    elif src == 'thingiverse':
-        h = {'Authorization': 'Bearer ' + key}
-        files = lib_get(f'https://api.thingiverse.com/things/{urllib.parse.quote(uid)}/files', h)
-        models = [f for f in files if str(f.get('name', '')).lower().endswith(('.stl', '.obj'))]
-        if not models:
-            raise UserError('This object has no STL or OBJ file')
-        f0 = max(models, key=lambda f: f.get('size') or 0)
-        data = lib_get(f0.get('download_url') or f"https://api.thingiverse.com/files/{f0['id']}/download", h, binary=True, timeout=180)
-        ext = '.obj' if f0['name'].lower().endswith('.obj') else '.stl'
-        ctype = 'text/plain' if ext == '.obj' else 'model/stl'
-    elif src == 'smithsonian':
-        if not uid.startswith('https://3d-api.si.edu/'):
-            raise UserError('Unknown library')
-        data, ext, ctype = (lib_get(uid, binary=True, timeout=180), '.glb', 'model/gltf-binary')
-    else:
-        raise UserError('Unknown library')
-    f = cache / f'{src}_{safe}{ext}'
-    f.write_bytes(data)
-    return (f, ctype)
-
 def folder_bytes(path):
     total = 0
     for root, _, files in os.walk(path):
@@ -730,17 +571,20 @@ def disk_clean(ids):
 def engine_home(eid):
     return SUPPORT / 'engines' / eid
 
+def has_kind(spec, kind):
+    return kind in (spec.get('kinds') or [spec.get('kind', 'photo3d')])
+
 def engine_status(spec):
     if spec.get('type') == 'cloud':
         key = load_keys().get(spec.get('key_engine', spec['id']), '')
-        return {'id': spec['id'], 'name': spec['name'], 'type': 'cloud', 'kind': spec.get('kind', 'photo3d'), 'key_engine': spec.get('key_engine'), 'version': spec.get('version'), 'order': spec.get('order', 50), 'description': spec.get('description'), 'license': spec.get('license'), 'price': spec.get('price'), 'minutes': spec.get('minutes'), 'key_url': spec.get('key_url'), 'key_hint': spec.get('key_hint'), 'max_images': spec.get('max_images', 1), 'options': spec.get('options', []), 'installed': bool(key), 'key_set': bool(key), 'key_end': key[-4:] if len(key) > 8 else '', 'update': False}
+        return {'id': spec['id'], 'name': spec['name'], 'type': 'cloud', 'kind': spec.get('kind', 'photo3d'), 'kinds': spec.get('kinds') or [spec.get('kind', 'photo3d')], 'key_engine': spec.get('key_engine'), 'version': spec.get('version'), 'order': spec.get('order', 50), 'description': spec.get('description'), 'license': spec.get('license'), 'price': spec.get('price'), 'minutes': spec.get('minutes'), 'key_url': spec.get('key_url'), 'key_hint': spec.get('key_hint'), 'max_images': spec.get('max_images', 1), 'options': spec.get('options', []), 'installed': bool(key), 'key_set': bool(key), 'key_end': key[-4:] if len(key) > 8 else '', 'update': False}
     home = engine_home(spec['id'])
     info = {}
     try:
         info = json.loads((home / 'installed.json').read_text())
     except Exception:
         pass
-    return {'id': spec['id'], 'name': spec['name'], 'version': spec.get('version'), 'description': spec.get('description'), 'license': spec.get('license'), 'download_gb': spec.get('download_gb'), 'minutes': spec.get('minutes'), 'options': spec.get('options', []), 'installed': bool(info), 'installed_version': info.get('version'), 'type': 'local', 'kind': spec.get('kind', 'photo3d'), 'order': spec.get('order', 50), 'max_images': 1, 'update': bool(info) and vtuple(spec.get('install_version', spec.get('version'))) > vtuple(info.get('version'))}
+    return {'id': spec['id'], 'name': spec['name'], 'version': spec.get('version'), 'description': spec.get('description'), 'license': spec.get('license'), 'download_gb': spec.get('download_gb'), 'minutes': spec.get('minutes'), 'options': spec.get('options', []), 'installed': bool(info), 'installed_version': info.get('version'), 'type': 'local', 'kind': spec.get('kind', 'photo3d'), 'kinds': spec.get('kinds') or [spec.get('kind', 'photo3d')], 'order': spec.get('order', 50), 'max_images': 1, 'update': bool(info) and vtuple(spec.get('install_version', spec.get('version'))) > vtuple(info.get('version'))}
 
 def copy_runner(spec, home):
     src, dst = (Path(spec['_dir']) / spec['runner'], home / spec['runner'])
@@ -948,6 +792,28 @@ def run_speech2text(job, spec, wav, lang):
     cmd += ['--audio', wav, '--lang', lang or '', '--output', out, '--work', job.dir]
     errors = []
     rc = stream(job, cmd, env=env, on_line=lambda l: parse_runner_line(job, l, errors))
+    if job.cancelled:
+        raise UserError('Cancelled')
+    if rc != 0 or not out.exists():
+        if errors:
+            raise UserError(errors[-1][0], **errors[-1][1])
+        raise UserError('The engine stopped: {detail}', detail='-')
+    job.result = {'text': out.read_text(encoding='utf-8').strip()}
+
+def run_text2text(job, spec, task, text, context, symmetric=False):
+    key = load_keys().get(spec.get('key_engine', spec['id']))
+    if not key:
+        raise UserError('No API key for {name}: add it in Tools → Engines and online services', name=spec['name'])
+    inp, ctx, out = (job.dir / 'input.txt', job.dir / 'context.json', job.dir / 'text.txt')
+    inp.write_text(text, encoding='utf-8')
+    cmd = [BASE_PY, Path(spec['_dir']) / spec['runner'], '--task', task, '--input-file', inp, '--output', out, '--work', job.dir]
+    if context:
+        ctx.write_text(context, encoding='utf-8')
+        cmd += ['--context-file', ctx]
+    if symmetric:
+        cmd += ['--symmetric', '1']
+    errors = []
+    rc = stream(job, cmd, env={'AUTOSCULPT_API_KEY': key}, on_line=lambda l: parse_runner_line(job, l, errors))
     if job.cancelled:
         raise UserError('Cancelled')
     if rc != 0 or not out.exists():
@@ -1501,33 +1367,6 @@ class Handler(BaseHTTPRequestHandler):
                     log('Landscape download failed:', repr(exc))
                     return self.send_json({'error': str(exc)}, 502)
                 return self.send_file(f, 'application/octet-stream')
-            if path in ('/api/photos/search', '/api/photos/get'):
-                q = urllib.parse.parse_qs(urllib.parse.urlparse(self.path).query)
-                try:
-                    if path.endswith('search'):
-                        return self.send_json(photo_search((q.get('q') or [''])[0][:120], (q.get('page') or ['1'])[0]))
-                    data, kind = photo_get((q.get('url') or [''])[0])
-                    self.send_response(200)
-                    self.send_header('Content-Type', kind)
-                    self.send_header('Content-Length', str(len(data)))
-                    self.end_headers()
-                    self.wfile.write(data)
-                    return
-                except UserError as exc:
-                    return self.send_json({'error': exc.text, 'error_values': exc.values}, 502)
-            if path == '/api/library/sources':
-                keys = load_keys()
-                return self.send_json([{'id': k, **v, 'key_set': bool(keys.get('lib:' + k)), 'key_end': keys.get('lib:' + k, '')[-4:]} for k, v in LIBRARIES.items()])
-            if path in ('/api/library/search', '/api/library/file'):
-                q = urllib.parse.parse_qs(urllib.parse.urlparse(self.path).query)
-                src = (q.get('source') or [''])[0]
-                try:
-                    if path.endswith('search'):
-                        return self.send_json(library_search(src, (q.get('q') or [''])[0][:120]))
-                    f, ctype = library_file(src, (q.get('id') or [''])[0][:300])
-                    return self.send_file(f, ctype, {'X-AS-Name': f.name})
-                except UserError as exc:
-                    return self.send_json({'error': exc.text, 'error_values': exc.values}, 502)
             if path in ('/api/gallery/index', '/api/gallery/model'):
                 q = urllib.parse.parse_qs(urllib.parse.urlparse(self.path).query)
                 try:
@@ -1605,7 +1444,7 @@ class Handler(BaseHTTPRequestHandler):
                 return self.send_json(job.as_dict())
             if path == '/api/text2image':
                 spec = engine_specs().get(b.get('engine') or '')
-                if not spec or spec.get('kind') != 'text2image':
+                if not spec or not has_kind(spec, 'text2image'):
                     return self.send_json({'error': 'unknown engine'}, 404)
                 prompt = str(b.get('prompt') or '').strip()[:600]
                 if not prompt:
@@ -1615,7 +1454,7 @@ class Handler(BaseHTTPRequestHandler):
                 return self.send_json(job.as_dict())
             if path == '/api/multiview':
                 spec = engine_specs().get(b.get('engine') or '')
-                if not spec or spec.get('kind') != 'multiview':
+                if not spec or not has_kind(spec, 'multiview'):
                     return self.send_json({'error': 'unknown engine'}, 404)
                 src = str(b.get('image') or '')
                 try:
@@ -1629,9 +1468,22 @@ class Handler(BaseHTTPRequestHandler):
                 job = Job('multiview', 'Views of the subject')
                 run_job(job, lambda j: run_text2image(j, spec, str(b.get('prompt') or '').strip()[:600], str(b.get('lang') or 'en')[:5], 4, b.get('options') or {}, reference=ref))
                 return self.send_json(job.as_dict())
+            if path == '/api/text2text':
+                spec = engine_specs().get(b.get('engine') or '')
+                if not spec or not has_kind(spec, 'text2text') or spec.get('type') != 'cloud':
+                    return self.send_json({'error': 'unknown engine'}, 404)
+                task, text = (str(b.get('task') or ''), str(b.get('text') or '').strip()[:4000])
+                if task not in ('prompt', 'metalwork'):
+                    return self.send_json({'error': 'unknown task'}, 400)
+                if not text:
+                    return self.send_json({'error': 'Write a description of the subject'}, 400)
+                context = str(b.get('context') or '')[:60000] if task == 'metalwork' else ''
+                job = Job('text2text', 'Description to text')
+                run_job(job, lambda j: run_text2text(j, spec, task, text, context, symmetric=bool(b.get('symmetric'))))
+                return self.send_json(job.as_dict())
             if path == '/api/speech2text':
                 spec = engine_specs().get(b.get('engine') or '')
-                if not spec or spec.get('kind') != 'speech2text':
+                if not spec or not has_kind(spec, 'speech2text'):
                     return self.send_json({'error': 'unknown engine'}, 404)
                 job = Job('speech2text', 'Voice to text')
                 try:
@@ -1641,11 +1493,6 @@ class Handler(BaseHTTPRequestHandler):
                     return self.send_json({'error': 'invalid audio'}, 400)
                 run_job(job, lambda j: run_speech2text(j, spec, wav, str(b.get('lang') or '')[:5]))
                 return self.send_json(job.as_dict())
-            if path == '/api/keys' and b.get('library'):
-                if b['library'] not in LIBRARIES:
-                    return self.send_json({'error': 'unknown library'}, 404)
-                save_key('lib:' + b['library'], str(b.get('key') or '').strip())
-                return self.send_json({'ok': True})
             if path == '/api/keys':
                 if (b.get('engine') or '') not in engine_specs():
                     return self.send_json({'error': 'unknown engine'}, 404)

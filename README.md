@@ -27,14 +27,14 @@ Tutti i calcoli (sfaccettatura, sviluppo dei pezzi, annidamento, file per il las
 
 ## Cosa fa
 
-- **Da una descrizione** – scrivi o detta cosa vuoi scolpire: il programma disegna le immagini, tu scegli la migliore e lui costruisce il modello 3D.
+- **Da una descrizione** – scrivi o detta cosa vuoi scolpire: Google Gemini ne fa il prompt e disegna le immagini (anche gli altri tre lati), tu scegli la migliore e il programma costruisce il modello 3D.
 - **Da una foto** – una o più foto del soggetto diventano un modello 3D, sul computer o con i servizi online.
-- **Modelli pronti** – apre i file 3D più comuni e cerca modelli gratuiti nelle principali librerie.
+- **Modelli pronti** – apre i file 3D più comuni e ha una galleria di modelli pronti e un catalogo di forme.
 - **Sfaccettatura** – riduce il modello al numero di facce che vuoi, con facce regolari e i dettagli dove servono; anche simmetrico.
 - **Pezzi e pieghe** – divide la scultura in pezzi numerati, con pieghe, asole e linguette; scarta i pezzi troppo piccoli.
 - **Taglio laser** – dispone i pezzi sulle lamiere e prepara i file DXF per il taglio.
 - **Mockup** – mostra la scultura finita nel materiale scelto (acciaio inox, ferro, ottone, rame, alluminio), con sfondi da studio, paesaggi, la tua foto o carta millimetrata, vista da tutti i lati.
-- **Carpenteria** – un catalogo di modelli su misura: cancelli, ringhiere, scale a rampa e a chiocciola, inferriate, pensiline, gazebo, scaffalature, arredo urbano, mobili e lamiere ornamentali con disegni tagliati al laser: distinta di taglio dei profili, barre da ordinare, parti in lamiera in DXF, preventivo e scheda di lavorazione in PDF.
+- **Carpenteria** – un catalogo di modelli su misura: cancelli, ringhiere, scale a rampa e a chiocciola, inferriate fisse o apribili a una o due ante, pensiline, gazebo, scaffalature, arredo urbano, mobili e lamiere ornamentali con disegni tagliati al laser: distinta di taglio dei profili, barre da ordinare, parti in lamiera in DXF, preventivo e scheda di lavorazione in PDF. Il lavoro si può anche chiedere a parole, scritte o dette.
 - **Disegno 2D (CAD)** – pezzi piani a misura per il laser: linee, cerchi, archi, polilinee, asole, testi e quote, misure scritte a mano, agganci, sposta/copia/ruota/specchia, offset, taglia e raccordi; apre e salva DXF (e apre SVG), conta pezzi, metri di taglio e costo, annida sulla lamiera. Con una serie di pezzi pronti: piastre, flange, staffe, rondelle, targhe.
   Come nei CAD professionali: comandi scritti (L, C, TR, EX…), agganci perpendicolare e tangente, estendi, spezza, smusso, layer da nascondere o bloccare, quote automatiche e tavola PDF con cartiglio e scala; per il laser attacchi, microgiunzioni, ordine di taglio e tempo macchina. Per la carpenteria il disegno quotato in tre viste.
 - **Preventivo e montaggio** – calcola materiale e costi e prepara la guida di montaggio passo per passo.
@@ -44,7 +44,8 @@ Tutti i calcoli (sfaccettatura, sviluppo dei pezzi, annidamento, file per il las
 ## Requisiti
 
 - **Mac** con macOS recente (chip Apple consigliato) oppure **Windows 10/11**.
-- Per creare immagini e modelli 3D sul computer: almeno 16 GB di memoria e un chip Apple o una scheda NVIDIA. In alternativa si usano i servizi online, senza scaricare nulla.
+- Per creare modelli 3D sul computer: almeno 16 GB di memoria e un chip Apple o una scheda NVIDIA. In alternativa si usano i servizi online, senza scaricare nulla.
+- Per le immagini e la dettatura da una descrizione: una chiave di Google AI Studio (Gemini).
 
 ---
 
@@ -62,12 +63,13 @@ dimensions, a PDF drawing sheet with title block, lead-ins, micro-joints and the
 
 All the calculations (faceting, unfolding, nesting, laser files) are made by **SculptEngine**, the proprietary engine of AutoSculpt 3D.
 
-**Main features:** pictures and 3D models from a description or from photos · faceting with the number of faces you choose,
+**Main features:** 3D models from photos, or from a description typed or dictated (prompt and pictures by Google Gemini) · faceting with the number of faces you choose,
 also symmetric · numbered pieces with bends, slots and tabs · nesting on the sheets and DXF for the laser · realistic mockup
 in the chosen metal · quote and step-by-step assembly guide · automatic saving and updates · 7 languages.
 
-**Requirements:** a Mac with a recent macOS or Windows 10/11; for pictures and 3D models on the computer, 16 GB of memory and
-an Apple chip or an NVIDIA card (otherwise the online services work without any download).
+**Requirements:** a Mac with a recent macOS or Windows 10/11; for 3D models on the computer, 16 GB of memory and
+an Apple chip or an NVIDIA card (otherwise the online services work without any download); for pictures and dictation from a
+description, a Google AI Studio (Gemini) key.
 
 ---
 

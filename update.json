@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.185",
-  "notes": "SculptLock now holds the inner seams too: there the tooth is at the tip of the tab, is bent up square and comes out of a slit in the neighbouring piece, to be hammered flat like the others. Far fewer seams are left needing a spot of weld.",
+  "latest": "1.3.186",
+  "notes": "From a description, with Google Gemini: write or dictate what to sculpt, Gemini writes the prompt (you can read and change it), draws the pictures and the other three sides, and AutoSculpt 3D builds the 3D model. Metalwork jobs can be asked in words too, typed or dictated. New window grilles with one or two opening leaves, with hinges, lock and bolts. The model and photo searches have been removed.",
   "notes_i18n": {
-    "en": "SculptLock now holds the inner seams too: there the tooth is at the tip of the tab, is bent up square and comes out of a slit in the neighbouring piece, to be hammered flat like the others. Far fewer seams are left needing a spot of weld.",
-    "it": "SculptLock ora tiene anche le giunzioni interne: lì il dente sta in punta alla linguetta, si piega a squadra ed esce da una fessura del pezzo vicino, poi si ribatte come gli altri. Restano molte meno giunzioni da fissare con un punto di saldatura.",
-    "de": "SculptLock hält jetzt auch die Innennähte: dort sitzt der Zahn an der Spitze der Lasche, wird rechtwinklig gebogen, kommt aus einem Schlitz des Nachbarteils und wird wie die anderen flach geklopft. Viel weniger Nähte brauchen noch einen Schweißpunkt.",
-    "fr": "SculptLock tient maintenant aussi les jointures rentrantes : la dent est au bout de la languette, se plie à l'équerre, sort par une fente de la pièce voisine et se rabat comme les autres. Beaucoup moins de jointures demandent encore un point de soudure.",
-    "es": "SculptLock ahora sujeta también las uniones interiores: allí el diente va en la punta de la pestaña, se dobla a escuadra, sale por una ranura de la pieza vecina y se remacha como los demás. Quedan muchas menos uniones que necesiten un punto de soldadura.",
-    "pt": "O SculptLock agora segura também as juntas internas: ali o dente fica na ponta da aba, é dobrado no esquadro, sai por uma fenda da peça vizinha e é rebatido como os outros. Sobram bem menos juntas que precisam de um ponto de solda.",
-    "ja": "SculptLock が内側の継ぎ目にも対応しました。そこでは爪がタブの先端にあり、直角に曲げると隣の部品の切れ込みから出てくるので、ほかと同じように叩いて倒します。点溶接が必要な継ぎ目が大幅に減りました。"
+    "en": "From a description, with Google Gemini: write or dictate what to sculpt, Gemini writes the prompt (you can read and change it), draws the pictures and the other three sides, and AutoSculpt 3D builds the 3D model. Metalwork jobs can be asked in words too, typed or dictated. New window grilles with one or two opening leaves, with hinges, lock and bolts. The model and photo searches have been removed.",
+    "it": "Da una descrizione, con Google Gemini: scrivi o detta cosa scolpire, Gemini scrive il prompt (puoi leggerlo e cambiarlo), disegna le immagini e gli altri tre lati e AutoSculpt 3D costruisce il modello 3D. Anche i lavori di carpenteria si possono chiedere a parole, scritte o dette. Nuove inferriate con una o due ante apribili, con cerniere, serratura e catenacci. Tolte le ricerche di modelli e di foto.",
+    "de": "Aus einer Beschreibung, mit Google Gemini: Schreiben oder diktieren Sie, was entstehen soll; Gemini schreibt den Prompt (Sie können ihn lesen und ändern), zeichnet die Bilder und die anderen drei Seiten, und AutoSculpt 3D erstellt das 3D-Modell. Auch Metallbauarbeiten lassen sich in Worten anfragen, getippt oder diktiert. Neue Fenstergitter mit einem oder zwei Öffnungsflügeln, mit Bändern, Schloss und Riegeln. Die Suche nach Modellen und Fotos wurde entfernt.",
+    "fr": "À partir d'une description, avec Google Gemini : écrivez ou dictez ce qu'il faut sculpter, Gemini écrit le prompt (vous pouvez le lire et le modifier), dessine les images et les trois autres côtés, et AutoSculpt 3D construit le modèle 3D. Les ouvrages de serrurerie peuvent aussi être demandés en mots, tapés ou dictés. Nouvelles grilles à un ou deux vantaux ouvrants, avec paumelles, serrure et verrous. Les recherches de modèles et de photos ont été retirées.",
+    "es": "Desde una descripción, con Google Gemini: escribe o dicta qué esculpir, Gemini escribe el prompt (puedes leerlo y cambiarlo), dibuja las imágenes y los otros tres lados, y AutoSculpt 3D construye el modelo 3D. Los trabajos de cerrajería también se pueden pedir con palabras, escritas o dictadas. Nuevas rejas con una o dos hojas abatibles, con bisagras, cerradura y pasadores. Se han quitado las búsquedas de modelos y de fotos.",
+    "pt": "A partir de uma descrição, com o Google Gemini: escreva ou dite o que esculpir, o Gemini escreve o prompt (você pode ler e mudar), desenha as imagens e os outros três lados, e o AutoSculpt 3D constrói o modelo 3D. Os trabalhos de serralheria também podem ser pedidos em palavras, digitadas ou ditadas. Novas grades com uma ou duas folhas de abrir, com dobradiças, fechadura e ferrolhos. As buscas de modelos e de fotos foram retiradas.",
+    "ja": "説明から、Google Gemini で:彫りたいものを入力または音声入力すると、Gemini がプロンプトを書き(読んで変更できます)、画像と他の 3 面を描き、AutoSculpt 3D が 3D モデルを作ります。金物工事も言葉で(入力または音声で)依頼できます。丁番・錠・フランス落とし付きの片開き/両開きの開閉式面格子を追加。モデルと写真の検索は削除しました。"
   },
   "history": [
+    {
+      "date": "2026-11-25T15:02:30Z",
+      "version": "1.3.186",
+      "notes": {
+        "en": "From a description, with Google Gemini: write or dictate what to sculpt, Gemini writes the prompt (you can read and change it), draws the pictures and the other three sides, and AutoSculpt 3D builds the 3D model. Metalwork jobs can be asked in words too, typed or dictated. New window grilles with one or two opening leaves, with hinges, lock and bolts. The model and photo searches have been removed.",
+        "it": "Da una descrizione, con Google Gemini: scrivi o detta cosa scolpire, Gemini scrive il prompt (puoi leggerlo e cambiarlo), disegna le immagini e gli altri tre lati e AutoSculpt 3D costruisce il modello 3D. Anche i lavori di carpenteria si possono chiedere a parole, scritte o dette. Nuove inferriate con una o due ante apribili, con cerniere, serratura e catenacci. Tolte le ricerche di modelli e di foto.",
+        "de": "Aus einer Beschreibung, mit Google Gemini: Schreiben oder diktieren Sie, was entstehen soll; Gemini schreibt den Prompt (Sie können ihn lesen und ändern), zeichnet die Bilder und die anderen drei Seiten, und AutoSculpt 3D erstellt das 3D-Modell. Auch Metallbauarbeiten lassen sich in Worten anfragen, getippt oder diktiert. Neue Fenstergitter mit einem oder zwei Öffnungsflügeln, mit Bändern, Schloss und Riegeln. Die Suche nach Modellen und Fotos wurde entfernt.",
+        "fr": "À partir d'une description, avec Google Gemini : écrivez ou dictez ce qu'il faut sculpter, Gemini écrit le prompt (vous pouvez le lire et le modifier), dessine les images et les trois autres côtés, et AutoSculpt 3D construit le modèle 3D. Les ouvrages de serrurerie peuvent aussi être demandés en mots, tapés ou dictés. Nouvelles grilles à un ou deux vantaux ouvrants, avec paumelles, serrure et verrous. Les recherches de modèles et de photos ont été retirées.",
+        "es": "Desde una descripción, con Google Gemini: escribe o dicta qué esculpir, Gemini escribe el prompt (puedes leerlo y cambiarlo), dibuja las imágenes y los otros tres lados, y AutoSculpt 3D construye el modelo 3D. Los trabajos de cerrajería también se pueden pedir con palabras, escritas o dictadas. Nuevas rejas con una o dos hojas abatibles, con bisagras, cerradura y pasadores. Se han quitado las búsquedas de modelos y de fotos.",
+        "pt": "A partir de uma descrição, com o Google Gemini: escreva ou dite o que esculpir, o Gemini escreve o prompt (você pode ler e mudar), desenha as imagens e os outros três lados, e o AutoSculpt 3D constrói o modelo 3D. Os trabalhos de serralheria também podem ser pedidos em palavras, digitadas ou ditadas. Novas grades com uma ou duas folhas de abrir, com dobradiças, fechadura e ferrolhos. As buscas de modelos e de fotos foram retiradas.",
+        "ja": "説明から、Google Gemini で:彫りたいものを入力または音声入力すると、Gemini がプロンプトを書き(読んで変更できます)、画像と他の 3 面を描き、AutoSculpt 3D が 3D モデルを作ります。金物工事も言葉で(入力または音声で)依頼できます。丁番・錠・フランス落とし付きの片開き/両開きの開閉式面格子を追加。モデルと写真の検索は削除しました。"
+      }
+    },
     {
       "date": "2026-11-24T18:05:04Z",
       "version": "1.3.185",
@@ -518,38 +531,25 @@
         "pt": "Motor online Tripo: mensagens mais claras quando o serviço está ocupado ou a conta não tem créditos.",
         "ja": "オンラインエンジン Tripo：サービスが混雑しているときやクレジットが不足しているときのメッセージが分かりやすくなりました。"
       }
-    },
-    {
-      "date": "2026-11-13T05:26:03Z",
-      "version": "1.3.146",
-      "notes": {
-        "en": "Safer automatic updates: the program checks more strictly where update files may be written.",
-        "it": "Aggiornamenti automatici più sicuri: il programma controlla in modo più severo dove possono essere scritti i file degli aggiornamenti.",
-        "de": "Sicherere automatische Updates: Das Programm prüft strenger, wohin Update-Dateien geschrieben werden dürfen.",
-        "fr": "Mises à jour automatiques plus sûres : le programme vérifie plus strictement où les fichiers de mise à jour peuvent être écrits.",
-        "es": "Actualizaciones automáticas más seguras: el programa comprueba con más rigor dónde pueden escribirse los archivos de actualización.",
-        "pt": "Atualizações automáticas mais seguras: o programa verifica com mais rigor onde os arquivos de atualização podem ser gravados.",
-        "ja": "自動更新の安全性向上：更新ファイルの書き込み先をより厳しく確認するようになりました。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.185",
+    "version": "1.3.186",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "bc6e825f80e0dbed00117c8a955890f6e7ab58af58eece619f8252c5dd27d2ba"
+        "sha256": "0af8579cff02519b3b85e8e9720443a69b36b58de7dc25ee49581ccb2540d021"
       }
     ]
   },
   "app": {
-    "version": "1.3.35",
+    "version": "1.3.36",
     "files": [
       {
         "path": "main.py",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/app/main.py",
-        "sha256": "186c00ec838a7c23e56560d4b017ff729171a0e0a14f8fa09a93c37d78fc2a8a"
+        "sha256": "f6f9db88a8ad49c4164ed1dac985db877d3e7ff01a46621fff26ea175396ed63"
       }
     ]
   },
@@ -572,91 +572,21 @@
       ]
     },
     {
-      "id": "falflux",
-      "name": "FLUX on fal.ai",
-      "version": "1.0.4",
-      "files": [
-        {
-          "path": "engine.json",
-          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/falflux/engine.json",
-          "sha256": "480e2ecfb1e12d3e62a3a18599cc31f11fb45f0f48d5e1801e9b055e9114f7d0"
-        },
-        {
-          "path": "runner.py",
-          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/falflux/runner.py",
-          "sha256": "480d13243fbf2e7765fde76585b30b152afa211f7a52e4784920a1560f69026f"
-        }
-      ]
-    },
-    {
-      "id": "falviews",
-      "name": "Nano Banana on fal.ai",
+      "id": "gemini",
+      "name": "Google Gemini",
       "version": "1.0.0",
       "files": [
         {
           "path": "engine.json",
-          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/falviews/engine.json",
-          "sha256": "144f8ed72a40f255d99eb5ec326e758a708b7114797ad6789ce34f8f50ede3d2"
+          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/gemini/engine.json",
+          "sha256": "c9d309341891f3d5e71f57ad75fc3dd77f73c1e94c3b7c820d8e3157151a04b2"
         },
         {
           "path": "runner.py",
-          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/falviews/runner.py",
-          "sha256": "c8ad5dacf4d8b3acd7caf462f3e87f4c193b519775e0ac05e84702bc48cff254"
+          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/gemini/runner.py",
+          "sha256": "ba608476764b0866336b4ffa0a40df1ec04f1b2894acc1ce9ed251ee4dc83c86"
         }
       ]
-    },
-    {
-      "id": "falwhisper",
-      "name": "Whisper on fal.ai (voice)",
-      "version": "1.0.1",
-      "files": [
-        {
-          "path": "engine.json",
-          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/falwhisper/engine.json",
-          "sha256": "bbe1ca6f268f62e1d30d7c4f91a701397eb8f679815b3282e2d4b065e964ba63"
-        },
-        {
-          "path": "runner.py",
-          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/falwhisper/runner.py",
-          "sha256": "614edf213581301170a95adadd72675bcefa2ea74191b1f355c083704ce3e76a"
-        }
-      ]
-    },
-    {
-      "id": "fluxcuda",
-      "name": "FLUX.1 schnell (GGUF)",
-      "version": "1.0.4",
-      "files": [
-        {
-          "path": "engine.json",
-          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/fluxcuda/engine.json",
-          "sha256": "728e9e30a6030adb4edb4e82915706b3bfd9ffba588add4c38ef347634743a92"
-        },
-        {
-          "path": "runner.py",
-          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/fluxcuda/runner.py",
-          "sha256": "047b064d8e78f7e13aa9ce06ab110e643f49142126e7ef9801095e881e8f484d"
-        }
-      ],
-      "only": "nvidia"
-    },
-    {
-      "id": "fluxlocal",
-      "name": "FLUX.1 schnell (MLX)",
-      "version": "1.0.4",
-      "files": [
-        {
-          "path": "engine.json",
-          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/fluxlocal/engine.json",
-          "sha256": "69c72a35582f1298293f54593e6fa2a928244d49e450ec2a310203d7f1d1845d"
-        },
-        {
-          "path": "runner.py",
-          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/fluxlocal/runner.py",
-          "sha256": "e8518bfc496d9f4515fa42c2437baf664d1a0c08f05dea997ee2e5165c72d891"
-        }
-      ],
-      "only": "apple_chip"
     },
     {
       "id": "meshy",
@@ -674,41 +604,6 @@
           "sha256": "4e66896b5eabc2c400153d8caa818614ccc8a0275bfc960560ad9d14e57169bd"
         }
       ]
-    },
-    {
-      "id": "mvadapter",
-      "name": "MV-Adapter (Stable Diffusion XL)",
-      "version": "1.0.5",
-      "files": [
-        {
-          "path": "engine.json",
-          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/mvadapter/engine.json",
-          "sha256": "7ef057fef995bcaa11488e7f381c4b895ce2724260dc284b35661832fe2b0c4f"
-        },
-        {
-          "path": "runner.py",
-          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/mvadapter/runner.py",
-          "sha256": "16c97e6f7fdb7d4dd8a5f8fc2f3d60adb6eed8c4af6afdea7964193de69af1fa"
-        }
-      ]
-    },
-    {
-      "id": "ssd1b",
-      "name": "SSD-1B (Stable Diffusion XL)",
-      "version": "1.0.15",
-      "files": [
-        {
-          "path": "engine.json",
-          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/ssd1b/engine.json",
-          "sha256": "bfecdb7022c99853368930862597d3828207e56ccac5e55881d954212cd486cf"
-        },
-        {
-          "path": "runner.py",
-          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/ssd1b/runner.py",
-          "sha256": "97dc7f669a75948299498aebfb694df0c3556f480361c4f33227117cfe2d2bb5"
-        }
-      ],
-      "hide_on": "apple_chip_or_nvidia"
     },
     {
       "id": "tripo",
@@ -741,23 +636,6 @@
           "path": "runner.py",
           "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/triposg/runner.py",
           "sha256": "61ac268c29392cb1fa002e69f3f430c58a3ef2ad7634062f3ff57762c579d157"
-        }
-      ]
-    },
-    {
-      "id": "whisper",
-      "name": "Whisper (voice)",
-      "version": "1.1.3",
-      "files": [
-        {
-          "path": "engine.json",
-          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/whisper/engine.json",
-          "sha256": "631782507d78a449f14cca326b0ec9e02bba8e514568011028dda437adfdb5f0"
-        },
-        {
-          "path": "runner.py",
-          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/whisper/runner.py",
-          "sha256": "dd309affbdc50e71793c428e334fa9605b6492d8a2bec70e0eac658f270cd0dd"
         }
       ]
     }

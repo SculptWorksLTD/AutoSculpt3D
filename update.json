@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.188",
-  "notes": "Gates with a pedestrian gate beside them, swing or sliding: the program adds the third post, the leaf with hinges, lock, handles and closer, in the 3D, the lists and the order of work. Six new gates in the catalogue; \"driveway gate 4 m with a pedestrian gate\" works in words too. The parts of the pedestrian gate now have their names in the cutting list.",
+  "latest": "1.3.189",
+  "notes": "Railings with a gate (top of a stair, balcony, mezzanine): choose width and position; the handrail stops at the gate posts and the gate closes by itself with its spring. Four new railings in the catalogue; \"railing 4 m with a gate\" works in words too.",
   "notes_i18n": {
-    "en": "Gates with a pedestrian gate beside them, swing or sliding: the program adds the third post, the leaf with hinges, lock, handles and closer, in the 3D, the lists and the order of work. Six new gates in the catalogue; \"driveway gate 4 m with a pedestrian gate\" works in words too. The parts of the pedestrian gate now have their names in the cutting list.",
-    "it": "Cancelli con cancelletto pedonale accanto, a battente o scorrevoli: il programma aggiunge il terzo pilastro, l'anta con cerniere, serratura, maniglie e chiudiporta, nel 3D, nelle liste e nell'ordine di costruzione. Sei cancelli nuovi nel catalogo; funziona anche a parole («cancello carraio scorrevole 4 m con pedonale»). I pezzi del cancelletto ora hanno il loro nome nella distinta di taglio.",
-    "de": "Tore mit Gartentür daneben, Dreh- oder Schiebetor: das Programm fügt den dritten Pfosten und den Flügel mit Bändern, Schloss, Griffen und Schließer hinzu, im 3D, in den Listen und in der Arbeitsfolge. Sechs neue Tore im Katalog; auch in Worten („Einfahrtstor 4 m mit Gartentür“). Die Teile der Gartentür haben jetzt ihren Namen in der Zuschnittliste.",
-    "fr": "Portails avec portillon à côté, battants ou coulissants : le programme ajoute le troisième poteau et le vantail avec paumelles, serrure, poignées et ferme-portail, en 3D, dans les listes et dans l'ordre de fabrication. Six nouveaux portails au catalogue ; aussi en mots (« portail 4 m avec portillon »). Les pièces du portillon ont maintenant leur nom dans la liste de débit.",
-    "es": "Puertas con puerta peatonal al lado, batientes o correderas: el programa añade el tercer poste y la hoja con bisagras, cerradura, manillas y cierrapuertas, en el 3D, en las listas y en el orden de fabricación. Seis puertas nuevas en el catálogo; también con palabras («puerta de garaje 4 m con puerta peatonal»). Las piezas de la puerta peatonal tienen ahora su nombre en la lista de corte.",
-    "pt": "Portões com portão de pedestre ao lado, de abrir ou de correr: o programa acrescenta o terceiro poste e a folha com dobradiças, fechadura, puxadores e mola, no 3D, nas listas e na ordem de fabricação. Seis portões novos no catálogo; também em palavras («portão de garagem 4 m com portão de pedestre»). As peças do portão de pedestre agora têm nome na lista de corte.",
-    "ja": "横に通用門付きの門扉(開き戸・引き戸):3 本目の支柱と、丁番・錠・取っ手・クローザー付きの扉を追加し、3D、各リスト、製作手順に反映します。カタログに新しい門扉 6 種。言葉でも依頼できます。通用門の部材は切断リストに名前が表示されるようになりました。"
+    "en": "Railings with a gate (top of a stair, balcony, mezzanine): choose width and position; the handrail stops at the gate posts and the gate closes by itself with its spring. Four new railings in the catalogue; \"railing 4 m with a gate\" works in words too.",
+    "it": "Ringhiere con cancelletto (in cima a una scala, su un balcone o un soppalco): scegli larghezza e posizione; il corrimano si ferma ai pilastri del cancelletto, che si chiude da solo con la molla. Quattro ringhiere nuove nel catalogo; funziona anche a parole («ringhiera di 4 metri con cancelletto»).",
+    "de": "Geländer mit Tür (oben an der Treppe, Balkon, Bühne): Breite und Lage wählen; der Handlauf endet an den Türpfosten und die Tür schließt von selbst mit ihrer Feder. Vier neue Geländer im Katalog; auch in Worten.",
+    "fr": "Garde-corps avec portillon (haut d'escalier, balcon, mezzanine) : choisissez largeur et position ; la main courante s'arrête aux poteaux du portillon, qui se ferme seul avec son ressort. Quatre nouveaux garde-corps au catalogue ; aussi en mots.",
+    "es": "Barandillas con portilla (arriba de una escalera, balcón, altillo): elige ancho y posición; el pasamanos se detiene en los postes de la portilla, que se cierra sola con su muelle. Cuatro barandillas nuevas en el catálogo; también con palabras.",
+    "pt": "Guarda-corpos com portinhola (alto da escada, sacada, mezanino): escolha largura e posição; o corrimão para nos postes da portinhola, que fecha sozinha com a mola. Quatro guarda-corpos novos no catálogo; também em palavras.",
+    "ja": "扉付き手すり(階段の上、バルコニー、中二階):幅と位置を選ぶと、手すりは扉の支柱で止まり、扉はばねで自動的に閉まります。カタログに新しい手すり 4 種。言葉でも依頼できます。"
   },
   "history": [
+    {
+      "date": "2026-11-25T23:00:44Z",
+      "version": "1.3.189",
+      "notes": {
+        "en": "Railings with a gate (top of a stair, balcony, mezzanine): choose width and position; the handrail stops at the gate posts and the gate closes by itself with its spring. Four new railings in the catalogue; \"railing 4 m with a gate\" works in words too.",
+        "it": "Ringhiere con cancelletto (in cima a una scala, su un balcone o un soppalco): scegli larghezza e posizione; il corrimano si ferma ai pilastri del cancelletto, che si chiude da solo con la molla. Quattro ringhiere nuove nel catalogo; funziona anche a parole («ringhiera di 4 metri con cancelletto»).",
+        "de": "Geländer mit Tür (oben an der Treppe, Balkon, Bühne): Breite und Lage wählen; der Handlauf endet an den Türpfosten und die Tür schließt von selbst mit ihrer Feder. Vier neue Geländer im Katalog; auch in Worten.",
+        "fr": "Garde-corps avec portillon (haut d'escalier, balcon, mezzanine) : choisissez largeur et position ; la main courante s'arrête aux poteaux du portillon, qui se ferme seul avec son ressort. Quatre nouveaux garde-corps au catalogue ; aussi en mots.",
+        "es": "Barandillas con portilla (arriba de una escalera, balcón, altillo): elige ancho y posición; el pasamanos se detiene en los postes de la portilla, que se cierra sola con su muelle. Cuatro barandillas nuevas en el catálogo; también con palabras.",
+        "pt": "Guarda-corpos com portinhola (alto da escada, sacada, mezanino): escolha largura e posição; o corrimão para nos postes da portinhola, que fecha sozinha com a mola. Quatro guarda-corpos novos no catálogo; também em palavras.",
+        "ja": "扉付き手すり(階段の上、バルコニー、中二階):幅と位置を選ぶと、手すりは扉の支柱で止まり、扉はばねで自動的に閉まります。カタログに新しい手すり 4 種。言葉でも依頼できます。"
+      }
+    },
     {
       "date": "2026-11-25T22:45:29Z",
       "version": "1.3.188",
@@ -518,28 +531,15 @@
         "pt": "Serralheria a partir de uma descrição: no topo do catálogo escreva o que precisa, por exemplo «portão de correr com 4 m de largura e 1,8 m de altura, chapa com folhas, antracite», e o programa prepara a peça com essas medidas e opções, pronta para ajustar no painel. Entende os sete idiomas e responde na hora, sem baixar nada.",
         "ja": "説明から金物を作成：カタログの上部に必要なものを書くと（例：「幅4メートル高さ1.8メートルの引き戸の門、葉の模様の板、アンスラサイト」）、その寸法と選択で製品を用意します。あとはパネルで調整するだけです。7つの言語に対応し、ダウンロード不要ですぐに動きます。"
       }
-    },
-    {
-      "date": "2026-11-13T11:14:43Z",
-      "version": "1.3.148",
-      "notes": {
-        "en": "Metalwork now opens on a catalogue: one index by kind of work, with a picture of every model. New: railings, straight stairs (indoor and outdoor), spiral stairs, gazebos, shelving, street furniture (bicycle racks, planters, bollards) and ornamental sheets with 13 laser-cut patterns (holes, slots, honeycomb, diamonds, stars, leaves, waves, bubbles, sunburst…), also as infill of gates and railings. Choose a model, then change its sizes. Lighter on slow computers: the 3D view is drawn only when something changes and the calculation engine starts only when it is needed. New command Tools → Disk space: see what the program keeps on the disk (engines, job results, landscapes) and remove it.",
-        "it": "La Carpenteria ora si apre su un catalogo: un indice unico per tipo di lavorazione, con l'immagine di ogni modello. Novità: ringhiere, scale a rampa (interne ed esterne), scale a chiocciola, gazebo, scaffalature, arredo urbano (rastrelliere per bici, fioriere, dissuasori) e lamiere ornamentali con 13 disegni tagliati al laser (fori, asole, nido d'ape, rombi, stelle, foglie, onde, bolle, raggiera…), anche come tamponamento di cancelli e ringhiere. Scegli un modello, poi cambia le misure. Più leggero sui computer lenti: la vista 3D si ridisegna solo quando cambia qualcosa e il motore di calcolo parte solo quando serve. Nuovo comando Strumenti → Spazio su disco: vedi quanto occupano motori, risultati e paesaggi ed eliminali.",
-        "de": "Der Metallbau öffnet jetzt mit einem Katalog: ein Verzeichnis nach Art der Arbeit, mit einem Bild jedes Modells. Neu: Geländer, gerade Treppen (innen und außen), Wendeltreppen, Pavillons, Regalanlagen, Stadtmobiliar (Fahrradständer, Pflanzkübel, Poller) und Zierbleche mit 13 lasergeschnittenen Mustern (Löcher, Langlöcher, Waben, Rauten, Sterne, Blätter, Wellen, Blasen, Strahlen…), auch als Füllung von Toren und Geländern. Modell wählen, dann die Maße ändern. Leichter auf langsamen Computern: Die 3D-Ansicht wird nur gezeichnet, wenn sich etwas ändert, und die Rechen-Engine startet erst bei Bedarf. Neuer Befehl Werkzeuge → Speicherplatz: zeigt, was das Programm auf dem Datenträger hält (Engines, Ergebnisse, Landschaften), und entfernt es.",
-        "fr": "La Métallerie s'ouvre maintenant sur un catalogue : un index unique par type d'ouvrage, avec l'image de chaque modèle. Nouveautés : garde-corps, escaliers droits (intérieurs et extérieurs), escaliers en colimaçon, gloriettes, rayonnages, mobilier urbain (range-vélos, jardinières, bornes) et tôles décoratives avec 13 motifs découpés au laser (trous, oblongs, nid d'abeille, losanges, étoiles, feuilles, vagues, bulles, rayons…), aussi en remplissage des portails et garde-corps. Choisissez un modèle, puis changez ses dimensions. Plus léger sur les ordinateurs lents : la vue 3D n'est redessinée que lorsque quelque chose change et le moteur de calcul ne démarre que si nécessaire. Nouvelle commande Outils → Espace disque : voyez ce que le programme conserve sur le disque (moteurs, résultats, paysages) et supprimez-le.",
-        "es": "La Carpintería metálica se abre ahora con un catálogo: un índice único por tipo de trabajo, con la imagen de cada modelo. Novedades: barandillas, escaleras rectas (interiores y exteriores), escaleras de caracol, cenadores, estanterías, mobiliario urbano (aparcabicicletas, jardineras, bolardos) y chapas ornamentales con 13 dibujos cortados con láser (agujeros, colisos, panal, rombos, estrellas, hojas, ondas, burbujas, rayos…), también como relleno de cancelas y barandillas. Elige un modelo y luego cambia sus medidas. Más ligero en ordenadores lentos: la vista 3D solo se redibuja cuando algo cambia y el motor de cálculo arranca solo cuando hace falta. Nuevo comando Herramientas → Espacio en disco: mira lo que el programa guarda en el disco (motores, resultados, paisajes) y elimínalo.",
-        "pt": "A Serralheria agora abre com um catálogo: um índice único por tipo de trabalho, com a imagem de cada modelo. Novidades: guarda-corpos, escadas retas (internas e externas), escadas caracol, gazebos, estanterias, mobiliário urbano (bicicletários, floreiras, balizadores) e chapas ornamentais com 13 padrões cortados a laser (furos, oblongos, favo de mel, losangos, estrelas, folhas, ondas, bolhas, raios…), também como fechamento de portões e guarda-corpos. Escolha um modelo e depois altere as medidas. Mais leve em computadores lentos: a vista 3D só é redesenhada quando algo muda e o motor de cálculo só inicia quando é preciso. Novo comando Ferramentas → Espaço em disco: veja o que o programa guarda no disco (motores, resultados, paisagens) e remova.",
-        "ja": "金属製作はカタログから始まるようになりました。仕事の種類ごとの一覧に、各モデルの画像が並びます。新しく追加：手すり柵、直階段（屋内・屋外）、らせん階段、ガゼボ、スチールラック、ストリートファニチャー（自転車ラック、プランター、車止め）、レーザー切断の 13 種類の模様（丸穴、長穴、ハニカム、ひし形、星、木の葉、波、バブル、放射模様など）の装飾パネル。装飾パネルは門扉や手すり柵のパネルにも使えます。モデルを選んでから寸法を変更してください。 低速なコンピューターでも軽く動作：3D 表示は変化があったときだけ描画し、計算エンジンは必要なときだけ起動します。新しいコマンド「ツール → ディスク容量」：エンジン、処理結果、風景がディスクに占める容量を確認して削除できます。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.188",
+    "version": "1.3.189",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "df327de89143d913f7606303f1c8442b3f702a80a985c92798b139e89077ab07"
+        "sha256": "b1a0da92e49c16fc0ed1385e84ae26f48ddf74c8e0299bfc5b274356f55ab5c9"
       }
     ]
   },

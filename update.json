@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.186",
-  "notes": "From a description, with Google Gemini: write or dictate what to sculpt, Gemini writes the prompt (you can read and change it), draws the pictures and the other three sides, and AutoSculpt 3D builds the 3D model. Metalwork jobs can be asked in words too, typed or dictated. New window grilles with one or two opening leaves, with hinges, lock and bolts. The model and photo searches have been removed.",
+  "latest": "1.3.187",
+  "notes": "Fences with a pedestrian gate: choose its width and position (start, middle or end); the program splits the rest into bays and adds hinges, lock, handles and closer, also in the 3D, the shopping list and the order of work. Six new fences in the catalogue; it can also be asked in words (\"fence 8 m with a pedestrian gate\").",
   "notes_i18n": {
-    "en": "From a description, with Google Gemini: write or dictate what to sculpt, Gemini writes the prompt (you can read and change it), draws the pictures and the other three sides, and AutoSculpt 3D builds the 3D model. Metalwork jobs can be asked in words too, typed or dictated. New window grilles with one or two opening leaves, with hinges, lock and bolts. The model and photo searches have been removed.",
-    "it": "Da una descrizione, con Google Gemini: scrivi o detta cosa scolpire, Gemini scrive il prompt (puoi leggerlo e cambiarlo), disegna le immagini e gli altri tre lati e AutoSculpt 3D costruisce il modello 3D. Anche i lavori di carpenteria si possono chiedere a parole, scritte o dette. Nuove inferriate con una o due ante apribili, con cerniere, serratura e catenacci. Tolte le ricerche di modelli e di foto.",
-    "de": "Aus einer Beschreibung, mit Google Gemini: Schreiben oder diktieren Sie, was entstehen soll; Gemini schreibt den Prompt (Sie können ihn lesen und ändern), zeichnet die Bilder und die anderen drei Seiten, und AutoSculpt 3D erstellt das 3D-Modell. Auch Metallbauarbeiten lassen sich in Worten anfragen, getippt oder diktiert. Neue Fenstergitter mit einem oder zwei Öffnungsflügeln, mit Bändern, Schloss und Riegeln. Die Suche nach Modellen und Fotos wurde entfernt.",
-    "fr": "À partir d'une description, avec Google Gemini : écrivez ou dictez ce qu'il faut sculpter, Gemini écrit le prompt (vous pouvez le lire et le modifier), dessine les images et les trois autres côtés, et AutoSculpt 3D construit le modèle 3D. Les ouvrages de serrurerie peuvent aussi être demandés en mots, tapés ou dictés. Nouvelles grilles à un ou deux vantaux ouvrants, avec paumelles, serrure et verrous. Les recherches de modèles et de photos ont été retirées.",
-    "es": "Desde una descripción, con Google Gemini: escribe o dicta qué esculpir, Gemini escribe el prompt (puedes leerlo y cambiarlo), dibuja las imágenes y los otros tres lados, y AutoSculpt 3D construye el modelo 3D. Los trabajos de cerrajería también se pueden pedir con palabras, escritas o dictadas. Nuevas rejas con una o dos hojas abatibles, con bisagras, cerradura y pasadores. Se han quitado las búsquedas de modelos y de fotos.",
-    "pt": "A partir de uma descrição, com o Google Gemini: escreva ou dite o que esculpir, o Gemini escreve o prompt (você pode ler e mudar), desenha as imagens e os outros três lados, e o AutoSculpt 3D constrói o modelo 3D. Os trabalhos de serralheria também podem ser pedidos em palavras, digitadas ou ditadas. Novas grades com uma ou duas folhas de abrir, com dobradiças, fechadura e ferrolhos. As buscas de modelos e de fotos foram retiradas.",
-    "ja": "説明から、Google Gemini で:彫りたいものを入力または音声入力すると、Gemini がプロンプトを書き(読んで変更できます)、画像と他の 3 面を描き、AutoSculpt 3D が 3D モデルを作ります。金物工事も言葉で(入力または音声で)依頼できます。丁番・錠・フランス落とし付きの片開き/両開きの開閉式面格子を追加。モデルと写真の検索は削除しました。"
+    "en": "Fences with a pedestrian gate: choose its width and position (start, middle or end); the program splits the rest into bays and adds hinges, lock, handles and closer, also in the 3D, the shopping list and the order of work. Six new fences in the catalogue; it can also be asked in words (\"fence 8 m with a pedestrian gate\").",
+    "it": "Recinzioni con cancelletto pedonale: scegli larghezza e posizione (all'inizio, al centro o alla fine); il programma divide il resto in campate e aggiunge cerniere, serratura, maniglie e chiudiporta, anche nel 3D, nella lista della spesa e nell'ordine di costruzione. Sei recinzioni nuove nel catalogo; si può chiedere anche a parole («recinzione di 8 metri con cancelletto pedonale»).",
+    "de": "Zäune mit Gartentür: Breite und Lage wählen (Anfang, Mitte oder Ende); das Programm teilt den Rest in Felder und fügt Bänder, Schloss, Griffe und Schließer hinzu, auch im 3D, in der Einkaufsliste und in der Arbeitsfolge. Sechs neue Zäune im Katalog; auch in Worten anfragbar („Zaun 8 m mit Gartentür“).",
+    "fr": "Clôtures avec portillon : choisissez la largeur et la position (début, milieu ou fin) ; le programme divise le reste en travées et ajoute paumelles, serrure, poignées et ferme-portail, aussi en 3D, dans la liste d'achats et dans l'ordre de fabrication. Six nouvelles clôtures au catalogue ; on peut aussi la demander en mots (« clôture 8 m avec portillon »).",
+    "es": "Vallados con puerta peatonal: elige ancho y posición (al principio, en el centro o al final); el programa divide el resto en tramos y añade bisagras, cerradura, manillas y cierrapuertas, también en el 3D, en la lista de compra y en el orden de fabricación. Seis vallados nuevos en el catálogo; también se puede pedir con palabras («vallado de 8 m con puerta peatonal»).",
+    "pt": "Cercas com portão de pedestre: escolha largura e posição (início, meio ou fim); o programa divide o resto em vãos e acrescenta dobradiças, fechadura, puxadores e mola, também no 3D, na lista de compras e na ordem de fabricação. Seis cercas novas no catálogo; também dá para pedir em palavras («cerca de 8 m com portão de pedestre»).",
+    "ja": "通用門付きフェンス:幅と位置(始端・中央・終端)を選ぶと、残りをスパンに分け、丁番・錠・取っ手・クローザーを追加します(3D、買い物リスト、製作手順にも反映)。カタログに新しいフェンス 6 種。言葉でも依頼できます(「通用門付きフェンス 8 m」)。"
   },
   "history": [
+    {
+      "date": "2026-11-25T16:29:08Z",
+      "version": "1.3.187",
+      "notes": {
+        "en": "Fences with a pedestrian gate: choose its width and position (start, middle or end); the program splits the rest into bays and adds hinges, lock, handles and closer, also in the 3D, the shopping list and the order of work. Six new fences in the catalogue; it can also be asked in words (\"fence 8 m with a pedestrian gate\").",
+        "it": "Recinzioni con cancelletto pedonale: scegli larghezza e posizione (all'inizio, al centro o alla fine); il programma divide il resto in campate e aggiunge cerniere, serratura, maniglie e chiudiporta, anche nel 3D, nella lista della spesa e nell'ordine di costruzione. Sei recinzioni nuove nel catalogo; si può chiedere anche a parole («recinzione di 8 metri con cancelletto pedonale»).",
+        "de": "Zäune mit Gartentür: Breite und Lage wählen (Anfang, Mitte oder Ende); das Programm teilt den Rest in Felder und fügt Bänder, Schloss, Griffe und Schließer hinzu, auch im 3D, in der Einkaufsliste und in der Arbeitsfolge. Sechs neue Zäune im Katalog; auch in Worten anfragbar („Zaun 8 m mit Gartentür“).",
+        "fr": "Clôtures avec portillon : choisissez la largeur et la position (début, milieu ou fin) ; le programme divise le reste en travées et ajoute paumelles, serrure, poignées et ferme-portail, aussi en 3D, dans la liste d'achats et dans l'ordre de fabrication. Six nouvelles clôtures au catalogue ; on peut aussi la demander en mots (« clôture 8 m avec portillon »).",
+        "es": "Vallados con puerta peatonal: elige ancho y posición (al principio, en el centro o al final); el programa divide el resto en tramos y añade bisagras, cerradura, manillas y cierrapuertas, también en el 3D, en la lista de compra y en el orden de fabricación. Seis vallados nuevos en el catálogo; también se puede pedir con palabras («vallado de 8 m con puerta peatonal»).",
+        "pt": "Cercas com portão de pedestre: escolha largura e posição (início, meio ou fim); o programa divide o resto em vãos e acrescenta dobradiças, fechadura, puxadores e mola, também no 3D, na lista de compras e na ordem de fabricação. Seis cercas novas no catálogo; também dá para pedir em palavras («cerca de 8 m com portão de pedestre»).",
+        "ja": "通用門付きフェンス:幅と位置(始端・中央・終端)を選ぶと、残りをスパンに分け、丁番・錠・取っ手・クローザーを追加します(3D、買い物リスト、製作手順にも反映)。カタログに新しいフェンス 6 種。言葉でも依頼できます(「通用門付きフェンス 8 m」)。"
+      }
+    },
     {
       "date": "2026-11-25T15:02:30Z",
       "version": "1.3.186",
@@ -518,28 +531,15 @@
         "pt": "Nova área: Serralheria. Ao iniciar, você escolhe entre Esculturas e Serralheria. A serralheria constrói sob medida portões (de uma ou duas folhas, de correr), grades de janela, marquises, mesas, bancos e estantes, com a lista de corte dos perfis, as barras a encomendar, as peças de chapa em DXF para o laser, o orçamento e uma ficha de trabalho em PDF. Além disso: um modelo deitado de lado agora é reconhecido e pode ser colocado em pé com um clique.",
         "ja": "新しいエリア「金属製作」。起動時に「彫刻」と「金属製作」を選びます。金属製作では、門扉（片開き・両開き・引き戸）、窓格子、庇、テーブル、ベンチ、棚を寸法に合わせて作り、形鋼の切断リスト、注文する定尺、レーザー用 DXF の板金部品、見積り、PDF の作業シートを出力します。また、横倒しのモデルを認識し、ワンクリックで起こせるようになりました。"
       }
-    },
-    {
-      "date": "2026-11-13T06:29:14Z",
-      "version": "1.3.146",
-      "notes": {
-        "en": "Tripo online engine: clearer messages when the service is busy or the account has no credits.",
-        "it": "Motore online Tripo: messaggi più chiari quando il servizio è occupato o l'account non ha crediti.",
-        "de": "Online-Engine Tripo: klarere Meldungen, wenn der Dienst ausgelastet ist oder das Konto kein Guthaben hat.",
-        "fr": "Moteur en ligne Tripo : messages plus clairs quand le service est occupé ou que le compte n'a plus de crédits.",
-        "es": "Motor en línea Tripo: mensajes más claros cuando el servicio está ocupado o la cuenta no tiene créditos.",
-        "pt": "Motor online Tripo: mensagens mais claras quando o serviço está ocupado ou a conta não tem créditos.",
-        "ja": "オンラインエンジン Tripo：サービスが混雑しているときやクレジットが不足しているときのメッセージが分かりやすくなりました。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.186",
+    "version": "1.3.187",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "0af8579cff02519b3b85e8e9720443a69b36b58de7dc25ee49581ccb2540d021"
+        "sha256": "856f3bd81bbc1228fe80a11b429437bd954e48c5023172bd3d334587dbe4b6c2"
       }
     ]
   },

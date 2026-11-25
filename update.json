@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.187",
-  "notes": "Fences with a pedestrian gate: choose its width and position (start, middle or end); the program splits the rest into bays and adds hinges, lock, handles and closer, also in the 3D, the shopping list and the order of work. Six new fences in the catalogue; it can also be asked in words (\"fence 8 m with a pedestrian gate\").",
+  "latest": "1.3.188",
+  "notes": "Gates with a pedestrian gate beside them, swing or sliding: the program adds the third post, the leaf with hinges, lock, handles and closer, in the 3D, the lists and the order of work. Six new gates in the catalogue; \"driveway gate 4 m with a pedestrian gate\" works in words too. The parts of the pedestrian gate now have their names in the cutting list.",
   "notes_i18n": {
-    "en": "Fences with a pedestrian gate: choose its width and position (start, middle or end); the program splits the rest into bays and adds hinges, lock, handles and closer, also in the 3D, the shopping list and the order of work. Six new fences in the catalogue; it can also be asked in words (\"fence 8 m with a pedestrian gate\").",
-    "it": "Recinzioni con cancelletto pedonale: scegli larghezza e posizione (all'inizio, al centro o alla fine); il programma divide il resto in campate e aggiunge cerniere, serratura, maniglie e chiudiporta, anche nel 3D, nella lista della spesa e nell'ordine di costruzione. Sei recinzioni nuove nel catalogo; si può chiedere anche a parole («recinzione di 8 metri con cancelletto pedonale»).",
-    "de": "Zäune mit Gartentür: Breite und Lage wählen (Anfang, Mitte oder Ende); das Programm teilt den Rest in Felder und fügt Bänder, Schloss, Griffe und Schließer hinzu, auch im 3D, in der Einkaufsliste und in der Arbeitsfolge. Sechs neue Zäune im Katalog; auch in Worten anfragbar („Zaun 8 m mit Gartentür“).",
-    "fr": "Clôtures avec portillon : choisissez la largeur et la position (début, milieu ou fin) ; le programme divise le reste en travées et ajoute paumelles, serrure, poignées et ferme-portail, aussi en 3D, dans la liste d'achats et dans l'ordre de fabrication. Six nouvelles clôtures au catalogue ; on peut aussi la demander en mots (« clôture 8 m avec portillon »).",
-    "es": "Vallados con puerta peatonal: elige ancho y posición (al principio, en el centro o al final); el programa divide el resto en tramos y añade bisagras, cerradura, manillas y cierrapuertas, también en el 3D, en la lista de compra y en el orden de fabricación. Seis vallados nuevos en el catálogo; también se puede pedir con palabras («vallado de 8 m con puerta peatonal»).",
-    "pt": "Cercas com portão de pedestre: escolha largura e posição (início, meio ou fim); o programa divide o resto em vãos e acrescenta dobradiças, fechadura, puxadores e mola, também no 3D, na lista de compras e na ordem de fabricação. Seis cercas novas no catálogo; também dá para pedir em palavras («cerca de 8 m com portão de pedestre»).",
-    "ja": "通用門付きフェンス:幅と位置(始端・中央・終端)を選ぶと、残りをスパンに分け、丁番・錠・取っ手・クローザーを追加します(3D、買い物リスト、製作手順にも反映)。カタログに新しいフェンス 6 種。言葉でも依頼できます(「通用門付きフェンス 8 m」)。"
+    "en": "Gates with a pedestrian gate beside them, swing or sliding: the program adds the third post, the leaf with hinges, lock, handles and closer, in the 3D, the lists and the order of work. Six new gates in the catalogue; \"driveway gate 4 m with a pedestrian gate\" works in words too. The parts of the pedestrian gate now have their names in the cutting list.",
+    "it": "Cancelli con cancelletto pedonale accanto, a battente o scorrevoli: il programma aggiunge il terzo pilastro, l'anta con cerniere, serratura, maniglie e chiudiporta, nel 3D, nelle liste e nell'ordine di costruzione. Sei cancelli nuovi nel catalogo; funziona anche a parole («cancello carraio scorrevole 4 m con pedonale»). I pezzi del cancelletto ora hanno il loro nome nella distinta di taglio.",
+    "de": "Tore mit Gartentür daneben, Dreh- oder Schiebetor: das Programm fügt den dritten Pfosten und den Flügel mit Bändern, Schloss, Griffen und Schließer hinzu, im 3D, in den Listen und in der Arbeitsfolge. Sechs neue Tore im Katalog; auch in Worten („Einfahrtstor 4 m mit Gartentür“). Die Teile der Gartentür haben jetzt ihren Namen in der Zuschnittliste.",
+    "fr": "Portails avec portillon à côté, battants ou coulissants : le programme ajoute le troisième poteau et le vantail avec paumelles, serrure, poignées et ferme-portail, en 3D, dans les listes et dans l'ordre de fabrication. Six nouveaux portails au catalogue ; aussi en mots (« portail 4 m avec portillon »). Les pièces du portillon ont maintenant leur nom dans la liste de débit.",
+    "es": "Puertas con puerta peatonal al lado, batientes o correderas: el programa añade el tercer poste y la hoja con bisagras, cerradura, manillas y cierrapuertas, en el 3D, en las listas y en el orden de fabricación. Seis puertas nuevas en el catálogo; también con palabras («puerta de garaje 4 m con puerta peatonal»). Las piezas de la puerta peatonal tienen ahora su nombre en la lista de corte.",
+    "pt": "Portões com portão de pedestre ao lado, de abrir ou de correr: o programa acrescenta o terceiro poste e a folha com dobradiças, fechadura, puxadores e mola, no 3D, nas listas e na ordem de fabricação. Seis portões novos no catálogo; também em palavras («portão de garagem 4 m com portão de pedestre»). As peças do portão de pedestre agora têm nome na lista de corte.",
+    "ja": "横に通用門付きの門扉(開き戸・引き戸):3 本目の支柱と、丁番・錠・取っ手・クローザー付きの扉を追加し、3D、各リスト、製作手順に反映します。カタログに新しい門扉 6 種。言葉でも依頼できます。通用門の部材は切断リストに名前が表示されるようになりました。"
   },
   "history": [
+    {
+      "date": "2026-11-25T22:45:29Z",
+      "version": "1.3.188",
+      "notes": {
+        "en": "Gates with a pedestrian gate beside them, swing or sliding: the program adds the third post, the leaf with hinges, lock, handles and closer, in the 3D, the lists and the order of work. Six new gates in the catalogue; \"driveway gate 4 m with a pedestrian gate\" works in words too. The parts of the pedestrian gate now have their names in the cutting list.",
+        "it": "Cancelli con cancelletto pedonale accanto, a battente o scorrevoli: il programma aggiunge il terzo pilastro, l'anta con cerniere, serratura, maniglie e chiudiporta, nel 3D, nelle liste e nell'ordine di costruzione. Sei cancelli nuovi nel catalogo; funziona anche a parole («cancello carraio scorrevole 4 m con pedonale»). I pezzi del cancelletto ora hanno il loro nome nella distinta di taglio.",
+        "de": "Tore mit Gartentür daneben, Dreh- oder Schiebetor: das Programm fügt den dritten Pfosten und den Flügel mit Bändern, Schloss, Griffen und Schließer hinzu, im 3D, in den Listen und in der Arbeitsfolge. Sechs neue Tore im Katalog; auch in Worten („Einfahrtstor 4 m mit Gartentür“). Die Teile der Gartentür haben jetzt ihren Namen in der Zuschnittliste.",
+        "fr": "Portails avec portillon à côté, battants ou coulissants : le programme ajoute le troisième poteau et le vantail avec paumelles, serrure, poignées et ferme-portail, en 3D, dans les listes et dans l'ordre de fabrication. Six nouveaux portails au catalogue ; aussi en mots (« portail 4 m avec portillon »). Les pièces du portillon ont maintenant leur nom dans la liste de débit.",
+        "es": "Puertas con puerta peatonal al lado, batientes o correderas: el programa añade el tercer poste y la hoja con bisagras, cerradura, manillas y cierrapuertas, en el 3D, en las listas y en el orden de fabricación. Seis puertas nuevas en el catálogo; también con palabras («puerta de garaje 4 m con puerta peatonal»). Las piezas de la puerta peatonal tienen ahora su nombre en la lista de corte.",
+        "pt": "Portões com portão de pedestre ao lado, de abrir ou de correr: o programa acrescenta o terceiro poste e a folha com dobradiças, fechadura, puxadores e mola, no 3D, nas listas e na ordem de fabricação. Seis portões novos no catálogo; também em palavras («portão de garagem 4 m com portão de pedestre»). As peças do portão de pedestre agora têm nome na lista de corte.",
+        "ja": "横に通用門付きの門扉(開き戸・引き戸):3 本目の支柱と、丁番・錠・取っ手・クローザー付きの扉を追加し、3D、各リスト、製作手順に反映します。カタログに新しい門扉 6 種。言葉でも依頼できます。通用門の部材は切断リストに名前が表示されるようになりました。"
+      }
+    },
     {
       "date": "2026-11-25T16:29:08Z",
       "version": "1.3.187",
@@ -518,28 +531,15 @@
         "pt": "A Serralheria agora abre com um catálogo: um índice único por tipo de trabalho, com a imagem de cada modelo. Novidades: guarda-corpos, escadas retas (internas e externas), escadas caracol, gazebos, estanterias, mobiliário urbano (bicicletários, floreiras, balizadores) e chapas ornamentais com 13 padrões cortados a laser (furos, oblongos, favo de mel, losangos, estrelas, folhas, ondas, bolhas, raios…), também como fechamento de portões e guarda-corpos. Escolha um modelo e depois altere as medidas. Mais leve em computadores lentos: a vista 3D só é redesenhada quando algo muda e o motor de cálculo só inicia quando é preciso. Novo comando Ferramentas → Espaço em disco: veja o que o programa guarda no disco (motores, resultados, paisagens) e remova.",
         "ja": "金属製作はカタログから始まるようになりました。仕事の種類ごとの一覧に、各モデルの画像が並びます。新しく追加：手すり柵、直階段（屋内・屋外）、らせん階段、ガゼボ、スチールラック、ストリートファニチャー（自転車ラック、プランター、車止め）、レーザー切断の 13 種類の模様（丸穴、長穴、ハニカム、ひし形、星、木の葉、波、バブル、放射模様など）の装飾パネル。装飾パネルは門扉や手すり柵のパネルにも使えます。モデルを選んでから寸法を変更してください。 低速なコンピューターでも軽く動作：3D 表示は変化があったときだけ描画し、計算エンジンは必要なときだけ起動します。新しいコマンド「ツール → ディスク容量」：エンジン、処理結果、風景がディスクに占める容量を確認して削除できます。"
       }
-    },
-    {
-      "date": "2026-11-13T09:56:57Z",
-      "version": "1.3.147",
-      "notes": {
-        "en": "New area: Metalwork. At the start you choose between Sculptures and Metalwork. Metalwork builds gates (one or two leaves, sliding), window grilles, canopies, tables, benches and shelving units to measure, with the cutting list of the profiles, the bars to order, the sheet parts as DXF for the laser, the quote and a work sheet in PDF. Also: a model lying on its side is now recognised and can be stood up with one click.",
-        "it": "Nuova area: Carpenteria. All'avvio scegli tra Sculture e Carpenteria. La carpenteria costruisce su misura cancelli (a una o due ante, scorrevoli), inferriate, pensiline, tavoli, panche e scaffali, con distinta di taglio dei profili, barre da ordinare, parti in lamiera in DXF per il laser, preventivo e scheda di lavorazione in PDF. Inoltre: un modello sdraiato su un fianco ora viene riconosciuto e si raddrizza con un clic.",
-        "de": "Neuer Bereich: Metallbau. Beim Start wählen Sie zwischen Skulpturen und Metallbau. Der Metallbau erstellt Tore (ein oder zwei Flügel, Schiebetor), Fenstergitter, Vordächer, Tische, Bänke und Regale nach Maß, mit Zuschnittliste der Profile, zu bestellenden Stangen, Blechteilen als DXF für den Laser, Angebot und Arbeitsblatt als PDF. Außerdem: Ein auf der Seite liegendes Modell wird jetzt erkannt und mit einem Klick aufgerichtet.",
-        "fr": "Nouvel espace : Métallerie. Au démarrage, vous choisissez entre Sculptures et Métallerie. La métallerie fabrique sur mesure portails (un ou deux vantaux, coulissants), grilles de fenêtre, auvents, tables, bancs et étagères, avec la liste de débit des profilés, les barres à commander, les pièces en tôle en DXF pour le laser, le devis et une fiche de fabrication en PDF. De plus : un modèle couché sur le côté est maintenant reconnu et se redresse d'un clic.",
-        "es": "Nueva área: Carpintería metálica. Al iniciar eliges entre Esculturas y Carpintería metálica. La carpintería metálica construye a medida cancelas (de una o dos hojas, correderas), rejas de ventana, marquesinas, mesas, bancos y estanterías, con la lista de corte de los perfiles, las barras que pedir, las piezas de chapa en DXF para el láser, el presupuesto y una hoja de trabajo en PDF. Además: un modelo tumbado de lado ahora se reconoce y se endereza con un clic.",
-        "pt": "Nova área: Serralheria. Ao iniciar, você escolhe entre Esculturas e Serralheria. A serralheria constrói sob medida portões (de uma ou duas folhas, de correr), grades de janela, marquises, mesas, bancos e estantes, com a lista de corte dos perfis, as barras a encomendar, as peças de chapa em DXF para o laser, o orçamento e uma ficha de trabalho em PDF. Além disso: um modelo deitado de lado agora é reconhecido e pode ser colocado em pé com um clique.",
-        "ja": "新しいエリア「金属製作」。起動時に「彫刻」と「金属製作」を選びます。金属製作では、門扉（片開き・両開き・引き戸）、窓格子、庇、テーブル、ベンチ、棚を寸法に合わせて作り、形鋼の切断リスト、注文する定尺、レーザー用 DXF の板金部品、見積り、PDF の作業シートを出力します。また、横倒しのモデルを認識し、ワンクリックで起こせるようになりました。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.187",
+    "version": "1.3.188",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "856f3bd81bbc1228fe80a11b429437bd954e48c5023172bd3d334587dbe4b6c2"
+        "sha256": "df327de89143d913f7606303f1c8442b3f702a80a985c92798b139e89077ab07"
       }
     ]
   },

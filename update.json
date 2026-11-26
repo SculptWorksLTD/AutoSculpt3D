@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.198",
-  "notes": "Lighter: everything about generating 3D models now lives only in AutoSculpt Studio.",
+  "latest": "1.3.199",
+  "notes": "The sculpture start page is simpler: the catalogue of ready-made shapes has been removed.",
   "notes_i18n": {
-    "en": "Lighter: everything about generating 3D models now lives only in AutoSculpt Studio.",
-    "it": "Più leggero: tutto ciò che riguarda la creazione dei modelli 3D ora sta solo in AutoSculpt Studio.",
-    "de": "Schlanker: alles rund um das Erstellen von 3D-Modellen liegt jetzt nur noch in AutoSculpt Studio.",
-    "fr": "Plus léger : tout ce qui concerne la création des modèles 3D se trouve maintenant uniquement dans AutoSculpt Studio.",
-    "es": "Más ligero: todo lo relacionado con la creación de modelos 3D está ahora solo en AutoSculpt Studio.",
-    "pt": "Mais leve: tudo o que se refere à criação de modelos 3D agora fica só no AutoSculpt Studio.",
-    "ja": "軽量化：3D モデル作成に関わる機能はすべて AutoSculpt Studio にまとめました。"
+    "en": "The sculpture start page is simpler: the catalogue of ready-made shapes has been removed.",
+    "it": "La pagina iniziale delle sculture è più semplice: tolto il catalogo delle forme pronte.",
+    "de": "Die Startseite der Skulpturen ist einfacher: Der Katalog der fertigen Formen wurde entfernt.",
+    "fr": "La page d'accueil des sculptures est plus simple : le catalogue des formes prêtes a été retiré.",
+    "es": "La página de inicio de las esculturas es más sencilla: se ha quitado el catálogo de formas listas.",
+    "pt": "A página inicial das esculturas ficou mais simples: o catálogo de formas prontas foi removido.",
+    "ja": "彫刻のスタートページをシンプルにしました。既製の形のカタログを削除しました。"
   },
   "history": [
+    {
+      "date": "2026-11-26T17:31:55Z",
+      "version": "1.3.199",
+      "notes": {
+        "en": "The sculpture start page is simpler: the catalogue of ready-made shapes has been removed.",
+        "it": "La pagina iniziale delle sculture è più semplice: tolto il catalogo delle forme pronte.",
+        "de": "Die Startseite der Skulpturen ist einfacher: Der Katalog der fertigen Formen wurde entfernt.",
+        "fr": "La page d'accueil des sculptures est plus simple : le catalogue des formes prêtes a été retiré.",
+        "es": "La página de inicio de las esculturas es más sencilla: se ha quitado el catálogo de formas listas.",
+        "pt": "A página inicial das esculturas ficou mais simples: o catálogo de formas prontas foi removido.",
+        "ja": "彫刻のスタートページをシンプルにしました。既製の形のカタログを削除しました。"
+      }
+    },
     {
       "date": "2026-11-26T17:02:59Z",
       "version": "1.3.198",
@@ -518,28 +531,15 @@
         "pt": "O desenho 2D agora funciona também dentro das esculturas e da serralharia: na vista das chapas, «Editar no desenho 2D» abre uma chapa com cortes, rasgos, dobras e marcações; acrescente furos, textos ou alterações e aplique: o DXF para o laser e o projeto guardam-nas.",
         "ja": "2D図面が彫刻と金物の中でも使えるようになりました。板材ビューの「2D図面で編集」で切断・長穴・曲げ・刻印の線ごと板を開き、穴や文字や変更を加えて適用すると、レーザー用DXFとプロジェクトに反映されます。"
       }
-    },
-    {
-      "date": "2026-11-18T23:32:27Z",
-      "version": "1.3.161",
-      "notes": {
-        "en": "New area: 2D drawing (CAD) for laser parts. Draw lines, circles, arcs, polylines, slots, texts and dimensions with measures typed in and snaps; move, copy, rotate, mirror, offset, trim and fillet. Open DXF and SVG files, see parts, cut length and cost, nest on the sheet and export the DXF. Ten ready-made parts to start from.",
-        "it": "Nuova area: Disegno 2D (CAD) per i pezzi laser. Disegna linee, cerchi, archi, polilinee, asole, testi e quote con le misure scritte a mano e gli agganci; sposta, copia, ruota, specchia, offset, taglia e raccorda. Apre file DXF e SVG, mostra pezzi, metri di taglio e costo, annida sulla lamiera ed esporta il DXF. Dieci pezzi pronti da cui partire.",
-        "de": "Neuer Bereich: 2D-Zeichnung (CAD) für Laserteile. Linien, Kreise, Bögen, Polylinien, Langlöcher, Texte und Bemaßungen mit eingetippten Maßen und Fang zeichnen; verschieben, kopieren, drehen, spiegeln, versetzen, stutzen und abrunden. Öffnet DXF und SVG, zeigt Teile, Schnittlänge und Kosten, verschachtelt auf dem Blech und exportiert das DXF. Zehn fertige Teile zum Start.",
-        "fr": "Nouvelle zone : Dessin 2D (CAO) pour les pièces laser. Dessinez lignes, cercles, arcs, polylignes, boutonnières, textes et cotes avec des mesures tapées et l’accrochage ; déplacer, copier, rotation, symétrie, décalage, ajuster et raccord. Ouvre les fichiers DXF et SVG, montre pièces, longueur de coupe et coût, imbrique sur la tôle et exporte le DXF. Dix pièces prêtes pour commencer.",
-        "es": "Nueva área: Dibujo 2D (CAD) para piezas láser. Dibuja líneas, círculos, arcos, polilíneas, ojales, textos y cotas con medidas escritas y enganches; mover, copiar, girar, simetría, desfase, recortar y empalmar. Abre archivos DXF y SVG, muestra piezas, longitud de corte y coste, anida en la chapa y exporta el DXF. Diez piezas listas para empezar.",
-        "pt": "Nova área: Desenho 2D (CAD) para peças a laser. Desenhe linhas, círculos, arcos, polilinhas, rasgos, textos e cotas com medidas digitadas e encaixes; mover, copiar, girar, espelhar, deslocar, aparar e concordar. Abre arquivos DXF e SVG, mostra peças, comprimento de corte e custo, encaixa na chapa e exporta o DXF. Dez peças prontas para começar.",
-        "ja": "新エリア：レーザー部品用の2D図面 (CAD)。数値入力とスナップで線・円・円弧・ポリライン・長穴・文字・寸法を作図し、移動・コピー・回転・鏡像・オフセット・トリム・フィレットができます。DXFとSVGを開き、部品数・切断長・コストを表示、板材にネスティングしてDXFを出力します。すぐ使える既成部品10種類付き。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.198",
+    "version": "1.3.199",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "3e5e2f4706517c2d3ee122bba8969cb14abc81d96067c034afbb4041cf1f6c63"
+        "sha256": "f1e872a631ce00b6c8ce6fa53ae0d44a09d27c5f6796e35146f17c29b766d236"
       }
     ]
   },

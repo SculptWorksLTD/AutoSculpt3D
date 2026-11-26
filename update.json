@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.195",
-  "notes": "Gemini: when a model is overloaded the program switches by itself to the other models, trying again every 2 seconds for up to two minutes.",
+  "latest": "1.3.196",
+  "notes": "Gemini works like Voice2Code: it uses the models your key really has, and if one does not start answering within a few seconds it moves to the next one at once. No more waiting minutes for a timeout.",
   "notes_i18n": {
-    "en": "Gemini: when a model is overloaded the program switches by itself to the other models, trying again every 2 seconds for up to two minutes.",
-    "it": "Gemini: se un modello è sovraccarico il programma passa da solo agli altri modelli e riprova ogni 2 secondi, fino a due minuti.",
-    "de": "Gemini: Ist ein Modell überlastet, wechselt das Programm selbst zu den anderen Modellen und versucht es alle 2 Sekunden erneut, bis zu zwei Minuten lang.",
-    "fr": "Gemini : si un modèle est surchargé, le programme passe tout seul aux autres modèles et réessaie toutes les 2 secondes, pendant deux minutes au maximum.",
-    "es": "Gemini: si un modelo está saturado, el programa pasa solo a los otros modelos y vuelve a intentarlo cada 2 segundos, hasta dos minutos.",
-    "pt": "Gemini: se um modelo estiver sobrecarregado, o programa passa sozinho para os outros modelos e tenta de novo a cada 2 segundos, por até dois minutos.",
-    "ja": "Gemini：モデルが混雑しているときは、プログラムが自動で他のモデルに切り替え、最大2分間、2秒ごとに再試行します。"
+    "en": "Gemini works like Voice2Code: it uses the models your key really has, and if one does not start answering within a few seconds it moves to the next one at once. No more waiting minutes for a timeout.",
+    "it": "Gemini funziona come Voice2Code: usa i modelli che la tua chiave ha davvero e, se uno non inizia a rispondere entro pochi secondi, passa subito al successivo. Niente più attese di minuti fino al timeout.",
+    "de": "Gemini arbeitet wie Voice2Code: Es nutzt die Modelle, die dein Schlüssel wirklich hat, und wenn eines nicht innerhalb weniger Sekunden antwortet, wechselt es sofort zum nächsten. Kein minutenlanges Warten mehr.",
+    "fr": "Gemini fonctionne comme Voice2Code : il utilise les modèles réellement disponibles pour ta clé et, si l'un ne commence pas à répondre en quelques secondes, il passe aussitôt au suivant. Fini les minutes d'attente.",
+    "es": "Gemini funciona como Voice2Code: usa los modelos que tu clave tiene de verdad y, si uno no empieza a responder en pocos segundos, pasa enseguida al siguiente. Se acabaron los minutos de espera.",
+    "pt": "O Gemini funciona como no Voice2Code: usa os modelos que a sua chave realmente tem e, se um não começar a responder em poucos segundos, passa logo para o próximo. Chega de esperar minutos.",
+    "ja": "Gemini は Voice2Code と同じ方式になりました。キーで実際に使えるモデルを使い、数秒以内に応答が始まらなければすぐ次のモデルに切り替えます。タイムアウトまで何分も待つことはありません。"
   },
   "history": [
+    {
+      "date": "2026-11-26T14:45:44Z",
+      "version": "1.3.196",
+      "notes": {
+        "en": "Gemini works like Voice2Code: it uses the models your key really has, and if one does not start answering within a few seconds it moves to the next one at once. No more waiting minutes for a timeout.",
+        "it": "Gemini funziona come Voice2Code: usa i modelli che la tua chiave ha davvero e, se uno non inizia a rispondere entro pochi secondi, passa subito al successivo. Niente più attese di minuti fino al timeout.",
+        "de": "Gemini arbeitet wie Voice2Code: Es nutzt die Modelle, die dein Schlüssel wirklich hat, und wenn eines nicht innerhalb weniger Sekunden antwortet, wechselt es sofort zum nächsten. Kein minutenlanges Warten mehr.",
+        "fr": "Gemini fonctionne comme Voice2Code : il utilise les modèles réellement disponibles pour ta clé et, si l'un ne commence pas à répondre en quelques secondes, il passe aussitôt au suivant. Fini les minutes d'attente.",
+        "es": "Gemini funciona como Voice2Code: usa los modelos que tu clave tiene de verdad y, si uno no empieza a responder en pocos segundos, pasa enseguida al siguiente. Se acabaron los minutos de espera.",
+        "pt": "O Gemini funciona como no Voice2Code: usa os modelos que a sua chave realmente tem e, se um não começar a responder em poucos segundos, passa logo para o próximo. Chega de esperar minutos.",
+        "ja": "Gemini は Voice2Code と同じ方式になりました。キーで実際に使えるモデルを使い、数秒以内に応答が始まらなければすぐ次のモデルに切り替えます。タイムアウトまで何分も待つことはありません。"
+      }
+    },
     {
       "date": "2026-11-26T14:10:09Z",
       "version": "1.3.195",
@@ -518,28 +531,15 @@
         "pt": "O programa não envia mais nada sozinho: foram removidos o diário anônimo ao fechar e as notas de uso. Só é enviado um relato que você mesmo escreve (Ajuda → Relatar um problema ou uma ideia).",
         "ja": "プログラムが自動で何かを送信することはなくなりました。終了時の匿名ログと使用メモを削除しました。送信されるのは、ご自身で書いた報告（ヘルプ → 問題やアイデアを報告）だけです。"
       }
-    },
-    {
-      "date": "2026-11-18T22:03:55Z",
-      "version": "1.3.158",
-      "notes": {
-        "en": "New: Gallery of ready-made models. In Sculptures you find more than 3,500 models, already checked one by one, in 28 groups (animals, birds, figures, mythology, objects, vehicles…): click one and it becomes your sculpture.",
-        "it": "Novità: Galleria di modelli pronti. In Sculture trovi più di 3.500 modelli, già controllati uno per uno, in 28 gruppi (animali, uccelli, figure, mitologia, oggetti, veicoli…): ne clicchi uno e diventa la tua scultura.",
-        "de": "Neu: Galerie fertiger Modelle. Unter Skulpturen findest du über 3.500 einzeln geprüfte Modelle in 28 Gruppen (Tiere, Vögel, Figuren, Mythologie, Objekte, Fahrzeuge…): ein Klick und es wird deine Skulptur.",
-        "fr": "Nouveau : galerie de modèles prêts. Dans Sculptures, plus de 3 500 modèles vérifiés un par un, en 28 groupes (animaux, oiseaux, personnages, mythologie, objets, véhicules…) : un clic et il devient votre sculpture.",
-        "es": "Novedad: galería de modelos listos. En Esculturas hay más de 3.500 modelos revisados uno por uno, en 28 grupos (animales, aves, figuras, mitología, objetos, vehículos…): haz clic y se convierte en tu escultura.",
-        "pt": "Novidade: galeria de modelos prontos. Em Esculturas há mais de 3.500 modelos verificados um a um, em 28 grupos (animais, aves, figuras, mitologia, objetos, veículos…): clique e ele vira a sua escultura.",
-        "ja": "新機能：完成モデルのギャラリー。「彫刻」に、一つずつ確認済みの3,500以上のモデルが28のグループ（動物、鳥、人物、神話、オブジェ、乗り物…）で並んでいます。クリックするとあなたの彫刻になります。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.195",
+    "version": "1.3.196",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "1fa455ad7e0b62b869c289b1dc030699e1ff0e84841dfc03c7bf5ed4da9a8e6c"
+        "sha256": "2bb60bb91a6ec897bf4f1e4ba520f4744ca9913b3eae8226a558ba95e835d457"
       }
     ]
   },
@@ -574,17 +574,17 @@
     {
       "id": "gemini",
       "name": "Google Gemini",
-      "version": "1.1.2",
+      "version": "1.1.3",
       "files": [
         {
           "path": "engine.json",
           "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/gemini/engine.json",
-          "sha256": "8727c21c055222f02b7956a4be02a8492996a47e2bf00ef7a14a61783895e7cf"
+          "sha256": "8c25cd6667744bcfe048c190f62608becaf1c6d18b706614ceec92ce7fe3c6ce"
         },
         {
           "path": "runner.py",
           "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/gemini/runner.py",
-          "sha256": "f9969f5a856eac4ba6de40f067d6dd840973c270fedfe2bf0840933cf216aebb"
+          "sha256": "3287196f7519caaab7fb673de6f0f9e359ab6fafe7b4307497a0445b737a2b20"
         },
         {
           "path": "prompts.json",

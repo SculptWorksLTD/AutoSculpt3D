@@ -3,7 +3,9 @@ import argparse
 import base64
 import json
 import os
+import http.client
 import shutil
+import socket
 import sys
 import threading
 import time
@@ -14,6 +16,7 @@ SERVICE = 'Gemini'
 IMAGE_MODELS = ['gemini-nano-banana-2.1', 'gemini-3.1-flash-image', 'gemini-2.5-flash-image']
 TEXT_MODELS = ['gemini-3.8-flash', 'gemini-3.6-flash', 'gemini-2.5-flash']
 HERE = os.path.dirname(os.path.abspath(__file__))
+SAY_LOCK = threading.Lock()
 
 def say(kind, *parts, **values):
     line = ' '.join([kind, *[str(p) for p in parts]])
@@ -37,41 +40,68 @@ class Busy(Exception):
         self.quota = quota
 RETRY_FOR = float(os.environ.get('AUTOSCULPT_GEMINI_RETRY', '120'))
 RETRY_PAUSE = float(os.environ.get('AUTOSCULPT_GEMINI_PAUSE', '2'))
+TEXT_WAIT = float(os.environ.get('AUTOSCULPT_GEMINI_TEXT_WAIT', '45'))
+IMAGE_WAIT = float(os.environ.get('AUTOSCULPT_GEMINI_IMAGE_WAIT', '120'))
 
-def post(model, key, body, timeout=180):
-    url = f'{API}/v1beta/models/{model}:generateContent'
-    req = urllib.request.Request(url, data=json.dumps(body).encode(), method='POST', headers={'x-goog-api-key': key, 'Content-Type': 'application/json', 'User-Agent': 'AutoSculpt3D'})
+def slow_network(e):
+    if isinstance(e, (socket.timeout, TimeoutError, ConnectionError, http.client.HTTPException)):
+        return True
+    r = getattr(e, 'reason', None)
+    return isinstance(r, (socket.timeout, TimeoutError, ConnectionError)) or 'timed out' in str(r or e).lower()
+
+class BadRequest(Fail):
+    pass
+
+def http_fail(model, code, raw):
     try:
-        with urllib.request.urlopen(req, timeout=timeout) as r:
-            return json.loads(r.read() or b'{}')
-    except urllib.error.HTTPError as e:
-        raw = e.read().decode('utf-8', 'replace')[:600]
-        try:
-            err = json.loads(raw).get('error') or {}
-        except ValueError:
-            err = {}
-        msg, status = (str(err.get('message') or raw)[:300], str(err.get('status') or ''))
-        if e.code == 404 or status == 'NOT_FOUND':
-            raise NoModel(model)
-        if e.code in (401, 403) or 'API key not valid' in msg or status in ('UNAUTHENTICATED', 'PERMISSION_DENIED'):
-            raise Fail('{service} refused the API key: check it in Tools → Engines and online services', service=SERVICE)
-        if e.code == 429 or status == 'RESOURCE_EXHAUSTED':
-            raise Busy(quota=True)
-        if e.code in (500, 502, 503, 504) or status in ('UNAVAILABLE', 'INTERNAL', 'DEADLINE_EXCEEDED'):
-            raise Busy()
-        if status == 'FAILED_PRECONDITION' or 'billing' in msg.lower():
-            raise Fail('{service} needs billing enabled on your Google AI Studio project to draw pictures', service=SERVICE)
-        raise Fail('{service} error {code}: {detail}', service=SERVICE, code=e.code, detail=msg)
-    except urllib.error.URLError as e:
-        raise Fail('Cannot reach {service}: check the internet connection ({detail})', service=SERVICE, detail=str(e.reason))
+        err = json.loads(raw).get('error') or {}
+    except (ValueError, AttributeError):
+        err = {}
+    msg, status = (str(err.get('message') or raw)[:300], str(err.get('status') or ''))
+    if code == 404 or status == 'NOT_FOUND':
+        return NoModel(model)
+    if code in (401, 403) or 'API key not valid' in msg or status in ('UNAUTHENTICATED', 'PERMISSION_DENIED'):
+        return Fail('{service} refused the API key: check it in Tools → Engines and online services', service=SERVICE)
+    if code == 429 or status == 'RESOURCE_EXHAUSTED':
+        return Busy(quota=True)
+    if code in (500, 502, 503, 504) or status in ('UNAVAILABLE', 'INTERNAL', 'DEADLINE_EXCEEDED'):
+        return Busy()
+    if status == 'FAILED_PRECONDITION' or 'billing' in msg.lower():
+        return Fail('{service} needs billing enabled on your Google AI Studio project to draw pictures', service=SERVICE)
+    if code == 400:
+        return BadRequest('{service} error {code}: {detail}', service=SERVICE, code=code, detail=msg)
+    return Fail('{service} error {code}: {detail}', service=SERVICE, code=code, detail=msg)
 
-def ask(models, key, body, timeout=180):
-    end, usable, quota = (time.time() + RETRY_FOR, list(models), False)
+def open_url(url, key, body, timeout):
+    req = urllib.request.Request(url, data=json.dumps(body).encode(), method='POST', headers={'x-goog-api-key': key, 'Content-Type': 'application/json', 'User-Agent': 'AutoSculpt3D'})
+    return urllib.request.urlopen(req, timeout=timeout)
+
+def net_error(e, model):
+    if isinstance(e, urllib.error.HTTPError):
+        return http_fail(model, e.code, e.read().decode('utf-8', 'replace')[:600])
+    if isinstance(e, urllib.error.URLError) and (not slow_network(e)):
+        return Fail('Cannot reach {service}: check the internet connection ({detail})', service=SERVICE, detail=str(e.reason))
+    if isinstance(e, (OSError, http.client.HTTPException, ValueError)):
+        return Busy()
+    return e
+
+def post(model, key, body, timeout=TEXT_WAIT):
+    try:
+        with open_url(f'{API}/v1beta/models/{model}:generateContent', key, body, timeout) as r:
+            return json.loads(r.read() or b'{}')
+    except Exception as e:
+        raise net_error(e, model)
+
+def ask(models, key, body, timeout=TEXT_WAIT):
+    end, usable, quota = (time.time() + RETRY_FOR + timeout, list(models), False)
     while True:
         busy = False
         for m in list(usable):
+            left = end - time.time()
+            if left < 5 and busy:
+                break
             try:
-                return post(m, key, body, timeout)
+                return post(m, key, body, max(min(10, timeout), min(timeout, left)))
             except NoModel:
                 usable.remove(m)
             except Busy as b:
@@ -81,9 +111,140 @@ def ask(models, key, body, timeout=180):
         if not busy or time.time() + RETRY_PAUSE > end:
             break
         time.sleep(RETRY_PAUSE)
+    raise busy_fail(quota)
+
+def busy_fail(quota):
     if quota:
-        raise Fail('{service} has reached the limit of your account: wait a minute, or enable billing in Google AI Studio', service=SERVICE)
-    raise Fail('{service} is busy: try again in a minute', service=SERVICE)
+        return Fail('{service} has reached the limit of your account: wait a minute, or enable billing in Google AI Studio', service=SERVICE)
+    return Fail('{service} is busy: try again in a minute', service=SERVICE)
+_LISTED = {}
+_LIST_LOCK = threading.Lock()
+
+def listed_models(key):
+    with _LIST_LOCK:
+        return _listed(key)
+
+def _listed(key):
+    if 'all' not in _LISTED:
+        names = []
+        try:
+            req = urllib.request.Request(f'{API}/v1beta/models?pageSize=200', headers={'x-goog-api-key': key, 'User-Agent': 'AutoSculpt3D'})
+            with urllib.request.urlopen(req, timeout=10) as r:
+                for m in json.loads(r.read() or b'{}').get('models') or []:
+                    name = str(m.get('name') or '').replace('models/', '', 1)
+                    if name.startswith('gemini-') and 'generateContent' in (m.get('supportedGenerationMethods') or []):
+                        names.append(name)
+        except Exception:
+            pass
+        _LISTED['all'] = names
+    return _LISTED['all']
+
+def version_of(name):
+    for t in name.split('-')[1:]:
+        try:
+            return float(t)
+        except ValueError:
+            pass
+    return 0.0
+
+def text_models(key):
+    skip = ('image', 'tts', 'live', 'audio', 'embed', 'thinking', 'exp', 'learnlm', 'robotics', 'computer', 'omni', 'customtools', 'transcribe')
+    found = [n for n in listed_models(key) if 'flash' in n and (not any((w in n for w in skip)))]
+    rank = lambda n: (('lite' in n) + 2 * ('preview' in n or 'latest' in n), -version_of(n))
+    names = sorted(found, key=rank)
+    names += [n for n in TEXT_MODELS + ['gemini-2.5-flash-lite'] if n not in names]
+    return names[:8]
+
+def image_models(key):
+    found = [n for n in listed_models(key) if ('image' in n or 'nano-banana' in n) and 'imagen' not in n]
+    rank = lambda n: ('preview' in n, 'nano-banana' not in n, 'lite' in n, 'flash' not in n and 'nano-banana' not in n, -version_of(n))
+    names = sorted(found, key=rank)
+    names += [n for n in IMAGE_MODELS if n not in names]
+    return names[:6]
+FIRST_WAIT = float(os.environ.get('AUTOSCULPT_GEMINI_FIRST', '6'))
+LONG_WAIT = float(os.environ.get('AUTOSCULPT_GEMINI_LONG', '240'))
+
+def stream(model, key, body, q):
+    try:
+        r = open_url(f'{API}/v1beta/models/{model}:streamGenerateContent?alt=sse', key, body, LONG_WAIT)
+    except Exception as e:
+        q.put(('err', net_error(e, model)))
+        return
+    text, alive, finish = ([], False, None)
+    try:
+        with r:
+            for raw in r:
+                line = raw.decode('utf-8', 'replace').strip()
+                if not line.startswith('data:'):
+                    continue
+                v = json.loads(line[5:].strip() or '{}')
+                if v.get('error'):
+                    e = v['error']
+                    q.put(('err', http_fail(model, int(e.get('code') or 500), json.dumps(v))))
+                    return
+                fb = v.get('promptFeedback') or {}
+                if fb.get('blockReason'):
+                    q.put(('err', Fail('{service} refused this description ({reason}): write it in another way', service=SERVICE, reason=fb['blockReason'])))
+                    return
+                if not alive:
+                    alive = True
+                    q.put(('alive', None))
+                for c in (v.get('candidates') or [])[:1]:
+                    finish = c.get('finishReason') or finish
+                    for p in (c.get('content') or {}).get('parts') or []:
+                        if not p.get('thought') and p.get('text'):
+                            text.append(p['text'])
+    except Exception as e:
+        q.put(('err', net_error(e, model)))
+        return
+    out = ''.join(text).strip()
+    if not out and finish not in (None, 'STOP', 'MAX_TOKENS'):
+        q.put(('err', Fail('{service} refused this description ({reason}): write it in another way', service=SERVICE, reason=finish)))
+    else:
+        q.put(('done', out))
+
+def ask_text(key, body):
+    import queue
+    thoughts = json.loads(json.dumps(body))
+    thoughts.setdefault('generationConfig', {})['thinkingConfig'] = {'includeThoughts': True}
+    end, usable, quota, rnd = (time.time() + RETRY_FOR, text_models(key), False, 0)
+    while True:
+        busy = False
+        for m in list(usable):
+            if busy and time.time() > end:
+                break
+            for b in (thoughts, body):
+                q = queue.Queue()
+                threading.Thread(target=stream, args=(m, key, b, q), daemon=True).start()
+                try:
+                    ev, val = q.get(timeout=FIRST_WAIT * (1 if rnd < 2 else 2.5))
+                    if ev == 'alive':
+                        say('PROGRESS', '0.3', '{service} is working', service=SERVICE)
+                        ev, val = q.get(timeout=LONG_WAIT)
+                except queue.Empty:
+                    busy = True
+                    break
+                if ev == 'done':
+                    if val:
+                        return val
+                    busy = True
+                    break
+                if isinstance(val, BadRequest) and b is thoughts:
+                    continue
+                if isinstance(val, NoModel):
+                    usable.remove(m)
+                    break
+                if isinstance(val, Busy):
+                    busy, quota = (True, quota or val.quota)
+                    break
+                raise val
+        rnd += 1
+        if not usable:
+            raise Fail('{service}: none of the models is available for this API key', service=SERVICE)
+        if not busy or time.time() + RETRY_PAUSE > end:
+            break
+        time.sleep(RETRY_PAUSE)
+    raise busy_fail(quota)
 
 def parts_of(res):
     fb = res.get('promptFeedback') or {}
@@ -97,12 +258,6 @@ def parts_of(res):
     if not parts and c.get('finishReason') not in (None, 'STOP'):
         raise Fail('{service} refused this description ({reason}): write it in another way', service=SERVICE, reason=c.get('finishReason'))
     return parts
-
-def text_of(res):
-    t = ''.join((p.get('text', '') for p in parts_of(res) if not p.get('thought'))).strip()
-    if not t:
-        raise Fail('{service} returned nothing: try again', service=SERVICE)
-    return t
 
 def image_of(res):
     for p in parts_of(res):
@@ -175,14 +330,14 @@ def main():
                 say('PROGRESS', '0.1', '{service} is writing the prompt', service=SERVICE)
                 sym = a.symmetric == '1'
                 instr = P['subject'] + ' ' + P['subject_symmetric' if sym else 'subject_asymmetric']
-                subject = ' '.join(text_of(ask(TEXT_MODELS, key, text_body(instr, 'DESCRIPTION:\n' + text))).split()).strip().rstrip('.')
+                subject = ' '.join(ask_text(key, text_body(instr, 'DESCRIPTION:\n' + text)).split()).strip().rstrip('.')
                 if not subject:
                     raise Fail('{service} gave an answer that is not readable: try again', service=SERVICE)
                 out = P['sheet_symmetric' if sym else 'sheet_asymmetric'].replace('{subject}', subject)
             elif a.task == 'metalwork':
                 say('PROGRESS', '0.1', '{service} is reading the request', service=SERVICE)
                 ctx = open(a.context_file, encoding='utf-8').read() if a.context_file else '{}'
-                out = text_of(ask(TEXT_MODELS, key, text_body(P['metalwork'].replace('{context}', ctx).replace('{text}', text), '', json_out=True)))
+                out = ask_text(key, text_body(P['metalwork'].replace('{context}', ctx).replace('{text}', text), '', json_out=True))
                 try:
                     json.loads(out)
                 except ValueError:
@@ -200,7 +355,7 @@ def main():
                 wav = f.read()
             hint = f' (probably {a.lang})' if a.lang else ''
             body = {'contents': [{'role': 'user', 'parts': [{'text': P['transcribe'].replace('{lang_hint}', hint)}, {'inline_data': {'mime_type': 'audio/wav', 'data': base64.b64encode(wav).decode()}}]}], 'generationConfig': {'temperature': 0}}
-            text = text_of(ask(TEXT_MODELS, key, body, timeout=120))
+            text = ask_text(key, body)
             with open(a.output, 'w', encoding='utf-8') as f:
                 f.write(text)
             say('PROGRESS', '1', 'Done in {s} seconds', s=round(time.time() - t0))
@@ -216,11 +371,12 @@ def main():
             def side(i, s):
 
                 def fn():
-                    img = image_of(ask(IMAGE_MODELS, key, image_body(P['views'].replace('{side}', s), ref)))
+                    img = image_of(ask(image_models(key), key, image_body(P['views'].replace('{side}', s), ref), IMAGE_WAIT))
                     p = os.path.join(a.output_dir, f'image{i + 2}.png')
                     save_picture(img, p)
-                    done[0] += 1
-                    say('PROGRESS', f'{0.1 + 0.85 * done[0] / 3:.2f}', '{service} is drawing the other sides', service=SERVICE)
+                    with SAY_LOCK:
+                        done[0] += 1
+                        say('PROGRESS', f'{0.1 + 0.85 * done[0] / 3:.2f}', '{service} is drawing the other sides', service=SERVICE)
                     return p
                 return fn
             paths = in_parallel([side(i, s) for i, s in enumerate(P['sides'][:3])])
@@ -244,12 +400,13 @@ def main():
 
                 def fn():
                     t = P['image'].replace('{prompt}', prompt) + ('\n' + P['image_variant'].replace('{n}', str(i + 1)) if i else '')
-                    img = image_of(ask(IMAGE_MODELS, key, image_body(t, aspect=P.get('image_aspect', '1:1'))))
+                    img = image_of(ask(image_models(key), key, image_body(t, aspect=P.get('image_aspect', '1:1')), IMAGE_WAIT))
                     p = os.path.join(a.output_dir, f'image{i + 1}.png')
                     save_picture(img, p)
-                    done[0] += 1
-                    say('PROGRESS', f'{0.1 + 0.85 * done[0] / n:.2f}', '{service} is drawing the pictures', service=SERVICE)
-                    say('IMAGE', p)
+                    with SAY_LOCK:
+                        done[0] += 1
+                        say('PROGRESS', f'{0.1 + 0.85 * done[0] / n:.2f}', '{service} is drawing the pictures', service=SERVICE)
+                        say('IMAGE', p)
                     return p
                 return fn
             if not any(in_parallel([pic(i) for i in range(n)])):

@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.190",
-  "notes": "Gates and fences with vertical bars can now have spear tips or balls on the bars: the top rail is drilled, the tips are in the 3D view, the cut list and the shopping list. New catalogue groups and descriptions such as «fence with spear tips».",
+  "latest": "1.3.191",
+  "notes": "Swing gates can now have an arched top (higher in the middle) or a dipped one (lower in the middle): the top rails are pieces to roll with their radius, stiles and bars reach the curve with the right cut, also with spear tips. New catalogue group «Arched or dipped».",
   "notes_i18n": {
-    "en": "Gates and fences with vertical bars can now have spear tips or balls on the bars: the top rail is drilled, the tips are in the 3D view, the cut list and the shopping list. New catalogue groups and descriptions such as «fence with spear tips».",
-    "it": "Cancelli e recinzioni a barre verticali possono avere punte a lancia o sfere sulle barre: il traverso superiore viene forato, i puntali compaiono nel 3D, nella distinta e nella lista della spesa. Nuovi gruppi nel catalogo e descrizioni come «recinzione con punte a lancia».",
-    "de": "Tore und Zäune mit senkrechten Stäben können jetzt Lanzenspitzen oder Kugeln haben: Der obere Riegel wird gebohrt, die Spitzen erscheinen in 3D, in der Zuschnittliste und in der Einkaufsliste. Neue Gruppen im Katalog und Beschreibungen wie «Zaun mit Lanzenspitzen».",
-    "fr": "Les portails et clôtures à barreaux verticaux peuvent avoir des pointes de lance ou des boules : la traverse haute est percée, les pointes apparaissent en 3D, dans la liste de débit et la liste d'achats. Nouveaux groupes au catalogue et descriptions comme «clôture avec pointes de lance».",
-    "es": "Las cancelas y vallas de barrotes verticales pueden llevar puntas de lanza o bolas: el travesaño superior se taladra y los remates aparecen en 3D, en la lista de corte y en la de compra. Nuevos grupos en el catálogo y descripciones como «valla con puntas de lanza».",
-    "pt": "Portões e cercas de barras verticais podem ter pontas de lança ou esferas: a travessa superior é furada e as ponteiras aparecem no 3D, na lista de corte e na lista de compras. Novos grupos no catálogo e descrições como «cerca com pontas de lança».",
-    "ja": "縦格子の門扉とフェンスに槍先またはボールを付けられるようになりました。上枠に穴をあけ、先端飾りは 3D、切断リスト、買い物リストに表示されます。カタログの新しいグループと「槍先付きフェンス」のような説明に対応。"
+    "en": "Swing gates can now have an arched top (higher in the middle) or a dipped one (lower in the middle): the top rails are pieces to roll with their radius, stiles and bars reach the curve with the right cut, also with spear tips. New catalogue group «Arched or dipped».",
+    "it": "I cancelli a battente possono avere la parte alta ad arco (più alta al centro) o a gola (più bassa al centro): i traversi alti diventano pezzi da calandrare con il loro raggio, montanti e barre arrivano sulla curva con il taglio giusto, anche con le punte a lancia. Nuovo gruppo nel catalogo «Ad arco o a gola».",
+    "de": "Drehtore können jetzt oben einen Bogen (in der Mitte höher) oder eine eingezogene Form (in der Mitte tiefer) haben: die oberen Riegel werden mit ihrem Radius gebogen, Pfosten und Stäbe enden mit dem richtigen Schnitt auf der Kurve, auch mit Lanzenspitzen. Neue Katalog-Gruppe «Bogen oder eingezogen».",
+    "fr": "Les portails battants peuvent avoir un haut cintré (plus haut au milieu) ou en chapeau inversé (plus bas au milieu) : les traverses hautes sont des pièces à cintrer avec leur rayon, montants et barreaux arrivent sur la courbe avec la bonne coupe, même avec des pointes de lance. Nouveau groupe au catalogue.",
+    "es": "Las cancelas batientes pueden tener la parte superior en arco (más alta en el centro) o invertida (más baja en el centro): los travesaños superiores son piezas a curvar con su radio, montantes y barrotes llegan a la curva con el corte correcto, también con puntas de lanza. Nuevo grupo en el catálogo.",
+    "pt": "Os portões de abrir podem ter o topo em arco (mais alto no meio) ou invertido (mais baixo no meio): as travessas superiores são peças a calandrar com o seu raio, montantes e barras chegam à curva com o corte certo, também com pontas de lança. Novo grupo no catálogo.",
+    "ja": "開き戸門扉の上部をアーチ（中央が高い）または逆アーチ（中央が低い）にできるようになりました。上枠は半径付きの曲げ部材になり、縦枠とバーは正しい切断で曲線に届きます（槍先付きでも）。カタログに新しいグループを追加。"
   },
   "history": [
+    {
+      "date": "2026-11-26T10:15:31Z",
+      "version": "1.3.191",
+      "notes": {
+        "en": "Swing gates can now have an arched top (higher in the middle) or a dipped one (lower in the middle): the top rails are pieces to roll with their radius, stiles and bars reach the curve with the right cut, also with spear tips. New catalogue group «Arched or dipped».",
+        "it": "I cancelli a battente possono avere la parte alta ad arco (più alta al centro) o a gola (più bassa al centro): i traversi alti diventano pezzi da calandrare con il loro raggio, montanti e barre arrivano sulla curva con il taglio giusto, anche con le punte a lancia. Nuovo gruppo nel catalogo «Ad arco o a gola».",
+        "de": "Drehtore können jetzt oben einen Bogen (in der Mitte höher) oder eine eingezogene Form (in der Mitte tiefer) haben: die oberen Riegel werden mit ihrem Radius gebogen, Pfosten und Stäbe enden mit dem richtigen Schnitt auf der Kurve, auch mit Lanzenspitzen. Neue Katalog-Gruppe «Bogen oder eingezogen».",
+        "fr": "Les portails battants peuvent avoir un haut cintré (plus haut au milieu) ou en chapeau inversé (plus bas au milieu) : les traverses hautes sont des pièces à cintrer avec leur rayon, montants et barreaux arrivent sur la courbe avec la bonne coupe, même avec des pointes de lance. Nouveau groupe au catalogue.",
+        "es": "Las cancelas batientes pueden tener la parte superior en arco (más alta en el centro) o invertida (más baja en el centro): los travesaños superiores son piezas a curvar con su radio, montantes y barrotes llegan a la curva con el corte correcto, también con puntas de lanza. Nuevo grupo en el catálogo.",
+        "pt": "Os portões de abrir podem ter o topo em arco (mais alto no meio) ou invertido (mais baixo no meio): as travessas superiores são peças a calandrar com o seu raio, montantes e barras chegam à curva com o corte certo, também com pontas de lança. Novo grupo no catálogo.",
+        "ja": "開き戸門扉の上部をアーチ（中央が高い）または逆アーチ（中央が低い）にできるようになりました。上枠は半径付きの曲げ部材になり、縦枠とバーは正しい切断で曲線に届きます（槍先付きでも）。カタログに新しいグループを追加。"
+      }
+    },
     {
       "date": "2026-11-26T06:39:58Z",
       "version": "1.3.190",
@@ -518,28 +531,15 @@
         "pt": "Nova opção nas Preferências: «Mostrar os projetos recentes na página inicial». Desative-a para não mostrar os nomes dos seus trabalhos e clientes na página inicial; os projetos recentes continuam no menu Arquivo.",
         "ja": "環境設定に新しいオプション「スタートページに最近のプロジェクトを表示する」を追加しました。オフにすると、スタートページに作品名や顧客名が表示されません。最近のプロジェクトは「ファイル」メニューから引き続き開けます。"
       }
-    },
-    {
-      "date": "2026-11-13T12:32:33Z",
-      "version": "1.3.150",
-      "notes": {
-        "en": "Sculptures now have a catalogue of ready-made shapes: 69 models in six groups (geometric shapes, vases and turned shapes, signs and symbols, nature, abstract, stylised animals), made by the program itself with nothing to download. Choose one from the start page, then set size, faces and material as with any other model. New button at the bottom of the window to report a problem or an idea.",
-        "it": "Le sculture hanno ora un catalogo di forme già pronte: 69 modelli in sei gruppi (forme geometriche, vasi e forme tornite, segni e simboli, natura, astratte, animali stilizzati), creati dal programma stesso senza scaricare nulla. Scegline uno dalla pagina iniziale, poi imposta misura, facce e materiale come per qualsiasi altro modello. Nuovo pulsante in fondo alla finestra per segnalare un problema o un'idea.",
-        "de": "Für Skulpturen gibt es jetzt einen Katalog fertiger Formen: 69 Modelle in sechs Gruppen (geometrische Formen, Vasen und gedrehte Formen, Zeichen und Symbole, Natur, Abstrakt, stilisierte Tiere), vom Programm selbst erzeugt, ohne etwas herunterzuladen. Wähle eines auf der Startseite und stelle dann Größe, Flächen und Material ein wie bei jedem anderen Modell. Neue Schaltfläche unten im Fenster, um ein Problem oder eine Idee zu melden.",
-        "fr": "Les sculptures ont maintenant un catalogue de formes prêtes : 69 modèles en six groupes (formes géométriques, vases et formes tournées, signes et symboles, nature, abstraites, animaux stylisés), créés par le programme lui-même sans rien télécharger. Choisis-en un sur la page d’accueil, puis règle la taille, les faces et le matériau comme pour tout autre modèle. Nouveau bouton en bas de la fenêtre pour signaler un problème ou une idée.",
-        "es": "Las esculturas tienen ahora un catálogo de formas listas: 69 modelos en seis grupos (formas geométricas, jarrones y formas torneadas, signos y símbolos, naturaleza, abstractas, animales estilizados), creados por el propio programa sin descargar nada. Elige uno en la página de inicio y ajusta medida, caras y material como con cualquier otro modelo. Nuevo botón en la parte inferior de la ventana para informar de un problema o una idea.",
-        "pt": "As esculturas agora têm um catálogo de formas prontas: 69 modelos em seis grupos (formas geométricas, vasos e formas torneadas, sinais e símbolos, natureza, abstratas, animais estilizados), criados pelo próprio programa sem baixar nada. Escolha um na página inicial e ajuste medida, faces e material como em qualquer outro modelo. Novo botão na parte de baixo da janela para relatar um problema ou uma ideia.",
-        "ja": "彫刻にすぐ使える形のカタログが加わりました。6つのグループ（幾何学的な形、花瓶と回転体、記号とシンボル、自然、抽象、デフォルメした動物）に69のモデルがあり、プログラム自身が作るのでダウンロードは不要です。スタートページから選び、ほかのモデルと同じように寸法、面数、素材を設定します。ウィンドウ下部に、問題やアイデアを送る新しいボタンを追加しました。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.190",
+    "version": "1.3.191",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "5058c38cbd3faab953d6f74cd8bf7806d0b229dfe481f0de14a8e1729273f3cc"
+        "sha256": "94177cb57e9976c52ebc85866f3312143bc8c1ed46b6d435b9320bb68c0d0fde"
       }
     ]
   },

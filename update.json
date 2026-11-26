@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.197",
-  "notes": "AutoSculpt 3D is lighter: 3D models are now made with AutoSculpt Studio, a separate free program (description, photos, phone, gallery), and sent here with one click.",
+  "latest": "1.3.198",
+  "notes": "Lighter: everything about generating 3D models now lives only in AutoSculpt Studio.",
   "notes_i18n": {
-    "en": "AutoSculpt 3D is lighter: 3D models are now made with AutoSculpt Studio, a separate free program (description, photos, phone, gallery), and sent here with one click.",
-    "it": "AutoSculpt 3D è più leggero: i modelli 3D ora si creano con AutoSculpt Studio, un programma a parte e gratuito (descrizione, foto, telefono, galleria), e arrivano qui con un clic.",
-    "de": "AutoSculpt 3D ist schlanker: 3D-Modelle entstehen jetzt mit AutoSculpt Studio, einem eigenen kostenlosen Programm (Beschreibung, Fotos, Handy, Galerie), und kommen mit einem Klick hierher.",
-    "fr": "AutoSculpt 3D est plus léger : les modèles 3D se créent maintenant avec AutoSculpt Studio, un programme séparé et gratuit (description, photos, téléphone, galerie), et arrivent ici en un clic.",
-    "es": "AutoSculpt 3D es más ligero: los modelos 3D ahora se crean con AutoSculpt Studio, un programa aparte y gratuito (descripción, fotos, teléfono, galería), y llegan aquí con un clic.",
-    "pt": "O AutoSculpt 3D está mais leve: os modelos 3D agora são criados com o AutoSculpt Studio, um programa separado e gratuito (descrição, fotos, celular, galeria), e chegam aqui com um clique.",
-    "ja": "AutoSculpt 3D が軽くなりました：3D モデルは別の無料プログラム AutoSculpt Studio（説明、写真、スマートフォン、ギャラリー）で作り、ワンクリックでここに届きます。"
+    "en": "Lighter: everything about generating 3D models now lives only in AutoSculpt Studio.",
+    "it": "Più leggero: tutto ciò che riguarda la creazione dei modelli 3D ora sta solo in AutoSculpt Studio.",
+    "de": "Schlanker: alles rund um das Erstellen von 3D-Modellen liegt jetzt nur noch in AutoSculpt Studio.",
+    "fr": "Plus léger : tout ce qui concerne la création des modèles 3D se trouve maintenant uniquement dans AutoSculpt Studio.",
+    "es": "Más ligero: todo lo relacionado con la creación de modelos 3D está ahora solo en AutoSculpt Studio.",
+    "pt": "Mais leve: tudo o que se refere à criação de modelos 3D agora fica só no AutoSculpt Studio.",
+    "ja": "軽量化：3D モデル作成に関わる機能はすべて AutoSculpt Studio にまとめました。"
   },
   "history": [
+    {
+      "date": "2026-11-26T17:02:59Z",
+      "version": "1.3.198",
+      "notes": {
+        "en": "Lighter: everything about generating 3D models now lives only in AutoSculpt Studio.",
+        "it": "Più leggero: tutto ciò che riguarda la creazione dei modelli 3D ora sta solo in AutoSculpt Studio.",
+        "de": "Schlanker: alles rund um das Erstellen von 3D-Modellen liegt jetzt nur noch in AutoSculpt Studio.",
+        "fr": "Plus léger : tout ce qui concerne la création des modèles 3D se trouve maintenant uniquement dans AutoSculpt Studio.",
+        "es": "Más ligero: todo lo relacionado con la creación de modelos 3D está ahora solo en AutoSculpt Studio.",
+        "pt": "Mais leve: tudo o que se refere à criação de modelos 3D agora fica só no AutoSculpt Studio.",
+        "ja": "軽量化：3D モデル作成に関わる機能はすべて AutoSculpt Studio にまとめました。"
+      }
+    },
     {
       "date": "2026-11-26T16:22:30Z",
       "version": "1.3.197",
@@ -518,38 +531,25 @@
         "pt": "Nova área: Desenho 2D (CAD) para peças a laser. Desenhe linhas, círculos, arcos, polilinhas, rasgos, textos e cotas com medidas digitadas e encaixes; mover, copiar, girar, espelhar, deslocar, aparar e concordar. Abre arquivos DXF e SVG, mostra peças, comprimento de corte e custo, encaixa na chapa e exporta o DXF. Dez peças prontas para começar.",
         "ja": "新エリア：レーザー部品用の2D図面 (CAD)。数値入力とスナップで線・円・円弧・ポリライン・長穴・文字・寸法を作図し、移動・コピー・回転・鏡像・オフセット・トリム・フィレットができます。DXFとSVGを開き、部品数・切断長・コストを表示、板材にネスティングしてDXFを出力します。すぐ使える既成部品10種類付き。"
       }
-    },
-    {
-      "date": "2026-11-18T23:02:37Z",
-      "version": "1.3.160",
-      "notes": {
-        "en": "Model gallery cleaned up: every model was checked by eye and the broken, unfinished or wrong ones were removed. About 1,800 good models remain.",
-        "it": "Galleria dei modelli ripulita: ogni modello è stato guardato a uno a uno e quelli rotti, incompleti o sbagliati sono stati tolti. Restano circa 1.800 modelli buoni.",
-        "de": "Modellgalerie bereinigt: Jedes Modell wurde einzeln angesehen, defekte, unvollständige oder falsche wurden entfernt. Es bleiben rund 1.800 gute Modelle.",
-        "fr": "Galerie de modèles nettoyée : chaque modèle a été vérifié un par un et les modèles cassés, incomplets ou erronés ont été retirés. Il reste environ 1 800 bons modèles.",
-        "es": "Galería de modelos depurada: cada modelo se revisó uno a uno y se quitaron los rotos, incompletos o equivocados. Quedan unos 1.800 modelos buenos.",
-        "pt": "Galeria de modelos revisada: cada modelo foi conferido um a um e os quebrados, incompletos ou errados foram removidos. Restam cerca de 1.800 modelos bons.",
-        "ja": "モデルギャラリーを整理しました。すべてのモデルを1つずつ確認し、壊れたもの・未完成のもの・間違ったものを削除しました。良いモデルが約1,800点残っています。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.197",
+    "version": "1.3.198",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "f5a235a9abcba9a9b2d59b2f9f0fd7f10352bf0ba7657686b29495c36d08f7f8"
+        "sha256": "3e5e2f4706517c2d3ee122bba8969cb14abc81d96067c034afbb4041cf1f6c63"
       }
     ]
   },
   "app": {
-    "version": "1.3.38",
+    "version": "1.3.39",
     "files": [
       {
         "path": "main.py",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/app/main.py",
-        "sha256": "4ac9a08e308a819c9ca50cbf63f15da8e06126fc65b19e8b36a26b3041a5c402"
+        "sha256": "505eec0016a9efdf4dcfcb3bc3e297e39c728c2f42561a2780588330e280f227"
       }
     ]
   },

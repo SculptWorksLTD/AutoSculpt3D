@@ -54,6 +54,9 @@ def clean_env(extra=None):
     env.update(extra or {})
     return env
 
+def other_app_env():
+    return {k: v for k, v in clean_env().items() if not k.startswith('AUTOSCULPT_')}
+
 def documents_dir():
     if IS_WIN:
         try:
@@ -447,9 +450,9 @@ def studio_app():
                 return p
     elif IS_WIN:
         base = Path(os.environ.get('LOCALAPPDATA', str(Path.home() / 'AppData/Local')))
-        p = base / 'Programs' / 'AutoSculpt Studio' / 'AutoSculptStudio.exe'
-        if p.exists():
-            return p
+        d = base / 'Programs' / 'AutoSculpt Studio'
+        if (d / 'python' / 'AutoSculptStudio.exe').exists() and (d / 'app' / 'main.py').exists():
+            return d
     return None
 
 def open_studio():
@@ -458,9 +461,9 @@ def open_studio():
         return {'installed': False, 'url': 'https://github.com/SculptWorksLTD/AutoSculptStudio'}
     try:
         if IS_MAC:
-            subprocess.Popen(['open', str(app)])
+            subprocess.Popen(['open', str(app)], env=other_app_env())
         else:
-            subprocess.Popen([str(app)], creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
+            subprocess.Popen([str(app / 'python' / 'AutoSculptStudio.exe'), str(app / 'app' / 'main.py')], cwd=str(app), env=other_app_env(), creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
         return {'installed': True, 'opened': True}
     except Exception as exc:
         log('open studio', exc)

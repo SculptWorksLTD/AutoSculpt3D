@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.193",
-  "notes": "Metalwork: the 45° mitres of frames now always close the outer corner (on railings and fences with several bays half of them were turned the wrong way). Diagonal braces, stair stringers, struts and the bars under an arch are cut flat against the face they meet, and their length in the cutting list is the real long side. The bays of railings and fences are now fixed to the posts with welded lugs.",
+  "latest": "1.3.194",
+  "notes": "From a description: Google Gemini now follows your reference sheet — one picture with the subject seen from the side, three-quarter and front, on white, in uniform grey — symmetric or not as you choose. The program splits the picture into its three views for the 3D model.",
   "notes_i18n": {
-    "en": "Metalwork: the 45° mitres of frames now always close the outer corner (on railings and fences with several bays half of them were turned the wrong way). Diagonal braces, stair stringers, struts and the bars under an arch are cut flat against the face they meet, and their length in the cutting list is the real long side. The bays of railings and fences are now fixed to the posts with welded lugs.",
-    "it": "Carpenteria: i quartabuoni a 45° dei telai ora chiudono sempre l'angolo esterno (nelle ringhiere e nelle recinzioni a più campate metà erano girati al contrario). Saette, cosciali delle scale, puntoni e barre sotto l'arco sono tagliati in piano contro la faccia su cui appoggiano, e la loro lunghezza in distinta è il vero lato lungo. Le campate di ringhiere e recinzioni ora sono fissate ai pilastri con piastrine saldate.",
-    "de": "Metallbau: Die 45°-Gehrungen der Rahmen schließen jetzt immer die Außenecke (bei Geländern und Zäunen mit mehreren Feldern war die Hälfte falsch herum). Streben, Treppenwangen, Stützen und die Stäbe unter einem Bogen sind plan gegen die Fläche geschnitten, an der sie anliegen, und ihre Länge in der Schnittliste ist die echte lange Seite. Die Felder von Geländern und Zäunen sind jetzt mit angeschweißten Laschen an den Pfosten befestigt.",
-    "fr": "Métallerie : les coupes d'onglet à 45° des cadres ferment maintenant toujours l'angle extérieur (sur les garde-corps et les clôtures à plusieurs travées, la moitié étaient inversées). Écharpes, limons d'escalier, jambes de force et barreaux sous un cintre sont coupés à plat contre la face où ils s'appuient, et leur longueur dans la liste de débit est le vrai grand côté. Les travées des garde-corps et des clôtures sont maintenant fixées aux poteaux par des pattes soudées.",
-    "es": "Carpintería metálica: los ingletes a 45° de los marcos ahora cierran siempre la esquina exterior (en barandillas y vallas de varios tramos la mitad estaban al revés). Tirantes, zancas de escalera, puntales y barrotes bajo un arco se cortan a ras contra la cara en la que apoyan, y su longitud en la lista de corte es el lado largo real. Los tramos de barandillas y vallas ahora se fijan a los postes con pletinas soldadas.",
-    "pt": "Serralheria: os cortes em meia-esquadria de 45° dos quadros agora sempre fecham o canto externo (em guarda-corpos e cercas com vários vãos metade estava invertida). Mãos-francesas, longarinas de escada, escoras e barras sob um arco são cortadas rentes à face em que se apoiam, e o comprimento na lista de corte é o lado longo real. Os vãos de guarda-corpos e cercas agora são fixados aos postes com chapinhas soldadas.",
-    "ja": "金物：枠の45°留め切りは常に外側の角を閉じるようになりました（複数スパンの手すりやフェンスでは半分が逆向きでした）。筋交い、階段の側桁、方杖、アーチ下の縦格子は当たる面に沿って平らに切断され、切断リストの長さは実際の長辺になりました。手すりとフェンスの各スパンは溶接したプレートで支柱に固定されます。"
+    "en": "From a description: Google Gemini now follows your reference sheet — one picture with the subject seen from the side, three-quarter and front, on white, in uniform grey — symmetric or not as you choose. The program splits the picture into its three views for the 3D model.",
+    "it": "Da una descrizione: Google Gemini ora segue la tua scheda di riferimento — un'unica immagine con il soggetto di profilo, di tre quarti e di fronte, su fondo bianco, in grigio uniforme — simmetrica o no come scegli. Il programma divide l'immagine nelle tre viste per il modello 3D.",
+    "de": "Aus einer Beschreibung: Google Gemini folgt jetzt deinem Referenzblatt — ein Bild mit dem Motiv von der Seite, im Dreiviertelprofil und von vorne, auf Weiß, in gleichmäßigem Grau — symmetrisch oder nicht, wie du wählst. Das Programm teilt das Bild für das 3D-Modell in seine drei Ansichten.",
+    "fr": "À partir d'une description : Google Gemini suit maintenant votre fiche de référence — une seule image avec le sujet de profil, de trois quarts et de face, sur fond blanc, en gris uniforme — symétrique ou non selon votre choix. Le programme découpe l'image en ses trois vues pour le modèle 3D.",
+    "es": "Desde una descripción: Google Gemini ahora sigue tu hoja de referencia — una sola imagen con el sujeto de perfil, de tres cuartos y de frente, sobre blanco, en gris uniforme — simétrica o no, como elijas. El programa divide la imagen en sus tres vistas para el modelo 3D.",
+    "pt": "A partir de uma descrição: o Google Gemini agora segue a sua folha de referência — uma única imagem com o tema de perfil, de três quartos e de frente, sobre branco, em cinza uniforme — simétrica ou não, como escolher. O programa divide a imagem em suas três vistas para o modelo 3D.",
+    "ja": "説明から作成：Google Gemini があなたの参照シートに従うようになりました。対象を横・斜め・正面から描いた1枚の画像（白背景、均一なグレー）で、対称・非対称を選べます。プログラムが画像を3つのビューに分けて3Dモデルに使います。"
   },
   "history": [
+    {
+      "date": "2026-11-26T12:34:21Z",
+      "version": "1.3.194",
+      "notes": {
+        "en": "From a description: Google Gemini now follows your reference sheet — one picture with the subject seen from the side, three-quarter and front, on white, in uniform grey — symmetric or not as you choose. The program splits the picture into its three views for the 3D model.",
+        "it": "Da una descrizione: Google Gemini ora segue la tua scheda di riferimento — un'unica immagine con il soggetto di profilo, di tre quarti e di fronte, su fondo bianco, in grigio uniforme — simmetrica o no come scegli. Il programma divide l'immagine nelle tre viste per il modello 3D.",
+        "de": "Aus einer Beschreibung: Google Gemini folgt jetzt deinem Referenzblatt — ein Bild mit dem Motiv von der Seite, im Dreiviertelprofil und von vorne, auf Weiß, in gleichmäßigem Grau — symmetrisch oder nicht, wie du wählst. Das Programm teilt das Bild für das 3D-Modell in seine drei Ansichten.",
+        "fr": "À partir d'une description : Google Gemini suit maintenant votre fiche de référence — une seule image avec le sujet de profil, de trois quarts et de face, sur fond blanc, en gris uniforme — symétrique ou non selon votre choix. Le programme découpe l'image en ses trois vues pour le modèle 3D.",
+        "es": "Desde una descripción: Google Gemini ahora sigue tu hoja de referencia — una sola imagen con el sujeto de perfil, de tres cuartos y de frente, sobre blanco, en gris uniforme — simétrica o no, como elijas. El programa divide la imagen en sus tres vistas para el modelo 3D.",
+        "pt": "A partir de uma descrição: o Google Gemini agora segue a sua folha de referência — uma única imagem com o tema de perfil, de três quartos e de frente, sobre branco, em cinza uniforme — simétrica ou não, como escolher. O programa divide a imagem em suas três vistas para o modelo 3D.",
+        "ja": "説明から作成：Google Gemini があなたの参照シートに従うようになりました。対象を横・斜め・正面から描いた1枚の画像（白背景、均一なグレー）で、対称・非対称を選べます。プログラムが画像を3つのビューに分けて3Dモデルに使います。"
+      }
+    },
     {
       "date": "2026-11-26T11:31:09Z",
       "version": "1.3.193",
@@ -518,28 +531,15 @@
         "pt": "Serralheria, um grande passo: novos trabalhos — cercas, escadas marinheiro com gaiola, mezaninos com piso de chapa xadrez, grade ou madeira, pergolados, garagens cobertas, corrimãos de parede e bancadas (202 projetos prontos em 11 seções). Solda MIG/MAG, TIG ou eletrodo, com o metal de adição, o gás, o tungstênio e os tempos certos no orçamento. Materiais: aço, aço galvanizado, inox AISI 304 e 316, corten, alumínio, latão e cobre, com parafusos e tintas adequados. Nova aba «Corte de tubos» com cada peça, seus cortes em meia-esquadria e o lado curto, um CSV e um arquivo 3D STEP para o laser de tubos, e o custo do laser no orçamento. Nova aba «Ordem de construção», também na ficha de trabalho: o que cortar, pontear e soldar primeiro, com as peças de cada etapa e dicas de oficina. Os tubos no 3D têm os cortes reais.",
         "ja": "金属加工が大きく進化: 新しい製品 — フェンス、背かご付き固定はしご、縞鋼板・グレーチング・木製床の中二階、パーゴラ、カーポート、壁付け手すり、作業台 (11分類に202の既製プロジェクト)。溶接はMIG/MAG、TIG、被覆アーク溶接から選べ、溶加材・ガス・タングステン・時間が見積に反映されます。材料: 軟鋼、亜鉛めっき鋼、ステンレスAISI 304/316、コルテン、アルミ、真鍮、銅 (対応するボルトと塗料付き)。新しい「パイプ切断」タブ: 各部材の留め切りと短辺、CSV、パイプレーザー用3D STEPファイル、見積のレーザー費用。新しい「製作手順」タブ (作業シートにも掲載): 何を先に切り、仮付けし、溶接するか、各工程の部材と現場のコツ。3Dのパイプに実際の切断形状を表示。"
       }
-    },
-    {
-      "date": "2026-11-13T13:45:52Z",
-      "version": "1.3.153",
-      "notes": {
-        "en": "Metalwork: 161 ready-made projects in 9 sections (gates, railings, grilles, ornamental sheets, stairs, canopies and gazebos, shelving, furniture, street furniture). New «To buy» tab: hinges, locks, wheels, tracks, anchors and threaded rods, resin, caps, feet, roofing, welding wire, gas, discs and paint, counted from the drawing with indicative prices, in the quote, the work sheet and a CSV shopping list. New «Fixing and hardware» options (chemical or mechanical anchors, wall type, motorised gate). Sculptures: the catalogue of shapes is in 7 sections with 164 shapes, including letters and numbers. Disk space: a short description of every download. STL files: damaged files are read or explained, very large models load much faster.",
-        "it": "Carpenteria: 161 progetti pronti in 9 sezioni (cancelli, ringhiere, inferriate, lamiere ornamentali, scale, pensiline e gazebo, scaffalature, mobili, arredo urbano). Nuova scheda «Da comprare»: cerniere, serrature, ruote, binari, ancoranti e barre filettate, resina, tappi, piedini, coperture, filo, gas, dischi e vernice, contati dal disegno con prezzi indicativi, nel preventivo, nella scheda di lavorazione e in una lista della spesa CSV. Nuove opzioni «Fissaggi e ferramenta» (ancoranti chimici o meccanici, tipo di muro, cancello motorizzato). Sculture: il catalogo delle forme è diviso in 7 sezioni con 164 forme, anche lettere e numeri. Spazio su disco: una breve descrizione di ogni cosa scaricata. File STL: i file rovinati si leggono o si spiega il problema, i modelli molto grandi si aprono molto più in fretta.",
-        "de": "Metallbau: 161 fertige Projekte in 9 Bereichen (Tore, Geländer, Gitter, Zierbleche, Treppen, Vordächer und Pavillons, Regale, Möbel, Stadtmobiliar). Neuer Reiter «Einkaufen»: Scharniere, Schlösser, Rollen, Schienen, Dübel und Gewindestangen, Mörtel, Kappen, Füße, Dacheindeckung, Schweißdraht, Gas, Scheiben und Farbe, aus der Zeichnung gezählt, mit Richtpreisen, im Angebot, im Arbeitsblatt und als CSV-Einkaufsliste. Neue Optionen «Befestigung und Beschläge» (chemische oder mechanische Dübel, Wandart, motorisiertes Tor). Skulpturen: Formenkatalog in 7 Bereichen mit 164 Formen, auch Buchstaben und Zahlen. Speicherplatz: kurze Beschreibung jedes Downloads. STL: beschädigte Dateien werden gelesen oder erklärt, sehr große Modelle öffnen viel schneller.",
-        "fr": "Métallerie : 161 projets prêts en 9 sections (portails, garde-corps, grilles, tôles décoratives, escaliers, marquises et gazebos, rayonnages, meubles, mobilier urbain). Nouvel onglet « À acheter » : gonds, serrures, roues, rails, chevilles et tiges filetées, résine, bouchons, pieds, couverture, fil, gaz, disques et peinture, comptés d'après le dessin avec des prix indicatifs, dans le devis, la fiche de travail et une liste d'achats CSV. Nouvelles options « Fixations et quincaillerie » (chevilles chimiques ou mécaniques, type de mur, portail motorisé). Sculptures : catalogue de formes en 7 sections avec 164 formes, dont lettres et chiffres. Espace disque : une courte description de chaque téléchargement. STL : les fichiers abîmés sont lus ou expliqués, les très gros modèles s'ouvrent bien plus vite.",
-        "es": "Cerrajería: 161 proyectos listos en 9 secciones (puertas, barandillas, rejas, chapas decorativas, escaleras, marquesinas y cenadores, estanterías, muebles, mobiliario urbano). Nueva pestaña «Para comprar»: bisagras, cerraduras, ruedas, carriles, anclajes y varillas roscadas, resina, tapones, patas, cubiertas, hilo, gas, discos y pintura, contados a partir del dibujo con precios orientativos, en el presupuesto, la hoja de trabajo y una lista de compras CSV. Nuevas opciones «Fijaciones y herrajes» (anclajes químicos o mecánicos, tipo de pared, puerta motorizada). Esculturas: catálogo de formas en 7 secciones con 164 formas, también letras y números. Espacio en disco: una breve descripción de cada descarga. STL: los archivos dañados se leen o se explica el problema, los modelos muy grandes se abren mucho más rápido.",
-        "pt": "Serralheria: 161 projetos prontos em 9 seções (portões, guarda-corpos, grades, chapas decorativas, escadas, coberturas e gazebos, estantes, móveis, mobiliário urbano). Nova aba «Para comprar»: dobradiças, fechaduras, rodas, trilhos, chumbadores e barras roscadas, resina, tampas, pés, cobertura, arame, gás, discos e tinta, contados a partir do desenho com preços indicativos, no orçamento, na ficha de trabalho e numa lista de compras CSV. Novas opções «Fixação e ferragens» (chumbadores químicos ou mecânicos, tipo de parede, portão motorizado). Esculturas: catálogo de formas em 7 seções com 164 formas, incluindo letras e números. Espaço em disco: uma breve descrição de cada download. STL: arquivos danificados são lidos ou explicados, modelos muito grandes abrem bem mais rápido.",
-        "ja": "金属加工: 9つの分類に161の既製プロジェクト (門扉、手すり、窓格子、装飾板、階段、庇とガゼボ、棚、家具、街路設備)。新しい「購入品」タブ: 蝶番、錠、車輪、レール、アンカーと全ネジ、樹脂、キャップ、脚、屋根材、ワイヤ、ガス、砥石、塗料を図面から数え、目安の価格とともに見積、作業シート、CSVの購入リストに表示。「固定と金物」の新しい設定 (ケミカル/メカニカルアンカー、壁の種類、電動門)。彫刻: 形のカタログは7分類・164種類、文字と数字も追加。ディスク容量: ダウンロードしたものの短い説明。STL: 壊れたファイルも読み込むか原因を表示、非常に大きなモデルがずっと速く開きます。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.193",
+    "version": "1.3.194",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "f22c2b3bf43ea1b2242be3673339b856ae23100d159059ad137ba4d6dc28c0ae"
+        "sha256": "9252eebdc62bccc6b37e7f427351ca1123ee991081ebc4618fdaae6a6e0ff07f"
       }
     ]
   },
@@ -574,17 +574,17 @@
     {
       "id": "gemini",
       "name": "Google Gemini",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "files": [
         {
           "path": "engine.json",
           "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/gemini/engine.json",
-          "sha256": "c9d309341891f3d5e71f57ad75fc3dd77f73c1e94c3b7c820d8e3157151a04b2"
+          "sha256": "17cbe95ee3a54373ce0e0f6486044289b28734c0d4d587abbbddb3a0a0611278"
         },
         {
           "path": "runner.py",
           "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/gemini/runner.py",
-          "sha256": "ba608476764b0866336b4ffa0a40df1ec04f1b2894acc1ce9ed251ee4dc83c86"
+          "sha256": "6741de521dd732059a6833972baf1576d9200d57641e09cf74256449e6f575b0"
         }
       ]
     },

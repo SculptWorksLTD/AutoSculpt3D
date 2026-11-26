@@ -95,11 +95,11 @@ def text_body(instruction, text, json_out=False):
         body['generationConfig']['responseMimeType'] = 'application/json'
     return body
 
-def image_body(text, reference=None):
+def image_body(text, reference=None, aspect='1:1'):
     parts = [{'text': text}]
     if reference is not None:
         parts.append({'inline_data': {'mime_type': mime_of(reference), 'data': base64.b64encode(reference).decode()}})
-    return {'contents': [{'role': 'user', 'parts': parts}], 'generationConfig': {'responseModalities': ['IMAGE'], 'imageConfig': {'aspectRatio': '1:1'}}}
+    return {'contents': [{'role': 'user', 'parts': parts}], 'generationConfig': {'responseModalities': ['IMAGE'], 'imageConfig': {'aspectRatio': aspect}}}
 
 def mime_of(data):
     return 'image/png' if data[:8] == b'\x89PNG\r\n\x1a\n' else 'image/webp' if data[8:12] == b'WEBP' else 'image/jpeg'
@@ -151,8 +151,12 @@ def main():
                 raise Fail('Write a description of the subject')
             if a.task == 'prompt':
                 say('PROGRESS', '0.1', '{service} is writing the prompt', service=SERVICE)
-                instr = P['prompt'] + (' ' + P['prompt_symmetric'] if a.symmetric == '1' else '')
-                out = text_of(ask(TEXT_MODELS, key, text_body(instr, 'DESCRIPTION:\n' + text)))
+                sym = a.symmetric == '1'
+                instr = P['subject'] + ' ' + P['subject_symmetric' if sym else 'subject_asymmetric']
+                subject = ' '.join(text_of(ask(TEXT_MODELS, key, text_body(instr, 'DESCRIPTION:\n' + text))).split()).strip().rstrip('.')
+                if not subject:
+                    raise Fail('{service} gave an answer that is not readable: try again', service=SERVICE)
+                out = P['sheet_symmetric' if sym else 'sheet_asymmetric'].replace('{subject}', subject)
             elif a.task == 'metalwork':
                 say('PROGRESS', '0.1', '{service} is reading the request', service=SERVICE)
                 ctx = open(a.context_file, encoding='utf-8').read() if a.context_file else '{}'
@@ -218,7 +222,7 @@ def main():
 
                 def fn():
                     t = P['image'].replace('{prompt}', prompt) + ('\n' + P['image_variant'].replace('{n}', str(i + 1)) if i else '')
-                    img = image_of(ask(IMAGE_MODELS, key, image_body(t)))
+                    img = image_of(ask(IMAGE_MODELS, key, image_body(t, aspect=P.get('image_aspect', '1:1'))))
                     p = os.path.join(a.output_dir, f'image{i + 1}.png')
                     save_picture(img, p)
                     done[0] += 1

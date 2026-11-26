@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.189",
-  "notes": "Railings with a gate (top of a stair, balcony, mezzanine): choose width and position; the handrail stops at the gate posts and the gate closes by itself with its spring. Four new railings in the catalogue; \"railing 4 m with a gate\" works in words too.",
+  "latest": "1.3.190",
+  "notes": "Gates and fences with vertical bars can now have spear tips or balls on the bars: the top rail is drilled, the tips are in the 3D view, the cut list and the shopping list. New catalogue groups and descriptions such as «fence with spear tips».",
   "notes_i18n": {
-    "en": "Railings with a gate (top of a stair, balcony, mezzanine): choose width and position; the handrail stops at the gate posts and the gate closes by itself with its spring. Four new railings in the catalogue; \"railing 4 m with a gate\" works in words too.",
-    "it": "Ringhiere con cancelletto (in cima a una scala, su un balcone o un soppalco): scegli larghezza e posizione; il corrimano si ferma ai pilastri del cancelletto, che si chiude da solo con la molla. Quattro ringhiere nuove nel catalogo; funziona anche a parole («ringhiera di 4 metri con cancelletto»).",
-    "de": "Geländer mit Tür (oben an der Treppe, Balkon, Bühne): Breite und Lage wählen; der Handlauf endet an den Türpfosten und die Tür schließt von selbst mit ihrer Feder. Vier neue Geländer im Katalog; auch in Worten.",
-    "fr": "Garde-corps avec portillon (haut d'escalier, balcon, mezzanine) : choisissez largeur et position ; la main courante s'arrête aux poteaux du portillon, qui se ferme seul avec son ressort. Quatre nouveaux garde-corps au catalogue ; aussi en mots.",
-    "es": "Barandillas con portilla (arriba de una escalera, balcón, altillo): elige ancho y posición; el pasamanos se detiene en los postes de la portilla, que se cierra sola con su muelle. Cuatro barandillas nuevas en el catálogo; también con palabras.",
-    "pt": "Guarda-corpos com portinhola (alto da escada, sacada, mezanino): escolha largura e posição; o corrimão para nos postes da portinhola, que fecha sozinha com a mola. Quatro guarda-corpos novos no catálogo; também em palavras.",
-    "ja": "扉付き手すり(階段の上、バルコニー、中二階):幅と位置を選ぶと、手すりは扉の支柱で止まり、扉はばねで自動的に閉まります。カタログに新しい手すり 4 種。言葉でも依頼できます。"
+    "en": "Gates and fences with vertical bars can now have spear tips or balls on the bars: the top rail is drilled, the tips are in the 3D view, the cut list and the shopping list. New catalogue groups and descriptions such as «fence with spear tips».",
+    "it": "Cancelli e recinzioni a barre verticali possono avere punte a lancia o sfere sulle barre: il traverso superiore viene forato, i puntali compaiono nel 3D, nella distinta e nella lista della spesa. Nuovi gruppi nel catalogo e descrizioni come «recinzione con punte a lancia».",
+    "de": "Tore und Zäune mit senkrechten Stäben können jetzt Lanzenspitzen oder Kugeln haben: Der obere Riegel wird gebohrt, die Spitzen erscheinen in 3D, in der Zuschnittliste und in der Einkaufsliste. Neue Gruppen im Katalog und Beschreibungen wie «Zaun mit Lanzenspitzen».",
+    "fr": "Les portails et clôtures à barreaux verticaux peuvent avoir des pointes de lance ou des boules : la traverse haute est percée, les pointes apparaissent en 3D, dans la liste de débit et la liste d'achats. Nouveaux groupes au catalogue et descriptions comme «clôture avec pointes de lance».",
+    "es": "Las cancelas y vallas de barrotes verticales pueden llevar puntas de lanza o bolas: el travesaño superior se taladra y los remates aparecen en 3D, en la lista de corte y en la de compra. Nuevos grupos en el catálogo y descripciones como «valla con puntas de lanza».",
+    "pt": "Portões e cercas de barras verticais podem ter pontas de lança ou esferas: a travessa superior é furada e as ponteiras aparecem no 3D, na lista de corte e na lista de compras. Novos grupos no catálogo e descrições como «cerca com pontas de lança».",
+    "ja": "縦格子の門扉とフェンスに槍先またはボールを付けられるようになりました。上枠に穴をあけ、先端飾りは 3D、切断リスト、買い物リストに表示されます。カタログの新しいグループと「槍先付きフェンス」のような説明に対応。"
   },
   "history": [
+    {
+      "date": "2026-11-26T06:39:58Z",
+      "version": "1.3.190",
+      "notes": {
+        "en": "Gates and fences with vertical bars can now have spear tips or balls on the bars: the top rail is drilled, the tips are in the 3D view, the cut list and the shopping list. New catalogue groups and descriptions such as «fence with spear tips».",
+        "it": "Cancelli e recinzioni a barre verticali possono avere punte a lancia o sfere sulle barre: il traverso superiore viene forato, i puntali compaiono nel 3D, nella distinta e nella lista della spesa. Nuovi gruppi nel catalogo e descrizioni come «recinzione con punte a lancia».",
+        "de": "Tore und Zäune mit senkrechten Stäben können jetzt Lanzenspitzen oder Kugeln haben: Der obere Riegel wird gebohrt, die Spitzen erscheinen in 3D, in der Zuschnittliste und in der Einkaufsliste. Neue Gruppen im Katalog und Beschreibungen wie «Zaun mit Lanzenspitzen».",
+        "fr": "Les portails et clôtures à barreaux verticaux peuvent avoir des pointes de lance ou des boules : la traverse haute est percée, les pointes apparaissent en 3D, dans la liste de débit et la liste d'achats. Nouveaux groupes au catalogue et descriptions comme «clôture avec pointes de lance».",
+        "es": "Las cancelas y vallas de barrotes verticales pueden llevar puntas de lanza o bolas: el travesaño superior se taladra y los remates aparecen en 3D, en la lista de corte y en la de compra. Nuevos grupos en el catálogo y descripciones como «valla con puntas de lanza».",
+        "pt": "Portões e cercas de barras verticais podem ter pontas de lança ou esferas: a travessa superior é furada e as ponteiras aparecem no 3D, na lista de corte e na lista de compras. Novos grupos no catálogo e descrições como «cerca com pontas de lança».",
+        "ja": "縦格子の門扉とフェンスに槍先またはボールを付けられるようになりました。上枠に穴をあけ、先端飾りは 3D、切断リスト、買い物リストに表示されます。カタログの新しいグループと「槍先付きフェンス」のような説明に対応。"
+      }
+    },
     {
       "date": "2026-11-25T23:00:44Z",
       "version": "1.3.189",
@@ -518,28 +531,15 @@
         "pt": "As esculturas agora têm um catálogo de formas prontas: 69 modelos em seis grupos (formas geométricas, vasos e formas torneadas, sinais e símbolos, natureza, abstratas, animais estilizados), criados pelo próprio programa sem baixar nada. Escolha um na página inicial e ajuste medida, faces e material como em qualquer outro modelo. Novo botão na parte de baixo da janela para relatar um problema ou uma ideia.",
         "ja": "彫刻にすぐ使える形のカタログが加わりました。6つのグループ（幾何学的な形、花瓶と回転体、記号とシンボル、自然、抽象、デフォルメした動物）に69のモデルがあり、プログラム自身が作るのでダウンロードは不要です。スタートページから選び、ほかのモデルと同じように寸法、面数、素材を設定します。ウィンドウ下部に、問題やアイデアを送る新しいボタンを追加しました。"
       }
-    },
-    {
-      "date": "2026-11-13T11:58:58Z",
-      "version": "1.3.149",
-      "notes": {
-        "en": "Metalwork from a description: at the top of the catalogue write what you need, for example “sliding gate 4 m wide and 1.8 m high, sheet with a leaf pattern, anthracite”, and the program prepares the piece with those sizes and choices, ready to adjust in the panel. It understands the seven languages and works at once, with nothing to download.",
-        "it": "Carpenteria da una descrizione: in cima al catalogo scrivi cosa ti serve, per esempio «cancello scorrevole largo 4 m e alto 1,8 m, lamiera a foglie, antracite», e il programma prepara il pezzo con quelle misure e quelle scelte, pronto da ritoccare nel pannello. Capisce le sette lingue e risponde subito, senza scaricare nulla.",
-        "de": "Metallbau aus einer Beschreibung: Schreib oben im Katalog, was du brauchst, zum Beispiel „Schiebetor 4 m breit und 1,8 m hoch, Blech mit Blattmuster, anthrazit“, und das Programm bereitet das Teil mit diesen Maßen und Optionen vor, bereit zum Anpassen im Bedienfeld. Es versteht die sieben Sprachen und antwortet sofort, ohne etwas herunterzuladen.",
-        "fr": "Métallerie d’après une description : en haut du catalogue, écris ce qu’il te faut, par exemple « portail coulissant largeur 4 m, hauteur 1,8 m, tôle à motif feuilles, anthracite », et le programme prépare la pièce avec ces dimensions et ces choix, prête à être ajustée dans le panneau. Il comprend les sept langues et répond tout de suite, sans rien télécharger.",
-        "es": "Cerrajería a partir de una descripción: arriba del catálogo escribe lo que necesitas, por ejemplo «cancela corredera de 4 m de ancho y 1,8 m de alto, chapa con hojas, antracita», y el programa prepara la pieza con esas medidas y opciones, lista para ajustar en el panel. Entiende los siete idiomas y responde al instante, sin descargar nada.",
-        "pt": "Serralheria a partir de uma descrição: no topo do catálogo escreva o que precisa, por exemplo «portão de correr com 4 m de largura e 1,8 m de altura, chapa com folhas, antracite», e o programa prepara a peça com essas medidas e opções, pronta para ajustar no painel. Entende os sete idiomas e responde na hora, sem baixar nada.",
-        "ja": "説明から金物を作成：カタログの上部に必要なものを書くと（例：「幅4メートル高さ1.8メートルの引き戸の門、葉の模様の板、アンスラサイト」）、その寸法と選択で製品を用意します。あとはパネルで調整するだけです。7つの言語に対応し、ダウンロード不要ですぐに動きます。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.189",
+    "version": "1.3.190",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "b1a0da92e49c16fc0ed1385e84ae26f48ddf74c8e0299bfc5b274356f55ab5c9"
+        "sha256": "5058c38cbd3faab953d6f74cd8bf7806d0b229dfe481f0de14a8e1729273f3cc"
       }
     ]
   },

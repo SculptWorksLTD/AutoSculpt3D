@@ -1,0 +1,83 @@
+# AutoSculpt 3D - builds the Windows and Mac installers from the published channel files. © 2026 Enrico Migliorati. All rights reserved.
+# Runs when update.json changes (a new version) or by hand; the installers go to download/ (AutoSculpt3D-Setup.exe, AutoSculpt3D.pkg).
+name: Installers
+on:
+  push:
+    branches: [main]
+    paths: ['update.json', '.github/build/**', '.github/workflows/installers.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: installers-as3d
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: windows-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Build tools
+        shell: pwsh
+        run: |
+          python -m pip install --disable-pip-version-check pillow
+          if (-not (Get-Command makensis -ErrorAction SilentlyContinue)) { choco install nsis -y --no-progress }
+      - name: Program folder and test
+        run: python .github/build/build_windows.py
+      - name: Installer
+        shell: pwsh
+        run: |
+          $v = Get-Content build/win/version.txt
+          $mk = (Get-Command makensis -ErrorAction SilentlyContinue).Source
+          if (-not $mk) { $mk = "${env:ProgramFiles(x86)}\NSIS\makensis.exe" }
+          New-Item -ItemType Directory -Force download | Out-Null
+          & $mk /INPUTCHARSET UTF8 "/DVERSION=$v" .github/build/AutoSculpt3D.nsi
+          if ($LASTEXITCODE -ne 0) { exit 1 }
+          Get-Item download/AutoSculpt3D-Setup.exe
+      - name: Publish the installer in the channel
+        shell: pwsh
+        run: |
+          git config user.name "AutoSculpt 3D build"
+          git config user.email "actions@users.noreply.github.com"
+          git add download/AutoSculpt3D-Setup.exe
+          git commit -m "Windows installer [skip ci]"
+          for ($i = 0; $i -lt 3; $i++) { git pull --rebase origin main; git push origin HEAD:main; if ($LASTEXITCODE -eq 0) { break }; Start-Sleep 5 }
+  mac:
+    runs-on: macos-15
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - name: Program folder from the published files
+        run: |
+          T="$RUNNER_TEMP/as3d"; mkdir -p "$T/app/ui" "$T/tools" "$T/assets"
+          cp .github/build/mac/build.sh "$T/build.sh"; cp .github/build/mac/prepare_ui.py "$T/tools/prepare_ui.py"
+          cp -R .github/build/mac/installer "$T/installer"; cp .github/build/icon_1024.png .github/build/project_icon_1024.png "$T/assets/"
+          cp app/main.py "$T/app/main.py"; cp -R engines "$T/app/engines"; cp ui/AutoSculpt3D.html "$T/app/ui/AutoSculpt3D.html"
+          python3 -c "import json;m=json.load(open('update.json'));open('$T/app/VERSION','w').write(m['app']['version']+'\n');open('$T/app/ui/VERSION','w').write(m['ui']['version']+'\n')"
+          chmod +x "$T/build.sh"
+      - name: App and installer package
+        run: |
+          T="$RUNNER_TEMP/as3d"; "$T/build.sh"
+          mkdir -p download; cp "$(ls -t "$T"/dist/AutoSculpt3D-*.pkg | head -1)" download/AutoSculpt3D.pkg
+          ls -l download/AutoSculpt3D.pkg
+      - name: Test the app
+        run: |
+          T="$RUNNER_TEMP/as3d"; A="$T/dist/AutoSculpt 3D.app/Contents"
+          H="$RUNNER_TEMP/home"; mkdir -p "$H"
+          AUTOSCULPT_HOME="$H/s" AUTOSCULPT_UPDATE_URL="http://127.0.0.1:9/none.json" AUTOSCULPT_BUNDLE="$A/Resources/app" "$A/Resources/python/bin/python3" "$A/Resources/app/main.py" --server-only > "$RUNNER_TEMP/srv.txt" 2>&1 &
+          for i in $(seq 1 60); do grep -q "^TOKEN" "$RUNNER_TEMP/srv.txt" && break; sleep 1; done
+          U=$(grep "^URL" "$RUNNER_TEMP/srv.txt" | cut -d' ' -f2); K=$(grep "^TOKEN" "$RUNNER_TEMP/srv.txt" | cut -d' ' -f2)
+          curl -fsS "$U" | grep -q "AutoSculpt"
+          curl -fsS "${U}vendor/three/build/three.module.js" | head -c 60
+          curl -fsS -H "X-AS-Token: $K" "${U}api/info"; echo
+          curl -fsS "${U}vendor/jspdf.umd.min.js" | head -c 60; echo
+      - name: Publish the package in the channel
+        run: |
+          git config user.name "AutoSculpt 3D build"
+          git config user.email "actions@users.noreply.github.com"
+          git add download/AutoSculpt3D.pkg
+          git commit -m "Mac installer [skip ci]"
+          for i in 1 2 3; do git pull --rebase origin main && git push origin HEAD:main && break; sleep 5; done

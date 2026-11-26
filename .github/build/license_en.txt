@@ -1,0 +1,11 @@
+﻿AutoSculpt 3D licence
+
+AutoSculpt 3D is proprietary software. © 2026 Enrico Migliorati. All rights reserved.
+
+Use of the program is granted to the person or company authorised by the owner. Copying, distribution, modification, decompilation and transfer to third parties without the written permission of the owner are prohibited.
+
+The program is provided "as is". Dimensions, cutting files and quotes produced must be checked by the user before production.
+
+Third-party components
+
+Python (Python Software Foundation License), python-build-standalone (MIT), pywebview (BSD), three.js (MIT), jsPDF (MIT), IBM Plex and Big Shoulders fonts (SIL Open Font License). TripoSG photo reconstruction engine (MIT), SSD-1B image generator (Apache 2.0), installed on request. The online services (fal.ai, Meshy, Tripo) are subject to their own terms. Models downloaded from Sketchfab or Poly Haven remain subject to their authors' licences.

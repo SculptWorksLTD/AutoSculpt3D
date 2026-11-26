@@ -1,0 +1,11 @@
+﻿AutoSculpt 3D 使用許諾
+
+AutoSculpt 3D はプロプライエタリソフトウェアです。© 2026 Enrico Migliorati. All rights reserved.
+
+本プログラムの使用は、権利者が許可した個人または企業に認められます。権利者の書面による許可なく、複製、配布、改変、逆コンパイル、第三者への譲渡を行うことを禁じます。
+
+本プログラムは「現状のまま」提供されます。作成された寸法、切断ファイル、見積書は、製作前に必ず利用者が確認してください。
+
+サードパーティのコンポーネント
+
+Python（Python Software Foundation License）、python-build-standalone（MIT）、pywebview（BSD）、three.js（MIT）、jsPDF（MIT）、フォント IBM Plex と Big Shoulders（SIL Open Font License）。写真から再構築するエンジン TripoSG（MIT）、SSD-1B（Apache 2.0）は必要に応じてインストールされます。オンラインサービス（fal.ai、Meshy、Tripo）にはそれぞれの規約が適用されます。Sketchfab や Poly Haven からダウンロードしたモデルには、引き続き各作者のライセンスが適用されます。

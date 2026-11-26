@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<installer-gui-script minSpecVersion="2">
+  <title>AutoSculpt 3D</title>
+  <welcome file="welcome.html" mime-type="text/html"/>
+  <license file="license.html" mime-type="text/html"/>
+  <conclusion file="conclusion.html" mime-type="text/html"/>
+  <options customize="never" require-scripts="false" hostArchitectures="@ARCH@"/>
+  <domains enable_localSystem="true"/>
+  <volume-check><allowed-os-versions><os-version min="12.0"/></allowed-os-versions></volume-check>
+  <choices-outline><line choice="default"><line choice="app"/></line></choices-outline>
+  <choice id="default"/>
+  <choice id="app" visible="false"><pkg-ref id="it.migliorati.autosculpt3d"/></choice>
+  <pkg-ref id="it.migliorati.autosculpt3d" version="@VERSION@" onConclusion="none">app.pkg</pkg-ref>
+</installer-gui-script>

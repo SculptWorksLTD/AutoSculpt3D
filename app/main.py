@@ -1822,6 +1822,36 @@ def hand_over_to_running_instance(paths):
     except Exception:
         return False
 
+def mac_media_capture():
+    try:
+        import objc
+        from webview.platforms import cocoa
+        delegate = cocoa.BrowserView.BrowserDelegate
+        if not hasattr(delegate, 'webView_requestMediaCapturePermissionForOrigin_initiatedByFrame_type_decisionHandler_'):
+
+            def grant(self, webview_, origin, frame, kind, handler):
+                handler(1)
+            objc.classAddMethods(delegate, [objc.selector(grant, selector=b'webView:requestMediaCapturePermissionForOrigin:initiatedByFrame:type:decisionHandler:', signature=b'v@:@@@q@?')])
+        original = cocoa.BrowserView.__init__
+        if getattr(original, '_as3d_media', False):
+            return
+
+        def init(self, *a, **k):
+            original(self, *a, **k)
+            try:
+                prefs = self.webview.configuration().preferences()
+                for key, value in (('mediaDevicesEnabled', True), ('mediaStreamEnabled', True)):
+                    try:
+                        prefs.setValue_forKey_(value, key)
+                    except Exception:
+                        pass
+            except Exception as e:
+                log('Microphone in the web view not enabled:', e)
+        init._as3d_media = True
+        cocoa.BrowserView.__init__ = init
+    except Exception as e:
+        log('Microphone in the web view not enabled:', e)
+
 def mac_open_documents():
     try:
         import objc
@@ -1952,6 +1982,8 @@ def main():
         pass
     if IS_MAC:
         mac_open_documents()
+        if microphone_allowed():
+            mac_media_capture()
     bridge = Bridge()
     try:
         win = webview.create_window(APP_NAME, url, js_api=bridge, width=1440, height=900, min_size=(1024, 680), text_select=True, maximized=True)

@@ -30,6 +30,14 @@ class Fail(Exception):
 class NoModel(Exception):
     pass
 
+class Busy(Exception):
+
+    def __init__(self, quota=False):
+        super().__init__('busy')
+        self.quota = quota
+RETRY_FOR = float(os.environ.get('AUTOSCULPT_GEMINI_RETRY', '120'))
+RETRY_PAUSE = float(os.environ.get('AUTOSCULPT_GEMINI_PAUSE', '2'))
+
 def post(model, key, body, timeout=180):
     url = f'{API}/v1beta/models/{model}:generateContent'
     req = urllib.request.Request(url, data=json.dumps(body).encode(), method='POST', headers={'x-goog-api-key': key, 'Content-Type': 'application/json', 'User-Agent': 'AutoSculpt3D'})
@@ -48,7 +56,9 @@ def post(model, key, body, timeout=180):
         if e.code in (401, 403) or 'API key not valid' in msg or status in ('UNAUTHENTICATED', 'PERMISSION_DENIED'):
             raise Fail('{service} refused the API key: check it in Tools → Engines and online services', service=SERVICE)
         if e.code == 429 or status == 'RESOURCE_EXHAUSTED':
-            raise Fail('{service} has reached the limit of your account: wait a minute, or enable billing in Google AI Studio', service=SERVICE)
+            raise Busy(quota=True)
+        if e.code in (500, 502, 503, 504) or status in ('UNAVAILABLE', 'INTERNAL', 'DEADLINE_EXCEEDED'):
+            raise Busy()
         if status == 'FAILED_PRECONDITION' or 'billing' in msg.lower():
             raise Fail('{service} needs billing enabled on your Google AI Studio project to draw pictures', service=SERVICE)
         raise Fail('{service} error {code}: {detail}', service=SERVICE, code=e.code, detail=msg)
@@ -56,12 +66,24 @@ def post(model, key, body, timeout=180):
         raise Fail('Cannot reach {service}: check the internet connection ({detail})', service=SERVICE, detail=str(e.reason))
 
 def ask(models, key, body, timeout=180):
-    for m in models:
-        try:
-            return post(m, key, body, timeout)
-        except NoModel:
-            continue
-    raise Fail('{service}: none of the models is available for this API key', service=SERVICE)
+    end, usable, quota = (time.time() + RETRY_FOR, list(models), False)
+    while True:
+        busy = False
+        for m in list(usable):
+            try:
+                return post(m, key, body, timeout)
+            except NoModel:
+                usable.remove(m)
+            except Busy as b:
+                busy, quota = (True, quota or b.quota)
+        if not usable:
+            raise Fail('{service}: none of the models is available for this API key', service=SERVICE)
+        if not busy or time.time() + RETRY_PAUSE > end:
+            break
+        time.sleep(RETRY_PAUSE)
+    if quota:
+        raise Fail('{service} has reached the limit of your account: wait a minute, or enable billing in Google AI Studio', service=SERVICE)
+    raise Fail('{service} is busy: try again in a minute', service=SERVICE)
 
 def parts_of(res):
     fb = res.get('promptFeedback') or {}

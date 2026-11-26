@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.191",
-  "notes": "Swing gates can now have an arched top (higher in the middle) or a dipped one (lower in the middle): the top rails are pieces to roll with their radius, stiles and bars reach the curve with the right cut, also with spear tips. New catalogue group «Arched or dipped».",
+  "latest": "1.3.192",
+  "notes": "Metalwork: new «Configure step by step» — choose what to build (gate, grille for a door, fence, stairs…), how it opens and on which side the hinges are, the sizes, then a guide walks you through infill, extras, profiles, material and fixing. Every profile list takes any size («Other size…»). Gates and fences can have a sheet at the bottom. Fixed: tables and benches lost their top setting in 1.3.191.",
   "notes_i18n": {
-    "en": "Swing gates can now have an arched top (higher in the middle) or a dipped one (lower in the middle): the top rails are pieces to roll with their radius, stiles and bars reach the curve with the right cut, also with spear tips. New catalogue group «Arched or dipped».",
-    "it": "I cancelli a battente possono avere la parte alta ad arco (più alta al centro) o a gola (più bassa al centro): i traversi alti diventano pezzi da calandrare con il loro raggio, montanti e barre arrivano sulla curva con il taglio giusto, anche con le punte a lancia. Nuovo gruppo nel catalogo «Ad arco o a gola».",
-    "de": "Drehtore können jetzt oben einen Bogen (in der Mitte höher) oder eine eingezogene Form (in der Mitte tiefer) haben: die oberen Riegel werden mit ihrem Radius gebogen, Pfosten und Stäbe enden mit dem richtigen Schnitt auf der Kurve, auch mit Lanzenspitzen. Neue Katalog-Gruppe «Bogen oder eingezogen».",
-    "fr": "Les portails battants peuvent avoir un haut cintré (plus haut au milieu) ou en chapeau inversé (plus bas au milieu) : les traverses hautes sont des pièces à cintrer avec leur rayon, montants et barreaux arrivent sur la courbe avec la bonne coupe, même avec des pointes de lance. Nouveau groupe au catalogue.",
-    "es": "Las cancelas batientes pueden tener la parte superior en arco (más alta en el centro) o invertida (más baja en el centro): los travesaños superiores son piezas a curvar con su radio, montantes y barrotes llegan a la curva con el corte correcto, también con puntas de lanza. Nuevo grupo en el catálogo.",
-    "pt": "Os portões de abrir podem ter o topo em arco (mais alto no meio) ou invertido (mais baixo no meio): as travessas superiores são peças a calandrar com o seu raio, montantes e barras chegam à curva com o corte certo, também com pontas de lança. Novo grupo no catálogo.",
-    "ja": "開き戸門扉の上部をアーチ（中央が高い）または逆アーチ（中央が低い）にできるようになりました。上枠は半径付きの曲げ部材になり、縦枠とバーは正しい切断で曲線に届きます（槍先付きでも）。カタログに新しいグループを追加。"
+    "en": "Metalwork: new «Configure step by step» — choose what to build (gate, grille for a door, fence, stairs…), how it opens and on which side the hinges are, the sizes, then a guide walks you through infill, extras, profiles, material and fixing. Every profile list takes any size («Other size…»). Gates and fences can have a sheet at the bottom. Fixed: tables and benches lost their top setting in 1.3.191.",
+    "it": "Carpenteria: nuovo «Configura passo per passo» — scegli cosa costruire (cancello, inferriata per porta, recinzione, scale…), come si apre e da che parte sono le cerniere, le misure, poi una guida ti porta tra riempimento, accessori, profili, materiale e fissaggi. Ogni elenco dei profili accetta qualsiasi misura («Altra misura…»). Cancelli e recinzioni possono avere la lamiera in basso. Corretto: nella 1.3.191 tavoli e panche perdevano la scelta del piano.",
+    "de": "Metallbau: neu «Schritt für Schritt einrichten» — wähle, was du baust (Tor, Türgitter, Zaun, Treppe…), wie es öffnet und wo die Scharniere sind, die Maße, dann führt dich eine Anleitung durch Füllung, Zubehör, Profile, Material und Befestigung. Jede Profilliste nimmt jede Größe («Andere Größe…»). Tore und Zäune können unten ein Blech haben. Behoben: in 1.3.191 verloren Tische und Bänke die Wahl der Platte.",
+    "fr": "Métallerie : nouveau «Configurer pas à pas» — choisissez quoi construire (portail, grille de porte, clôture, escalier…), comment il s'ouvre et de quel côté sont les charnières, les dimensions, puis un guide vous mène au remplissage, accessoires, profils, matériau et fixation. Chaque liste de profils accepte toute dimension («Autre dimension…»). Portails et clôtures peuvent avoir une tôle en bas. Corrigé : en 1.3.191 tables et bancs perdaient le choix du plateau.",
+    "es": "Cerrajería: nuevo «Configurar paso a paso» — elige qué construir (cancela, reja para puerta, valla, escalera…), cómo se abre y de qué lado van las bisagras, las medidas, y luego una guía te lleva por relleno, accesorios, perfiles, material y fijación. Cada lista de perfiles acepta cualquier medida («Otra medida…»). Cancelas y vallas pueden llevar chapa abajo. Corregido: en 1.3.191 mesas y bancos perdían la elección del tablero.",
+    "pt": "Serralheria: novo «Configurar passo a passo» — escolha o que construir (portão, grade para porta, cerca, escada…), como abre e de que lado ficam as dobradiças, as medidas, e um guia leva você por enchimento, acessórios, perfis, material e fixação. Cada lista de perfis aceita qualquer medida («Outra medida…»). Portões e cercas podem ter chapa embaixo. Corrigido: na 1.3.191 mesas e bancos perdiam a escolha do tampo.",
+    "ja": "金属加工：新しい「ステップごとに設定」— 作るもの（門扉、ドア用格子、フェンス、階段…）、開き方と丁番の側、寸法を選ぶと、充填・付属品・形材・材料・固定を順に案内します。各形材リストで任意のサイズを入力可能（「その他のサイズ…」）。門扉とフェンスに下部の板を追加。修正：1.3.191 でテーブルとベンチの天板の選択が失われていた問題。"
   },
   "history": [
+    {
+      "date": "2026-11-26T10:40:34Z",
+      "version": "1.3.192",
+      "notes": {
+        "en": "Metalwork: new «Configure step by step» — choose what to build (gate, grille for a door, fence, stairs…), how it opens and on which side the hinges are, the sizes, then a guide walks you through infill, extras, profiles, material and fixing. Every profile list takes any size («Other size…»). Gates and fences can have a sheet at the bottom. Fixed: tables and benches lost their top setting in 1.3.191.",
+        "it": "Carpenteria: nuovo «Configura passo per passo» — scegli cosa costruire (cancello, inferriata per porta, recinzione, scale…), come si apre e da che parte sono le cerniere, le misure, poi una guida ti porta tra riempimento, accessori, profili, materiale e fissaggi. Ogni elenco dei profili accetta qualsiasi misura («Altra misura…»). Cancelli e recinzioni possono avere la lamiera in basso. Corretto: nella 1.3.191 tavoli e panche perdevano la scelta del piano.",
+        "de": "Metallbau: neu «Schritt für Schritt einrichten» — wähle, was du baust (Tor, Türgitter, Zaun, Treppe…), wie es öffnet und wo die Scharniere sind, die Maße, dann führt dich eine Anleitung durch Füllung, Zubehör, Profile, Material und Befestigung. Jede Profilliste nimmt jede Größe («Andere Größe…»). Tore und Zäune können unten ein Blech haben. Behoben: in 1.3.191 verloren Tische und Bänke die Wahl der Platte.",
+        "fr": "Métallerie : nouveau «Configurer pas à pas» — choisissez quoi construire (portail, grille de porte, clôture, escalier…), comment il s'ouvre et de quel côté sont les charnières, les dimensions, puis un guide vous mène au remplissage, accessoires, profils, matériau et fixation. Chaque liste de profils accepte toute dimension («Autre dimension…»). Portails et clôtures peuvent avoir une tôle en bas. Corrigé : en 1.3.191 tables et bancs perdaient le choix du plateau.",
+        "es": "Cerrajería: nuevo «Configurar paso a paso» — elige qué construir (cancela, reja para puerta, valla, escalera…), cómo se abre y de qué lado van las bisagras, las medidas, y luego una guía te lleva por relleno, accesorios, perfiles, material y fijación. Cada lista de perfiles acepta cualquier medida («Otra medida…»). Cancelas y vallas pueden llevar chapa abajo. Corregido: en 1.3.191 mesas y bancos perdían la elección del tablero.",
+        "pt": "Serralheria: novo «Configurar passo a passo» — escolha o que construir (portão, grade para porta, cerca, escada…), como abre e de que lado ficam as dobradiças, as medidas, e um guia leva você por enchimento, acessórios, perfis, material e fixação. Cada lista de perfis aceita qualquer medida («Outra medida…»). Portões e cercas podem ter chapa embaixo. Corrigido: na 1.3.191 mesas e bancos perdiam a escolha do tampo.",
+        "ja": "金属加工：新しい「ステップごとに設定」— 作るもの（門扉、ドア用格子、フェンス、階段…）、開き方と丁番の側、寸法を選ぶと、充填・付属品・形材・材料・固定を順に案内します。各形材リストで任意のサイズを入力可能（「その他のサイズ…」）。門扉とフェンスに下部の板を追加。修正：1.3.191 でテーブルとベンチの天板の選択が失われていた問題。"
+      }
+    },
     {
       "date": "2026-11-26T10:15:31Z",
       "version": "1.3.191",
@@ -518,28 +531,15 @@
         "pt": "Os projetos recentes não aparecem mais na página inicial, a menos que você os ative nas Preferências («Mostrar os projetos recentes na página inicial»). Eles continuam sempre no menu Arquivo.",
         "ja": "最近のプロジェクトは、環境設定で「スタートページに最近のプロジェクトを表示する」をオンにしない限り、スタートページに表示されなくなりました。「ファイル」メニューからはいつでも開けます。"
       }
-    },
-    {
-      "date": "2026-11-13T12:46:06Z",
-      "version": "1.3.151",
-      "notes": {
-        "en": "New option in Preferences: «Show the recent projects on the start page». Turn it off to keep the names of your works and customers out of sight on the start page; the recent projects stay in the File menu.",
-        "it": "Nuova opzione nelle Preferenze: «Mostra i progetti recenti nella pagina iniziale». Spegnila per non mostrare i nomi dei lavori e dei clienti nella pagina iniziale; i progetti recenti restano nel menu File.",
-        "de": "Neue Option in den Einstellungen: „Zuletzt verwendete Projekte auf der Startseite anzeigen“. Schalte sie aus, damit die Namen deiner Arbeiten und Kunden auf der Startseite nicht zu sehen sind; die letzten Projekte bleiben im Menü Datei.",
-        "fr": "Nouvelle option dans les Préférences : « Afficher les projets récents sur la page d’accueil ». Désactive-la pour ne pas montrer les noms de tes travaux et de tes clients sur la page d’accueil ; les projets récents restent dans le menu Fichier.",
-        "es": "Nueva opción en Preferencias: «Mostrar los proyectos recientes en la página de inicio». Desactívala para no mostrar los nombres de tus trabajos y clientes en la página de inicio; los proyectos recientes siguen en el menú Archivo.",
-        "pt": "Nova opção nas Preferências: «Mostrar os projetos recentes na página inicial». Desative-a para não mostrar os nomes dos seus trabalhos e clientes na página inicial; os projetos recentes continuam no menu Arquivo.",
-        "ja": "環境設定に新しいオプション「スタートページに最近のプロジェクトを表示する」を追加しました。オフにすると、スタートページに作品名や顧客名が表示されません。最近のプロジェクトは「ファイル」メニューから引き続き開けます。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.191",
+    "version": "1.3.192",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "94177cb57e9976c52ebc85866f3312143bc8c1ed46b6d435b9320bb68c0d0fde"
+        "sha256": "94d1d6670d509252f9271d4a22b5de4246cd759379da528594de645e3122c0c5"
       }
     ]
   },

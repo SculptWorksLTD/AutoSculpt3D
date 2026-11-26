@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
   "latest": "1.3.195",
-  "notes": "Dictation: the microphone button now works on the Mac too (macOS asks once for permission).",
+  "notes": "Dictation and the prompt written by Gemini work again: a file of the Gemini service was missing on the computer.",
   "notes_i18n": {
-    "en": "Dictation: the microphone button now works on the Mac too (macOS asks once for permission).",
-    "it": "Dettatura: il pulsante del microfono ora funziona anche sul Mac (macOS chiede il permesso una volta).",
-    "de": "Diktat: Die Mikrofontaste funktioniert jetzt auch auf dem Mac (macOS fragt einmal nach der Erlaubnis).",
-    "fr": "Dictée : le bouton du micro fonctionne maintenant aussi sur Mac (macOS demande l'autorisation une fois).",
-    "es": "Dictado: el botón del micrófono ahora también funciona en el Mac (macOS pide permiso una vez).",
-    "pt": "Ditado: o botão do microfone agora também funciona no Mac (o macOS pede permissão uma vez).",
-    "ja": "音声入力:Mac でもマイクのボタンが使えるようになりました(macOS が一度だけ許可を求めます)。"
+    "en": "Dictation and the prompt written by Gemini work again: a file of the Gemini service was missing on the computer.",
+    "it": "La dettatura e il prompt scritto da Gemini funzionano di nuovo: mancava sul computer un file del servizio Gemini.",
+    "de": "Diktat und der von Gemini geschriebene Prompt funktionieren wieder: Eine Datei des Gemini-Dienstes fehlte auf dem Computer.",
+    "fr": "La dictée et le prompt écrit par Gemini fonctionnent à nouveau : un fichier du service Gemini manquait sur l'ordinateur.",
+    "es": "El dictado y el prompt escrito por Gemini vuelven a funcionar: faltaba en el ordenador un archivo del servicio Gemini.",
+    "pt": "O ditado e o prompt escrito pelo Gemini voltaram a funcionar: faltava no computador um arquivo do serviço Gemini.",
+    "ja": "音声入力と Gemini が書くプロンプトが再び動作します。コンピューターに Gemini サービスのファイルが欠けていました。"
   },
   "history": [
+    {
+      "date": "2026-11-26T13:59:23Z",
+      "version": "1.3.195",
+      "notes": {
+        "en": "Dictation and the prompt written by Gemini work again: a file of the Gemini service was missing on the computer.",
+        "it": "La dettatura e il prompt scritto da Gemini funzionano di nuovo: mancava sul computer un file del servizio Gemini.",
+        "de": "Diktat und der von Gemini geschriebene Prompt funktionieren wieder: Eine Datei des Gemini-Dienstes fehlte auf dem Computer.",
+        "fr": "La dictée et le prompt écrit par Gemini fonctionnent à nouveau : un fichier du service Gemini manquait sur l'ordinateur.",
+        "es": "El dictado y el prompt escrito por Gemini vuelven a funcionar: faltaba en el ordenador un archivo del servicio Gemini.",
+        "pt": "O ditado e o prompt escrito pelo Gemini voltaram a funcionar: faltava no computador um arquivo do serviço Gemini.",
+        "ja": "音声入力と Gemini が書くプロンプトが再び動作します。コンピューターに Gemini サービスのファイルが欠けていました。"
+      }
+    },
     {
       "date": "2026-11-26T13:50:47Z",
       "version": "1.3.195",
@@ -518,19 +531,6 @@
         "pt": "Serralheria: a vista 3D mostra agora todos os acessórios no seu lugar — dobradiças, fechaduras, maçanetas, ferrolhos e batentes, trilho, rodas, guia superior e receptor dos portões de correr, cremalheira e motor se motorizado, chumbadores com porcas e arruelas em cada chapa, tampões dos tubos, pés niveladores, coberturas, policarbonato, pisos e tampos de madeira.",
         "ja": "金属加工：3Dビューにすべての付属品が取り付け位置に表示されるようになりました — 丁番、錠、ハンドル、落とし棒とストッパー、引き戸のレール・車輪・上部ガイド・受け金具、電動時のラックとモーター、各プレートのアンカー（ナットと座金）、パイプキャップ、アジャスター、屋根材、ポリカーボネート、床材、木製天板。"
       }
-    },
-    {
-      "date": "2026-11-13T14:51:19Z",
-      "version": "1.3.156",
-      "notes": {
-        "en": "New field «Hole clearance (mm)» for gates, grilles and fences: how much wider than the bar the holes in the rails are (1 mm by default). Every new or reopened project starts with the panel's sections closed and all settings back to the standard values.",
-        "it": "Nuovo campo «Gioco dei fori (mm)» per cancelli, inferriate e recinzioni: quanto i fori dei traversi sono più larghi della barra (1 mm di serie). Ogni progetto nuovo o riaperto parte con le tendine del pannello chiuse e tutti i parametri ai valori standard.",
-        "de": "Neues Feld «Lochspiel (mm)» für Tore, Gitter und Zäune: wie viel größer als der Stab die Löcher in den Riegeln sind (standardmäßig 1 mm). Jedes neue oder wieder geöffnete Projekt beginnt mit geschlossenen Bereichen im Seitenfeld und allen Werten auf Standard.",
-        "fr": "Nouveau champ « Jeu des trous (mm) » pour portails, grilles et clôtures : de combien les trous des traverses sont plus larges que le barreau (1 mm par défaut). Chaque projet nouveau ou rouvert commence avec les sections du panneau fermées et tous les réglages aux valeurs standard.",
-        "es": "Nuevo campo «Holgura de los agujeros (mm)» para cancelas, rejas y vallas: cuánto más anchos que el barrote son los agujeros de los travesaños (1 mm de serie). Cada proyecto nuevo o reabierto empieza con las secciones del panel cerradas y todos los ajustes en los valores estándar.",
-        "pt": "Novo campo «Folga dos furos (mm)» para portões, grades e cercas: quanto os furos das travessas são mais largos que a barra (1 mm de série). Cada projeto novo ou reaberto começa com as seções do painel fechadas e todos os ajustes nos valores padrão.",
-        "ja": "門扉・面格子・フェンスに「穴のクリアランス (mm)」を追加：横材の穴を格子よりどれだけ大きくするか (標準 1 mm)。新規または開き直したプロジェクトは、パネルの項目がすべて閉じ、設定が標準値に戻った状態で始まります。"
-      }
     }
   ],
   "ui": {
@@ -574,17 +574,22 @@
     {
       "id": "gemini",
       "name": "Google Gemini",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "files": [
         {
           "path": "engine.json",
           "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/gemini/engine.json",
-          "sha256": "17cbe95ee3a54373ce0e0f6486044289b28734c0d4d587abbbddb3a0a0611278"
+          "sha256": "321707dc0a82c7a5ad969a94d104db8c5155682d0af2a2bbe131cc07af339a58"
         },
         {
           "path": "runner.py",
           "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/gemini/runner.py",
           "sha256": "6741de521dd732059a6833972baf1576d9200d57641e09cf74256449e6f575b0"
+        },
+        {
+          "path": "prompts.json",
+          "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/gemini/prompts.json",
+          "sha256": "4c813f15aedd78a0326f059ae02d58929858f91c8b725cd3dbbbf813e5e4f0cc"
         }
       ]
     },

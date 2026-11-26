@@ -1,9 +1,7 @@
 # AutoSculpt 3D - (c) 2026 Enrico Migliorati. All rights reserved.
 import argparse
 import base64
-import gzip
 import hashlib
-import io
 import json
 import mimetypes
 import os
@@ -20,7 +18,6 @@ import traceback
 import urllib.error
 import urllib.parse
 import urllib.request
-import zipfile
 import uuid
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
@@ -37,16 +34,11 @@ def default_support():
         return Path.home() / 'Library' / 'Application Support' / 'AutoSculpt3D'
     return Path(os.environ.get('XDG_DATA_HOME', Path.home() / '.local' / 'share')) / 'AutoSculpt3D'
 SUPPORT = Path(os.environ.get('AUTOSCULPT_HOME', default_support()))
-for sub in ('engines', 'jobs', 'logs', 'ui', 'app', 'updates'):
+for sub in ('jobs', 'logs', 'ui', 'app', 'updates'):
     (SUPPORT / sub).mkdir(parents=True, exist_ok=True)
 LOG = SUPPORT / 'logs' / 'autosculpt.log'
 SETTINGS_FILE = SUPPORT / 'settings.json'
 TOKEN = secrets.token_urlsafe(24)
-BASE_PY = os.environ.get('AUTOSCULPT_PYTHON', sys.executable)
-if IS_WIN and 'AUTOSCULPT_PYTHON' not in os.environ:
-    _console = Path(sys.executable).with_name('python.exe')
-    if _console.exists():
-        BASE_PY = str(_console)
 NO_WINDOW = {'creationflags': 134217728} if IS_WIN else {}
 
 def clean_env(extra=None):
@@ -172,33 +164,6 @@ def run_job(job, fn):
     threading.Thread(target=wrap, daemon=True).start()
     return job
 
-def stream(job, cmd, env=None, cwd=None, on_line=None):
-    log('Running:', ' '.join((str(c) for c in cmd)))
-    p = subprocess.Popen([str(c) for c in cmd], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, bufsize=1, env=clean_env({'PYTHONUNBUFFERED': '1', 'PYTHONIOENCODING': 'utf-8', **(env or {})}), cwd=cwd, encoding='utf-8', errors='replace', **NO_WINDOW)
-    job.proc = p
-    for raw in p.stdout:
-        line = raw.rstrip()
-        for tok in ('PROGRESS ', 'IMAGE ', 'RESULT ', 'ERROR '):
-            k = line.find(tok)
-            if k > 0 and '%|' in line[:k]:
-                job.add_log(line[:k].rstrip())
-                line = line[k:]
-                break
-        if not line:
-            continue
-        job.add_log(line)
-        if not line.startswith(('PROGRESS', 'IMAGE')) and (not (line.startswith('  ') and len(line) > 300)):
-            log('  |', line[:500])
-        if on_line:
-            on_line(line)
-        if job.cancelled:
-            p.terminate()
-    p.wait()
-    job.proc = None
-    if job.cancelled:
-        raise UserError('Cancelled')
-    return p.returncode
-
 def fix_certificates():
     if os.environ.get('SSL_CERT_FILE') or os.name == 'nt':
         return
@@ -280,168 +245,7 @@ def sha256(path):
         for chunk in iter(lambda: fh.read(1 << 20), b''):
             h.update(chunk)
     return h.hexdigest()
-RETIRED_ENGINES = {'triposr', 'ssd1b', 'fluxlocal', 'fluxcuda', 'mvadapter', 'whisper', 'falflux', 'falviews', 'falwhisper'}
-APPLE_CHIP = IS_MAC and platform.machine() == 'arm64'
-_NVIDIA = []
-
-def nvidia_card():
-    if not _NVIDIA:
-        _NVIDIA.append(IS_WIN and has_nvidia())
-    return _NVIDIA[0]
-
-def platform_allows(spec):
-    if os.environ.get('AUTOSCULPT_TEST_ANY_PLATFORM') == '1':
-        return True
-    only, hide = (spec.get('only'), spec.get('hide_on'))
-    if only == 'apple_chip' and (not APPLE_CHIP) or (only == 'nvidia' and (not nvidia_card())):
-        return False
-    if hide == 'apple_chip' and APPLE_CHIP or (hide == 'apple_chip_or_nvidia' and (APPLE_CHIP or nvidia_card())):
-        return False
-    return True
-
-def remove_retired_engines():
-    for eid in RETIRED_ENGINES:
-        for d in (SUPPORT / 'engines' / eid,):
-            if d.exists():
-                shutil.rmtree(d, ignore_errors=True)
-                log('Removed the retired engine', eid)
-    keys = load_keys()
-    if any((k.startswith('lib:') for k in keys)):
-        for k in [k for k in keys if k.startswith('lib:')]:
-            save_key(k, '')
-        log('Removed the keys of the model libraries')
-
-def engine_specs(any_platform=False):
-    specs = {}
-    for base in (RESOURCES / 'engines', SUPPORT / 'engines'):
-        if not base.exists():
-            continue
-        for d in base.iterdir():
-            f = d / 'engine.json'
-            if f.exists():
-                try:
-                    spec = json.loads(f.read_text())
-                    if spec.get('id') in RETIRED_ENGINES or not (any_platform or platform_allows(spec)):
-                        continue
-                    spec['_dir'] = str(d)
-                    if spec['id'] not in specs or vtuple(spec.get('version')) >= vtuple(specs[spec['id']].get('version')):
-                        specs[spec['id']] = spec
-                except Exception:
-                    log('Invalid engine.json:', f)
-    return specs
-KEYS_FILE = SUPPORT / 'keys.json'
-
-def load_keys():
-    try:
-        return json.loads(KEYS_FILE.read_text())
-    except Exception:
-        return {}
-
-def save_key(eid, key):
-    keys = load_keys()
-    if key:
-        keys[eid] = key
-    else:
-        keys.pop(eid, None)
-    KEYS_FILE.write_text(json.dumps(keys))
-    try:
-        os.chmod(KEYS_FILE, 384)
-    except OSError:
-        pass
 QUIT = {'dirty': False, 'allow': False, 'win': None}
-GALLERY_URL = os.environ.get('AUTOSCULPT_GALLERY_URL', 'https://pub-6a60f5de67aa452fa66fa8d7cc451b99.r2.dev/gallery/v1')
-_gallery_index = [None]
-
-def gallery_get(rel, binary=True, timeout=40):
-    req = urllib.request.Request(GALLERY_URL + '/' + rel, headers={'User-Agent': f'AutoSculpt3D/{VERSION}'})
-    try:
-        with urlopen(req, timeout) as r:
-            data = r.read()
-    except urllib.error.HTTPError as e:
-        raise UserError('The model gallery replied {code}', code=e.code)
-    except Exception as e:
-        raise UserError('Cannot reach the model gallery: {error}', error=str(getattr(e, 'reason', e)))
-    return data if binary else json.loads(data)
-CHANNEL_BASE = os.environ.get('AUTOSCULPT_CHANNEL_URL', UPDATE_URLS[0].rsplit('/', 1)[0])
-GALLERY_DIR = SUPPORT / 'gallery'
-GALLERY_SYNC = {'state': 'idle', 'done': 0, 'total': 0, 'error': ''}
-_gallery_lock = threading.Lock()
-
-def channel_get(rel, timeout=60):
-    req = urllib.request.Request(CHANNEL_BASE + '/' + rel, headers={'User-Agent': f'AutoSculpt3D/{VERSION}'})
-    with urlopen(req, timeout) as r:
-        return r.read()
-
-def gallery_local_index():
-    f = GALLERY_DIR / 'index.json'
-    try:
-        return json.loads(f.read_text(encoding='utf-8')) if f.exists() else None
-    except Exception:
-        return None
-
-def gallery_sync(only_pack=None):
-    with _gallery_lock:
-        GALLERY_DIR.mkdir(parents=True, exist_ok=True)
-        done_f = GALLERY_DIR / 'packs.json'
-        try:
-            have = json.loads(done_f.read_text(encoding='utf-8')) if done_f.exists() else {}
-        except Exception:
-            have = {}
-        idx = None
-        try:
-            idx = json.loads(channel_get('gallery/index.json?t=' + str(int(time.time() // 3600)), 30))
-            if not isinstance(idx, dict) or not isinstance(idx.get('packs'), list) or (not isinstance(idx.get('models'), list)):
-                raise ValueError('not a gallery index')
-        except Exception as exc:
-            idx = gallery_local_index()
-            if not idx:
-                GALLERY_SYNC.update(error=str(getattr(exc, 'reason', exc)))
-                if only_pack is None:
-                    GALLERY_SYNC['state'] = 'error'
-                return False
-        packs = [p for p in idx['packs'] if only_pack is None or p.get('n') == only_pack]
-        GALLERY_SYNC.update(done=sum((1 for p in idx['packs'] if have.get(p['file']) == p['sha256'])), total=len(idx['packs']))
-        if only_pack is None:
-            GALLERY_SYNC.update(state='running', error='')
-        for p in packs:
-            if have.get(p['file']) == p['sha256']:
-                continue
-            if not re.match('^pack_[0-9]{1,3}\\.zip$', p.get('file', '')):
-                continue
-            try:
-                data = channel_get('gallery/' + p['file'], 600)
-                if hashlib.sha256(data).hexdigest() != p['sha256']:
-                    raise ValueError('checksum')
-                with zipfile.ZipFile(io.BytesIO(data)) as z:
-                    for name in z.namelist():
-                        m = re.match('^(models|thumbs)/([a-z0-9_@-]{1,120})\\.(obj\\.gz|jpg)$', name)
-                        if not m:
-                            continue
-                        out = GALLERY_DIR / m.group(1) / (m.group(2) + '.' + m.group(3))
-                        out.parent.mkdir(parents=True, exist_ok=True)
-                        tmp = out.with_name(out.name + '.part')
-                        tmp.write_bytes(z.read(name))
-                        tmp.replace(out)
-                have[p['file']] = p['sha256']
-                done_f.write_text(json.dumps(have), encoding='utf-8')
-                GALLERY_SYNC['done'] += 1
-            except Exception as exc:
-                log('gallery pack', p.get('file'), exc)
-                GALLERY_SYNC.update(error=str(getattr(exc, 'reason', exc)))
-                if only_pack is None:
-                    GALLERY_SYNC['state'] = 'error'
-                return False
-        keep = {m['id'] for m in idx['models']}
-        (GALLERY_DIR / 'index.json').write_text(json.dumps(idx), encoding='utf-8')
-        if only_pack is None:
-            for sub, ext in (('models', '.obj.gz'), ('thumbs', '.jpg')):
-                for f in (GALLERY_DIR / sub).glob('*' + ext) if (GALLERY_DIR / sub).exists() else []:
-                    if f.name[:-len(ext)] not in keep:
-                        f.unlink(missing_ok=True)
-            GALLERY_SYNC.update(state='done')
-            shutil.rmtree(SUPPORT / 'library' / 'gallery', ignore_errors=True)
-        return True
-_gallery_started = [False]
 
 def studio_app():
     if IS_MAC:
@@ -469,74 +273,6 @@ def open_studio():
         log('open studio', exc)
         return {'installed': True, 'opened': False, 'error': str(exc)}
 
-def gallery_sync_later(delay=15):
-    if _gallery_started[0] and GALLERY_SYNC['state'] != 'error':
-        return
-    _gallery_started[0] = True
-    GALLERY_SYNC.update(state='running', error='')
-
-    def run():
-        time.sleep(delay)
-        try:
-            gallery_sync()
-        except Exception as exc:
-            log('gallery sync', exc)
-    threading.Thread(target=run, daemon=True).start()
-
-def gallery_index():
-    idx = gallery_local_index()
-    if idx:
-        if not _gallery_started[0] or GALLERY_SYNC['state'] == 'error':
-            gallery_sync_later(0)
-        out = dict(idx)
-        out['local'] = True
-        out['sync'] = dict(GALLERY_SYNC)
-        return out
-    if gallery_sync(only_pack=-1) and gallery_local_index():
-        return gallery_index()
-    if _gallery_index[0] is not None:
-        return _gallery_index[0]
-    cache = SUPPORT / 'library' / 'gallery'
-    cache.mkdir(parents=True, exist_ok=True)
-    try:
-        data = gallery_get('index.json?t=' + str(int(time.time() // 3600)), binary=False)
-        (cache / 'index.json').write_text(json.dumps(data), encoding='utf-8')
-    except UserError:
-        if not (cache / 'index.json').exists():
-            raise
-        data = json.loads((cache / 'index.json').read_text(encoding='utf-8'))
-    _gallery_index[0] = data
-    return data
-
-def gallery_model(cat, mid):
-    if not re.match('^[a-z0-9_]{1,40}$', cat or '') or not re.match('^[a-z0-9_@-]{1,120}$', mid or ''):
-        raise UserError('Unknown model')
-    idx = gallery_local_index()
-    if idx:
-        m = next((x for x in idx['models'] if x.get('id') == mid), None)
-        if not m:
-            raise UserError('Unknown model')
-        gz = GALLERY_DIR / 'models' / (mid + '.obj.gz')
-        if not gz.exists():
-            gallery_sync(only_pack=m.get('pack'))
-        if not gz.exists():
-            raise UserError('Cannot reach the model gallery: {error}', error=GALLERY_SYNC.get('error') or '?')
-        f = GALLERY_DIR / 'models' / (mid + '.obj')
-        if not f.exists() or f.stat().st_mtime < gz.stat().st_mtime:
-            tmp = f.with_name(f.name + '.part')
-            tmp.write_bytes(gzip.decompress(gz.read_bytes()))
-            tmp.replace(f)
-        return f
-    cache = SUPPORT / 'library' / 'gallery' / cat
-    cache.mkdir(parents=True, exist_ok=True)
-    f = cache / (mid + '.obj')
-    if not f.exists() or f.stat().st_size == 0:
-        raw = gzip.decompress(gallery_get(f'{cat}/{mid}.obj.gz'))
-        tmp = f.with_suffix('.part')
-        tmp.write_bytes(raw)
-        tmp.replace(f)
-    return f
-
 def folder_bytes(path):
     total = 0
     for root, _, files in os.walk(path):
@@ -546,17 +282,10 @@ def folder_bytes(path):
             except OSError:
                 pass
     return total
-DISK_FOLDERS = {'jobs': 'jobs', 'hdri': 'hdri', 'library': 'library'}
+DISK_FOLDERS = {'jobs': 'jobs', 'hdri': 'hdri', 'library': 'library', 'engines': 'engines', 'gallery': 'gallery'}
 
 def disk_usage_report():
     items = []
-    for eid, spec in engine_specs(any_platform=True).items():
-        if spec.get('type') == 'cloud':
-            continue
-        home = engine_home(eid)
-        size = folder_bytes(home) if home.exists() else 0
-        if size > 0:
-            items.append({'id': 'engine:' + eid, 'kind': 'engine', 'name': spec.get('name', eid), 'bytes': size})
     for key, name in DISK_FOLDERS.items():
         size = folder_bytes(SUPPORT / name) if (SUPPORT / name).exists() else 0
         if size > 0:
@@ -568,20 +297,10 @@ def disk_usage_report():
 
 def disk_clean(ids):
     freed = 0
-    specs = engine_specs(any_platform=True)
     with JOBS_LOCK:
         running = {j.id for j in JOBS.values() if getattr(j, 'state', '') in ('running', 'queued')}
     for i in ids:
-        if i.startswith('engine:'):
-            eid = i[7:]
-            if eid not in specs or specs[eid].get('type') == 'cloud':
-                continue
-            home = engine_home(eid)
-            freed += folder_bytes(home) if home.exists() else 0
-            for sub in ('venv', 'weights', 'src'):
-                shutil.rmtree(home / sub, ignore_errors=True)
-            (home / 'installed.json').unlink(missing_ok=True)
-        elif i == 'jobs':
+        if i == 'jobs':
             for d in (SUPPORT / 'jobs').iterdir() if (SUPPORT / 'jobs').exists() else []:
                 if d.name not in running:
                     freed += folder_bytes(d)
@@ -596,356 +315,6 @@ def disk_clean(ids):
                 shutil.rmtree(d, ignore_errors=True)
     log('Disk cleaned:', ', '.join(ids), 'freed', freed)
     return {'ok': True, 'freed': freed}
-
-def engine_home(eid):
-    return SUPPORT / 'engines' / eid
-
-def has_kind(spec, kind):
-    return kind in (spec.get('kinds') or [spec.get('kind', 'photo3d')])
-
-def engine_status(spec):
-    if spec.get('type') == 'cloud':
-        key = load_keys().get(spec.get('key_engine', spec['id']), '')
-        return {'id': spec['id'], 'name': spec['name'], 'type': 'cloud', 'kind': spec.get('kind', 'photo3d'), 'kinds': spec.get('kinds') or [spec.get('kind', 'photo3d')], 'key_engine': spec.get('key_engine'), 'version': spec.get('version'), 'order': spec.get('order', 50), 'description': spec.get('description'), 'license': spec.get('license'), 'price': spec.get('price'), 'minutes': spec.get('minutes'), 'key_url': spec.get('key_url'), 'key_hint': spec.get('key_hint'), 'max_images': spec.get('max_images', 1), 'options': spec.get('options', []), 'installed': bool(key), 'key_set': bool(key), 'key_end': key[-4:] if len(key) > 8 else '', 'update': False}
-    home = engine_home(spec['id'])
-    info = {}
-    try:
-        info = json.loads((home / 'installed.json').read_text())
-    except Exception:
-        pass
-    return {'id': spec['id'], 'name': spec['name'], 'version': spec.get('version'), 'description': spec.get('description'), 'license': spec.get('license'), 'download_gb': spec.get('download_gb'), 'minutes': spec.get('minutes'), 'options': spec.get('options', []), 'installed': bool(info), 'installed_version': info.get('version'), 'type': 'local', 'kind': spec.get('kind', 'photo3d'), 'kinds': spec.get('kinds') or [spec.get('kind', 'photo3d')], 'order': spec.get('order', 50), 'max_images': 1, 'update': bool(info) and vtuple(spec.get('install_version', spec.get('version'))) > vtuple(info.get('version'))}
-
-def copy_runner(spec, home):
-    src, dst = (Path(spec['_dir']) / spec['runner'], home / spec['runner'])
-    if src.resolve() != dst.resolve() and (not dst.exists() or src.read_bytes() != dst.read_bytes()):
-        shutil.copy2(src, dst)
-    return dst
-
-def engine_env(home):
-    return {'PYTORCH_ENABLE_MPS_FALLBACK': '1', 'HF_HOME': str(home / 'hf'), 'U2NET_HOME': str(home / 'u2net'), 'HF_HUB_DISABLE_TELEMETRY': '1'}
-
-def total_ram_gb():
-    try:
-        if IS_WIN:
-            import ctypes
-
-            class MS(ctypes.Structure):
-                _fields_ = [('dwLength', ctypes.c_ulong), ('dwMemoryLoad', ctypes.c_ulong), ('ullTotalPhys', ctypes.c_ulonglong), ('ullAvailPhys', ctypes.c_ulonglong), ('ullTotalPageFile', ctypes.c_ulonglong), ('ullAvailPageFile', ctypes.c_ulonglong), ('ullTotalVirtual', ctypes.c_ulonglong), ('ullAvailVirtual', ctypes.c_ulonglong), ('ullAvailExtendedVirtual', ctypes.c_ulonglong)]
-            m = MS()
-            m.dwLength = ctypes.sizeof(MS)
-            ctypes.windll.kernel32.GlobalMemoryStatusEx(ctypes.byref(m))
-            return round(m.ullTotalPhys / 2 ** 30)
-        return round(os.sysconf('SC_PAGE_SIZE') * os.sysconf('SC_PHYS_PAGES') / 2 ** 30)
-    except Exception:
-        return 0
-
-def has_nvidia():
-    try:
-        return subprocess.run(['nvidia-smi', '-L'], capture_output=True, timeout=10, **NO_WINDOW).returncode == 0
-    except Exception:
-        return False
-
-def venv_python(home):
-    return home / 'venv' / ('Scripts/python.exe' if IS_WIN else 'bin/python')
-
-def install_engine(job, spec):
-    eid, home = (spec['id'], engine_home(spec['id']))
-    home.mkdir(parents=True, exist_ok=True)
-    py = venv_python(home)
-    steps = spec.get('steps', [])
-    n = len(steps) + 3
-    k = 0
-
-    def at(i, msg, **values):
-        job.update(i / n, msg, **values)
-
-    def watch_weights(i):
-        total = float(spec.get('download_gb') or 0)
-        stop = threading.Event()
-
-        def run():
-            while not stop.wait(3):
-                got = 0
-                for root, _, files in os.walk(home / 'weights'):
-                    for f in files:
-                        try:
-                            got += os.path.getsize(os.path.join(root, f))
-                        except OSError:
-                            pass
-                gb = got / 2 ** 30
-                if total > 0:
-                    job.progress = max(job.progress, min((i + min(gb / total, 0.99)) / n, 1.0))
-                job.message, job.values = ('Downloading the engine files ({got} of {gb} GB)', {'got': f'{gb:.1f}', 'gb': spec.get('download_gb', '?')})
-        threading.Thread(target=run, daemon=True).start()
-        return stop
-    at(k, "Preparing the engine's Python environment")
-    if not py.exists():
-        if stream(job, [BASE_PY, '-m', 'venv', home / 'venv']) != 0:
-            raise UserError('Cannot create the Python environment')
-    stream(job, [py, '-m', 'pip', 'install', '--upgrade', 'pip', 'setuptools', 'wheel', '--disable-pip-version-check'])
-    cons = home / 'constraints.txt'
-    cons.write_text('\n'.join(spec.get('constraints', [])) + '\n')
-    k += 1
-    for st in steps:
-        at(k, 'Installing {what}', what=st.get('label', 'libraries'))
-        options = st.get('alternatives') or [st.get('pkgs', [])]
-        if IS_WIN and st.get('win_nvidia') and has_nvidia():
-            options = [[*pk, *st['win_nvidia']] for pk in options] + options
-        ok = False
-        for pk in options:
-            rc = stream(job, [py, '-m', 'pip', 'install', '--disable-pip-version-check', '--prefer-binary', '-c', cons, *pk], on_line=lambda l: job.update(None, None))
-            if rc == 0:
-                ok = True
-                break
-            job.add_log('Variant failed, trying the next one')
-        if not ok:
-            raise UserError('Installation failed: {what}', what=st.get('label', ''))
-        k += 1
-    at(k, 'Downloading the engine code')
-    src = spec.get('source')
-    if src:
-        tmp = home / 'source.zip'
-        download(src['url'], tmp, job, k / n, (k + 0.5) / n, 'Engine code')
-        dest = home / 'src'
-        shutil.rmtree(dest, ignore_errors=True)
-        dest.mkdir()
-        with zipfile.ZipFile(tmp) as z:
-            for name in z.namelist():
-                parts = name.split('/', 1)
-                if len(parts) < 2 or not parts[1]:
-                    continue
-                rel = parts[1]
-                if src.get('subdir') and (not (rel == src['subdir'] or rel.startswith(src['subdir'] + '/'))):
-                    continue
-                target = dest / rel
-                if name.endswith('/'):
-                    target.mkdir(parents=True, exist_ok=True)
-                else:
-                    target.parent.mkdir(parents=True, exist_ok=True)
-                    with z.open(name) as fi, open(target, 'wb') as fo:
-                        shutil.copyfileobj(fi, fo)
-        tmp.unlink(missing_ok=True)
-    k += 1
-    w = spec.get('weights')
-    for ws in spec.get('weights_sets', []):
-        at(k, 'Downloading the model weights ({gb} GB in total)', gb=spec.get('download_gb', '?'))
-        dest = home / 'weights' / ws.get('subdir', '')
-        code = "import sys, time\nfrom huggingface_hub import hf_hub_download\nrepo, dest = sys.argv[1], sys.argv[2]\nfor i, f in enumerate(sys.argv[3:]):\n    print('FILE', i, f, flush=True)\n    for t in range(4):\n        try:\n            hf_hub_download(repo, f, local_dir=dest); break\n        except Exception as e:\n            print('RETRY', t + 1, e, flush=True)\n            if t == 3: raise\n            time.sleep(5 * (t + 1))\n"
-        stop = watch_weights(k)
-        try:
-            rc = stream(job, [py, '-c', code, ws['hf_repo'], dest, *ws['files']], env={'HF_HUB_DISABLE_TELEMETRY': '1', 'HF_HUB_ENABLE_HF_TRANSFER': '0'}, on_line=lambda l: job.add_log('Downloading ' + l.split(' ', 2)[-1]) if l.startswith('FILE') else None)
-        finally:
-            stop.set()
-        if rc != 0:
-            tail = ' / '.join(job.log[-3:])
-            raise UserError('Downloading the weights failed: {detail}', detail=tail or '-')
-    if w:
-        at(k, 'Downloading the model weights ({gb} GB in total)', gb=spec.get('download_gb', '?'))
-        code = "import sys\nfrom huggingface_hub import hf_hub_download\nrepo, dest = sys.argv[1], sys.argv[2]\nimport time\nfor i, f in enumerate(sys.argv[3:]):\n    print('FILE', i, f, flush=True)\n    for t in range(4):\n        try:\n            hf_hub_download(repo, f, local_dir=dest); break\n        except Exception as e:\n            print('RETRY', t + 1, e, flush=True)\n            if t == 3: raise\n            time.sleep(5 * (t + 1))\n"
-        stop = watch_weights(k)
-        try:
-            rc = stream(job, [py, '-c', code, w['hf_repo'], home / 'weights', *w['files']], env={'HF_HUB_DISABLE_TELEMETRY': '1', 'HF_HUB_ENABLE_HF_TRANSFER': '0'}, on_line=lambda l: job.add_log('Downloading ' + l.split(' ', 2)[-1]) if l.startswith('FILE') else None)
-        finally:
-            stop.set()
-        if rc != 0:
-            tail = ' / '.join(job.log[-3:])
-            raise UserError('Downloading the weights failed: {detail}', detail=tail or '-')
-    pre = spec.get('prefetch_hf', [])
-    if pre:
-        job.update(None, 'Downloading the helper models')
-        code = "import sys\nfrom huggingface_hub import snapshot_download\nfor r in sys.argv[1:]:\n    print('MODEL', r, flush=True)\n    snapshot_download(r, allow_patterns=['*.json', '*.txt'])\n"
-        if stream(job, [py, '-c', code, *pre], env=engine_env(home)) != 0:
-            job.add_log('Helper models not downloaded now: they will be downloaded with the first photo')
-    k += 1
-    copy_runner(spec, home)
-    (home / 'installed.json').write_text(json.dumps({'version': spec.get('version'), 'when': time.time()}))
-    job.update(1, 'Engine installed')
-    job.result = {'engine': eid}
-
-def run_text2image(job, spec, prompt, lang, count, options, reference=None):
-    out = job.dir / 'images'
-    pf = job.dir / 'prompt.txt'
-    pf.write_text(prompt, encoding='utf-8')
-    if spec.get('type') == 'cloud':
-        key = load_keys().get(spec.get('key_engine', spec['id']))
-        if not key:
-            raise UserError('No API key for {name}: add it in Tools → Photo → 3D engines', name=spec['name'])
-        py, env, runner = (BASE_PY, {'AUTOSCULPT_API_KEY': key}, Path(spec['_dir']) / spec['runner'])
-        cmd = [py, runner]
-    else:
-        home = engine_home(spec['id'])
-        py = venv_python(home)
-        if not py.exists() or not (home / 'installed.json').exists():
-            raise UserError('Engine not installed')
-        runner, env = (copy_runner(spec, home), engine_env(home))
-        cmd = [py, runner, '--weights', home / 'weights', '--src', home / 'src']
-    cmd += ['--prompt-file', pf, '--lang', lang or 'en', '--output-dir', out, '--count', str(count), '--work', job.dir]
-    if reference is not None:
-        ref = job.dir / 'reference.png'
-        ref.write_bytes(reference)
-        cmd += ['--image', ref]
-    for o in spec.get('options', []):
-        if o['id'] in options:
-            cmd += ['--' + o['id'], str(options[o['id']])]
-    errors, images = ([], [])
-
-    def on_line(line):
-        if line.startswith('IMAGE '):
-            images.append(Path(line[6:].strip()).name)
-            job.result = {'images': [f'/api/jobs/{job.id}/image/{n}' for n in images], 'partial': True}
-        else:
-            parse_runner_line(job, line, errors)
-    rc = stream(job, cmd, env=env, on_line=on_line)
-    if job.cancelled:
-        raise UserError('Cancelled')
-    found = sorted((p.name for p in out.glob('image*.png'))) if out.exists() else []
-    if rc != 0 or not found:
-        if errors and errors[-1][1]:
-            raise UserError(errors[-1][0], **errors[-1][1])
-        raise UserError('The engine stopped: {detail}', detail=errors[-1][0] if errors else '-')
-    job.result = {'images': [f'/api/jobs/{job.id}/image/{n}' for n in found]}
-
-def run_speech2text(job, spec, wav, lang):
-    out = job.dir / 'text.txt'
-    if spec.get('type') == 'cloud':
-        key = load_keys().get(spec.get('key_engine', spec['id']))
-        if not key:
-            raise UserError('No API key for {name}: add it in Tools → Photo → 3D engines', name=spec['name'])
-        cmd, env = ([BASE_PY, Path(spec['_dir']) / spec['runner']], {'AUTOSCULPT_API_KEY': key})
-    else:
-        home = engine_home(spec['id'])
-        py = venv_python(home)
-        if not py.exists() or not (home / 'installed.json').exists():
-            raise UserError('Engine not installed')
-        cmd, env = ([py, copy_runner(spec, home), '--weights', home / 'weights', '--src', home / 'src'], engine_env(home))
-    cmd += ['--audio', wav, '--lang', lang or '', '--output', out, '--work', job.dir]
-    errors = []
-    rc = stream(job, cmd, env=env, on_line=lambda l: parse_runner_line(job, l, errors))
-    if job.cancelled:
-        raise UserError('Cancelled')
-    if rc != 0 or not out.exists():
-        if errors:
-            raise UserError(errors[-1][0], **errors[-1][1])
-        raise UserError('The engine stopped: {detail}', detail='-')
-    job.result = {'text': out.read_text(encoding='utf-8').strip()}
-
-def run_text2text(job, spec, task, text, context, symmetric=False):
-    key = load_keys().get(spec.get('key_engine', spec['id']))
-    if not key:
-        raise UserError('No API key for {name}: add it in Tools → Engines and online services', name=spec['name'])
-    inp, ctx, out = (job.dir / 'input.txt', job.dir / 'context.json', job.dir / 'text.txt')
-    inp.write_text(text, encoding='utf-8')
-    cmd = [BASE_PY, Path(spec['_dir']) / spec['runner'], '--task', task, '--input-file', inp, '--output', out, '--work', job.dir]
-    if context:
-        ctx.write_text(context, encoding='utf-8')
-        cmd += ['--context-file', ctx]
-    if symmetric:
-        cmd += ['--symmetric', '1']
-    errors = []
-    rc = stream(job, cmd, env={'AUTOSCULPT_API_KEY': key}, on_line=lambda l: parse_runner_line(job, l, errors))
-    if job.cancelled:
-        raise UserError('Cancelled')
-    if rc != 0 or not out.exists():
-        if errors:
-            raise UserError(errors[-1][0], **errors[-1][1])
-        raise UserError('The engine stopped: {detail}', detail='-')
-    job.result = {'text': out.read_text(encoding='utf-8').strip()}
-
-def microphone_allowed():
-    if not IS_MAC:
-        return True
-    import plistlib
-    for p in Path(sys.executable).resolve().parents:
-        if p.name == 'Contents' and (p / 'Info.plist').exists():
-            try:
-                return 'NSMicrophoneUsageDescription' in plistlib.loads((p / 'Info.plist').read_bytes())
-            except Exception:
-                return False
-    return False
-
-def parse_runner_line(job, line, errors):
-    if line.startswith('PROGRESS '):
-        parts = line.split(' ', 2)
-        text, values = (parts[2] if len(parts) > 2 else '', {})
-        if '\t' in text:
-            text, raw = text.split('\t', 1)
-            try:
-                values = json.loads(raw)
-            except ValueError:
-                values = {}
-        try:
-            job.update(float(parts[1]), text or None, **values)
-        except (ValueError, KeyError, IndexError):
-            pass
-    elif line.startswith('ERROR '):
-        text, values = (line[6:], {})
-        if '\t' in text:
-            text, raw = text.split('\t', 1)
-            try:
-                values = json.loads(raw)
-            except ValueError:
-                values = {}
-        errors.append((text, values))
-
-def run_engine(job, spec, images, options):
-    if spec.get('type') == 'cloud':
-        key = load_keys().get(spec.get('key_engine', spec['id']))
-        if not key:
-            raise UserError('No API key for {name}: add it in Tools → Photo → 3D engines', name=spec['name'])
-        py, env = (BASE_PY, {'AUTOSCULPT_API_KEY': key})
-        runner = Path(spec['_dir']) / spec['runner']
-        out = job.dir / 'result.glb'
-        cmd = [py, runner, '--output', out, '--work', job.dir]
-        for img in images[:spec.get('max_images', 1)]:
-            cmd += ['--input', img]
-    else:
-        home = engine_home(spec['id'])
-        py = venv_python(home)
-        if not py.exists() or not (home / 'installed.json').exists():
-            raise UserError('Engine not installed')
-        runner = copy_runner(spec, home)
-        env = engine_env(home)
-        out = job.dir / 'result.obj'
-        cmd = [py, runner, '--input', images[0], '--output', out, '--src', home / 'src', '--weights', home / 'weights', '--work', job.dir]
-    for o in spec.get('options', []):
-        if o['id'] in options:
-            v = options[o['id']]
-            cmd += ['--' + o['id'], ('1' if v else '0') if o['type'] == 'bool' else str(v)]
-    errors = []
-
-    def on_line(line):
-        if line.startswith('PROGRESS '):
-            parts = line.split(' ', 2)
-            text, values = (parts[2] if len(parts) > 2 else '', {})
-            if '\t' in text:
-                text, raw = text.split('\t', 1)
-                try:
-                    values = json.loads(raw)
-                except ValueError:
-                    values = {}
-            try:
-                job.update(float(parts[1]), text or None, **values)
-            except (ValueError, KeyError, IndexError):
-                pass
-        elif line.startswith('ERROR '):
-            text, values = (line[6:], {})
-            if '\t' in text:
-                text, raw = text.split('\t', 1)
-                try:
-                    values = json.loads(raw)
-                except ValueError:
-                    values = {}
-            errors.append((text, values))
-    rc = stream(job, cmd, env=env, on_line=on_line)
-    if job.cancelled:
-        raise UserError('Cancelled')
-    if rc != 0 or not out.exists():
-        if errors and errors[-1][1]:
-            raise UserError(errors[-1][0], **errors[-1][1])
-        tail = [l for l in job.log[-6:] if not l.startswith(('PROGRESS', 'ERROR'))]
-        detail = (errors[-1][0] if errors else '-') + (' | ' + ' / '.join(tail[-3:]) if tail else '')
-        raise UserError('The engine stopped: {detail}', detail=detail)
-    job.result = {'url': f'/api/jobs/{job.id}/result', 'name': out.name}
 PH_API = 'https://api.polyhaven.com'
 _PH_CACHE = {}
 
@@ -1216,13 +585,6 @@ def check_updates():
         c = m.get(comp)
         if c and vtuple(c.get('version')) > vtuple(cur[comp]):
             out['items'].append({'component': comp, 'from': cur[comp], 'to': c['version']})
-    specs = engine_specs()
-    for e in m.get('engines', []):
-        if not platform_allows(e):
-            continue
-        old = specs.get(e['id'])
-        if not old or vtuple(e.get('version')) > vtuple(old.get('version')):
-            out['items'].append({'component': 'engine:' + e['id'], 'from': old.get('version') if old else None, 'to': e.get('version'), 'name': e.get('name', e['id'])})
     out['available'] = bool(out['items'])
     return out
 
@@ -1258,20 +620,6 @@ def apply_updates(job):
                 target.rename(backup)
             stage.rename(target)
             restart = True
-        elif comp.startswith('engine:'):
-            e = next((x for x in m['engines'] if x['id'] == comp.split(':', 1)[1]))
-            d = SUPPORT / 'engines' / e['id']
-            d.mkdir(parents=True, exist_ok=True)
-            for f in e['files']:
-                rel = f['path']
-                if '..' in Path(rel).parts or '/' in rel or '\\' in rel or (':' in rel):
-                    raise UserError('Invalid path in the manifest: {path}', path=rel)
-                tmp = d / (rel + '.new')
-                download(f['url'], tmp, job, i / len(todo), (i + 1) / len(todo), rel)
-                if sha256(tmp) != f['sha256'].lower():
-                    tmp.unlink(missing_ok=True)
-                    raise UserError('Corrupted file, update blocked: {path}', path=rel)
-                tmp.replace(d / rel)
     job.update(1, 'Update completed')
     job.result = {'restart': restart}
 
@@ -1334,10 +682,6 @@ class Handler(BaseHTTPRequestHandler):
                 self.end_headers()
                 self.wfile.write(body)
                 return
-            m = re.match('^/gallery-thumb/([a-z0-9_@-]{1,120})\\.jpg$', path)
-            if m:
-                f = GALLERY_DIR / 'thumbs' / (m.group(1) + '.jpg')
-                return self.send_file(f, 'image/jpeg', {'Cache-Control': 'max-age=86400'}) if f.exists() else self.send_error(404)
             if path.startswith('/vendor/'):
                 d, bundled = ui_dir()
                 rel = Path(urllib.parse.unquote(path[1:]))
@@ -1354,22 +698,11 @@ class Handler(BaseHTTPRequestHandler):
             if path == '/api/open-requests':
                 return self.send_json({'paths': take_open_requests()})
             if path == '/api/info':
-                return self.send_json({'app': APP_NAME, 'version': VERSION, 'ui': ui_version(), 'product': product_version(), 'machine': platform.machine(), 'macos': platform.mac_ver()[0], 'os': sys.platform, 'support': str(SUPPORT), 'settings': load_settings(), 'ram_gb': total_ram_gb(), 'nvidia': IS_WIN and has_nvidia(), 'apple_chip': sys.platform == 'darwin' and platform.machine() == 'arm64', 'free_gb': round(shutil.disk_usage(SUPPORT).free / 2 ** 30), 'microphone': microphone_allowed()})
-            if path == '/api/engines':
-                allk = 'kind=all' in (urllib.parse.urlparse(self.path).query or '')
-                return self.send_json(sorted((engine_status(s) for s in engine_specs().values() if allk or s.get('kind', 'photo3d') == 'photo3d'), key=lambda e: (e['order'], e['name'])))
+                return self.send_json({'app': APP_NAME, 'version': VERSION, 'ui': ui_version(), 'product': product_version(), 'machine': platform.machine(), 'macos': platform.mac_ver()[0], 'os': sys.platform, 'support': str(SUPPORT), 'settings': load_settings(), 'free_gb': round(shutil.disk_usage(SUPPORT).free / 2 ** 30)})
             if path.startswith('/api/jobs/'):
                 parts = path.split('/')
                 job = JOBS.get(parts[3]) if len(parts) > 3 else None
                 if not job:
-                    return self.send_error(404)
-                if len(parts) > 5 and parts[4] == 'image' and re.fullmatch('image\\d{1,2}\\.png', parts[5]):
-                    f = job.dir / 'images' / parts[5]
-                    return self.send_file(f, 'image/png') if f.exists() else self.send_error(404)
-                if len(parts) > 4 and parts[4] == 'result':
-                    for f, ctype in ((job.dir / 'result.glb', 'model/gltf-binary'), (job.dir / 'result.obj', 'text/plain')):
-                        if f.exists():
-                            return self.send_file(f, ctype)
                     return self.send_error(404)
                 return self.send_json(job.as_dict())
             if path == '/api/update/check':
@@ -1396,15 +729,6 @@ class Handler(BaseHTTPRequestHandler):
                     log('Landscape download failed:', repr(exc))
                     return self.send_json({'error': str(exc)}, 502)
                 return self.send_file(f, 'application/octet-stream')
-            if path in ('/api/gallery/index', '/api/gallery/model'):
-                q = urllib.parse.parse_qs(urllib.parse.urlparse(self.path).query)
-                try:
-                    if path.endswith('index'):
-                        return self.send_json(gallery_index())
-                    f = gallery_model((q.get('cat') or [''])[0], (q.get('id') or [''])[0])
-                    return self.send_file(f, 'text/plain; charset=utf-8')
-                except UserError as exc:
-                    return self.send_json({'error': exc.text, 'error_values': exc.values}, 502)
             if path == '/api/report':
                 return self.send_json({'available': bool(report_url())})
             if path == '/api/disk':
@@ -1422,12 +746,6 @@ class Handler(BaseHTTPRequestHandler):
             return self.send_error(403)
         try:
             b = self.body()
-            if path.startswith('/api/engines/') and path.endswith('/install'):
-                spec = engine_specs().get(path.split('/')[3])
-                if not spec:
-                    return self.send_json({'error': 'unknown engine'}, 404)
-                job = run_job(Job('install', 'Installation ' + spec['name']), lambda j: install_engine(j, spec))
-                return self.send_json(job.as_dict())
             if path == '/api/studio':
                 return self.send_json(open_studio())
             if path == '/api/dirty':
@@ -1441,94 +759,6 @@ class Handler(BaseHTTPRequestHandler):
                 return self.send_json({'ok': True})
             if path == '/api/disk/clean':
                 return self.send_json(disk_clean([str(x) for x in b.get('ids') or []]))
-            if path.startswith('/api/engines/') and path.endswith('/remove'):
-                eid = path.split('/')[3]
-                if eid not in engine_specs():
-                    return self.send_json({'error': 'unknown engine'}, 404)
-                if engine_specs()[eid].get('type') == 'cloud':
-                    save_key(eid, '')
-                    return self.send_json({'ok': True})
-                shutil.rmtree(engine_home(eid) / 'venv', ignore_errors=True)
-                shutil.rmtree(engine_home(eid) / 'weights', ignore_errors=True)
-                shutil.rmtree(engine_home(eid) / 'src', ignore_errors=True)
-                (engine_home(eid) / 'installed.json').unlink(missing_ok=True)
-                return self.send_json({'ok': True})
-            if path == '/api/photo3d':
-                spec = engine_specs().get(b.get('engine') or 'triposg')
-                if not spec:
-                    return self.send_json({'error': 'unknown engine'}, 404)
-                photos = b.get('images') or [b.get('image', '')]
-                job = Job('photo3d', 'Photo to 3D')
-                imgs = []
-                try:
-                    for i, data in enumerate(photos[:8]):
-                        head, _, data = data.rpartition(',')
-                        ext = '.png' if 'png' in head else '.webp' if 'webp' in head else '.jpg'
-                        img = job.dir / f'photo{i + 1}{ext}'
-                        img.write_bytes(base64.b64decode(data))
-                        imgs.append(img)
-                except Exception:
-                    return self.send_json({'error': 'invalid image'}, 400)
-                if not imgs:
-                    return self.send_json({'error': 'invalid image'}, 400)
-                run_job(job, lambda j: run_engine(j, spec, imgs, b.get('options') or {}))
-                return self.send_json(job.as_dict())
-            if path == '/api/text2image':
-                spec = engine_specs().get(b.get('engine') or '')
-                if not spec or not has_kind(spec, 'text2image'):
-                    return self.send_json({'error': 'unknown engine'}, 404)
-                prompt = str(b.get('prompt') or '').strip()[:600]
-                if not prompt:
-                    return self.send_json({'error': 'Write a description of the subject'}, 400)
-                job = Job('text2image', 'Description to pictures')
-                run_job(job, lambda j: run_text2image(j, spec, prompt, str(b.get('lang') or 'en')[:5], max(1, min(int(b.get('count') or 4), 6)), b.get('options') or {}))
-                return self.send_json(job.as_dict())
-            if path == '/api/multiview':
-                spec = engine_specs().get(b.get('engine') or '')
-                if not spec or not has_kind(spec, 'multiview'):
-                    return self.send_json({'error': 'unknown engine'}, 404)
-                src = str(b.get('image') or '')
-                try:
-                    if src.startswith('/api/jobs/'):
-                        parts = src.split('/')
-                        ref = (JOBS[parts[3]].dir / 'images' / Path(parts[-1]).name).read_bytes()
-                    else:
-                        ref = base64.b64decode(src.split(',', 1)[1])
-                except Exception:
-                    return self.send_json({'error': 'picture not found'}, 400)
-                job = Job('multiview', 'Views of the subject')
-                run_job(job, lambda j: run_text2image(j, spec, str(b.get('prompt') or '').strip()[:600], str(b.get('lang') or 'en')[:5], 4, b.get('options') or {}, reference=ref))
-                return self.send_json(job.as_dict())
-            if path == '/api/text2text':
-                spec = engine_specs().get(b.get('engine') or '')
-                if not spec or not has_kind(spec, 'text2text') or spec.get('type') != 'cloud':
-                    return self.send_json({'error': 'unknown engine'}, 404)
-                task, text = (str(b.get('task') or ''), str(b.get('text') or '').strip()[:4000])
-                if task not in ('prompt', 'metalwork'):
-                    return self.send_json({'error': 'unknown task'}, 400)
-                if not text:
-                    return self.send_json({'error': 'Write a description of the subject'}, 400)
-                context = str(b.get('context') or '')[:60000] if task == 'metalwork' else ''
-                job = Job('text2text', 'Description to text')
-                run_job(job, lambda j: run_text2text(j, spec, task, text, context, symmetric=bool(b.get('symmetric'))))
-                return self.send_json(job.as_dict())
-            if path == '/api/speech2text':
-                spec = engine_specs().get(b.get('engine') or '')
-                if not spec or not has_kind(spec, 'speech2text'):
-                    return self.send_json({'error': 'unknown engine'}, 404)
-                job = Job('speech2text', 'Voice to text')
-                try:
-                    wav = job.dir / 'voice.wav'
-                    wav.write_bytes(base64.b64decode(str(b.get('audio') or '').rpartition(',')[2]))
-                except Exception:
-                    return self.send_json({'error': 'invalid audio'}, 400)
-                run_job(job, lambda j: run_speech2text(j, spec, wav, str(b.get('lang') or '')[:5]))
-                return self.send_json(job.as_dict())
-            if path == '/api/keys':
-                if (b.get('engine') or '') not in engine_specs():
-                    return self.send_json({'error': 'unknown engine'}, 404)
-                save_key(b['engine'], str(b.get('key') or '').strip())
-                return self.send_json({'ok': True})
             if path.startswith('/api/jobs/') and path.endswith('/cancel'):
                 job = JOBS.get(path.split('/')[3])
                 if job:
@@ -1720,11 +950,6 @@ class Bridge:
             return None
         return self.read_file(path)
 
-    def open_files(self, kind='image', label=None, limit=5):
-        exts = '*.jpg;*.jpeg;*.png;*.heic;*.webp' if IS_MAC else '*.jpg;*.jpeg;*.png;*.webp'
-        paths = self._dialog('open', multiple=True, file_types=(f"{label or 'Images'} ({exts})",), directory=str(Path.home()))
-        return [f for f in (self.read_file(p) for p in paths[:int(limit)]) if f]
-
     def read_file(self, path):
         p = Path(path)
         if not p.is_file():
@@ -1774,7 +999,7 @@ class Bridge:
 
         def close_and_exit():
             time.sleep(0.3)
-            threading.Timer(3.0, lambda: (stop_engines(), os._exit(0))).start()
+            threading.Timer(3.0, lambda: os._exit(0)).start()
             try:
                 self._win.destroy()
             except Exception:
@@ -1853,36 +1078,6 @@ def hand_over_to_running_instance(paths):
     except Exception:
         return False
 
-def mac_media_capture():
-    try:
-        import objc
-        from webview.platforms import cocoa
-        delegate = cocoa.BrowserView.BrowserDelegate
-        if not hasattr(delegate, 'webView_requestMediaCapturePermissionForOrigin_initiatedByFrame_type_decisionHandler_'):
-
-            def grant(self, webview_, origin, frame, kind, handler):
-                handler(1)
-            objc.classAddMethods(delegate, [objc.selector(grant, selector=b'webView:requestMediaCapturePermissionForOrigin:initiatedByFrame:type:decisionHandler:', signature=b'v@:@@@q@?')])
-        original = cocoa.BrowserView.__init__
-        if getattr(original, '_as3d_media', False):
-            return
-
-        def init(self, *a, **k):
-            original(self, *a, **k)
-            try:
-                prefs = self.webview.configuration().preferences()
-                for key, value in (('mediaDevicesEnabled', True), ('mediaStreamEnabled', True)):
-                    try:
-                        prefs.setValue_forKey_(value, key)
-                    except Exception:
-                        pass
-            except Exception as e:
-                log('Microphone in the web view not enabled:', e)
-        init._as3d_media = True
-        cocoa.BrowserView.__init__ = init
-    except Exception as e:
-        log('Microphone in the web view not enabled:', e)
-
 def mac_open_documents():
     try:
         import objc
@@ -1948,16 +1143,6 @@ def fix_mac_menu():
     except Exception:
         log('Menu bar not adjusted:', traceback.format_exc())
 
-def stop_engines():
-    for job in list(JOBS.values()):
-        pr = getattr(job, 'proc', None)
-        if pr and pr.poll() is None:
-            job.cancelled = True
-            try:
-                pr.kill()
-            except Exception:
-                pass
-
 def wait_previous_instance():
     pid = os.environ.pop('AUTOSCULPT_WAIT_PID', None)
     if not (pid and IS_WIN):
@@ -1975,7 +1160,6 @@ def wait_previous_instance():
 def main():
     wait_previous_instance()
     maybe_run_updated_copy()
-    remove_retired_engines()
     ap = argparse.ArgumentParser()
     ap.add_argument('--server-only', action='store_true')
     a, rest = ap.parse_known_args()
@@ -2013,8 +1197,6 @@ def main():
         pass
     if IS_MAC:
         mac_open_documents()
-        if microphone_allowed():
-            mac_media_capture()
     bridge = Bridge()
     try:
         win = webview.create_window(APP_NAME, url, js_api=bridge, width=1440, height=900, min_size=(1024, 680), text_select=True, maximized=True)
@@ -2046,7 +1228,5 @@ def main():
     except TypeError:
         NATIVE_MENU = False
         webview.start(private_mode=False, storage_path=str(SUPPORT / 'webview'))
-    finally:
-        stop_engines()
 if __name__ == '__main__':
     main()

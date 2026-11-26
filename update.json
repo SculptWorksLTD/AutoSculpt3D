@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.199",
-  "notes": "The sculpture start page is simpler: the catalogue of ready-made shapes has been removed.",
+  "latest": "1.3.200",
+  "notes": "Metalwork: the accessories (hinges, locks, handles, caps, anchors…) can now be moved by hand in the 3D view; the moves are saved in the project. Lighter program: the parts that moved to AutoSculpt Studio have been removed.",
   "notes_i18n": {
-    "en": "The sculpture start page is simpler: the catalogue of ready-made shapes has been removed.",
-    "it": "La pagina iniziale delle sculture è più semplice: tolto il catalogo delle forme pronte.",
-    "de": "Die Startseite der Skulpturen ist einfacher: Der Katalog der fertigen Formen wurde entfernt.",
-    "fr": "La page d'accueil des sculptures est plus simple : le catalogue des formes prêtes a été retiré.",
-    "es": "La página de inicio de las esculturas es más sencilla: se ha quitado el catálogo de formas listas.",
-    "pt": "A página inicial das esculturas ficou mais simples: o catálogo de formas prontas foi removido.",
-    "ja": "彫刻のスタートページをシンプルにしました。既製の形のカタログを削除しました。"
+    "en": "Metalwork: the accessories (hinges, locks, handles, caps, anchors…) can now be moved by hand in the 3D view; the moves are saved in the project. Lighter program: the parts that moved to AutoSculpt Studio have been removed.",
+    "it": "Carpenteria: gli accessori (cerniere, serrature, maniglie, tappi, ancoranti…) ora si spostano a mano nella vista 3D; gli spostamenti restano nel progetto. Programma più leggero: tolte le parti passate ad AutoSculpt Studio.",
+    "de": "Metallbau: Das Zubehör (Scharniere, Schlösser, Griffe, Kappen, Anker…) lässt sich jetzt in der 3D-Ansicht von Hand verschieben; die Verschiebungen bleiben im Projekt. Leichteres Programm: Die zu AutoSculpt Studio gewechselten Teile wurden entfernt.",
+    "fr": "Métallerie : les accessoires (charnières, serrures, poignées, bouchons, ancrages…) se déplacent désormais à la main dans la vue 3D ; les déplacements restent dans le projet. Programme plus léger : les parties passées à AutoSculpt Studio ont été retirées.",
+    "es": "Carpintería metálica: los accesorios (bisagras, cerraduras, manillas, tapones, anclajes…) ahora se mueven a mano en la vista 3D; los cambios quedan en el proyecto. Programa más ligero: se quitaron las partes que pasaron a AutoSculpt Studio.",
+    "pt": "Serralheria: os acessórios (dobradiças, fechaduras, puxadores, tampas, chumbadores…) agora se movem à mão na vista 3D; os movimentos ficam no projeto. Programa mais leve: removidas as partes que passaram para o AutoSculpt Studio.",
+    "ja": "金属加工：付属品（蝶番、錠、取っ手、キャップ、アンカーなど）を3Dビューで手で動かせるようになりました。移動はプロジェクトに保存されます。AutoSculpt Studio に移った機能を取り除き、プログラムを軽くしました。"
   },
   "history": [
+    {
+      "date": "2026-11-26T19:07:24Z",
+      "version": "1.3.200",
+      "notes": {
+        "en": "Metalwork: the accessories (hinges, locks, handles, caps, anchors…) can now be moved by hand in the 3D view; the moves are saved in the project. Lighter program: the parts that moved to AutoSculpt Studio have been removed.",
+        "it": "Carpenteria: gli accessori (cerniere, serrature, maniglie, tappi, ancoranti…) ora si spostano a mano nella vista 3D; gli spostamenti restano nel progetto. Programma più leggero: tolte le parti passate ad AutoSculpt Studio.",
+        "de": "Metallbau: Das Zubehör (Scharniere, Schlösser, Griffe, Kappen, Anker…) lässt sich jetzt in der 3D-Ansicht von Hand verschieben; die Verschiebungen bleiben im Projekt. Leichteres Programm: Die zu AutoSculpt Studio gewechselten Teile wurden entfernt.",
+        "fr": "Métallerie : les accessoires (charnières, serrures, poignées, bouchons, ancrages…) se déplacent désormais à la main dans la vue 3D ; les déplacements restent dans le projet. Programme plus léger : les parties passées à AutoSculpt Studio ont été retirées.",
+        "es": "Carpintería metálica: los accesorios (bisagras, cerraduras, manillas, tapones, anclajes…) ahora se mueven a mano en la vista 3D; los cambios quedan en el proyecto. Programa más ligero: se quitaron las partes que pasaron a AutoSculpt Studio.",
+        "pt": "Serralheria: os acessórios (dobradiças, fechaduras, puxadores, tampas, chumbadores…) agora se movem à mão na vista 3D; os movimentos ficam no projeto. Programa mais leve: removidas as partes que passaram para o AutoSculpt Studio.",
+        "ja": "金属加工：付属品（蝶番、錠、取っ手、キャップ、アンカーなど）を3Dビューで手で動かせるようになりました。移動はプロジェクトに保存されます。AutoSculpt Studio に移った機能を取り除き、プログラムを軽くしました。"
+      }
+    },
     {
       "date": "2026-11-26T17:31:55Z",
       "version": "1.3.199",
@@ -518,38 +531,25 @@
         "pt": "O desenho 2D funciona como um CAD profissional: comandos digitados (L, C, TR, EX…), ajuste perpendicular e tangente, estender, dividir e chanfrar, camadas que podem ser ocultadas ou bloqueadas, cotas automáticas e folha de desenho em PDF com legenda e escala. Para o laser: entradas, micropontes, ordem de corte e tempo de máquina. Os trabalhos de serralheria têm o desenho cotado em três vistas, e a montagem de uma escultura pode ser reproduzida em 3D.",
         "ja": "2D作図がプロ向けCADと同じように使えます：コマンド入力（L、C、TR、EX…）、垂線・接線スナップ、延長・分割・面取り、非表示やロックができるレイヤー、自動寸法、表題欄と尺度付きの図面PDF。レーザー向けにアプローチ、ミクロジョイント、切断順序、加工時間。金物工事には3面の寸法入り図面が付き、彫刻の組立を3Dで再生できます。"
       }
-    },
-    {
-      "date": "2026-11-19T07:33:23Z",
-      "version": "1.3.162",
-      "notes": {
-        "en": "The 2D drawing now works inside the sculptures and the metalwork too: in the sheets view, \"Edit in the 2D drawing\" opens a sheet with its cut, slot, bend and marking lines; add holes, texts or changes and apply: the laser DXF and the project keep them.",
-        "it": "Il disegno 2D ora funziona anche dentro le sculture e la carpenteria: nella vista delle lamiere, «Modifica nel disegno 2D» apre una lamiera con tagli, asole, pieghe e marcature; aggiungi fori, scritte o modifiche e applica: il DXF per il laser e il progetto le tengono.",
-        "de": "Die 2D-Zeichnung funktioniert jetzt auch in den Skulpturen und im Metallbau: in der Blechansicht öffnet „In der 2D-Zeichnung bearbeiten“ ein Blech mit Schnitt-, Schlitz-, Biege- und Markierungslinien; Löcher, Texte oder Änderungen hinzufügen und übernehmen: Laser-DXF und Projekt behalten sie.",
-        "fr": "Le dessin 2D fonctionne maintenant aussi dans les sculptures et la métallerie : dans la vue des tôles, « Modifier dans le dessin 2D » ouvre une tôle avec ses lignes de coupe, boutonnières, plis et marquages ; ajoutez trous, textes ou modifications et appliquez : le DXF laser et le projet les gardent.",
-        "es": "El dibujo 2D ahora funciona también dentro de las esculturas y la carpintería metálica: en la vista de chapas, «Editar en el dibujo 2D» abre una chapa con cortes, ojales, pliegues y marcas; añade agujeros, textos o cambios y aplica: el DXF para el láser y el proyecto los conservan.",
-        "pt": "O desenho 2D agora funciona também dentro das esculturas e da serralharia: na vista das chapas, «Editar no desenho 2D» abre uma chapa com cortes, rasgos, dobras e marcações; acrescente furos, textos ou alterações e aplique: o DXF para o laser e o projeto guardam-nas.",
-        "ja": "2D図面が彫刻と金物の中でも使えるようになりました。板材ビューの「2D図面で編集」で切断・長穴・曲げ・刻印の線ごと板を開き、穴や文字や変更を加えて適用すると、レーザー用DXFとプロジェクトに反映されます。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.199",
+    "version": "1.3.200",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "f1e872a631ce00b6c8ce6fa53ae0d44a09d27c5f6796e35146f17c29b766d236"
+        "sha256": "950bfa3d190d07b43e38546fb738ef3928fe2ef5b7a5e16545480790fb4ef5f5"
       }
     ]
   },
   "app": {
-    "version": "1.3.39",
+    "version": "1.3.40",
     "files": [
       {
         "path": "main.py",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/app/main.py",
-        "sha256": "505eec0016a9efdf4dcfcb3bc3e297e39c728c2f42561a2780588330e280f227"
+        "sha256": "0b8b38560887df5be397b7f6703d1c84da40386c53e2662ea9314ab864d3b5ca"
       }
     ]
   },

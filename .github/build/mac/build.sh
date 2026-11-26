@@ -149,7 +149,6 @@ cat > "$APP/Contents/Info.plist" <<PLIST
   <key>LSMinimumSystemVersion</key><string>12.0</string>
   <key>LSApplicationCategoryType</key><string>public.app-category.graphics-design</string>
   <key>NSHighResolutionCapable</key><true/>
-  <key>NSMicrophoneUsageDescription</key><string>AutoSculpt 3D uses the microphone only while you dictate the description of a sculpture.</string>
   <key>NSHumanReadableCopyright</key><string>From dream to reality. © 2026 Enrico Migliorati. All rights reserved.</string>
   <key>NSAppTransportSecurity</key><dict><key>NSAllowsLocalNetworking</key><true/></dict>
   <key>CFBundleDocumentTypes</key><array><dict>

@@ -440,6 +440,32 @@ def gallery_sync(only_pack=None):
         return True
 _gallery_started = [False]
 
+def studio_app():
+    if IS_MAC:
+        for p in (Path('/Applications/AutoSculpt Studio.app'), Path.home() / 'Applications/AutoSculpt Studio.app'):
+            if p.exists():
+                return p
+    elif IS_WIN:
+        base = Path(os.environ.get('LOCALAPPDATA', str(Path.home() / 'AppData/Local')))
+        p = base / 'Programs' / 'AutoSculpt Studio' / 'AutoSculptStudio.exe'
+        if p.exists():
+            return p
+    return None
+
+def open_studio():
+    app = studio_app()
+    if not app:
+        return {'installed': False, 'url': 'https://github.com/SculptWorksLTD/AutoSculptStudio'}
+    try:
+        if IS_MAC:
+            subprocess.Popen(['open', str(app)])
+        else:
+            subprocess.Popen([str(app)], creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
+        return {'installed': True, 'opened': True}
+    except Exception as exc:
+        log('open studio', exc)
+        return {'installed': True, 'opened': False, 'error': str(exc)}
+
 def gallery_sync_later(delay=15):
     if _gallery_started[0] and GALLERY_SYNC['state'] != 'error':
         return
@@ -1399,6 +1425,8 @@ class Handler(BaseHTTPRequestHandler):
                     return self.send_json({'error': 'unknown engine'}, 404)
                 job = run_job(Job('install', 'Installation ' + spec['name']), lambda j: install_engine(j, spec))
                 return self.send_json(job.as_dict())
+            if path == '/api/studio':
+                return self.send_json(open_studio())
             if path == '/api/dirty':
                 QUIT['dirty'] = bool(b.get('dirty'))
                 return self.send_json({'ok': True})
@@ -2001,7 +2029,6 @@ def main():
         win.events.closing += on_closing
     except Exception as exc:
         log('closing event', exc)
-    gallery_sync_later()
     if IS_WIN:
         try:
             import ctypes

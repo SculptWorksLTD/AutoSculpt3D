@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.196",
-  "notes": "Gemini works like Voice2Code: it uses the models your key really has, and if one does not start answering within a few seconds it moves to the next one at once. No more waiting minutes for a timeout.",
+  "latest": "1.3.197",
+  "notes": "AutoSculpt 3D is lighter: 3D models are now made with AutoSculpt Studio, a separate free program (description, photos, phone, gallery), and sent here with one click.",
   "notes_i18n": {
-    "en": "Gemini works like Voice2Code: it uses the models your key really has, and if one does not start answering within a few seconds it moves to the next one at once. No more waiting minutes for a timeout.",
-    "it": "Gemini funziona come Voice2Code: usa i modelli che la tua chiave ha davvero e, se uno non inizia a rispondere entro pochi secondi, passa subito al successivo. Niente più attese di minuti fino al timeout.",
-    "de": "Gemini arbeitet wie Voice2Code: Es nutzt die Modelle, die dein Schlüssel wirklich hat, und wenn eines nicht innerhalb weniger Sekunden antwortet, wechselt es sofort zum nächsten. Kein minutenlanges Warten mehr.",
-    "fr": "Gemini fonctionne comme Voice2Code : il utilise les modèles réellement disponibles pour ta clé et, si l'un ne commence pas à répondre en quelques secondes, il passe aussitôt au suivant. Fini les minutes d'attente.",
-    "es": "Gemini funciona como Voice2Code: usa los modelos que tu clave tiene de verdad y, si uno no empieza a responder en pocos segundos, pasa enseguida al siguiente. Se acabaron los minutos de espera.",
-    "pt": "O Gemini funciona como no Voice2Code: usa os modelos que a sua chave realmente tem e, se um não começar a responder em poucos segundos, passa logo para o próximo. Chega de esperar minutos.",
-    "ja": "Gemini は Voice2Code と同じ方式になりました。キーで実際に使えるモデルを使い、数秒以内に応答が始まらなければすぐ次のモデルに切り替えます。タイムアウトまで何分も待つことはありません。"
+    "en": "AutoSculpt 3D is lighter: 3D models are now made with AutoSculpt Studio, a separate free program (description, photos, phone, gallery), and sent here with one click.",
+    "it": "AutoSculpt 3D è più leggero: i modelli 3D ora si creano con AutoSculpt Studio, un programma a parte e gratuito (descrizione, foto, telefono, galleria), e arrivano qui con un clic.",
+    "de": "AutoSculpt 3D ist schlanker: 3D-Modelle entstehen jetzt mit AutoSculpt Studio, einem eigenen kostenlosen Programm (Beschreibung, Fotos, Handy, Galerie), und kommen mit einem Klick hierher.",
+    "fr": "AutoSculpt 3D est plus léger : les modèles 3D se créent maintenant avec AutoSculpt Studio, un programme séparé et gratuit (description, photos, téléphone, galerie), et arrivent ici en un clic.",
+    "es": "AutoSculpt 3D es más ligero: los modelos 3D ahora se crean con AutoSculpt Studio, un programa aparte y gratuito (descripción, fotos, teléfono, galería), y llegan aquí con un clic.",
+    "pt": "O AutoSculpt 3D está mais leve: os modelos 3D agora são criados com o AutoSculpt Studio, um programa separado e gratuito (descrição, fotos, celular, galeria), e chegam aqui com um clique.",
+    "ja": "AutoSculpt 3D が軽くなりました：3D モデルは別の無料プログラム AutoSculpt Studio（説明、写真、スマートフォン、ギャラリー）で作り、ワンクリックでここに届きます。"
   },
   "history": [
+    {
+      "date": "2026-11-26T16:22:30Z",
+      "version": "1.3.197",
+      "notes": {
+        "en": "AutoSculpt 3D is lighter: 3D models are now made with AutoSculpt Studio, a separate free program (description, photos, phone, gallery), and sent here with one click.",
+        "it": "AutoSculpt 3D è più leggero: i modelli 3D ora si creano con AutoSculpt Studio, un programma a parte e gratuito (descrizione, foto, telefono, galleria), e arrivano qui con un clic.",
+        "de": "AutoSculpt 3D ist schlanker: 3D-Modelle entstehen jetzt mit AutoSculpt Studio, einem eigenen kostenlosen Programm (Beschreibung, Fotos, Handy, Galerie), und kommen mit einem Klick hierher.",
+        "fr": "AutoSculpt 3D est plus léger : les modèles 3D se créent maintenant avec AutoSculpt Studio, un programme séparé et gratuit (description, photos, téléphone, galerie), et arrivent ici en un clic.",
+        "es": "AutoSculpt 3D es más ligero: los modelos 3D ahora se crean con AutoSculpt Studio, un programa aparte y gratuito (descripción, fotos, teléfono, galería), y llegan aquí con un clic.",
+        "pt": "O AutoSculpt 3D está mais leve: os modelos 3D agora são criados com o AutoSculpt Studio, um programa separado e gratuito (descrição, fotos, celular, galeria), e chegam aqui com um clique.",
+        "ja": "AutoSculpt 3D が軽くなりました：3D モデルは別の無料プログラム AutoSculpt Studio（説明、写真、スマートフォン、ギャラリー）で作り、ワンクリックでここに届きます。"
+      }
+    },
     {
       "date": "2026-11-26T14:45:44Z",
       "version": "1.3.196",
@@ -518,38 +531,25 @@
         "pt": "Galeria de modelos revisada: cada modelo foi conferido um a um e os quebrados, incompletos ou errados foram removidos. Restam cerca de 1.800 modelos bons.",
         "ja": "モデルギャラリーを整理しました。すべてのモデルを1つずつ確認し、壊れたもの・未完成のもの・間違ったものを削除しました。良いモデルが約1,800点残っています。"
       }
-    },
-    {
-      "date": "2026-11-18T22:07:50Z",
-      "version": "1.3.159",
-      "notes": {
-        "en": "The program no longer sends anything by itself: the anonymous diary at closing and the usage notes are removed. Only the reports you write yourself (Help → Report a problem or an idea) are sent.",
-        "it": "Il programma non manda più niente da solo: tolti il diario anonimo alla chiusura e le note d'uso. Parte solo una segnalazione che scrivi tu (Aiuto → Segnala un problema o un'idea).",
-        "de": "Das Programm sendet nichts mehr von selbst: das anonyme Protokoll beim Schließen und die Nutzungsnotizen sind entfernt. Gesendet wird nur eine Meldung, die du selbst schreibst (Hilfe → Problem oder Idee melden).",
-        "fr": "Le programme n'envoie plus rien tout seul : le journal anonyme à la fermeture et les notes d'utilisation sont supprimés. Seul un signalement que vous écrivez vous-même est envoyé (Aide → Signaler un problème ou une idée).",
-        "es": "El programa ya no envía nada por sí solo: se quitaron el diario anónimo al cerrar y las notas de uso. Solo se envía un aviso que escribes tú (Ayuda → Informar de un problema o una idea).",
-        "pt": "O programa não envia mais nada sozinho: foram removidos o diário anônimo ao fechar e as notas de uso. Só é enviado um relato que você mesmo escreve (Ajuda → Relatar um problema ou uma ideia).",
-        "ja": "プログラムが自動で何かを送信することはなくなりました。終了時の匿名ログと使用メモを削除しました。送信されるのは、ご自身で書いた報告（ヘルプ → 問題やアイデアを報告）だけです。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.196",
+    "version": "1.3.197",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "2bb60bb91a6ec897bf4f1e4ba520f4744ca9913b3eae8226a558ba95e835d457"
+        "sha256": "f5a235a9abcba9a9b2d59b2f9f0fd7f10352bf0ba7657686b29495c36d08f7f8"
       }
     ]
   },
   "app": {
-    "version": "1.3.37",
+    "version": "1.3.38",
     "files": [
       {
         "path": "main.py",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/app/main.py",
-        "sha256": "e443f1cb9799efc38f59bec266a25789c9bed0d3305b8005490f61f2ccdd7c35"
+        "sha256": "4ac9a08e308a819c9ca50cbf63f15da8e06126fc65b19e8b36a26b3041a5c402"
       }
     ]
   },

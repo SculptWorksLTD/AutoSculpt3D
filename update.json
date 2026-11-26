@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.192",
-  "notes": "Metalwork: new «Configure step by step» — choose what to build (gate, grille for a door, fence, stairs…), how it opens and on which side the hinges are, the sizes, then a guide walks you through infill, extras, profiles, material and fixing. Every profile list takes any size («Other size…»). Gates and fences can have a sheet at the bottom. Fixed: tables and benches lost their top setting in 1.3.191.",
+  "latest": "1.3.193",
+  "notes": "Metalwork: the 45° mitres of frames now always close the outer corner (on railings and fences with several bays half of them were turned the wrong way). Diagonal braces, stair stringers, struts and the bars under an arch are cut flat against the face they meet, and their length in the cutting list is the real long side. The bays of railings and fences are now fixed to the posts with welded lugs.",
   "notes_i18n": {
-    "en": "Metalwork: new «Configure step by step» — choose what to build (gate, grille for a door, fence, stairs…), how it opens and on which side the hinges are, the sizes, then a guide walks you through infill, extras, profiles, material and fixing. Every profile list takes any size («Other size…»). Gates and fences can have a sheet at the bottom. Fixed: tables and benches lost their top setting in 1.3.191.",
-    "it": "Carpenteria: nuovo «Configura passo per passo» — scegli cosa costruire (cancello, inferriata per porta, recinzione, scale…), come si apre e da che parte sono le cerniere, le misure, poi una guida ti porta tra riempimento, accessori, profili, materiale e fissaggi. Ogni elenco dei profili accetta qualsiasi misura («Altra misura…»). Cancelli e recinzioni possono avere la lamiera in basso. Corretto: nella 1.3.191 tavoli e panche perdevano la scelta del piano.",
-    "de": "Metallbau: neu «Schritt für Schritt einrichten» — wähle, was du baust (Tor, Türgitter, Zaun, Treppe…), wie es öffnet und wo die Scharniere sind, die Maße, dann führt dich eine Anleitung durch Füllung, Zubehör, Profile, Material und Befestigung. Jede Profilliste nimmt jede Größe («Andere Größe…»). Tore und Zäune können unten ein Blech haben. Behoben: in 1.3.191 verloren Tische und Bänke die Wahl der Platte.",
-    "fr": "Métallerie : nouveau «Configurer pas à pas» — choisissez quoi construire (portail, grille de porte, clôture, escalier…), comment il s'ouvre et de quel côté sont les charnières, les dimensions, puis un guide vous mène au remplissage, accessoires, profils, matériau et fixation. Chaque liste de profils accepte toute dimension («Autre dimension…»). Portails et clôtures peuvent avoir une tôle en bas. Corrigé : en 1.3.191 tables et bancs perdaient le choix du plateau.",
-    "es": "Cerrajería: nuevo «Configurar paso a paso» — elige qué construir (cancela, reja para puerta, valla, escalera…), cómo se abre y de qué lado van las bisagras, las medidas, y luego una guía te lleva por relleno, accesorios, perfiles, material y fijación. Cada lista de perfiles acepta cualquier medida («Otra medida…»). Cancelas y vallas pueden llevar chapa abajo. Corregido: en 1.3.191 mesas y bancos perdían la elección del tablero.",
-    "pt": "Serralheria: novo «Configurar passo a passo» — escolha o que construir (portão, grade para porta, cerca, escada…), como abre e de que lado ficam as dobradiças, as medidas, e um guia leva você por enchimento, acessórios, perfis, material e fixação. Cada lista de perfis aceita qualquer medida («Outra medida…»). Portões e cercas podem ter chapa embaixo. Corrigido: na 1.3.191 mesas e bancos perdiam a escolha do tampo.",
-    "ja": "金属加工：新しい「ステップごとに設定」— 作るもの（門扉、ドア用格子、フェンス、階段…）、開き方と丁番の側、寸法を選ぶと、充填・付属品・形材・材料・固定を順に案内します。各形材リストで任意のサイズを入力可能（「その他のサイズ…」）。門扉とフェンスに下部の板を追加。修正：1.3.191 でテーブルとベンチの天板の選択が失われていた問題。"
+    "en": "Metalwork: the 45° mitres of frames now always close the outer corner (on railings and fences with several bays half of them were turned the wrong way). Diagonal braces, stair stringers, struts and the bars under an arch are cut flat against the face they meet, and their length in the cutting list is the real long side. The bays of railings and fences are now fixed to the posts with welded lugs.",
+    "it": "Carpenteria: i quartabuoni a 45° dei telai ora chiudono sempre l'angolo esterno (nelle ringhiere e nelle recinzioni a più campate metà erano girati al contrario). Saette, cosciali delle scale, puntoni e barre sotto l'arco sono tagliati in piano contro la faccia su cui appoggiano, e la loro lunghezza in distinta è il vero lato lungo. Le campate di ringhiere e recinzioni ora sono fissate ai pilastri con piastrine saldate.",
+    "de": "Metallbau: Die 45°-Gehrungen der Rahmen schließen jetzt immer die Außenecke (bei Geländern und Zäunen mit mehreren Feldern war die Hälfte falsch herum). Streben, Treppenwangen, Stützen und die Stäbe unter einem Bogen sind plan gegen die Fläche geschnitten, an der sie anliegen, und ihre Länge in der Schnittliste ist die echte lange Seite. Die Felder von Geländern und Zäunen sind jetzt mit angeschweißten Laschen an den Pfosten befestigt.",
+    "fr": "Métallerie : les coupes d'onglet à 45° des cadres ferment maintenant toujours l'angle extérieur (sur les garde-corps et les clôtures à plusieurs travées, la moitié étaient inversées). Écharpes, limons d'escalier, jambes de force et barreaux sous un cintre sont coupés à plat contre la face où ils s'appuient, et leur longueur dans la liste de débit est le vrai grand côté. Les travées des garde-corps et des clôtures sont maintenant fixées aux poteaux par des pattes soudées.",
+    "es": "Carpintería metálica: los ingletes a 45° de los marcos ahora cierran siempre la esquina exterior (en barandillas y vallas de varios tramos la mitad estaban al revés). Tirantes, zancas de escalera, puntales y barrotes bajo un arco se cortan a ras contra la cara en la que apoyan, y su longitud en la lista de corte es el lado largo real. Los tramos de barandillas y vallas ahora se fijan a los postes con pletinas soldadas.",
+    "pt": "Serralheria: os cortes em meia-esquadria de 45° dos quadros agora sempre fecham o canto externo (em guarda-corpos e cercas com vários vãos metade estava invertida). Mãos-francesas, longarinas de escada, escoras e barras sob um arco são cortadas rentes à face em que se apoiam, e o comprimento na lista de corte é o lado longo real. Os vãos de guarda-corpos e cercas agora são fixados aos postes com chapinhas soldadas.",
+    "ja": "金物：枠の45°留め切りは常に外側の角を閉じるようになりました（複数スパンの手すりやフェンスでは半分が逆向きでした）。筋交い、階段の側桁、方杖、アーチ下の縦格子は当たる面に沿って平らに切断され、切断リストの長さは実際の長辺になりました。手すりとフェンスの各スパンは溶接したプレートで支柱に固定されます。"
   },
   "history": [
+    {
+      "date": "2026-11-26T11:31:09Z",
+      "version": "1.3.193",
+      "notes": {
+        "en": "Metalwork: the 45° mitres of frames now always close the outer corner (on railings and fences with several bays half of them were turned the wrong way). Diagonal braces, stair stringers, struts and the bars under an arch are cut flat against the face they meet, and their length in the cutting list is the real long side. The bays of railings and fences are now fixed to the posts with welded lugs.",
+        "it": "Carpenteria: i quartabuoni a 45° dei telai ora chiudono sempre l'angolo esterno (nelle ringhiere e nelle recinzioni a più campate metà erano girati al contrario). Saette, cosciali delle scale, puntoni e barre sotto l'arco sono tagliati in piano contro la faccia su cui appoggiano, e la loro lunghezza in distinta è il vero lato lungo. Le campate di ringhiere e recinzioni ora sono fissate ai pilastri con piastrine saldate.",
+        "de": "Metallbau: Die 45°-Gehrungen der Rahmen schließen jetzt immer die Außenecke (bei Geländern und Zäunen mit mehreren Feldern war die Hälfte falsch herum). Streben, Treppenwangen, Stützen und die Stäbe unter einem Bogen sind plan gegen die Fläche geschnitten, an der sie anliegen, und ihre Länge in der Schnittliste ist die echte lange Seite. Die Felder von Geländern und Zäunen sind jetzt mit angeschweißten Laschen an den Pfosten befestigt.",
+        "fr": "Métallerie : les coupes d'onglet à 45° des cadres ferment maintenant toujours l'angle extérieur (sur les garde-corps et les clôtures à plusieurs travées, la moitié étaient inversées). Écharpes, limons d'escalier, jambes de force et barreaux sous un cintre sont coupés à plat contre la face où ils s'appuient, et leur longueur dans la liste de débit est le vrai grand côté. Les travées des garde-corps et des clôtures sont maintenant fixées aux poteaux par des pattes soudées.",
+        "es": "Carpintería metálica: los ingletes a 45° de los marcos ahora cierran siempre la esquina exterior (en barandillas y vallas de varios tramos la mitad estaban al revés). Tirantes, zancas de escalera, puntales y barrotes bajo un arco se cortan a ras contra la cara en la que apoyan, y su longitud en la lista de corte es el lado largo real. Los tramos de barandillas y vallas ahora se fijan a los postes con pletinas soldadas.",
+        "pt": "Serralheria: os cortes em meia-esquadria de 45° dos quadros agora sempre fecham o canto externo (em guarda-corpos e cercas com vários vãos metade estava invertida). Mãos-francesas, longarinas de escada, escoras e barras sob um arco são cortadas rentes à face em que se apoiam, e o comprimento na lista de corte é o lado longo real. Os vãos de guarda-corpos e cercas agora são fixados aos postes com chapinhas soldadas.",
+        "ja": "金物：枠の45°留め切りは常に外側の角を閉じるようになりました（複数スパンの手すりやフェンスでは半分が逆向きでした）。筋交い、階段の側桁、方杖、アーチ下の縦格子は当たる面に沿って平らに切断され、切断リストの長さは実際の長辺になりました。手すりとフェンスの各スパンは溶接したプレートで支柱に固定されます。"
+      }
+    },
     {
       "date": "2026-11-26T10:40:34Z",
       "version": "1.3.192",
@@ -518,28 +531,15 @@
         "pt": "Serralheria: 161 projetos prontos em 9 seções (portões, guarda-corpos, grades, chapas decorativas, escadas, coberturas e gazebos, estantes, móveis, mobiliário urbano). Nova aba «Para comprar»: dobradiças, fechaduras, rodas, trilhos, chumbadores e barras roscadas, resina, tampas, pés, cobertura, arame, gás, discos e tinta, contados a partir do desenho com preços indicativos, no orçamento, na ficha de trabalho e numa lista de compras CSV. Novas opções «Fixação e ferragens» (chumbadores químicos ou mecânicos, tipo de parede, portão motorizado). Esculturas: catálogo de formas em 7 seções com 164 formas, incluindo letras e números. Espaço em disco: uma breve descrição de cada download. STL: arquivos danificados são lidos ou explicados, modelos muito grandes abrem bem mais rápido.",
         "ja": "金属加工: 9つの分類に161の既製プロジェクト (門扉、手すり、窓格子、装飾板、階段、庇とガゼボ、棚、家具、街路設備)。新しい「購入品」タブ: 蝶番、錠、車輪、レール、アンカーと全ネジ、樹脂、キャップ、脚、屋根材、ワイヤ、ガス、砥石、塗料を図面から数え、目安の価格とともに見積、作業シート、CSVの購入リストに表示。「固定と金物」の新しい設定 (ケミカル/メカニカルアンカー、壁の種類、電動門)。彫刻: 形のカタログは7分類・164種類、文字と数字も追加。ディスク容量: ダウンロードしたものの短い説明。STL: 壊れたファイルも読み込むか原因を表示、非常に大きなモデルがずっと速く開きます。"
       }
-    },
-    {
-      "date": "2026-11-13T12:49:12Z",
-      "version": "1.3.152",
-      "notes": {
-        "en": "The recent projects are no longer shown on the start page unless you turn them on in Preferences («Show the recent projects on the start page»). They are always in the File menu.",
-        "it": "I progetti recenti non compaiono più nella pagina iniziale, a meno che non li accendi nelle Preferenze («Mostra i progetti recenti nella pagina iniziale»). Restano sempre nel menu File.",
-        "de": "Die zuletzt verwendeten Projekte werden auf der Startseite nicht mehr angezeigt, außer du schaltest sie in den Einstellungen ein („Zuletzt verwendete Projekte auf der Startseite anzeigen“). Sie bleiben immer im Menü Datei.",
-        "fr": "Les projets récents ne s’affichent plus sur la page d’accueil, sauf si tu les actives dans les Préférences (« Afficher les projets récents sur la page d’accueil »). Ils restent toujours dans le menu Fichier.",
-        "es": "Los proyectos recientes ya no aparecen en la página de inicio, salvo que los actives en Preferencias («Mostrar los proyectos recientes en la página de inicio»). Siguen siempre en el menú Archivo.",
-        "pt": "Os projetos recentes não aparecem mais na página inicial, a menos que você os ative nas Preferências («Mostrar os projetos recentes na página inicial»). Eles continuam sempre no menu Arquivo.",
-        "ja": "最近のプロジェクトは、環境設定で「スタートページに最近のプロジェクトを表示する」をオンにしない限り、スタートページに表示されなくなりました。「ファイル」メニューからはいつでも開けます。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.192",
+    "version": "1.3.193",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "94d1d6670d509252f9271d4a22b5de4246cd759379da528594de645e3122c0c5"
+        "sha256": "f22c2b3bf43ea1b2242be3673339b856ae23100d159059ad137ba4d6dc28c0ae"
       }
     ]
   },

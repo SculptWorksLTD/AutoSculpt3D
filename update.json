@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.204",
-  "notes": "New: three proposals side by side with price, fidelity map of the sculpture, dimensions on the 3D and bending check in metalwork, your supplier's prices and codes in «To buy», option to keep the sharp edges of the model, and a short guided tour.",
+  "latest": "1.3.205",
+  "notes": "New: variants of the sculpture inside the project, your own blocks in the 2D drawing (logo, signature, standard plates) and the light of the mockup: full day, evening or night.",
   "notes_i18n": {
-    "en": "New: three proposals side by side with price, fidelity map of the sculpture, dimensions on the 3D and bending check in metalwork, your supplier's prices and codes in «To buy», option to keep the sharp edges of the model, and a short guided tour.",
-    "it": "Novità: tre proposte affiancate con il prezzo, mappa della fedeltà della scultura, quote sul 3D e controllo della flessione in carpenteria, prezzi e codici del tuo fornitore in «Da comprare», opzione per tenere gli spigoli vivi del modello e un breve giro guidato.",
-    "de": "Neu: drei Vorschläge nebeneinander mit Preis, Treue-Karte der Skulptur, Maße im 3D und Biegeprüfung im Metallbau, Preise und Nummern deines Lieferanten in «Zu kaufen», Option für scharfe Kanten des Modells und eine kurze geführte Tour.",
-    "fr": "Nouveau : trois propositions côte à côte avec le prix, carte de fidélité de la sculpture, cotes sur la 3D et contrôle de flexion en métallerie, prix et codes de votre fournisseur dans « À acheter », option pour garder les arêtes vives du modèle et une courte visite guidée.",
-    "es": "Novedades: tres propuestas lado a lado con precio, mapa de fidelidad de la escultura, cotas en el 3D y control de flexión en carpintería metálica, precios y códigos de tu proveedor en «Para comprar», opción para mantener las aristas vivas del modelo y un breve recorrido guiado.",
-    "pt": "Novidades: três propostas lado a lado com preço, mapa de fidelidade da escultura, cotas no 3D e verificação de flexão na serralheria, preços e códigos do seu fornecedor em «Para comprar», opção para manter as arestas vivas do modelo e um breve tour guiado.",
-    "ja": "新機能：価格付きの 3 案比較、彫刻の忠実度マップ、金物の 3D 寸法とたわみ確認、「購入品」に仕入先の価格とコード、モデルの鋭い稜線を残すオプション、短いガイドツアー。"
+    "en": "New: variants of the sculpture inside the project, your own blocks in the 2D drawing (logo, signature, standard plates) and the light of the mockup: full day, evening or night.",
+    "it": "Novità: varianti della scultura dentro il progetto, i tuoi blocchi nel disegno 2D (logo, firma, piastre tipo) e la luce del mockup: giorno pieno, sera o notte.",
+    "de": "Neu: Varianten der Skulptur im Projekt, eigene Blöcke in der 2D-Zeichnung (Logo, Signatur, Standardplatten) und das Licht des Mockups: Tag, Abend oder Nacht.",
+    "fr": "Nouveau : variantes de la sculpture dans le projet, vos propres blocs dans le dessin 2D (logo, signature, plaques types) et la lumière de la maquette : plein jour, soir ou nuit.",
+    "es": "Novedades: variantes de la escultura dentro del proyecto, tus propios bloques en el dibujo 2D (logotipo, firma, placas tipo) y la luz de la maqueta: día, atardecer o noche.",
+    "pt": "Novidades: variantes da escultura dentro do projeto, seus próprios blocos no desenho 2D (logotipo, assinatura, placas padrão) e a luz do mockup: dia, fim de tarde ou noite.",
+    "ja": "新機能：プロジェクト内の彫刻バリエーション、2D 図面の自分のブロック（ロゴ、署名、標準プレート）、モックアップの光：昼、夕方、夜。"
   },
   "history": [
+    {
+      "date": "2026-11-27T13:58:43Z",
+      "version": "1.3.205",
+      "notes": {
+        "en": "New: variants of the sculpture inside the project, your own blocks in the 2D drawing (logo, signature, standard plates) and the light of the mockup: full day, evening or night.",
+        "it": "Novità: varianti della scultura dentro il progetto, i tuoi blocchi nel disegno 2D (logo, firma, piastre tipo) e la luce del mockup: giorno pieno, sera o notte.",
+        "de": "Neu: Varianten der Skulptur im Projekt, eigene Blöcke in der 2D-Zeichnung (Logo, Signatur, Standardplatten) und das Licht des Mockups: Tag, Abend oder Nacht.",
+        "fr": "Nouveau : variantes de la sculpture dans le projet, vos propres blocs dans le dessin 2D (logo, signature, plaques types) et la lumière de la maquette : plein jour, soir ou nuit.",
+        "es": "Novedades: variantes de la escultura dentro del proyecto, tus propios bloques en el dibujo 2D (logotipo, firma, placas tipo) y la luz de la maqueta: día, atardecer o noche.",
+        "pt": "Novidades: variantes da escultura dentro do projeto, seus próprios blocos no desenho 2D (logotipo, assinatura, placas padrão) e a luz do mockup: dia, fim de tarde ou noite.",
+        "ja": "新機能：プロジェクト内の彫刻バリエーション、2D 図面の自分のブロック（ロゴ、署名、標準プレート）、モックアップの光：昼、夕方、夜。"
+      }
+    },
     {
       "date": "2026-11-27T13:52:52Z",
       "version": "1.3.204",
@@ -518,28 +531,15 @@
         "pt": "Preferências: caixas para os preços do seu fornecedor (€/kg de chapa e perfis por material); cada trabalho novo começa com eles.",
         "ja": "環境設定：仕入先の価格（材料ごとの板材・形材の€/kg）を入力する欄。新しい仕事はこの価格から始まります。"
       }
-    },
-    {
-      "date": "2026-11-23T16:31:22Z",
-      "version": "1.3.167",
-      "notes": {
-        "en": "Fixed: opening a second model while the first was still loading could leave the sculpture unreduced (thousands of faces).",
-        "it": "Corretto: aprendo un secondo modello mentre il primo si stava ancora caricando, la scultura poteva restare non ridotta (migliaia di facce).",
-        "de": "Behoben: Wurde ein zweites Modell geöffnet, während das erste noch lud, blieb die Skulptur manchmal unreduziert (Tausende Flächen).",
-        "fr": "Corrigé : ouvrir un second modèle pendant le chargement du premier pouvait laisser la sculpture non réduite (des milliers de faces).",
-        "es": "Corregido: abrir un segundo modelo mientras el primero aún se cargaba podía dejar la escultura sin reducir (miles de caras).",
-        "pt": "Corrigido: abrir um segundo modelo enquanto o primeiro ainda carregava podia deixar a escultura sem redução (milhares de faces).",
-        "ja": "修正：最初のモデルの読み込み中に別のモデルを開くと、彫刻が削減されないまま（数千面）になることがありました。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.204",
+    "version": "1.3.205",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "fbef9f0c0d66ba113cffe100a2add5a140ba4dc374260d4bae28525baed9c9c7"
+        "sha256": "c265fa082fdc2b7e84121220e4d6c8b50b47255c84254ab0c13e401ec2e4e209"
       }
     ]
   },

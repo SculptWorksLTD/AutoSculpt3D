@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.202",
-  "notes": "New: outlines to cut from a picture (2D drawing), undo and redo in metalwork, more facets on the head by itself, positioning marks for tacking, settings for your cutting machine, a test sample for SculptLock and the real hours of your jobs in the quote.",
+  "latest": "1.3.203",
+  "notes": "New: the quote as a web page (the client turns the sculpture, sees it in AR and accepts), versions of the work to go back to, drilling template at real size, listing for an online shop in seven languages, cutting order with lead-ins and micro-joints for the sculptures, light graphics for slow computers.",
   "notes_i18n": {
-    "en": "New: outlines to cut from a picture (2D drawing), undo and redo in metalwork, more facets on the head by itself, positioning marks for tacking, settings for your cutting machine, a test sample for SculptLock and the real hours of your jobs in the quote.",
-    "it": "Novità: contorni da tagliare da un'immagine (disegno 2D), annulla e ripeti in carpenteria, più facce alla testa da sola, segni di posizionamento per la puntatura, impostazioni per la tua macchina di taglio, campione di prova per SculptLock e ore vere dei tuoi lavori nel preventivo.",
-    "de": "Neu: Schneidkonturen aus einem Bild (2D-Zeichnung), Rückgängig und Wiederholen im Metallbau, automatisch mehr Facetten am Kopf, Positionierungsmarken zum Heften, Einstellungen für deine Schneidmaschine, ein Testmuster für SculptLock und die echten Stunden deiner Aufträge im Angebot.",
-    "fr": "Nouveau : contours à découper à partir d'une image (dessin 2D), annuler et rétablir en métallerie, plus de facettes sur la tête automatiquement, repères de positionnement pour le pointage, réglages pour votre machine de découpe, échantillon d'essai SculptLock et heures réelles de vos travaux dans le devis.",
-    "es": "Novedades: contornos para cortar desde una imagen (dibujo 2D), deshacer y rehacer en carpintería metálica, más caras en la cabeza automáticamente, marcas de posicionamiento para el punteado, ajustes para tu máquina de corte, muestra de prueba para SculptLock y horas reales de tus trabajos en el presupuesto.",
-    "pt": "Novidades: contornos para cortar a partir de uma imagem (desenho 2D), desfazer e refazer na serralheria, mais faces na cabeça automaticamente, marcas de posicionamento para o ponteamento, configurações para sua máquina de corte, amostra de teste do SculptLock e horas reais dos seus trabalhos no orçamento.",
-    "ja": "新機能：画像から切断輪郭（2D 図面）、金物の元に戻す／やり直し、頭部に自動で面を多く、仮付け用の位置合わせ印、切断機の設定、SculptLock のテストサンプル、見積もりに実際の作業時間。"
+    "en": "New: the quote as a web page (the client turns the sculpture, sees it in AR and accepts), versions of the work to go back to, drilling template at real size, listing for an online shop in seven languages, cutting order with lead-ins and micro-joints for the sculptures, light graphics for slow computers.",
+    "it": "Novità: il preventivo come pagina web (il cliente gira la scultura, la vede in realtà aumentata e accetta), versioni del lavoro a cui tornare, dima di foratura a grandezza vera, scheda per un negozio online in sette lingue, ordine di taglio con attacchi e microgiunzioni per le sculture, grafica leggera per i computer lenti.",
+    "de": "Neu: das Angebot als Webseite (der Kunde dreht die Skulptur, sieht sie in AR und nimmt an), Versionen der Arbeit zum Zurückgehen, Bohrschablone in Originalgröße, Angebot für einen Onlineshop in sieben Sprachen, Schneidreihenfolge mit Anfahrten und Mikrostegen für Skulpturen, leichte Grafik für langsame Computer.",
+    "fr": "Nouveau : le devis en page web (le client fait tourner la sculpture, la voit en RA et accepte), versions du travail auxquelles revenir, gabarit de perçage en taille réelle, fiche boutique en ligne en sept langues, ordre de découpe avec amorces et micro-attaches pour les sculptures, graphisme léger pour les ordinateurs lents.",
+    "es": "Novedades: el presupuesto como página web (el cliente gira la escultura, la ve en RA y acepta), versiones del trabajo a las que volver, plantilla de taladrado a tamaño real, ficha para tienda online en siete idiomas, orden de corte con entradas y microuniones para las esculturas, gráficos ligeros para ordenadores lentos.",
+    "pt": "Novidades: o orçamento como página web (o cliente gira a escultura, vê em RA e aceita), versões do trabalho para voltar, gabarito de furação em tamanho real, anúncio para loja online em sete idiomas, ordem de corte com entradas e microjunções para as esculturas, gráficos leves para computadores lentos.",
+    "ja": "新機能：Web ページの見積（顧客が彫刻を回し、AR で見て承諾）、作業の以前のバージョン、実物大の穴あけ型紙、7 言語のオンラインショップ用ページ、彫刻の切断順（アプローチとマイクロジョイント）、遅いコンピューター向けの軽い表示。"
   },
   "history": [
+    {
+      "date": "2026-11-27T13:43:37Z",
+      "version": "1.3.203",
+      "notes": {
+        "en": "New: the quote as a web page (the client turns the sculpture, sees it in AR and accepts), versions of the work to go back to, drilling template at real size, listing for an online shop in seven languages, cutting order with lead-ins and micro-joints for the sculptures, light graphics for slow computers.",
+        "it": "Novità: il preventivo come pagina web (il cliente gira la scultura, la vede in realtà aumentata e accetta), versioni del lavoro a cui tornare, dima di foratura a grandezza vera, scheda per un negozio online in sette lingue, ordine di taglio con attacchi e microgiunzioni per le sculture, grafica leggera per i computer lenti.",
+        "de": "Neu: das Angebot als Webseite (der Kunde dreht die Skulptur, sieht sie in AR und nimmt an), Versionen der Arbeit zum Zurückgehen, Bohrschablone in Originalgröße, Angebot für einen Onlineshop in sieben Sprachen, Schneidreihenfolge mit Anfahrten und Mikrostegen für Skulpturen, leichte Grafik für langsame Computer.",
+        "fr": "Nouveau : le devis en page web (le client fait tourner la sculpture, la voit en RA et accepte), versions du travail auxquelles revenir, gabarit de perçage en taille réelle, fiche boutique en ligne en sept langues, ordre de découpe avec amorces et micro-attaches pour les sculptures, graphisme léger pour les ordinateurs lents.",
+        "es": "Novedades: el presupuesto como página web (el cliente gira la escultura, la ve en RA y acepta), versiones del trabajo a las que volver, plantilla de taladrado a tamaño real, ficha para tienda online en siete idiomas, orden de corte con entradas y microuniones para las esculturas, gráficos ligeros para ordenadores lentos.",
+        "pt": "Novidades: o orçamento como página web (o cliente gira a escultura, vê em RA e aceita), versões do trabalho para voltar, gabarito de furação em tamanho real, anúncio para loja online em sete idiomas, ordem de corte com entradas e microjunções para as esculturas, gráficos leves para computadores lentos.",
+        "ja": "新機能：Web ページの見積（顧客が彫刻を回し、AR で見て承諾）、作業の以前のバージョン、実物大の穴あけ型紙、7 言語のオンラインショップ用ページ、彫刻の切断順（アプローチとマイクロジョイント）、遅いコンピューター向けの軽い表示。"
+      }
+    },
     {
       "date": "2026-11-27T13:30:18Z",
       "version": "1.3.202",
@@ -518,28 +531,15 @@
         "pt": "Mockup no local real: coloque a escultura ou o trabalho de serralheria em fotos do local (por exemplo as ruas de uma rotatória) ou num panorama 360°, arraste para o lugar, escolha o tamanho no local sem mudar o projeto, com sombra e sol reais; volta pelas vistas, imagens e vídeo para o cliente.",
         "ja": "実際の場所でのモックアップ：彫刻や金属加工品を設置場所の写真（たとえばロータリーの各道路）や360°パノラマに配置し、ドラッグで位置を決め、プロジェクトを変えずに現地での大きさを選べます。本物の影と太陽光付き。ビューの一周、画像、お客様向け動画。"
       }
-    },
-    {
-      "date": "2026-11-23T15:08:44Z",
-      "version": "1.3.165",
-      "notes": {
-        "en": "2D drawing: text in any font installed on the computer, and turned into outlines the laser cuts; new angular dimension. Metalwork: files for the profile machines (DSTV) in the Tube cutting tab.",
-        "it": "Disegno 2D: testo in qualsiasi font installato sul computer, anche trasformato in contorni che il laser taglia; nuova quota angolare. Carpenteria: file per le macchine dei profili (DSTV) nella scheda Taglio tubi.",
-        "de": "2D-Zeichnung: Text in jeder auf dem Computer installierten Schrift, auch als Konturen, die der Laser schneidet; neue Winkelbemaßung. Metallbau: Dateien für Profilmaschinen (DSTV) im Reiter Rohrzuschnitt.",
-        "fr": "Dessin 2D : texte dans n'importe quelle police installée sur l'ordinateur, aussi converti en contours que le laser découpe ; nouvelle cote angulaire. Serrurerie : fichiers pour les machines à profilés (DSTV) dans l'onglet Coupe des tubes.",
-        "es": "Dibujo 2D: texto en cualquier fuente instalada en el ordenador, también convertido en contornos que el láser corta; nueva cota angular. Carpintería metálica: archivos para las máquinas de perfiles (DSTV) en la pestaña Corte de tubos.",
-        "pt": "Desenho 2D: texto em qualquer fonte instalada no computador, também transformado em contornos que o laser corta; nova cota angular. Serralheria: arquivos para as máquinas de perfis (DSTV) na aba Corte de tubos.",
-        "ja": "2D図面：コンピューターにインストールされた任意のフォントで文字を入力でき、レーザーで切断する輪郭にも変換できます。角度寸法を追加。金属加工：「パイプ切断」タブに形材加工機用ファイル（DSTV）を追加。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.202",
+    "version": "1.3.203",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "12caba95ef14a2a21be885b1bfbafeac396d65a26480a643b981615d754c2f77"
+        "sha256": "034dce2dda17d32838cab303152f3f58d14b6112a95aa8ee21556fd085e4cb9c"
       }
     ]
   },

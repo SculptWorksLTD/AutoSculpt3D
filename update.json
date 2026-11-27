@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.205",
-  "notes": "New: variants of the sculpture inside the project, your own blocks in the 2D drawing (logo, signature, standard plates) and the light of the mockup: full day, evening or night.",
+  "latest": "1.3.206",
+  "notes": "New: correction for the thickness of the bends, common-line cutting, «Optimise more» for fewer sheets, offcuts in stock, an assembly order that lets the torch in, the kit to ship with QR labels, the catalogue of your products in PDF, dimensions that drive the 2D drawing, fillet and offset on arcs, and new metalwork: stairs with a landing, glass railings, cabinets with doors and drawers, canopies on tie rods.",
   "notes_i18n": {
-    "en": "New: variants of the sculpture inside the project, your own blocks in the 2D drawing (logo, signature, standard plates) and the light of the mockup: full day, evening or night.",
-    "it": "Novità: varianti della scultura dentro il progetto, i tuoi blocchi nel disegno 2D (logo, firma, piastre tipo) e la luce del mockup: giorno pieno, sera o notte.",
-    "de": "Neu: Varianten der Skulptur im Projekt, eigene Blöcke in der 2D-Zeichnung (Logo, Signatur, Standardplatten) und das Licht des Mockups: Tag, Abend oder Nacht.",
-    "fr": "Nouveau : variantes de la sculpture dans le projet, vos propres blocs dans le dessin 2D (logo, signature, plaques types) et la lumière de la maquette : plein jour, soir ou nuit.",
-    "es": "Novedades: variantes de la escultura dentro del proyecto, tus propios bloques en el dibujo 2D (logotipo, firma, placas tipo) y la luz de la maqueta: día, atardecer o noche.",
-    "pt": "Novidades: variantes da escultura dentro do projeto, seus próprios blocos no desenho 2D (logotipo, assinatura, placas padrão) e a luz do mockup: dia, fim de tarde ou noite.",
-    "ja": "新機能：プロジェクト内の彫刻バリエーション、2D 図面の自分のブロック（ロゴ、署名、標準プレート）、モックアップの光：昼、夕方、夜。"
+    "en": "New: correction for the thickness of the bends, common-line cutting, «Optimise more» for fewer sheets, offcuts in stock, an assembly order that lets the torch in, the kit to ship with QR labels, the catalogue of your products in PDF, dimensions that drive the 2D drawing, fillet and offset on arcs, and new metalwork: stairs with a landing, glass railings, cabinets with doors and drawers, canopies on tie rods.",
+    "it": "Novità: correzione per lo spessore della piega, taglio a linea comune, «Ottimizza di più» per usare meno lamiere, magazzino degli sfridi, ordine di montaggio che lascia passare la torcia, kit da spedire con etichette QR, catalogo dei tuoi prodotti in PDF, quote che comandano il disegno 2D, raccordo e offset sugli archi e nuovi lavori di carpenteria: scale con pianerottolo, ringhiere in vetro, mobili con ante e cassetti, pensiline su tiranti.",
+    "de": "Neu: Korrektur für die Biegedicke, Schnitt auf gemeinsamer Linie, «Stärker optimieren» für weniger Bleche, Reststücklager, eine Montagereihenfolge, die den Brenner durchlässt, Versandbausatz mit QR-Etiketten, Produktkatalog als PDF, Maße, die die 2D-Zeichnung steuern, Abrunden und Versetzen an Bögen und neue Metallarbeiten: Treppen mit Podest, Glasgeländer, Schränke mit Türen und Schubladen, Vordächer an Zugstangen.",
+    "fr": "Nouveautés : correction pour l'épaisseur des plis, coupe en ligne commune, « Optimiser davantage » pour moins de tôles, stock de chutes, un ordre de montage qui laisse passer la torche, le kit à expédier avec étiquettes QR, le catalogue de vos produits en PDF, des cotes qui pilotent le dessin 2D, raccord et décalage sur les arcs et de nouveaux travaux de métallerie : escaliers avec palier, garde-corps en verre, armoires avec portes et tiroirs, marquises sur tirants.",
+    "es": "Novedades: corrección por el espesor del pliegue, corte en línea común, «Optimizar más» para usar menos chapas, almacén de retales, un orden de montaje que deja pasar la antorcha, el kit para enviar con etiquetas QR, el catálogo de tus productos en PDF, cotas que mandan en el dibujo 2D, empalme y desfase en arcos y nuevos trabajos de cerrajería: escaleras con rellano, barandillas de vidrio, armarios con puertas y cajones, marquesinas con tirantes.",
+    "pt": "Novidades: correção para a espessura da dobra, corte em linha comum, «Otimizar mais» para usar menos chapas, estoque de retalhos, uma ordem de montagem que deixa passar a tocha, o kit para enviar com etiquetas QR, o catálogo dos seus produtos em PDF, cotas que comandam o desenho 2D, concordância e deslocamento em arcos e novos trabalhos de serralharia: escadas com patamar, guarda-corpos de vidro, armários com portas e gavetas, coberturas com tirantes.",
+    "ja": "新機能：曲げの板厚補正、共通線切断、板の枚数を減らす「さらに最適化」、端材の在庫、トーチが入る組立順、QRラベル付き発送用キット、製品カタログPDF、2D図面を動かす寸法、円弧のフィレットとオフセット、新しい金物：踊り場付き階段、ガラス手すり、扉と引き出し付きキャビネット、タイロッド支持の庇。"
   },
   "history": [
+    {
+      "date": "2026-11-27T17:01:50Z",
+      "version": "1.3.206",
+      "notes": {
+        "en": "New: correction for the thickness of the bends, common-line cutting, «Optimise more» for fewer sheets, offcuts in stock, an assembly order that lets the torch in, the kit to ship with QR labels, the catalogue of your products in PDF, dimensions that drive the 2D drawing, fillet and offset on arcs, and new metalwork: stairs with a landing, glass railings, cabinets with doors and drawers, canopies on tie rods.",
+        "it": "Novità: correzione per lo spessore della piega, taglio a linea comune, «Ottimizza di più» per usare meno lamiere, magazzino degli sfridi, ordine di montaggio che lascia passare la torcia, kit da spedire con etichette QR, catalogo dei tuoi prodotti in PDF, quote che comandano il disegno 2D, raccordo e offset sugli archi e nuovi lavori di carpenteria: scale con pianerottolo, ringhiere in vetro, mobili con ante e cassetti, pensiline su tiranti.",
+        "de": "Neu: Korrektur für die Biegedicke, Schnitt auf gemeinsamer Linie, «Stärker optimieren» für weniger Bleche, Reststücklager, eine Montagereihenfolge, die den Brenner durchlässt, Versandbausatz mit QR-Etiketten, Produktkatalog als PDF, Maße, die die 2D-Zeichnung steuern, Abrunden und Versetzen an Bögen und neue Metallarbeiten: Treppen mit Podest, Glasgeländer, Schränke mit Türen und Schubladen, Vordächer an Zugstangen.",
+        "fr": "Nouveautés : correction pour l'épaisseur des plis, coupe en ligne commune, « Optimiser davantage » pour moins de tôles, stock de chutes, un ordre de montage qui laisse passer la torche, le kit à expédier avec étiquettes QR, le catalogue de vos produits en PDF, des cotes qui pilotent le dessin 2D, raccord et décalage sur les arcs et de nouveaux travaux de métallerie : escaliers avec palier, garde-corps en verre, armoires avec portes et tiroirs, marquises sur tirants.",
+        "es": "Novedades: corrección por el espesor del pliegue, corte en línea común, «Optimizar más» para usar menos chapas, almacén de retales, un orden de montaje que deja pasar la antorcha, el kit para enviar con etiquetas QR, el catálogo de tus productos en PDF, cotas que mandan en el dibujo 2D, empalme y desfase en arcos y nuevos trabajos de cerrajería: escaleras con rellano, barandillas de vidrio, armarios con puertas y cajones, marquesinas con tirantes.",
+        "pt": "Novidades: correção para a espessura da dobra, corte em linha comum, «Otimizar mais» para usar menos chapas, estoque de retalhos, uma ordem de montagem que deixa passar a tocha, o kit para enviar com etiquetas QR, o catálogo dos seus produtos em PDF, cotas que comandam o desenho 2D, concordância e deslocamento em arcos e novos trabalhos de serralharia: escadas com patamar, guarda-corpos de vidro, armários com portas e gavetas, coberturas com tirantes.",
+        "ja": "新機能：曲げの板厚補正、共通線切断、板の枚数を減らす「さらに最適化」、端材の在庫、トーチが入る組立順、QRラベル付き発送用キット、製品カタログPDF、2D図面を動かす寸法、円弧のフィレットとオフセット、新しい金物：踊り場付き階段、ガラス手すり、扉と引き出し付きキャビネット、タイロッド支持の庇。"
+      }
+    },
     {
       "date": "2026-11-27T13:58:43Z",
       "version": "1.3.205",
@@ -518,28 +531,15 @@
         "pt": "O número de faces agora cresce com a medida da escultura (220 a 60 cm, 450 a 1,2 m, 700 a 2 m) até você mover a barra de faces.",
         "ja": "面数が彫刻のサイズに合わせて増えるようになりました（60 cmで220、1.2 mで450、2 mで700）。面数のバーを自分で動かすまで自動です。"
       }
-    },
-    {
-      "date": "2026-11-23T16:44:02Z",
-      "version": "1.3.168",
-      "notes": {
-        "en": "Preferences: boxes for the prices of your supplier (€/kg of sheet and profiles for every material); every new job starts from them.",
-        "it": "Preferenze: caselle per i prezzi del tuo fornitore (€/kg di lamiera e profili per ogni materiale); ogni lavoro nuovo parte da questi.",
-        "de": "Einstellungen: Felder für die Preise deines Lieferanten (€/kg Blech und Profile je Material); jeder neue Auftrag beginnt damit.",
-        "fr": "Préférences : cases pour les prix de ton fournisseur (€/kg de tôle et de profilés pour chaque matériau) ; chaque nouveau travail part de ceux-ci.",
-        "es": "Preferencias: casillas para los precios de tu proveedor (€/kg de chapa y perfiles por material); cada trabajo nuevo parte de ellos.",
-        "pt": "Preferências: caixas para os preços do seu fornecedor (€/kg de chapa e perfis por material); cada trabalho novo começa com eles.",
-        "ja": "環境設定：仕入先の価格（材料ごとの板材・形材の€/kg）を入力する欄。新しい仕事はこの価格から始まります。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.205",
+    "version": "1.3.206",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "c265fa082fdc2b7e84121220e4d6c8b50b47255c84254ab0c13e401ec2e4e209"
+        "sha256": "4171194976446052efe3f6109f48cca45feb7a59fba9cfe497878c7ce9c6844b"
       }
     ]
   },

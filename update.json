@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.208",
-  "notes": "2D drawing: hatching, chained dimensions, copies along a path, text on an arc, plates in series, a picture to trace, revisions, parametric parts, constraints and PDF drawings. Metalwork: railings and fences that follow a plan, curved or on a slope, French balcony, folding gate, pergola with turning blades, cantilever, L and U stairs, mezzanine with its stair, iron door, pit cover, box letters, log store, fire pit, dog run, glass and solar canopies; site survey, drawing to sign, one drawing per piece, pieces and joints added by hand, snow and wind check (indicative).",
+  "latest": "1.3.209",
+  "notes": "Laser: sheet number on the pieces, skeleton cut in strips, small pieces held, plasma and waterjet settings, numbers on stick-on labels, paper protractors, order for a laser company and laser operator sheets. Gates: documents (declaration of performance, instructions, maintenance register, CE label) and an online configurator page for your clients. Sculptures: inner spine, LED light inside, engraved name plate, welding consumables in the order.",
   "notes_i18n": {
-    "en": "2D drawing: hatching, chained dimensions, copies along a path, text on an arc, plates in series, a picture to trace, revisions, parametric parts, constraints and PDF drawings. Metalwork: railings and fences that follow a plan, curved or on a slope, French balcony, folding gate, pergola with turning blades, cantilever, L and U stairs, mezzanine with its stair, iron door, pit cover, box letters, log store, fire pit, dog run, glass and solar canopies; site survey, drawing to sign, one drawing per piece, pieces and joints added by hand, snow and wind check (indicative).",
-    "it": "Disegno 2D: campiture, quote in catena, copie lungo un percorso, testo su arco, targhe in serie, immagine da ricalcare, revisioni, pezzi parametrici, vincoli e disegni PDF. Carpenteria: ringhiere e recinzioni che seguono una pianta, curve o in pendenza, balconcino alla francese, cancello a libro, pergola a lamelle orientabili, scale a sbalzo, a L e a U, soppalco con scala, porta in ferro, chiusini, lettere scatolate, portalegna, braciere, recinto per cani, pensiline in vetro e fotovoltaiche; sopralluogo, disegno da firmare, un disegno per pezzo, pezzi e giunti aggiunti a mano, verifica neve e vento (indicativa).",
-    "de": "2D-Zeichnung: Schraffuren, Kettenmaße, Kopien entlang eines Pfads, Text auf Bogen, Schilder in Serie, Bild zum Nachzeichnen, Revisionen, parametrische Teile, Bedingungen und PDF-Zeichnungen. Metallbau: Geländer und Zäune nach Grundriss, gebogen oder am Hang, französischer Balkon, Falttor, Pergola mit Drehlamellen, Krag-, L- und U-Treppen, Bühne mit Treppe, Eisentür, Schachtabdeckung, Profilbuchstaben, Holzunterstand, Feuerschale, Hundezwinger, Glas- und Solarvordächer; Aufmaß, Zeichnung zum Unterschreiben, eine Zeichnung pro Teil, von Hand hinzugefügte Teile und Verbindungen, Schnee- und Windprüfung (Richtwert).",
-    "fr": "Dessin 2D : hachures, cotes en chaîne, copies le long d'un tracé, texte sur un arc, plaques en série, image à décalquer, révisions, pièces paramétriques, contraintes et dessins PDF. Métallerie : garde-corps et clôtures sur plan, courbes ou en pente, balconnet, portail pliant, pergola à lames orientables, escaliers en console, en L et en U, mezzanine avec escalier, porte en fer, tampons, lettres boîtier, abri à bûches, brasero, enclos pour chiens, auvents en verre et solaires ; relevé, dessin à signer, un dessin par pièce, pièces et assemblages ajoutés à la main, contrôle neige et vent (indicatif).",
-    "es": "Dibujo 2D: rayados, cotas en cadena, copias a lo largo de un recorrido, texto en arco, placas en serie, imagen para calcar, revisiones, piezas paramétricas, restricciones y planos PDF. Carpintería metálica: barandillas y vallas que siguen una planta, curvas o en pendiente, balcón francés, puerta plegable, pérgola de lamas orientables, escaleras en voladizo, en L y en U, altillo con escalera, puerta de hierro, tapas de arqueta, letras corpóreas, leñero, brasero, recinto para perros, marquesinas de vidrio y solares; toma de medidas, plano para firmar, un plano por pieza, piezas y uniones añadidas a mano, comprobación de nieve y viento (orientativa).",
-    "pt": "Desenho 2D: tracejados, cotas em cadeia, cópias ao longo de um percurso, texto em arco, placas em série, imagem para decalcar, revisões, peças paramétricas, restrições e desenhos PDF. Serralharia: guarda-corpos e vedações em planta, curvos ou em declive, varandim, portão articulado, pérgola com lâminas orientáveis, escadas em consola, em L e em U, mezanino com escada, porta em ferro, tampas de caixa, letras caixa, abrigo para lenha, braseiro, canil, palas em vidro e solares; levantamento, desenho para assinar, um desenho por peça, peças e ligações adicionadas à mão, verificação de neve e vento (indicativa).",
-    "ja": "2D作図：ハッチング、直列寸法、経路に沿った複写、円弧上の文字、連番プレート、トレース用画像、改訂履歴、パラメトリック部品、拘束、PDF図面。金物：平面に沿う・曲線・傾斜地の手すりとフェンス、フレンチバルコニー、折れ戸門扉、可動ルーバーのパーゴラ、片持ち・L字・U字階段、階段付き中二階、鉄扉、ピットのふた、箱文字、薪棚、ファイヤーピット、犬用ケージ、ガラス・太陽光の庇。現地調査、署名用図面、部材ごとの図面、手動追加の部材と継手、積雪・風の目安チェック。"
+    "en": "Laser: sheet number on the pieces, skeleton cut in strips, small pieces held, plasma and waterjet settings, numbers on stick-on labels, paper protractors, order for a laser company and laser operator sheets. Gates: documents (declaration of performance, instructions, maintenance register, CE label) and an online configurator page for your clients. Sculptures: inner spine, LED light inside, engraved name plate, welding consumables in the order.",
+    "it": "Laser: numero della lamiera sui pezzi, scheletro tagliato a strisce, pezzi piccoli trattenuti, impostazioni per plasma e taglio ad acqua, numeri su etichette adesive, goniometri di carta, ordine per il laser conto terzi e fogli per il laserista. Cancelli: documenti (dichiarazione di prestazione, istruzioni, registro di manutenzione, targhetta CE) e una pagina di configurazione online per i tuoi clienti. Sculture: spina interna, luce LED, targhetta incisa, consumabili di saldatura nell'ordine.",
+    "de": "Laser: Blechnummer auf den Teilen, Restgitter in Streifen, kleine Teile gehalten, Einstellungen für Plasma und Wasserstrahl, Nummern auf Klebeetiketten, Papierwinkelmesser, Auftrag für einen Laserdienstleister und Blätter für den Laserbediener. Tore: Unterlagen (Leistungserklärung, Anleitung, Wartungsbuch, CE-Schild) und eine Online-Konfiguratorseite für deine Kunden. Skulpturen: Innenstütze, LED-Licht, gravierte Plakette, Schweißverbrauchsmaterial in der Bestellung.",
+    "fr": "Laser : numéro de tôle sur les pièces, squelette découpé en bandes, petites pièces tenues, réglages plasma et jet d'eau, numéros sur étiquettes, rapporteurs en papier, commande pour un sous-traitant laser et fiches pour l'opérateur. Portails : documents (déclaration des performances, notice, registre d'entretien, plaque CE) et une page de configuration en ligne pour tes clients. Sculptures : âme intérieure, éclairage LED, plaque gravée, consommables de soudage dans la commande.",
+    "es": "Láser: número de chapa en las piezas, esqueleto cortado en tiras, piezas pequeñas sujetas, ajustes para plasma y chorro de agua, números en etiquetas adhesivas, transportadores de papel, pedido para un taller láser y hojas para el operador. Puertas: documentos (declaración de prestaciones, instrucciones, registro de mantenimiento, placa CE) y una página de configuración en línea para tus clientes. Esculturas: alma interior, luz LED, placa grabada, consumibles de soldadura en el pedido.",
+    "pt": "Laser: número da chapa nas peças, esqueleto cortado em tiras, peças pequenas presas, definições para plasma e jato de água, números em etiquetas, transferidores de papel, encomenda para um serviço de laser e folhas para o operador. Portões: documentos (declaração de desempenho, instruções, registo de manutenção, placa CE) e uma página de configuração online para os seus clientes. Esculturas: alma interior, luz LED, placa gravada, consumíveis de soldadura na encomenda.",
+    "ja": "レーザー：部材に板番号、スケルトンの帯状切断、小部材の保持、プラズマ・ウォータージェット設定、シールラベルの番号、紙の角度ゲージ、外注レーザー用の発注一式、作業者用シート。門扉：書類（性能宣言書、取扱説明書、保守記録簿、CEラベル）とお客様向けオンライン設定ページ。彫刻：内部芯材、LED照明、刻印銘板、発注に溶接消耗品。"
   },
   "history": [
+    {
+      "date": "2026-11-27T21:21:28Z",
+      "version": "1.3.209",
+      "notes": {
+        "en": "Laser: sheet number on the pieces, skeleton cut in strips, small pieces held, plasma and waterjet settings, numbers on stick-on labels, paper protractors, order for a laser company and laser operator sheets. Gates: documents (declaration of performance, instructions, maintenance register, CE label) and an online configurator page for your clients. Sculptures: inner spine, LED light inside, engraved name plate, welding consumables in the order.",
+        "it": "Laser: numero della lamiera sui pezzi, scheletro tagliato a strisce, pezzi piccoli trattenuti, impostazioni per plasma e taglio ad acqua, numeri su etichette adesive, goniometri di carta, ordine per il laser conto terzi e fogli per il laserista. Cancelli: documenti (dichiarazione di prestazione, istruzioni, registro di manutenzione, targhetta CE) e una pagina di configurazione online per i tuoi clienti. Sculture: spina interna, luce LED, targhetta incisa, consumabili di saldatura nell'ordine.",
+        "de": "Laser: Blechnummer auf den Teilen, Restgitter in Streifen, kleine Teile gehalten, Einstellungen für Plasma und Wasserstrahl, Nummern auf Klebeetiketten, Papierwinkelmesser, Auftrag für einen Laserdienstleister und Blätter für den Laserbediener. Tore: Unterlagen (Leistungserklärung, Anleitung, Wartungsbuch, CE-Schild) und eine Online-Konfiguratorseite für deine Kunden. Skulpturen: Innenstütze, LED-Licht, gravierte Plakette, Schweißverbrauchsmaterial in der Bestellung.",
+        "fr": "Laser : numéro de tôle sur les pièces, squelette découpé en bandes, petites pièces tenues, réglages plasma et jet d'eau, numéros sur étiquettes, rapporteurs en papier, commande pour un sous-traitant laser et fiches pour l'opérateur. Portails : documents (déclaration des performances, notice, registre d'entretien, plaque CE) et une page de configuration en ligne pour tes clients. Sculptures : âme intérieure, éclairage LED, plaque gravée, consommables de soudage dans la commande.",
+        "es": "Láser: número de chapa en las piezas, esqueleto cortado en tiras, piezas pequeñas sujetas, ajustes para plasma y chorro de agua, números en etiquetas adhesivas, transportadores de papel, pedido para un taller láser y hojas para el operador. Puertas: documentos (declaración de prestaciones, instrucciones, registro de mantenimiento, placa CE) y una página de configuración en línea para tus clientes. Esculturas: alma interior, luz LED, placa grabada, consumibles de soldadura en el pedido.",
+        "pt": "Laser: número da chapa nas peças, esqueleto cortado em tiras, peças pequenas presas, definições para plasma e jato de água, números em etiquetas, transferidores de papel, encomenda para um serviço de laser e folhas para o operador. Portões: documentos (declaração de desempenho, instruções, registo de manutenção, placa CE) e uma página de configuração online para os seus clientes. Esculturas: alma interior, luz LED, placa gravada, consumíveis de soldadura na encomenda.",
+        "ja": "レーザー：部材に板番号、スケルトンの帯状切断、小部材の保持、プラズマ・ウォータージェット設定、シールラベルの番号、紙の角度ゲージ、外注レーザー用の発注一式、作業者用シート。門扉：書類（性能宣言書、取扱説明書、保守記録簿、CEラベル）とお客様向けオンライン設定ページ。彫刻：内部芯材、LED照明、刻印銘板、発注に溶接消耗品。"
+      }
+    },
     {
       "date": "2026-11-27T20:48:05Z",
       "version": "1.3.208",
@@ -518,28 +531,15 @@
         "pt": "A galeria de modelos agora é copiada para o seu computador (cerca de 170 MB, uma vez) e funciona sem internet; os catálogos abrem a partir de uma lista suspensa de categorias; ao sair com alterações não salvas o programa pergunta se deseja salvá-las; novos Arquivo → Sair e Fechar (Ctrl+W).",
         "ja": "モデルギャラリーはコンピューターにコピーされるようになりました(約 170 MB、1 回のみ)。インターネットなしでも使えます。カタログはカテゴリのドロップダウンから開きます。未保存の変更があるまま終了すると保存するか確認します。ファイル → 終了、閉じる(Ctrl+W)を追加しました。"
       }
-    },
-    {
-      "date": "2026-11-23T19:19:41Z",
-      "version": "1.3.171",
-      "notes": {
-        "en": "The gallery now holds 943 ready low-poly sculptures of 1.2 m: the previews show the faceted sculpture, the bad models were removed, and a model opens ready to build at 1.2 m.",
-        "it": "La galleria ora contiene 943 sculture low poly pronte da 1,2 m: le anteprime mostrano già la scultura sfaccettata, i modelli venuti male sono stati tolti e un modello si apre già pronto da costruire a 1,2 m.",
-        "de": "Die Galerie enthält jetzt 943 fertige Low-Poly-Skulpturen von 1,2 m: Die Vorschauen zeigen die facettierte Skulptur, misslungene Modelle wurden entfernt, und ein Modell öffnet sich baufertig in 1,2 m.",
-        "fr": "La galerie contient maintenant 943 sculptures low poly prêtes de 1,2 m : les aperçus montrent la sculpture à facettes, les modèles ratés ont été retirés et un modèle s'ouvre prêt à construire à 1,2 m.",
-        "es": "La galería ahora contiene 943 esculturas low poly listas de 1,2 m: las vistas previas muestran la escultura facetada, se quitaron los modelos defectuosos y un modelo se abre listo para construir a 1,2 m.",
-        "pt": "A galeria agora tem 943 esculturas low poly prontas de 1,2 m: as prévias mostram a escultura facetada, os modelos ruins foram removidos e um modelo abre pronto para construir a 1,2 m.",
-        "ja": "ギャラリーに 1.2 m のローポリ彫刻 943 点を用意しました。プレビューは多面体の彫刻を表示し、出来の悪いモデルは削除済みで、開くと 1.2 m ですぐに製作できます。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.208",
+    "version": "1.3.209",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "d8d6014bdb7cf07d0ab94c4a597222729cda57b3b2f8fa710b433412f849293f"
+        "sha256": "697254e497b12cada2fcee1381fd870ee0bc23a284043c1394a02934ecfa8491"
       }
     ]
   },

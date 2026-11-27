@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.200",
-  "notes": "Metalwork: the accessories (hinges, locks, handles, caps, anchors…) can now be moved by hand in the 3D view; the moves are saved in the project. Lighter program: the parts that moved to AutoSculpt Studio have been removed.",
+  "latest": "1.3.201",
+  "notes": "Small and medium sculptures now get more facets and a shorter minimum edge by default (10 mm up to 1 m), so faces, eyes and paws keep their detail.",
   "notes_i18n": {
-    "en": "Metalwork: the accessories (hinges, locks, handles, caps, anchors…) can now be moved by hand in the 3D view; the moves are saved in the project. Lighter program: the parts that moved to AutoSculpt Studio have been removed.",
-    "it": "Carpenteria: gli accessori (cerniere, serrature, maniglie, tappi, ancoranti…) ora si spostano a mano nella vista 3D; gli spostamenti restano nel progetto. Programma più leggero: tolte le parti passate ad AutoSculpt Studio.",
-    "de": "Metallbau: Das Zubehör (Scharniere, Schlösser, Griffe, Kappen, Anker…) lässt sich jetzt in der 3D-Ansicht von Hand verschieben; die Verschiebungen bleiben im Projekt. Leichteres Programm: Die zu AutoSculpt Studio gewechselten Teile wurden entfernt.",
-    "fr": "Métallerie : les accessoires (charnières, serrures, poignées, bouchons, ancrages…) se déplacent désormais à la main dans la vue 3D ; les déplacements restent dans le projet. Programme plus léger : les parties passées à AutoSculpt Studio ont été retirées.",
-    "es": "Carpintería metálica: los accesorios (bisagras, cerraduras, manillas, tapones, anclajes…) ahora se mueven a mano en la vista 3D; los cambios quedan en el proyecto. Programa más ligero: se quitaron las partes que pasaron a AutoSculpt Studio.",
-    "pt": "Serralheria: os acessórios (dobradiças, fechaduras, puxadores, tampas, chumbadores…) agora se movem à mão na vista 3D; os movimentos ficam no projeto. Programa mais leve: removidas as partes que passaram para o AutoSculpt Studio.",
-    "ja": "金属加工：付属品（蝶番、錠、取っ手、キャップ、アンカーなど）を3Dビューで手で動かせるようになりました。移動はプロジェクトに保存されます。AutoSculpt Studio に移った機能を取り除き、プログラムを軽くしました。"
+    "en": "Small and medium sculptures now get more facets and a shorter minimum edge by default (10 mm up to 1 m), so faces, eyes and paws keep their detail.",
+    "it": "Le sculture piccole e medie hanno ora di serie più facce e un lato minimo più corto (10 mm fino a 1 m): musi, occhi e zampe restano dettagliati.",
+    "de": "Kleine und mittlere Skulpturen erhalten jetzt standardmäßig mehr Facetten und eine kürzere Mindestkante (10 mm bis 1 m), damit Gesichter, Augen und Pfoten detailliert bleiben.",
+    "fr": "Les petites et moyennes sculptures ont désormais par défaut plus de facettes et une arête minimale plus courte (10 mm jusqu'à 1 m) : visages, yeux et pattes restent détaillés.",
+    "es": "Las esculturas pequeñas y medianas tienen ahora por defecto más caras y un lado mínimo más corto (10 mm hasta 1 m): caras, ojos y patas conservan el detalle.",
+    "pt": "Esculturas pequenas e médias agora têm por padrão mais faces e uma aresta mínima mais curta (10 mm até 1 m): rostos, olhos e patas mantêm os detalhes.",
+    "ja": "小型・中型の彫刻は標準で面が増え、最小辺が短くなりました（1 m まで 10 mm）。顔・目・脚の細部が残ります。"
   },
   "history": [
+    {
+      "date": "2026-11-27T12:24:16Z",
+      "version": "1.3.201",
+      "notes": {
+        "en": "Small and medium sculptures now get more facets and a shorter minimum edge by default (10 mm up to 1 m), so faces, eyes and paws keep their detail.",
+        "it": "Le sculture piccole e medie hanno ora di serie più facce e un lato minimo più corto (10 mm fino a 1 m): musi, occhi e zampe restano dettagliati.",
+        "de": "Kleine und mittlere Skulpturen erhalten jetzt standardmäßig mehr Facetten und eine kürzere Mindestkante (10 mm bis 1 m), damit Gesichter, Augen und Pfoten detailliert bleiben.",
+        "fr": "Les petites et moyennes sculptures ont désormais par défaut plus de facettes et une arête minimale plus courte (10 mm jusqu'à 1 m) : visages, yeux et pattes restent détaillés.",
+        "es": "Las esculturas pequeñas y medianas tienen ahora por defecto más caras y un lado mínimo más corto (10 mm hasta 1 m): caras, ojos y patas conservan el detalle.",
+        "pt": "Esculturas pequenas e médias agora têm por padrão mais faces e uma aresta mínima mais curta (10 mm até 1 m): rostos, olhos e patas mantêm os detalhes.",
+        "ja": "小型・中型の彫刻は標準で面が増え、最小辺が短くなりました（1 m まで 10 mm）。顔・目・脚の細部が残ります。"
+      }
+    },
     {
       "date": "2026-11-26T19:07:24Z",
       "version": "1.3.200",
@@ -518,28 +531,15 @@
         "pt": "Um visual mais profissional: ferramentas rápidas e troca entre as três áreas de trabalho no alto, botões de vista e eixos X Y Z na vista 3D, painéis e barra de status mais claros. No desenho 2D: alças para arrastar pontas, raios e cotas, mira em cruz, histórico de comandos e ajustes como botões.",
         "ja": "よりプロらしい外観に：上部にクイックツールと3つの作業領域の切り替え、3Dビューに視点ボタンとX・Y・Z軸、見やすいパネルとステータスバー。2D作図では端点・半径・寸法をドラッグできるグリップ、十字カーソル、コマンド履歴、ボタン式のスナップ。"
       }
-    },
-    {
-      "date": "2026-11-23T11:35:43Z",
-      "version": "1.3.163",
-      "notes": {
-        "en": "The 2D drawing works like a professional CAD: typed commands (L, C, TR, EX…), perpendicular and tangent snaps, extend, break and chamfer, layers you can hide or lock, automatic dimensions and a PDF drawing sheet with title block and scale. For the laser: lead-ins, micro-joints, the cutting order and the machine time. Metalwork jobs get a dimensioned drawing in three views, and the assembly of a sculpture can be played in 3D.",
-        "it": "Il disegno 2D funziona come un CAD professionale: comandi scritti (L, C, TR, EX…), agganci perpendicolare e tangente, estendi, spezza e smusso, layer da nascondere o bloccare, quote automatiche e tavola PDF con cartiglio e scala. Per il laser: attacchi, microgiunzioni, ordine di taglio e tempo macchina. I lavori di carpenteria hanno il disegno quotato in tre viste, e il montaggio di una scultura si può riprodurre in 3D.",
-        "de": "Die 2D-Zeichnung arbeitet wie ein professionelles CAD: eingetippte Befehle (L, C, TR, EX…), Fang lotrecht und tangential, Dehnen, Brechen und Fasen, Layer zum Ausblenden oder Sperren, automatische Bemaßung und ein PDF-Zeichnungsblatt mit Schriftfeld und Maßstab. Für den Laser: Anfahrfahnen, Mikrostege, Schneidreihenfolge und Maschinenzeit. Metallbauarbeiten erhalten eine bemaßte Zeichnung in drei Ansichten, und die Montage einer Skulptur lässt sich in 3D abspielen.",
-        "fr": "Le dessin 2D fonctionne comme une CAO professionnelle : commandes tapées (L, C, TR, EX…), accrochage perpendiculaire et tangent, prolonger, couper et chanfreiner, calques à masquer ou verrouiller, cotation automatique et plan PDF avec cartouche et échelle. Pour le laser : attaques, micro-attaches, ordre de coupe et temps machine. Les ouvrages de métallerie ont un plan coté en trois vues, et l'assemblage d'une sculpture peut être joué en 3D.",
-        "es": "El dibujo 2D funciona como un CAD profesional: comandos escritos (L, C, TR, EX…), referencias perpendicular y tangente, alargar, partir y achaflanar, capas que se pueden ocultar o bloquear, acotado automático y plano PDF con cajetín y escala. Para el láser: entradas, microuniones, orden de corte y tiempo de máquina. Los trabajos de cerrajería tienen el plano acotado en tres vistas, y el montaje de una escultura se puede reproducir en 3D.",
-        "pt": "O desenho 2D funciona como um CAD profissional: comandos digitados (L, C, TR, EX…), ajuste perpendicular e tangente, estender, dividir e chanfrar, camadas que podem ser ocultadas ou bloqueadas, cotas automáticas e folha de desenho em PDF com legenda e escala. Para o laser: entradas, micropontes, ordem de corte e tempo de máquina. Os trabalhos de serralheria têm o desenho cotado em três vistas, e a montagem de uma escultura pode ser reproduzida em 3D.",
-        "ja": "2D作図がプロ向けCADと同じように使えます：コマンド入力（L、C、TR、EX…）、垂線・接線スナップ、延長・分割・面取り、非表示やロックができるレイヤー、自動寸法、表題欄と尺度付きの図面PDF。レーザー向けにアプローチ、ミクロジョイント、切断順序、加工時間。金物工事には3面の寸法入り図面が付き、彫刻の組立を3Dで再生できます。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.200",
+    "version": "1.3.201",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "950bfa3d190d07b43e38546fb738ef3928fe2ef5b7a5e16545480790fb4ef5f5"
+        "sha256": "f0627ac12caba2ab4920bb49f29b12fc92746fa9e89c14be80fd5a5490cc38d6"
       }
     ]
   },

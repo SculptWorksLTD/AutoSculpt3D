@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.203",
-  "notes": "New: the quote as a web page (the client turns the sculpture, sees it in AR and accepts), versions of the work to go back to, drilling template at real size, listing for an online shop in seven languages, cutting order with lead-ins and micro-joints for the sculptures, light graphics for slow computers.",
+  "latest": "1.3.204",
+  "notes": "New: three proposals side by side with price, fidelity map of the sculpture, dimensions on the 3D and bending check in metalwork, your supplier's prices and codes in «To buy», option to keep the sharp edges of the model, and a short guided tour.",
   "notes_i18n": {
-    "en": "New: the quote as a web page (the client turns the sculpture, sees it in AR and accepts), versions of the work to go back to, drilling template at real size, listing for an online shop in seven languages, cutting order with lead-ins and micro-joints for the sculptures, light graphics for slow computers.",
-    "it": "Novità: il preventivo come pagina web (il cliente gira la scultura, la vede in realtà aumentata e accetta), versioni del lavoro a cui tornare, dima di foratura a grandezza vera, scheda per un negozio online in sette lingue, ordine di taglio con attacchi e microgiunzioni per le sculture, grafica leggera per i computer lenti.",
-    "de": "Neu: das Angebot als Webseite (der Kunde dreht die Skulptur, sieht sie in AR und nimmt an), Versionen der Arbeit zum Zurückgehen, Bohrschablone in Originalgröße, Angebot für einen Onlineshop in sieben Sprachen, Schneidreihenfolge mit Anfahrten und Mikrostegen für Skulpturen, leichte Grafik für langsame Computer.",
-    "fr": "Nouveau : le devis en page web (le client fait tourner la sculpture, la voit en RA et accepte), versions du travail auxquelles revenir, gabarit de perçage en taille réelle, fiche boutique en ligne en sept langues, ordre de découpe avec amorces et micro-attaches pour les sculptures, graphisme léger pour les ordinateurs lents.",
-    "es": "Novedades: el presupuesto como página web (el cliente gira la escultura, la ve en RA y acepta), versiones del trabajo a las que volver, plantilla de taladrado a tamaño real, ficha para tienda online en siete idiomas, orden de corte con entradas y microuniones para las esculturas, gráficos ligeros para ordenadores lentos.",
-    "pt": "Novidades: o orçamento como página web (o cliente gira a escultura, vê em RA e aceita), versões do trabalho para voltar, gabarito de furação em tamanho real, anúncio para loja online em sete idiomas, ordem de corte com entradas e microjunções para as esculturas, gráficos leves para computadores lentos.",
-    "ja": "新機能：Web ページの見積（顧客が彫刻を回し、AR で見て承諾）、作業の以前のバージョン、実物大の穴あけ型紙、7 言語のオンラインショップ用ページ、彫刻の切断順（アプローチとマイクロジョイント）、遅いコンピューター向けの軽い表示。"
+    "en": "New: three proposals side by side with price, fidelity map of the sculpture, dimensions on the 3D and bending check in metalwork, your supplier's prices and codes in «To buy», option to keep the sharp edges of the model, and a short guided tour.",
+    "it": "Novità: tre proposte affiancate con il prezzo, mappa della fedeltà della scultura, quote sul 3D e controllo della flessione in carpenteria, prezzi e codici del tuo fornitore in «Da comprare», opzione per tenere gli spigoli vivi del modello e un breve giro guidato.",
+    "de": "Neu: drei Vorschläge nebeneinander mit Preis, Treue-Karte der Skulptur, Maße im 3D und Biegeprüfung im Metallbau, Preise und Nummern deines Lieferanten in «Zu kaufen», Option für scharfe Kanten des Modells und eine kurze geführte Tour.",
+    "fr": "Nouveau : trois propositions côte à côte avec le prix, carte de fidélité de la sculpture, cotes sur la 3D et contrôle de flexion en métallerie, prix et codes de votre fournisseur dans « À acheter », option pour garder les arêtes vives du modèle et une courte visite guidée.",
+    "es": "Novedades: tres propuestas lado a lado con precio, mapa de fidelidad de la escultura, cotas en el 3D y control de flexión en carpintería metálica, precios y códigos de tu proveedor en «Para comprar», opción para mantener las aristas vivas del modelo y un breve recorrido guiado.",
+    "pt": "Novidades: três propostas lado a lado com preço, mapa de fidelidade da escultura, cotas no 3D e verificação de flexão na serralheria, preços e códigos do seu fornecedor em «Para comprar», opção para manter as arestas vivas do modelo e um breve tour guiado.",
+    "ja": "新機能：価格付きの 3 案比較、彫刻の忠実度マップ、金物の 3D 寸法とたわみ確認、「購入品」に仕入先の価格とコード、モデルの鋭い稜線を残すオプション、短いガイドツアー。"
   },
   "history": [
+    {
+      "date": "2026-11-27T13:52:52Z",
+      "version": "1.3.204",
+      "notes": {
+        "en": "New: three proposals side by side with price, fidelity map of the sculpture, dimensions on the 3D and bending check in metalwork, your supplier's prices and codes in «To buy», option to keep the sharp edges of the model, and a short guided tour.",
+        "it": "Novità: tre proposte affiancate con il prezzo, mappa della fedeltà della scultura, quote sul 3D e controllo della flessione in carpenteria, prezzi e codici del tuo fornitore in «Da comprare», opzione per tenere gli spigoli vivi del modello e un breve giro guidato.",
+        "de": "Neu: drei Vorschläge nebeneinander mit Preis, Treue-Karte der Skulptur, Maße im 3D und Biegeprüfung im Metallbau, Preise und Nummern deines Lieferanten in «Zu kaufen», Option für scharfe Kanten des Modells und eine kurze geführte Tour.",
+        "fr": "Nouveau : trois propositions côte à côte avec le prix, carte de fidélité de la sculpture, cotes sur la 3D et contrôle de flexion en métallerie, prix et codes de votre fournisseur dans « À acheter », option pour garder les arêtes vives du modèle et une courte visite guidée.",
+        "es": "Novedades: tres propuestas lado a lado con precio, mapa de fidelidad de la escultura, cotas en el 3D y control de flexión en carpintería metálica, precios y códigos de tu proveedor en «Para comprar», opción para mantener las aristas vivas del modelo y un breve recorrido guiado.",
+        "pt": "Novidades: três propostas lado a lado com preço, mapa de fidelidade da escultura, cotas no 3D e verificação de flexão na serralheria, preços e códigos do seu fornecedor em «Para comprar», opção para manter as arestas vivas do modelo e um breve tour guiado.",
+        "ja": "新機能：価格付きの 3 案比較、彫刻の忠実度マップ、金物の 3D 寸法とたわみ確認、「購入品」に仕入先の価格とコード、モデルの鋭い稜線を残すオプション、短いガイドツアー。"
+      }
+    },
     {
       "date": "2026-11-27T13:43:37Z",
       "version": "1.3.203",
@@ -518,28 +531,15 @@
         "pt": "Corrigido: abrir um segundo modelo enquanto o primeiro ainda carregava podia deixar a escultura sem redução (milhares de faces).",
         "ja": "修正：最初のモデルの読み込み中に別のモデルを開くと、彫刻が削減されないまま（数千面）になることがありました。"
       }
-    },
-    {
-      "date": "2026-11-23T15:50:26Z",
-      "version": "1.3.166",
-      "notes": {
-        "en": "Mockup in the real site: put the sculpture or the metalwork piece in photos of the place (for example the roads of a roundabout) or in a 360° panorama, drag it where it stands, choose its size in the place without changing the project, with real shadow and sun; tour of the views, images and video for the client.",
-        "it": "Mockup nel luogo vero: metti la scultura o il lavoro di carpenteria nelle foto del posto (per esempio le strade di una rotonda) o in un panorama a 360°, trascinala dove deve stare, scegli la sua misura nel luogo senza cambiare il progetto, con ombra e sole veri; giro delle viste, immagini e video per il cliente.",
-        "de": "Mockup am realen Ort: Skulptur oder Metallbauteil in Fotos des Ortes (zum Beispiel die Straßen eines Kreisverkehrs) oder in ein 360°-Panorama setzen, an seinen Platz ziehen, die Größe am Ort wählen, ohne das Projekt zu ändern, mit echtem Schatten und Sonne; Rundgang durch die Ansichten, Bilder und Video für den Kunden.",
-        "fr": "Maquette dans le lieu réel : placez la sculpture ou l'ouvrage dans des photos du lieu (par exemple les routes d'un rond-point) ou dans un panorama à 360°, faites-la glisser à sa place, choisissez sa taille sur place sans changer le projet, avec ombre et soleil réels ; tour des vues, images et vidéo pour le client.",
-        "es": "Maqueta en el lugar real: coloca la escultura o el trabajo de carpintería en fotos del sitio (por ejemplo las calles de una rotonda) o en un panorama de 360°, arrástrala a su sitio, elige su tamaño en el lugar sin cambiar el proyecto, con sombra y sol reales; recorrido de las vistas, imágenes y vídeo para el cliente.",
-        "pt": "Mockup no local real: coloque a escultura ou o trabalho de serralheria em fotos do local (por exemplo as ruas de uma rotatória) ou num panorama 360°, arraste para o lugar, escolha o tamanho no local sem mudar o projeto, com sombra e sol reais; volta pelas vistas, imagens e vídeo para o cliente.",
-        "ja": "実際の場所でのモックアップ：彫刻や金属加工品を設置場所の写真（たとえばロータリーの各道路）や360°パノラマに配置し、ドラッグで位置を決め、プロジェクトを変えずに現地での大きさを選べます。本物の影と太陽光付き。ビューの一周、画像、お客様向け動画。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.203",
+    "version": "1.3.204",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "034dce2dda17d32838cab303152f3f58d14b6112a95aa8ee21556fd085e4cb9c"
+        "sha256": "fbef9f0c0d66ba113cffe100a2add5a140ba4dc374260d4bae28525baed9c9c7"
       }
     ]
   },

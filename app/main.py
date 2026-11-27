@@ -942,8 +942,8 @@ class Bridge:
         return {'path': path, 'name': Path(path).name}
 
     def open_file(self, kind='all', label=None):
-        exts = {'project': '*.as3d;*.json', 'image': '*.jpg;*.jpeg;*.png;*.heic;*.webp' if IS_MAC else '*.jpg;*.jpeg;*.png;*.webp', 'dxf': '*.dxf;*.svg', 'all': '*.as3d;*.obj;*.stl;*.glb;*.gltf;*.ply;*.json;*.dxf;*.svg'}.get(kind, '*.*')
-        default = {'project': 'AutoSculpt 3D projects', 'image': 'Images', 'dxf': 'DXF and SVG drawings', 'all': '3D models and projects'}.get(kind, 'Files')
+        exts = {'project': '*.as3d;*.json', 'image': '*.jpg;*.jpeg;*.png;*.heic;*.webp' if IS_MAC else '*.jpg;*.jpeg;*.png;*.webp', 'dxf': '*.dxf;*.svg', 'drawing': '*.dxf;*.svg;*.pdf', 'all': '*.as3d;*.obj;*.stl;*.glb;*.gltf;*.ply;*.json;*.dxf;*.svg'}.get(kind, '*.*')
+        default = {'project': 'AutoSculpt 3D projects', 'image': 'Images', 'dxf': 'DXF and SVG drawings', 'drawing': 'DXF, SVG and PDF drawings', 'all': '3D models and projects'}.get(kind, 'Files')
         types = (f'{label or default} ({exts})',)
         path = self._dialog('open', file_types=types, directory=str(Path.home()))
         if not path:

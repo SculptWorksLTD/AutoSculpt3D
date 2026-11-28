@@ -136,8 +136,8 @@ def main():
         urllib.request.urlopen(url + "vendor/three/build/three.module.js", timeout=20).read(100)
         info = json.loads(urllib.request.urlopen(urllib.request.Request(url + "api/info", headers={"X-AS-Token": token}), timeout=20).read())
         assert info["os"] == "win32" and info["version"] == version, info
-        engines = json.loads(urllib.request.urlopen(urllib.request.Request(url + "api/engines", headers={"X-AS-Token": token}), timeout=20).read())
-        print("   test passed:", info.get("app"), info["version"], "engines:", len(engines))
+        # (the 3D engines moved to AutoSculpt Studio in 1.3.38: /api/engines no longer exists)
+        print("   test passed:", info.get("app"), info["version"])
     finally:
         p.kill()
     shutil.rmtree(test_home, ignore_errors=True)

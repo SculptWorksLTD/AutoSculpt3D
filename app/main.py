@@ -757,6 +757,12 @@ class Handler(BaseHTTPRequestHandler):
                 if w:
                     threading.Thread(target=lambda: (time.sleep(0.2), w.destroy()), daemon=True).start()
                 return self.send_json({'ok': True})
+            if path == '/api/clipboard':
+                if 'text' in b:
+                    return self.send_json({'ok': clipboard_set(str(b.get('text') or '')[:2000000])})
+                return self.send_json({'text': clipboard_get()})
+            if path == '/api/open-link':
+                return self.send_json({'ok': open_external(str(b.get('url') or ''))})
             if path == '/api/disk/clean':
                 return self.send_json(disk_clean([str(x) for x in b.get('ids') or []]))
             if path.startswith('/api/jobs/') and path.endswith('/cancel'):
@@ -932,6 +938,126 @@ def export_file(name, b64, path=None):
             pass
     return {'path': str(path), 'name': path.name, 'fallback': fallback}
 
+def clipboard_get():
+    try:
+        if IS_WIN:
+            import ctypes
+            from ctypes import wintypes
+            u, k = (ctypes.windll.user32, ctypes.windll.kernel32)
+            u.GetClipboardData.restype = wintypes.HANDLE
+            k.GlobalLock.restype = ctypes.c_void_p
+            k.GlobalLock.argtypes = [wintypes.HANDLE]
+            k.GlobalUnlock.argtypes = [wintypes.HANDLE]
+            if not u.OpenClipboard(None):
+                return ''
+            try:
+                h = u.GetClipboardData(13)
+                if not h:
+                    return ''
+                p = k.GlobalLock(h)
+                try:
+                    return ctypes.wstring_at(p) if p else ''
+                finally:
+                    k.GlobalUnlock(h)
+            finally:
+                u.CloseClipboard()
+        if IS_MAC:
+            return subprocess.run(['pbpaste'], capture_output=True, timeout=5).stdout.decode('utf-8', 'replace')
+        return subprocess.run(['xclip', '-o', '-selection', 'clipboard'], capture_output=True, timeout=5).stdout.decode('utf-8', 'replace')
+    except Exception as exc:
+        log('clipboard read', exc)
+        return ''
+
+def clipboard_set(text):
+    try:
+        if IS_WIN:
+            import ctypes
+            from ctypes import wintypes
+            u, k = (ctypes.windll.user32, ctypes.windll.kernel32)
+            k.GlobalAlloc.restype = wintypes.HGLOBAL
+            k.GlobalAlloc.argtypes = [wintypes.UINT, ctypes.c_size_t]
+            k.GlobalLock.restype = ctypes.c_void_p
+            k.GlobalLock.argtypes = [wintypes.HGLOBAL]
+            k.GlobalUnlock.argtypes = [wintypes.HGLOBAL]
+            u.SetClipboardData.argtypes = [wintypes.UINT, wintypes.HANDLE]
+            data = text.encode('utf-16-le') + b'\x00\x00'
+            if not u.OpenClipboard(None):
+                return False
+            try:
+                u.EmptyClipboard()
+                h = k.GlobalAlloc(2, len(data))
+                p = k.GlobalLock(h)
+                ctypes.memmove(p, data, len(data))
+                k.GlobalUnlock(h)
+                return bool(u.SetClipboardData(13, h))
+            finally:
+                u.CloseClipboard()
+        if IS_MAC:
+            subprocess.run(['pbcopy'], input=text.encode('utf-8'), timeout=5)
+            return True
+        subprocess.run(['xclip', '-selection', 'clipboard'], input=text.encode('utf-8'), timeout=5)
+        return True
+    except Exception as exc:
+        log('clipboard write', exc)
+        return False
+
+def open_external(url):
+    if not re.match('^(https://|http://|mailto:)', url or '', re.I) or len(url) > 8000:
+        return False
+    try:
+        import webbrowser
+        return bool(webbrowser.open(url))
+    except Exception as exc:
+        log('open link', exc)
+        return False
+
+def window_background():
+    theme = webstate_read().get('autosculpt.theme') or ''
+    dark = theme == 'dark'
+    if theme not in ('dark', 'light'):
+        try:
+            if IS_MAC:
+                dark = 'Dark' in subprocess.run(['defaults', 'read', '-g', 'AppleInterfaceStyle'], capture_output=True, timeout=3).stdout.decode()
+            elif IS_WIN:
+                import winreg
+                with winreg.OpenKey(winreg.HKEY_CURRENT_USER, 'Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize') as key:
+                    dark = winreg.QueryValueEx(key, 'AppsUseLightTheme')[0] == 0
+        except Exception:
+            dark = False
+    return '#1E1E1E' if dark else '#D9D9D9'
+
+def native_window(win):
+    try:
+        if IS_WIN:
+            from System import Func, Type
+            wv = win.native.browser.webview
+
+            def apply():
+                s = wv.CoreWebView2.Settings
+                for k, v in (('IsZoomControlEnabled', False), ('IsPinchZoomEnabled', False), ('IsSwipeNavigationEnabled', False), ('AreBrowserAcceleratorKeysEnabled', False), ('AreDefaultContextMenusEnabled', False), ('IsStatusBarEnabled', False), ('AreDevToolsEnabled', False), ('IsGeneralAutofillEnabled', False), ('IsPasswordAutosaveEnabled', False), ('IsBuiltInErrorPageEnabled', False)):
+                    try:
+                        setattr(s, k, v)
+                    except Exception:
+                        pass
+                wv.ZoomFactor = 1.0
+            win.native.Invoke(Func[Type](apply))
+        elif IS_MAC:
+            from PyObjCTools import AppHelper
+            from webview.platforms.cocoa import BrowserView
+
+            def apply():
+                for bv in list(BrowserView.instances.values()):
+                    w = bv.webview
+                    for sel, v in (('setAllowsLinkPreview_', False), ('setAllowsBackForwardNavigationGestures_', False), ('setAllowsMagnification_', False)):
+                        try:
+                            getattr(w, sel)(v)
+                        except Exception:
+                            pass
+            AppHelper.callAfter(apply)
+        log('native window settings applied')
+    except Exception as exc:
+        log('native window settings', exc)
+
 class Bridge:
 
     def __init__(self):
@@ -1000,9 +1126,7 @@ class Bridge:
             subprocess.run(['xdg-open', str(Path(path).parent)])
 
     def open_url(self, url):
-        if url.startswith('https://'):
-            import webbrowser
-            webbrowser.open(url)
+        open_external(url)
 
     def restart(self):
         app = os.environ.get('AUTOSCULPT_APP')
@@ -1219,9 +1343,9 @@ def main():
         mac_open_documents()
     bridge = Bridge()
     try:
-        win = webview.create_window(APP_NAME, url, js_api=bridge, width=1440, height=900, min_size=(1024, 680), text_select=True, maximized=True)
+        win = webview.create_window(APP_NAME, url, js_api=bridge, width=1440, height=900, min_size=(1024, 680), text_select=True, maximized=True, background_color=window_background())
     except TypeError:
-        win = webview.create_window(APP_NAME, url, js_api=bridge, width=1440, height=900, min_size=(1024, 680), text_select=True)
+        win = webview.create_window(APP_NAME, url, js_api=bridge, width=1440, height=900, min_size=(1024, 680), text_select=True, background_color=window_background())
     bridge._win = win
     QUIT['win'] = win
 
@@ -1230,6 +1354,10 @@ def main():
             threading.Thread(target=lambda: win.evaluate_js('window.AS_QUIT && window.AS_QUIT()'), daemon=True).start()
             return False
         return True
+    try:
+        win.events.loaded += lambda: native_window(win)
+    except Exception as exc:
+        log('loaded event', exc)
     try:
         win.events.closing += on_closing
     except Exception as exc:

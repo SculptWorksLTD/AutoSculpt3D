@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.211",
-  "notes": "Click any part in the 3D view to select it and Delete removes it (pieces, plate, column, profiles, sheet parts, accessories), with undo and restore. Grilles: sliding on the wall, accordion and arched English style. Motorised gates list the EN 12453 safety devices. Quote: price per m² and per metre and your own price list. Also: model for architects (IFC), automatic backup copy, font manager for cut text, weathervane, offcuts traced from a photo.",
+  "latest": "1.3.212",
+  "notes": "AutoSculpt 3D now behaves like a program and not like a web page: its own right-click menus (Cut, Copy, Paste in the fields; views, measuring, Delete and presentation on the 3D view), no accidental zoom, reload or text selection, links open in your browser or mail program, and the window opens in the colour of your theme. Ctrl/⌘ + and − change the size of texts and panels, Ctrl/⌘ F searches a command, Ctrl/⌘ P makes the PDF.",
   "notes_i18n": {
-    "en": "Click any part in the 3D view to select it and Delete removes it (pieces, plate, column, profiles, sheet parts, accessories), with undo and restore. Grilles: sliding on the wall, accordion and arched English style. Motorised gates list the EN 12453 safety devices. Quote: price per m² and per metre and your own price list. Also: model for architects (IFC), automatic backup copy, font manager for cut text, weathervane, offcuts traced from a photo.",
-    "it": "Fai clic su qualsiasi parte nella vista 3D per selezionarla e Canc la cancella (pezzi, piastra, colonna, profili, parti in lamiera, accessori), con annulla e ripristina. Inferriate: scorrevoli sul muro, a fisarmonica e ad arco all'inglese. I cancelli motorizzati elencano le sicurezze della EN 12453. Preventivo: prezzo al m² e al metro e il tuo listino. Inoltre: modello per architetti (IFC), copia di sicurezza automatica, scelta del carattere per i testi da tagliare, banderuola, sfridi ricavati da una foto.",
-    "de": "Klicken Sie auf ein Teil in der 3D-Ansicht, um es auszuwählen; Entf löscht es (Teile, Platte, Säule, Profile, Blechteile, Zubehör), mit Rückgängig und Wiederherstellen. Gitter: Schiebegitter an der Wand, Scherengitter und englische Bogengitter. Motorisierte Tore listen die Sicherheitseinrichtungen nach EN 12453. Angebot: Preis pro m² und pro Meter und Ihre eigene Preisliste. Außerdem: Modell für Architekten (IFC), automatische Sicherungskopie, Schriftwahl für Schneidetexte, Windfahne, Reststücke aus einem Foto.",
-    "fr": "Cliquez sur une partie dans la vue 3D pour la sélectionner, Suppr la supprime (pièces, platine, colonne, profilés, pièces en tôle, accessoires), avec annuler et rétablir. Grilles : coulissantes sur le mur, accordéon et cintrées à l'anglaise. Les portails motorisés listent les sécurités de l'EN 12453. Devis : prix au m² et au mètre et votre liste de prix. Aussi : modèle pour architectes (IFC), copie de sécurité automatique, choix de la police pour les textes à découper, girouette, chutes relevées d'une photo.",
-    "es": "Haz clic en cualquier parte de la vista 3D para seleccionarla y Supr la borra (piezas, placa, columna, perfiles, piezas de chapa, accesorios), con deshacer y restaurar. Rejas: correderas en la pared, de acordeón y en arco a la inglesa. Las puertas motorizadas listan las seguridades de la EN 12453. Presupuesto: precio por m² y por metro y tu propia lista de precios. Además: modelo para arquitectos (IFC), copia de seguridad automática, elección de fuente para textos de corte, veleta, retales obtenidos de una foto.",
-    "pt": "Clique em qualquer parte na vista 3D para a selecionar e Delete apaga-a (peças, placa, coluna, perfis, peças de chapa, acessórios), com anular e restaurar. Grades: de correr na parede, sanfonadas e em arco à inglesa. Os portões motorizados listam as seguranças da EN 12453. Orçamento: preço por m² e por metro e a sua própria tabela de preços. Também: modelo para arquitetos (IFC), cópia de segurança automática, escolha da fonte para textos a cortar, cata-vento, sobras obtidas de uma foto.",
-    "ja": "3Dビューの任意の部分をクリックして選択し、Deleteで削除できます（ピース、プレート、支柱、形鋼、板部品、付属品）。元に戻す・復元にも対応。格子：壁付けの引き戸、アコーディオン、イギリス風アーチ。電動門扉ではEN 12453の安全装置を一覧表示。見積り：1 m²・1 mあたりの価格と自分の価格表。そのほか：建築家向けモデル（IFC）、自動バックアップ、切断する文字のフォント選択、風見、写真から読み取る端材。"
+    "en": "AutoSculpt 3D now behaves like a program and not like a web page: its own right-click menus (Cut, Copy, Paste in the fields; views, measuring, Delete and presentation on the 3D view), no accidental zoom, reload or text selection, links open in your browser or mail program, and the window opens in the colour of your theme. Ctrl/⌘ + and − change the size of texts and panels, Ctrl/⌘ F searches a command, Ctrl/⌘ P makes the PDF.",
+    "it": "AutoSculpt 3D ora si comporta da programma e non da pagina web: menu propri col tasto destro (Taglia, Copia, Incolla nei campi; viste, misura, Elimina e presentazione sulla vista 3D), niente zoom, ricarica o selezione del testo per sbaglio, i collegamenti si aprono nel browser o nella posta, e la finestra si apre nel colore del tuo tema. Ctrl/⌘ + e − cambiano la dimensione di testi e pannelli, Ctrl/⌘ F cerca un comando, Ctrl/⌘ P crea il PDF.",
+    "de": "AutoSculpt 3D verhält sich jetzt wie ein Programm und nicht wie eine Webseite: eigene Rechtsklick-Menüs (Ausschneiden, Kopieren, Einfügen in den Feldern; Ansichten, Messen, Löschen und Präsentation in der 3D-Ansicht), kein versehentliches Zoomen, Neuladen oder Markieren von Text, Links öffnen sich im Browser oder Mailprogramm, und das Fenster öffnet sich in der Farbe Ihres Designs. Strg/⌘ + und − ändern die Größe von Texten und Bereichen, Strg/⌘ F sucht einen Befehl, Strg/⌘ P erstellt das PDF.",
+    "fr": "AutoSculpt 3D se comporte maintenant comme un programme et non comme une page web : ses propres menus du clic droit (Couper, Copier, Coller dans les champs ; vues, mesure, Supprimer et présentation sur la vue 3D), plus de zoom, de rechargement ou de sélection de texte par erreur, les liens s'ouvrent dans le navigateur ou la messagerie, et la fenêtre s'ouvre dans la couleur de votre thème. Ctrl/⌘ + et − changent la taille des textes et des panneaux, Ctrl/⌘ F cherche une commande, Ctrl/⌘ P crée le PDF.",
+    "es": "AutoSculpt 3D ahora se comporta como un programa y no como una página web: menús propios con el clic derecho (Cortar, Copiar, Pegar en los campos; vistas, medición, Eliminar y presentación en la vista 3D), sin zoom, recarga ni selección de texto por error, los enlaces se abren en el navegador o el correo, y la ventana se abre con el color de tu tema. Ctrl/⌘ + y − cambian el tamaño de textos y paneles, Ctrl/⌘ F busca un comando, Ctrl/⌘ P crea el PDF.",
+    "pt": "O AutoSculpt 3D agora comporta-se como um programa e não como uma página web: menus próprios com o clique direito (Cortar, Copiar, Colar nos campos; vistas, medição, Eliminar e apresentação na vista 3D), sem zoom, recarregamento ou seleção de texto por engano, os links abrem no navegador ou no correio, e a janela abre na cor do seu tema. Ctrl/⌘ + e − mudam o tamanho de textos e painéis, Ctrl/⌘ F procura um comando, Ctrl/⌘ P cria o PDF.",
+    "ja": "AutoSculpt 3Dはウェブページではなくプログラムとして動作するようになりました：独自の右クリックメニュー（入力欄では切り取り・コピー・貼り付け、3Dビューでは視点・計測・削除・プレゼンテーション）、誤ってズーム・再読み込み・文字選択されることはなく、リンクはブラウザーやメールソフトで開き、ウィンドウはテーマの色で開きます。Ctrl/⌘ +と−で文字とパネルの大きさを変更、Ctrl/⌘ Fでコマンド検索、Ctrl/⌘ PでPDFを作成します。"
   },
   "history": [
+    {
+      "date": "2026-11-28T06:37:49Z",
+      "version": "1.3.212",
+      "notes": {
+        "en": "AutoSculpt 3D now behaves like a program and not like a web page: its own right-click menus (Cut, Copy, Paste in the fields; views, measuring, Delete and presentation on the 3D view), no accidental zoom, reload or text selection, links open in your browser or mail program, and the window opens in the colour of your theme. Ctrl/⌘ + and − change the size of texts and panels, Ctrl/⌘ F searches a command, Ctrl/⌘ P makes the PDF.",
+        "it": "AutoSculpt 3D ora si comporta da programma e non da pagina web: menu propri col tasto destro (Taglia, Copia, Incolla nei campi; viste, misura, Elimina e presentazione sulla vista 3D), niente zoom, ricarica o selezione del testo per sbaglio, i collegamenti si aprono nel browser o nella posta, e la finestra si apre nel colore del tuo tema. Ctrl/⌘ + e − cambiano la dimensione di testi e pannelli, Ctrl/⌘ F cerca un comando, Ctrl/⌘ P crea il PDF.",
+        "de": "AutoSculpt 3D verhält sich jetzt wie ein Programm und nicht wie eine Webseite: eigene Rechtsklick-Menüs (Ausschneiden, Kopieren, Einfügen in den Feldern; Ansichten, Messen, Löschen und Präsentation in der 3D-Ansicht), kein versehentliches Zoomen, Neuladen oder Markieren von Text, Links öffnen sich im Browser oder Mailprogramm, und das Fenster öffnet sich in der Farbe Ihres Designs. Strg/⌘ + und − ändern die Größe von Texten und Bereichen, Strg/⌘ F sucht einen Befehl, Strg/⌘ P erstellt das PDF.",
+        "fr": "AutoSculpt 3D se comporte maintenant comme un programme et non comme une page web : ses propres menus du clic droit (Couper, Copier, Coller dans les champs ; vues, mesure, Supprimer et présentation sur la vue 3D), plus de zoom, de rechargement ou de sélection de texte par erreur, les liens s'ouvrent dans le navigateur ou la messagerie, et la fenêtre s'ouvre dans la couleur de votre thème. Ctrl/⌘ + et − changent la taille des textes et des panneaux, Ctrl/⌘ F cherche une commande, Ctrl/⌘ P crée le PDF.",
+        "es": "AutoSculpt 3D ahora se comporta como un programa y no como una página web: menús propios con el clic derecho (Cortar, Copiar, Pegar en los campos; vistas, medición, Eliminar y presentación en la vista 3D), sin zoom, recarga ni selección de texto por error, los enlaces se abren en el navegador o el correo, y la ventana se abre con el color de tu tema. Ctrl/⌘ + y − cambian el tamaño de textos y paneles, Ctrl/⌘ F busca un comando, Ctrl/⌘ P crea el PDF.",
+        "pt": "O AutoSculpt 3D agora comporta-se como um programa e não como uma página web: menus próprios com o clique direito (Cortar, Copiar, Colar nos campos; vistas, medição, Eliminar e apresentação na vista 3D), sem zoom, recarregamento ou seleção de texto por engano, os links abrem no navegador ou no correio, e a janela abre na cor do seu tema. Ctrl/⌘ + e − mudam o tamanho de textos e painéis, Ctrl/⌘ F procura um comando, Ctrl/⌘ P cria o PDF.",
+        "ja": "AutoSculpt 3Dはウェブページではなくプログラムとして動作するようになりました：独自の右クリックメニュー（入力欄では切り取り・コピー・貼り付け、3Dビューでは視点・計測・削除・プレゼンテーション）、誤ってズーム・再読み込み・文字選択されることはなく、リンクはブラウザーやメールソフトで開き、ウィンドウはテーマの色で開きます。Ctrl/⌘ +と−で文字とパネルの大きさを変更、Ctrl/⌘ Fでコマンド検索、Ctrl/⌘ PでPDFを作成します。"
+      }
+    },
     {
       "date": "2026-11-28T00:10:16Z",
       "version": "1.3.211",
@@ -518,38 +531,25 @@
         "pt": "Coluna de suporte sob a escultura (seção Placa de base): tubo, placas e chumbadores no 3D, nas chapas, no orçamento e no guia de montagem. As cabeças de parede recebem sozinhas duas placas com furo de fechadura.",
         "ja": "彫刻の下の支柱（ベースプレートの項目）：パイプ、プレート、アンカーが3D、板、見積もり、組立ガイドに入ります。壁掛けの頭像には鍵穴プレート2枚が自動で付きます。"
       }
-    },
-    {
-      "date": "2026-11-23T22:59:51Z",
-      "version": "1.3.174",
-      "notes": {
-        "en": "Edit the 3D by hand: drag the corners of the faceted sculpture (key E), with a soft radius and the mirror twin on symmetric sculptures; pieces, sheets and quote follow. 2D parts in metalwork too, each with its own thickness, engravings and texts in the DXF. A distance measured on a sheet can be kept as a dimension.",
-        "it": "Modifica il 3D a mano: trascina gli spigoli della scultura sfaccettata (tasto E), con raggio morbido e spigolo gemello nelle sculture simmetriche; pezzi, lamiere e preventivo si aggiornano. Parti 2D anche nella carpenteria, ognuna col suo spessore, incisioni e testi nel DXF. Una distanza misurata su una lamiera si può tenere come quota.",
-        "de": "3D von Hand bearbeiten: Ecken der facettierten Skulptur ziehen (Taste E), mit weichem Radius und Zwillingsecke bei symmetrischen Skulpturen; Teile, Bleche und Angebot folgen. 2D-Teile auch im Metallbau, jedes mit eigener Dicke, Gravuren und Texte im DXF. Ein auf einem Blech gemessener Abstand kann als Maß behalten werden.",
-        "fr": "Modifier la 3D à la main : faites glisser les coins de la sculpture à facettes (touche E), avec un rayon doux et le coin jumeau sur les sculptures symétriques ; pièces, tôles et devis suivent. Pièces 2D aussi en métallerie, chacune avec son épaisseur, gravures et textes dans le DXF. Une distance mesurée sur une tôle peut être gardée comme cote.",
-        "es": "Editar el 3D a mano: arrastra las esquinas de la escultura facetada (tecla E), con radio suave y esquina gemela en esculturas simétricas; piezas, chapas y presupuesto se actualizan. Piezas 2D también en carpintería metálica, cada una con su espesor, grabados y textos en el DXF. Una distancia medida en una chapa se puede guardar como cota.",
-        "pt": "Editar o 3D à mão: arraste os cantos da escultura facetada (tecla E), com raio suave e canto gêmeo nas esculturas simétricas; peças, chapas e orçamento acompanham. Peças 2D também na serralheria, cada uma com a sua espessura, gravações e textos no DXF. Uma distância medida numa chapa pode ser mantida como cota.",
-        "ja": "3Dを手で編集：多面体の彫刻の角をドラッグ（Eキー）、ソフト半径と対称彫刻の対の角にも対応。パーツ、板、見積もりが追従します。金属加工にも2D部品、部品ごとの板厚、刻印と文字はDXFに。板で測った距離を寸法として残せます。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.211",
+    "version": "1.3.212",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "00abd71279bce90a462c3289c238e5dbd66bf567a8f146668b8400c388d6d8e7"
+        "sha256": "51e88dc9c8958ee6cf6b4e4ac101d7ab2d509a6e3e8eead056ddefa4ddf10bbb"
       }
     ]
   },
   "app": {
-    "version": "1.3.42",
+    "version": "1.3.43",
     "files": [
       {
         "path": "main.py",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/app/main.py",
-        "sha256": "3bd12f3faebd166e229e00992181206e35f0525b2c0e8f7836749e3f95ae2de0"
+        "sha256": "9e2cdad6e246fa3cbe7d15c85d4e1070d0575287ece0de2ab39d383817d54937"
       }
     ]
   },

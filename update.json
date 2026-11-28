@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.210",
-  "notes": "Simpler panels: each section shows the main settings, the others wait under «More options» and a changed setting always stays in view; tips on the fields. New: search any command or setting with Ctrl+K, presentation for the client (F5), size of texts and panels, settings to take to another computer, faceted letters and logos, bas-relief, perforated faces for lanterns and modules with bolted flanges for transport. Also: some pieces on a second sheet of another thickness or material, and a sliceform version made of interlocking slices.",
+  "latest": "1.3.211",
+  "notes": "Click any part in the 3D view to select it and Delete removes it (pieces, plate, column, profiles, sheet parts, accessories), with undo and restore. Grilles: sliding on the wall, accordion and arched English style. Motorised gates list the EN 12453 safety devices. Quote: price per m² and per metre and your own price list. Also: model for architects (IFC), automatic backup copy, font manager for cut text, weathervane, offcuts traced from a photo.",
   "notes_i18n": {
-    "en": "Simpler panels: each section shows the main settings, the others wait under «More options» and a changed setting always stays in view; tips on the fields. New: search any command or setting with Ctrl+K, presentation for the client (F5), size of texts and panels, settings to take to another computer, faceted letters and logos, bas-relief, perforated faces for lanterns and modules with bolted flanges for transport. Also: some pieces on a second sheet of another thickness or material, and a sliceform version made of interlocking slices.",
-    "it": "Pannelli più semplici: ogni sezione mostra le regolazioni principali, le altre aspettano sotto «Altre opzioni» e una regolazione cambiata resta sempre in vista; suggerimenti sui campi. Novità: cerca qualsiasi comando o regolazione con Ctrl+K, presentazione per il cliente (F5), dimensione di testi e pannelli, impostazioni da portare su un altro computer, lettere e loghi sfaccettati, bassorilievo, facce traforate per le lanterne e moduli con flange imbullonate per il trasporto. Inoltre: alcuni pezzi su una seconda lamiera di altro spessore o materiale, e una versione a fette incastrate.",
-    "de": "Einfachere Felder: jeder Abschnitt zeigt die wichtigsten Einstellungen, die übrigen warten unter «Weitere Optionen», eine geänderte Einstellung bleibt immer sichtbar; Hinweise an den Feldern. Neu: jeden Befehl und jede Einstellung mit Strg+K suchen, Präsentation für den Kunden (F5), Größe von Texten und Feldern, Einstellungen für einen anderen Computer, facettierte Buchstaben und Logos, Flachrelief, gelochte Flächen für Laternen und Module mit verschraubten Flanschen für den Transport. Außerdem: einige Teile auf einem zweiten Blech anderer Dicke oder anderen Materials und eine Version aus gesteckten Scheiben.",
-    "fr": "Panneaux plus simples : chaque section montre les réglages principaux, les autres attendent sous « Plus d'options » et un réglage modifié reste toujours visible ; conseils sur les champs. Nouveau : chercher toute commande ou tout réglage avec Ctrl+K, présentation pour le client (F5), taille des textes et des panneaux, réglages à emporter sur un autre ordinateur, lettres et logos à facettes, bas-relief, faces perforées pour les lanternes et modules à brides boulonnées pour le transport. Aussi : quelques pièces sur une deuxième tôle d'une autre épaisseur ou d'un autre matériau, et une version en tranches emboîtées.",
-    "es": "Paneles más sencillos: cada sección muestra los ajustes principales, los demás esperan en «Más opciones» y un ajuste cambiado siempre queda a la vista; consejos en los campos. Novedades: busca cualquier comando o ajuste con Ctrl+K, presentación para el cliente (F5), tamaño de textos y paneles, ajustes para llevar a otro ordenador, letras y logotipos facetados, bajorrelieve, caras perforadas para faroles y módulos con bridas atornilladas para el transporte. Además: algunas piezas en una segunda chapa de otro espesor o material, y una versión en rebanadas encajadas.",
-    "pt": "Painéis mais simples: cada secção mostra as definições principais, as outras ficam em «Mais opções» e uma definição alterada fica sempre à vista; dicas nos campos. Novidades: procure qualquer comando ou definição com Ctrl+K, apresentação para o cliente (F5), tamanho de textos e painéis, definições para levar para outro computador, letras e logótipos facetados, baixo-relevo, faces perfuradas para lanternas e módulos com flanges aparafusadas para o transporte. Também: algumas peças numa segunda chapa de outra espessura ou material, e uma versão em fatias encaixadas.",
-    "ja": "パネルをシンプルに：各セクションには主な設定だけを表示し、その他は「その他のオプション」にまとめ、変更した設定は常に表示されます。各項目に説明を追加。新機能：Ctrl+Kですべてのコマンドと設定を検索、顧客向けプレゼンテーション（F5）、文字とパネルのサイズ、別のコンピューターへの設定の移行、多面体の文字とロゴ、浅浮き彫り、ランタン用の穴あき面、輸送用のボルト締めフランジ付きモジュール。さらに：一部のピースを厚さや材料の異なる第2の板に、差し込みスライス版も追加。"
+    "en": "Click any part in the 3D view to select it and Delete removes it (pieces, plate, column, profiles, sheet parts, accessories), with undo and restore. Grilles: sliding on the wall, accordion and arched English style. Motorised gates list the EN 12453 safety devices. Quote: price per m² and per metre and your own price list. Also: model for architects (IFC), automatic backup copy, font manager for cut text, weathervane, offcuts traced from a photo.",
+    "it": "Fai clic su qualsiasi parte nella vista 3D per selezionarla e Canc la cancella (pezzi, piastra, colonna, profili, parti in lamiera, accessori), con annulla e ripristina. Inferriate: scorrevoli sul muro, a fisarmonica e ad arco all'inglese. I cancelli motorizzati elencano le sicurezze della EN 12453. Preventivo: prezzo al m² e al metro e il tuo listino. Inoltre: modello per architetti (IFC), copia di sicurezza automatica, scelta del carattere per i testi da tagliare, banderuola, sfridi ricavati da una foto.",
+    "de": "Klicken Sie auf ein Teil in der 3D-Ansicht, um es auszuwählen; Entf löscht es (Teile, Platte, Säule, Profile, Blechteile, Zubehör), mit Rückgängig und Wiederherstellen. Gitter: Schiebegitter an der Wand, Scherengitter und englische Bogengitter. Motorisierte Tore listen die Sicherheitseinrichtungen nach EN 12453. Angebot: Preis pro m² und pro Meter und Ihre eigene Preisliste. Außerdem: Modell für Architekten (IFC), automatische Sicherungskopie, Schriftwahl für Schneidetexte, Windfahne, Reststücke aus einem Foto.",
+    "fr": "Cliquez sur une partie dans la vue 3D pour la sélectionner, Suppr la supprime (pièces, platine, colonne, profilés, pièces en tôle, accessoires), avec annuler et rétablir. Grilles : coulissantes sur le mur, accordéon et cintrées à l'anglaise. Les portails motorisés listent les sécurités de l'EN 12453. Devis : prix au m² et au mètre et votre liste de prix. Aussi : modèle pour architectes (IFC), copie de sécurité automatique, choix de la police pour les textes à découper, girouette, chutes relevées d'une photo.",
+    "es": "Haz clic en cualquier parte de la vista 3D para seleccionarla y Supr la borra (piezas, placa, columna, perfiles, piezas de chapa, accesorios), con deshacer y restaurar. Rejas: correderas en la pared, de acordeón y en arco a la inglesa. Las puertas motorizadas listan las seguridades de la EN 12453. Presupuesto: precio por m² y por metro y tu propia lista de precios. Además: modelo para arquitectos (IFC), copia de seguridad automática, elección de fuente para textos de corte, veleta, retales obtenidos de una foto.",
+    "pt": "Clique em qualquer parte na vista 3D para a selecionar e Delete apaga-a (peças, placa, coluna, perfis, peças de chapa, acessórios), com anular e restaurar. Grades: de correr na parede, sanfonadas e em arco à inglesa. Os portões motorizados listam as seguranças da EN 12453. Orçamento: preço por m² e por metro e a sua própria tabela de preços. Também: modelo para arquitetos (IFC), cópia de segurança automática, escolha da fonte para textos a cortar, cata-vento, sobras obtidas de uma foto.",
+    "ja": "3Dビューの任意の部分をクリックして選択し、Deleteで削除できます（ピース、プレート、支柱、形鋼、板部品、付属品）。元に戻す・復元にも対応。格子：壁付けの引き戸、アコーディオン、イギリス風アーチ。電動門扉ではEN 12453の安全装置を一覧表示。見積り：1 m²・1 mあたりの価格と自分の価格表。そのほか：建築家向けモデル（IFC）、自動バックアップ、切断する文字のフォント選択、風見、写真から読み取る端材。"
   },
   "history": [
+    {
+      "date": "2026-11-28T00:10:16Z",
+      "version": "1.3.211",
+      "notes": {
+        "en": "Click any part in the 3D view to select it and Delete removes it (pieces, plate, column, profiles, sheet parts, accessories), with undo and restore. Grilles: sliding on the wall, accordion and arched English style. Motorised gates list the EN 12453 safety devices. Quote: price per m² and per metre and your own price list. Also: model for architects (IFC), automatic backup copy, font manager for cut text, weathervane, offcuts traced from a photo.",
+        "it": "Fai clic su qualsiasi parte nella vista 3D per selezionarla e Canc la cancella (pezzi, piastra, colonna, profili, parti in lamiera, accessori), con annulla e ripristina. Inferriate: scorrevoli sul muro, a fisarmonica e ad arco all'inglese. I cancelli motorizzati elencano le sicurezze della EN 12453. Preventivo: prezzo al m² e al metro e il tuo listino. Inoltre: modello per architetti (IFC), copia di sicurezza automatica, scelta del carattere per i testi da tagliare, banderuola, sfridi ricavati da una foto.",
+        "de": "Klicken Sie auf ein Teil in der 3D-Ansicht, um es auszuwählen; Entf löscht es (Teile, Platte, Säule, Profile, Blechteile, Zubehör), mit Rückgängig und Wiederherstellen. Gitter: Schiebegitter an der Wand, Scherengitter und englische Bogengitter. Motorisierte Tore listen die Sicherheitseinrichtungen nach EN 12453. Angebot: Preis pro m² und pro Meter und Ihre eigene Preisliste. Außerdem: Modell für Architekten (IFC), automatische Sicherungskopie, Schriftwahl für Schneidetexte, Windfahne, Reststücke aus einem Foto.",
+        "fr": "Cliquez sur une partie dans la vue 3D pour la sélectionner, Suppr la supprime (pièces, platine, colonne, profilés, pièces en tôle, accessoires), avec annuler et rétablir. Grilles : coulissantes sur le mur, accordéon et cintrées à l'anglaise. Les portails motorisés listent les sécurités de l'EN 12453. Devis : prix au m² et au mètre et votre liste de prix. Aussi : modèle pour architectes (IFC), copie de sécurité automatique, choix de la police pour les textes à découper, girouette, chutes relevées d'une photo.",
+        "es": "Haz clic en cualquier parte de la vista 3D para seleccionarla y Supr la borra (piezas, placa, columna, perfiles, piezas de chapa, accesorios), con deshacer y restaurar. Rejas: correderas en la pared, de acordeón y en arco a la inglesa. Las puertas motorizadas listan las seguridades de la EN 12453. Presupuesto: precio por m² y por metro y tu propia lista de precios. Además: modelo para arquitectos (IFC), copia de seguridad automática, elección de fuente para textos de corte, veleta, retales obtenidos de una foto.",
+        "pt": "Clique em qualquer parte na vista 3D para a selecionar e Delete apaga-a (peças, placa, coluna, perfis, peças de chapa, acessórios), com anular e restaurar. Grades: de correr na parede, sanfonadas e em arco à inglesa. Os portões motorizados listam as seguranças da EN 12453. Orçamento: preço por m² e por metro e a sua própria tabela de preços. Também: modelo para arquitetos (IFC), cópia de segurança automática, escolha da fonte para textos a cortar, cata-vento, sobras obtidas de uma foto.",
+        "ja": "3Dビューの任意の部分をクリックして選択し、Deleteで削除できます（ピース、プレート、支柱、形鋼、板部品、付属品）。元に戻す・復元にも対応。格子：壁付けの引き戸、アコーディオン、イギリス風アーチ。電動門扉ではEN 12453の安全装置を一覧表示。見積り：1 m²・1 mあたりの価格と自分の価格表。そのほか：建築家向けモデル（IFC）、自動バックアップ、切断する文字のフォント選択、風見、写真から読み取る端材。"
+      }
+    },
     {
       "date": "2026-11-27T22:36:45Z",
       "version": "1.3.210",
@@ -518,38 +531,25 @@
         "pt": "Editar o 3D à mão: arraste os cantos da escultura facetada (tecla E), com raio suave e canto gêmeo nas esculturas simétricas; peças, chapas e orçamento acompanham. Peças 2D também na serralheria, cada uma com a sua espessura, gravações e textos no DXF. Uma distância medida numa chapa pode ser mantida como cota.",
         "ja": "3Dを手で編集：多面体の彫刻の角をドラッグ（Eキー）、ソフト半径と対称彫刻の対の角にも対応。パーツ、板、見積もりが追従します。金属加工にも2D部品、部品ごとの板厚、刻印と文字はDXFに。板で測った距離を寸法として残せます。"
       }
-    },
-    {
-      "date": "2026-11-23T20:56:07Z",
-      "version": "1.3.173",
-      "notes": {
-        "en": "The pedestal of a model is removed by itself (option in Shape and size). One strip of tabs: 3D, Pieces, Sheets, 2D drawing and Quote. 2D parts (brackets, plates, a plaque) drawn with the sculpture, nested, in the DXF and in the quote. Measuring tool (M) on the 3D view and on the sheets. Gallery previews without pedestals.",
-        "it": "Il piedistallo dei modelli si toglie da solo (opzione in Forma e misure). Una sola fila di schede: 3D, Pezzi, Lamiere, Disegno 2D e Preventivo. Parti 2D (staffe, piastre, una targa) disegnate insieme alla scultura, annidate, nel DXF e nel preventivo. Strumento Misura (M) nella vista 3D e sulle lamiere. Anteprime della galleria senza piedistalli.",
-        "de": "Der Sockel eines Modells wird von selbst entfernt (Option in Form und Maße). Eine Reihe von Registerkarten: 3D, Teile, Bleche, 2D-Zeichnung und Angebot. 2D-Teile (Halter, Platten, ein Schild) mit der Skulptur gezeichnet, verschachtelt, im DXF und im Angebot. Messwerkzeug (M) in der 3D-Ansicht und auf den Blechen. Galerie-Vorschauen ohne Sockel.",
-        "fr": "Le socle d'un modèle est retiré tout seul (option dans Forme et dimensions). Une seule rangée d'onglets : 3D, Pièces, Tôles, Dessin 2D et Devis. Pièces 2D (pattes, platines, une plaque) dessinées avec la sculpture, imbriquées, dans le DXF et dans le devis. Outil Mesurer (M) dans la vue 3D et sur les tôles. Aperçus de la galerie sans socle.",
-        "es": "El pedestal de un modelo se quita solo (opción en Forma y medidas). Una sola fila de pestañas: 3D, Piezas, Chapas, Dibujo 2D y Presupuesto. Piezas 2D (soportes, placas, una placa) dibujadas con la escultura, anidadas, en el DXF y en el presupuesto. Herramienta Medir (M) en la vista 3D y en las chapas. Vistas previas de la galería sin pedestal.",
-        "pt": "O pedestal de um modelo é removido sozinho (opção em Forma e medidas). Uma só fila de abas: 3D, Peças, Chapas, Desenho 2D e Orçamento. Peças 2D (suportes, placas, uma placa) desenhadas com a escultura, aninhadas, no DXF e no orçamento. Ferramenta Medir (M) na vista 3D e nas chapas. Pré-visualizações da galeria sem pedestal.",
-        "ja": "モデルの台座が自動で取り除かれます（形状と寸法のオプション）。タブは1列に：3D、パーツ、板、2D図面、見積もり。彫刻と一緒に描く2D部品（ブラケット、プレート、銘板）は配置され、DXFと見積もりに含まれます。3Dビューと板で使える計測ツール（M）。ギャラリーのプレビューは台座なし。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.210",
+    "version": "1.3.211",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "6e76a8736eca8d3d6c510592f0235cd20e2c308f99de76610460ce4f3c161bc6"
+        "sha256": "00abd71279bce90a462c3289c238e5dbd66bf567a8f146668b8400c388d6d8e7"
       }
     ]
   },
   "app": {
-    "version": "1.3.41",
+    "version": "1.3.42",
     "files": [
       {
         "path": "main.py",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/app/main.py",
-        "sha256": "66adf66e0adf8fb5f1b85028227ee525cf705455599c8d70a9dc61a2074ce3ab"
+        "sha256": "3bd12f3faebd166e229e00992181206e35f0525b2c0e8f7836749e3f95ae2de0"
       }
     ]
   },

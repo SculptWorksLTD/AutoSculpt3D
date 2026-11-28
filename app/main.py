@@ -785,6 +785,12 @@ class Handler(BaseHTTPRequestHandler):
                 except Exception as exc:
                     log('Export failed:', exc)
                     return self.send_json({'error': str(exc)}, 400)
+            if path == '/api/backup':
+                try:
+                    return self.send_json(backup_file(b.get('dir', ''), b.get('name', ''), b.get('b64', '')))
+                except Exception as exc:
+                    log('Backup copy failed:', exc)
+                    return self.send_json({'error': str(exc)}, 400)
             if path == '/api/webstate':
                 if not isinstance(b, dict):
                     return self.send_json({'error': 'invalid'}, 400)
@@ -831,7 +837,7 @@ def start_server():
             continue
     threading.Thread(target=srv.serve_forever, daemon=True).start()
     return srv
-EXPORT_EXT = {'.as3d', '.dxf', '.zip', '.obj', '.stl', '.png', '.pdf', '.usdz', '.glb', '.mp4', '.webm', '.json', '.txt', '.csv', '.svg', '.html'}
+EXPORT_EXT = {'.as3d', '.dxf', '.zip', '.stp', '.step', '.ifc', '.obj', '.stl', '.png', '.pdf', '.usdz', '.glb', '.mp4', '.webm', '.json', '.txt', '.csv', '.svg', '.html'}
 
 def win_save_dialog(name, directory):
     import ctypes
@@ -867,6 +873,20 @@ def win_save_dialog(name, directory):
     finally:
         if com:
             ole32.CoUninitialize()
+
+def backup_file(folder, name, b64):
+    folder = Path(os.path.expanduser(str(folder or '').strip()))
+    if not str(folder) or not folder.is_absolute() or (not folder.is_dir()):
+        raise ValueError('folder not found')
+    name = ''.join((ch for ch in Path(str(name)).name if ch not in '/\\:*?"<>|' and ord(ch) >= 32)).strip()
+    if Path(name).suffix.lower() != '.as3d' or not Path(name).stem:
+        raise ValueError('file type not allowed')
+    data = base64.b64decode(b64)
+    target = folder / name
+    tmp = folder / (name + '.part')
+    tmp.write_bytes(data)
+    os.replace(tmp, target)
+    return {'path': str(target)}
 
 def export_file(name, b64, path=None):
     name = ''.join((ch for ch in Path(str(name)).name if ch not in '/\\:*?"<>|' and ord(ch) >= 32)).strip() or 'export'

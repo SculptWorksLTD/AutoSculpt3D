@@ -1,17 +1,30 @@
 {
   "product": "AutoSculpt 3D",
-  "latest": "1.3.212",
-  "notes": "AutoSculpt 3D now behaves like a program and not like a web page: its own right-click menus (Cut, Copy, Paste in the fields; views, measuring, Delete and presentation on the 3D view), no accidental zoom, reload or text selection, links open in your browser or mail program, and the window opens in the colour of your theme. Ctrl/⌘ + and − change the size of texts and panels, Ctrl/⌘ F searches a command, Ctrl/⌘ P makes the PDF.",
+  "latest": "1.3.219",
+  "notes": "Metalwork accessories chosen by hand from a list (with suggestions), with holes marked on the tubes; new profiles: angles, channels and IPE/HEA beams; telescopic and folding grilles, stairs with a central beam, canopies with gutters, gratings and covers; press brake; product video, client reviews, a better PDF quote, list of jobs; workshop network: orders from the portal, laser cutting and bending between workshops, automatic answers, offcuts of the network, photos of the client's place and a picture of how it will look; manual with pictures; light graphics for slow PCs.",
   "notes_i18n": {
-    "en": "AutoSculpt 3D now behaves like a program and not like a web page: its own right-click menus (Cut, Copy, Paste in the fields; views, measuring, Delete and presentation on the 3D view), no accidental zoom, reload or text selection, links open in your browser or mail program, and the window opens in the colour of your theme. Ctrl/⌘ + and − change the size of texts and panels, Ctrl/⌘ F searches a command, Ctrl/⌘ P makes the PDF.",
-    "it": "AutoSculpt 3D ora si comporta da programma e non da pagina web: menu propri col tasto destro (Taglia, Copia, Incolla nei campi; viste, misura, Elimina e presentazione sulla vista 3D), niente zoom, ricarica o selezione del testo per sbaglio, i collegamenti si aprono nel browser o nella posta, e la finestra si apre nel colore del tuo tema. Ctrl/⌘ + e − cambiano la dimensione di testi e pannelli, Ctrl/⌘ F cerca un comando, Ctrl/⌘ P crea il PDF.",
-    "de": "AutoSculpt 3D verhält sich jetzt wie ein Programm und nicht wie eine Webseite: eigene Rechtsklick-Menüs (Ausschneiden, Kopieren, Einfügen in den Feldern; Ansichten, Messen, Löschen und Präsentation in der 3D-Ansicht), kein versehentliches Zoomen, Neuladen oder Markieren von Text, Links öffnen sich im Browser oder Mailprogramm, und das Fenster öffnet sich in der Farbe Ihres Designs. Strg/⌘ + und − ändern die Größe von Texten und Bereichen, Strg/⌘ F sucht einen Befehl, Strg/⌘ P erstellt das PDF.",
-    "fr": "AutoSculpt 3D se comporte maintenant comme un programme et non comme une page web : ses propres menus du clic droit (Couper, Copier, Coller dans les champs ; vues, mesure, Supprimer et présentation sur la vue 3D), plus de zoom, de rechargement ou de sélection de texte par erreur, les liens s'ouvrent dans le navigateur ou la messagerie, et la fenêtre s'ouvre dans la couleur de votre thème. Ctrl/⌘ + et − changent la taille des textes et des panneaux, Ctrl/⌘ F cherche une commande, Ctrl/⌘ P crée le PDF.",
-    "es": "AutoSculpt 3D ahora se comporta como un programa y no como una página web: menús propios con el clic derecho (Cortar, Copiar, Pegar en los campos; vistas, medición, Eliminar y presentación en la vista 3D), sin zoom, recarga ni selección de texto por error, los enlaces se abren en el navegador o el correo, y la ventana se abre con el color de tu tema. Ctrl/⌘ + y − cambian el tamaño de textos y paneles, Ctrl/⌘ F busca un comando, Ctrl/⌘ P crea el PDF.",
-    "pt": "O AutoSculpt 3D agora comporta-se como um programa e não como uma página web: menus próprios com o clique direito (Cortar, Copiar, Colar nos campos; vistas, medição, Eliminar e apresentação na vista 3D), sem zoom, recarregamento ou seleção de texto por engano, os links abrem no navegador ou no correio, e a janela abre na cor do seu tema. Ctrl/⌘ + e − mudam o tamanho de textos e painéis, Ctrl/⌘ F procura um comando, Ctrl/⌘ P cria o PDF.",
-    "ja": "AutoSculpt 3Dはウェブページではなくプログラムとして動作するようになりました：独自の右クリックメニュー（入力欄では切り取り・コピー・貼り付け、3Dビューでは視点・計測・削除・プレゼンテーション）、誤ってズーム・再読み込み・文字選択されることはなく、リンクはブラウザーやメールソフトで開き、ウィンドウはテーマの色で開きます。Ctrl/⌘ +と−で文字とパネルの大きさを変更、Ctrl/⌘ Fでコマンド検索、Ctrl/⌘ PでPDFを作成します。"
+    "it": "Accessori della carpenteria scelti a mano da una tendina (con i consigliati) e fori indicati sui tubolari; nuovi profili: angolari, profili a U e travi IPE/HEA; inferriate estraibili e a fisarmonica, scale con trave centrale, pensiline con grondaia, grigliati e chiusini; piegatrice; video del prodotto, recensioni dei clienti, preventivo PDF curato, elenco delle commesse; rete delle officine: ordini dal portale, taglio laser e piegatura tra officine, risposte automatiche, sfridi della rete, foto del posto del cliente e immagine di come starà; manuale con immagini; grafica leggera per i PC lenti.",
+    "en": "Metalwork accessories chosen by hand from a list (with suggestions), with holes marked on the tubes; new profiles: angles, channels and IPE/HEA beams; telescopic and folding grilles, stairs with a central beam, canopies with gutters, gratings and covers; press brake; product video, client reviews, a better PDF quote, list of jobs; workshop network: orders from the portal, laser cutting and bending between workshops, automatic answers, offcuts of the network, photos of the client's place and a picture of how it will look; manual with pictures; light graphics for slow PCs.",
+    "de": "Zubehör der Metallarbeiten von Hand aus einer Liste gewählt (mit Vorschlägen), Bohrungen auf den Rohren angegeben; neue Profile: Winkel, U-Profile und IPE/HEA-Träger; ausziehbare und Scherengitter, Treppen mit Mittelträger, Vordächer mit Rinne, Gitterroste und Abdeckungen; Abkantpresse; Produktvideo, Kundenbewertungen, schöneres PDF-Angebot, Auftragsliste; Netz der Betriebe: Aufträge vom Portal, Laserschneiden und Biegen zwischen Betrieben, automatische Antworten, Reststücke des Netzes, Fotos vom Ort des Kunden und ein Bild, wie es aussehen wird; Handbuch mit Bildern; leichte Grafik für langsame PCs.",
+    "fr": "Accessoires de métallerie choisis à la main dans une liste (avec suggestions), perçages indiqués sur les tubes ; nouveaux profilés : cornières, U et poutres IPE/HEA ; grilles extensibles et en accordéon, escaliers à limon central, auvents avec gouttière, caillebotis et regards ; presse plieuse ; vidéo du produit, avis des clients, devis PDF soigné, liste des chantiers ; réseau d'ateliers : commandes du portail, découpe laser et pliage entre ateliers, réponses automatiques, chutes du réseau, photos du lieu du client et image du résultat ; manuel illustré ; graphisme léger pour les PC lents.",
+    "es": "Accesorios de cerrajería elegidos a mano de una lista (con sugerencias) y taladros indicados en los tubos; perfiles nuevos: angulares, perfiles en U y vigas IPE/HEA; rejas extensibles y de acordeón, escaleras con viga central, marquesinas con canalón, rejillas y tapas; plegadora; vídeo del producto, reseñas de clientes, presupuesto PDF cuidado, lista de trabajos; red de talleres: pedidos del portal, corte láser y plegado entre talleres, respuestas automáticas, retales de la red, fotos del lugar del cliente e imagen de cómo quedará; manual con imágenes; gráficos ligeros para PC lentos.",
+    "pt": "Acessórios de serralheria escolhidos à mão numa lista (com sugestões) e furos indicados nos tubos; novos perfis: cantoneiras, perfis U e vigas IPE/HEA; grades extensíveis e sanfonadas, escadas com viga central, coberturas com calha, grelhas e tampas; prensa dobradeira; vídeo do produto, avaliações dos clientes, orçamento PDF caprichado, lista de trabalhos; rede de oficinas: pedidos do portal, corte a laser e dobra entre oficinas, respostas automáticas, sobras da rede, fotos do local do cliente e imagem de como ficará; manual com imagens; gráficos leves para PCs lentos.",
+    "ja": "製缶の付属品を一覧から手で選択（おすすめ付き）、パイプに穴位置を表示。新しい形鋼：アングル、溝形鋼、IPE/HEA 梁。伸縮・アコーディオン式の面格子、中央桁の階段、雨どい付きひさし、グレーチングと蓋。プレスブレーキ。製品動画、お客様のレビュー、見やすい PDF 見積り、案件一覧。工場ネットワーク：ポータルからの注文、工場間のレーザー切断と曲げ、自動回答、ネットワークの端材、お客様の現場写真と完成イメージ。画像付きマニュアル。遅い PC 向けの軽いグラフィック。"
   },
   "history": [
+    {
+      "date": "2026-11-28T15:35:29Z",
+      "version": "1.3.219",
+      "notes": {
+        "it": "Accessori della carpenteria scelti a mano da una tendina (con i consigliati) e fori indicati sui tubolari; nuovi profili: angolari, profili a U e travi IPE/HEA; inferriate estraibili e a fisarmonica, scale con trave centrale, pensiline con grondaia, grigliati e chiusini; piegatrice; video del prodotto, recensioni dei clienti, preventivo PDF curato, elenco delle commesse; rete delle officine: ordini dal portale, taglio laser e piegatura tra officine, risposte automatiche, sfridi della rete, foto del posto del cliente e immagine di come starà; manuale con immagini; grafica leggera per i PC lenti.",
+        "en": "Metalwork accessories chosen by hand from a list (with suggestions), with holes marked on the tubes; new profiles: angles, channels and IPE/HEA beams; telescopic and folding grilles, stairs with a central beam, canopies with gutters, gratings and covers; press brake; product video, client reviews, a better PDF quote, list of jobs; workshop network: orders from the portal, laser cutting and bending between workshops, automatic answers, offcuts of the network, photos of the client's place and a picture of how it will look; manual with pictures; light graphics for slow PCs.",
+        "de": "Zubehör der Metallarbeiten von Hand aus einer Liste gewählt (mit Vorschlägen), Bohrungen auf den Rohren angegeben; neue Profile: Winkel, U-Profile und IPE/HEA-Träger; ausziehbare und Scherengitter, Treppen mit Mittelträger, Vordächer mit Rinne, Gitterroste und Abdeckungen; Abkantpresse; Produktvideo, Kundenbewertungen, schöneres PDF-Angebot, Auftragsliste; Netz der Betriebe: Aufträge vom Portal, Laserschneiden und Biegen zwischen Betrieben, automatische Antworten, Reststücke des Netzes, Fotos vom Ort des Kunden und ein Bild, wie es aussehen wird; Handbuch mit Bildern; leichte Grafik für langsame PCs.",
+        "fr": "Accessoires de métallerie choisis à la main dans une liste (avec suggestions), perçages indiqués sur les tubes ; nouveaux profilés : cornières, U et poutres IPE/HEA ; grilles extensibles et en accordéon, escaliers à limon central, auvents avec gouttière, caillebotis et regards ; presse plieuse ; vidéo du produit, avis des clients, devis PDF soigné, liste des chantiers ; réseau d'ateliers : commandes du portail, découpe laser et pliage entre ateliers, réponses automatiques, chutes du réseau, photos du lieu du client et image du résultat ; manuel illustré ; graphisme léger pour les PC lents.",
+        "es": "Accesorios de cerrajería elegidos a mano de una lista (con sugerencias) y taladros indicados en los tubos; perfiles nuevos: angulares, perfiles en U y vigas IPE/HEA; rejas extensibles y de acordeón, escaleras con viga central, marquesinas con canalón, rejillas y tapas; plegadora; vídeo del producto, reseñas de clientes, presupuesto PDF cuidado, lista de trabajos; red de talleres: pedidos del portal, corte láser y plegado entre talleres, respuestas automáticas, retales de la red, fotos del lugar del cliente e imagen de cómo quedará; manual con imágenes; gráficos ligeros para PC lentos.",
+        "pt": "Acessórios de serralheria escolhidos à mão numa lista (com sugestões) e furos indicados nos tubos; novos perfis: cantoneiras, perfis U e vigas IPE/HEA; grades extensíveis e sanfonadas, escadas com viga central, coberturas com calha, grelhas e tampas; prensa dobradeira; vídeo do produto, avaliações dos clientes, orçamento PDF caprichado, lista de trabalhos; rede de oficinas: pedidos do portal, corte a laser e dobra entre oficinas, respostas automáticas, sobras da rede, fotos do local do cliente e imagem de como ficará; manual com imagens; gráficos leves para PCs lentos.",
+        "ja": "製缶の付属品を一覧から手で選択（おすすめ付き）、パイプに穴位置を表示。新しい形鋼：アングル、溝形鋼、IPE/HEA 梁。伸縮・アコーディオン式の面格子、中央桁の階段、雨どい付きひさし、グレーチングと蓋。プレスブレーキ。製品動画、お客様のレビュー、見やすい PDF 見積り、案件一覧。工場ネットワーク：ポータルからの注文、工場間のレーザー切断と曲げ、自動回答、ネットワークの端材、お客様の現場写真と完成イメージ。画像付きマニュアル。遅い PC 向けの軽いグラフィック。"
+      }
+    },
     {
       "date": "2026-11-28T06:37:49Z",
       "version": "1.3.212",
@@ -518,28 +531,15 @@
         "pt": "Editar o 3D à mão: solte um canto sobre um canto vizinho para uni-los (uma face a menos), útil para tirar facetas pequenas. Desfazer funciona como sempre.",
         "ja": "3Dを手で編集：角を隣の角の上で離すと結合されます（面が1つ減ります）。小さな面の除去に便利です。元に戻すもいつも通り使えます。"
       }
-    },
-    {
-      "date": "2026-11-23T23:41:08Z",
-      "version": "1.3.175",
-      "notes": {
-        "en": "Support column under the sculpture (Base plate section): tube, plates and anchors in the 3D, on the sheets, in the quote and in the assembly guide. Heads for the wall get two keyhole plates by themselves.",
-        "it": "Colonna di sostegno sotto la scultura (sezione Piastra di base): tubo, piastre e ancoranti nel 3D, sulle lamiere, nel preventivo e nella guida di montaggio. Le teste da parete ricevono da sole due piastre con asola a buco di serratura.",
-        "de": "Stützsäule unter der Skulptur (Bereich Grundplatte): Rohr, Platten und Anker im 3D, auf den Blechen, im Angebot und in der Montageanleitung. Wandköpfe bekommen von selbst zwei Schlüssellochplatten.",
-        "fr": "Colonne de support sous la sculpture (section Plaque de base) : tube, platines et ancrages dans la 3D, sur les tôles, dans le devis et dans le guide de montage. Les têtes murales reçoivent d'elles-mêmes deux plaques à trou de serrure.",
-        "es": "Columna de soporte bajo la escultura (sección Placa base): tubo, placas y anclajes en el 3D, en las chapas, en el presupuesto y en la guía de montaje. Las cabezas de pared reciben solas dos placas con ojo de cerradura.",
-        "pt": "Coluna de suporte sob a escultura (seção Placa de base): tubo, placas e chumbadores no 3D, nas chapas, no orçamento e no guia de montagem. As cabeças de parede recebem sozinhas duas placas com furo de fechadura.",
-        "ja": "彫刻の下の支柱（ベースプレートの項目）：パイプ、プレート、アンカーが3D、板、見積もり、組立ガイドに入ります。壁掛けの頭像には鍵穴プレート2枚が自動で付きます。"
-      }
     }
   ],
   "ui": {
-    "version": "1.3.212",
+    "version": "1.3.219",
     "files": [
       {
         "path": "AutoSculpt3D.html",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/ui/AutoSculpt3D.html",
-        "sha256": "51e88dc9c8958ee6cf6b4e4ac101d7ab2d509a6e3e8eead056ddefa4ddf10bbb"
+        "sha256": "0def8e8214e33d7449a8480654fb54a37567c7bb2d57d26c1d9ae1a93ef3c983"
       }
     ]
   },
@@ -549,7 +549,7 @@
       {
         "path": "main.py",
         "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/app/main.py",
-        "sha256": "9e2cdad6e246fa3cbe7d15c85d4e1070d0575287ece0de2ab39d383817d54937"
+        "sha256": "00e95d96f3cbd4818b3ede0e44d079f32401bf53647fc11e4358e47bd24d5293"
       }
     ]
   },
@@ -567,7 +567,7 @@
         {
           "path": "runner.py",
           "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/fal/runner.py",
-          "sha256": "853da822ffd01951a187a516b6116361442901c86ca5147179dddf26f7561088"
+          "sha256": "4a8aeff64ddae78b71fa3de80b973e857e089521703c5bbe9c8d54554bf8f2b3"
         }
       ]
     },
@@ -584,7 +584,7 @@
         {
           "path": "runner.py",
           "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/gemini/runner.py",
-          "sha256": "3287196f7519caaab7fb673de6f0f9e359ab6fafe7b4307497a0445b737a2b20"
+          "sha256": "e06a9bb2d44ec9513555b74cdfd586a47e3f10bff824411bdf7ece9abe18018d"
         },
         {
           "path": "prompts.json",
@@ -606,7 +606,7 @@
         {
           "path": "runner.py",
           "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/meshy/runner.py",
-          "sha256": "4e66896b5eabc2c400153d8caa818614ccc8a0275bfc960560ad9d14e57169bd"
+          "sha256": "0e206ea258d6ab95ef2169aad6ad95f9efbca507f1d1f7795977bc2a6eeeeac9"
         }
       ]
     },
@@ -623,7 +623,7 @@
         {
           "path": "runner.py",
           "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/tripo/runner.py",
-          "sha256": "1f8e2b000302a435cb59b1a91f53a99d4f2a06d93a4e41d99b0f972520a5cf6e"
+          "sha256": "5e3c1fd15bc1658495b178a9b35a9b987289b952dcc6363ebc93af2ce42bc487"
         }
       ]
     },
@@ -640,7 +640,7 @@
         {
           "path": "runner.py",
           "url": "https://raw.githubusercontent.com/SculptWorksLTD/AutoSculpt3D/main/engines/triposg/runner.py",
-          "sha256": "61ac268c29392cb1fa002e69f3f430c58a3ef2ad7634062f3ff57762c579d157"
+          "sha256": "328b738c386325fb10bc880c9907a35a8ae6d1afb1e4d5bbd0d137bebc0c2a15"
         }
       ]
     }

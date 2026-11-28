@@ -4,8 +4,21 @@
  "unit": "kg",
  "vat": false,
  "eur_per_kg": {
-  "stainless": {"price": 3.58, "what": "AISI 304 2B, 1 mm, 2000x1000"},
-  "corten": {"price": 1.77, "what": "S355J0WP, 1.5 mm, 3000x1500"},
-  "aluminium": {"price": 5.93, "what": "3 mm, 2500x1250"}
- }
+  "stainless": {
+   "price": 3.58,
+   "what": "AISI 304 2B, 1 mm, 2000x1000"
+  },
+  "corten": {
+   "price": 1.77,
+   "what": "S355J0WP, 1.5 mm, 3000x1500"
+  },
+  "aluminium": {
+   "price": 5.93,
+   "what": "3 mm, 2500x1250"
+  }
+ },
+ "sources": [
+  "nunziatastore.it (listino al dettaglio, 12/11/2026)"
+ ],
+ "history": []
 }
